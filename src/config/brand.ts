@@ -1,10 +1,10 @@
 /**
- * Placeholder brand. Everything user-facing reads from here, including the
+ * Brand: CIRCA (as in "circa 1940"). Everything user-facing reads from here, including the
  * HTML <title> (injected by vite.config.ts), so renaming the product is a
  * one-file change.
  */
 export const brand = {
-  name: 'Dial',
+  name: 'CIRCA',
   tagline: 'Radio, re-tuned.',
   promise: 'Discover more of what you love. Find the people behind it.',
   description:

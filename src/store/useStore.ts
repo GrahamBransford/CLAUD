@@ -83,7 +83,7 @@ export const useStore = create<PersistedState>()(
       resetDemo: () => set(initial()),
     }),
     {
-      name: 'dial-prototype-v1',
+      name: 'circa-prototype-v1',
       partialize: (s) => ({
         saved: s.saved,
         follows: s.follows,

@@ -1,8 +1,8 @@
-# Dial — creative discovery prototype
+# CIRCA — creative discovery prototype
 
 A working prototype of a new kind of radio: swipe-to-discover music, five-minute podcast highlights that roll into full episodes, and a feed of raw, behind-the-scenes moments from the creators you follow.
 
-> **"Dial" is a placeholder name.** Change it in one place — `src/config/brand.ts` — and the wordmark, page title, welcome screen and copy all follow.
+> The product name, **CIRCA** (as in *circa 1940*), lives in one place — `src/config/brand.ts` — and the wordmark, page title, welcome screen and copy all follow it.
 
 ## Run it
 

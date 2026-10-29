@@ -318,6 +318,16 @@ p {
   align-items: baseline;
 }
 
+.wordmark--caps {
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  font-variation-settings: 'opsz' 144, 'SOFT' 30, 'WONK' 0;
+}
+
+.wordmark--caps .wordmark__stop {
+  margin-left: 0.02em;
+}
+
 .wordmark--lg {
   font-size: 44px;
 }

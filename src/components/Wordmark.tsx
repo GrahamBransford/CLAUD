@@ -8,7 +8,7 @@ export function Wordmark({ size = 'md' }: { size?: 'md' | 'lg' | 'xl' }) {
   const name = brand.name
   const i = name.indexOf('i')
   return (
-    <span className={`wordmark wordmark--${size}`} aria-label={name}>
+    <span className={`wordmark wordmark--${size}${name === name.toUpperCase() ? ' wordmark--caps' : ''}`} aria-label={name}>
       {i >= 0 ? (
         <>
           {name.slice(0, i)}

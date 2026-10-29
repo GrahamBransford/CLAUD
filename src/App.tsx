@@ -19,7 +19,7 @@ const fromHash = (): StationId => {
   return STATION_ORDER.includes(h) ? h : 'singers'
 }
 
-const WELCOMED = 'dial-welcomed'
+const WELCOMED = 'circa-welcomed'
 
 export default function App() {
   const [station, setStation] = useState<StationId>(fromHash)
