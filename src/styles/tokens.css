@@ -1,0 +1,62 @@
+:root {
+  /* paper */
+  --cream: #f4ebdd;
+  --paper: #faf5ec;
+  --cream-2: #ede2cf;
+  --cream-3: #e2d4bb;
+
+  /* ink */
+  --ink: #292722;
+  --ink-2: #4a463e;
+  --ink-3: #776f62;
+  --ink-4: #a69d8c;
+
+  /* brand */
+  --red: #963f36;
+  --red-2: #7c3129;
+  --red-tint: #efd9cf;
+  --ochre: #d6a84f;
+  --ochre-2: #a87b2a;
+  --ochre-tint: #f1e1ba;
+  --sage: #8a967b;
+  --sage-2: #56624b;
+  --sage-tint: #e1e4d4;
+  --night: #1e1c18;
+
+  --line: rgba(41, 39, 34, 0.13);
+  --line-2: rgba(41, 39, 34, 0.24);
+  --shadow-1: 0 1px 0 rgba(41, 39, 34, 0.05), 0 10px 26px -16px rgba(41, 39, 34, 0.35);
+  --shadow-2: 0 2px 0 rgba(41, 39, 34, 0.04), 0 34px 70px -34px rgba(41, 39, 34, 0.55);
+
+  --serif: 'Fraunces Variable', 'Fraunces', Georgia, serif;
+  --sans: 'Instrument Sans Variable', 'Instrument Sans', system-ui, -apple-system, sans-serif;
+
+  --r-sm: 5px;
+  --r-md: 8px;
+  --r-lg: 12px;
+
+  --header-h: 68px;
+  --nav-h: 0px;
+  --gutter: clamp(16px, 4vw, 40px);
+
+  /* each station tints a few details; red stays the brand */
+  --accent: var(--red);
+  --accent-tint: var(--red-tint);
+}
+
+.app--speakers {
+  --accent: var(--sage-2);
+  --accent-tint: var(--sage-tint);
+}
+
+.app--handhelds {
+  --accent: var(--ochre-2);
+  --accent-tint: var(--ochre-tint);
+}
+
+@media (max-width: 759px) {
+  :root {
+    --header-h: 56px;
+    --nav-h: 66px;
+  }
+}

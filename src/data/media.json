@@ -1,0 +1,7012 @@
+{
+ "songs": {
+  "paper-moons": {
+   "video": "media/singers/paper-moons.mp4",
+   "poster": "media/singers/paper-moons.jpg",
+   "duration": 128.71,
+   "previewEnd": 68.57
+  },
+  "coastline-static": {
+   "video": "media/singers/coastline-static.mp4",
+   "poster": "media/singers/coastline-static.jpg",
+   "duration": 113.0,
+   "previewEnd": 80.0
+  },
+  "cathedral-lights": {
+   "video": "media/singers/cathedral-lights.mp4",
+   "poster": "media/singers/cathedral-lights.jpg",
+   "duration": 104.5,
+   "previewEnd": 64.62
+  },
+  "harmattan-sun": {
+   "video": "media/singers/harmattan-sun.mp4",
+   "poster": "media/singers/harmattan-sun.jpg",
+   "duration": 118.83,
+   "previewEnd": 74.48
+  },
+  "slow-burn-avenue": {
+   "video": "media/singers/slow-burn-avenue.mp4",
+   "poster": "media/singers/slow-burn-avenue.jpg",
+   "duration": 142.62,
+   "previewEnd": 78.55
+  },
+  "glass-horizon": {
+   "video": "media/singers/glass-horizon.mp4",
+   "poster": "media/singers/glass-horizon.jpg",
+   "duration": 125.75,
+   "previewEnd": 78.14
+  }
+ },
+ "episodes": {
+  "in-defense-of-boredom": {
+   "speakers": {
+    "PRIYA": {
+     "name": "Priya Raman"
+    },
+    "THEO": {
+     "name": "Theo Marsh"
+    }
+   },
+   "full": {
+    "video": "media/speakers/in-defense-of-boredom.full.mp4",
+    "poster": "media/speakers/in-defense-of-boredom.full.jpg",
+    "duration": 658.2
+   },
+   "highlight": {
+    "video": "media/speakers/in-defense-of-boredom.highlight.mp4",
+    "poster": "media/speakers/in-defense-of-boredom.jpg",
+    "duration": 317.5,
+    "sourceStart": 133.94,
+    "sourceEnd": 451.33
+   },
+   "chapters": [
+    {
+     "title": "Cold open",
+     "start": 0.0
+    },
+    {
+     "title": "How this started",
+     "start": 42.32
+    },
+    {
+     "title": "The week without headphones",
+     "start": 133.69
+    },
+    {
+     "title": "Why boredom works",
+     "start": 450.98
+    },
+    {
+     "title": "Designing for the gaps",
+     "start": 532.82
+    },
+    {
+     "title": "Closing",
+     "start": 616.69
+    }
+   ],
+   "cues": [
+    {
+     "start": 3.2,
+     "end": 5.69,
+     "speaker": "PRIYA",
+     "text": "Theo, I want to start with a confession from you."
+    },
+    {
+     "start": 5.85,
+     "end": 11.43,
+     "speaker": "PRIYA",
+     "text": "Last week you sent me a text at eleven forty at night that just said, I can hear the refrigerator."
+    },
+    {
+     "start": 11.59,
+     "end": 12.87,
+     "speaker": "PRIYA",
+     "text": "That was the whole text."
+    },
+    {
+     "start": 13.53,
+     "end": 16.17,
+     "speaker": "THEO",
+     "text": "In my defense, it was a very loud refrigerator."
+    },
+    {
+     "start": 16.86,
+     "end": 18.55,
+     "speaker": "PRIYA",
+     "text": "It was not a loud refrigerator."
+    },
+    {
+     "start": 18.71,
+     "end": 20.62,
+     "speaker": "PRIYA",
+     "text": "You had just never noticed it before."
+    },
+    {
+     "start": 21.16,
+     "end": 22.08,
+     "speaker": "THEO",
+     "text": "That is true."
+    },
+    {
+     "start": 22.24,
+     "end": 24.71,
+     "speaker": "THEO",
+     "text": "That is, in a way, the entire episode."
+    },
+    {
+     "start": 25.38,
+     "end": 27.09,
+     "speaker": "PRIYA",
+     "text": "Welcome to The Long Way Round."
+    },
+    {
+     "start": 27.25,
+     "end": 28.24,
+     "speaker": "PRIYA",
+     "text": "I'm Priya Raman."
+    },
+    {
+     "start": 28.99,
+     "end": 30.07,
+     "speaker": "THEO",
+     "text": "And I'm Theo Marsh."
+    },
+    {
+     "start": 30.23,
+     "end": 35.61,
+     "speaker": "THEO",
+     "text": "And this week, we are making the case for something that almost everyone is trying very hard to get rid of."
+    },
+    {
+     "start": 36.23,
+     "end": 36.79,
+     "speaker": "PRIYA",
+     "text": "Boredom."
+    },
+    {
+     "start": 37.33,
+     "end": 37.84,
+     "speaker": "THEO",
+     "text": "Boredom."
+    },
+    {
+     "start": 38.0,
+     "end": 38.9,
+     "speaker": "THEO",
+     "text": "The empty minute."
+    },
+    {
+     "start": 39.06,
+     "end": 39.82,
+     "speaker": "THEO",
+     "text": "The waiting room."
+    },
+    {
+     "start": 39.98,
+     "end": 42.17,
+     "speaker": "THEO",
+     "text": "The walk to the train with nothing in your ears."
+    },
+    {
+     "start": 42.92,
+     "end": 44.3,
+     "speaker": "PRIYA",
+     "text": "So set it up for people."
+    },
+    {
+     "start": 44.46,
+     "end": 45.33,
+     "speaker": "PRIYA",
+     "text": "How did this start?"
+    },
+    {
+     "start": 46.01,
+     "end": 49.13,
+     "speaker": "THEO",
+     "text": "It started with a number, which is always a bad sign."
+    },
+    {
+     "start": 49.29,
+     "end": 55.25,
+     "speaker": "THEO",
+     "text": "My phone sends me that little weekly report, the screen time thing, and I usually swipe it away like a parking ticket."
+    },
+    {
+     "start": 55.41,
+     "end": 59.61,
+     "speaker": "THEO",
+     "text": "But a few weeks ago I actually looked at it, and the thing that jumped out wasn't the total."
+    },
+    {
+     "start": 59.77,
+     "end": 61.16,
+     "speaker": "THEO",
+     "text": "It was a smaller number."
+    },
+    {
+     "start": 61.32,
+     "end": 64.53,
+     "speaker": "THEO",
+     "text": "It was the number of times I picked up the phone before nine in the morning."
+    },
+    {
+     "start": 65.09,
+     "end": 65.79,
+     "speaker": "PRIYA",
+     "text": "How many?"
+    },
+    {
+     "start": 66.47,
+     "end": 69.8,
+     "speaker": "THEO",
+     "text": "I'm not going to say it out loud, because my mother listens to this show."
+    },
+    {
+     "start": 69.96,
+     "end": 72.49,
+     "speaker": "THEO",
+     "text": "But it was more times than I had been awake for hours."
+    },
+    {
+     "start": 72.65,
+     "end": 73.73,
+     "speaker": "THEO",
+     "text": "Let's put it that way."
+    },
+    {
+     "start": 74.49,
+     "end": 75.15,
+     "speaker": "PRIYA",
+     "text": "Okay."
+    },
+    {
+     "start": 75.71,
+     "end": 79.52,
+     "speaker": "THEO",
+     "text": "And what bothered me was that I couldn't remember a single one of those pickups."
+    },
+    {
+     "start": 79.68,
+     "end": 80.42,
+     "speaker": "THEO",
+     "text": "Not one."
+    },
+    {
+     "start": 80.58,
+     "end": 81.66,
+     "speaker": "THEO",
+     "text": "They weren't decisions."
+    },
+    {
+     "start": 81.82,
+     "end": 82.94,
+     "speaker": "THEO",
+     "text": "They were reflexes."
+    },
+    {
+     "start": 83.1,
+     "end": 85.26,
+     "speaker": "THEO",
+     "text": "Something like, there's a gap, fill the gap."
+    },
+    {
+     "start": 85.98,
+     "end": 89.75,
+     "speaker": "PRIYA",
+     "text": "And the gap filler of choice for you is not even the phone screen, really."
+    },
+    {
+     "start": 89.91,
+     "end": 91.01,
+     "speaker": "PRIYA",
+     "text": "It's headphones."
+    },
+    {
+     "start": 91.7,
+     "end": 92.64,
+     "speaker": "THEO",
+     "text": "It's headphones."
+    },
+    {
+     "start": 92.8,
+     "end": 94.02,
+     "speaker": "THEO",
+     "text": "I am a headphones person."
+    },
+    {
+     "start": 94.18,
+     "end": 96.73,
+     "speaker": "THEO",
+     "text": "Podcasts, music, audiobooks, anything."
+    },
+    {
+     "start": 96.89,
+     "end": 102.36,
+     "speaker": "THEO",
+     "text": "If I'm walking, cooking, doing the dishes, waiting for a kettle, there's something in my ears."
+    },
+    {
+     "start": 102.52,
+     "end": 104.68,
+     "speaker": "THEO",
+     "text": "And I always told myself that was a good thing."
+    },
+    {
+     "start": 104.84,
+     "end": 108.2,
+     "speaker": "THEO",
+     "text": "I'm learning, I'm listening to good music, I'm not doom scrolling."
+    },
+    {
+     "start": 108.36,
+     "end": 109.76,
+     "speaker": "THEO",
+     "text": "This is the healthy version."
+    },
+    {
+     "start": 110.33,
+     "end": 111.58,
+     "speaker": "PRIYA",
+     "text": "The virtuous version."
+    },
+    {
+     "start": 112.13,
+     "end": 113.28,
+     "speaker": "THEO",
+     "text": "The virtuous version."
+    },
+    {
+     "start": 113.44,
+     "end": 117.08,
+     "speaker": "THEO",
+     "text": "So I decided to run a small, slightly ridiculous experiment."
+    },
+    {
+     "start": 117.24,
+     "end": 118.0,
+     "speaker": "THEO",
+     "text": "One week."
+    },
+    {
+     "start": 118.16,
+     "end": 119.17,
+     "speaker": "THEO",
+     "text": "No headphones."
+    },
+    {
+     "start": 119.33,
+     "end": 122.17,
+     "speaker": "THEO",
+     "text": "No audio at all while walking, commuting, cooking or cleaning."
+    },
+    {
+     "start": 122.33,
+     "end": 127.66,
+     "speaker": "THEO",
+     "text": "If I wanted to listen to something, I had to sit down and listen to it on purpose, and do nothing else."
+    },
+    {
+     "start": 128.41,
+     "end": 131.3,
+     "speaker": "PRIYA",
+     "text": "Which, for the record, I told him was going to be miserable."
+    },
+    {
+     "start": 131.9,
+     "end": 133.67,
+     "speaker": "THEO",
+     "text": "And you were right for about three days."
+    },
+    {
+     "start": 134.29,
+     "end": 135.79,
+     "speaker": "PRIYA",
+     "text": "Okay, so walk me through it."
+    },
+    {
+     "start": 135.95,
+     "end": 136.57,
+     "speaker": "PRIYA",
+     "text": "Day one."
+    },
+    {
+     "start": 136.73,
+     "end": 137.92,
+     "speaker": "PRIYA",
+     "text": "What actually happened?"
+    },
+    {
+     "start": 138.59,
+     "end": 140.85,
+     "speaker": "THEO",
+     "text": "Day one was genuinely uncomfortable."
+    },
+    {
+     "start": 141.01,
+     "end": 146.81,
+     "speaker": "THEO",
+     "text": "I walked to the train and I kept reaching for my pocket, the way you reach for a light switch in a house you've moved out of."
+    },
+    {
+     "start": 146.97,
+     "end": 149.33,
+     "speaker": "THEO",
+     "text": "My hand knew the routine better than I did."
+    },
+    {
+     "start": 149.49,
+     "end": 151.77,
+     "speaker": "THEO",
+     "text": "And the walk felt incredibly long."
+    },
+    {
+     "start": 151.93,
+     "end": 153.0,
+     "speaker": "THEO",
+     "text": "It's eleven minutes."
+    },
+    {
+     "start": 153.16,
+     "end": 154.28,
+     "speaker": "THEO",
+     "text": "It felt like forty."
+    },
+    {
+     "start": 154.9,
+     "end": 156.95,
+     "speaker": "PRIYA",
+     "text": "Because there was nothing to measure it against."
+    },
+    {
+     "start": 157.46,
+     "end": 158.14,
+     "speaker": "THEO",
+     "text": "Exactly."
+    },
+    {
+     "start": 158.3,
+     "end": 162.48,
+     "speaker": "THEO",
+     "text": "Normally the walk is measured in songs, or in half a podcast segment."
+    },
+    {
+     "start": 162.64,
+     "end": 164.8,
+     "speaker": "THEO",
+     "text": "Without that, time just sort of sat there."
+    },
+    {
+     "start": 164.96,
+     "end": 168.64,
+     "speaker": "THEO",
+     "text": "And my brain, for the first day or so, did not fill it with brilliant thoughts."
+    },
+    {
+     "start": 168.8,
+     "end": 170.3,
+     "speaker": "THEO",
+     "text": "It filled it with nonsense."
+    },
+    {
+     "start": 170.46,
+     "end": 171.91,
+     "speaker": "THEO",
+     "text": "Did I reply to that email."
+    },
+    {
+     "start": 172.07,
+     "end": 173.38,
+     "speaker": "THEO",
+     "text": "What's the thing I'm forgetting."
+    },
+    {
+     "start": 173.54,
+     "end": 175.41,
+     "speaker": "THEO",
+     "text": "Why does that dog look like my uncle."
+    },
+    {
+     "start": 175.98,
+     "end": 176.84,
+     "speaker": "PRIYA",
+     "text": "Which dog?"
+    },
+    {
+     "start": 177.47,
+     "end": 179.85,
+     "speaker": "THEO",
+     "text": "There is a specific dog on Hawthorne Street."
+    },
+    {
+     "start": 180.01,
+     "end": 181.02,
+     "speaker": "THEO",
+     "text": "You would agree with me."
+    },
+    {
+     "start": 181.72,
+     "end": 182.6,
+     "speaker": "PRIYA",
+     "text": "I'll trust you."
+    },
+    {
+     "start": 183.26,
+     "end": 188.95,
+     "speaker": "THEO",
+     "text": "And the strangest part of those first two days was realizing how often I'd been using sound as a kind of shield."
+    },
+    {
+     "start": 189.11,
+     "end": 193.67,
+     "speaker": "THEO",
+     "text": "Waiting in line at the pharmacy, there were five of us, and four of us had headphones in."
+    },
+    {
+     "start": 193.83,
+     "end": 195.18,
+     "speaker": "THEO",
+     "text": "Nobody looked at anyone."
+    },
+    {
+     "start": 195.34,
+     "end": 200.79,
+     "speaker": "THEO",
+     "text": "And without mine, I felt almost exposed, like I'd shown up to a party in pajamas."
+    },
+    {
+     "start": 201.4,
+     "end": 203.0,
+     "speaker": "PRIYA",
+     "text": "I know that feeling exactly."
+    },
+    {
+     "start": 203.16,
+     "end": 204.48,
+     "speaker": "PRIYA",
+     "text": "I get it in elevators."
+    },
+    {
+     "start": 204.64,
+     "end": 209.87,
+     "speaker": "PRIYA",
+     "text": "If I don't have something in my ears, I suddenly have no idea where to put my eyes."
+    },
+    {
+     "start": 210.43,
+     "end": 210.93,
+     "speaker": "THEO",
+     "text": "Right."
+    },
+    {
+     "start": 211.09,
+     "end": 215.12,
+     "speaker": "THEO",
+     "text": "The headphones were doing a social job, not just an entertainment job."
+    },
+    {
+     "start": 215.28,
+     "end": 218.42,
+     "speaker": "THEO",
+     "text": "They were a little sign that said, don't talk to me, I'm busy."
+    },
+    {
+     "start": 218.58,
+     "end": 223.39,
+     "speaker": "THEO",
+     "text": "And I had been holding that sign up almost every waking hour without realizing it."
+    },
+    {
+     "start": 223.8,
+     "end": 225.92,
+     "speaker": "THEO",
+     "text": "So days one and two were just noise."
+    },
+    {
+     "start": 226.08,
+     "end": 227.57,
+     "speaker": "THEO",
+     "text": "A kind of mental static."
+    },
+    {
+     "start": 227.73,
+     "end": 234.74,
+     "speaker": "THEO",
+     "text": "And honestly, if the experiment had been two days long, I would have come back on this show and said, boredom is overrated, put your headphones back in."
+    },
+    {
+     "start": 235.45,
+     "end": 236.25,
+     "speaker": "PRIYA",
+     "text": "What changed?"
+    },
+    {
+     "start": 236.8,
+     "end": 239.8,
+     "speaker": "THEO",
+     "text": "Somewhere around day three, the static started to settle."
+    },
+    {
+     "start": 239.96,
+     "end": 241.95,
+     "speaker": "THEO",
+     "text": "And I can only describe it like this."
+    },
+    {
+     "start": 242.11,
+     "end": 250.58,
+     "speaker": "THEO",
+     "text": "It was as if I had been standing next to a very loud machine for years, and someone switched it off, and for a while all I could hear was the ringing in my ears."
+    },
+    {
+     "start": 250.74,
+     "end": 253.58,
+     "speaker": "THEO",
+     "text": "And then the ringing faded, and I started to hear the room."
+    },
+    {
+     "start": 254.27,
+     "end": 255.3,
+     "speaker": "PRIYA",
+     "text": "The refrigerator."
+    },
+    {
+     "start": 255.94,
+     "end": 257.32,
+     "speaker": "THEO",
+     "text": "The refrigerator, yes."
+    },
+    {
+     "start": 257.48,
+     "end": 259.73,
+     "speaker": "THEO",
+     "text": "But also, I started noticing things on the walk."
+    },
+    {
+     "start": 259.89,
+     "end": 271.96,
+     "speaker": "THEO",
+     "text": "There's a man who runs a shoe repair shop near the station, and every morning at the same time he sweeps the sidewalk in front of his store, and then he sweeps a little bit of the sidewalk in front of the store next door, which is empty."
+    },
+    {
+     "start": 272.12,
+     "end": 273.48,
+     "speaker": "THEO",
+     "text": "It's been empty for a year."
+    },
+    {
+     "start": 273.64,
+     "end": 274.88,
+     "speaker": "THEO",
+     "text": "And he sweeps it anyway."
+    },
+    {
+     "start": 275.52,
+     "end": 276.59,
+     "speaker": "PRIYA",
+     "text": "Oh, that's lovely."
+    },
+    {
+     "start": 277.2,
+     "end": 279.78,
+     "speaker": "THEO",
+     "text": "I must have walked past him two hundred times."
+    },
+    {
+     "start": 279.94,
+     "end": 280.89,
+     "speaker": "THEO",
+     "text": "I had never seen it."
+    },
+    {
+     "start": 281.05,
+     "end": 286.99,
+     "speaker": "THEO",
+     "text": "And then on day four, something happened that I did not expect, which is that I started having ideas again."
+    },
+    {
+     "start": 287.15,
+     "end": 287.88,
+     "speaker": "THEO",
+     "text": "Real ones."
+    },
+    {
+     "start": 288.04,
+     "end": 289.47,
+     "speaker": "THEO",
+     "text": "Not to-do list items."
+    },
+    {
+     "start": 289.63,
+     "end": 290.84,
+     "speaker": "THEO",
+     "text": "Actual ideas."
+    },
+    {
+     "start": 291.0,
+     "end": 294.54,
+     "speaker": "THEO",
+     "text": "I solved a problem at work in the shower that I'd been stuck on for two weeks."
+    },
+    {
+     "start": 294.7,
+     "end": 299.14,
+     "speaker": "THEO",
+     "text": "I figured out what I wanted to say to my sister about something that had been bothering both of us."
+    },
+    {
+     "start": 299.3,
+     "end": 303.54,
+     "speaker": "THEO",
+     "text": "I thought of three episode ideas for this show, two of which are bad."
+    },
+    {
+     "start": 304.11,
+     "end": 305.33,
+     "speaker": "PRIYA",
+     "text": "We'll see about that."
+    },
+    {
+     "start": 305.88,
+     "end": 310.78,
+     "speaker": "THEO",
+     "text": "And the thing that struck me was that none of those ideas came while I was trying to think."
+    },
+    {
+     "start": 310.94,
+     "end": 312.09,
+     "speaker": "THEO",
+     "text": "They came in the gaps."
+    },
+    {
+     "start": 312.25,
+     "end": 314.98,
+     "speaker": "THEO",
+     "text": "On the walk, at the sink, waiting for the pasta water."
+    },
+    {
+     "start": 315.14,
+     "end": 317.88,
+     "speaker": "THEO",
+     "text": "The exact moments I had been so carefully filling."
+    },
+    {
+     "start": 318.55,
+     "end": 319.94,
+     "speaker": "PRIYA",
+     "text": "So the gaps weren't empty."
+    },
+    {
+     "start": 320.52,
+     "end": 322.44,
+     "speaker": "THEO",
+     "text": "That's the thing I keep coming back to."
+    },
+    {
+     "start": 322.6,
+     "end": 326.54,
+     "speaker": "THEO",
+     "text": "I thought I was wasting those minutes, and so I filled them with something valuable."
+    },
+    {
+     "start": 326.7,
+     "end": 328.43,
+     "speaker": "THEO",
+     "text": "But they were already being used."
+    },
+    {
+     "start": 328.59,
+     "end": 333.04,
+     "speaker": "THEO",
+     "text": "My brain was using them to connect things, to file things away, to notice."
+    },
+    {
+     "start": 333.2,
+     "end": 334.66,
+     "speaker": "THEO",
+     "text": "I just never let it finish."
+    },
+    {
+     "start": 335.17,
+     "end": 339.47,
+     "speaker": "PRIYA",
+     "text": "There's actually a decent amount of research that lines up with what you're describing."
+    },
+    {
+     "start": 339.63,
+     "end": 348.38,
+     "speaker": "PRIYA",
+     "text": "When you're not focused on a task, there are networks in the brain that become more active, and they seem to be involved in exactly the kind of thing you're talking about."
+    },
+    {
+     "start": 348.54,
+     "end": 352.19,
+     "speaker": "PRIYA",
+     "text": "Remembering, imagining, connecting your own experiences together."
+    },
+    {
+     "start": 352.35,
+     "end": 355.09,
+     "speaker": "PRIYA",
+     "text": "It's sometimes described as the brain's default mode."
+    },
+    {
+     "start": 355.65,
+     "end": 356.61,
+     "speaker": "THEO",
+     "text": "The default mode."
+    },
+    {
+     "start": 356.77,
+     "end": 361.62,
+     "speaker": "THEO",
+     "text": "I like that, because it suggests that this is the thing the brain wants to do when you leave it alone."
+    },
+    {
+     "start": 361.78,
+     "end": 362.65,
+     "speaker": "THEO",
+     "text": "It's not idle."
+    },
+    {
+     "start": 362.81,
+     "end": 363.85,
+     "speaker": "THEO",
+     "text": "It's doing its own work."
+    },
+    {
+     "start": 364.59,
+     "end": 368.15,
+     "speaker": "PRIYA",
+     "text": "And we have essentially designed a world where it never gets left alone."
+    },
+    {
+     "start": 368.84,
+     "end": 370.4,
+     "speaker": "THEO",
+     "text": "Do you know what it reminded me of?"
+    },
+    {
+     "start": 370.56,
+     "end": 378.53,
+     "speaker": "THEO",
+     "text": "When I was a kid, on long car trips, there was always that stretch of highway where the radio station faded out and the next one hadn't come in yet."
+    },
+    {
+     "start": 378.69,
+     "end": 380.88,
+     "speaker": "THEO",
+     "text": "And my dad would just leave it off for a while."
+    },
+    {
+     "start": 381.04,
+     "end": 381.99,
+     "speaker": "THEO",
+     "text": "Nobody talked."
+    },
+    {
+     "start": 382.15,
+     "end": 384.06,
+     "speaker": "THEO",
+     "text": "We just watched the fields go by."
+    },
+    {
+     "start": 384.22,
+     "end": 387.87,
+     "speaker": "THEO",
+     "text": "And I remember those stretches better than almost anything we actually listened to."
+    },
+    {
+     "start": 388.53,
+     "end": 390.36,
+     "speaker": "PRIYA",
+     "text": "The silence between stations."
+    },
+    {
+     "start": 390.97,
+     "end": 392.7,
+     "speaker": "THEO",
+     "text": "The silence between stations."
+    },
+    {
+     "start": 392.86,
+     "end": 394.43,
+     "speaker": "THEO",
+     "text": "It used to be built into life."
+    },
+    {
+     "start": 394.59,
+     "end": 395.46,
+     "speaker": "THEO",
+     "text": "You couldn't avoid it."
+    },
+    {
+     "start": 395.62,
+     "end": 397.03,
+     "speaker": "THEO",
+     "text": "Now you have to go looking for it."
+    },
+    {
+     "start": 397.44,
+     "end": 397.9,
+     "speaker": "THEO",
+     "text": "Right."
+    },
+    {
+     "start": 398.06,
+     "end": 399.85,
+     "speaker": "THEO",
+     "text": "And I'm not anti-technology."
+    },
+    {
+     "start": 400.01,
+     "end": 403.97,
+     "speaker": "THEO",
+     "text": "I make a podcast, I love audio more than almost anything."
+    },
+    {
+     "start": 404.13,
+     "end": 407.13,
+     "speaker": "THEO",
+     "text": "But I think I had stopped choosing what I listened to."
+    },
+    {
+     "start": 407.29,
+     "end": 410.36,
+     "speaker": "THEO",
+     "text": "I was just pouring sound into every container I could find."
+    },
+    {
+     "start": 410.52,
+     "end": 413.56,
+     "speaker": "THEO",
+     "text": "And when I took it away, the thing I missed most wasn't the content."
+    },
+    {
+     "start": 413.72,
+     "end": 416.78,
+     "speaker": "THEO",
+     "text": "It was the habit of never being alone with my own head."
+    },
+    {
+     "start": 417.49,
+     "end": 420.86,
+     "speaker": "PRIYA",
+     "text": "So by the end of the week, did you want your headphones back?"
+    },
+    {
+     "start": 421.43,
+     "end": 422.76,
+     "speaker": "THEO",
+     "text": "I wanted some of them back."
+    },
+    {
+     "start": 422.92,
+     "end": 424.67,
+     "speaker": "THEO",
+     "text": "And that was the real discovery."
+    },
+    {
+     "start": 424.83,
+     "end": 428.26,
+     "speaker": "THEO",
+     "text": "When the week ended, I didn't go back to wall-to-wall audio."
+    },
+    {
+     "start": 428.42,
+     "end": 429.5,
+     "speaker": "THEO",
+     "text": "I started choosing."
+    },
+    {
+     "start": 429.66,
+     "end": 434.16,
+     "speaker": "THEO",
+     "text": "I'd sit down with an album, the whole album, start to finish, and actually listen to it."
+    },
+    {
+     "start": 434.32,
+     "end": 437.37,
+     "speaker": "THEO",
+     "text": "I'd pick one episode of something and give it my full attention."
+    },
+    {
+     "start": 437.53,
+     "end": 439.91,
+     "speaker": "THEO",
+     "text": "And everything I listened to on purpose felt better."
+    },
+    {
+     "start": 440.07,
+     "end": 440.62,
+     "speaker": "THEO",
+     "text": "Richer."
+    },
+    {
+     "start": 440.78,
+     "end": 444.61,
+     "speaker": "THEO",
+     "text": "Like the difference between eating standing over the sink and sitting down for a meal."
+    },
+    {
+     "start": 445.28,
+     "end": 447.69,
+     "speaker": "PRIYA",
+     "text": "Less listening, but better listening."
+    },
+    {
+     "start": 448.2,
+     "end": 450.91,
+     "speaker": "THEO",
+     "text": "Less listening, better listening, and a lot more noticing."
+    },
+    {
+     "start": 451.58,
+     "end": 457.13,
+     "speaker": "PRIYA",
+     "text": "I want to push back a little, though, because I think there's a version of this conversation that turns into a lecture."
+    },
+    {
+     "start": 457.29,
+     "end": 459.73,
+     "speaker": "PRIYA",
+     "text": "Put your phone down, go for a walk, look at a tree."
+    },
+    {
+     "start": 460.48,
+     "end": 461.62,
+     "speaker": "THEO",
+     "text": "Look at a tree, Priya."
+    },
+    {
+     "start": 462.3,
+     "end": 465.67,
+     "speaker": "PRIYA",
+     "text": "And I don't think people are filling every gap because they're foolish."
+    },
+    {
+     "start": 465.83,
+     "end": 467.49,
+     "speaker": "PRIYA",
+     "text": "I think a lot of people are tired."
+    },
+    {
+     "start": 467.65,
+     "end": 468.42,
+     "speaker": "PRIYA",
+     "text": "They're lonely."
+    },
+    {
+     "start": 468.58,
+     "end": 471.52,
+     "speaker": "PRIYA",
+     "text": "The gaps can be uncomfortable for real reasons."
+    },
+    {
+     "start": 471.68,
+     "end": 475.26,
+     "speaker": "PRIYA",
+     "text": "Sometimes the thing waiting in the quiet is something you don't want to think about."
+    },
+    {
+     "start": 475.79,
+     "end": 477.02,
+     "speaker": "THEO",
+     "text": "That's completely fair."
+    },
+    {
+     "start": 477.18,
+     "end": 481.72,
+     "speaker": "THEO",
+     "text": "And I'll be honest, part of the discomfort in those first few days was exactly that."
+    },
+    {
+     "start": 481.88,
+     "end": 483.91,
+     "speaker": "THEO",
+     "text": "Things I had been putting off thinking about came up."
+    },
+    {
+     "start": 484.07,
+     "end": 486.24,
+     "speaker": "THEO",
+     "text": "And there's a reason I'd been keeping the volume up."
+    },
+    {
+     "start": 486.9,
+     "end": 493.35,
+     "speaker": "PRIYA",
+     "text": "So what do you say to someone who hears this and thinks, that sounds nice for you, but my quiet isn't relaxing."
+    },
+    {
+     "start": 493.94,
+     "end": 495.94,
+     "speaker": "THEO",
+     "text": "I'd say you don't have to do a whole week."
+    },
+    {
+     "start": 496.1,
+     "end": 497.32,
+     "speaker": "THEO",
+     "text": "Start with one container."
+    },
+    {
+     "start": 497.48,
+     "end": 500.08,
+     "speaker": "THEO",
+     "text": "One walk, one commute, one load of dishes."
+    },
+    {
+     "start": 500.24,
+     "end": 503.4,
+     "speaker": "THEO",
+     "text": "Leave one gap open on purpose and see what wanders into it."
+    },
+    {
+     "start": 503.56,
+     "end": 505.18,
+     "speaker": "THEO",
+     "text": "It doesn't have to be profound."
+    },
+    {
+     "start": 505.34,
+     "end": 507.53,
+     "speaker": "THEO",
+     "text": "It might just be the dog on Hawthorne Street."
+    },
+    {
+     "start": 508.27,
+     "end": 510.63,
+     "speaker": "PRIYA",
+     "text": "I think there's something about choosing in there too."
+    },
+    {
+     "start": 510.79,
+     "end": 516.21,
+     "speaker": "PRIYA",
+     "text": "You said that once you stopped filling everything automatically, you started choosing what to listen to."
+    },
+    {
+     "start": 516.37,
+     "end": 518.46,
+     "speaker": "PRIYA",
+     "text": "And that feels like the bigger idea."
+    },
+    {
+     "start": 518.97,
+     "end": 519.64,
+     "speaker": "THEO",
+     "text": "Yes."
+    },
+    {
+     "start": 519.8,
+     "end": 521.0,
+     "speaker": "THEO",
+     "text": "Boredom is not the goal."
+    },
+    {
+     "start": 521.16,
+     "end": 523.46,
+     "speaker": "THEO",
+     "text": "The goal is to be the one making the choice."
+    },
+    {
+     "start": 523.62,
+     "end": 526.78,
+     "speaker": "THEO",
+     "text": "Boredom is just what you have to walk through to get your choices back."
+    },
+    {
+     "start": 527.29,
+     "end": 528.27,
+     "speaker": "PRIYA",
+     "text": "I like that a lot."
+    },
+    {
+     "start": 528.43,
+     "end": 529.96,
+     "speaker": "PRIYA",
+     "text": "Boredom as a kind of hallway."
+    },
+    {
+     "start": 530.5,
+     "end": 532.82,
+     "speaker": "THEO",
+     "text": "A hallway with a very loud refrigerator in it."
+    },
+    {
+     "start": 533.42,
+     "end": 537.11,
+     "speaker": "PRIYA",
+     "text": "Can I make this slightly bigger than one person's habits, though?"
+    },
+    {
+     "start": 537.27,
+     "end": 539.74,
+     "speaker": "PRIYA",
+     "text": "Because I don't think the gaps disappeared by accident."
+    },
+    {
+     "start": 540.47,
+     "end": 541.37,
+     "speaker": "THEO",
+     "text": "No, they didn't."
+    },
+    {
+     "start": 542.02,
+     "end": 545.06,
+     "speaker": "PRIYA",
+     "text": "A lot of what we use every day is built to fill them."
+    },
+    {
+     "start": 545.22,
+     "end": 548.01,
+     "speaker": "PRIYA",
+     "text": "The next video starts before you've decided you want it."
+    },
+    {
+     "start": 548.17,
+     "end": 549.4,
+     "speaker": "PRIYA",
+     "text": "The feed has no bottom."
+    },
+    {
+     "start": 549.56,
+     "end": 553.18,
+     "speaker": "PRIYA",
+     "text": "The episode ends and another one is already counting down."
+    },
+    {
+     "start": 553.34,
+     "end": 554.84,
+     "speaker": "PRIYA",
+     "text": "Those are design decisions."
+    },
+    {
+     "start": 555.0,
+     "end": 558.58,
+     "speaker": "PRIYA",
+     "text": "Somebody chose to remove the moment where you would have had to choose."
+    },
+    {
+     "start": 559.26,
+     "end": 560.81,
+     "speaker": "THEO",
+     "text": "The pause where you might have stopped."
+    },
+    {
+     "start": 561.33,
+     "end": 562.24,
+     "speaker": "PRIYA",
+     "text": "Exactly."
+    },
+    {
+     "start": 562.4,
+     "end": 565.2,
+     "speaker": "PRIYA",
+     "text": "And I don't think the people who build those things are villains."
+    },
+    {
+     "start": 565.36,
+     "end": 568.0,
+     "speaker": "PRIYA",
+     "text": "Most of them are trying to make something people enjoy."
+    },
+    {
+     "start": 568.16,
+     "end": 574.2,
+     "speaker": "PRIYA",
+     "text": "But if your only measure of success is how much time people spend with you, then every gap looks like a leak."
+    },
+    {
+     "start": 574.36,
+     "end": 575.09,
+     "speaker": "PRIYA",
+     "text": "And you plug it."
+    },
+    {
+     "start": 575.64,
+     "end": 580.09,
+     "speaker": "THEO",
+     "text": "Which is interesting, because the best experiences I had during that week were the opposite."
+    },
+    {
+     "start": 580.25,
+     "end": 581.51,
+     "speaker": "THEO",
+     "text": "They were the ones that ended."
+    },
+    {
+     "start": 581.67,
+     "end": 583.17,
+     "speaker": "THEO",
+     "text": "An album has a last song."
+    },
+    {
+     "start": 583.33,
+     "end": 585.49,
+     "speaker": "THEO",
+     "text": "A good conversation has a natural end."
+    },
+    {
+     "start": 585.65,
+     "end": 587.79,
+     "speaker": "THEO",
+     "text": "You get to the end and you feel full, not drained."
+    },
+    {
+     "start": 588.4,
+     "end": 591.07,
+     "speaker": "PRIYA",
+     "text": "I'd love to see more things designed around that feeling."
+    },
+    {
+     "start": 591.23,
+     "end": 593.87,
+     "speaker": "PRIYA",
+     "text": "Around being satisfied, rather than being held."
+    },
+    {
+     "start": 594.03,
+     "end": 598.28,
+     "speaker": "PRIYA",
+     "text": "Something that helps you find what you'd love, gives it to you, and then lets you go."
+    },
+    {
+     "start": 598.95,
+     "end": 599.98,
+     "speaker": "THEO",
+     "text": "Respecting the gap."
+    },
+    {
+     "start": 600.68,
+     "end": 601.8,
+     "speaker": "PRIYA",
+     "text": "Respecting the gap."
+    },
+    {
+     "start": 601.96,
+     "end": 603.59,
+     "speaker": "PRIYA",
+     "text": "Imagine if that was a feature."
+    },
+    {
+     "start": 603.75,
+     "end": 605.62,
+     "speaker": "PRIYA",
+     "text": "You finished the thing you came for."
+    },
+    {
+     "start": 605.78,
+     "end": 606.7,
+     "speaker": "PRIYA",
+     "text": "Go outside."
+    },
+    {
+     "start": 607.35,
+     "end": 608.49,
+     "speaker": "THEO",
+     "text": "I would pay for that app."
+    },
+    {
+     "start": 608.65,
+     "end": 609.79,
+     "speaker": "THEO",
+     "text": "I would pay real money."
+    },
+    {
+     "start": 610.37,
+     "end": 612.94,
+     "speaker": "PRIYA",
+     "text": "You would pay for an app that tells you to stop using it."
+    },
+    {
+     "start": 613.49,
+     "end": 615.67,
+     "speaker": "THEO",
+     "text": "I would pay for an app that knows when I'm done."
+    },
+    {
+     "start": 615.83,
+     "end": 616.67,
+     "speaker": "THEO",
+     "text": "That's different."
+    },
+    {
+     "start": 617.29,
+     "end": 624.45,
+     "speaker": "PRIYA",
+     "text": "Okay, before we go, I want to give people a tiny assignment, because we always do this and people seem to actually like it."
+    },
+    {
+     "start": 625.02,
+     "end": 625.66,
+     "speaker": "THEO",
+     "text": "Homework."
+    },
+    {
+     "start": 625.82,
+     "end": 626.88,
+     "speaker": "THEO",
+     "text": "Everyone's favorite."
+    },
+    {
+     "start": 627.58,
+     "end": 628.95,
+     "speaker": "PRIYA",
+     "text": "This week, pick one gap."
+    },
+    {
+     "start": 629.11,
+     "end": 629.77,
+     "speaker": "PRIYA",
+     "text": "Just one."
+    },
+    {
+     "start": 629.93,
+     "end": 631.37,
+     "speaker": "PRIYA",
+     "text": "A walk, a commute, a wait."
+    },
+    {
+     "start": 631.53,
+     "end": 632.42,
+     "speaker": "PRIYA",
+     "text": "Leave it empty."
+    },
+    {
+     "start": 632.58,
+     "end": 633.79,
+     "speaker": "PRIYA",
+     "text": "Don't fill it with anything."
+    },
+    {
+     "start": 633.95,
+     "end": 636.28,
+     "speaker": "PRIYA",
+     "text": "And then write to us and tell us what you noticed."
+    },
+    {
+     "start": 637.01,
+     "end": 641.7,
+     "speaker": "THEO",
+     "text": "And if what you noticed is a dog that looks like a relative, we especially want to hear about it."
+    },
+    {
+     "start": 642.41,
+     "end": 643.26,
+     "speaker": "PRIYA",
+     "text": "That's our show."
+    },
+    {
+     "start": 643.42,
+     "end": 646.0,
+     "speaker": "PRIYA",
+     "text": "The Long Way Round is made by me, Priya Raman."
+    },
+    {
+     "start": 646.54,
+     "end": 647.81,
+     "speaker": "THEO",
+     "text": "And me, Theo Marsh."
+    },
+    {
+     "start": 647.97,
+     "end": 649.74,
+     "speaker": "THEO",
+     "text": "Thanks for taking the long way with us."
+    },
+    {
+     "start": 650.45,
+     "end": 651.57,
+     "speaker": "PRIYA",
+     "text": "See you next week."
+    }
+   ],
+   "highlightCues": [
+    {
+     "start": 0.35,
+     "end": 1.85,
+     "speaker": "PRIYA",
+     "text": "Okay, so walk me through it."
+    },
+    {
+     "start": 2.01,
+     "end": 2.63,
+     "speaker": "PRIYA",
+     "text": "Day one."
+    },
+    {
+     "start": 2.79,
+     "end": 3.98,
+     "speaker": "PRIYA",
+     "text": "What actually happened?"
+    },
+    {
+     "start": 4.65,
+     "end": 6.91,
+     "speaker": "THEO",
+     "text": "Day one was genuinely uncomfortable."
+    },
+    {
+     "start": 7.07,
+     "end": 12.87,
+     "speaker": "THEO",
+     "text": "I walked to the train and I kept reaching for my pocket, the way you reach for a light switch in a house you've moved out of."
+    },
+    {
+     "start": 13.03,
+     "end": 15.39,
+     "speaker": "THEO",
+     "text": "My hand knew the routine better than I did."
+    },
+    {
+     "start": 15.55,
+     "end": 17.83,
+     "speaker": "THEO",
+     "text": "And the walk felt incredibly long."
+    },
+    {
+     "start": 17.99,
+     "end": 19.06,
+     "speaker": "THEO",
+     "text": "It's eleven minutes."
+    },
+    {
+     "start": 19.22,
+     "end": 20.34,
+     "speaker": "THEO",
+     "text": "It felt like forty."
+    },
+    {
+     "start": 20.96,
+     "end": 23.01,
+     "speaker": "PRIYA",
+     "text": "Because there was nothing to measure it against."
+    },
+    {
+     "start": 23.52,
+     "end": 24.2,
+     "speaker": "THEO",
+     "text": "Exactly."
+    },
+    {
+     "start": 24.36,
+     "end": 28.54,
+     "speaker": "THEO",
+     "text": "Normally the walk is measured in songs, or in half a podcast segment."
+    },
+    {
+     "start": 28.7,
+     "end": 30.86,
+     "speaker": "THEO",
+     "text": "Without that, time just sort of sat there."
+    },
+    {
+     "start": 31.02,
+     "end": 34.7,
+     "speaker": "THEO",
+     "text": "And my brain, for the first day or so, did not fill it with brilliant thoughts."
+    },
+    {
+     "start": 34.86,
+     "end": 36.36,
+     "speaker": "THEO",
+     "text": "It filled it with nonsense."
+    },
+    {
+     "start": 36.52,
+     "end": 37.97,
+     "speaker": "THEO",
+     "text": "Did I reply to that email."
+    },
+    {
+     "start": 38.13,
+     "end": 39.44,
+     "speaker": "THEO",
+     "text": "What's the thing I'm forgetting."
+    },
+    {
+     "start": 39.6,
+     "end": 41.47,
+     "speaker": "THEO",
+     "text": "Why does that dog look like my uncle."
+    },
+    {
+     "start": 42.04,
+     "end": 42.9,
+     "speaker": "PRIYA",
+     "text": "Which dog?"
+    },
+    {
+     "start": 43.53,
+     "end": 45.91,
+     "speaker": "THEO",
+     "text": "There is a specific dog on Hawthorne Street."
+    },
+    {
+     "start": 46.07,
+     "end": 47.08,
+     "speaker": "THEO",
+     "text": "You would agree with me."
+    },
+    {
+     "start": 47.78,
+     "end": 48.66,
+     "speaker": "PRIYA",
+     "text": "I'll trust you."
+    },
+    {
+     "start": 49.32,
+     "end": 55.01,
+     "speaker": "THEO",
+     "text": "And the strangest part of those first two days was realizing how often I'd been using sound as a kind of shield."
+    },
+    {
+     "start": 55.17,
+     "end": 59.73,
+     "speaker": "THEO",
+     "text": "Waiting in line at the pharmacy, there were five of us, and four of us had headphones in."
+    },
+    {
+     "start": 59.89,
+     "end": 61.24,
+     "speaker": "THEO",
+     "text": "Nobody looked at anyone."
+    },
+    {
+     "start": 61.4,
+     "end": 66.85,
+     "speaker": "THEO",
+     "text": "And without mine, I felt almost exposed, like I'd shown up to a party in pajamas."
+    },
+    {
+     "start": 67.46,
+     "end": 69.06,
+     "speaker": "PRIYA",
+     "text": "I know that feeling exactly."
+    },
+    {
+     "start": 69.22,
+     "end": 70.54,
+     "speaker": "PRIYA",
+     "text": "I get it in elevators."
+    },
+    {
+     "start": 70.7,
+     "end": 75.93,
+     "speaker": "PRIYA",
+     "text": "If I don't have something in my ears, I suddenly have no idea where to put my eyes."
+    },
+    {
+     "start": 76.49,
+     "end": 76.99,
+     "speaker": "THEO",
+     "text": "Right."
+    },
+    {
+     "start": 77.15,
+     "end": 81.18,
+     "speaker": "THEO",
+     "text": "The headphones were doing a social job, not just an entertainment job."
+    },
+    {
+     "start": 81.34,
+     "end": 84.48,
+     "speaker": "THEO",
+     "text": "They were a little sign that said, don't talk to me, I'm busy."
+    },
+    {
+     "start": 84.64,
+     "end": 89.45,
+     "speaker": "THEO",
+     "text": "And I had been holding that sign up almost every waking hour without realizing it."
+    },
+    {
+     "start": 89.86,
+     "end": 91.98,
+     "speaker": "THEO",
+     "text": "So days one and two were just noise."
+    },
+    {
+     "start": 92.14,
+     "end": 93.63,
+     "speaker": "THEO",
+     "text": "A kind of mental static."
+    },
+    {
+     "start": 93.79,
+     "end": 100.8,
+     "speaker": "THEO",
+     "text": "And honestly, if the experiment had been two days long, I would have come back on this show and said, boredom is overrated, put your headphones back in."
+    },
+    {
+     "start": 101.51,
+     "end": 102.31,
+     "speaker": "PRIYA",
+     "text": "What changed?"
+    },
+    {
+     "start": 102.86,
+     "end": 105.86,
+     "speaker": "THEO",
+     "text": "Somewhere around day three, the static started to settle."
+    },
+    {
+     "start": 106.02,
+     "end": 108.01,
+     "speaker": "THEO",
+     "text": "And I can only describe it like this."
+    },
+    {
+     "start": 108.17,
+     "end": 116.64,
+     "speaker": "THEO",
+     "text": "It was as if I had been standing next to a very loud machine for years, and someone switched it off, and for a while all I could hear was the ringing in my ears."
+    },
+    {
+     "start": 116.8,
+     "end": 119.64,
+     "speaker": "THEO",
+     "text": "And then the ringing faded, and I started to hear the room."
+    },
+    {
+     "start": 120.33,
+     "end": 121.36,
+     "speaker": "PRIYA",
+     "text": "The refrigerator."
+    },
+    {
+     "start": 122.0,
+     "end": 123.38,
+     "speaker": "THEO",
+     "text": "The refrigerator, yes."
+    },
+    {
+     "start": 123.54,
+     "end": 125.79,
+     "speaker": "THEO",
+     "text": "But also, I started noticing things on the walk."
+    },
+    {
+     "start": 125.95,
+     "end": 138.02,
+     "speaker": "THEO",
+     "text": "There's a man who runs a shoe repair shop near the station, and every morning at the same time he sweeps the sidewalk in front of his store, and then he sweeps a little bit of the sidewalk in front of the store next door, which is empty."
+    },
+    {
+     "start": 138.18,
+     "end": 139.54,
+     "speaker": "THEO",
+     "text": "It's been empty for a year."
+    },
+    {
+     "start": 139.7,
+     "end": 140.94,
+     "speaker": "THEO",
+     "text": "And he sweeps it anyway."
+    },
+    {
+     "start": 141.58,
+     "end": 142.65,
+     "speaker": "PRIYA",
+     "text": "Oh, that's lovely."
+    },
+    {
+     "start": 143.26,
+     "end": 145.84,
+     "speaker": "THEO",
+     "text": "I must have walked past him two hundred times."
+    },
+    {
+     "start": 146.0,
+     "end": 146.95,
+     "speaker": "THEO",
+     "text": "I had never seen it."
+    },
+    {
+     "start": 147.11,
+     "end": 153.05,
+     "speaker": "THEO",
+     "text": "And then on day four, something happened that I did not expect, which is that I started having ideas again."
+    },
+    {
+     "start": 153.21,
+     "end": 153.94,
+     "speaker": "THEO",
+     "text": "Real ones."
+    },
+    {
+     "start": 154.1,
+     "end": 155.53,
+     "speaker": "THEO",
+     "text": "Not to-do list items."
+    },
+    {
+     "start": 155.69,
+     "end": 156.9,
+     "speaker": "THEO",
+     "text": "Actual ideas."
+    },
+    {
+     "start": 157.06,
+     "end": 160.6,
+     "speaker": "THEO",
+     "text": "I solved a problem at work in the shower that I'd been stuck on for two weeks."
+    },
+    {
+     "start": 160.76,
+     "end": 165.2,
+     "speaker": "THEO",
+     "text": "I figured out what I wanted to say to my sister about something that had been bothering both of us."
+    },
+    {
+     "start": 165.36,
+     "end": 169.6,
+     "speaker": "THEO",
+     "text": "I thought of three episode ideas for this show, two of which are bad."
+    },
+    {
+     "start": 170.17,
+     "end": 171.39,
+     "speaker": "PRIYA",
+     "text": "We'll see about that."
+    },
+    {
+     "start": 171.94,
+     "end": 176.84,
+     "speaker": "THEO",
+     "text": "And the thing that struck me was that none of those ideas came while I was trying to think."
+    },
+    {
+     "start": 177.0,
+     "end": 178.15,
+     "speaker": "THEO",
+     "text": "They came in the gaps."
+    },
+    {
+     "start": 178.31,
+     "end": 181.04,
+     "speaker": "THEO",
+     "text": "On the walk, at the sink, waiting for the pasta water."
+    },
+    {
+     "start": 181.2,
+     "end": 183.94,
+     "speaker": "THEO",
+     "text": "The exact moments I had been so carefully filling."
+    },
+    {
+     "start": 184.61,
+     "end": 186.0,
+     "speaker": "PRIYA",
+     "text": "So the gaps weren't empty."
+    },
+    {
+     "start": 186.58,
+     "end": 188.5,
+     "speaker": "THEO",
+     "text": "That's the thing I keep coming back to."
+    },
+    {
+     "start": 188.66,
+     "end": 192.6,
+     "speaker": "THEO",
+     "text": "I thought I was wasting those minutes, and so I filled them with something valuable."
+    },
+    {
+     "start": 192.76,
+     "end": 194.49,
+     "speaker": "THEO",
+     "text": "But they were already being used."
+    },
+    {
+     "start": 194.65,
+     "end": 199.1,
+     "speaker": "THEO",
+     "text": "My brain was using them to connect things, to file things away, to notice."
+    },
+    {
+     "start": 199.26,
+     "end": 200.72,
+     "speaker": "THEO",
+     "text": "I just never let it finish."
+    },
+    {
+     "start": 201.23,
+     "end": 205.53,
+     "speaker": "PRIYA",
+     "text": "There's actually a decent amount of research that lines up with what you're describing."
+    },
+    {
+     "start": 205.69,
+     "end": 214.44,
+     "speaker": "PRIYA",
+     "text": "When you're not focused on a task, there are networks in the brain that become more active, and they seem to be involved in exactly the kind of thing you're talking about."
+    },
+    {
+     "start": 214.6,
+     "end": 218.25,
+     "speaker": "PRIYA",
+     "text": "Remembering, imagining, connecting your own experiences together."
+    },
+    {
+     "start": 218.41,
+     "end": 221.15,
+     "speaker": "PRIYA",
+     "text": "It's sometimes described as the brain's default mode."
+    },
+    {
+     "start": 221.71,
+     "end": 222.67,
+     "speaker": "THEO",
+     "text": "The default mode."
+    },
+    {
+     "start": 222.83,
+     "end": 227.68,
+     "speaker": "THEO",
+     "text": "I like that, because it suggests that this is the thing the brain wants to do when you leave it alone."
+    },
+    {
+     "start": 227.84,
+     "end": 228.71,
+     "speaker": "THEO",
+     "text": "It's not idle."
+    },
+    {
+     "start": 228.87,
+     "end": 229.91,
+     "speaker": "THEO",
+     "text": "It's doing its own work."
+    },
+    {
+     "start": 230.65,
+     "end": 234.21,
+     "speaker": "PRIYA",
+     "text": "And we have essentially designed a world where it never gets left alone."
+    },
+    {
+     "start": 234.9,
+     "end": 236.46,
+     "speaker": "THEO",
+     "text": "Do you know what it reminded me of?"
+    },
+    {
+     "start": 236.62,
+     "end": 244.59,
+     "speaker": "THEO",
+     "text": "When I was a kid, on long car trips, there was always that stretch of highway where the radio station faded out and the next one hadn't come in yet."
+    },
+    {
+     "start": 244.75,
+     "end": 246.94,
+     "speaker": "THEO",
+     "text": "And my dad would just leave it off for a while."
+    },
+    {
+     "start": 247.1,
+     "end": 248.05,
+     "speaker": "THEO",
+     "text": "Nobody talked."
+    },
+    {
+     "start": 248.21,
+     "end": 250.12,
+     "speaker": "THEO",
+     "text": "We just watched the fields go by."
+    },
+    {
+     "start": 250.28,
+     "end": 253.93,
+     "speaker": "THEO",
+     "text": "And I remember those stretches better than almost anything we actually listened to."
+    },
+    {
+     "start": 254.59,
+     "end": 256.42,
+     "speaker": "PRIYA",
+     "text": "The silence between stations."
+    },
+    {
+     "start": 257.03,
+     "end": 258.76,
+     "speaker": "THEO",
+     "text": "The silence between stations."
+    },
+    {
+     "start": 258.92,
+     "end": 260.49,
+     "speaker": "THEO",
+     "text": "It used to be built into life."
+    },
+    {
+     "start": 260.65,
+     "end": 261.52,
+     "speaker": "THEO",
+     "text": "You couldn't avoid it."
+    },
+    {
+     "start": 261.68,
+     "end": 263.09,
+     "speaker": "THEO",
+     "text": "Now you have to go looking for it."
+    },
+    {
+     "start": 263.5,
+     "end": 263.96,
+     "speaker": "THEO",
+     "text": "Right."
+    },
+    {
+     "start": 264.12,
+     "end": 265.91,
+     "speaker": "THEO",
+     "text": "And I'm not anti-technology."
+    },
+    {
+     "start": 266.07,
+     "end": 270.03,
+     "speaker": "THEO",
+     "text": "I make a podcast, I love audio more than almost anything."
+    },
+    {
+     "start": 270.19,
+     "end": 273.19,
+     "speaker": "THEO",
+     "text": "But I think I had stopped choosing what I listened to."
+    },
+    {
+     "start": 273.35,
+     "end": 276.42,
+     "speaker": "THEO",
+     "text": "I was just pouring sound into every container I could find."
+    },
+    {
+     "start": 276.58,
+     "end": 279.62,
+     "speaker": "THEO",
+     "text": "And when I took it away, the thing I missed most wasn't the content."
+    },
+    {
+     "start": 279.78,
+     "end": 282.84,
+     "speaker": "THEO",
+     "text": "It was the habit of never being alone with my own head."
+    },
+    {
+     "start": 283.55,
+     "end": 286.92,
+     "speaker": "PRIYA",
+     "text": "So by the end of the week, did you want your headphones back?"
+    },
+    {
+     "start": 287.49,
+     "end": 288.82,
+     "speaker": "THEO",
+     "text": "I wanted some of them back."
+    },
+    {
+     "start": 288.98,
+     "end": 290.73,
+     "speaker": "THEO",
+     "text": "And that was the real discovery."
+    },
+    {
+     "start": 290.89,
+     "end": 294.32,
+     "speaker": "THEO",
+     "text": "When the week ended, I didn't go back to wall-to-wall audio."
+    },
+    {
+     "start": 294.48,
+     "end": 295.56,
+     "speaker": "THEO",
+     "text": "I started choosing."
+    },
+    {
+     "start": 295.72,
+     "end": 300.22,
+     "speaker": "THEO",
+     "text": "I'd sit down with an album, the whole album, start to finish, and actually listen to it."
+    },
+    {
+     "start": 300.38,
+     "end": 303.43,
+     "speaker": "THEO",
+     "text": "I'd pick one episode of something and give it my full attention."
+    },
+    {
+     "start": 303.59,
+     "end": 305.97,
+     "speaker": "THEO",
+     "text": "And everything I listened to on purpose felt better."
+    },
+    {
+     "start": 306.13,
+     "end": 306.68,
+     "speaker": "THEO",
+     "text": "Richer."
+    },
+    {
+     "start": 306.84,
+     "end": 310.67,
+     "speaker": "THEO",
+     "text": "Like the difference between eating standing over the sink and sitting down for a meal."
+    },
+    {
+     "start": 311.34,
+     "end": 313.75,
+     "speaker": "PRIYA",
+     "text": "Less listening, but better listening."
+    },
+    {
+     "start": 314.26,
+     "end": 316.97,
+     "speaker": "THEO",
+     "text": "Less listening, better listening, and a lot more noticing."
+    }
+   ]
+  },
+  "the-bassline": {
+   "speakers": {
+    "DESMOND": {
+     "name": "Desmond Hale"
+    },
+    "ROSA": {
+     "name": "Rosa Quintero"
+    }
+   },
+   "full": {
+    "video": "media/speakers/the-bassline.full.mp4",
+    "poster": "media/speakers/the-bassline.full.jpg",
+    "duration": 624.6
+   },
+   "highlight": {
+    "video": "media/speakers/the-bassline.highlight.mp4",
+    "poster": "media/speakers/the-bassline.jpg",
+    "duration": 271.4,
+    "sourceStart": 179.89,
+    "sourceEnd": 451.26
+   },
+   "chapters": [
+    {
+     "title": "Introduction",
+     "start": 0.0
+    },
+    {
+     "title": "Becoming a session player",
+     "start": 38.76
+    },
+    {
+     "title": "The craft of serving the song",
+     "start": 118.59
+    },
+    {
+     "title": "The take that wasn't supposed to be kept",
+     "start": 179.64
+    },
+    {
+     "title": "Credit and connection",
+     "start": 450.91
+    },
+    {
+     "title": "Leaving space",
+     "start": 512.24
+    },
+    {
+     "title": "Closing",
+     "start": 586.07
+    }
+   ],
+   "cues": [
+    {
+     "start": 3.2,
+     "end": 4.29,
+     "speaker": "DESMOND",
+     "text": "This is Liner Notes."
+    },
+    {
+     "start": 4.45,
+     "end": 5.35,
+     "speaker": "DESMOND",
+     "text": "I'm Desmond Hale."
+    },
+    {
+     "start": 5.51,
+     "end": 12.97,
+     "speaker": "DESMOND",
+     "text": "Every record you love has a list of names printed in very small type somewhere on the sleeve, and on this show we go looking for the people behind those names."
+    },
+    {
+     "start": 13.13,
+     "end": 18.32,
+     "speaker": "DESMOND",
+     "text": "My guest today has played bass on, by her own estimate, somewhere north of four hundred recordings."
+    },
+    {
+     "start": 18.48,
+     "end": 22.66,
+     "speaker": "DESMOND",
+     "text": "Pop records, country records, film scores, a few jingles she would prefer we not mention."
+    },
+    {
+     "start": 23.4,
+     "end": 24.97,
+     "speaker": "ROSA",
+     "text": "Please don't mention the jingles."
+    },
+    {
+     "start": 25.53,
+     "end": 26.54,
+     "speaker": "DESMOND",
+     "text": "I won't mention the jingles."
+    },
+    {
+     "start": 26.7,
+     "end": 29.26,
+     "speaker": "DESMOND",
+     "text": "Rosa Quintero, welcome to Liner Notes."
+    },
+    {
+     "start": 29.81,
+     "end": 30.8,
+     "speaker": "ROSA",
+     "text": "Thank you, Desmond."
+    },
+    {
+     "start": 30.96,
+     "end": 33.22,
+     "speaker": "ROSA",
+     "text": "It's strange to be on this side of a microphone."
+    },
+    {
+     "start": 33.38,
+     "end": 38.76,
+     "speaker": "ROSA",
+     "text": "Usually when I'm in a room like this, I'm the one in the corner trying not to make any noise between takes."
+    },
+    {
+     "start": 39.36,
+     "end": 40.42,
+     "speaker": "DESMOND",
+     "text": "Let's start at the beginning."
+    },
+    {
+     "start": 40.58,
+     "end": 42.46,
+     "speaker": "DESMOND",
+     "text": "How does someone become a session bassist?"
+    },
+    {
+     "start": 42.62,
+     "end": 44.81,
+     "speaker": "DESMOND",
+     "text": "Because I don't think most people know that's even a job."
+    },
+    {
+     "start": 45.38,
+     "end": 46.33,
+     "speaker": "ROSA",
+     "text": "Most people don't."
+    },
+    {
+     "start": 46.49,
+     "end": 48.93,
+     "speaker": "ROSA",
+     "text": "And honestly, when I was young, I didn't either."
+    },
+    {
+     "start": 49.09,
+     "end": 57.13,
+     "speaker": "ROSA",
+     "text": "I grew up in San Antonio, and my uncle played bass in a conjunto band, and I used to sit under the table at family parties and watch his right hand."
+    },
+    {
+     "start": 57.29,
+     "end": 59.63,
+     "speaker": "ROSA",
+     "text": "Not his face, not the singer, his right hand."
+    },
+    {
+     "start": 59.79,
+     "end": 61.78,
+     "speaker": "ROSA",
+     "text": "There was something about how little he moved."
+    },
+    {
+     "start": 61.94,
+     "end": 68.0,
+     "speaker": "ROSA",
+     "text": "Everyone else was dancing and sweating and he was just standing there, completely calm, holding the whole thing together."
+    },
+    {
+     "start": 68.68,
+     "end": 70.04,
+     "speaker": "DESMOND",
+     "text": "The quiet center of the room."
+    },
+    {
+     "start": 70.58,
+     "end": 71.32,
+     "speaker": "ROSA",
+     "text": "Exactly."
+    },
+    {
+     "start": 71.48,
+     "end": 74.64,
+     "speaker": "ROSA",
+     "text": "And I think I decided pretty early that I wanted to be that person."
+    },
+    {
+     "start": 74.8,
+     "end": 76.51,
+     "speaker": "ROSA",
+     "text": "I didn't want to be the one out front."
+    },
+    {
+     "start": 76.67,
+     "end": 80.54,
+     "speaker": "ROSA",
+     "text": "I wanted to be the one everybody was leaning on without realizing it."
+    },
+    {
+     "start": 81.27,
+     "end": 82.87,
+     "speaker": "DESMOND",
+     "text": "And how did that turn into a career?"
+    },
+    {
+     "start": 83.59,
+     "end": 85.3,
+     "speaker": "ROSA",
+     "text": "Slowly, and then all at once."
+    },
+    {
+     "start": 85.46,
+     "end": 87.1,
+     "speaker": "ROSA",
+     "text": "I played in bar bands for years."
+    },
+    {
+     "start": 87.26,
+     "end": 88.3,
+     "speaker": "ROSA",
+     "text": "I taught lessons."
+    },
+    {
+     "start": 88.46,
+     "end": 96.87,
+     "speaker": "ROSA",
+     "text": "I played in pit orchestras for musicals, which is the best training in the world, because you have to read anything they put in front of you and you can never, ever be late."
+    },
+    {
+     "start": 97.03,
+     "end": 104.5,
+     "speaker": "ROSA",
+     "text": "And then a producer I'd done a few demos for called me on a Tuesday afternoon and said, our bass player is sick, can you be here in an hour."
+    },
+    {
+     "start": 104.66,
+     "end": 105.55,
+     "speaker": "ROSA",
+     "text": "And I went."
+    },
+    {
+     "start": 105.71,
+     "end": 107.35,
+     "speaker": "ROSA",
+     "text": "And that was the first real session."
+    },
+    {
+     "start": 107.86,
+     "end": 109.5,
+     "speaker": "DESMOND",
+     "text": "What do you remember about that first day?"
+    },
+    {
+     "start": 110.15,
+     "end": 110.51,
+     "speaker": "ROSA",
+     "text": "Terror."
+    },
+    {
+     "start": 110.67,
+     "end": 111.42,
+     "speaker": "ROSA",
+     "text": "Pure terror."
+    },
+    {
+     "start": 111.58,
+     "end": 112.32,
+     "speaker": "ROSA",
+     "text": "And the coffee."
+    },
+    {
+     "start": 112.48,
+     "end": 113.75,
+     "speaker": "ROSA",
+     "text": "The coffee was very good."
+    },
+    {
+     "start": 113.91,
+     "end": 118.65,
+     "speaker": "ROSA",
+     "text": "Studios always have very good coffee, because they know everyone is terrified."
+    },
+    {
+     "start": 119.19,
+     "end": 125.75,
+     "speaker": "DESMOND",
+     "text": "I want to talk about what the job actually is, because I think there's a misunderstanding that a session player is just someone who plays what's written."
+    },
+    {
+     "start": 126.33,
+     "end": 127.26,
+     "speaker": "ROSA",
+     "text": "Sometimes it is."
+    },
+    {
+     "start": 127.42,
+     "end": 134.94,
+     "speaker": "ROSA",
+     "text": "Sometimes there's a full chart and they want exactly that, and your job is to play it perfectly, with great feel, on the first or second take."
+    },
+    {
+     "start": 135.1,
+     "end": 138.45,
+     "speaker": "ROSA",
+     "text": "But a lot of the time, especially in pop and rock, there's no chart."
+    },
+    {
+     "start": 138.61,
+     "end": 139.46,
+     "speaker": "ROSA",
+     "text": "There's a demo."
+    },
+    {
+     "start": 139.62,
+     "end": 143.17,
+     "speaker": "ROSA",
+     "text": "Maybe it's the songwriter singing over an acoustic guitar on their phone."
+    },
+    {
+     "start": 143.33,
+     "end": 145.45,
+     "speaker": "ROSA",
+     "text": "And the producer says, give us something."
+    },
+    {
+     "start": 146.06,
+     "end": 146.82,
+     "speaker": "DESMOND",
+     "text": "Give us something."
+    },
+    {
+     "start": 147.45,
+     "end": 148.24,
+     "speaker": "ROSA",
+     "text": "Give us something."
+    },
+    {
+     "start": 148.4,
+     "end": 151.86,
+     "speaker": "ROSA",
+     "text": "Which is the most terrifying and the most wonderful sentence in the business."
+    },
+    {
+     "start": 152.02,
+     "end": 153.65,
+     "speaker": "ROSA",
+     "text": "Because now you're not just playing."
+    },
+    {
+     "start": 153.81,
+     "end": 154.52,
+     "speaker": "ROSA",
+     "text": "You're writing."
+    },
+    {
+     "start": 154.68,
+     "end": 157.17,
+     "speaker": "ROSA",
+     "text": "You're deciding what this song sounds like underneath."
+    },
+    {
+     "start": 157.33,
+     "end": 162.86,
+     "speaker": "ROSA",
+     "text": "And the trick, the thing that took me years to understand, is that the best part is almost never the most impressive one."
+    },
+    {
+     "start": 163.49,
+     "end": 164.37,
+     "speaker": "DESMOND",
+     "text": "Say more about that."
+    },
+    {
+     "start": 165.12,
+     "end": 168.26,
+     "speaker": "ROSA",
+     "text": "Young players, and I was one, want to show you what they can do."
+    },
+    {
+     "start": 168.42,
+     "end": 170.0,
+     "speaker": "ROSA",
+     "text": "They want to fill every space."
+    },
+    {
+     "start": 170.16,
+     "end": 172.21,
+     "speaker": "ROSA",
+     "text": "But the song doesn't need you to be impressive."
+    },
+    {
+     "start": 172.37,
+     "end": 176.52,
+     "speaker": "ROSA",
+     "text": "The song needs you to make the singer sound like the most important person in the world."
+    },
+    {
+     "start": 176.68,
+     "end": 179.67,
+     "speaker": "ROSA",
+     "text": "So most of what I do, honestly, is decide what not to play."
+    },
+    {
+     "start": 180.24,
+     "end": 182.86,
+     "speaker": "DESMOND",
+     "text": "Which brings us to the story I asked you here to tell."
+    },
+    {
+     "start": 183.02,
+     "end": 186.13,
+     "speaker": "DESMOND",
+     "text": "There's one bassline in particular that has followed you around for a long time."
+    },
+    {
+     "start": 186.69,
+     "end": 187.46,
+     "speaker": "ROSA",
+     "text": "It has."
+    },
+    {
+     "start": 187.62,
+     "end": 188.61,
+     "speaker": "ROSA",
+     "text": "It really has."
+    },
+    {
+     "start": 188.77,
+     "end": 192.05,
+     "speaker": "ROSA",
+     "text": "And the funny thing is, it was never supposed to exist."
+    },
+    {
+     "start": 192.73,
+     "end": 193.72,
+     "speaker": "DESMOND",
+     "text": "Tell me about the day."
+    },
+    {
+     "start": 194.47,
+     "end": 196.11,
+     "speaker": "ROSA",
+     "text": "So this was a long time ago."
+    },
+    {
+     "start": 196.27,
+     "end": 201.82,
+     "speaker": "ROSA",
+     "text": "I was booked for a three-hour session on a single for a singer who was, at that point, not well known."
+    },
+    {
+     "start": 201.98,
+     "end": 204.38,
+     "speaker": "ROSA",
+     "text": "Nobody in the room thought this song was the big one."
+    },
+    {
+     "start": 204.54,
+     "end": 205.72,
+     "speaker": "ROSA",
+     "text": "It was a filler date."
+    },
+    {
+     "start": 205.88,
+     "end": 214.25,
+     "speaker": "ROSA",
+     "text": "The producer was tired, the drummer had a flight to catch, and we had been working on this one song for most of the afternoon, and it just wasn't sitting right."
+    },
+    {
+     "start": 214.41,
+     "end": 215.59,
+     "speaker": "ROSA",
+     "text": "The verses felt stiff."
+    },
+    {
+     "start": 215.75,
+     "end": 218.97,
+     "speaker": "ROSA",
+     "text": "Everyone was playing correctly, and it was completely dead."
+    },
+    {
+     "start": 219.71,
+     "end": 220.35,
+     "speaker": "DESMOND",
+     "text": "That happens."
+    },
+    {
+     "start": 221.08,
+     "end": 222.39,
+     "speaker": "ROSA",
+     "text": "It happens all the time."
+    },
+    {
+     "start": 222.55,
+     "end": 230.53,
+     "speaker": "ROSA",
+     "text": "So the producer calls a break, and everyone goes to get coffee, and I stayed in the room because I was frustrated and I wanted to figure it out."
+    },
+    {
+     "start": 230.69,
+     "end": 232.39,
+     "speaker": "ROSA",
+     "text": "And I started just playing around."
+    },
+    {
+     "start": 232.55,
+     "end": 233.3,
+     "speaker": "ROSA",
+     "text": "Not the part."
+    },
+    {
+     "start": 233.46,
+     "end": 234.28,
+     "speaker": "ROSA",
+     "text": "Just noodling."
+    },
+    {
+     "start": 234.44,
+     "end": 241.61,
+     "speaker": "ROSA",
+     "text": "I took the root notes I'd been playing, which were very straight, very on the beat, and I started leaving out the first note of every bar."
+    },
+    {
+     "start": 242.14,
+     "end": 242.67,
+     "speaker": "DESMOND",
+     "text": "Leaving it out."
+    },
+    {
+     "start": 243.41,
+     "end": 244.22,
+     "speaker": "ROSA",
+     "text": "Leaving it out."
+    },
+    {
+     "start": 244.38,
+     "end": 253.31,
+     "speaker": "ROSA",
+     "text": "Just letting the drum take the downbeat alone, and then coming in a little late, a little behind, almost like the bass was answering the kick drum instead of agreeing with it."
+    },
+    {
+     "start": 253.47,
+     "end": 258.22,
+     "speaker": "ROSA",
+     "text": "And then I added this little climb at the end of every second bar, three notes, nothing fancy."
+    },
+    {
+     "start": 258.38,
+     "end": 260.23,
+     "speaker": "ROSA",
+     "text": "And I was just playing it for myself."
+    },
+    {
+     "start": 260.39,
+     "end": 261.97,
+     "speaker": "ROSA",
+     "text": "I didn't think anyone was listening."
+    },
+    {
+     "start": 262.64,
+     "end": 263.55,
+     "speaker": "DESMOND",
+     "text": "But somebody was."
+    },
+    {
+     "start": 264.28,
+     "end": 265.01,
+     "speaker": "ROSA",
+     "text": "The engineer."
+    },
+    {
+     "start": 265.17,
+     "end": 267.19,
+     "speaker": "ROSA",
+     "text": "The engineer had never stopped recording."
+    },
+    {
+     "start": 267.35,
+     "end": 270.25,
+     "speaker": "ROSA",
+     "text": "This was something engineers do, by the way, the good ones."
+    },
+    {
+     "start": 270.41,
+     "end": 275.59,
+     "speaker": "ROSA",
+     "text": "They just leave the tape running because they know people do their best playing when they think it doesn't count."
+    },
+    {
+     "start": 275.75,
+     "end": 279.77,
+     "speaker": "ROSA",
+     "text": "So the producer comes back with his coffee, and the engineer says, you need to hear this."
+    },
+    {
+     "start": 279.93,
+     "end": 286.31,
+     "speaker": "ROSA",
+     "text": "And he plays back me noodling, completely alone, no drums, no singer, just this lopsided little bass figure."
+    },
+    {
+     "start": 286.92,
+     "end": 288.21,
+     "speaker": "DESMOND",
+     "text": "And what did the producer say?"
+    },
+    {
+     "start": 288.77,
+     "end": 290.47,
+     "speaker": "ROSA",
+     "text": "He didn't say anything for a while."
+    },
+    {
+     "start": 290.63,
+     "end": 292.19,
+     "speaker": "ROSA",
+     "text": "He just listened to it twice."
+    },
+    {
+     "start": 292.35,
+     "end": 294.09,
+     "speaker": "ROSA",
+     "text": "And then he said, that's the song."
+    },
+    {
+     "start": 294.25,
+     "end": 295.58,
+     "speaker": "ROSA",
+     "text": "Build everything around that."
+    },
+    {
+     "start": 295.74,
+     "end": 296.86,
+     "speaker": "ROSA",
+     "text": "And they literally did."
+    },
+    {
+     "start": 297.02,
+     "end": 298.22,
+     "speaker": "ROSA",
+     "text": "The drummer missed his flight."
+    },
+    {
+     "start": 298.38,
+     "end": 299.93,
+     "speaker": "ROSA",
+     "text": "We stayed another three hours."
+    },
+    {
+     "start": 300.09,
+     "end": 306.41,
+     "speaker": "ROSA",
+     "text": "They rearranged the whole track so that everything was leaning on this part I'd invented by accident while everyone else was getting coffee."
+    },
+    {
+     "start": 306.82,
+     "end": 310.28,
+     "speaker": "ROSA",
+     "text": "And I remember the singer coming in that evening, after we'd rebuilt the track."
+    },
+    {
+     "start": 310.44,
+     "end": 312.02,
+     "speaker": "ROSA",
+     "text": "She hadn't been there for any of it."
+    },
+    {
+     "start": 312.18,
+     "end": 316.62,
+     "speaker": "ROSA",
+     "text": "She put on the headphones, and they played her the new version, and she just started laughing."
+    },
+    {
+     "start": 316.78,
+     "end": 318.03,
+     "speaker": "ROSA",
+     "text": "Not because it was funny."
+    },
+    {
+     "start": 318.19,
+     "end": 320.23,
+     "speaker": "ROSA",
+     "text": "Because suddenly she knew how to sing it."
+    },
+    {
+     "start": 320.39,
+     "end": 323.6,
+     "speaker": "ROSA",
+     "text": "The verse that had been stiff all day, she sang in one take."
+    },
+    {
+     "start": 323.76,
+     "end": 325.24,
+     "speaker": "ROSA",
+     "text": "She said, oh, it's a sway."
+    },
+    {
+     "start": 325.4,
+     "end": 327.34,
+     "speaker": "ROSA",
+     "text": "I thought it was a march, but it's a sway."
+    },
+    {
+     "start": 328.05,
+     "end": 329.35,
+     "speaker": "DESMOND",
+     "text": "The bass told her how to sing it."
+    },
+    {
+     "start": 330.03,
+     "end": 331.42,
+     "speaker": "ROSA",
+     "text": "The bass told her how to sing it."
+    },
+    {
+     "start": 331.58,
+     "end": 334.05,
+     "speaker": "ROSA",
+     "text": "That's the thing people don't understand about the low end."
+    },
+    {
+     "start": 334.21,
+     "end": 336.63,
+     "speaker": "ROSA",
+     "text": "You don't really hear it consciously, most of the time."
+    },
+    {
+     "start": 336.79,
+     "end": 337.83,
+     "speaker": "ROSA",
+     "text": "But your body hears it."
+    },
+    {
+     "start": 337.99,
+     "end": 341.58,
+     "speaker": "ROSA",
+     "text": "It tells you whether to stand still or lean, whether to rush or relax."
+    },
+    {
+     "start": 341.74,
+     "end": 345.78,
+     "speaker": "ROSA",
+     "text": "Change the bass, and you change what the singer's body thinks the song is about."
+    },
+    {
+     "start": 346.48,
+     "end": 347.14,
+     "speaker": "DESMOND",
+     "text": "And the record?"
+    },
+    {
+     "start": 347.7,
+     "end": 349.04,
+     "speaker": "ROSA",
+     "text": "The record did very well."
+    },
+    {
+     "start": 349.2,
+     "end": 350.96,
+     "speaker": "ROSA",
+     "text": "Much better than anyone expected."
+    },
+    {
+     "start": 351.12,
+     "end": 358.11,
+     "speaker": "ROSA",
+     "text": "And for years afterward, I would be in a grocery store, or in a taxi, or at a wedding, and I would hear that bassline."
+    },
+    {
+     "start": 358.27,
+     "end": 361.23,
+     "speaker": "ROSA",
+     "text": "Just that little lopsided thing, coming out of a speaker."
+    },
+    {
+     "start": 361.39,
+     "end": 363.36,
+     "speaker": "ROSA",
+     "text": "People would be humming it in line at the bank."
+    },
+    {
+     "start": 363.52,
+     "end": 366.31,
+     "speaker": "ROSA",
+     "text": "And nobody had any idea that it was me."
+    },
+    {
+     "start": 366.47,
+     "end": 371.08,
+     "speaker": "ROSA",
+     "text": "My name was on the sleeve, in that very small type you mentioned, but nobody reads that."
+    },
+    {
+     "start": 371.49,
+     "end": 377.67,
+     "speaker": "ROSA",
+     "text": "The first time I heard it on the radio, I was in a cab in the rain, and the driver had it on, and I made him turn it up."
+    },
+    {
+     "start": 377.83,
+     "end": 384.74,
+     "speaker": "ROSA",
+     "text": "And he looked at me in the mirror like I was crazy, because I was sitting in the back seat with my eyes closed, playing air bass on my knee."
+    },
+    {
+     "start": 385.28,
+     "end": 386.08,
+     "speaker": "DESMOND",
+     "text": "Did you tell him?"
+    },
+    {
+     "start": 386.78,
+     "end": 387.41,
+     "speaker": "ROSA",
+     "text": "I did."
+    },
+    {
+     "start": 387.57,
+     "end": 389.33,
+     "speaker": "ROSA",
+     "text": "I said, that's me, on the bass."
+    },
+    {
+     "start": 389.49,
+     "end": 390.9,
+     "speaker": "ROSA",
+     "text": "And he said, sure it is."
+    },
+    {
+     "start": 391.06,
+     "end": 392.37,
+     "speaker": "ROSA",
+     "text": "And turned it back down."
+    },
+    {
+     "start": 392.88,
+     "end": 393.75,
+     "speaker": "DESMOND",
+     "text": "How did that feel?"
+    },
+    {
+     "start": 393.91,
+     "end": 395.8,
+     "speaker": "DESMOND",
+     "text": "Hearing it everywhere and being invisible?"
+    },
+    {
+     "start": 396.54,
+     "end": 397.99,
+     "speaker": "ROSA",
+     "text": "I've thought about this a lot."
+    },
+    {
+     "start": 398.15,
+     "end": 400.64,
+     "speaker": "ROSA",
+     "text": "And I think at the time, honestly, it felt wonderful."
+    },
+    {
+     "start": 400.8,
+     "end": 402.38,
+     "speaker": "ROSA",
+     "text": "It felt like I had a secret."
+    },
+    {
+     "start": 402.54,
+     "end": 410.26,
+     "speaker": "ROSA",
+     "text": "I'd be at a party and someone would put the song on and everyone would start dancing, and I'd think, you're dancing to something I did with my hands in an empty room."
+    },
+    {
+     "start": 410.42,
+     "end": 411.66,
+     "speaker": "ROSA",
+     "text": "It felt like magic."
+    },
+    {
+     "start": 412.21,
+     "end": 412.7,
+     "speaker": "DESMOND",
+     "text": "And now?"
+    },
+    {
+     "start": 413.36,
+     "end": 414.76,
+     "speaker": "ROSA",
+     "text": "Now it's more complicated."
+    },
+    {
+     "start": 414.92,
+     "end": 422.92,
+     "speaker": "ROSA",
+     "text": "Because over the years I watched the business change, and the small type got smaller, and then on a lot of streaming services, it disappeared entirely."
+    },
+    {
+     "start": 423.08,
+     "end": 427.23,
+     "speaker": "ROSA",
+     "text": "You can listen to a song a thousand times and have no way of knowing who played on it."
+    },
+    {
+     "start": 427.39,
+     "end": 429.25,
+     "speaker": "ROSA",
+     "text": "And that's not just about credit for me."
+    },
+    {
+     "start": 429.41,
+     "end": 431.47,
+     "speaker": "ROSA",
+     "text": "It's that the listener loses something too."
+    },
+    {
+     "start": 431.63,
+     "end": 435.6,
+     "speaker": "ROSA",
+     "text": "If you love that bassline, you might love the other four hundred things I've played on."
+    },
+    {
+     "start": 435.76,
+     "end": 437.73,
+     "speaker": "ROSA",
+     "text": "But there's no road from the song back to me."
+    },
+    {
+     "start": 438.34,
+     "end": 439.7,
+     "speaker": "DESMOND",
+     "text": "No road back to the person."
+    },
+    {
+     "start": 440.29,
+     "end": 441.72,
+     "speaker": "ROSA",
+     "text": "No road back to the person."
+    },
+    {
+     "start": 441.88,
+     "end": 443.49,
+     "speaker": "ROSA",
+     "text": "And I think that's what we've lost."
+    },
+    {
+     "start": 443.65,
+     "end": 445.86,
+     "speaker": "ROSA",
+     "text": "Not the money, although, yes, also the money."
+    },
+    {
+     "start": 446.02,
+     "end": 446.96,
+     "speaker": "ROSA",
+     "text": "It's the connection."
+    },
+    {
+     "start": 447.12,
+     "end": 450.95,
+     "speaker": "ROSA",
+     "text": "The ability for someone who loves a sound to go and find where it came from."
+    },
+    {
+     "start": 451.51,
+     "end": 454.86,
+     "speaker": "DESMOND",
+     "text": "I want to stay on that, because it's something we talk about a lot on this show."
+    },
+    {
+     "start": 455.02,
+     "end": 457.81,
+     "speaker": "DESMOND",
+     "text": "When you were growing up, how did you find the players you loved?"
+    },
+    {
+     "start": 458.52,
+     "end": 459.42,
+     "speaker": "ROSA",
+     "text": "Liner notes."
+    },
+    {
+     "start": 459.58,
+     "end": 461.51,
+     "speaker": "ROSA",
+     "text": "Exactly like the name of your show."
+    },
+    {
+     "start": 461.67,
+     "end": 464.78,
+     "speaker": "ROSA",
+     "text": "I would buy a record, and I would read every word on the back."
+    },
+    {
+     "start": 464.94,
+     "end": 467.66,
+     "speaker": "ROSA",
+     "text": "Who played bass, who engineered it, which studio."
+    },
+    {
+     "start": 467.82,
+     "end": 471.86,
+     "speaker": "ROSA",
+     "text": "And then I'd go to the record store and look for other albums with the same names on them."
+    },
+    {
+     "start": 472.02,
+     "end": 474.67,
+     "speaker": "ROSA",
+     "text": "That's how I found half the musicians I've ever loved."
+    },
+    {
+     "start": 474.83,
+     "end": 477.04,
+     "speaker": "ROSA",
+     "text": "It was like following a trail of breadcrumbs."
+    },
+    {
+     "start": 477.78,
+     "end": 479.62,
+     "speaker": "DESMOND",
+     "text": "And that trail is harder to follow now."
+    },
+    {
+     "start": 480.32,
+     "end": 480.96,
+     "speaker": "ROSA",
+     "text": "It's harder."
+    },
+    {
+     "start": 481.12,
+     "end": 482.32,
+     "speaker": "ROSA",
+     "text": "It's not impossible."
+    },
+    {
+     "start": 482.48,
+     "end": 487.85,
+     "speaker": "ROSA",
+     "text": "There are people working on it, there are databases, some services are getting better about showing credits."
+    },
+    {
+     "start": 488.01,
+     "end": 489.12,
+     "speaker": "ROSA",
+     "text": "But it's not the default."
+    },
+    {
+     "start": 489.28,
+     "end": 493.99,
+     "speaker": "ROSA",
+     "text": "The default is a song title and an artist name, and everyone else is invisible."
+    },
+    {
+     "start": 494.65,
+     "end": 496.31,
+     "speaker": "DESMOND",
+     "text": "What would you want listeners to do differently?"
+    },
+    {
+     "start": 497.0,
+     "end": 497.8,
+     "speaker": "ROSA",
+     "text": "Be curious."
+    },
+    {
+     "start": 497.96,
+     "end": 498.58,
+     "speaker": "ROSA",
+     "text": "That's all."
+    },
+    {
+     "start": 498.74,
+     "end": 500.71,
+     "speaker": "ROSA",
+     "text": "When something moves you, ask who made it."
+    },
+    {
+     "start": 500.87,
+     "end": 501.91,
+     "speaker": "ROSA",
+     "text": "Not just the singer."
+    },
+    {
+     "start": 502.07,
+     "end": 503.44,
+     "speaker": "ROSA",
+     "text": "Ask who played the drums."
+    },
+    {
+     "start": 503.6,
+     "end": 505.38,
+     "speaker": "ROSA",
+     "text": "Ask who wrote the string arrangement."
+    },
+    {
+     "start": 505.54,
+     "end": 506.78,
+     "speaker": "ROSA",
+     "text": "Ask who engineered it."
+    },
+    {
+     "start": 506.94,
+     "end": 512.2,
+     "speaker": "ROSA",
+     "text": "Because those people are out there, and they're making other things, and you might love those things too."
+    },
+    {
+     "start": 512.84,
+     "end": 515.7,
+     "speaker": "DESMOND",
+     "text": "You said earlier that most of your job is deciding what not to play."
+    },
+    {
+     "start": 515.86,
+     "end": 519.14,
+     "speaker": "DESMOND",
+     "text": "I want to come back to that, because I think it's true of a lot more than bass."
+    },
+    {
+     "start": 519.79,
+     "end": 521.46,
+     "speaker": "ROSA",
+     "text": "I think it's true of almost everything."
+    },
+    {
+     "start": 521.62,
+     "end": 526.94,
+     "speaker": "ROSA",
+     "text": "When I teach young players now, the first exercise I give them is to play a song with half the notes."
+    },
+    {
+     "start": 527.1,
+     "end": 529.8,
+     "speaker": "ROSA",
+     "text": "Take whatever part they've worked out, and cut it in half."
+    },
+    {
+     "start": 529.96,
+     "end": 530.82,
+     "speaker": "ROSA",
+     "text": "And they hate it."
+    },
+    {
+     "start": 530.98,
+     "end": 531.8,
+     "speaker": "ROSA",
+     "text": "They feel naked."
+    },
+    {
+     "start": 531.96,
+     "end": 534.75,
+     "speaker": "ROSA",
+     "text": "And then they listen back, and it sounds twice as good."
+    },
+    {
+     "start": 535.48,
+     "end": 536.42,
+     "speaker": "DESMOND",
+     "text": "Why does that work?"
+    },
+    {
+     "start": 537.0,
+     "end": 538.59,
+     "speaker": "ROSA",
+     "text": "Because silence is an instrument."
+    },
+    {
+     "start": 538.75,
+     "end": 540.92,
+     "speaker": "ROSA",
+     "text": "When you leave a space, the listener leans in."
+    },
+    {
+     "start": 541.08,
+     "end": 543.1,
+     "speaker": "ROSA",
+     "text": "They fill it with their own anticipation."
+    },
+    {
+     "start": 543.26,
+     "end": 545.47,
+     "speaker": "ROSA",
+     "text": "If you play every beat, nobody's leaning in."
+    },
+    {
+     "start": 545.63,
+     "end": 546.81,
+     "speaker": "ROSA",
+     "text": "They're just being told."
+    },
+    {
+     "start": 547.37,
+     "end": 548.76,
+     "speaker": "DESMOND",
+     "text": "There's something about trust in that."
+    },
+    {
+     "start": 549.51,
+     "end": 550.14,
+     "speaker": "ROSA",
+     "text": "Yes."
+    },
+    {
+     "start": 550.3,
+     "end": 552.49,
+     "speaker": "ROSA",
+     "text": "You're trusting the listener to meet you halfway."
+    },
+    {
+     "start": 552.65,
+     "end": 556.17,
+     "speaker": "ROSA",
+     "text": "And honestly, I think a lot of music now is afraid of that."
+    },
+    {
+     "start": 556.33,
+     "end": 560.24,
+     "speaker": "ROSA",
+     "text": "Every second is full, because everyone's worried that if there's a gap, someone will skip."
+    },
+    {
+     "start": 560.4,
+     "end": 562.5,
+     "speaker": "ROSA",
+     "text": "So you end up with records that never breathe."
+    },
+    {
+     "start": 563.25,
+     "end": 565.14,
+     "speaker": "DESMOND",
+     "text": "Do you think listeners actually want the space?"
+    },
+    {
+     "start": 565.77,
+     "end": 567.54,
+     "speaker": "ROSA",
+     "text": "I think listeners want to feel something."
+    },
+    {
+     "start": 567.7,
+     "end": 570.79,
+     "speaker": "ROSA",
+     "text": "And it's very hard to feel something when you're never given room to."
+    },
+    {
+     "start": 570.95,
+     "end": 575.06,
+     "speaker": "ROSA",
+     "text": "The records I love most, the ones I've played a thousand times, all have air in them."
+    },
+    {
+     "start": 575.22,
+     "end": 576.25,
+     "speaker": "ROSA",
+     "text": "You can hear the room."
+    },
+    {
+     "start": 576.41,
+     "end": 578.53,
+     "speaker": "ROSA",
+     "text": "You can hear somebody decide not to play."
+    },
+    {
+     "start": 579.24,
+     "end": 581.02,
+     "speaker": "DESMOND",
+     "text": "You can hear somebody decide not to play."
+    },
+    {
+     "start": 581.18,
+     "end": 583.52,
+     "speaker": "DESMOND",
+     "text": "That might be my favorite sentence anyone has said on this show."
+    },
+    {
+     "start": 584.22,
+     "end": 584.98,
+     "speaker": "ROSA",
+     "text": "You can have it."
+    },
+    {
+     "start": 585.14,
+     "end": 585.92,
+     "speaker": "ROSA",
+     "text": "No charge."
+    },
+    {
+     "start": 586.67,
+     "end": 589.72,
+     "speaker": "DESMOND",
+     "text": "Rosa, before we go, what are you working on now?"
+    },
+    {
+     "start": 590.25,
+     "end": 594.5,
+     "speaker": "ROSA",
+     "text": "I'm actually making my own record, for the first time, at the age of fifty-two."
+    },
+    {
+     "start": 594.66,
+     "end": 597.75,
+     "speaker": "ROSA",
+     "text": "All bass, all instrumental, recorded in my living room."
+    },
+    {
+     "start": 597.91,
+     "end": 599.78,
+     "speaker": "ROSA",
+     "text": "I don't know if anyone will listen to it."
+    },
+    {
+     "start": 599.94,
+     "end": 604.42,
+     "speaker": "ROSA",
+     "text": "But I wanted to know what it would sound like if I played everything I've spent thirty years leaving out."
+    },
+    {
+     "start": 605.16,
+     "end": 606.17,
+     "speaker": "DESMOND",
+     "text": "I can't wait to hear it."
+    },
+    {
+     "start": 606.33,
+     "end": 608.71,
+     "speaker": "DESMOND",
+     "text": "Rosa Quintero, thank you for coming to Liner Notes."
+    },
+    {
+     "start": 609.34,
+     "end": 610.51,
+     "speaker": "ROSA",
+     "text": "Thank you, Desmond."
+    },
+    {
+     "start": 610.67,
+     "end": 613.89,
+     "speaker": "ROSA",
+     "text": "And thank you to every engineer who ever forgot to stop recording."
+    },
+    {
+     "start": 614.52,
+     "end": 615.72,
+     "speaker": "DESMOND",
+     "text": "This has been Liner Notes."
+    },
+    {
+     "start": 615.88,
+     "end": 616.85,
+     "speaker": "DESMOND",
+     "text": "I'm Desmond Hale."
+    },
+    {
+     "start": 617.01,
+     "end": 617.95,
+     "speaker": "DESMOND",
+     "text": "Read the small type."
+    }
+   ],
+   "highlightCues": [
+    {
+     "start": 0.35,
+     "end": 2.97,
+     "speaker": "DESMOND",
+     "text": "Which brings us to the story I asked you here to tell."
+    },
+    {
+     "start": 3.13,
+     "end": 6.24,
+     "speaker": "DESMOND",
+     "text": "There's one bassline in particular that has followed you around for a long time."
+    },
+    {
+     "start": 6.8,
+     "end": 7.57,
+     "speaker": "ROSA",
+     "text": "It has."
+    },
+    {
+     "start": 7.73,
+     "end": 8.72,
+     "speaker": "ROSA",
+     "text": "It really has."
+    },
+    {
+     "start": 8.88,
+     "end": 12.16,
+     "speaker": "ROSA",
+     "text": "And the funny thing is, it was never supposed to exist."
+    },
+    {
+     "start": 12.84,
+     "end": 13.83,
+     "speaker": "DESMOND",
+     "text": "Tell me about the day."
+    },
+    {
+     "start": 14.58,
+     "end": 16.22,
+     "speaker": "ROSA",
+     "text": "So this was a long time ago."
+    },
+    {
+     "start": 16.38,
+     "end": 21.93,
+     "speaker": "ROSA",
+     "text": "I was booked for a three-hour session on a single for a singer who was, at that point, not well known."
+    },
+    {
+     "start": 22.09,
+     "end": 24.49,
+     "speaker": "ROSA",
+     "text": "Nobody in the room thought this song was the big one."
+    },
+    {
+     "start": 24.65,
+     "end": 25.83,
+     "speaker": "ROSA",
+     "text": "It was a filler date."
+    },
+    {
+     "start": 25.99,
+     "end": 34.36,
+     "speaker": "ROSA",
+     "text": "The producer was tired, the drummer had a flight to catch, and we had been working on this one song for most of the afternoon, and it just wasn't sitting right."
+    },
+    {
+     "start": 34.52,
+     "end": 35.7,
+     "speaker": "ROSA",
+     "text": "The verses felt stiff."
+    },
+    {
+     "start": 35.86,
+     "end": 39.08,
+     "speaker": "ROSA",
+     "text": "Everyone was playing correctly, and it was completely dead."
+    },
+    {
+     "start": 39.82,
+     "end": 40.46,
+     "speaker": "DESMOND",
+     "text": "That happens."
+    },
+    {
+     "start": 41.19,
+     "end": 42.5,
+     "speaker": "ROSA",
+     "text": "It happens all the time."
+    },
+    {
+     "start": 42.66,
+     "end": 50.64,
+     "speaker": "ROSA",
+     "text": "So the producer calls a break, and everyone goes to get coffee, and I stayed in the room because I was frustrated and I wanted to figure it out."
+    },
+    {
+     "start": 50.8,
+     "end": 52.5,
+     "speaker": "ROSA",
+     "text": "And I started just playing around."
+    },
+    {
+     "start": 52.66,
+     "end": 53.41,
+     "speaker": "ROSA",
+     "text": "Not the part."
+    },
+    {
+     "start": 53.57,
+     "end": 54.39,
+     "speaker": "ROSA",
+     "text": "Just noodling."
+    },
+    {
+     "start": 54.55,
+     "end": 61.72,
+     "speaker": "ROSA",
+     "text": "I took the root notes I'd been playing, which were very straight, very on the beat, and I started leaving out the first note of every bar."
+    },
+    {
+     "start": 62.25,
+     "end": 62.78,
+     "speaker": "DESMOND",
+     "text": "Leaving it out."
+    },
+    {
+     "start": 63.52,
+     "end": 64.33,
+     "speaker": "ROSA",
+     "text": "Leaving it out."
+    },
+    {
+     "start": 64.49,
+     "end": 73.42,
+     "speaker": "ROSA",
+     "text": "Just letting the drum take the downbeat alone, and then coming in a little late, a little behind, almost like the bass was answering the kick drum instead of agreeing with it."
+    },
+    {
+     "start": 73.58,
+     "end": 78.33,
+     "speaker": "ROSA",
+     "text": "And then I added this little climb at the end of every second bar, three notes, nothing fancy."
+    },
+    {
+     "start": 78.49,
+     "end": 80.34,
+     "speaker": "ROSA",
+     "text": "And I was just playing it for myself."
+    },
+    {
+     "start": 80.5,
+     "end": 82.08,
+     "speaker": "ROSA",
+     "text": "I didn't think anyone was listening."
+    },
+    {
+     "start": 82.75,
+     "end": 83.66,
+     "speaker": "DESMOND",
+     "text": "But somebody was."
+    },
+    {
+     "start": 84.39,
+     "end": 85.12,
+     "speaker": "ROSA",
+     "text": "The engineer."
+    },
+    {
+     "start": 85.28,
+     "end": 87.3,
+     "speaker": "ROSA",
+     "text": "The engineer had never stopped recording."
+    },
+    {
+     "start": 87.46,
+     "end": 90.36,
+     "speaker": "ROSA",
+     "text": "This was something engineers do, by the way, the good ones."
+    },
+    {
+     "start": 90.52,
+     "end": 95.7,
+     "speaker": "ROSA",
+     "text": "They just leave the tape running because they know people do their best playing when they think it doesn't count."
+    },
+    {
+     "start": 95.86,
+     "end": 99.88,
+     "speaker": "ROSA",
+     "text": "So the producer comes back with his coffee, and the engineer says, you need to hear this."
+    },
+    {
+     "start": 100.04,
+     "end": 106.42,
+     "speaker": "ROSA",
+     "text": "And he plays back me noodling, completely alone, no drums, no singer, just this lopsided little bass figure."
+    },
+    {
+     "start": 107.03,
+     "end": 108.32,
+     "speaker": "DESMOND",
+     "text": "And what did the producer say?"
+    },
+    {
+     "start": 108.88,
+     "end": 110.58,
+     "speaker": "ROSA",
+     "text": "He didn't say anything for a while."
+    },
+    {
+     "start": 110.74,
+     "end": 112.3,
+     "speaker": "ROSA",
+     "text": "He just listened to it twice."
+    },
+    {
+     "start": 112.46,
+     "end": 114.2,
+     "speaker": "ROSA",
+     "text": "And then he said, that's the song."
+    },
+    {
+     "start": 114.36,
+     "end": 115.69,
+     "speaker": "ROSA",
+     "text": "Build everything around that."
+    },
+    {
+     "start": 115.85,
+     "end": 116.97,
+     "speaker": "ROSA",
+     "text": "And they literally did."
+    },
+    {
+     "start": 117.13,
+     "end": 118.33,
+     "speaker": "ROSA",
+     "text": "The drummer missed his flight."
+    },
+    {
+     "start": 118.49,
+     "end": 120.04,
+     "speaker": "ROSA",
+     "text": "We stayed another three hours."
+    },
+    {
+     "start": 120.2,
+     "end": 126.52,
+     "speaker": "ROSA",
+     "text": "They rearranged the whole track so that everything was leaning on this part I'd invented by accident while everyone else was getting coffee."
+    },
+    {
+     "start": 126.93,
+     "end": 130.39,
+     "speaker": "ROSA",
+     "text": "And I remember the singer coming in that evening, after we'd rebuilt the track."
+    },
+    {
+     "start": 130.55,
+     "end": 132.13,
+     "speaker": "ROSA",
+     "text": "She hadn't been there for any of it."
+    },
+    {
+     "start": 132.29,
+     "end": 136.73,
+     "speaker": "ROSA",
+     "text": "She put on the headphones, and they played her the new version, and she just started laughing."
+    },
+    {
+     "start": 136.89,
+     "end": 138.14,
+     "speaker": "ROSA",
+     "text": "Not because it was funny."
+    },
+    {
+     "start": 138.3,
+     "end": 140.34,
+     "speaker": "ROSA",
+     "text": "Because suddenly she knew how to sing it."
+    },
+    {
+     "start": 140.5,
+     "end": 143.71,
+     "speaker": "ROSA",
+     "text": "The verse that had been stiff all day, she sang in one take."
+    },
+    {
+     "start": 143.87,
+     "end": 145.35,
+     "speaker": "ROSA",
+     "text": "She said, oh, it's a sway."
+    },
+    {
+     "start": 145.51,
+     "end": 147.45,
+     "speaker": "ROSA",
+     "text": "I thought it was a march, but it's a sway."
+    },
+    {
+     "start": 148.16,
+     "end": 149.46,
+     "speaker": "DESMOND",
+     "text": "The bass told her how to sing it."
+    },
+    {
+     "start": 150.14,
+     "end": 151.53,
+     "speaker": "ROSA",
+     "text": "The bass told her how to sing it."
+    },
+    {
+     "start": 151.69,
+     "end": 154.16,
+     "speaker": "ROSA",
+     "text": "That's the thing people don't understand about the low end."
+    },
+    {
+     "start": 154.32,
+     "end": 156.74,
+     "speaker": "ROSA",
+     "text": "You don't really hear it consciously, most of the time."
+    },
+    {
+     "start": 156.9,
+     "end": 157.94,
+     "speaker": "ROSA",
+     "text": "But your body hears it."
+    },
+    {
+     "start": 158.1,
+     "end": 161.69,
+     "speaker": "ROSA",
+     "text": "It tells you whether to stand still or lean, whether to rush or relax."
+    },
+    {
+     "start": 161.85,
+     "end": 165.89,
+     "speaker": "ROSA",
+     "text": "Change the bass, and you change what the singer's body thinks the song is about."
+    },
+    {
+     "start": 166.59,
+     "end": 167.25,
+     "speaker": "DESMOND",
+     "text": "And the record?"
+    },
+    {
+     "start": 167.81,
+     "end": 169.15,
+     "speaker": "ROSA",
+     "text": "The record did very well."
+    },
+    {
+     "start": 169.31,
+     "end": 171.07,
+     "speaker": "ROSA",
+     "text": "Much better than anyone expected."
+    },
+    {
+     "start": 171.23,
+     "end": 178.22,
+     "speaker": "ROSA",
+     "text": "And for years afterward, I would be in a grocery store, or in a taxi, or at a wedding, and I would hear that bassline."
+    },
+    {
+     "start": 178.38,
+     "end": 181.34,
+     "speaker": "ROSA",
+     "text": "Just that little lopsided thing, coming out of a speaker."
+    },
+    {
+     "start": 181.5,
+     "end": 183.47,
+     "speaker": "ROSA",
+     "text": "People would be humming it in line at the bank."
+    },
+    {
+     "start": 183.63,
+     "end": 186.42,
+     "speaker": "ROSA",
+     "text": "And nobody had any idea that it was me."
+    },
+    {
+     "start": 186.58,
+     "end": 191.19,
+     "speaker": "ROSA",
+     "text": "My name was on the sleeve, in that very small type you mentioned, but nobody reads that."
+    },
+    {
+     "start": 191.6,
+     "end": 197.78,
+     "speaker": "ROSA",
+     "text": "The first time I heard it on the radio, I was in a cab in the rain, and the driver had it on, and I made him turn it up."
+    },
+    {
+     "start": 197.94,
+     "end": 204.85,
+     "speaker": "ROSA",
+     "text": "And he looked at me in the mirror like I was crazy, because I was sitting in the back seat with my eyes closed, playing air bass on my knee."
+    },
+    {
+     "start": 205.39,
+     "end": 206.19,
+     "speaker": "DESMOND",
+     "text": "Did you tell him?"
+    },
+    {
+     "start": 206.89,
+     "end": 207.52,
+     "speaker": "ROSA",
+     "text": "I did."
+    },
+    {
+     "start": 207.68,
+     "end": 209.44,
+     "speaker": "ROSA",
+     "text": "I said, that's me, on the bass."
+    },
+    {
+     "start": 209.6,
+     "end": 211.01,
+     "speaker": "ROSA",
+     "text": "And he said, sure it is."
+    },
+    {
+     "start": 211.17,
+     "end": 212.48,
+     "speaker": "ROSA",
+     "text": "And turned it back down."
+    },
+    {
+     "start": 212.99,
+     "end": 213.86,
+     "speaker": "DESMOND",
+     "text": "How did that feel?"
+    },
+    {
+     "start": 214.02,
+     "end": 215.91,
+     "speaker": "DESMOND",
+     "text": "Hearing it everywhere and being invisible?"
+    },
+    {
+     "start": 216.65,
+     "end": 218.1,
+     "speaker": "ROSA",
+     "text": "I've thought about this a lot."
+    },
+    {
+     "start": 218.26,
+     "end": 220.75,
+     "speaker": "ROSA",
+     "text": "And I think at the time, honestly, it felt wonderful."
+    },
+    {
+     "start": 220.91,
+     "end": 222.49,
+     "speaker": "ROSA",
+     "text": "It felt like I had a secret."
+    },
+    {
+     "start": 222.65,
+     "end": 230.37,
+     "speaker": "ROSA",
+     "text": "I'd be at a party and someone would put the song on and everyone would start dancing, and I'd think, you're dancing to something I did with my hands in an empty room."
+    },
+    {
+     "start": 230.53,
+     "end": 231.77,
+     "speaker": "ROSA",
+     "text": "It felt like magic."
+    },
+    {
+     "start": 232.32,
+     "end": 232.81,
+     "speaker": "DESMOND",
+     "text": "And now?"
+    },
+    {
+     "start": 233.47,
+     "end": 234.87,
+     "speaker": "ROSA",
+     "text": "Now it's more complicated."
+    },
+    {
+     "start": 235.03,
+     "end": 243.03,
+     "speaker": "ROSA",
+     "text": "Because over the years I watched the business change, and the small type got smaller, and then on a lot of streaming services, it disappeared entirely."
+    },
+    {
+     "start": 243.19,
+     "end": 247.34,
+     "speaker": "ROSA",
+     "text": "You can listen to a song a thousand times and have no way of knowing who played on it."
+    },
+    {
+     "start": 247.5,
+     "end": 249.36,
+     "speaker": "ROSA",
+     "text": "And that's not just about credit for me."
+    },
+    {
+     "start": 249.52,
+     "end": 251.58,
+     "speaker": "ROSA",
+     "text": "It's that the listener loses something too."
+    },
+    {
+     "start": 251.74,
+     "end": 255.71,
+     "speaker": "ROSA",
+     "text": "If you love that bassline, you might love the other four hundred things I've played on."
+    },
+    {
+     "start": 255.87,
+     "end": 257.84,
+     "speaker": "ROSA",
+     "text": "But there's no road from the song back to me."
+    },
+    {
+     "start": 258.45,
+     "end": 259.81,
+     "speaker": "DESMOND",
+     "text": "No road back to the person."
+    },
+    {
+     "start": 260.4,
+     "end": 261.83,
+     "speaker": "ROSA",
+     "text": "No road back to the person."
+    },
+    {
+     "start": 261.99,
+     "end": 263.6,
+     "speaker": "ROSA",
+     "text": "And I think that's what we've lost."
+    },
+    {
+     "start": 263.76,
+     "end": 265.97,
+     "speaker": "ROSA",
+     "text": "Not the money, although, yes, also the money."
+    },
+    {
+     "start": 266.13,
+     "end": 267.07,
+     "speaker": "ROSA",
+     "text": "It's the connection."
+    },
+    {
+     "start": 267.23,
+     "end": 271.06,
+     "speaker": "ROSA",
+     "text": "The ability for someone who loves a sound to go and find where it came from."
+    }
+   ]
+  },
+  "what-an-old-radio-knows": {
+   "speakers": {
+    "IMANI": {
+     "name": "Imani Brooks"
+    },
+    "WALTER": {
+     "name": "Walter Fenn"
+    }
+   },
+   "full": {
+    "video": "media/speakers/what-an-old-radio-knows.full.mp4",
+    "poster": "media/speakers/what-an-old-radio-knows.full.jpg",
+    "duration": 589.2
+   },
+   "highlight": {
+    "video": "media/speakers/what-an-old-radio-knows.highlight.mp4",
+    "poster": "media/speakers/what-an-old-radio-knows.jpg",
+    "duration": 281.9,
+    "sourceStart": 104.05,
+    "sourceEnd": 385.85
+   },
+   "chapters": [
+    {
+     "title": "Introduction",
+     "start": 0.0
+    },
+    {
+     "title": "Forty years at the bench",
+     "start": 43.47
+    },
+    {
+     "title": "How a radio finds a voice in the noise",
+     "start": 103.8
+    },
+    {
+     "title": "The value of fixing things",
+     "start": 385.5
+    },
+    {
+     "title": "Inside the shop",
+     "start": 458.18
+    },
+    {
+     "title": "Closing",
+     "start": 545.03
+    }
+   ],
+   "cues": [
+    {
+     "start": 3.2,
+     "end": 4.54,
+     "speaker": "IMANI",
+     "text": "This is Small Machines."
+    },
+    {
+     "start": 4.7,
+     "end": 6.04,
+     "speaker": "IMANI",
+     "text": "I'm Imani Brooks."
+    },
+    {
+     "start": 6.2,
+     "end": 12.9,
+     "speaker": "IMANI",
+     "text": "Today I'm in a workshop on the second floor of an old textile building, and every surface in this room is covered with radios."
+    },
+    {
+     "start": 13.06,
+     "end": 19.85,
+     "speaker": "IMANI",
+     "text": "Wooden radios, plastic radios, radios the size of a suitcase, radios the size of a sandwich."
+    },
+    {
+     "start": 20.01,
+     "end": 26.24,
+     "speaker": "IMANI",
+     "text": "Some of them have their backs off and their insides spread out on the bench like a patient on an operating table."
+    },
+    {
+     "start": 26.4,
+     "end": 30.87,
+     "speaker": "IMANI",
+     "text": "And sitting across from me is the man who has been bringing them back to life for forty years."
+    },
+    {
+     "start": 31.03,
+     "end": 33.09,
+     "speaker": "IMANI",
+     "text": "Walter Fenn, thank you for having me."
+    },
+    {
+     "start": 33.76,
+     "end": 35.51,
+     "speaker": "WALTER",
+     "text": "Thank you for climbing the stairs."
+    },
+    {
+     "start": 35.67,
+     "end": 37.86,
+     "speaker": "WALTER",
+     "text": "Most people complain about the stairs."
+    },
+    {
+     "start": 38.4,
+     "end": 39.56,
+     "speaker": "IMANI",
+     "text": "The stairs were a lot."
+    },
+    {
+     "start": 40.1,
+     "end": 43.4,
+     "speaker": "WALTER",
+     "text": "The stairs keep out the people who aren't serious."
+    },
+    {
+     "start": 44.07,
+     "end": 45.54,
+     "speaker": "IMANI",
+     "text": "How did you start doing this?"
+    },
+    {
+     "start": 46.26,
+     "end": 48.33,
+     "speaker": "WALTER",
+     "text": "My father had a radio in the kitchen."
+    },
+    {
+     "start": 48.49,
+     "end": 50.12,
+     "speaker": "WALTER",
+     "text": "A big walnut tabletop set."
+    },
+    {
+     "start": 50.28,
+     "end": 55.02,
+     "speaker": "WALTER",
+     "text": "And when I was about eleven, it stopped working, and he was going to throw it out."
+    },
+    {
+     "start": 55.18,
+     "end": 57.12,
+     "speaker": "WALTER",
+     "text": "And I asked if I could have it instead."
+    },
+    {
+     "start": 57.28,
+     "end": 58.51,
+     "speaker": "WALTER",
+     "text": "I didn't know anything."
+    },
+    {
+     "start": 58.67,
+     "end": 60.82,
+     "speaker": "WALTER",
+     "text": "I took the back off and just stared at it."
+    },
+    {
+     "start": 60.98,
+     "end": 65.28,
+     "speaker": "WALTER",
+     "text": "All these glass tubes and little colored components and wires going everywhere."
+    },
+    {
+     "start": 65.44,
+     "end": 71.1,
+     "speaker": "WALTER",
+     "text": "And I remember thinking, somewhere in here is the voice of the ballgame announcer, and I'm going to find it."
+    },
+    {
+     "start": 71.66,
+     "end": 72.58,
+     "speaker": "IMANI",
+     "text": "Did you find it?"
+    },
+    {
+     "start": 73.14,
+     "end": 74.55,
+     "speaker": "WALTER",
+     "text": "It took me most of a year."
+    },
+    {
+     "start": 74.71,
+     "end": 81.06,
+     "speaker": "WALTER",
+     "text": "I went to the library, I read everything I could find, I bothered every television repairman in town."
+    },
+    {
+     "start": 81.22,
+     "end": 94.86,
+     "speaker": "WALTER",
+     "text": "And one day I replaced a little part, a capacitor, that cost about a quarter, and I plugged it in, and I waited for the tubes to warm up, which takes a while, and then out of the speaker came this crackle, and then a voice."
+    },
+    {
+     "start": 95.02,
+     "end": 96.14,
+     "speaker": "WALTER",
+     "text": "And I was hooked for life."
+    },
+    {
+     "start": 96.83,
+     "end": 99.53,
+     "speaker": "IMANI",
+     "text": "How many radios do you think you've restored since then?"
+    },
+    {
+     "start": 100.16,
+     "end": 102.18,
+     "speaker": "WALTER",
+     "text": "I stopped counting at three thousand."
+    },
+    {
+     "start": 102.34,
+     "end": 103.79,
+     "speaker": "WALTER",
+     "text": "That was a long time ago."
+    },
+    {
+     "start": 104.4,
+     "end": 110.68,
+     "speaker": "IMANI",
+     "text": "I want to ask you something that I suspect a lot of people have never really understood, and I'll include myself."
+    },
+    {
+     "start": 110.84,
+     "end": 114.69,
+     "speaker": "IMANI",
+     "text": "When you turn the dial on a radio, what is actually happening?"
+    },
+    {
+     "start": 114.85,
+     "end": 116.13,
+     "speaker": "IMANI",
+     "text": "How does it find a station?"
+    },
+    {
+     "start": 116.73,
+     "end": 118.14,
+     "speaker": "WALTER",
+     "text": "That's my favorite question."
+    },
+    {
+     "start": 118.3,
+     "end": 120.35,
+     "speaker": "WALTER",
+     "text": "Nobody asks me that anymore."
+    },
+    {
+     "start": 120.51,
+     "end": 121.08,
+     "speaker": "WALTER",
+     "text": "Alright."
+    },
+    {
+     "start": 121.24,
+     "end": 128.11,
+     "speaker": "WALTER",
+     "text": "So the first thing to understand is that right now, in this room, the air is full of voices."
+    },
+    {
+     "start": 128.27,
+     "end": 132.2,
+     "speaker": "WALTER",
+     "text": "Every station within a hundred miles is broadcasting at the same time."
+    },
+    {
+     "start": 132.36,
+     "end": 140.65,
+     "speaker": "WALTER",
+     "text": "Music, news, ballgames, preachers, weather reports, all of it, passing through this room, passing through you and me, right this second."
+    },
+    {
+     "start": 141.17,
+     "end": 143.29,
+     "speaker": "IMANI",
+     "text": "That's a slightly unsettling thought."
+    },
+    {
+     "start": 143.91,
+     "end": 145.04,
+     "speaker": "WALTER",
+     "text": "It's a beautiful thought."
+    },
+    {
+     "start": 145.2,
+     "end": 146.5,
+     "speaker": "WALTER",
+     "text": "But it's also a problem."
+    },
+    {
+     "start": 146.66,
+     "end": 150.72,
+     "speaker": "WALTER",
+     "text": "Because if you just caught all of it at once, you'd hear nothing but noise."
+    },
+    {
+     "start": 150.88,
+     "end": 151.7,
+     "speaker": "WALTER",
+     "text": "A roar."
+    },
+    {
+     "start": 151.86,
+     "end": 160.96,
+     "speaker": "WALTER",
+     "text": "So the whole job of a radio, really the entire purpose of the machine, is to ignore almost everything, and let in just one thing."
+    },
+    {
+     "start": 161.54,
+     "end": 163.83,
+     "speaker": "IMANI",
+     "text": "So a radio is a machine for ignoring."
+    },
+    {
+     "start": 164.44,
+     "end": 165.69,
+     "speaker": "WALTER",
+     "text": "That's exactly right."
+    },
+    {
+     "start": 165.85,
+     "end": 169.34,
+     "speaker": "WALTER",
+     "text": "I've never heard anyone put it that way, but that's exactly right."
+    },
+    {
+     "start": 169.5,
+     "end": 174.29,
+     "speaker": "WALTER",
+     "text": "Each station broadcasts on its own frequency, its own rate of vibration."
+    },
+    {
+     "start": 174.45,
+     "end": 182.21,
+     "speaker": "WALTER",
+     "text": "And inside the radio there's a circuit, a coil and a capacitor working together, that naturally wants to vibrate at one particular rate."
+    },
+    {
+     "start": 182.37,
+     "end": 188.13,
+     "speaker": "WALTER",
+     "text": "When you turn the dial, you're changing that capacitor, which changes the rate the circuit prefers."
+    },
+    {
+     "start": 188.29,
+     "end": 198.96,
+     "speaker": "WALTER",
+     "text": "And when the circuit's preference lines up with a station's frequency, that station's signal suddenly gets very strong inside the radio, and everything else stays weak."
+    },
+    {
+     "start": 199.6,
+     "end": 201.45,
+     "speaker": "IMANI",
+     "text": "Like pushing a child on a swing."
+    },
+    {
+     "start": 202.13,
+     "end": 203.3,
+     "speaker": "WALTER",
+     "text": "Very much like that."
+    },
+    {
+     "start": 203.46,
+     "end": 207.56,
+     "speaker": "WALTER",
+     "text": "If you push at the right moment, every time, the swing goes higher and higher."
+    },
+    {
+     "start": 207.72,
+     "end": 210.12,
+     "speaker": "WALTER",
+     "text": "Push at the wrong moments and it barely moves."
+    },
+    {
+     "start": 210.28,
+     "end": 212.54,
+     "speaker": "WALTER",
+     "text": "The station is pushing at its own rhythm."
+    },
+    {
+     "start": 212.7,
+     "end": 216.09,
+     "speaker": "WALTER",
+     "text": "The tuning circuit only swings for the one that matches."
+    },
+    {
+     "start": 216.76,
+     "end": 217.32,
+     "speaker": "IMANI",
+     "text": "And then?"
+    },
+    {
+     "start": 218.02,
+     "end": 224.34,
+     "speaker": "WALTER",
+     "text": "And then there's a very clever trick, which is the reason these old radios work as well as they do."
+    },
+    {
+     "start": 224.5,
+     "end": 235.94,
+     "speaker": "WALTER",
+     "text": "Instead of trying to amplify every station at its own frequency, which is hard, the radio converts whatever station you've chosen down to one fixed frequency inside the set."
+    },
+    {
+     "start": 236.1,
+     "end": 237.23,
+     "speaker": "WALTER",
+     "text": "Always the same one."
+    },
+    {
+     "start": 237.39,
+     "end": 244.7,
+     "speaker": "WALTER",
+     "text": "And then it has a series of stages that are built to amplify that one frequency extremely well, and nothing else."
+    },
+    {
+     "start": 244.86,
+     "end": 249.65,
+     "speaker": "WALTER",
+     "text": "It's called a superheterodyne, which is a terrible word for a wonderful idea."
+    },
+    {
+     "start": 250.16,
+     "end": 251.39,
+     "speaker": "IMANI",
+     "text": "Why is it wonderful?"
+    },
+    {
+     "start": 252.07,
+     "end": 255.27,
+     "speaker": "WALTER",
+     "text": "Because it means the radio doesn't have to be good at everything."
+    },
+    {
+     "start": 255.43,
+     "end": 261.81,
+     "speaker": "WALTER",
+     "text": "It only has to be very, very good at one thing, and then it translates the whole world into that one thing."
+    },
+    {
+     "start": 261.97,
+     "end": 273.79,
+     "speaker": "WALTER",
+     "text": "When I explain it to young people, I say, it's like having a friend who speaks every language, and no matter who's talking, your friend translates it into the one language you understand perfectly."
+    },
+    {
+     "start": 274.43,
+     "end": 275.64,
+     "speaker": "IMANI",
+     "text": "And what about the static?"
+    },
+    {
+     "start": 275.8,
+     "end": 277.7,
+     "speaker": "IMANI",
+     "text": "The hiss you hear between stations."
+    },
+    {
+     "start": 277.86,
+     "end": 279.12,
+     "speaker": "IMANI",
+     "text": "Where does that come from?"
+    },
+    {
+     "start": 279.84,
+     "end": 281.85,
+     "speaker": "WALTER",
+     "text": "Some of it is the radio itself."
+    },
+    {
+     "start": 282.01,
+     "end": 288.75,
+     "speaker": "WALTER",
+     "text": "Every warm thing makes a little bit of noise, even the parts inside the set, just from the atoms moving around."
+    },
+    {
+     "start": 288.91,
+     "end": 290.39,
+     "speaker": "WALTER",
+     "text": "But a lot of it is the universe."
+    },
+    {
+     "start": 290.55,
+     "end": 293.17,
+     "speaker": "WALTER",
+     "text": "Lightning storms on the other side of the country."
+    },
+    {
+     "start": 293.33,
+     "end": 295.09,
+     "speaker": "WALTER",
+     "text": "Electrical motors down the street."
+    },
+    {
+     "start": 295.25,
+     "end": 300.94,
+     "speaker": "WALTER",
+     "text": "And a small part of it, a very small part, is left over from the beginning of everything."
+    },
+    {
+     "start": 301.1,
+     "end": 308.12,
+     "speaker": "WALTER",
+     "text": "Energy that's been travelling across space for a very long time, and ends up as a tiny bit of hiss in your kitchen."
+    },
+    {
+     "start": 308.86,
+     "end": 311.99,
+     "speaker": "IMANI",
+     "text": "So between stations, I'm listening to the universe."
+    },
+    {
+     "start": 312.5,
+     "end": 316.16,
+     "speaker": "WALTER",
+     "text": "Between stations, you're listening to everything that isn't trying to talk to you."
+    },
+    {
+     "start": 316.32,
+     "end": 322.22,
+     "speaker": "WALTER",
+     "text": "And when you land on a station, all of that falls away, and one person comes through clear."
+    },
+    {
+     "start": 322.38,
+     "end": 325.84,
+     "speaker": "WALTER",
+     "text": "I've been doing this for forty years and that moment still gets me."
+    },
+    {
+     "start": 326.0,
+     "end": 327.13,
+     "speaker": "WALTER",
+     "text": "Every single time."
+    },
+    {
+     "start": 327.29,
+     "end": 331.15,
+     "speaker": "WALTER",
+     "text": "Noise, noise, noise, and then, a voice."
+    },
+    {
+     "start": 331.87,
+     "end": 332.84,
+     "speaker": "IMANI",
+     "text": "I love that."
+    },
+    {
+     "start": 333.0,
+     "end": 337.05,
+     "speaker": "IMANI",
+     "text": "And it makes me think about why these machines matter to you beyond the engineering."
+    },
+    {
+     "start": 337.62,
+     "end": 338.18,
+     "speaker": "WALTER",
+     "text": "Well."
+    },
+    {
+     "start": 338.34,
+     "end": 341.02,
+     "speaker": "WALTER",
+     "text": "I'll tell you something I don't usually say on a recording."
+    },
+    {
+     "start": 341.18,
+     "end": 346.0,
+     "speaker": "WALTER",
+     "text": "I think I've spent my whole life around machines that are very good at paying attention."
+    },
+    {
+     "start": 346.16,
+     "end": 347.49,
+     "speaker": "WALTER",
+     "text": "That's what a radio is."
+    },
+    {
+     "start": 347.65,
+     "end": 357.62,
+     "speaker": "WALTER",
+     "text": "It sits in a room full of noise, and it chooses one voice, and it gives that voice its complete attention, and it makes it clear enough for a person to hear."
+    },
+    {
+     "start": 357.78,
+     "end": 361.6,
+     "speaker": "WALTER",
+     "text": "And over the years I've come to think that's most of what a good life is, too."
+    },
+    {
+     "start": 361.76,
+     "end": 363.44,
+     "speaker": "WALTER",
+     "text": "The world is full of noise."
+    },
+    {
+     "start": 363.6,
+     "end": 366.09,
+     "speaker": "WALTER",
+     "text": "Everybody is broadcasting at once."
+    },
+    {
+     "start": 366.25,
+     "end": 374.15,
+     "speaker": "WALTER",
+     "text": "And the work, the real work, is tuning in to the thing that deserves your attention, and giving it all of yourself."
+    },
+    {
+     "start": 374.81,
+     "end": 375.71,
+     "speaker": "IMANI",
+     "text": "Tuning in."
+    },
+    {
+     "start": 376.41,
+     "end": 377.03,
+     "speaker": "WALTER",
+     "text": "Tuning in."
+    },
+    {
+     "start": 377.19,
+     "end": 381.98,
+     "speaker": "WALTER",
+     "text": "My wife used to say I listened to radios better than I listened to people."
+    },
+    {
+     "start": 382.14,
+     "end": 383.3,
+     "speaker": "WALTER",
+     "text": "She was not wrong."
+    },
+    {
+     "start": 383.46,
+     "end": 385.38,
+     "speaker": "WALTER",
+     "text": "I've been trying to get better at that."
+    },
+    {
+     "start": 386.1,
+     "end": 389.06,
+     "speaker": "IMANI",
+     "text": "Let's talk about the people who bring these radios to you."
+    },
+    {
+     "start": 389.22,
+     "end": 389.93,
+     "speaker": "IMANI",
+     "text": "Who are they?"
+    },
+    {
+     "start": 390.67,
+     "end": 391.71,
+     "speaker": "WALTER",
+     "text": "Oh, everyone."
+    },
+    {
+     "start": 391.87,
+     "end": 393.3,
+     "speaker": "WALTER",
+     "text": "Collectors, sometimes."
+    },
+    {
+     "start": 393.46,
+     "end": 395.28,
+     "speaker": "WALTER",
+     "text": "But mostly it's families."
+    },
+    {
+     "start": 395.44,
+     "end": 402.54,
+     "speaker": "WALTER",
+     "text": "Somebody's grandmother passed, and in the attic there's the radio she listened to every morning while she made breakfast."
+    },
+    {
+     "start": 402.7,
+     "end": 404.54,
+     "speaker": "WALTER",
+     "text": "And they don't care if it's valuable."
+    },
+    {
+     "start": 404.7,
+     "end": 406.27,
+     "speaker": "WALTER",
+     "text": "They want to hear it play again."
+    },
+    {
+     "start": 406.43,
+     "end": 408.09,
+     "speaker": "WALTER",
+     "text": "They want to hear the sound she heard."
+    },
+    {
+     "start": 408.75,
+     "end": 410.61,
+     "speaker": "IMANI",
+     "text": "That must be an emotional moment."
+    },
+    {
+     "start": 411.33,
+     "end": 413.04,
+     "speaker": "WALTER",
+     "text": "It's the best part of the job."
+    },
+    {
+     "start": 413.2,
+     "end": 417.26,
+     "speaker": "WALTER",
+     "text": "When they come to pick it up, I always make them wait while it warms up."
+    },
+    {
+     "start": 417.42,
+     "end": 419.3,
+     "speaker": "WALTER",
+     "text": "I don't let them just take it home."
+    },
+    {
+     "start": 419.46,
+     "end": 426.76,
+     "speaker": "WALTER",
+     "text": "I turn it on, and we stand here together in the shop, and there's that hum, and then a crackle, and then a voice comes through."
+    },
+    {
+     "start": 426.92,
+     "end": 429.74,
+     "speaker": "WALTER",
+     "text": "And I've seen grown men cry at a weather report."
+    },
+    {
+     "start": 430.37,
+     "end": 433.14,
+     "speaker": "IMANI",
+     "text": "What do you think people are really responding to in that moment?"
+    },
+    {
+     "start": 433.71,
+     "end": 434.35,
+     "speaker": "WALTER",
+     "text": "Presence."
+    },
+    {
+     "start": 434.51,
+     "end": 437.13,
+     "speaker": "WALTER",
+     "text": "A radio is a live thing."
+    },
+    {
+     "start": 437.29,
+     "end": 441.49,
+     "speaker": "WALTER",
+     "text": "When you turn it on, somebody, somewhere, is talking right now."
+    },
+    {
+     "start": 441.65,
+     "end": 445.62,
+     "speaker": "WALTER",
+     "text": "Not recorded for you, not chosen by a computer for you."
+    },
+    {
+     "start": 445.78,
+     "end": 446.28,
+     "speaker": "WALTER",
+     "text": "Live."
+    },
+    {
+     "start": 446.44,
+     "end": 448.89,
+     "speaker": "WALTER",
+     "text": "There's a person on the other end of that sound."
+    },
+    {
+     "start": 449.05,
+     "end": 458.23,
+     "speaker": "WALTER",
+     "text": "And I think people miss that feeling, of being one of a lot of people listening to the same thing at the same time, without being able to see each other."
+    },
+    {
+     "start": 458.78,
+     "end": 460.99,
+     "speaker": "IMANI",
+     "text": "Can you show me what you're working on right now?"
+    },
+    {
+     "start": 461.62,
+     "end": 462.02,
+     "speaker": "WALTER",
+     "text": "Sure."
+    },
+    {
+     "start": 462.18,
+     "end": 465.92,
+     "speaker": "WALTER",
+     "text": "This one here, the cream colored one with the gold dial."
+    },
+    {
+     "start": 466.08,
+     "end": 467.13,
+     "speaker": "WALTER",
+     "text": "Came in last week."
+    },
+    {
+     "start": 467.29,
+     "end": 473.51,
+     "speaker": "WALTER",
+     "text": "Belonged to a woman who ran a diner for thirty years, and this sat on the counter by the register the whole time."
+    },
+    {
+     "start": 473.67,
+     "end": 474.88,
+     "speaker": "WALTER",
+     "text": "Her son brought it in."
+    },
+    {
+     "start": 475.04,
+     "end": 479.57,
+     "speaker": "WALTER",
+     "text": "You can see the finish is worn right here, on the top, in the shape of a hand."
+    },
+    {
+     "start": 479.73,
+     "end": 483.47,
+     "speaker": "WALTER",
+     "text": "That's where she rested her hand every time she reached for the cash drawer."
+    },
+    {
+     "start": 484.17,
+     "end": 485.08,
+     "speaker": "IMANI",
+     "text": "Oh, wow."
+    },
+    {
+     "start": 485.24,
+     "end": 486.74,
+     "speaker": "IMANI",
+     "text": "You can actually see it."
+    },
+    {
+     "start": 487.36,
+     "end": 489.34,
+     "speaker": "WALTER",
+     "text": "Thirty years of the same gesture."
+    },
+    {
+     "start": 489.5,
+     "end": 491.08,
+     "speaker": "WALTER",
+     "text": "I won't refinish that part."
+    },
+    {
+     "start": 491.24,
+     "end": 493.45,
+     "speaker": "WALTER",
+     "text": "People always ask me to make things look new."
+    },
+    {
+     "start": 493.61,
+     "end": 499.25,
+     "speaker": "WALTER",
+     "text": "And I'll fix anything that's broken, but I try very hard not to erase anything that's true."
+    },
+    {
+     "start": 499.41,
+     "end": 502.85,
+     "speaker": "WALTER",
+     "text": "That handprint is the most valuable thing on the radio."
+    },
+    {
+     "start": 503.53,
+     "end": 505.11,
+     "speaker": "IMANI",
+     "text": "What's wrong with it, mechanically?"
+    },
+    {
+     "start": 505.66,
+     "end": 506.81,
+     "speaker": "WALTER",
+     "text": "Mostly the usual."
+    },
+    {
+     "start": 506.97,
+     "end": 512.42,
+     "speaker": "WALTER",
+     "text": "Old capacitors that have dried out, a tube that's tired, a dial cord that snapped."
+    },
+    {
+     "start": 512.58,
+     "end": 520.54,
+     "speaker": "WALTER",
+     "text": "The dial cord is the little string that connects the knob to the needle, so when you turn the knob, the needle slides across the numbers."
+    },
+    {
+     "start": 520.7,
+     "end": 526.94,
+     "speaker": "WALTER",
+     "text": "When that string breaks, the radio might still work perfectly, but you can't see where you are."
+    },
+    {
+     "start": 527.1,
+     "end": 528.15,
+     "speaker": "WALTER",
+     "text": "You're tuning blind."
+    },
+    {
+     "start": 528.91,
+     "end": 530.25,
+     "speaker": "IMANI",
+     "text": "That feels like a metaphor."
+    },
+    {
+     "start": 530.88,
+     "end": 534.55,
+     "speaker": "WALTER",
+     "text": "Everything in here is a metaphor if you stay long enough."
+    },
+    {
+     "start": 534.71,
+     "end": 536.36,
+     "speaker": "WALTER",
+     "text": "That's the danger of this job."
+    },
+    {
+     "start": 536.52,
+     "end": 539.44,
+     "speaker": "WALTER",
+     "text": "You start thinking every radio is about life."
+    },
+    {
+     "start": 540.15,
+     "end": 541.23,
+     "speaker": "IMANI",
+     "text": "Is that so bad?"
+    },
+    {
+     "start": 541.93,
+     "end": 542.43,
+     "speaker": "WALTER",
+     "text": "No."
+    },
+    {
+     "start": 542.59,
+     "end": 543.66,
+     "speaker": "WALTER",
+     "text": "I suppose it isn't."
+    },
+    {
+     "start": 543.82,
+     "end": 544.93,
+     "speaker": "WALTER",
+     "text": "It's kept me company."
+    },
+    {
+     "start": 545.63,
+     "end": 548.71,
+     "speaker": "IMANI",
+     "text": "Walter, what happens to all of this when you retire?"
+    },
+    {
+     "start": 549.32,
+     "end": 550.91,
+     "speaker": "WALTER",
+     "text": "I'm training two apprentices."
+    },
+    {
+     "start": 551.07,
+     "end": 556.59,
+     "speaker": "WALTER",
+     "text": "One is a nineteen year old who found me through a video online, which I find very funny."
+    },
+    {
+     "start": 556.75,
+     "end": 561.66,
+     "speaker": "WALTER",
+     "text": "The other is a retired schoolteacher who says she's always wanted to know how things work."
+    },
+    {
+     "start": 561.82,
+     "end": 564.4,
+     "speaker": "WALTER",
+     "text": "They're both better at soldering than I was at their age."
+    },
+    {
+     "start": 564.56,
+     "end": 566.15,
+     "speaker": "WALTER",
+     "text": "The radios will be fine."
+    },
+    {
+     "start": 566.69,
+     "end": 569.24,
+     "speaker": "IMANI",
+     "text": "Walter Fenn, thank you for letting me into the shop."
+    },
+    {
+     "start": 569.86,
+     "end": 572.66,
+     "speaker": "WALTER",
+     "text": "Thank you for asking how a radio works."
+    },
+    {
+     "start": 572.82,
+     "end": 573.85,
+     "speaker": "WALTER",
+     "text": "Come back anytime."
+    },
+    {
+     "start": 574.01,
+     "end": 575.16,
+     "speaker": "WALTER",
+     "text": "Bring your own coffee."
+    },
+    {
+     "start": 575.32,
+     "end": 576.4,
+     "speaker": "WALTER",
+     "text": "Mine is terrible."
+    },
+    {
+     "start": 576.99,
+     "end": 578.58,
+     "speaker": "IMANI",
+     "text": "This has been Small Machines."
+    },
+    {
+     "start": 578.74,
+     "end": 579.96,
+     "speaker": "IMANI",
+     "text": "I'm Imani Brooks."
+    },
+    {
+     "start": 580.12,
+     "end": 582.51,
+     "speaker": "IMANI",
+     "text": "Take care of your things, and they'll take care of you."
+    }
+   ],
+   "highlightCues": [
+    {
+     "start": 0.35,
+     "end": 6.63,
+     "speaker": "IMANI",
+     "text": "I want to ask you something that I suspect a lot of people have never really understood, and I'll include myself."
+    },
+    {
+     "start": 6.79,
+     "end": 10.64,
+     "speaker": "IMANI",
+     "text": "When you turn the dial on a radio, what is actually happening?"
+    },
+    {
+     "start": 10.8,
+     "end": 12.08,
+     "speaker": "IMANI",
+     "text": "How does it find a station?"
+    },
+    {
+     "start": 12.68,
+     "end": 14.09,
+     "speaker": "WALTER",
+     "text": "That's my favorite question."
+    },
+    {
+     "start": 14.25,
+     "end": 16.3,
+     "speaker": "WALTER",
+     "text": "Nobody asks me that anymore."
+    },
+    {
+     "start": 16.46,
+     "end": 17.03,
+     "speaker": "WALTER",
+     "text": "Alright."
+    },
+    {
+     "start": 17.19,
+     "end": 24.06,
+     "speaker": "WALTER",
+     "text": "So the first thing to understand is that right now, in this room, the air is full of voices."
+    },
+    {
+     "start": 24.22,
+     "end": 28.15,
+     "speaker": "WALTER",
+     "text": "Every station within a hundred miles is broadcasting at the same time."
+    },
+    {
+     "start": 28.31,
+     "end": 36.6,
+     "speaker": "WALTER",
+     "text": "Music, news, ballgames, preachers, weather reports, all of it, passing through this room, passing through you and me, right this second."
+    },
+    {
+     "start": 37.12,
+     "end": 39.24,
+     "speaker": "IMANI",
+     "text": "That's a slightly unsettling thought."
+    },
+    {
+     "start": 39.86,
+     "end": 40.99,
+     "speaker": "WALTER",
+     "text": "It's a beautiful thought."
+    },
+    {
+     "start": 41.15,
+     "end": 42.45,
+     "speaker": "WALTER",
+     "text": "But it's also a problem."
+    },
+    {
+     "start": 42.61,
+     "end": 46.67,
+     "speaker": "WALTER",
+     "text": "Because if you just caught all of it at once, you'd hear nothing but noise."
+    },
+    {
+     "start": 46.83,
+     "end": 47.65,
+     "speaker": "WALTER",
+     "text": "A roar."
+    },
+    {
+     "start": 47.81,
+     "end": 56.91,
+     "speaker": "WALTER",
+     "text": "So the whole job of a radio, really the entire purpose of the machine, is to ignore almost everything, and let in just one thing."
+    },
+    {
+     "start": 57.49,
+     "end": 59.78,
+     "speaker": "IMANI",
+     "text": "So a radio is a machine for ignoring."
+    },
+    {
+     "start": 60.39,
+     "end": 61.64,
+     "speaker": "WALTER",
+     "text": "That's exactly right."
+    },
+    {
+     "start": 61.8,
+     "end": 65.29,
+     "speaker": "WALTER",
+     "text": "I've never heard anyone put it that way, but that's exactly right."
+    },
+    {
+     "start": 65.45,
+     "end": 70.24,
+     "speaker": "WALTER",
+     "text": "Each station broadcasts on its own frequency, its own rate of vibration."
+    },
+    {
+     "start": 70.4,
+     "end": 78.16,
+     "speaker": "WALTER",
+     "text": "And inside the radio there's a circuit, a coil and a capacitor working together, that naturally wants to vibrate at one particular rate."
+    },
+    {
+     "start": 78.32,
+     "end": 84.08,
+     "speaker": "WALTER",
+     "text": "When you turn the dial, you're changing that capacitor, which changes the rate the circuit prefers."
+    },
+    {
+     "start": 84.24,
+     "end": 94.91,
+     "speaker": "WALTER",
+     "text": "And when the circuit's preference lines up with a station's frequency, that station's signal suddenly gets very strong inside the radio, and everything else stays weak."
+    },
+    {
+     "start": 95.55,
+     "end": 97.4,
+     "speaker": "IMANI",
+     "text": "Like pushing a child on a swing."
+    },
+    {
+     "start": 98.08,
+     "end": 99.25,
+     "speaker": "WALTER",
+     "text": "Very much like that."
+    },
+    {
+     "start": 99.41,
+     "end": 103.51,
+     "speaker": "WALTER",
+     "text": "If you push at the right moment, every time, the swing goes higher and higher."
+    },
+    {
+     "start": 103.67,
+     "end": 106.07,
+     "speaker": "WALTER",
+     "text": "Push at the wrong moments and it barely moves."
+    },
+    {
+     "start": 106.23,
+     "end": 108.49,
+     "speaker": "WALTER",
+     "text": "The station is pushing at its own rhythm."
+    },
+    {
+     "start": 108.65,
+     "end": 112.04,
+     "speaker": "WALTER",
+     "text": "The tuning circuit only swings for the one that matches."
+    },
+    {
+     "start": 112.71,
+     "end": 113.27,
+     "speaker": "IMANI",
+     "text": "And then?"
+    },
+    {
+     "start": 113.97,
+     "end": 120.29,
+     "speaker": "WALTER",
+     "text": "And then there's a very clever trick, which is the reason these old radios work as well as they do."
+    },
+    {
+     "start": 120.45,
+     "end": 131.89,
+     "speaker": "WALTER",
+     "text": "Instead of trying to amplify every station at its own frequency, which is hard, the radio converts whatever station you've chosen down to one fixed frequency inside the set."
+    },
+    {
+     "start": 132.05,
+     "end": 133.18,
+     "speaker": "WALTER",
+     "text": "Always the same one."
+    },
+    {
+     "start": 133.34,
+     "end": 140.65,
+     "speaker": "WALTER",
+     "text": "And then it has a series of stages that are built to amplify that one frequency extremely well, and nothing else."
+    },
+    {
+     "start": 140.81,
+     "end": 145.6,
+     "speaker": "WALTER",
+     "text": "It's called a superheterodyne, which is a terrible word for a wonderful idea."
+    },
+    {
+     "start": 146.11,
+     "end": 147.34,
+     "speaker": "IMANI",
+     "text": "Why is it wonderful?"
+    },
+    {
+     "start": 148.02,
+     "end": 151.22,
+     "speaker": "WALTER",
+     "text": "Because it means the radio doesn't have to be good at everything."
+    },
+    {
+     "start": 151.38,
+     "end": 157.76,
+     "speaker": "WALTER",
+     "text": "It only has to be very, very good at one thing, and then it translates the whole world into that one thing."
+    },
+    {
+     "start": 157.92,
+     "end": 169.74,
+     "speaker": "WALTER",
+     "text": "When I explain it to young people, I say, it's like having a friend who speaks every language, and no matter who's talking, your friend translates it into the one language you understand perfectly."
+    },
+    {
+     "start": 170.38,
+     "end": 171.59,
+     "speaker": "IMANI",
+     "text": "And what about the static?"
+    },
+    {
+     "start": 171.75,
+     "end": 173.65,
+     "speaker": "IMANI",
+     "text": "The hiss you hear between stations."
+    },
+    {
+     "start": 173.81,
+     "end": 175.07,
+     "speaker": "IMANI",
+     "text": "Where does that come from?"
+    },
+    {
+     "start": 175.79,
+     "end": 177.8,
+     "speaker": "WALTER",
+     "text": "Some of it is the radio itself."
+    },
+    {
+     "start": 177.96,
+     "end": 184.7,
+     "speaker": "WALTER",
+     "text": "Every warm thing makes a little bit of noise, even the parts inside the set, just from the atoms moving around."
+    },
+    {
+     "start": 184.86,
+     "end": 186.34,
+     "speaker": "WALTER",
+     "text": "But a lot of it is the universe."
+    },
+    {
+     "start": 186.5,
+     "end": 189.12,
+     "speaker": "WALTER",
+     "text": "Lightning storms on the other side of the country."
+    },
+    {
+     "start": 189.28,
+     "end": 191.04,
+     "speaker": "WALTER",
+     "text": "Electrical motors down the street."
+    },
+    {
+     "start": 191.2,
+     "end": 196.89,
+     "speaker": "WALTER",
+     "text": "And a small part of it, a very small part, is left over from the beginning of everything."
+    },
+    {
+     "start": 197.05,
+     "end": 204.07,
+     "speaker": "WALTER",
+     "text": "Energy that's been travelling across space for a very long time, and ends up as a tiny bit of hiss in your kitchen."
+    },
+    {
+     "start": 204.81,
+     "end": 207.94,
+     "speaker": "IMANI",
+     "text": "So between stations, I'm listening to the universe."
+    },
+    {
+     "start": 208.45,
+     "end": 212.11,
+     "speaker": "WALTER",
+     "text": "Between stations, you're listening to everything that isn't trying to talk to you."
+    },
+    {
+     "start": 212.27,
+     "end": 218.17,
+     "speaker": "WALTER",
+     "text": "And when you land on a station, all of that falls away, and one person comes through clear."
+    },
+    {
+     "start": 218.33,
+     "end": 221.79,
+     "speaker": "WALTER",
+     "text": "I've been doing this for forty years and that moment still gets me."
+    },
+    {
+     "start": 221.95,
+     "end": 223.08,
+     "speaker": "WALTER",
+     "text": "Every single time."
+    },
+    {
+     "start": 223.24,
+     "end": 227.1,
+     "speaker": "WALTER",
+     "text": "Noise, noise, noise, and then, a voice."
+    },
+    {
+     "start": 227.82,
+     "end": 228.79,
+     "speaker": "IMANI",
+     "text": "I love that."
+    },
+    {
+     "start": 228.95,
+     "end": 233.0,
+     "speaker": "IMANI",
+     "text": "And it makes me think about why these machines matter to you beyond the engineering."
+    },
+    {
+     "start": 233.57,
+     "end": 234.13,
+     "speaker": "WALTER",
+     "text": "Well."
+    },
+    {
+     "start": 234.29,
+     "end": 236.97,
+     "speaker": "WALTER",
+     "text": "I'll tell you something I don't usually say on a recording."
+    },
+    {
+     "start": 237.13,
+     "end": 241.95,
+     "speaker": "WALTER",
+     "text": "I think I've spent my whole life around machines that are very good at paying attention."
+    },
+    {
+     "start": 242.11,
+     "end": 243.44,
+     "speaker": "WALTER",
+     "text": "That's what a radio is."
+    },
+    {
+     "start": 243.6,
+     "end": 253.57,
+     "speaker": "WALTER",
+     "text": "It sits in a room full of noise, and it chooses one voice, and it gives that voice its complete attention, and it makes it clear enough for a person to hear."
+    },
+    {
+     "start": 253.73,
+     "end": 257.55,
+     "speaker": "WALTER",
+     "text": "And over the years I've come to think that's most of what a good life is, too."
+    },
+    {
+     "start": 257.71,
+     "end": 259.39,
+     "speaker": "WALTER",
+     "text": "The world is full of noise."
+    },
+    {
+     "start": 259.55,
+     "end": 262.04,
+     "speaker": "WALTER",
+     "text": "Everybody is broadcasting at once."
+    },
+    {
+     "start": 262.2,
+     "end": 270.1,
+     "speaker": "WALTER",
+     "text": "And the work, the real work, is tuning in to the thing that deserves your attention, and giving it all of yourself."
+    },
+    {
+     "start": 270.76,
+     "end": 271.66,
+     "speaker": "IMANI",
+     "text": "Tuning in."
+    },
+    {
+     "start": 272.36,
+     "end": 272.98,
+     "speaker": "WALTER",
+     "text": "Tuning in."
+    },
+    {
+     "start": 273.14,
+     "end": 277.93,
+     "speaker": "WALTER",
+     "text": "My wife used to say I listened to radios better than I listened to people."
+    },
+    {
+     "start": 278.09,
+     "end": 279.25,
+     "speaker": "WALTER",
+     "text": "She was not wrong."
+    },
+    {
+     "start": 279.41,
+     "end": 281.33,
+     "speaker": "WALTER",
+     "text": "I've been trying to get better at that."
+    }
+   ]
+  },
+  "who-gets-paid": {
+   "speakers": {
+    "NADIA": {
+     "name": "Nadia Kessler"
+    },
+    "SAM": {
+     "name": "Sam Okafor"
+    }
+   },
+   "full": {
+    "video": "media/speakers/who-gets-paid.full.mp4",
+    "poster": "media/speakers/who-gets-paid.full.jpg",
+    "duration": 547.0
+   },
+   "highlight": {
+    "video": "media/speakers/who-gets-paid.highlight.mp4",
+    "poster": "media/speakers/who-gets-paid.jpg",
+    "duration": 251.6,
+    "sourceStart": 87.1,
+    "sourceEnd": 338.67
+   },
+   "chapters": [
+    {
+     "title": "Cold open",
+     "start": 0.0
+    },
+    {
+     "title": "Why this question",
+     "start": 39.1
+    },
+    {
+     "title": "Following one stream back to the artist",
+     "start": 86.85
+    },
+    {
+     "title": "What a healthier system might look like",
+     "start": 338.32
+    },
+    {
+     "title": "The listener's side",
+     "start": 419.23
+    },
+    {
+     "title": "Closing",
+     "start": 511.01
+    }
+   ],
+   "cues": [
+    {
+     "start": 3.2,
+     "end": 5.71,
+     "speaker": "SAM",
+     "text": "Nadia, I want you to do something for me."
+    },
+    {
+     "start": 5.87,
+     "end": 9.12,
+     "speaker": "SAM",
+     "text": "Take out your phone, open any music app, and play a song."
+    },
+    {
+     "start": 9.28,
+     "end": 9.98,
+     "speaker": "SAM",
+     "text": "Any song."
+    },
+    {
+     "start": 10.7,
+     "end": 11.41,
+     "speaker": "NADIA",
+     "text": "Okay."
+    },
+    {
+     "start": 11.57,
+     "end": 12.1,
+     "speaker": "NADIA",
+     "text": "Done."
+    },
+    {
+     "start": 12.81,
+     "end": 13.99,
+     "speaker": "SAM",
+     "text": "Congratulations."
+    },
+    {
+     "start": 14.15,
+     "end": 18.81,
+     "speaker": "SAM",
+     "text": "You have just set in motion one of the most complicated payment systems in the modern economy."
+    },
+    {
+     "start": 19.38,
+     "end": 21.21,
+     "speaker": "NADIA",
+     "text": "I just wanted to hear a song, Sam."
+    },
+    {
+     "start": 21.74,
+     "end": 22.2,
+     "speaker": "SAM",
+     "text": "I know."
+    },
+    {
+     "start": 22.36,
+     "end": 23.62,
+     "speaker": "SAM",
+     "text": "That's what makes it beautiful."
+    },
+    {
+     "start": 24.37,
+     "end": 26.38,
+     "speaker": "NADIA",
+     "text": "Welcome to Kitchen Table Economics."
+    },
+    {
+     "start": 26.54,
+     "end": 27.76,
+     "speaker": "NADIA",
+     "text": "I'm Nadia Kessler."
+    },
+    {
+     "start": 28.43,
+     "end": 29.98,
+     "speaker": "SAM",
+     "text": "And I'm Sam Okafor."
+    },
+    {
+     "start": 30.14,
+     "end": 35.84,
+     "speaker": "SAM",
+     "text": "Every week we take one ordinary thing you do, and we follow the money until it stops."
+    },
+    {
+     "start": 36.0,
+     "end": 39.19,
+     "speaker": "SAM",
+     "text": "And this week, the ordinary thing is pressing play."
+    },
+    {
+     "start": 39.7,
+     "end": 40.81,
+     "speaker": "NADIA",
+     "text": "So why this one?"
+    },
+    {
+     "start": 40.97,
+     "end": 41.38,
+     "speaker": "NADIA",
+     "text": "Why now?"
+    },
+    {
+     "start": 42.11,
+     "end": 46.27,
+     "speaker": "SAM",
+     "text": "Because I keep having the same conversation at parties."
+    },
+    {
+     "start": 46.43,
+     "end": 50.8,
+     "speaker": "SAM",
+     "text": "Somebody finds out I'm an economist, and they say, okay, settle this."
+    },
+    {
+     "start": 50.96,
+     "end": 54.92,
+     "speaker": "SAM",
+     "text": "Is it true that musicians make basically nothing from streaming?"
+    },
+    {
+     "start": 55.08,
+     "end": 61.35,
+     "speaker": "SAM",
+     "text": "And I always give a mushy answer, because the honest answer is, it depends, and it's complicated."
+    },
+    {
+     "start": 61.51,
+     "end": 68.85,
+     "speaker": "SAM",
+     "text": "And I wanted to actually sit down and trace it, step by step, so that next time I can give a less mushy answer."
+    },
+    {
+     "start": 69.6,
+     "end": 71.95,
+     "speaker": "NADIA",
+     "text": "And to be clear, we are going to keep this general."
+    },
+    {
+     "start": 72.11,
+     "end": 77.04,
+     "speaker": "NADIA",
+     "text": "The exact numbers vary a lot by service, by country, by contract, and they change over time."
+    },
+    {
+     "start": 77.2,
+     "end": 79.64,
+     "speaker": "NADIA",
+     "text": "So we're not going to pretend there's one official rate."
+    },
+    {
+     "start": 79.8,
+     "end": 81.48,
+     "speaker": "NADIA",
+     "text": "We're going to follow the shape of the money."
+    },
+    {
+     "start": 82.06,
+     "end": 83.14,
+     "speaker": "SAM",
+     "text": "The shape of the money."
+    },
+    {
+     "start": 83.3,
+     "end": 84.56,
+     "speaker": "SAM",
+     "text": "That's a good name for a band."
+    },
+    {
+     "start": 85.28,
+     "end": 86.92,
+     "speaker": "NADIA",
+     "text": "It's a terrible name for a band."
+    },
+    {
+     "start": 87.45,
+     "end": 88.11,
+     "speaker": "SAM",
+     "text": "Okay."
+    },
+    {
+     "start": 88.27,
+     "end": 89.92,
+     "speaker": "SAM",
+     "text": "So let's actually do it."
+    },
+    {
+     "start": 90.08,
+     "end": 91.22,
+     "speaker": "SAM",
+     "text": "You pressed play."
+    },
+    {
+     "start": 91.38,
+     "end": 92.71,
+     "speaker": "SAM",
+     "text": "Where does the money start?"
+    },
+    {
+     "start": 93.33,
+     "end": 97.67,
+     "speaker": "NADIA",
+     "text": "It starts with you, the listener, and it starts before you pressed anything."
+    },
+    {
+     "start": 97.83,
+     "end": 103.78,
+     "speaker": "NADIA",
+     "text": "It starts when you paid your monthly subscription, or, if you're on a free tier, when an advertiser paid to put an ad in front of you."
+    },
+    {
+     "start": 103.94,
+     "end": 105.01,
+     "speaker": "NADIA",
+     "text": "That's the pool."
+    },
+    {
+     "start": 105.17,
+     "end": 111.44,
+     "speaker": "NADIA",
+     "text": "All the subscription money and all the ad money for a given month, in a given market, goes into one very large pot."
+    },
+    {
+     "start": 112.16,
+     "end": 113.34,
+     "speaker": "SAM",
+     "text": "One big pot."
+    },
+    {
+     "start": 113.5,
+     "end": 115.89,
+     "speaker": "SAM",
+     "text": "And here's the part that surprises people."
+    },
+    {
+     "start": 116.05,
+     "end": 119.2,
+     "speaker": "SAM",
+     "text": "In the most common model, your money doesn't follow your listening directly."
+    },
+    {
+     "start": 119.36,
+     "end": 122.16,
+     "speaker": "SAM",
+     "text": "It goes into the pot with everyone else's."
+    },
+    {
+     "start": 122.77,
+     "end": 123.39,
+     "speaker": "NADIA",
+     "text": "Right."
+    },
+    {
+     "start": 123.55,
+     "end": 126.2,
+     "speaker": "NADIA",
+     "text": "The service takes its share off the top, to run the business."
+    },
+    {
+     "start": 126.36,
+     "end": 130.92,
+     "speaker": "NADIA",
+     "text": "And then the remaining money is divided up based on each rights holder's share of total streams that month."
+    },
+    {
+     "start": 131.08,
+     "end": 139.45,
+     "speaker": "NADIA",
+     "text": "So if one artist's songs were one percent of all the streams on the service, the people who own those recordings get roughly one percent of the pot set aside for music."
+    },
+    {
+     "start": 140.09,
+     "end": 151.58,
+     "speaker": "SAM",
+     "text": "Which means that if you only listen to a small jazz trio all month, but most people are listening to the biggest pop stars in the world, a lot of your subscription is effectively going to the pop stars."
+    },
+    {
+     "start": 152.12,
+     "end": 153.38,
+     "speaker": "NADIA",
+     "text": "Effectively, yes."
+    },
+    {
+     "start": 153.54,
+     "end": 156.73,
+     "speaker": "NADIA",
+     "text": "Your listening is a vote, but it's one vote in a giant election."
+    },
+    {
+     "start": 156.89,
+     "end": 158.89,
+     "speaker": "NADIA",
+     "text": "That's what people call the pro rata model."
+    },
+    {
+     "start": 159.05,
+     "end": 166.02,
+     "speaker": "NADIA",
+     "text": "And there's a real debate about an alternative, sometimes called user centric, where your money would follow only the artists you actually played."
+    },
+    {
+     "start": 166.18,
+     "end": 168.74,
+     "speaker": "NADIA",
+     "text": "Some services have experimented with versions of it."
+    },
+    {
+     "start": 168.9,
+     "end": 171.57,
+     "speaker": "NADIA",
+     "text": "It's not a magic fix, but it changes who wins."
+    },
+    {
+     "start": 172.28,
+     "end": 175.24,
+     "speaker": "SAM",
+     "text": "Okay, so the pot has been split."
+    },
+    {
+     "start": 175.4,
+     "end": 177.62,
+     "speaker": "SAM",
+     "text": "Now the money is heading out the door."
+    },
+    {
+     "start": 177.78,
+     "end": 178.88,
+     "speaker": "SAM",
+     "text": "Where does it go next?"
+    },
+    {
+     "start": 179.52,
+     "end": 180.78,
+     "speaker": "NADIA",
+     "text": "This is where it splits again."
+    },
+    {
+     "start": 180.94,
+     "end": 183.73,
+     "speaker": "NADIA",
+     "text": "Because a song is actually two different things legally."
+    },
+    {
+     "start": 183.89,
+     "end": 186.62,
+     "speaker": "NADIA",
+     "text": "There's the recording, the actual audio, the performance."
+    },
+    {
+     "start": 186.78,
+     "end": 190.28,
+     "speaker": "NADIA",
+     "text": "And then there's the composition, the melody and the lyrics, the song as written."
+    },
+    {
+     "start": 190.44,
+     "end": 192.15,
+     "speaker": "NADIA",
+     "text": "Those usually have different owners."
+    },
+    {
+     "start": 192.72,
+     "end": 195.57,
+     "speaker": "SAM",
+     "text": "So two streams of money for one stream of music."
+    },
+    {
+     "start": 196.27,
+     "end": 197.14,
+     "speaker": "NADIA",
+     "text": "Exactly."
+    },
+    {
+     "start": 197.3,
+     "end": 204.97,
+     "speaker": "NADIA",
+     "text": "The recording money usually goes to whoever owns the master, which is often a record label, or a distributor if the artist is independent."
+    },
+    {
+     "start": 205.13,
+     "end": 207.92,
+     "speaker": "NADIA",
+     "text": "And then the artist gets their share according to their contract."
+    },
+    {
+     "start": 208.08,
+     "end": 212.56,
+     "speaker": "NADIA",
+     "text": "For a traditional label deal, that share might be a minority of what comes in."
+    },
+    {
+     "start": 212.72,
+     "end": 218.9,
+     "speaker": "NADIA",
+     "text": "For an independent artist using a distributor, they might keep most of it, but they're also paying for everything themselves."
+    },
+    {
+     "start": 219.65,
+     "end": 221.18,
+     "speaker": "SAM",
+     "text": "And the composition side?"
+    },
+    {
+     "start": 221.82,
+     "end": 227.47,
+     "speaker": "NADIA",
+     "text": "The composition side flows through publishers and collecting societies, and eventually to the songwriters."
+    },
+    {
+     "start": 227.63,
+     "end": 232.18,
+     "speaker": "NADIA",
+     "text": "Which might be the same person as the artist, or might be three other people in a room in Nashville."
+    },
+    {
+     "start": 232.87,
+     "end": 241.82,
+     "speaker": "SAM",
+     "text": "So if we imagine one single play, by the time it reaches the person who actually made the music, it has been divided, and divided, and divided again."
+    },
+    {
+     "start": 242.58,
+     "end": 253.38,
+     "speaker": "NADIA",
+     "text": "Divided by the service, divided by the market share of the whole pot, divided between recording and composition, divided by label or distributor, divided by contract, and divided among co-writers."
+    },
+    {
+     "start": 253.54,
+     "end": 256.53,
+     "speaker": "NADIA",
+     "text": "And each of those divisions has a perfectly good reason behind it."
+    },
+    {
+     "start": 256.69,
+     "end": 262.51,
+     "speaker": "NADIA",
+     "text": "It's just that when you stack them all up, the amount reaching any one person from a single play is a tiny fraction of a cent."
+    },
+    {
+     "start": 263.03,
+     "end": 268.83,
+     "speaker": "SAM",
+     "text": "Which is why the honest answer to the party question is, it's not that the system pays nothing."
+    },
+    {
+     "start": 268.99,
+     "end": 271.5,
+     "speaker": "SAM",
+     "text": "It's that it's designed to pay well at enormous scale."
+    },
+    {
+     "start": 271.66,
+     "end": 275.64,
+     "speaker": "SAM",
+     "text": "If you have hundreds of millions of plays, it can add up to a real living."
+    },
+    {
+     "start": 275.8,
+     "end": 278.16,
+     "speaker": "SAM",
+     "text": "If you have ten thousand, it's a nice dinner."
+    },
+    {
+     "start": 278.82,
+     "end": 280.53,
+     "speaker": "NADIA",
+     "text": "And the uncomfortable part is the middle."
+    },
+    {
+     "start": 280.69,
+     "end": 288.84,
+     "speaker": "NADIA",
+     "text": "The artist with a real, dedicated audience, people who love their work, who listen every week, but who will never be in the top one percent of global streams."
+    },
+    {
+     "start": 289.0,
+     "end": 291.52,
+     "speaker": "NADIA",
+     "text": "That artist is the one the math is hardest on."
+    },
+    {
+     "start": 291.93,
+     "end": 296.42,
+     "speaker": "NADIA",
+     "text": "And I want to be fair here, because it's easy to make this sound like a villain story."
+    },
+    {
+     "start": 296.58,
+     "end": 297.85,
+     "speaker": "NADIA",
+     "text": "It mostly isn't."
+    },
+    {
+     "start": 298.01,
+     "end": 301.75,
+     "speaker": "NADIA",
+     "text": "The services are running on margins that aren't as huge as people assume."
+    },
+    {
+     "start": 301.91,
+     "end": 305.37,
+     "speaker": "NADIA",
+     "text": "Labels fund a lot of recordings that never earn back their costs."
+    },
+    {
+     "start": 305.53,
+     "end": 308.52,
+     "speaker": "NADIA",
+     "text": "Publishers chase down money that would otherwise go uncollected."
+    },
+    {
+     "start": 308.68,
+     "end": 311.1,
+     "speaker": "NADIA",
+     "text": "Every hand in the chain is doing real work."
+    },
+    {
+     "start": 311.85,
+     "end": 312.98,
+     "speaker": "SAM",
+     "text": "It's not a heist."
+    },
+    {
+     "start": 313.14,
+     "end": 313.81,
+     "speaker": "SAM",
+     "text": "It's a funnel."
+    },
+    {
+     "start": 314.35,
+     "end": 315.15,
+     "speaker": "NADIA",
+     "text": "It's a funnel."
+    },
+    {
+     "start": 315.31,
+     "end": 321.32,
+     "speaker": "NADIA",
+     "text": "A very wide top, a lot of layers, and a narrow spout at the bottom where the artist is standing with a cup."
+    },
+    {
+     "start": 321.89,
+     "end": 322.99,
+     "speaker": "SAM",
+     "text": "That's a bleak image."
+    },
+    {
+     "start": 323.64,
+     "end": 325.22,
+     "speaker": "NADIA",
+     "text": "You asked me to follow the money."
+    },
+    {
+     "start": 325.91,
+     "end": 327.58,
+     "speaker": "SAM",
+     "text": "The musical middle class."
+    },
+    {
+     "start": 328.23,
+     "end": 329.66,
+     "speaker": "NADIA",
+     "text": "The musical middle class."
+    },
+    {
+     "start": 329.82,
+     "end": 331.59,
+     "speaker": "NADIA",
+     "text": "And that's what I actually care about."
+    },
+    {
+     "start": 331.75,
+     "end": 333.41,
+     "speaker": "NADIA",
+     "text": "Not whether superstars are rich."
+    },
+    {
+     "start": 333.57,
+     "end": 334.4,
+     "speaker": "NADIA",
+     "text": "They'll be fine."
+    },
+    {
+     "start": 334.56,
+     "end": 338.28,
+     "speaker": "NADIA",
+     "text": "Whether someone with fifty thousand devoted listeners can make a living doing this."
+    },
+    {
+     "start": 338.92,
+     "end": 340.33,
+     "speaker": "SAM",
+     "text": "So let's talk about that."
+    },
+    {
+     "start": 340.49,
+     "end": 343.03,
+     "speaker": "SAM",
+     "text": "If you could redesign this, what would you change?"
+    },
+    {
+     "start": 343.56,
+     "end": 346.35,
+     "speaker": "NADIA",
+     "text": "I'd start with discovery, honestly, before payment."
+    },
+    {
+     "start": 346.51,
+     "end": 350.71,
+     "speaker": "NADIA",
+     "text": "Because the money follows attention, and attention right now is incredibly concentrated."
+    },
+    {
+     "start": 350.87,
+     "end": 356.91,
+     "speaker": "NADIA",
+     "text": "Most listening goes to a relatively small slice of artists, and a lot of that is driven by what gets surfaced to people."
+    },
+    {
+     "start": 357.07,
+     "end": 365.08,
+     "speaker": "NADIA",
+     "text": "If you help listeners actually find the artists they'd love, and not just the ones everyone else is already playing, the money starts to spread out on its own."
+    },
+    {
+     "start": 365.78,
+     "end": 368.66,
+     "speaker": "SAM",
+     "text": "So the problem isn't only how you split the pie."
+    },
+    {
+     "start": 368.82,
+     "end": 371.53,
+     "speaker": "SAM",
+     "text": "It's who gets invited to the table in the first place."
+    },
+    {
+     "start": 372.12,
+     "end": 372.72,
+     "speaker": "NADIA",
+     "text": "Right."
+    },
+    {
+     "start": 372.88,
+     "end": 374.72,
+     "speaker": "NADIA",
+     "text": "And the second thing is direct connection."
+    },
+    {
+     "start": 374.88,
+     "end": 380.16,
+     "speaker": "NADIA",
+     "text": "The artists who seem to be doing best in the middle are the ones who have a real relationship with their listeners."
+    },
+    {
+     "start": 380.32,
+     "end": 383.38,
+     "speaker": "NADIA",
+     "text": "People who come to the shows, buy the vinyl, support them directly."
+    },
+    {
+     "start": 383.54,
+     "end": 385.05,
+     "speaker": "NADIA",
+     "text": "Streaming is often the front door."
+    },
+    {
+     "start": 385.21,
+     "end": 386.62,
+     "speaker": "NADIA",
+     "text": "It's how people find you."
+    },
+    {
+     "start": 386.78,
+     "end": 389.42,
+     "speaker": "NADIA",
+     "text": "But the living gets made in the relationship that comes after."
+    },
+    {
+     "start": 389.95,
+     "end": 396.56,
+     "speaker": "SAM",
+     "text": "That's interesting, because it reframes streaming as less of a cash register and more of a radio station."
+    },
+    {
+     "start": 397.31,
+     "end": 399.64,
+     "speaker": "NADIA",
+     "text": "That's actually a great way to put it."
+    },
+    {
+     "start": 399.8,
+     "end": 404.11,
+     "speaker": "NADIA",
+     "text": "For decades, radio didn't pay artists much directly either, in a lot of cases."
+    },
+    {
+     "start": 404.27,
+     "end": 405.43,
+     "speaker": "NADIA",
+     "text": "But it introduced you to them."
+    },
+    {
+     "start": 405.59,
+     "end": 407.09,
+     "speaker": "NADIA",
+     "text": "And then you went and bought the record."
+    },
+    {
+     "start": 407.76,
+     "end": 416.28,
+     "speaker": "SAM",
+     "text": "So the question becomes, what's the modern version of hearing something on the radio, falling in love, and going to find the person who made it?"
+    },
+    {
+     "start": 416.9,
+     "end": 419.13,
+     "speaker": "NADIA",
+     "text": "And how do we make that path as short as possible."
+    },
+    {
+     "start": 419.83,
+     "end": 421.78,
+     "speaker": "SAM",
+     "text": "Can we talk about the listener for a second?"
+    },
+    {
+     "start": 421.94,
+     "end": 426.73,
+     "speaker": "SAM",
+     "text": "Because I think listeners get either blamed or ignored in this conversation, and neither is fair."
+    },
+    {
+     "start": 427.36,
+     "end": 428.16,
+     "speaker": "NADIA",
+     "text": "Agreed."
+    },
+    {
+     "start": 428.32,
+     "end": 431.11,
+     "speaker": "NADIA",
+     "text": "Most people are not choosing to underpay musicians."
+    },
+    {
+     "start": 431.27,
+     "end": 435.17,
+     "speaker": "NADIA",
+     "text": "They're choosing a convenient way to hear music, at a price that feels reasonable."
+    },
+    {
+     "start": 435.33,
+     "end": 437.3,
+     "speaker": "NADIA",
+     "text": "That's a completely rational decision."
+    },
+    {
+     "start": 437.85,
+     "end": 440.75,
+     "speaker": "SAM",
+     "text": "And honestly, the convenience is incredible."
+    },
+    {
+     "start": 440.91,
+     "end": 447.64,
+     "speaker": "SAM",
+     "text": "When I was a teenager I had about forty albums, and I knew every one of them by heart, because that was all I had."
+    },
+    {
+     "start": 447.8,
+     "end": 451.68,
+     "speaker": "SAM",
+     "text": "Now I have basically every recording ever made in my pocket."
+    },
+    {
+     "start": 452.34,
+     "end": 454.39,
+     "speaker": "NADIA",
+     "text": "And how many of them do you actually listen to?"
+    },
+    {
+     "start": 455.09,
+     "end": 456.91,
+     "speaker": "SAM",
+     "text": "That's the uncomfortable question."
+    },
+    {
+     "start": 457.07,
+     "end": 462.33,
+     "speaker": "SAM",
+     "text": "Because when I look at my history, I mostly listen to the same few hundred songs, over and over."
+    },
+    {
+     "start": 462.49,
+     "end": 465.43,
+     "speaker": "SAM",
+     "text": "Infinite choice, and I keep choosing the same thing."
+    },
+    {
+     "start": 466.13,
+     "end": 467.21,
+     "speaker": "NADIA",
+     "text": "That's very normal."
+    },
+    {
+     "start": 467.37,
+     "end": 470.36,
+     "speaker": "NADIA",
+     "text": "When everything is available, the hard part isn't access."
+    },
+    {
+     "start": 470.52,
+     "end": 471.55,
+     "speaker": "NADIA",
+     "text": "It's discovery."
+    },
+    {
+     "start": 471.71,
+     "end": 473.63,
+     "speaker": "NADIA",
+     "text": "Finding the thing you didn't know you were looking for."
+    },
+    {
+     "start": 473.79,
+     "end": 478.95,
+     "speaker": "NADIA",
+     "text": "And that's where I think there's real value still to be created, for listeners and artists at the same time."
+    },
+    {
+     "start": 479.59,
+     "end": 483.56,
+     "speaker": "SAM",
+     "text": "The economist in me wants to point out that the scarce resource has changed."
+    },
+    {
+     "start": 483.72,
+     "end": 484.73,
+     "speaker": "SAM",
+     "text": "It used to be music."
+    },
+    {
+     "start": 484.89,
+     "end": 485.8,
+     "speaker": "SAM",
+     "text": "Now it's attention."
+    },
+    {
+     "start": 486.54,
+     "end": 487.41,
+     "speaker": "NADIA",
+     "text": "Exactly."
+    },
+    {
+     "start": 487.57,
+     "end": 494.56,
+     "speaker": "NADIA",
+     "text": "And whoever helps people spend their attention well, in a way that feels good rather than exhausting, is solving the actual problem."
+    },
+    {
+     "start": 495.31,
+     "end": 502.89,
+     "speaker": "SAM",
+     "text": "And if that also happens to send listeners toward artists in the middle, the people with real audiences who just haven't been found yet..."
+    },
+    {
+     "start": 503.62,
+     "end": 506.48,
+     "speaker": "NADIA",
+     "text": "Then you've helped the listener and the artist with the same move."
+    },
+    {
+     "start": 506.64,
+     "end": 508.3,
+     "speaker": "NADIA",
+     "text": "That's the rare thing in economics."
+    },
+    {
+     "start": 508.46,
+     "end": 511.0,
+     "speaker": "NADIA",
+     "text": "A trade where both sides actually come out ahead."
+    },
+    {
+     "start": 511.61,
+     "end": 512.82,
+     "speaker": "SAM",
+     "text": "Okay, homework time."
+    },
+    {
+     "start": 512.98,
+     "end": 516.72,
+     "speaker": "SAM",
+     "text": "This week, pick one artist you love who you're pretty sure is not famous."
+    },
+    {
+     "start": 516.88,
+     "end": 520.37,
+     "speaker": "SAM",
+     "text": "And do one thing that sends money to them more directly than a stream."
+    },
+    {
+     "start": 520.53,
+     "end": 522.68,
+     "speaker": "SAM",
+     "text": "Buy a record, buy a ticket, buy a shirt."
+    },
+    {
+     "start": 523.25,
+     "end": 524.6,
+     "speaker": "NADIA",
+     "text": "Or just tell a friend."
+    },
+    {
+     "start": 524.76,
+     "end": 526.5,
+     "speaker": "NADIA",
+     "text": "Attention is also currency."
+    },
+    {
+     "start": 527.15,
+     "end": 528.93,
+     "speaker": "SAM",
+     "text": "Attention is also currency."
+    },
+    {
+     "start": 529.09,
+     "end": 530.44,
+     "speaker": "SAM",
+     "text": "That's going on the whiteboard."
+    },
+    {
+     "start": 531.11,
+     "end": 532.74,
+     "speaker": "NADIA",
+     "text": "Everything goes on the whiteboard."
+    },
+    {
+     "start": 532.9,
+     "end": 533.93,
+     "speaker": "NADIA",
+     "text": "That's our show."
+    },
+    {
+     "start": 534.09,
+     "end": 535.2,
+     "speaker": "NADIA",
+     "text": "I'm Nadia Kessler."
+    },
+    {
+     "start": 535.75,
+     "end": 536.98,
+     "speaker": "SAM",
+     "text": "And I'm Sam Okafor."
+    },
+    {
+     "start": 537.14,
+     "end": 539.37,
+     "speaker": "SAM",
+     "text": "This has been Kitchen Table Economics."
+    },
+    {
+     "start": 539.53,
+     "end": 540.29,
+     "speaker": "SAM",
+     "text": "Follow the money."
+    }
+   ],
+   "highlightCues": [
+    {
+     "start": 0.35,
+     "end": 1.01,
+     "speaker": "SAM",
+     "text": "Okay."
+    },
+    {
+     "start": 1.17,
+     "end": 2.82,
+     "speaker": "SAM",
+     "text": "So let's actually do it."
+    },
+    {
+     "start": 2.98,
+     "end": 4.12,
+     "speaker": "SAM",
+     "text": "You pressed play."
+    },
+    {
+     "start": 4.28,
+     "end": 5.61,
+     "speaker": "SAM",
+     "text": "Where does the money start?"
+    },
+    {
+     "start": 6.23,
+     "end": 10.57,
+     "speaker": "NADIA",
+     "text": "It starts with you, the listener, and it starts before you pressed anything."
+    },
+    {
+     "start": 10.73,
+     "end": 16.68,
+     "speaker": "NADIA",
+     "text": "It starts when you paid your monthly subscription, or, if you're on a free tier, when an advertiser paid to put an ad in front of you."
+    },
+    {
+     "start": 16.84,
+     "end": 17.91,
+     "speaker": "NADIA",
+     "text": "That's the pool."
+    },
+    {
+     "start": 18.07,
+     "end": 24.34,
+     "speaker": "NADIA",
+     "text": "All the subscription money and all the ad money for a given month, in a given market, goes into one very large pot."
+    },
+    {
+     "start": 25.06,
+     "end": 26.24,
+     "speaker": "SAM",
+     "text": "One big pot."
+    },
+    {
+     "start": 26.4,
+     "end": 28.79,
+     "speaker": "SAM",
+     "text": "And here's the part that surprises people."
+    },
+    {
+     "start": 28.95,
+     "end": 32.1,
+     "speaker": "SAM",
+     "text": "In the most common model, your money doesn't follow your listening directly."
+    },
+    {
+     "start": 32.26,
+     "end": 35.06,
+     "speaker": "SAM",
+     "text": "It goes into the pot with everyone else's."
+    },
+    {
+     "start": 35.67,
+     "end": 36.29,
+     "speaker": "NADIA",
+     "text": "Right."
+    },
+    {
+     "start": 36.45,
+     "end": 39.1,
+     "speaker": "NADIA",
+     "text": "The service takes its share off the top, to run the business."
+    },
+    {
+     "start": 39.26,
+     "end": 43.82,
+     "speaker": "NADIA",
+     "text": "And then the remaining money is divided up based on each rights holder's share of total streams that month."
+    },
+    {
+     "start": 43.98,
+     "end": 52.35,
+     "speaker": "NADIA",
+     "text": "So if one artist's songs were one percent of all the streams on the service, the people who own those recordings get roughly one percent of the pot set aside for music."
+    },
+    {
+     "start": 52.99,
+     "end": 64.48,
+     "speaker": "SAM",
+     "text": "Which means that if you only listen to a small jazz trio all month, but most people are listening to the biggest pop stars in the world, a lot of your subscription is effectively going to the pop stars."
+    },
+    {
+     "start": 65.02,
+     "end": 66.28,
+     "speaker": "NADIA",
+     "text": "Effectively, yes."
+    },
+    {
+     "start": 66.44,
+     "end": 69.63,
+     "speaker": "NADIA",
+     "text": "Your listening is a vote, but it's one vote in a giant election."
+    },
+    {
+     "start": 69.79,
+     "end": 71.79,
+     "speaker": "NADIA",
+     "text": "That's what people call the pro rata model."
+    },
+    {
+     "start": 71.95,
+     "end": 78.92,
+     "speaker": "NADIA",
+     "text": "And there's a real debate about an alternative, sometimes called user centric, where your money would follow only the artists you actually played."
+    },
+    {
+     "start": 79.08,
+     "end": 81.64,
+     "speaker": "NADIA",
+     "text": "Some services have experimented with versions of it."
+    },
+    {
+     "start": 81.8,
+     "end": 84.47,
+     "speaker": "NADIA",
+     "text": "It's not a magic fix, but it changes who wins."
+    },
+    {
+     "start": 85.18,
+     "end": 88.14,
+     "speaker": "SAM",
+     "text": "Okay, so the pot has been split."
+    },
+    {
+     "start": 88.3,
+     "end": 90.52,
+     "speaker": "SAM",
+     "text": "Now the money is heading out the door."
+    },
+    {
+     "start": 90.68,
+     "end": 91.78,
+     "speaker": "SAM",
+     "text": "Where does it go next?"
+    },
+    {
+     "start": 92.42,
+     "end": 93.68,
+     "speaker": "NADIA",
+     "text": "This is where it splits again."
+    },
+    {
+     "start": 93.84,
+     "end": 96.63,
+     "speaker": "NADIA",
+     "text": "Because a song is actually two different things legally."
+    },
+    {
+     "start": 96.79,
+     "end": 99.52,
+     "speaker": "NADIA",
+     "text": "There's the recording, the actual audio, the performance."
+    },
+    {
+     "start": 99.68,
+     "end": 103.18,
+     "speaker": "NADIA",
+     "text": "And then there's the composition, the melody and the lyrics, the song as written."
+    },
+    {
+     "start": 103.34,
+     "end": 105.05,
+     "speaker": "NADIA",
+     "text": "Those usually have different owners."
+    },
+    {
+     "start": 105.62,
+     "end": 108.47,
+     "speaker": "SAM",
+     "text": "So two streams of money for one stream of music."
+    },
+    {
+     "start": 109.17,
+     "end": 110.04,
+     "speaker": "NADIA",
+     "text": "Exactly."
+    },
+    {
+     "start": 110.2,
+     "end": 117.87,
+     "speaker": "NADIA",
+     "text": "The recording money usually goes to whoever owns the master, which is often a record label, or a distributor if the artist is independent."
+    },
+    {
+     "start": 118.03,
+     "end": 120.82,
+     "speaker": "NADIA",
+     "text": "And then the artist gets their share according to their contract."
+    },
+    {
+     "start": 120.98,
+     "end": 125.46,
+     "speaker": "NADIA",
+     "text": "For a traditional label deal, that share might be a minority of what comes in."
+    },
+    {
+     "start": 125.62,
+     "end": 131.8,
+     "speaker": "NADIA",
+     "text": "For an independent artist using a distributor, they might keep most of it, but they're also paying for everything themselves."
+    },
+    {
+     "start": 132.55,
+     "end": 134.08,
+     "speaker": "SAM",
+     "text": "And the composition side?"
+    },
+    {
+     "start": 134.72,
+     "end": 140.37,
+     "speaker": "NADIA",
+     "text": "The composition side flows through publishers and collecting societies, and eventually to the songwriters."
+    },
+    {
+     "start": 140.53,
+     "end": 145.08,
+     "speaker": "NADIA",
+     "text": "Which might be the same person as the artist, or might be three other people in a room in Nashville."
+    },
+    {
+     "start": 145.77,
+     "end": 154.72,
+     "speaker": "SAM",
+     "text": "So if we imagine one single play, by the time it reaches the person who actually made the music, it has been divided, and divided, and divided again."
+    },
+    {
+     "start": 155.48,
+     "end": 166.28,
+     "speaker": "NADIA",
+     "text": "Divided by the service, divided by the market share of the whole pot, divided between recording and composition, divided by label or distributor, divided by contract, and divided among co-writers."
+    },
+    {
+     "start": 166.44,
+     "end": 169.43,
+     "speaker": "NADIA",
+     "text": "And each of those divisions has a perfectly good reason behind it."
+    },
+    {
+     "start": 169.59,
+     "end": 175.41,
+     "speaker": "NADIA",
+     "text": "It's just that when you stack them all up, the amount reaching any one person from a single play is a tiny fraction of a cent."
+    },
+    {
+     "start": 175.93,
+     "end": 181.73,
+     "speaker": "SAM",
+     "text": "Which is why the honest answer to the party question is, it's not that the system pays nothing."
+    },
+    {
+     "start": 181.89,
+     "end": 184.4,
+     "speaker": "SAM",
+     "text": "It's that it's designed to pay well at enormous scale."
+    },
+    {
+     "start": 184.56,
+     "end": 188.54,
+     "speaker": "SAM",
+     "text": "If you have hundreds of millions of plays, it can add up to a real living."
+    },
+    {
+     "start": 188.7,
+     "end": 191.06,
+     "speaker": "SAM",
+     "text": "If you have ten thousand, it's a nice dinner."
+    },
+    {
+     "start": 191.72,
+     "end": 193.43,
+     "speaker": "NADIA",
+     "text": "And the uncomfortable part is the middle."
+    },
+    {
+     "start": 193.59,
+     "end": 201.74,
+     "speaker": "NADIA",
+     "text": "The artist with a real, dedicated audience, people who love their work, who listen every week, but who will never be in the top one percent of global streams."
+    },
+    {
+     "start": 201.9,
+     "end": 204.42,
+     "speaker": "NADIA",
+     "text": "That artist is the one the math is hardest on."
+    },
+    {
+     "start": 204.83,
+     "end": 209.32,
+     "speaker": "NADIA",
+     "text": "And I want to be fair here, because it's easy to make this sound like a villain story."
+    },
+    {
+     "start": 209.48,
+     "end": 210.75,
+     "speaker": "NADIA",
+     "text": "It mostly isn't."
+    },
+    {
+     "start": 210.91,
+     "end": 214.65,
+     "speaker": "NADIA",
+     "text": "The services are running on margins that aren't as huge as people assume."
+    },
+    {
+     "start": 214.81,
+     "end": 218.27,
+     "speaker": "NADIA",
+     "text": "Labels fund a lot of recordings that never earn back their costs."
+    },
+    {
+     "start": 218.43,
+     "end": 221.42,
+     "speaker": "NADIA",
+     "text": "Publishers chase down money that would otherwise go uncollected."
+    },
+    {
+     "start": 221.58,
+     "end": 224.0,
+     "speaker": "NADIA",
+     "text": "Every hand in the chain is doing real work."
+    },
+    {
+     "start": 224.75,
+     "end": 225.88,
+     "speaker": "SAM",
+     "text": "It's not a heist."
+    },
+    {
+     "start": 226.04,
+     "end": 226.71,
+     "speaker": "SAM",
+     "text": "It's a funnel."
+    },
+    {
+     "start": 227.25,
+     "end": 228.05,
+     "speaker": "NADIA",
+     "text": "It's a funnel."
+    },
+    {
+     "start": 228.21,
+     "end": 234.22,
+     "speaker": "NADIA",
+     "text": "A very wide top, a lot of layers, and a narrow spout at the bottom where the artist is standing with a cup."
+    },
+    {
+     "start": 234.79,
+     "end": 235.89,
+     "speaker": "SAM",
+     "text": "That's a bleak image."
+    },
+    {
+     "start": 236.54,
+     "end": 238.12,
+     "speaker": "NADIA",
+     "text": "You asked me to follow the money."
+    },
+    {
+     "start": 238.81,
+     "end": 240.48,
+     "speaker": "SAM",
+     "text": "The musical middle class."
+    },
+    {
+     "start": 241.13,
+     "end": 242.56,
+     "speaker": "NADIA",
+     "text": "The musical middle class."
+    },
+    {
+     "start": 242.72,
+     "end": 244.49,
+     "speaker": "NADIA",
+     "text": "And that's what I actually care about."
+    },
+    {
+     "start": 244.65,
+     "end": 246.31,
+     "speaker": "NADIA",
+     "text": "Not whether superstars are rich."
+    },
+    {
+     "start": 246.47,
+     "end": 247.3,
+     "speaker": "NADIA",
+     "text": "They'll be fine."
+    },
+    {
+     "start": 247.46,
+     "end": 251.18,
+     "speaker": "NADIA",
+     "text": "Whether someone with fifty thousand devoted listeners can make a living doing this."
+    }
+   ]
+  }
+ },
+ "handhelds": {
+  "hh-juniper-2am": {
+   "src": "media/handhelds/hh-juniper-2am.mp4",
+   "poster": "media/handhelds/hh-juniper-2am.jpg",
+   "duration": 26.1
+  },
+  "hh-cass-bridge": {
+   "src": "media/handhelds/hh-cass-bridge.mp4",
+   "poster": "media/handhelds/hh-cass-bridge.jpg",
+   "duration": 28.1
+  },
+  "hh-imani-radio": {
+   "src": "media/handhelds/hh-imani-radio.mp4",
+   "poster": "media/handhelds/hh-imani-radio.jpg",
+   "duration": 35.8
+  },
+  "hh-teodora-soundcheck": {
+   "src": "media/handhelds/hh-teodora-soundcheck.mp4",
+   "poster": "media/handhelds/hh-teodora-soundcheck.jpg",
+   "duration": 24.1
+  },
+  "hh-priya-walk": {
+   "src": "media/handhelds/hh-priya-walk.mp4",
+   "poster": "media/handhelds/hh-priya-walk.jpg",
+   "duration": 23.2
+  },
+  "hh-marlow-porch": {
+   "src": "media/handhelds/hh-marlow-porch.mp4",
+   "poster": "media/handhelds/hh-marlow-porch.jpg",
+   "duration": 28.1
+  },
+  "hh-yemi-rehearsal": {
+   "src": "media/handhelds/hh-yemi-rehearsal.mp4",
+   "poster": "media/handhelds/hh-yemi-rehearsal.jpg",
+   "duration": 24.1
+  },
+  "hh-halden-tape": {
+   "src": "media/handhelds/hh-halden-tape.mp4",
+   "poster": "media/handhelds/hh-halden-tape.jpg",
+   "duration": 26.1
+  },
+  "hh-juniper-lyrics": {
+   "src": "media/handhelds/hh-juniper-lyrics.jpg",
+   "poster": "media/handhelds/hh-juniper-lyrics.jpg"
+  },
+  "hh-kitchen-whiteboard": {
+   "src": "media/handhelds/hh-kitchen-whiteboard.jpg",
+   "poster": "media/handhelds/hh-kitchen-whiteboard.jpg"
+  }
+ }
+}

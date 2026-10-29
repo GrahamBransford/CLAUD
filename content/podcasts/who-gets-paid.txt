@@ -1,0 +1,74 @@
+@ NADIA = Nadia Kessler | 810
+@ SAM = Sam Okafor | 729
+
+# Cold open
+SAM: Nadia, I want you to do something for me. Take out your phone, open any music app, and play a song. Any song.
+NADIA: Okay. Done.
+SAM: Congratulations. You have just set in motion one of the most complicated payment systems in the modern economy.
+NADIA: I just wanted to hear a song, Sam.
+SAM: I know. That's what makes it beautiful.
+NADIA: Welcome to Kitchen Table Economics. I'm Nadia Kessler.
+SAM: And I'm Sam Okafor. Every week we take one ordinary thing you do, and we follow the money until it stops. And this week, the ordinary thing is pressing play.
+
+# Why this question
+NADIA: So why this one? Why now?
+SAM: Because I keep having the same conversation at parties. Somebody finds out I'm an economist, and they say, okay, settle this. Is it true that musicians make basically nothing from streaming? And I always give a mushy answer, because the honest answer is, it depends, and it's complicated. And I wanted to actually sit down and trace it, step by step, so that next time I can give a less mushy answer.
+NADIA: And to be clear, we are going to keep this general. The exact numbers vary a lot by service, by country, by contract, and they change over time. So we're not going to pretend there's one official rate. We're going to follow the shape of the money.
+SAM: The shape of the money. That's a good name for a band.
+NADIA: It's a terrible name for a band.
+
+## HIGHLIGHT START
+# Following one stream back to the artist
+SAM: Okay. So let's actually do it. You pressed play. Where does the money start?
+NADIA: It starts with you, the listener, and it starts before you pressed anything. It starts when you paid your monthly subscription, or, if you're on a free tier, when an advertiser paid to put an ad in front of you. That's the pool. All the subscription money and all the ad money for a given month, in a given market, goes into one very large pot.
+SAM: One big pot. And here's the part that surprises people. In the most common model, your money doesn't follow your listening directly. It goes into the pot with everyone else's.
+NADIA: Right. The service takes its share off the top, to run the business. And then the remaining money is divided up based on each rights holder's share of total streams that month. So if one artist's songs were one percent of all the streams on the service, the people who own those recordings get roughly one percent of the pot set aside for music.
+SAM: Which means that if you only listen to a small jazz trio all month, but most people are listening to the biggest pop stars in the world, a lot of your subscription is effectively going to the pop stars.
+NADIA: Effectively, yes. Your listening is a vote, but it's one vote in a giant election. That's what people call the pro rata model. And there's a real debate about an alternative, sometimes called user centric, where your money would follow only the artists you actually played. Some services have experimented with versions of it. It's not a magic fix, but it changes who wins.
+SAM: Okay, so the pot has been split. Now the money is heading out the door. Where does it go next?
+NADIA: This is where it splits again. Because a song is actually two different things legally. There's the recording, the actual audio, the performance. And then there's the composition, the melody and the lyrics, the song as written. Those usually have different owners.
+SAM: So two streams of money for one stream of music.
+NADIA: Exactly. The recording money usually goes to whoever owns the master, which is often a record label, or a distributor if the artist is independent. And then the artist gets their share according to their contract. For a traditional label deal, that share might be a minority of what comes in. For an independent artist using a distributor, they might keep most of it, but they're also paying for everything themselves.
+SAM: And the composition side?
+NADIA: The composition side flows through publishers and collecting societies, and eventually to the songwriters. Which might be the same person as the artist, or might be three other people in a room in Nashville.
+SAM: So if we imagine one single play, by the time it reaches the person who actually made the music, it has been divided, and divided, and divided again.
+NADIA: Divided by the service, divided by the market share of the whole pot, divided between recording and composition, divided by label or distributor, divided by contract, and divided among co-writers. And each of those divisions has a perfectly good reason behind it. It's just that when you stack them all up, the amount reaching any one person from a single play is a tiny fraction of a cent.
+SAM: Which is why the honest answer to the party question is, it's not that the system pays nothing. It's that it's designed to pay well at enormous scale. If you have hundreds of millions of plays, it can add up to a real living. If you have ten thousand, it's a nice dinner.
+NADIA: And the uncomfortable part is the middle. The artist with a real, dedicated audience, people who love their work, who listen every week, but who will never be in the top one percent of global streams. That artist is the one the math is hardest on.
+NADIA: And I want to be fair here, because it's easy to make this sound like a villain story. It mostly isn't. The services are running on margins that aren't as huge as people assume. Labels fund a lot of recordings that never earn back their costs. Publishers chase down money that would otherwise go uncollected. Every hand in the chain is doing real work.
+SAM: It's not a heist. It's a funnel.
+NADIA: It's a funnel. A very wide top, a lot of layers, and a narrow spout at the bottom where the artist is standing with a cup.
+SAM: That's a bleak image.
+NADIA: You asked me to follow the money.
+SAM: The musical middle class.
+NADIA: The musical middle class. And that's what I actually care about. Not whether superstars are rich. They'll be fine. Whether someone with fifty thousand devoted listeners can make a living doing this.
+## HIGHLIGHT END
+
+# What a healthier system might look like
+SAM: So let's talk about that. If you could redesign this, what would you change?
+NADIA: I'd start with discovery, honestly, before payment. Because the money follows attention, and attention right now is incredibly concentrated. Most listening goes to a relatively small slice of artists, and a lot of that is driven by what gets surfaced to people. If you help listeners actually find the artists they'd love, and not just the ones everyone else is already playing, the money starts to spread out on its own.
+SAM: So the problem isn't only how you split the pie. It's who gets invited to the table in the first place.
+NADIA: Right. And the second thing is direct connection. The artists who seem to be doing best in the middle are the ones who have a real relationship with their listeners. People who come to the shows, buy the vinyl, support them directly. Streaming is often the front door. It's how people find you. But the living gets made in the relationship that comes after.
+SAM: That's interesting, because it reframes streaming as less of a cash register and more of a radio station.
+NADIA: That's actually a great way to put it. For decades, radio didn't pay artists much directly either, in a lot of cases. But it introduced you to them. And then you went and bought the record.
+SAM: So the question becomes, what's the modern version of hearing something on the radio, falling in love, and going to find the person who made it?
+NADIA: And how do we make that path as short as possible.
+
+# The listener's side
+SAM: Can we talk about the listener for a second? Because I think listeners get either blamed or ignored in this conversation, and neither is fair.
+NADIA: Agreed. Most people are not choosing to underpay musicians. They're choosing a convenient way to hear music, at a price that feels reasonable. That's a completely rational decision.
+SAM: And honestly, the convenience is incredible. When I was a teenager I had about forty albums, and I knew every one of them by heart, because that was all I had. Now I have basically every recording ever made in my pocket.
+NADIA: And how many of them do you actually listen to?
+SAM: That's the uncomfortable question. Because when I look at my history, I mostly listen to the same few hundred songs, over and over. Infinite choice, and I keep choosing the same thing.
+NADIA: That's very normal. When everything is available, the hard part isn't access. It's discovery. Finding the thing you didn't know you were looking for. And that's where I think there's real value still to be created, for listeners and artists at the same time.
+SAM: The economist in me wants to point out that the scarce resource has changed. It used to be music. Now it's attention.
+NADIA: Exactly. And whoever helps people spend their attention well, in a way that feels good rather than exhausting, is solving the actual problem.
+SAM: And if that also happens to send listeners toward artists in the middle, the people with real audiences who just haven't been found yet...
+NADIA: Then you've helped the listener and the artist with the same move. That's the rare thing in economics. A trade where both sides actually come out ahead.
+
+# Closing
+SAM: Okay, homework time. This week, pick one artist you love who you're pretty sure is not famous. And do one thing that sends money to them more directly than a stream. Buy a record, buy a ticket, buy a shirt.
+NADIA: Or just tell a friend. Attention is also currency.
+SAM: Attention is also currency. That's going on the whiteboard.
+NADIA: Everything goes on the whiteboard. That's our show. I'm Nadia Kessler.
+SAM: And I'm Sam Okafor. This has been Kitchen Table Economics. Follow the money.
