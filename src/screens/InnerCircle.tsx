@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, type PanInfo } from 'framer-motion'
 import * as I from '../components/Icons'
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
 import { MediaSurface } from '../components/MediaSurface'
@@ -171,7 +171,7 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
             <button className="moment__follow" onClick={() => follow(c.id)} aria-label={`Follow ${c.name}`}><I.Plus size={15} /></button>
           )}
         </div>
-        <p className="moment__caption">{post.caption}</p>
+        <Caption text={post.caption} />
       </div>
       <div className="rail rail--ic">
         <button className={`rail__btn rail__btn--save ${reacted ? 'is-on' : ''}`} onClick={() => toggleReaction(post.id, post.creatorId)} aria-label="Send love" aria-pressed={reacted}>
@@ -204,6 +204,30 @@ function CaughtUp({ empty, onRestart }: { empty: boolean; onRestart: () => void 
             </button>
           ))}
         </div>
+      )}
+    </div>
+  )
+}
+
+/**
+ * Two lines, always the same height, so the name and avatar never move from
+ * moment to moment. Longer captions end in "more", like Instagram.
+ */
+function Caption({ text }: { text: string }) {
+  const ref = useRef<HTMLParagraphElement>(null)
+  const [open, setOpen] = useState(false)
+  const [long, setLong] = useState(false)
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (el && !open) setLong(el.scrollHeight > el.clientHeight + 1)
+  }, [text, open])
+  return (
+    <div className={`moment__caption ${open ? 'is-open' : ''}`}>
+      <p ref={ref}>{text}</p>
+      {long && (
+        <button className="moment__more" onClick={() => setOpen(!open)} aria-expanded={open}>
+          {open ? 'less' : '… more'}
+        </button>
       )}
     </div>
   )
