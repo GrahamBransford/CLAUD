@@ -25,6 +25,7 @@
   --fg-2: rgba(246, 236, 216, 0.72);
   --fg-3: rgba(246, 236, 216, 0.45);
   --hair: rgba(246, 236, 216, 0.14);
+  --bar: #19120e;
 
   /* materials */
   --bezel: conic-gradient(from 210deg, #8d8f94, #f4f3ef, #a3a5aa, #5c5e64, #dededa, #8d8f94);

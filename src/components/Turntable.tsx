@@ -82,9 +82,19 @@ const wrap = (a: number) => ((((a + 180) % 360) + 360) % 360) - 180
 const ARM_REST = -7
 const ARM_PLAY = 2
 
+const SPIN_UP = 0.32 // s, time constant of the platter coming up to speed
+const COAST = 0.6 // s, coasting down
+
+/** Faded out or off screen: it can be repositioned without anyone seeing. */
+const unseen = (el: HTMLElement) => {
+  const view = el.closest('.view')
+  return !view || parseFloat(getComputedStyle(view).opacity) < 0.5
+}
+
 /**
- * Turns the platter with some mass: it spins up and coasts down, and once up
- * to speed it eases into step with the shared clock. Writes --rot on the
+ * Turns the platter with some mass: it spins up and coasts down. Arriving on
+ * the page, it starts from just the angle where its spin-up lands in step
+ * with the shared clock, so it never visibly catches up. Writes --rot on the
  * deck; CSS does the rest.
  */
 function usePlatter(deck: RefObject<HTMLDivElement | null>, spinning: boolean) {
@@ -94,20 +104,21 @@ function usePlatter(deck: RefObject<HTMLDivElement | null>, spinning: boolean) {
   const raf = useRef(0)
   useEffect(() => {
     want.current = spinning
-    deck.current?.style.setProperty('--rot', `${angle.current}deg`)
+    const el = deck.current
+    // A spin-up from rest falls DEG_PER_S × SPIN_UP degrees behind the clock; start that far ahead.
+    if (spinning && speed.current < 0.01 && el && unseen(el)) angle.current = (clockAngle() + DEG_PER_S * SPIN_UP) % 360
+    el?.style.setProperty('--rot', `${angle.current}deg`)
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || raf.current) return
     let last = performance.now()
     const tick = (now: number) => {
-      const dt = Math.min(0.1, (now - last) / 1000)
+      // real elapsed time, so a slow frame never leaves the record behind
+      const dt = Math.min(1, (now - last) / 1000)
       last = now
       const target = want.current ? 1 : 0
-      // spin-up ~0.8 s, coast-down ~1.6 s
-      speed.current += (target - speed.current) * (1 - Math.exp(-dt / (target ? 0.32 : 0.6)))
+      speed.current += (target - speed.current) * (1 - Math.exp(-dt / (target ? SPIN_UP : COAST)))
       angle.current = (angle.current + speed.current * DEG_PER_S * dt) % 360
-      // once playing, ease into step with the clock (settles within ~2 s)
-      angle.current += wrap(clockAngle() - angle.current) * (1 - Math.exp(-dt / 0.7)) * speed.current
-      // up to speed: exactly on the clock, whatever the frame rate
-      if (want.current && speed.current > 0.995) angle.current = clockAngle()
+      // up to speed, drift back onto the clock imperceptibly (a fraction of a degree a second)
+      if (want.current && speed.current > 0.98) angle.current += wrap(clockAngle() - angle.current) * (1 - Math.exp(-dt / 2))
       deck.current?.style.setProperty('--rot', `${angle.current.toFixed(3)}deg`)
       if (!want.current && speed.current < 0.002) {
         speed.current = 0
