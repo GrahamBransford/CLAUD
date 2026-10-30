@@ -246,11 +246,9 @@ h2 {
   height: 100%;
 }
 .tab__label {
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-stretch: 112%;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 .tab__icon {
   position: relative;
@@ -853,12 +851,11 @@ h2 {
   height: 40px;
   padding: 0 18px;
   border-radius: 20px;
-  font-family: var(--display);
-  font-weight: 700;
-  font-stretch: 115%;
-  font-size: 12px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-variation-settings: 'opsz' 18, 'SOFT' 60;
+  font-size: 15px;
+  letter-spacing: 0.005em;
   background: linear-gradient(180deg, #fbf3e3, var(--cream-2));
   color: var(--ink);
   box-shadow:
@@ -1619,8 +1616,8 @@ h2 {
   }
   .key {
     height: 46px;
-    padding: 0 16px;
-    font-size: 12px;
+    padding: 0 18px;
+    font-size: 16px;
   }
   .key--round {
     width: 46px;
@@ -1652,12 +1649,11 @@ h2 {
   height: 40px;
   padding: 0 11px;
   border-radius: 7px 7px 10px 10px;
-  font-family: var(--display);
-  font-weight: 800;
-  font-stretch: 112%;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-variation-settings: 'opsz' 18, 'SOFT' 60;
+  font-size: 15px;
+  letter-spacing: 0.005em;
   color: #2a211b;
   background: linear-gradient(180deg, #fffaf0, #eadcc0 85%, #d8c7a6);
   box-shadow:
@@ -2477,7 +2473,7 @@ h2 {
 .person-row .pill {
   height: 34px;
   padding: 0 13px;
-  font-size: 11px;
+  font-size: 14px;
 }
 .creator__fav {
   margin-left: auto;
@@ -2687,12 +2683,10 @@ h2 {
   height: 52px;
   padding: 0 24px;
   border-radius: 30px;
-  font-family: var(--display);
-  font-weight: 800;
-  font-stretch: 118%;
-  font-size: 17px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-variation-settings: 'opsz' 18, 'SOFT' 60;
+  font-size: 20px;
   color: var(--fg-3);
 }
 .drive__stations button[aria-selected='true'] {
@@ -2793,12 +2787,10 @@ h2 {
     inset 0 -3px 6px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(246, 236, 216, 0.1),
     0 10px 24px rgba(0, 0, 0, 0.4);
-  font-family: var(--display);
-  font-size: 13px;
-  font-weight: 800;
-  font-stretch: 118%;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-variation-settings: 'opsz' 18, 'SOFT' 60;
+  font-size: 17px;
   transition: transform 140ms var(--ease);
 }
 .drive__btn:active {
@@ -2843,7 +2835,7 @@ h2 {
 @media (max-width: 700px) and (orientation: portrait) {
   .drive__stations button {
     padding: 0 16px;
-    font-size: 15px;
+    font-size: 18px;
   }
   .drive__now {
     flex-direction: column;
