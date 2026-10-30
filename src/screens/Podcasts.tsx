@@ -1,4 +1,5 @@
 import { AnimatePresence } from 'framer-motion'
+import * as I from '../components/Icons'
 import { useCallback, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
@@ -201,9 +202,13 @@ export function Podcasts({ active }: { active: boolean }) {
               <span>{show.name}</span>
             </button>
             <p className="reel__title reel__title--ep">{ep.title}</p>
-            <button className="pill pill--light" onClick={(e) => { e.stopPropagation(); full() }}>
-              Full episode
+          </div>
+          {/* the long form, quietly to one side */}
+          <div className="rail rail--full">
+            <button className="rail__btn" onClick={(e) => { e.stopPropagation(); full() }} aria-label="Full episode">
+              <I.Expand size={22} />
             </button>
+            <span className="rail__label" aria-hidden>Full episode</span>
           </div>
           {error && <p className="reel__error">{error}</p>}
         </Reel>

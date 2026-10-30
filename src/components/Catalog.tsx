@@ -10,25 +10,25 @@ import type { Person } from '../types'
 import * as I from './Icons'
 
 /**
- * Search, as a record catalogue: a lens in the corner of the vinyl area that
- * opens out into the full search page. Two drawers only: creators appear as
+ * Search, as a record catalogue: it opens out of the search button on the
+ * record player into the full search page. Two drawers only: creators appear as
  * medallions; people as small records with their face on the label.
  */
-export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => void }) {
+export function Catalog({ open, onClose, origin }: { open: boolean; onClose: () => void; origin: { x: number; y: number } }) {
   const [q, setQ] = useState('')
-  const [open, setOpen] = useState(false)
   const input = useRef<HTMLInputElement>(null)
   const mine = useMyTaste()
   const experiences = useStore((s) => s.experiences)
   const friends = useStore((s) => s.friends)
   const location = useStore((s) => s.profile.location)
 
-  useEffect(() => onOpenChange(open), [open, onOpenChange])
   useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && close()
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
+    // close only reads props; re-binding on open is enough
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open])
 
   const match = (p: Person) => alignment(mine, p.points, experiences, p.experiences).score
@@ -45,7 +45,7 @@ export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => voi
   }, [q, friends, mine, experiences, location])
 
   function close() {
-    setOpen(false)
+    onClose()
     setQ('')
     input.current?.blur()
   }
@@ -56,19 +56,15 @@ export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => voi
 
   return (
     <>
-      {/* collapsed: just the lens, in the corner of the vinyl area */}
-      <button className="catalog__open" onClick={() => setOpen(true)} aria-label="Search artists, podcasts and people" aria-expanded={open}>
-        <I.Search size={20} />
-      </button>
       <AnimatePresence>
         {open && (
           <motion.div
             className="catalog is-open"
             role="dialog"
             aria-label="Search"
-            initial={{ clipPath: 'circle(24px at 36px 36px)' }}
-            animate={{ clipPath: 'circle(150% at 36px 36px)', transition: { duration: 0.42, ease: [0.4, 0, 0.2, 1] } }}
-            exit={{ clipPath: 'circle(24px at 36px 36px)', transition: { duration: 0.28, ease: [0.4, 0, 0.2, 1] } }}
+            initial={{ clipPath: `circle(22px at ${origin.x}px ${origin.y}px)` }}
+            animate={{ clipPath: `circle(150% at ${origin.x}px ${origin.y}px)`, transition: { duration: 0.42, ease: [0.4, 0, 0.2, 1] } }}
+            exit={{ clipPath: `circle(22px at ${origin.x}px ${origin.y}px)`, transition: { duration: 0.28, ease: [0.4, 0, 0.2, 1] } }}
             onAnimationComplete={() => input.current?.focus()}
           >
             <div className="catalog__bar">

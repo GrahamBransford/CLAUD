@@ -148,10 +148,12 @@ interface Props {
   onMarker: (id: string) => void
   /** The nameplate: who this is, set into the plinth. */
   children?: ReactNode
+  /** Hardware set into the deck beside the record (e.g. the search button). */
+  controls?: ReactNode
   className?: string
 }
 
-export function Turntable({ markers, owner, etching, spinning, onMarker, children, className }: Props) {
+export function Turntable({ markers, owner, etching, spinning, onMarker, children, controls, className }: Props) {
   const placed = useMemo(() => place(markers), [markers])
   const deck = useRef<HTMLDivElement>(null)
   usePlatter(deck, spinning)
@@ -192,6 +194,7 @@ export function Turntable({ markers, owner, etching, spinning, onMarker, childre
         <span className="hifi__rest" aria-hidden />
         <span className="hifi__base" aria-hidden />
         <Tonearm />
+        {controls}
       </div>
       {children && <div className="hifi__nameplate">{children}</div>}
     </div>

@@ -475,7 +475,7 @@ h2 {
 }
 @media (min-width: 900px) {
   .reel__frame {
-    --clear: 210px;
+    --clear: 200px;
   }
 }
 .reel__frame .reel__media {
@@ -483,19 +483,11 @@ h2 {
 }
 /* subtitles on the picture, like television */
 .reel__frame .caption {
-  top: auto;
-  left: 8%;
-  right: 8%;
-  bottom: 6%;
+  top: calc(100% + 12px);
+  left: 6%;
+  right: 6%;
   min-height: 0;
-  font-size: clamp(15px, 2.2cqw + 6px, 22px);
-}
-.reel__frame .caption span {
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: rgba(10, 8, 7, 0.55);
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
+  font-size: clamp(15px, 1.4cqw + 8px, 21px);
 }
 .reel--embed .reel__media {
   inset: auto 0 auto 0;
@@ -562,30 +554,51 @@ h2 {
   background: radial-gradient(circle, var(--espresso) 0 1.2px, var(--cherry) 1.6px 3px, transparent 3.4px), currentColor;
   flex: 0 0 auto;
 }
+/*
+ * Artists and Podcasts share one title slot, so the name above it sits at
+ * the same height on both: a song title is one large line at the foot of
+ * the slot; an episode title is two smaller lines filling it.
+ */
+.reel__meta {
+  --slot: clamp(44px, 11vw, 58px);
+}
 .reel__title {
+  width: 100%;
+  height: var(--slot);
+  padding-top: calc(var(--slot) - 1.04em);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-family: var(--serif);
   font-weight: 450;
   font-variation-settings: 'opsz' 144, 'SOFT' 60, 'WONK' 1;
   font-size: clamp(32px, 8.4vw, 52px);
-  line-height: 1;
+  line-height: 1.04;
   letter-spacing: -0.015em;
   color: var(--cream);
-  text-wrap: balance;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
 }
 .reel__title--ep {
-  font-size: clamp(22px, 5.6vw, 32px);
-  line-height: 1.1;
+  padding-top: 0;
+  font-size: calc(var(--slot) / 2.24);
+  line-height: 1.12;
   font-variation-settings: 'opsz' 96, 'SOFT' 40, 'WONK' 0;
-  /* a fixed two-line slot, so the show name and button never move */
-  height: 2.2em;
-  overflow: hidden;
+  white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-.reel__meta .pill {
-  margin-top: 12px;
+.rail--full {
+  align-items: center;
+  gap: 5px;
+}
+.rail__label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--fg-2);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
 }
 .reel__error {
   position: absolute;
@@ -2015,39 +2028,63 @@ h2 {
 }
 
 /* ---------- the catalogue: search ---------- */
-/* the lens, in the corner of the vinyl area */
-.catalog__open {
+/* the search button, set into the deck in the corner opposite the tonearm */
+.hifi__search {
   position: absolute;
-  z-index: 9;
-  top: calc(var(--safe-t) + 18px);
-  left: calc(var(--safe-l) + 18px);
-  width: 40px;
-  height: 40px;
+  z-index: 4;
+  left: 1.2cqw;
+  top: 0.6cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.hifi__search-cap {
+  width: clamp(38px, 10cqw, 58px);
+  aspect-ratio: 1;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: var(--cream);
+  color: #fbf4e6;
   background:
-    radial-gradient(circle at 50% 28%, rgba(255, 246, 228, 0.16), transparent 62%),
-    rgba(18, 13, 10, 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+    radial-gradient(circle at 50% 30%, rgba(255, 246, 228, 0.18), transparent 60%),
+    radial-gradient(circle, #2c2420, #15100d 75%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 246, 228, 0.18),
-    0 0 0 1px rgba(246, 236, 216, 0.14),
-    0 6px 16px rgba(0, 0, 0, 0.45);
-  transition: transform 140ms var(--ease);
+    0 0 0 2px #1a120d,
+    0 0 0 3.5px rgba(212, 214, 218, 0.75),
+    0 0 0 5px #120a06,
+    inset 0 1px 0 rgba(255, 246, 228, 0.2),
+    0 4px 10px rgba(0, 0, 0, 0.55);
+  transition:
+    transform 120ms var(--ease),
+    box-shadow 120ms var(--ease);
 }
-.catalog__open:active {
-  transform: scale(0.92);
+.hifi__search:active .hifi__search-cap {
+  transform: translateY(1.5px) scale(0.96);
+  box-shadow:
+    0 0 0 2px #1a120d,
+    0 0 0 3.5px rgba(212, 214, 218, 0.75),
+    0 0 0 5px #120a06,
+    inset 0 2px 5px rgba(0, 0, 0, 0.6),
+    0 1px 3px rgba(0, 0, 0, 0.5);
 }
-@media (min-width: 900px) {
-  .catalog__open {
-    top: 22px;
-    left: 26px;
+@media (hover: hover) {
+  .hifi__search:hover .hifi__search-cap {
+    color: var(--mustard);
   }
 }
-/* open: the full search page, grown out of the lens */
+/* engraved into the deck, like the markings on a hi-fi */
+.hifi__search-label {
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 118%;
+  font-size: clamp(8.5px, 1.9cqw, 11px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(246, 236, 216, 0.6);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+}
+/* open: the full search page, grown out of the button */
 .catalog {
   position: absolute;
   inset: 0;

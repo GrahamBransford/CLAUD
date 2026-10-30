@@ -29,6 +29,7 @@ export function MyVinyl({ active }: { active: boolean }) {
   const friends = useStore((s) => s.friends)
   const sheet = useUI((s) => s.sheet)
   const [searching, setSearching] = useState(false)
+  const [origin, setOrigin] = useState({ x: 36, y: 36 })
 
   const live = useMemo(() => liveCreators(experiences), [experiences])
   const markers = useMemo<Marker[]>(
@@ -66,13 +67,30 @@ export function MyVinyl({ active }: { active: boolean }) {
 
   return (
     <section className="screen screen--vinyl" aria-label={brand.vinyl.label}>
-      <Catalog onOpenChange={setSearching} />
       <div className="vinyl-deck">
         <Turntable
           markers={markers}
           owner={{ name: profile.name || 'You', avatar: profile.avatar }}
           etching={etchingOf(experiences)}
           spinning={active && !sheet && !searching}
+          controls={
+            // the search button, built into the deck
+            <button
+              className="hifi__search"
+              onClick={(e) => {
+                const r = e.currentTarget.getBoundingClientRect()
+                const s = e.currentTarget.closest('.screen')!.getBoundingClientRect()
+                setOrigin({ x: r.left - s.left + r.width / 2, y: r.top - s.top + r.height / 2 })
+                setSearching(true)
+              }}
+              aria-label="Search artists, podcasts and people"
+            >
+              <span className="hifi__search-cap">
+                <I.Search size={18} />
+              </span>
+              <span className="hifi__search-label" aria-hidden>Search</span>
+            </button>
+          }
           onMarker={(id) => open({ kind: 'creator', creatorId: id })}
         >
           <div className="plate">
@@ -123,6 +141,7 @@ export function MyVinyl({ active }: { active: boolean }) {
           </div>
         </Turntable>
       </div>
+      <Catalog open={searching} onClose={() => setSearching(false)} origin={origin} />
     </section>
   )
 }

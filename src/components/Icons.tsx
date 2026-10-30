@@ -115,6 +115,13 @@ export const Love = ({ size, on }: P) => (
   </Svg>
 )
 
+/** The whole thing: four corners opening out (full episode). */
+export const Expand = ({ size }: P) => (
+  <Svg size={size}>
+    <path d="M4.8 9.4V4.8h4.6M14.6 4.8h4.6v4.6M19.2 14.6v4.6h-4.6M9.4 19.2H4.8v-4.6" />
+  </Svg>
+)
+
 /** Comments: a speech balloon, rounded like the rest. */
 export const Comment = ({ size }: P) => (
   <Svg size={size}>
