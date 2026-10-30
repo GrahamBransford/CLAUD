@@ -1194,9 +1194,9 @@ h2 {
   padding: 12px 11px 12px;
   border-radius: 22px;
   background:
-    linear-gradient(170deg, rgba(255, 220, 180, 0.16), transparent 30%, rgba(0, 0, 0, 0.25)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0035 0.11' numOctaves='4' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .045 0 0 0 0 .015 0 0 0 -3 1.75'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E"),
-    linear-gradient(100deg, #6e3f22, #5a321b 40%, #6a3b20 70%, #4f2b17);
+    linear-gradient(170deg, rgba(255, 220, 180, 0.08), transparent 30%, rgba(0, 0, 0, 0.3)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0035 0.11' numOctaves='4' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .045 0 0 0 0 .015 0 0 0 -2.2 1.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E"),
+    linear-gradient(100deg, #4a2b19, #3d2414 40%, #462816 70%, #351e10);
   background-size: 100% 100%, 160% 100%, 100% 100%;
   box-shadow:
     inset 0 2px 1px rgba(255, 214, 170, 0.22),
@@ -1210,13 +1210,14 @@ h2 {
   inset: 11px;
   border-radius: 13px;
   background:
-    linear-gradient(165deg, rgba(255, 246, 228, 0.09), transparent 35%, transparent 65%, rgba(0, 0, 0, 0.3)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0015 0.9' numOctaves='2' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 -0.45 .26'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E"),
-    linear-gradient(160deg, #2c2724, #1b1816 48%, #25211e 74%, #151311);
+    radial-gradient(ellipse 80% 60% at 30% 25%, rgba(255, 214, 170, 0.06), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0025 0.075' numOctaves='3' seed='23'/%3E%3CfeColorMatrix values='0 0 0 0 .05 0 0 0 0 .025 0 0 0 0 .01 0 0 0 -1.6 .9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+    linear-gradient(170deg, #2b1c13, #22160f 50%, #281a11 78%, #1c120c);
+  background-size: 100% 100%, 100% 100%, 100% 100%;
   box-shadow:
-    0 0 0 2px #0d0806,
-    inset 0 1.5px 0 rgba(255, 246, 228, 0.12),
-    inset 0 -1.5px 0 rgba(0, 0, 0, 0.4);
+    0 0 0 2px #120a06,
+    inset 0 1.5px 0 rgba(255, 214, 170, 0.07),
+    inset 0 -1.5px 0 rgba(0, 0, 0, 0.45);
 }
 .hifi--guest {
   --stage-room: 290px;
