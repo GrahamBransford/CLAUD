@@ -7,12 +7,6 @@ import { Sheet } from './Sheet'
 
 const NONE: { id: string; text: string; at: number }[] = []
 
-/** Total comments on a moment: the sample ones plus any you wrote. */
-export const useCommentCount = (postId: string) => {
-  const mine = useStore((s) => s.myComments[postId]?.length ?? 0)
-  return (commentsByPost[postId]?.length ?? 0) + mine
-}
-
 /**
  * The conversation under an Inner Circle moment. Listeners open onto their
  * vinyl; the creator's own replies wear brass. Yours stay on this device.
@@ -37,9 +31,7 @@ export function CommentsSheet({ postId }: { postId: string }) {
   return (
     <Sheet label="Comments" onClose={close}>
       <div className="comments">
-        <p className="comments__head">
-          Comments <span>{sample.length + mine.length}</span>
-        </p>
+        <p className="comments__head">Comments</p>
         <ul className="comments__list">
           {sample.map((c, i) => {
             const person = personById[c.by]

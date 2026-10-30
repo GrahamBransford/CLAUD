@@ -2595,19 +2595,6 @@ h2 {
 }
 
 /* comments under an Inner Circle moment */
-.rail__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-.rail__count {
-  font-size: 12px;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  color: var(--cream);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
-}
 .comments {
   display: flex;
   flex-direction: column;
@@ -2619,12 +2606,6 @@ h2 {
   font-size: 19px;
   text-align: center;
   margin-bottom: 10px;
-}
-.comments__head span {
-  margin-left: 6px;
-  font-family: var(--sans);
-  font-size: 13px;
-  color: var(--fg-3);
 }
 .comments__list {
   list-style: none;
