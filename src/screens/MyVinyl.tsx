@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { brand } from '../config/brand'
 import { creatorById } from '../data'
 import * as I from '../components/Icons'
 import { Catalog } from '../components/Catalog'
+import { Readouts } from '../components/Readouts'
 import { Turntable, type Marker } from '../components/Turntable'
 import { useUniverse } from '../hooks/useRelationship'
 import { experienceLine, liveCreators } from '../lib/social'
@@ -74,7 +75,8 @@ export function MyVinyl({ active }: { active: boolean }) {
           etching={etchingOf(experiences)}
           spinning={active && !sheet && !searching}
           controls={
-            // the search button, built into the deck
+            <>
+            {/* the search button, built into the deck */}
             <button
               className="hifi__search"
               onClick={(e) => {
@@ -89,6 +91,20 @@ export function MyVinyl({ active }: { active: boolean }) {
                 <I.Search size={18} />
               </span>
             </button>
+            {/* the deck's own buttons, two in each bottom corner */}
+            <DeckButton at="bl1" label={`Friends: ${friendCount}${incoming ? `, ${incoming} new request` : ''}`} lamp={incoming > 0} onClick={() => open({ kind: 'friends' })}>
+              <I.People size={19} />
+            </DeckButton>
+            <DeckButton at="bl2" label="Live: shows and experiences" onClick={() => open({ kind: 'live' })}>
+              <I.Ticket size={19} />
+            </DeckButton>
+            <DeckButton at="br2" label="Edit profile" onClick={() => open({ kind: 'profile' })}>
+              <I.Edit size={18} />
+            </DeckButton>
+            <DeckButton at="br1" label="Settings" onClick={() => open({ kind: 'settings' })}>
+              <I.Knob size={20} />
+            </DeckButton>
+          </>
           }
           onMarker={(id) => open({ kind: 'creator', creatorId: id })}
         >
@@ -102,45 +118,29 @@ export function MyVinyl({ active }: { active: boolean }) {
                     <I.Pin size={13} /> {profile.location}
                   </span>
                 )}
+                {profile.socials.instagram && (
+                  <a className="plate__link" href={`https://instagram.com/${profile.socials.instagram}`} target="_blank" rel="noreferrer">
+                    IG @{profile.socials.instagram}
+                  </a>
+                )}
               </p>
             </div>
             {profile.bio && <p className="plate__bio">{profile.bio}</p>}
-            {profile.socials.instagram && (
-              <a className="plate__link" href={`https://instagram.com/${profile.socials.instagram}`} target="_blank" rel="noreferrer">
-                Instagram · @{profile.socials.instagram}
-              </a>
-            )}
-            {experiences.length > 0 && (
-              <ul className="plate__live">
-                {experiences.slice(0, 3).map((x) => (
-                  <li key={x.id}>
-                    <I.Ticket size={15} /> {experienceLine(x)}
-                  </li>
-                ))}
-              </ul>
-            )}
-            <div className="keys">
-              <button className="key" onClick={() => open({ kind: 'friends' })} aria-label={`${friendCount} friends${incoming ? `, ${incoming} new request` : ''}`}>
-                <i className={`key__lamp ${incoming ? 'is-on' : ''}`} aria-hidden />
-                <span className="key__n">{friendCount}</span>
-                <span className="key__label">Friends</span>
-              </button>
-              <button className="key" onClick={() => open({ kind: 'live' })}>
-                <I.Ticket size={18} />
-                <span className="key__label">Live</span>
-              </button>
-              <button className="key" onClick={() => open({ kind: 'profile' })}>
-                <I.Edit size={18} />
-                <span className="key__label">Edit</span>
-              </button>
-              <button className="key key--round" onClick={() => open({ kind: 'settings' })} aria-label="Settings">
-                <I.Knob size={20} />
-              </button>
-            </div>
+            <Readouts rels={all} experiences={experiences} />
           </div>
         </Turntable>
       </div>
       <Catalog open={searching} onClose={() => setSearching(false)} origin={origin} />
     </section>
+  )
+}
+
+/** A push-button set into the deck, like the search button. */
+function DeckButton({ at, label, lamp, onClick, children }: { at: string; label: string; lamp?: boolean; onClick: () => void; children: ReactNode }) {
+  return (
+    <button className={`hifi__search hifi__deck-btn hifi__deck-btn--${at}`} onClick={onClick} aria-label={label} title={label.split(':')[0]}>
+      <span className="hifi__search-cap">{children}</span>
+      {lamp && <i className="hifi__deck-lamp" aria-hidden />}
+    </button>
   )
 }

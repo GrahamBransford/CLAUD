@@ -1337,7 +1337,7 @@ h2 {
 .hifi {
   --rot: 0deg;
   --arm: -7deg;
-  --stage-room: 214px;
+  --stage-room: 236px;
   container-type: size;
   position: relative;
   flex: 1 1 auto;
@@ -1780,6 +1780,9 @@ h2 {
   color: rgba(246, 236, 216, 0.88);
   max-width: 34em;
 }
+.plate__meta .plate__link {
+  text-transform: none;
+}
 .plate__link {
   align-self: flex-start;
   font-size: 12.5px;
@@ -1788,29 +1791,12 @@ h2 {
   text-decoration: none;
   border-bottom: 1px solid rgba(242, 180, 44, 0.4);
 }
-.plate__live {
-  display: none;
-  list-style: none;
-  margin: 4px 0 0;
-  padding: 0;
-  font-size: 13px;
-  color: rgba(246, 236, 216, 0.78);
-}
-.plate__live li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 3px 0;
-}
 @media (min-width: 900px) {
   .plate {
     gap: 12px;
   }
   .plate__bio {
     font-size: 17px;
-  }
-  .plate__live {
-    display: block;
   }
   .plate__meta {
     font-size: 13px;
@@ -1832,6 +1818,132 @@ h2 {
   .match__more,
   .match__text {
     font-size: 14px;
+  }
+}
+
+/* the readouts: your listening, updated daily, in backlit meter windows */
+.readouts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+.readouts__head {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--display);
+  font-weight: 700;
+  font-stretch: 112%;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 236, 216, 0.55);
+}
+.readouts__row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  margin: 0 -14px;
+  padding: 2px 14px 4px;
+}
+.readouts__row::-webkit-scrollbar {
+  display: none;
+}
+.readout {
+  flex: 0 0 auto;
+  min-width: 128px;
+  max-width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 7px 10px 8px;
+  border-radius: 10px;
+  text-align: left;
+  scroll-snap-align: start;
+  background: linear-gradient(180deg, #0d0907, #17110d);
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(242, 180, 44, 0.12),
+    0 1px 0 rgba(255, 214, 170, 0.08);
+}
+.readout__label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(246, 236, 216, 0.5);
+}
+/* backlit: values glow amber, like a lit dial */
+.readout__big,
+.readout__who strong {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.15;
+  color: #ffd27a;
+  text-shadow: 0 0 10px rgba(242, 180, 44, 0.45);
+}
+.readout__who {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+}
+.readout__who img {
+  width: 24px;
+  height: 24px;
+  padding: 1.5px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bezel);
+  flex: 0 0 auto;
+}
+.readout__who strong {
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.readout__sub {
+  font-size: 11.5px;
+  color: rgba(246, 236, 216, 0.62);
+}
+/* a tape counter: cream digits on dark drums */
+.readout__counter {
+  display: flex;
+  gap: 2px;
+}
+.readout__counter i {
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 25px;
+  border-radius: 3px;
+  font-style: normal;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  color: #f6ecd8;
+  background: linear-gradient(180deg, #2a2420, #120d0a 50%, #2a2420);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.6);
+}
+@media (min-width: 900px) {
+  .readouts__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+  .readout {
+    min-width: 0;
+    max-width: none;
   }
 }
 
@@ -2067,6 +2179,40 @@ h2 {
     0 0 0 5px #120a06,
     inset 0 2px 5px rgba(0, 0, 0, 0.6),
     0 1px 3px rgba(0, 0, 0, 0.5);
+}
+/* two in each bottom corner of the deck, clear of the record */
+.hifi__deck-btn {
+  top: auto;
+  bottom: 0.4cqw;
+}
+.hifi__deck-btn .hifi__search-cap {
+  width: clamp(30px, 9cqw, 52px);
+}
+.hifi__deck-btn--bl1 {
+  left: 1.2cqw;
+}
+.hifi__deck-btn--bl2 {
+  left: 12.4cqw;
+}
+.hifi__deck-btn--br1 {
+  left: auto;
+  right: 1.2cqw;
+}
+.hifi__deck-btn--br2 {
+  left: auto;
+  right: 12.4cqw;
+}
+.hifi__deck-lamp {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #ff8a96, var(--cherry) 60%);
+  box-shadow:
+    0 0 0 2px #1a120d,
+    0 0 8px rgba(228, 58, 80, 0.9);
 }
 @media (hover: hover) {
   .hifi__search:hover .hifi__search-cap {
