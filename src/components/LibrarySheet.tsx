@@ -29,6 +29,7 @@ export function LibrarySheet() {
   const saved = useStore((s) => s.saved)
   const [tab, setTab] = useState<'song' | 'episode'>('song')
   const [playing, setPlaying] = useState<Song | null>(null)
+  const [confirmReset, setConfirmReset] = useState(false)
   const items = saved.filter((s) => s.kind === tab)
   const songsCount = saved.filter((s) => s.kind === 'song').length
 
@@ -62,17 +63,28 @@ export function LibrarySheet() {
 
         <StreamingCard />
 
-        <button
-          className="link-btn link-btn--muted reset"
-          onClick={() => {
-            if (window.confirm('Reset the demo? Saved items, follows and listening history return to their starting state.')) {
-              useStore.getState().resetDemo()
-              setPlaying(null)
-            }
-          }}
-        >
-          Reset demo data
-        </button>
+        {confirmReset ? (
+          <div className="reset-confirm" role="alertdialog" aria-label="Reset demo data">
+            <p>Reset the demo? Saved items, follows and listening history go back to their starting state.</p>
+            <div>
+              <button
+                className="btn btn--accent"
+                onClick={() => {
+                  useStore.getState().resetDemo()
+                  setPlaying(null)
+                  setConfirmReset(false)
+                }}
+              >
+                Reset demo
+              </button>
+              <button className="btn" onClick={() => setConfirmReset(false)}>Keep my data</button>
+            </div>
+          </div>
+        ) : (
+          <button className="link-btn link-btn--muted reset" onClick={() => setConfirmReset(true)}>
+            Reset demo data
+          </button>
+        )}
       </div>
     </Sheet>
   )

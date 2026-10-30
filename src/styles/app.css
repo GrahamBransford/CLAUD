@@ -2473,6 +2473,25 @@ p {
   font-size: 13px;
 }
 
+.reset-confirm {
+  margin-top: 22px;
+  padding: 16px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--red);
+  background: var(--red-tint);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.reset-confirm div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 /* profile */
 
 .profile {
