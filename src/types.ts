@@ -109,6 +109,8 @@ export interface ContentSet {
   me?: MeSeed
   /** Sample comments on Inner Circle moments, by post id. */
   comments?: Record<string, PostComment[]>
+  /** What the creators themselves listen to: their own vinyls. */
+  creatorVinyls?: Record<string, { points: Record<string, number>; experiences: Omit<Experience, 'id'>[] }>
 }
 
 /** A comment on an Inner Circle moment, by a listener or by the creator. */
@@ -151,7 +153,11 @@ export interface Profile {
 /** Your side of a friendship. */
 export type FriendState = 'friends' | 'outgoing' | 'incoming'
 
+/** Latitude, longitude: where someone is, roughly (demo data). */
+export type Coords = [number, number]
+
 export interface MeSeed extends Profile {
+  coords?: Coords
   experiences: Experience[]
   favorites: string[]
   friends: Record<string, FriendState>
@@ -171,6 +177,9 @@ export interface Person {
   friends: string[]
   /** Simulated recent changes to their vinyl. */
   recent?: string[]
+  coords?: Coords
+  /** Set when this vinyl belongs to a creator rather than a listener. */
+  creatorId?: string
 }
 
 export type SaveMethod = 'swipe' | 'button' | 'listened'

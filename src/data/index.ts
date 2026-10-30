@@ -33,6 +33,8 @@ export let episodeById: Record<string, Episode> = {}
 export let people: Person[] = []
 export let personById: Record<string, Person> = {}
 export let commentsByPost: Record<string, PostComment[]> = {}
+/** Every creator's own vinyl, shaped like a listener's (keyed by creator id). */
+export let creatorVinylById: Record<string, Person> = {}
 export let meSeed: MeSeed = { name: '', username: '', bio: '', location: '', avatar: '', socials: {}, experiences: [], favorites: [], friends: {} }
 
 const SET_KEY = 'circa-content-set'
@@ -110,6 +112,28 @@ export async function loadContent(): Promise<void> {
   people = (set.people ?? []).map((p) => ({ ...p, avatar: asset(p.avatar) }))
   personById = Object.fromEntries(people.map((p) => [p.id, p]))
   commentsByPost = set.comments ?? {}
+  creatorVinylById = Object.fromEntries(
+    Object.entries(set.creatorVinyls ?? {})
+      .filter(([id]) => creatorById[id])
+      .map(([id, v]) => {
+        const c = creatorById[id]
+        return [
+          id,
+          {
+            id: `creator:${id}`,
+            creatorId: id,
+            name: c.name,
+            username: '',
+            bio: c.bio,
+            location: c.location,
+            avatar: c.avatar,
+            points: v.points,
+            experiences: v.experiences.map((x, i) => ({ ...x, id: `x-${id}-${i}` })),
+            friends: [],
+          } satisfies Person,
+        ]
+      }),
+  )
   if (set.me) meSeed = { ...set.me, avatar: set.me.avatar ? asset(set.me.avatar) : '' }
 }
 

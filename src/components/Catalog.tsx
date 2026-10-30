@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { creators, people } from '../data'
+import { creators, meSeed, people } from '../data'
 import { useMyTaste } from '../hooks/useSocial'
+import { coordsFor, distanceLabel, km, nearAndAligned } from '../lib/geo'
 import { alignment, search } from '../lib/social'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
@@ -20,6 +21,7 @@ export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => voi
   const mine = useMyTaste()
   const experiences = useStore((s) => s.experiences)
   const friends = useStore((s) => s.friends)
+  const location = useStore((s) => s.profile.location)
 
   useEffect(() => onOpenChange(open), [open, onOpenChange])
   useEffect(() => {
@@ -30,13 +32,17 @@ export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => voi
   }, [open])
 
   const match = (p: Person) => alignment(mine, p.points, experiences, p.experiences).score
+  // Where you are, from your profile (no GPS in the demo).
+  const here = coordsFor(location) ?? (location === meSeed.location ? meSeed.coords : undefined)
+  const away = (p: Person) => (here && p.coords ? km(here, p.coords) : undefined)
   const results = useMemo(() => {
     if (q.trim()) return search(q)
-    // Nothing typed: people whose taste is close to yours, and every creator.
+    // Nothing typed: people you could actually go to a show with — shared taste, then nearness — and every creator.
     const others = people.filter((p) => friends[p.id] !== 'friends')
-    return { creators, people: others.sort((a, b) => match(b) - match(a)).slice(0, 5) }
+    const rank = (p: Person) => nearAndAligned(match(p), away(p))
+    return { creators, people: others.sort((a, b) => rank(b) - rank(a)).slice(0, 5) }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [q, friends, mine, experiences])
+  }, [q, friends, mine, experiences, location])
 
   function close() {
     setOpen(false)
@@ -87,7 +93,8 @@ export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => voi
             <div className="catalog__results">
             {results.people.length > 0 && (
               <section>
-                <h2 className="catalog__drawer">{q.trim() ? 'People' : 'People who share your taste'}</h2>
+                <h2 className="catalog__drawer">{q.trim() ? 'People' : here ? 'People near you who share your taste' : 'People who share your taste'}</h2>
+                {!q.trim() && here && <p className="catalog__note">Closest taste first, weighted toward people near {location}. From your profile location, not GPS.</p>}
                 {results.people.map((p) => (
                   <button key={p.id} className="hit hit--person" onClick={() => pick(() => useUI.getState().openPerson(p.id))}>
                     <span className="minidisc">
@@ -96,8 +103,8 @@ export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => voi
                     <span className="hit__text">
                       <strong>{p.name}</strong>
                       <em>
-                        @{p.username}
-                        {p.location ? ` · ${p.location}` : ''}
+                        {p.location ?? `@${p.username}`}
+                        {away(p) !== undefined ? ` · ${distanceLabel(away(p)!)}` : ''}
                       </em>
                     </span>
                     <span className="hit__match">

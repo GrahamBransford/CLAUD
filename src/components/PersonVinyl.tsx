@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { creatorById, personById } from '../data'
+import { creatorById, creatorVinylById, episodes, personById, songs } from '../data'
 import { useAlignment, useFriendActions, usePersonMarkers } from '../hooks/useSocial'
+import { useFollow } from '../screens/InnerCircle'
 import { mutualFriends } from '../lib/social'
 import { etchingOf } from '../screens/MyVinyl'
 import { useStore } from '../store/useStore'
@@ -12,9 +13,14 @@ import { Turntable } from './Turntable'
 
 const EASE = [0.22, 0.7, 0.18, 1] as const
 
-/** Someone else's vinyl: being invited to look through their records. */
+/**
+ * Someone else's vinyl: being invited to look through their records. Every
+ * listener has one, and so does every creator ("creator:<id>"), showing who
+ * they listen to.
+ */
 export function PersonVinyl({ id }: { id: string }) {
-  const p = personById[id]
+  const p = id.startsWith('creator:') ? creatorVinylById[id.slice(8)] : personById[id]
+  const creator = p?.creatorId ? creatorById[p.creatorId] : undefined
   const markers = usePersonMarkers(p)
   const sheet = useUI((s) => s.sheet)
   const close = () => useUI.getState().openPerson(null)
@@ -39,7 +45,7 @@ export function PersonVinyl({ id }: { id: string }) {
         <button className="icon-btn" onClick={close} aria-label="Close">
           <I.Down size={26} />
         </button>
-        <span className="person__handle">@{p.username}</span>
+        <span className="person__handle">{creator ? creator.genre : `@${p.username}`}</span>
         <span className="icon-btn" aria-hidden />
       </div>
       <div className="vinyl-deck">
@@ -53,7 +59,10 @@ export function PersonVinyl({ id }: { id: string }) {
         >
           <div className="plate">
             <div className="plate__id">
-              <h1 className="plate__name">{p.name}</h1>
+              <h1 className="plate__name">
+                {p.name}
+                {creator && <span className="plate__tag">{creator.kind === 'podcast' ? 'Podcast' : 'Artist'}</span>}
+              </h1>
               {p.location && (
                 <p className="plate__meta">
                   <span>
@@ -63,7 +72,7 @@ export function PersonVinyl({ id }: { id: string }) {
               )}
             </div>
             <p className="plate__bio">{p.bio}</p>
-            <Friendship person={p} />
+            {creator ? <CreatorKeys creatorId={creator.id} /> : <Friendship person={p} />}
             <Match person={p} />
             {p.socials?.instagram && (
               <a className="plate__link" href={`https://instagram.com/${p.socials.instagram}`} target="_blank" rel="noreferrer">
@@ -194,5 +203,37 @@ function Friendship({ person }: { person: Person }) {
         </button>
       )}
     </>
+  )
+}
+
+/** On a creator's vinyl: follow them, or go and listen. */
+function CreatorKeys({ creatorId }: { creatorId: string }) {
+  const followed = useStore((s) => s.follows.includes(creatorId))
+  const follow = useFollow()
+  const song = songs.find((x) => x.creatorId === creatorId)
+  const ep = episodes.find((x) => x.creatorId === creatorId)
+  const listen = () => {
+    useUI.getState().openPerson(null)
+    if (song) {
+      useStore.getState().setArtistsIndex(songs.indexOf(song))
+      window.location.hash = 'artists'
+    } else if (ep) {
+      useStore.getState().setPodcastsIndex(episodes.indexOf(ep))
+      window.location.hash = 'podcasts'
+    }
+  }
+  return (
+    <div className="keys">
+      {(song || ep) && (
+        <button className="key key--primary" onClick={listen}>
+          <I.Play size={16} />
+          <span className="key__label">Listen</span>
+        </button>
+      )}
+      <button className={`key ${followed ? 'is-down' : ''}`} onClick={() => follow(creatorId)} aria-pressed={followed}>
+        {followed ? <I.Check size={18} /> : <I.Plus size={18} />}
+        <span className="key__label">{followed ? 'Following' : 'Follow'}</span>
+      </button>
+    </div>
   )
 }

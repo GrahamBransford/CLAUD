@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { creatorById, episodes, songs } from '../data'
+import { creatorById, creatorVinylById, episodes, songs } from '../data'
 import { useRelationship } from '../hooks/useRelationship'
 import { formatTop } from '../lib/affinity'
 import { topListeners } from '../lib/social'
@@ -82,6 +82,11 @@ export function CreatorSheet({ creatorId }: { creatorId: string }) {
         <div className="creator__actions">
           {(song || ep) && (
             <button className="pill pill--cherry" onClick={listen}><I.Play size={15} /> Listen</button>
+          )}
+          {creatorVinylById[c.id] && (
+            <button className="pill pill--quiet" onClick={() => useUI.getState().openPerson(`creator:${c.id}`)}>
+              <span className="pill__disc" aria-hidden /> Their vinyl
+            </button>
           )}
           <button className={`pill ${rel.followed ? 'pill--quiet' : 'pill--light'}`} onClick={() => follow(c.id)}>
             {rel.followed ? 'Following' : 'Follow'}

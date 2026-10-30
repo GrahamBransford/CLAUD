@@ -34,7 +34,11 @@
       "maya-chen": "friends",
       "jonah-bell": "friends",
       "theo-okafor": "incoming"
-    }
+    },
+    "coords": [
+      40.6782,
+      -73.9442
+    ]
   },
   "people": [
     {
@@ -86,6 +90,10 @@
       "recent": [
         "Saw Teodora Blue live",
         "Added Liner Notes to their vinyl"
+      ],
+      "coords": [
+        40.6782,
+        -73.9442
       ]
     },
     {
@@ -134,6 +142,10 @@
       ],
       "recent": [
         "Followed Cass Ferro Trio for five years"
+      ],
+      "coords": [
+        51.5072,
+        -0.1276
       ]
     },
     {
@@ -176,6 +188,10 @@
       ],
       "recent": [
         "Saw Halden perform a live score"
+      ],
+      "coords": [
+        19.4326,
+        -99.1332
       ]
     },
     {
@@ -224,6 +240,10 @@
       ],
       "recent": [
         "Added Juniper Vale to their inner circle"
+      ],
+      "coords": [
+        36.1627,
+        -86.7816
       ]
     },
     {
@@ -264,13 +284,17 @@
       ],
       "recent": [
         "Went to a live taping of The Long Way Round"
+      ],
+      "coords": [
+        43.6532,
+        -79.3832
       ]
     },
     {
       "id": "elliot-park",
       "name": "Elliot Park",
       "username": "elliotpark",
-      "location": "Los Angeles",
+      "location": "Queens, NY",
       "bio": "Ambient for focus, jazz for everything else.",
       "palette": [
         "#1F3A5F",
@@ -294,7 +318,7 @@
           "kind": "concert",
           "creatorId": "cass-ferro",
           "title": "Cass Ferro Trio",
-          "place": "Blue Whale",
+          "place": "Village Vanguard",
           "year": 2024
         }
       ],
@@ -303,6 +327,10 @@
       ],
       "recent": [
         "Saw Cass Ferro Trio live"
+      ],
+      "coords": [
+        40.7282,
+        -73.7949
       ]
     },
     {
@@ -351,6 +379,10 @@
       ],
       "recent": [
         "Saw Juniper Vale live"
+      ],
+      "coords": [
+        48.8566,
+        2.3522
       ]
     },
     {
@@ -399,6 +431,10 @@
       ],
       "recent": [
         "Saw Teodora Blue live"
+      ],
+      "coords": [
+        59.3293,
+        18.0686
       ]
     }
   ],
@@ -553,5 +589,124 @@
         "ago": "2h"
       }
     ]
+  },
+  "creatorVinyls": {
+    "juniper-vale": {
+      "points": {
+        "teodora-blue": 980,
+        "halden": 640,
+        "liner-notes": 520,
+        "cass-ferro": 300,
+        "marlow-saltwater": 140
+      },
+      "experiences": [
+        {
+          "kind": "festival",
+          "creatorId": "teodora-blue",
+          "title": "Teodora Blue at Sound on the Water",
+          "place": "Governors Island",
+          "year": 2024
+        }
+      ]
+    },
+    "marlow-saltwater": {
+      "points": {
+        "juniper-vale": 700,
+        "liner-notes": 880,
+        "yemi-daybreak": 260,
+        "long-way-round": 220
+      },
+      "experiences": [
+        {
+          "kind": "concert",
+          "creatorId": "juniper-vale",
+          "title": "Juniper Vale",
+          "place": "The Basement East",
+          "year": 2024
+        }
+      ]
+    },
+    "teodora-blue": {
+      "points": {
+        "juniper-vale": 820,
+        "halden": 900,
+        "small-machines": 180,
+        "liner-notes": 240
+      },
+      "experiences": []
+    },
+    "yemi-daybreak": {
+      "points": {
+        "cass-ferro": 760,
+        "liner-notes": 610,
+        "kitchen-table": 180,
+        "juniper-vale": 160
+      },
+      "experiences": [
+        {
+          "kind": "concert",
+          "creatorId": "cass-ferro",
+          "title": "Cass Ferro Trio",
+          "place": "Ronnie Scott's",
+          "year": 2025
+        }
+      ]
+    },
+    "cass-ferro": {
+      "points": {
+        "yemi-daybreak": 900,
+        "liner-notes": 1100,
+        "halden": 220,
+        "juniper-vale": 200
+      },
+      "experiences": []
+    },
+    "halden": {
+      "points": {
+        "teodora-blue": 540,
+        "small-machines": 980,
+        "juniper-vale": 300,
+        "long-way-round": 260
+      },
+      "experiences": []
+    },
+    "long-way-round": {
+      "points": {
+        "kitchen-table": 900,
+        "small-machines": 620,
+        "liner-notes": 540,
+        "juniper-vale": 410,
+        "halden": 160
+      },
+      "experiences": []
+    },
+    "liner-notes": {
+      "points": {
+        "cass-ferro": 1000,
+        "yemi-daybreak": 860,
+        "marlow-saltwater": 520,
+        "juniper-vale": 480,
+        "teodora-blue": 300
+      },
+      "experiences": []
+    },
+    "small-machines": {
+      "points": {
+        "halden": 760,
+        "long-way-round": 540,
+        "kitchen-table": 420,
+        "cass-ferro": 160
+      },
+      "experiences": []
+    },
+    "kitchen-table": {
+      "points": {
+        "long-way-round": 980,
+        "small-machines": 500,
+        "liner-notes": 260,
+        "yemi-daybreak": 200
+      },
+      "experiences": []
+    }
   }
 }
