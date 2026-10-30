@@ -254,15 +254,15 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  color: var(--fg-3);
+  color: rgba(246, 236, 216, 0.62);
   transition: color var(--fast) var(--ease);
 }
 .tab[aria-current='page'] {
   color: var(--cream);
 }
 .tab__icon {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   display: grid;
   place-items: center;
 }
@@ -281,7 +281,7 @@ h2 {
 .tab[aria-current='page'] .tab__icon::after {
   content: '';
   position: absolute;
-  top: -7px;
+  bottom: -11px;
   left: 50%;
   width: 5px;
   height: 5px;
@@ -352,6 +352,16 @@ h2 {
     0 2px 6px rgba(0, 0, 0, 0.5);
   transition: box-shadow 260ms var(--ease);
 }
+/* Inner Circle's centre glows, a little brighter when you're there */
+.icon__glow {
+  fill: #e43a50;
+  filter: drop-shadow(0 0 2px rgba(228, 58, 80, 0.85));
+}
+.tab[aria-current='page'] .icon__glow {
+  fill: #ff5a6e;
+  filter: drop-shadow(0 0 3.5px rgba(255, 90, 110, 1));
+}
+
 /* light held still while the label turns */
 .tab__disc::after {
   content: '';

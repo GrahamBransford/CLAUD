@@ -202,6 +202,7 @@ export const StationCircle = ({ size }: P) => (
   <Svg size={size}>
     <circle cx="12" cy="12" r="10" />
     <circle cx="12" cy="12" r="5.6" />
-    <circle cx="12" cy="12" r="1.9" fill="currentColor" stroke="none" />
+    {/* the centre of the circle, lit */}
+    <circle className="icon__glow" cx="12" cy="12" r="2.3" stroke="none" />
   </Svg>
 )

@@ -13,7 +13,7 @@ const icons: Record<StationId, ReactElement> = {
 }
 
 /**
- * Three ways in, then you: a bottom bar on phones, a slim rail on wider
+ * Three ways in, then you, as icons only: a bottom bar on phones, a slim rail on wider
  * screens. My Vinyl is a small record in line with the rest, its label your
  * photo, turning in step with the big one.
  */
@@ -40,9 +40,8 @@ export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: Rout
         <Logo size="sm" />
       </span>
       {(['artists', 'podcasts', 'inner-circle'] as const).map((id) => (
-        <button key={id} className="tab" aria-current={route === id ? 'page' : undefined} onClick={() => onChange(id)}>
+        <button key={id} className={`tab tab--${id}`} aria-current={route === id ? 'page' : undefined} onClick={() => onChange(id)} aria-label={brand.stations[id].label}>
           <span className="tab__icon">{icons[id]}</span>
-          <span className="tab__label">{brand.stations[id].label}</span>
         </button>
       ))}
       <button className="tab tab--vinyl" aria-current={route === 'vinyl' ? 'page' : undefined} onClick={() => onChange('vinyl')} aria-label={brand.vinyl.label}>
@@ -55,7 +54,6 @@ export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: Rout
       </button>
       <button className="tab tab--drive" onClick={() => setDrive(true)} aria-label="Drive mode">
         <span className="tab__icon"><I.Car /></span>
-        <span className="tab__label">Drive</span>
       </button>
     </nav>
   )
