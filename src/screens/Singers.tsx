@@ -6,6 +6,7 @@ import { SwipeCard, type SwipeDir } from '../components/SwipeCard'
 import { creatorById, songs } from '../data'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
 import { useKeys } from '../hooks/useKeys'
+import { useMediaSession } from '../hooks/useMediaSession'
 import { formatTime } from '../lib/media'
 import { PROVIDERS } from '../lib/streaming'
 import { useStore } from '../store/useStore'
@@ -138,6 +139,14 @@ export function Singers({ active }: { active: boolean }) {
     r: replay,
   })
 
+  useMediaSession(
+    active && !!song,
+    song && creator
+      ? { title: song.title, artist: creator.name, album: song.release, artwork: song.cover,
+          onPlay: pb.play, onPause: pb.pause, onNext: skip, onPrevious: previous }
+      : null,
+  )
+
   if (!song || !creator) return <EndOfStation onRestart={() => { setDir(1); setIndex(0) }} />
 
   const upNext = songs.slice(index + 1, index + 4)
@@ -200,6 +209,7 @@ export function Singers({ active }: { active: boolean }) {
           <div className="transport__meta">
             <h1 className="track-artist">{creator.name}</h1>
             <p className="track-title">{song.title}</p>
+            <p className="track-genre">{creator.genre} · {creator.location}</p>
           </div>
           <Dial value={pb.time} max={pb.length} onSeek={seek} label={`Preview of ${song.title}`} />
           <div className="controls">

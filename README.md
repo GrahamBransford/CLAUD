@@ -51,6 +51,7 @@ Keyboard (desktop): `←` pass · `→` keep · `space` play/pause · `R` replay
 - Follow/unfollow, follow-gated Handhelds feed, affinity ranking that responds to your listening and saves.
 - Collection with inline preview playback; everything persists in `localStorage` across refreshes.
 - Drive mode: audio-only playback with still artwork, auto-save and auto-progression.
+- System media controls (Media Session API): lock screen, Bluetooth headset and car steering-wheel play / pause / next work in every station, including Drive.
 
 **Simulated (and labelled as such in the UI)**
 - **Streaming services.** "Spotify (demo)" / "Apple Music (demo)" only show where a saved song *would* be filed. Nothing is sent anywhere. The seam is `src/lib/streaming.ts`.

@@ -6,6 +6,7 @@ import { Wordmark } from '../components/Wordmark'
 import { brand } from '../config/brand'
 import { creatorById, episodes, songs } from '../data'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
+import { useMediaSession } from '../hooks/useMediaSession'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import { AUTO_SAVE_RATIO, useSaveSong } from './Singers'
@@ -101,6 +102,16 @@ export function Drive({ initial }: { initial: Station }) {
       flash('Episode saved')
     }
   }
+
+  // steering-wheel / headset buttons: play, pause, skip
+  useMediaSession(true, {
+    title: station === 'singers' ? song.title : ep.title,
+    artist: station === 'singers' ? creatorById[song.creatorId].name : creatorById[ep.creatorId].name,
+    artwork: station === 'singers' ? song.cover : ep.art,
+    onPlay: pb.play,
+    onPause: pb.pause,
+    onNext: skip,
+  })
 
   const art = station === 'singers' ? song.cover : ep.art
   const title = station === 'singers' ? song.title : ep.title

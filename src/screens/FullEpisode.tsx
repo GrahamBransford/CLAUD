@@ -5,6 +5,7 @@ import { Dial } from '../components/Dial'
 import { Transcript } from '../components/Transcript'
 import { creatorById, episodeById } from '../data'
 import { useWindowedPlayback } from '../hooks/useWindowedPlayback'
+import { useMediaSession } from '../hooks/useMediaSession'
 import { formatTime } from '../lib/media'
 import { useStore } from '../store/useStore'
 import { useUI, type FullEpisodeRequest } from '../store/useUI'
@@ -35,6 +36,12 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
     active: !drive,
     initialOffset: startAt,
     onWindowEnd: ({ listened, length }) => recordListen(ep.creatorId, listened / length, listened),
+  })
+
+  useMediaSession(!drive, {
+    title: ep.title, artist: show.name, album: 'Full episode', artwork: ep.art,
+    onPlay: pb.play, onPause: pb.pause,
+    onNext: () => pb.seek(pb.time + 30), onPrevious: () => pb.seek(pb.time - 15),
   })
 
   // Remember where the listener is, every few seconds.

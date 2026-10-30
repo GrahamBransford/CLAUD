@@ -6,6 +6,7 @@ import { SwipeCard, type SwipeDir } from '../components/SwipeCard'
 import { Transcript } from '../components/Transcript'
 import { creatorById, episodes } from '../data'
 import { useKeys } from '../hooks/useKeys'
+import { useMediaSession } from '../hooks/useMediaSession'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
 import { formatTime } from '../lib/media'
 import { useStore } from '../store/useStore'
@@ -125,6 +126,14 @@ export function Speakers({ active }: { active: boolean }) {
     r: pb.restart,
     f: watchFull,
   })
+
+  useMediaSession(
+    active && !!ep && !handoff,
+    ep && show
+      ? { title: ep.title, artist: show.name, album: 'Highlight', artwork: ep.art,
+          onPlay: pb.play, onPause: pb.pause, onNext: skip }
+      : null,
+  )
 
   if (!ep || !show)
     return (
