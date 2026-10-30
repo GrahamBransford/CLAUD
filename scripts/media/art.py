@@ -14,7 +14,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__)) + "/../.."
 WORK = os.environ.get("WORK", "/tmp/claude-0/work")
 FONTS = f"{WORK}/fonts"
 PUB = f"{ROOT}/public/media"
-CAT = json.load(open(f"{ROOT}/src/data/catalog.json"))
+CAT = json.load(open(f"{ROOT}/content/demo/catalog.json"))
 CREATORS = {c["id"]: c for c in CAT["creators"]}
 
 CREAM, INK, RED, OCHRE, SAGE = "#F4EBDD", "#292722", "#963F36", "#D6A84F", "#8A967B"

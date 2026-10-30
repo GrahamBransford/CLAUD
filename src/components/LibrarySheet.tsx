@@ -1,6 +1,8 @@
 import { Pause, Play, Trash2, Tv } from 'lucide-react'
-import { useRef, useState } from 'react'
-import { creatorById, episodeById, songById } from '../data'
+import { useState } from 'react'
+import { activeSet, chooseSet, contentIndex, creatorById, episodeById, songById } from '../data'
+import { usePlayerRef } from '../screens/Artists'
+import { MediaSurface } from './MediaSurface'
 import { useWindowedPlayback } from '../hooks/useWindowedPlayback'
 import { formatTime } from '../lib/media'
 import { PROVIDERS, type StreamingProviderId } from '../lib/streaming'
@@ -63,6 +65,8 @@ export function LibrarySheet() {
 
         <StreamingCard />
 
+        <ContentSwitch />
+
         {confirmReset ? (
           <div className="reset-confirm" role="alertdialog" aria-label="Reset demo data">
             <p>Reset the demo? Saved items, follows and listening history go back to their starting state.</p>
@@ -98,7 +102,7 @@ function SongRow({ item, playing, onPlay }: { item: SavedItem; playing: boolean;
   return (
     <li className={`shelf__row ${playing ? 'is-playing' : ''}`}>
       <button className="shelf__art" onClick={onPlay} aria-label={`Play ${song.title}`}>
-        <img src={song.cover} alt="" />
+        <img src={song.artwork} alt="" />
         <span><Play size={16} fill="currentColor" /></span>
       </button>
       <span className="shelf__text">
@@ -128,12 +132,12 @@ function EpisodeRow({ item }: { item: SavedItem }) {
   return (
     <li className="shelf__row">
       <button className="shelf__art" onClick={open} aria-label={`Watch ${ep.title}`}>
-        <img src={ep.art} alt="" />
+        <img src={ep.artwork} alt="" />
         <span><Tv size={16} /></span>
       </button>
       <span className="shelf__text">
         <strong>{ep.title}</strong>
-        <em>{creatorById[ep.creatorId].name} · {formatTime(ep.full.duration)}</em>
+        <em>{creatorById[ep.creatorId]?.name}{ep.duration ? ` · ${formatTime(ep.duration)}` : ''}</em>
         <small>{progress > 5 ? `Resume at ${formatTime(progress)}` : 'Not started'} · {when(item.savedAt)}</small>
       </span>
       <button className="icon-btn" onClick={() => unsave(item.id)} aria-label={`Remove ${ep.title}`}>
@@ -144,28 +148,54 @@ function EpisodeRow({ item }: { item: SavedItem }) {
 }
 
 function MiniPlayer({ song, onDone }: { song: Song; onDone: () => void }) {
-  const ref = useRef<HTMLAudioElement>(null)
+  const player = usePlayerRef()
+  // Prefer the audio rendition (Spotify or a file); fall back to the video in a small player.
+  const source = song.audio ?? song.media
+  const [error, setError] = useState<string | null>(null)
   const pb = useWindowedPlayback({
-    ref,
-    itemKey: song.id,
-    start: song.previewStart,
-    end: song.previewEnd,
+    ref: player.ref,
+    itemKey: `${song.id}:${player.version}`,
+    start: song.preview.start,
+    end: song.preview.end,
     autoplay: true,
-    active: true,
+    active: !error,
     onWindowEnd: onDone,
   })
+  const visible = source.kind === 'youtube' || source.kind === 'spotify'
   return (
-    <div className="mini-player">
-      {/* audio-only rendition of the same file: no video needed in the library */}
-      <audio ref={ref} src={song.video} preload="auto" />
-      <img src={song.cover} alt="" />
+    <div className={`mini-player ${visible ? 'mini-player--embed' : ''}`}>
+      {visible ? (
+        <MediaSurface source={source} start={song.preview.start} className="mini-player__embed" onPlayer={player.onPlayer} onError={setError} spotifyHeight={80} />
+      ) : (
+        <>
+          <MediaSurface source={source} onPlayer={player.onPlayer} onError={setError} />
+          <img src={song.artwork} alt="" />
+        </>
+      )}
       <div className="mini-player__body">
         <strong>{song.title}</strong>
-        <Dial value={pb.time} max={pb.length} onSeek={pb.seek} label={`Preview of ${song.title}`} />
+        {error ? <small className="muted">{error}</small> : <Dial value={pb.time} max={pb.length} onSeek={pb.seek} label={`Preview of ${song.title}`} />}
       </div>
       <button className="ctl ctl--play ctl--sm" onClick={pb.toggle} aria-label={pb.playing ? 'Pause' : 'Play'}>
         {pb.playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />}
       </button>
+    </div>
+  )
+}
+
+function ContentSwitch() {
+  if (contentIndex.sets.length < 2) return null
+  return (
+    <div className="content-switch">
+      <p className="eyebrow">Content</p>
+      <div className="content-switch__opts">
+        {contentIndex.sets.map((s) => (
+          <button key={s.id} className={`content-switch__opt ${s.id === activeSet ? 'is-on' : ''}`} onClick={() => s.id !== activeSet && chooseSet(s.id)}>
+            <strong>{s.label}</strong>
+            {s.description && <span>{s.description}</span>}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }
@@ -177,8 +207,8 @@ function EmptyShelf({ kind }: { kind: 'song' | 'episode' }) {
       <h3>{kind === 'song' ? 'Nothing on the shelf yet.' : 'No episodes saved yet.'}</h3>
       <p>
         {kind === 'song'
-          ? 'Swipe right on a song in Singers — or simply listen to a preview all the way through — and it lands here.'
-          : 'Tap the bookmark on a conversation in Speakers to keep it for later, ready to play in full.'}
+          ? 'Swipe right on a song in Artists, or simply hear a preview all the way through, and it lands here.'
+          : 'Tap the bookmark on a conversation in Podcasts to keep it for later, ready to play in full.'}
       </p>
     </div>
   )

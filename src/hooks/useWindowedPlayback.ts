@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type RefObject } from 'react'
 import { claimAudioFocus, releaseAudioFocus } from '../lib/media'
+import type { PlayerLike } from '../lib/players'
 
 export interface WindowEnd {
   /** Seconds genuinely heard (seeking forward does not count). */
@@ -8,7 +9,7 @@ export interface WindowEnd {
 }
 
 interface Options {
-  ref: RefObject<HTMLMediaElement | null>
+  ref: RefObject<PlayerLike | null>
   /** Changes whenever a different item is loaded into the element. */
   itemKey: string
   start: number

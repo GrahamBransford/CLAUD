@@ -1,12 +1,14 @@
-/** One audible source at a time, across every player in the app. */
-let current: HTMLMediaElement | null = null
+import type { PlayerLike } from './players'
 
-export function claimAudioFocus(el: HTMLMediaElement) {
+/** One audible source at a time, across every player in the app. */
+let current: PlayerLike | null = null
+
+export function claimAudioFocus(el: PlayerLike) {
   if (current && current !== el && !current.paused) current.pause()
   current = el
 }
 
-export function releaseAudioFocus(el: HTMLMediaElement) {
+export function releaseAudioFocus(el: PlayerLike) {
   if (current === el) current = null
 }
 

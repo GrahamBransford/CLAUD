@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { ArrowLeft, Bookmark, Pause, Play, RotateCcw, RotateCw } from 'lucide-react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Dial } from '../components/Dial'
+import { MediaSurface } from '../components/MediaSurface'
 import { Transcript } from '../components/Transcript'
 import { creatorById, episodeById } from '../data'
 import { useWindowedPlayback } from '../hooks/useWindowedPlayback'
@@ -9,7 +10,8 @@ import { useMediaSession } from '../hooks/useMediaSession'
 import { formatTime } from '../lib/media'
 import { useStore } from '../store/useStore'
 import { useUI, type FullEpisodeRequest } from '../store/useUI'
-import { hostLine, useSaveEpisode } from './Speakers'
+import { usePlayerRef } from './Artists'
+import { fullVerb, hostLine, isVideo, useSaveEpisode } from './Podcasts'
 
 const SPEEDS = [1, 1.25, 1.5]
 
@@ -22,24 +24,27 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
   const setProgress = useStore((s) => s.setEpisodeProgress)
   const recordListen = useStore((s) => s.recordListen)
   const saveEpisode = useSaveEpisode()
-  const ref = useRef<HTMLVideoElement>(null)
+  const player = usePlayerRef()
+  const [known, setKnown] = useState(ep.duration ?? 0)
+  const [error, setError] = useState<string | null>(null)
   const [startAt, setStartAt] = useState(request.startAt)
   const [speed, setSpeed] = useState(1)
   const [banner, setBanner] = useState(request.startAt > 5)
 
   const pb = useWindowedPlayback({
-    ref,
-    itemKey: ep.id,
+    ref: player.ref,
+    itemKey: `${ep.id}:${player.version}`,
     start: 0,
-    end: ep.full.duration,
+    // episodes from a feed may not state their length; the player tells us once loaded
+    end: known || 7200,
     autoplay: true,
     active: !drive,
     initialOffset: startAt,
-    onWindowEnd: ({ listened, length }) => recordListen(ep.creatorId, listened / length, listened),
+    onWindowEnd: ({ listened, length }) => recordListen(ep.creatorId, ep.id, listened, listened / length > 0.85),
   })
 
   useMediaSession(!drive, {
-    title: ep.title, artist: show.name, album: 'Full episode', artwork: ep.art,
+    title: ep.title, artist: show.name, album: 'Full episode', artwork: ep.artwork,
     onPlay: pb.play, onPause: pb.pause,
     onNext: () => pb.seek(pb.time + 30), onPrevious: () => pb.seek(pb.time - 15),
   })
@@ -52,8 +57,18 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
   }, [bucket])
 
   useEffect(() => {
-    if (ref.current) ref.current.playbackRate = speed
-  }, [speed])
+    if (player.ref.current) player.ref.current.playbackRate = speed
+  }, [speed, player.ref])
+
+  // learn the real length from the player when the content file doesn't give one
+  useEffect(() => {
+    if (known) return
+    const t = window.setInterval(() => {
+      const d = player.ref.current?.duration
+      if (d && Number.isFinite(d) && d > 0) setKnown(d)
+    }, 500)
+    return () => window.clearInterval(t)
+  }, [known, player.ref])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -69,13 +84,14 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
 
   const leave = () => {
     const heard = pb.listened()
-    if (heard > 20 && !pb.ended) recordListen(ep.creatorId, heard / ep.full.duration, heard)
+    if (heard > 20 && !pb.ended) recordListen(ep.creatorId, ep.id, heard, false)
     close()
   }
 
-  const chapterIdx = ep.chapters.findLastIndex((c) => c.start <= pb.time + 0.5)
+  const chapters = ep.chapters ?? []
+  const chapterIdx = chapters.findLastIndex((c) => c.start <= pb.time + 0.5)
   const h = ep.highlight
-  const people = Object.values(ep.speakers).map((p) => ({
+  const people = Object.values(ep.speakers ?? {}).map((p) => ({
     name: p.name,
     role: ep.guests.includes(p.name) ? 'Guest' : 'Host',
   }))
@@ -115,16 +131,28 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
               </button>
             </div>
           )}
-          <div className="full-episode__screen">
-            <video
-              ref={ref}
-              src={ep.full.video}
-              poster={ep.full.poster}
-              playsInline
-              preload="auto"
-              onClick={pb.toggle}
-            />
-            {!pb.playing && (
+          <div className={`full-episode__screen ${isVideo(ep) ? '' : 'full-episode__screen--audio'}`}>
+            {isVideo(ep) ? (
+              <MediaSurface source={ep.media} start={startAt} className="full-episode__video" onPlayer={player.onPlayer} onError={setError} onClick={pb.toggle} />
+            ) : (
+              <div className="audio-stage audio-stage--wide">
+                <div className={`audio-stage__disc ${pb.playing ? 'is-spinning' : ''}`} aria-hidden>
+                  <img src={ep.artwork} alt="" />
+                </div>
+                <div className="audio-stage__text">
+                  <span className="tag tag--band">Audio episode</span>
+                  <strong>{show.name}</strong>
+                </div>
+                <MediaSurface source={ep.media} onPlayer={player.onPlayer} onError={setError} />
+              </div>
+            )}
+            {error && (
+              <div className="sleeve__error">
+                <p className="eyebrow">Can&rsquo;t play here</p>
+                <p>{error}</p>
+              </div>
+            )}
+            {!pb.playing && !error && ep.media.kind !== 'youtube' && (
               <button className="sleeve__play" onClick={pb.toggle} aria-label="Play episode">
                 <Play size={30} fill="currentColor" />
               </button>
@@ -135,13 +163,13 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
             max={pb.length}
             onSeek={pb.seek}
             label={`Episode ${ep.title}`}
-            ranges={[{ start: h.sourceStart, end: h.sourceEnd, label: 'The highlight came from here' }]}
-            marks={ep.chapters.map((c) => c.start)}
+            ranges={[{ start: h.start, end: h.end, label: 'The highlight came from here' }]}
+            marks={chapters.map((c) => c.start)}
             size="lg"
           />
           <div className="full-episode__legend">
             <span><i className="swatch swatch--range" /> The highlight you heard</span>
-            <span><i className="swatch swatch--mark" /> Chapters</span>
+            {chapters.length > 0 && <span><i className="swatch swatch--mark" /> Chapters</span>}
           </div>
           <div className="controls controls--episode">
             <button className="ctl ctl--ghost" onClick={() => pb.seek(pb.time - 15)} aria-label="Back 15 seconds"><RotateCcw size={20} /><small>15</small></button>
@@ -156,27 +184,27 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
         </div>
 
         <aside className="full-episode__side">
-          <p className="eyebrow">Episode {ep.number} · {formatTime(ep.full.duration)}</p>
+          <p className="eyebrow">{ep.number ? `Episode ${ep.number} · ` : ''}{known ? formatTime(known) : ''} · {isVideo(ep) ? 'Video' : 'Audio'}</p>
           <h1 className="episode-title">{ep.title}</h1>
-          <p className="episode-hosts">{hostLine(ep)}</p>
+          {hostLine(ep) && <p className="episode-hosts">{hostLine(ep)}</p>}
           <p className="episode-topic">{ep.topic}</p>
 
-          <ul className="people">
+          {people.length > 0 && <ul className="people">
             {people.map((p) => (
               <li key={p.name}>
                 <span className="people__mono">{p.name.split(' ').map((w) => w[0]).join('')}</span>
                 <span><strong>{p.name}</strong><em>{p.role}{p.role === 'Host' ? ` · ${show.name}` : ''}</em></span>
               </li>
             ))}
-          </ul>
+          </ul>}
 
-          <Transcript cues={ep.cues} time={pb.time} speakers={ep.speakers} />
+          {ep.cues && ep.speakers && <Transcript cues={ep.cues} time={pb.time} speakers={ep.speakers} />}
 
-          <div className="chapters">
+          {chapters.length > 0 && <div className="chapters">
             <p className="eyebrow">Chapters</p>
             <ol>
-              {ep.chapters.map((c, i) => {
-                const isHighlight = c.start >= h.sourceStart - 2 && c.start < h.sourceEnd - 5
+              {chapters.map((c, i) => {
+                const isHighlight = c.start >= h.start - 2 && c.start < h.end - 5
                 return (
                   <li key={c.title + i}>
                     <button className={i === chapterIdx ? 'is-current' : ''} onClick={() => { pb.seek(c.start); pb.play() }}>
@@ -188,7 +216,8 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
                 )
               })}
             </ol>
-          </div>
+          </div>}
+          <a className="link-btn" href="#" onClick={(e) => { e.preventDefault(); leave() }}>{fullVerb(ep) === 'Watch' ? 'Done watching?' : 'Done listening?'} Back to discovery</a>
         </aside>
       </div>
     </motion.div>

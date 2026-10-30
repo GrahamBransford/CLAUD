@@ -49,7 +49,7 @@ def main():
                                        "duration": probe(f"{PUB}/handhelds/{p['id']}.mp4")}
         else:
             m["handhelds"][p["id"]] = {"src": f"media/handhelds/{p['id']}.jpg", "poster": f"media/handhelds/{p['id']}.jpg"}
-    json.dump(m, open(f"{ROOT}/src/data/media.json", "w"), indent=1)
+    json.dump(m, open(f"{ROOT}/content/demo/media.json", "w"), indent=1)
     print("manifest written")
 
 

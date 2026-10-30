@@ -1,95 +1,92 @@
 # CIRCA — creative discovery prototype
 
-A working prototype of a new kind of radio: swipe-to-discover music, five-minute podcast highlights that roll into full episodes, and a feed of raw, behind-the-scenes moments from the creators you follow.
-
-> The product name, **CIRCA** (as in *circa 1940*), lives in one place — `src/config/brand.ts` — and the wordmark, page title, welcome screen and copy all follow it.
+A new kind of radio. Discover music and conversations, and watch your relationship with the people behind them grow, from the outer edge of your record to the centre.
 
 ## Run it
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
+npm run dev        # http://localhost:5173 (also prints a Network address for phones on the same Wi-Fi)
+npm run build      # static site in dist/ — host anywhere (Netlify, any web server)
 ```
 
-Production build (static files, no server needed):
+## What's in it
+
+| Destination | What it does |
+| --- | --- |
+| **Your Record** (home) | A turntable view of everyone you listen to. Creators sit on the record by how close you are: Discovered at the outer edge, then Regular, Devoted, Inner Circle, and Top 1% at the centre. Tap anyone for tier, estimated percentile, statistics, what moves them inward, and the demo reward card. |
+| **Artists** | Music discovery. Each card plays the song's video for a 60–90 s preview. Swipe right to **SAVE**, left to **PASS**, or use the buttons / arrow keys. Hearing the whole preview saves the song automatically. |
+| **Podcasts** | Conversation discovery. A ~5-minute highlight from inside a longer episode. Finish it and the full episode keeps playing from right after the highlight. "Watch / Listen to full episode" continues from the exact moment. Audio-only episodes are presented as audio. |
+| **Inner Circle** | A full-screen, sideways feed of unpolished, behind-the-scenes moments, only from creators you follow, closest relationships first. Swipe right for the next moment, left to go back. |
+| **Drive** | Simulated CarPlay / Android Auto: no moving video, still artwork, big controls, audio only. Auto-save and highlight→episode keep working. Includes a glanceable Your Record. |
+| **Collection** | Saved songs and episodes, simulated streaming destination, content-set switch, demo reset. |
+
+### How closeness works
+
+Points per creator come from meaningful signals (`src/lib/affinity.ts`):
+minutes listened (1/min), full listens (8), coming back to something (5), saves (12), following (20), **shows attended (90)**, Inner Circle moments watched (3), reactions (1). Points become an **estimated** percentile against a modelled audience for that creator, which sets the tier and the position on the record. Everything you do in the app moves creators; the demo also starts from a simulated listening history. **Percentiles are estimates, not verified rankings,** and the UI says so.
+
+To demo the top tier: on Your Record, tap Juniper Vale → **I went to a show**. She crosses into the Top 1% and the reward card unlocks.
+
+## Content: real media without rebuilding
+
+Content is loaded at runtime from `public/content/` (or `dist/content/` after a build), so you can add or replace artists, videos, episodes and Inner Circle moments by editing JSON and reloading.
+
+- `public/content/index.json` lists the content sets and which one is the default. The Collection panel switches between sets; `?content=<id>` in the URL does too.
+- `public/content/demo.json` is the original, fully offline demo set (fictional creators, generated media).
+- `public/content/real.json` is the starter for real artists and podcasts. Add it to `index.json` once it has items.
+
+Every item names its creator, metadata and a **media source**:
+
+```json
+{ "kind": "youtube", "id": "VIDEO_ID" }            // official YouTube video, via the YouTube IFrame Player API
+{ "kind": "spotify", "uri": "spotify:track:ID" }    // Spotify embed (iFrame API)
+{ "kind": "audio",   "src": "https://…/episode.mp3" } // e.g. a podcast RSS enclosure
+{ "kind": "video",   "src": "media/clip.mp4" }       // a self-hosted file
+{ "kind": "image",   "src": "media/photo.jpg" }
+```
+
+Songs: `media` (the video), optional `audio` (Spotify or a file, used in Drive), `preview: {start, end}`.
+Episodes: `media` (the full episode), optional `audio`, `highlight: {start, end, title}` inside it, optional `audioHighlight` when the audio's timing differs.
+
+### Helpers
 
 ```bash
-npm run build      # outputs dist/
-npm run preview    # serves dist/ at http://localhost:4173
+# Add an official YouTube music video (checked via YouTube oEmbed; refuses private or non-embeddable videos)
+npm run content:youtube -- "https://www.youtube.com/watch?v=…" --creator some-artist --into public/content/real.json --preview 30-105
+# … or an Inner Circle moment (e.g. an official YouTube Short)
+npm run content:youtube -- "https://youtube.com/shorts/…" --creator some-artist --as moment --into public/content/real.json
+
+# Import real episodes (titles, hosts, artwork, descriptions, audio) from a public podcast RSS feed
+npm run content:podcast -- https://feeds.example.com/show.xml --episodes 3 --into public/content/real.json
+
+# Check every item in a set actually plays (YouTube embeddable? Spotify ID real? files reachable?)
+npm run content:verify -- public/content/real.json
 ```
 
-Requires Node 20+. Everything — media included — is local, so the demo works offline.
+Creators need an entry in `creators` (an artist's id, name, avatar URL, genre, bio). Imported podcast highlights get a placeholder window marked in `highlight.note`; set `start`/`end` after listening.
 
-## The three stations
+### Platform rules this prototype follows
 
-| Station | What it is | What to show |
-| --- | --- | --- |
-| **Singers** (88.1) | Music discovery. Each card is the song's music video; you get a 60–90 s preview window of a ~2 min track. | Swipe right to keep, left to pass (or the ♥ / ✕ buttons, or ← / → keys). **Listen to the end and it's saved automatically.** |
-| **Speakers** (94.5) | Podcast discovery. A hand-picked ~5 min highlight cut from the *middle* of a 9–11 min episode, with a live transcript. | "Watch full episode" picks up at the exact moment you were at. **Finish the highlight and the full episode starts by itself**, right after the highlight. |
-| **Handhelds** (101.9) | Phone-shot, unpolished clips — only from creators you follow, ordered by how much of their work you actually listen to. | Follow / unfollow someone and watch the feed change. "How this is ordered" shows the live scoring. |
-
-Also: **Collection** (top right) holds kept songs and episodes, and **Drive** (top right) is the simulated CarPlay / Android Auto view.
-
-## A five-minute pitch walkthrough
-
-1. Open the app → **Tune in**. The first music video starts.
-2. Swipe one song right (toast: *Saved to your collection*), swipe one left.
-3. Let a song play to the end — *"Saved — you listened all the way through"* — then it moves to the next song by itself.
-4. **Speakers** → let the highlight play for a moment, press **Watch full episode**. Point out the ochre band on the dial: that's where the highlight came from. Go **Back to discovery**.
-5. **Handhelds** → tap a clip (sound on). Open **How this is ordered**. Follow someone from *Not in your circle yet*; their clips appear, ranked by listening.
-6. **Drive** → video gives way to still artwork and large controls; audio keeps playing and auto-save keeps working.
-7. **Collection** → saved items, which were saved by listening vs. by swipe, the simulated streaming destination, and **Reset demo data** for the next run.
-
-Keyboard (desktop): `←` pass · `→` keep · `space` play/pause · `R` replay · `F` full episode (Speakers) · `Esc` closes panels.
-
-## What is real and what is simulated
-
-**Works for real in the prototype**
-- Audio/video playback, progress, seeking, replay, previous/next, preview windows.
-- Swipe and button skip/save, auto-save after genuinely listening to ≥ 85 % of a preview (scrubbing to the end doesn't count).
-- Highlight → full-episode handoff (manual and automatic), chapters, transcripts, resume position.
-- Follow/unfollow, follow-gated Handhelds feed, affinity ranking that responds to your listening and saves.
-- Collection with inline preview playback; everything persists in `localStorage` across refreshes.
-- Drive mode: audio-only playback with still artwork, auto-save and auto-progression.
-- System media controls (Media Session API): lock screen, Bluetooth headset and car steering-wheel play / pause / next work in every station, including Drive.
-
-**Simulated (and labelled as such in the UI)**
-- **Streaming services.** "Spotify (demo)" / "Apple Music (demo)" only show where a saved song *would* be filed. Nothing is sent anywhere. The seam is `src/lib/streaming.ts`.
-- **Listening history.** Handhelds ranking starts from a small simulated history (`listeningSeed` in `src/data/catalog.json`) standing in for connected streaming data; in-app listening is added on top. The scoring lives in `src/lib/affinity.ts`.
-- **CarPlay / Android Auto.** Drive is an in-app view, not a certified integration.
-- **Highlight extraction.** Highlights are hand-marked in the scripts, not produced by AI.
-
-## About the demo content
-
-All artists, shows, people and media are **original and fictional**, generated for this prototype (no third-party music or footage):
-
-- **Songs** — six original instrumental compositions synthesized in code (`scripts/media/songs.py`), each with a generative, beat-synced music video.
-- **Podcasts** — four written episodes voiced with a local neural text-to-speech model (Piper, LibriTTS voices, CC BY 4.0), with an illustrated "studio" video animated from who is speaking.
-- **Handhelds** — procedurally rendered phone-style clips with synthesized or TTS audio, plus two generated photos.
-
-Because these are stand-ins, the episodes are 9–11 minutes rather than a typical 30–90, and the voices are synthetic. Swapping in real content is a data change, not a code change (below).
-
-## Adding real content
-
-- Editorial metadata (names, bios, titles, captions, follows) lives in `src/data/catalog.json`.
-- Media facts (file paths, durations, preview end, highlight range, chapters, transcript cues) live in `src/data/media.json`. Paths are relative to `public/`.
-- Drop real files into `public/media/…`, update both JSON files, done. A music video can be any length; the preview window is `preview.start` → `previewEnd`.
-
-To regenerate all the demo media from source, see `scripts/media/build_all.sh` (Python 3 with numpy/scipy/pillow/piper-tts, plus ffmpeg; ~40 minutes on 4 cores).
+- **YouTube**: played only through the official player, fully visible, with nothing layered over it. Previews use the player's own start/end and seek controls. No audio extraction, no hidden-player playback. YouTube items are therefore left out of Drive unless they also have a Spotify or audio source.
+- **Spotify**: the official embed stays visible. Listeners not signed in to Spotify in that browser get 30-second previews; signed-in listeners get full tracks. The app reads the real duration and never claims otherwise.
+- **Podcasts**: RSS enclosures are the files publishers distribute for playback in apps.
+- **Where real media plays**: run locally or on a normal host. The private claude.ai artifact link blocks third-party embeds and media, so it can only run the offline demo set.
 
 ## Project structure
 
 ```
 src/
-  config/brand.ts         product name, tagline, station names
-  data/                   catalog.json (editorial) + media.json (generated) + typed accessors
-  store/                  zustand stores: persisted (saves, follows, listening) and UI
-  hooks/                  useWindowedPlayback (preview windows + honest listen tracking), useKeys
-  lib/                    affinity ranking, streaming-service seam, media helpers
-  components/             dial progress, swipe card, sheets, toasts, header/nav
-  screens/                Singers, Speakers, FullEpisode, Handhelds, Drive
-  styles/                 design tokens + stylesheet
-scripts/media/            generators for all demo audio, video and artwork
-content/podcasts/         the podcast scripts (with highlight markers)
-public/media/             generated media served to the app
+  config/brand.ts         name, tagline, destination names
+  data/index.ts           runtime content loader
+  lib/players.ts          YouTube + Spotify adapters with one player interface
+  lib/affinity.ts         points, simulated percentiles, tiers
+  hooks/                  preview windows + honest listen tracking, relationships, keys, media session
+  components/             MediaSurface, dial, swipe card, tier badge/ladder/reward, sheets
+  screens/                YourRecord, Artists, Podcasts, FullEpisode, InnerCircle, Drive
+  styles/                 tokens.css (palette), app.css, circa.css (atomic-age layer)
+scripts/content/          add-youtube, import-podcast, verify, build-demo
+scripts/media/            generators for the original demo media
+content/demo/             generator sources for the demo set
+public/content/           content sets loaded at runtime
 ```

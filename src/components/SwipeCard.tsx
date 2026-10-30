@@ -31,7 +31,7 @@ const variants: Variants = {
  * A draggable sleeve: drag right to keep, left to pass. Vertical scrolling is
  * left to the browser (touch-action: pan-y) so swipes never fight the page.
  */
-export function SwipeCard({ children, onSwipe, exitDir, className, keepLabel = 'Keep', passLabel = 'Pass', disabled }: Props) {
+export function SwipeCard({ children, onSwipe, exitDir, className, keepLabel = 'Save', passLabel = 'Pass', disabled }: Props) {
   const x = useMotionValue(0)
   const rotate = useTransform(x, [-300, 300], [-7, 7])
   const keep = useTransform(x, [20, THRESHOLD], [0, 1])

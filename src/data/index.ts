@@ -1,88 +1,114 @@
-import catalog from './catalog.json'
-import media from './media.json'
-import type { Creator, Episode, HandheldPost, Song } from '../types'
+import type { ContentSet, Creator, Episode, InnerCirclePost, MediaSource, Signals, Song } from '../types'
 
-/** Media paths are stored relative so the app can be served from any base path. */
-export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`
+/**
+ * Content is loaded at runtime from public/content/<set>.json, so artists,
+ * videos, episodes and Inner Circle posts can be added or replaced by editing
+ * JSON — no rebuild. public/content/index.json lists the available sets.
+ *
+ * The arrays below are live ES-module bindings: they are filled once by
+ * loadContent() before the app renders.
+ */
 
-type MediaManifest = typeof media
+/** Relative paths resolve against the app's base; absolute URLs pass through. */
+export const asset = (path: string) =>
+  /^(https?:|data:|blob:)/.test(path) ? path : `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 
-const m = media as MediaManifest
+export interface ContentIndex {
+  default: string
+  sets: { id: string; file: string; label: string; description?: string }[]
+}
 
-export const creators: Creator[] = catalog.creators.map((c) => ({
-  ...c,
-  kind: c.kind as Creator['kind'],
-  avatar: asset(`media/avatars/${c.id}.jpg`),
-}))
+export let contentIndex: ContentIndex = { default: 'demo', sets: [] }
+export let activeSet = 'demo'
+export let contentName = ''
+export let creators: Creator[] = []
+export let songs: Song[] = []
+export let episodes: Episode[] = []
+export let innerCircle: InnerCirclePost[] = []
+export let listeningSeed: Record<string, Partial<Signals>> = {}
+export let defaultFollows: string[] = []
+export let creatorById: Record<string, Creator> = {}
+export let songById: Record<string, Song> = {}
+export let episodeById: Record<string, Episode> = {}
 
-export const creatorById = Object.fromEntries(creators.map((c) => [c.id, c])) as Record<string, Creator>
+const SET_KEY = 'circa-content-set'
 
-export const songs: Song[] = catalog.songs.map((s) => {
-  const sm = m.songs[s.id as keyof MediaManifest['songs']]
-  return {
-    id: s.id,
-    creatorId: s.creatorId,
-    title: s.title,
-    release: s.release,
-    year: s.year,
-    blurb: s.blurb,
-    mood: s.mood,
-    cover: asset(`media/covers/${s.id}.jpg`),
-    video: asset(sm.video),
-    poster: asset(sm.poster),
-    duration: sm.duration,
-    previewStart: s.preview.start,
-    // the generated media knows where the musical phrase actually ends
-    previewEnd: sm.previewEnd,
+const resolveMedia = (m: MediaSource): MediaSource => {
+  if (m.kind === 'video') return { ...m, src: asset(m.src), poster: m.poster ? asset(m.poster) : undefined }
+  if (m.kind === 'audio' || m.kind === 'image') return { ...m, src: asset(m.src) }
+  return m
+}
+
+/** YouTube thumbnails stand in for artwork when a content entry gives none. */
+const artworkFor = (art: string | undefined, m: MediaSource) =>
+  art ? asset(art) : m.kind === 'youtube' ? `https://i.ytimg.com/vi/${m.id}/hqdefault.jpg` : ''
+
+export function chosenSet() {
+  const fromUrl = new URLSearchParams(window.location.search).get('content')
+  if (fromUrl) return fromUrl
+  try {
+    return localStorage.getItem(SET_KEY) ?? ''
+  } catch {
+    return ''
   }
-})
+}
 
-export const episodes: Episode[] = catalog.episodes.map((e) => {
-  const em = m.episodes[e.id as keyof MediaManifest['episodes']]
-  return {
+export function chooseSet(id: string) {
+  try {
+    localStorage.setItem(SET_KEY, id)
+  } catch {
+    /* storage blocked: the choice lasts for this page only */
+  }
+  const url = new URL(window.location.href)
+  url.searchParams.delete('content')
+  window.location.replace(url.toString())
+}
+
+export async function loadContent(): Promise<void> {
+  try {
+    const res = await fetch(asset('content/index.json'), { cache: 'no-cache' })
+    if (res.ok) contentIndex = await res.json()
+  } catch {
+    /* no index: fall back to the demo set */
+  }
+  const wanted = chosenSet()
+  const entry = contentIndex.sets.find((s) => s.id === wanted) ?? contentIndex.sets.find((s) => s.id === contentIndex.default)
+  activeSet = entry?.id ?? 'demo'
+  const res = await fetch(asset(`content/${entry?.file ?? 'demo.json'}`), { cache: 'no-cache' })
+  if (!res.ok) throw new Error(`Could not load content/${entry?.file ?? 'demo.json'} (${res.status})`)
+  const set = (await res.json()) as ContentSet
+  contentName = set.name
+
+  creators = set.creators.map((c) => ({ ...c, avatar: asset(c.avatar) }))
+  songs = set.songs.map((s) => ({
+    ...s,
+    media: resolveMedia(s.media),
+    audio: s.audio ? resolveMedia(s.audio) : undefined,
+    artwork: artworkFor(s.artwork, s.media),
+  }))
+  episodes = set.episodes.map((e) => ({
     ...e,
-    art: asset(`media/podcast-art/${e.creatorId}.jpg`),
-    speakers: em.speakers,
-    full: { video: asset(em.full.video), poster: asset(em.full.poster), duration: em.full.duration },
-    highlight: {
-      video: asset(em.highlight.video),
-      poster: asset(em.highlight.poster),
-      duration: em.highlight.duration,
-      sourceStart: em.highlight.sourceStart,
-      sourceEnd: em.highlight.sourceEnd,
-    },
-    chapters: em.chapters,
-    cues: em.cues,
-    highlightCues: em.highlightCues,
-  }
-})
-
-export const posts: HandheldPost[] = catalog.handhelds.map((h) => {
-  const hm = m.handhelds[h.id as keyof MediaManifest['handhelds']] as {
-    src: string
-    poster: string
-    duration?: number
-  }
-  return {
-    ...h,
-    type: h.type as HandheldPost['type'],
-    src: asset(hm.src),
-    poster: asset(hm.poster),
-    duration: hm.duration,
-  }
-})
-
-export const songById = Object.fromEntries(songs.map((s) => [s.id, s])) as Record<string, Song>
-export const episodeById = Object.fromEntries(episodes.map((e) => [e.id, e])) as Record<string, Episode>
-
-export const listeningSeed = catalog.listeningSeed.creators as Record<
-  string,
-  { plays: number; completion: number; saves: number }
->
-export const defaultFollows: string[] = catalog.defaultFollows
+    guests: e.guests ?? [],
+    media: resolveMedia(e.media),
+    audio: e.audio ? resolveMedia(e.audio) : undefined,
+    artwork: artworkFor(e.artwork, e.media),
+  }))
+  innerCircle = set.innerCircle.map((p) => ({
+    ...p,
+    media: resolveMedia(p.media),
+    poster: p.poster ? asset(p.poster) : p.media.kind === 'youtube' ? `https://i.ytimg.com/vi/${p.media.id}/hqdefault.jpg` : undefined,
+  }))
+  listeningSeed = set.listeningSeed ?? {}
+  defaultFollows = set.defaultFollows ?? []
+  creatorById = Object.fromEntries(creators.map((c) => [c.id, c]))
+  songById = Object.fromEntries(songs.map((s) => [s.id, s]))
+  episodeById = Object.fromEntries(episodes.map((e) => [e.id, e]))
+}
 
 export const workByCreator = (creatorId: string) => ({
   songs: songs.filter((s) => s.creatorId === creatorId),
   episodes: episodes.filter((e) => e.creatorId === creatorId),
-  posts: posts.filter((p) => p.creatorId === creatorId),
+  posts: innerCircle.filter((p) => p.creatorId === creatorId),
 })
+
+export const creatorOfItem = (id: string) => songById[id]?.creatorId ?? episodeById[id]?.creatorId

@@ -1,16 +1,31 @@
 export type CreatorKind = 'artist' | 'podcast'
 
+/**
+ * Where a piece of media plays from. Content files choose the method per item.
+ *  - video / audio: a file URL (self-hosted, or a podcast RSS enclosure)
+ *  - youtube: an official YouTube upload, played through the YouTube IFrame Player API
+ *  - spotify: a Spotify URI, played through the Spotify embed (iFrame API)
+ *  - image: a still
+ */
+export type MediaSource =
+  | { kind: 'video'; src: string; poster?: string }
+  | { kind: 'audio'; src: string }
+  | { kind: 'youtube'; id: string }
+  | { kind: 'spotify'; uri: string }
+  | { kind: 'image'; src: string }
+
 export interface Creator {
   id: string
   kind: CreatorKind
   name: string
-  handle: string
-  location?: string
+  avatar: string
   genre: string
   bio: string
+  location?: string
   hosts?: string[]
+  /** Two or three brand colours used for markers and accents. */
   palette: string[]
-  avatar: string
+  links?: { label: string; url: string }[]
 }
 
 export interface Song {
@@ -21,14 +36,15 @@ export interface Song {
   year: number
   blurb: string
   mood: string[]
-  cover: string
-  video: string
-  poster: string
-  /** Length of the full track / video in seconds. */
-  duration: number
-  /** The discovery window inside the full video, in seconds. */
-  previewStart: number
-  previewEnd: number
+  artwork: string
+  /** What plays on the discovery card (usually the music video). */
+  media: MediaSource
+  /** Audio-only alternative for Drive mode (Spotify or an audio file). */
+  audio?: MediaSource
+  /** Discovery window inside the media, in seconds. */
+  preview: { start: number; end: number }
+  /** Full length, when known (seconds). */
+  duration?: number
 }
 
 export interface Cue {
@@ -46,37 +62,47 @@ export interface Chapter {
 export interface Episode {
   id: string
   creatorId: string
-  number: number
+  number?: number
   title: string
   guests: string[]
   topic: string
-  highlightTitle: string
-  art: string
-  speakers: Record<string, { name: string }>
-  full: { video: string; poster: string; duration: number }
-  highlight: {
-    video: string
-    poster: string
-    duration: number
-    /** Where the highlight sits inside the full episode. */
-    sourceStart: number
-    sourceEnd: number
-  }
-  chapters: Chapter[]
-  cues: Cue[]
-  highlightCues: Cue[]
+  artwork: string
+  published?: string
+  /** The complete episode. The highlight is a window inside it. */
+  media: MediaSource
+  /** Audio-only alternative for Drive mode. */
+  audio?: MediaSource
+  duration?: number
+  highlight: { start: number; end: number; title: string; note?: string }
+  /** Highlight timing in the audio rendition, when it differs from the video (e.g. RSS intros/ads). */
+  audioHighlight?: { start: number; end: number }
+  speakers?: Record<string, { name: string }>
+  chapters?: Chapter[]
+  cues?: Cue[]
 }
 
-export interface HandheldPost {
+export interface InnerCirclePost {
   id: string
   creatorId: string
-  type: 'video' | 'image'
   caption: string
   context: string
   postedHoursAgo: number
-  src: string
-  poster: string
+  media: MediaSource
+  poster?: string
   duration?: number
+}
+
+export interface ContentSet {
+  version: number
+  name: string
+  notes?: string
+  creators: Creator[]
+  songs: Song[]
+  episodes: Episode[]
+  innerCircle: InnerCirclePost[]
+  /** Simulated history standing in for connected streaming data. */
+  listeningSeed: Record<string, Partial<Signals>>
+  defaultFollows: string[]
 }
 
 export type SaveMethod = 'swipe' | 'button' | 'listened'
@@ -88,11 +114,16 @@ export interface SavedItem {
   via: SaveMethod
 }
 
-/** Listening activity recorded inside the app for one creator. */
-export interface CreatorListening {
+/** Engagement signals for one creator. All values are counts or minutes. */
+export interface Signals {
+  minutes: number
+  completions: number
+  /** Plays of something already heard before. */
+  repeats: number
   plays: number
-  completionSum: number
-  completionCount: number
-  saves: number
-  seconds: number
+  concerts: number
+  /** Light-touch reactions in Inner Circle (deliberately weighted low). */
+  reactions: number
+  /** Inner Circle posts watched most of the way through. */
+  views: number
 }

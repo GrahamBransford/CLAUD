@@ -1,0 +1,11 @@
+{
+  "default": "demo",
+  "sets": [
+    {
+      "id": "demo",
+      "file": "demo.json",
+      "label": "Original demo",
+      "description": "Original, fictional artists and shows generated for the prototype. Plays anywhere, including offline."
+    }
+  ]
+}

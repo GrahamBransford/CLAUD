@@ -6,23 +6,24 @@ import { ProfileSheet } from './components/ProfileSheet'
 import { Toasts } from './components/Toasts'
 import { TuningSheet } from './components/TuningSheet'
 import { Welcome } from './components/Welcome'
-import { STATION_ORDER, type StationId } from './config/brand'
+import { ROUTES, type RouteId } from './config/brand'
+import { Artists } from './screens/Artists'
 import { Drive } from './screens/Drive'
 import { FullEpisode } from './screens/FullEpisode'
-import { Handhelds } from './screens/Handhelds'
-import { Singers } from './screens/Singers'
-import { Speakers } from './screens/Speakers'
+import { InnerCircle } from './screens/InnerCircle'
+import { Podcasts } from './screens/Podcasts'
+import { YourRecord } from './screens/YourRecord'
 import { useUI } from './store/useUI'
 
-const fromHash = (): StationId => {
-  const h = window.location.hash.replace('#', '') as StationId
-  return STATION_ORDER.includes(h) ? h : 'singers'
+const fromHash = (): RouteId => {
+  const h = window.location.hash.replace('#', '') as RouteId
+  return ROUTES.includes(h) ? h : 'home'
 }
 
 const WELCOMED = 'circa-welcomed'
 
 export default function App() {
-  const [station, setStation] = useState<StationId>(fromHash)
+  const [route, setRoute] = useState<RouteId>(fromHash)
   const sheet = useUI((s) => s.sheet)
   const fullEpisode = useUI((s) => s.fullEpisode)
   const drive = useUI((s) => s.drive)
@@ -36,7 +37,7 @@ export default function App() {
   })
 
   useEffect(() => {
-    const onHash = () => setStation(fromHash())
+    const onHash = () => setRoute(fromHash())
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
@@ -52,30 +53,33 @@ export default function App() {
     }
   }, [unlockAudio])
 
-  const go = (s: StationId) => {
-    if (window.location.hash !== `#${s}`) window.location.hash = s
-    setStation(s)
+  const go = (r: RouteId) => {
+    if (window.location.hash !== `#${r}`) window.location.hash = r
+    setRoute(r)
     window.scrollTo({ top: 0 })
   }
 
   const overlay = !!fullEpisode || drive
-  const isActive = (s: StationId) => station === s && !overlay && !welcome
+  const isActive = (r: RouteId) => route === r && !overlay && !welcome
 
   return (
-    <div className={`app app--${station}`} data-overlay={overlay ? '' : undefined}>
-      <Header station={station} onChange={go} />
+    <div className={`app app--${route}`} data-overlay={overlay ? '' : undefined}>
+      <Header route={route} onChange={go} />
       <main className="stage">
-        <div className="station-view" hidden={station !== 'singers'}>
-          <Singers active={isActive('singers')} />
+        <div className="station-view station-view--home" hidden={route !== 'home'}>
+          <YourRecord active={isActive('home')} />
         </div>
-        <div className="station-view" hidden={station !== 'speakers'}>
-          <Speakers active={isActive('speakers')} />
+        <div className="station-view" hidden={route !== 'artists'}>
+          <Artists active={isActive('artists')} />
         </div>
-        <div className="station-view" hidden={station !== 'handhelds'}>
-          <Handhelds active={isActive('handhelds')} />
+        <div className="station-view" hidden={route !== 'podcasts'}>
+          <Podcasts active={isActive('podcasts')} />
+        </div>
+        <div className="station-view station-view--ic" hidden={route !== 'inner-circle'}>
+          <InnerCircle active={isActive('inner-circle')} />
         </div>
       </main>
-      <BottomNav station={station} onChange={go} />
+      <BottomNav route={route} onChange={go} />
 
       <AnimatePresence>
         {sheet?.kind === 'library' && <LibrarySheet key="library" />}
@@ -85,7 +89,9 @@ export default function App() {
       <AnimatePresence>
         {fullEpisode && <FullEpisode key={`${fullEpisode.episodeId}-${fullEpisode.startAt}`} request={fullEpisode} />}
       </AnimatePresence>
-      <AnimatePresence>{drive && <Drive key="drive" initial={station === 'speakers' ? 'speakers' : 'singers'} />}</AnimatePresence>
+      <AnimatePresence>
+        {drive && <Drive key="drive" initial={route === 'podcasts' ? 'podcasts' : route === 'home' ? 'record' : 'artists'} />}
+      </AnimatePresence>
       <AnimatePresence>
         {welcome && (
           <Welcome
@@ -98,7 +104,7 @@ export default function App() {
                 /* private mode: the splash simply shows again next visit */
               }
               setWelcome(false)
-              go('singers')
+              go('home')
             }}
           />
         )}
