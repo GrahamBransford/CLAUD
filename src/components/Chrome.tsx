@@ -13,8 +13,8 @@ const icons: Record<StationId, ReactElement> = {
 
 /**
  * Three ways in, then you: a bottom bar on phones, a slim rail on wider
- * screens. My Vinyl is a small record standing proud of the bar, its label
- * your photo.
+ * screens. My Vinyl is a record spinning out of the corner of the bar, its
+ * label your photo.
  */
 export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: RouteId) => void }) {
   const setDrive = useUI((s) => s.setDrive)
@@ -31,12 +31,11 @@ export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: Rout
           <span className="tab__label">{brand.stations[id].label}</span>
         </button>
       ))}
-      <button className="tab tab--vinyl" aria-current={route === 'vinyl' ? 'page' : undefined} onClick={() => onChange('vinyl')}>
+      <button className="tab tab--vinyl" aria-current={route === 'vinyl' ? 'page' : undefined} onClick={() => onChange('vinyl')} aria-label={brand.vinyl.label}>
         <span className="tab__disc" aria-hidden>
           <span className="tab__label-photo">{avatar && <img src={avatar} alt="" />}</span>
           {incoming && <i className="tab__lamp" />}
         </span>
-        <span className="tab__label">{brand.vinyl.label}</span>
       </button>
       <button className="tab tab--drive" onClick={() => setDrive(true)} aria-label="Drive mode">
         <span className="tab__icon"><I.Car /></span>

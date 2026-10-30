@@ -212,16 +212,30 @@ h2 {
   display: flex;
   align-items: stretch;
   justify-content: space-around;
+}
+/* the bar's surface, in front of the record's lower half */
+.tabs::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   background: linear-gradient(180deg, #1d1612, var(--espresso) 70%);
   box-shadow:
     inset 0 1px 0 rgba(246, 236, 216, 0.09),
     0 -1px 0 rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 .tabs .tabs__logo,
 .tabs .tab--drive {
   display: none;
 }
+.tabs__logo {
+  position: relative;
+  z-index: 2;
+}
 .tab {
+  position: relative;
+  z-index: 2;
   flex: 1;
   max-width: 120px;
   display: flex;
@@ -310,29 +324,42 @@ h2 {
   }
 }
 
-/* My Vinyl: a small record standing proud of the bar */
+/*
+ * My Vinyl: a record spinning out of the corner of the bar, its lower half
+ * still in the slot. Bottom-right on phones; out of the rail's top corner
+ * on desktop.
+ */
 .tab--vinyl {
-  position: relative;
+  flex: 0 0 96px;
+  z-index: auto;
+}
+/* keeps the whole corner tappable, slot included */
+.tab--vinyl::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
 }
 .tab__disc {
-  position: relative;
-  width: 52px;
-  height: 52px;
-  margin: -26px 0 -2px;
+  position: absolute;
+  z-index: 0;
+  right: -18px;
+  bottom: calc(var(--safe-b) + 38px);
+  width: 92px;
+  height: 92px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   background:
-    radial-gradient(circle, transparent 0 41%, rgba(255, 255, 255, 0.06) 41.5% 42.5%, transparent 43%),
+    radial-gradient(circle, transparent 0 40%, rgba(255, 255, 255, 0.07) 40.5% 41.5%, transparent 42%),
+    radial-gradient(circle, transparent 0 94%, rgba(255, 255, 255, 0.12) 95% 97%, transparent 98%),
     repeating-radial-gradient(circle, #121014 0 1px, #1c1a1e 1px 2px);
   box-shadow:
-    0 0 0 3px var(--espresso),
-    0 0 0 4px rgba(246, 236, 216, 0.14),
-    0 10px 18px rgba(0, 0, 0, 0.55);
-  transition:
-    transform 220ms var(--ease),
-    box-shadow 220ms var(--ease);
+    0 0 0 1px rgba(0, 0, 0, 0.8),
+    0 -6px 18px rgba(0, 0, 0, 0.55);
+  transition: box-shadow 260ms var(--ease);
 }
+/* light held still while the label turns */
 .tab__disc::after {
   content: '';
   position: absolute;
@@ -342,44 +369,67 @@ h2 {
   pointer-events: none;
 }
 .tab__label-photo {
-  width: 46%;
-  height: 46%;
+  width: 40%;
+  height: 40%;
   border-radius: 50%;
   overflow: hidden;
   background: var(--cherry);
-  box-shadow: 0 0 0 1.5px var(--cherry), 0 0 0 2.2px var(--mustard);
+  box-shadow:
+    0 0 0 2px var(--cherry),
+    0 0 0 2.8px var(--mustard);
+  animation: spin 16s linear infinite;
 }
 .tab__label-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.tab--vinyl[aria-current='page'] .tab__disc {
-  transform: translateY(-2px);
-  box-shadow:
-    0 0 0 3px var(--espresso),
-    0 0 0 4.5px var(--cherry),
-    0 0 16px rgba(194, 31, 50, 0.55),
-    0 12px 20px rgba(0, 0, 0, 0.55);
-}
 .tab--vinyl[aria-current='page'] .tab__label-photo {
-  animation: spin 9s linear infinite;
+  animation-duration: 5s;
+}
+.tab--vinyl[aria-current='page'] .tab__disc {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.8),
+    0 0 0 3px var(--cherry),
+    0 0 22px rgba(194, 31, 50, 0.55),
+    0 -6px 18px rgba(0, 0, 0, 0.55);
 }
 .tab__lamp {
   position: absolute;
-  top: 2px;
-  right: 2px;
-  width: 9px;
-  height: 9px;
+  top: 6px;
+  right: 6px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, #ff8a96, var(--cherry) 60%);
-  box-shadow: 0 0 0 2px var(--espresso), 0 0 8px rgba(228, 58, 80, 0.9);
+  box-shadow:
+    0 0 0 2px var(--espresso),
+    0 0 8px rgba(228, 58, 80, 0.9);
 }
 @media (min-width: 900px) {
+  .tab--vinyl {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--rail-w);
+    height: 112px;
+    flex: none;
+  }
+  .tab--vinyl::after {
+    left: 0;
+    width: calc(var(--rail-w) + 70px);
+  }
   .tab__disc {
-    width: 56px;
-    height: 56px;
-    margin: 10px 0 0;
+    right: auto;
+    bottom: auto;
+    top: 10px;
+    left: calc(var(--rail-w) - 30px);
+    width: 100px;
+    height: 100px;
+  }
+  /* the logo steps down to make room for the record */
+  .tabs .tabs__logo {
+    margin-top: 104px;
   }
 }
 
@@ -2859,6 +2909,19 @@ h2 {
   .drive__btn--play {
     width: 112px;
     height: 112px;
+  }
+}
+
+/* clear the corner where My Vinyl spins out of the bar */
+@media (max-width: 899px) {
+  .rail {
+    bottom: 128px;
+  }
+  .rail--ic {
+    bottom: 124px;
+  }
+  .scrubber {
+    right: calc(92px + var(--safe-r));
   }
 }
 
