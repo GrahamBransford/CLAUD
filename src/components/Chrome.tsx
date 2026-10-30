@@ -1,9 +1,10 @@
-import type { ReactElement } from 'react'
+import { useEffect, useRef, type ReactElement } from 'react'
 import { brand, type RouteId, type StationId } from '../config/brand'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import * as I from './Icons'
 import { Logo } from './Logo'
+import { clockAngle } from './Turntable'
 
 const icons: Record<StationId, ReactElement> = {
   artists: <I.StationArtists />,
@@ -13,13 +14,26 @@ const icons: Record<StationId, ReactElement> = {
 
 /**
  * Three ways in, then you: a bottom bar on phones, a slim rail on wider
- * screens. My Vinyl is a record spinning out of the corner of the bar, its
- * label your photo.
+ * screens. My Vinyl is a record set into the bar, tilted and standing a
+ * little proud of it, its label your photo.
  */
 export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: RouteId) => void }) {
   const setDrive = useUI((s) => s.setDrive)
   const avatar = useStore((s) => s.profile.avatar)
   const incoming = useStore((s) => Object.values(s.friends).some((f) => f === 'incoming'))
+  const label = useRef<HTMLSpanElement>(null)
+
+  // The small record always turns, in step with the big one.
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    let raf = 0
+    const tick = () => {
+      if (label.current) label.current.style.transform = `rotate(${clockAngle().toFixed(2)}deg)`
+      raf = requestAnimationFrame(tick)
+    }
+    raf = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(raf)
+  }, [])
   return (
     <nav className="tabs" aria-label="CIRCA">
       <span className="tabs__logo" aria-hidden>
@@ -33,7 +47,9 @@ export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: Rout
       ))}
       <button className="tab tab--vinyl" aria-current={route === 'vinyl' ? 'page' : undefined} onClick={() => onChange('vinyl')} aria-label={brand.vinyl.label}>
         <span className="tab__disc" aria-hidden>
-          <span className="tab__label-photo">{avatar && <img src={avatar} alt="" />}</span>
+          <span className="tab__label-photo" ref={label}>
+            {avatar && <img src={avatar} alt="" />}
+          </span>
           {incoming && <i className="tab__lamp" />}
         </span>
       </button>

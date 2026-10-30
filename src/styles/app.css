@@ -336,38 +336,26 @@ h2 {
 }
 
 /*
- * My Vinyl: a record spinning out of the corner of the bar, its lower half
- * still in the slot. Bottom-right on phones; out of the rail's top corner
- * on desktop.
+ * My Vinyl: a record set into the bar, tilted back like it's lying on a
+ * deck, its top edge standing a little proud of the bar.
  */
-.tab--vinyl {
-  flex: 0 0 96px;
-  z-index: auto;
-}
-/* keeps the whole corner tappable, slot included */
-.tab--vinyl::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
 .tab__disc {
-  position: absolute;
-  z-index: 0;
-  right: -18px;
-  bottom: calc(var(--safe-b) + 38px);
-  width: 92px;
-  height: 92px;
+  position: relative;
+  width: 58px;
+  height: 58px;
+  margin: -16px 0 -4px;
   border-radius: 50%;
   display: grid;
   place-items: center;
+  transform: perspective(240px) rotateX(24deg);
   background:
     radial-gradient(circle, transparent 0 40%, rgba(255, 255, 255, 0.07) 40.5% 41.5%, transparent 42%),
-    radial-gradient(circle, transparent 0 94%, rgba(255, 255, 255, 0.12) 95% 97%, transparent 98%),
+    radial-gradient(circle, transparent 0 94%, rgba(255, 255, 255, 0.16) 95% 97%, transparent 98%),
     repeating-radial-gradient(circle, #121014 0 1px, #1c1a1e 1px 2px);
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.8),
-    0 -6px 18px rgba(0, 0, 0, 0.55);
+    0 0 0 1px rgba(0, 0, 0, 0.85),
+    0 1px 0 2px #2a2420,
+    0 10px 14px -2px rgba(0, 0, 0, 0.7);
   transition: box-shadow 260ms var(--ease);
 }
 /* light held still while the label turns */
@@ -376,7 +364,7 @@ h2 {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: conic-gradient(from 300deg, transparent, rgba(255, 255, 255, 0.14) 28deg, transparent 56deg, transparent 180deg, rgba(255, 255, 255, 0.09) 208deg, transparent 236deg);
+  background: conic-gradient(from 300deg, transparent, rgba(255, 255, 255, 0.16) 28deg, transparent 56deg, transparent 180deg, rgba(255, 255, 255, 0.1) 208deg, transparent 236deg);
   pointer-events: none;
 }
 .tab__label-photo {
@@ -387,30 +375,27 @@ h2 {
   background: var(--cherry);
   box-shadow:
     0 0 0 2px var(--cherry),
-    0 0 0 2.8px var(--mustard);
-  animation: spin 16s linear infinite;
+    0 0 0 2.6px var(--mustard);
+  will-change: transform;
 }
 .tab__label-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.tab--vinyl[aria-current='page'] .tab__label-photo {
-  animation-duration: 5s;
-}
 .tab--vinyl[aria-current='page'] .tab__disc {
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(0, 0, 0, 0.85),
     0 0 0 3px var(--cherry),
-    0 0 22px rgba(194, 31, 50, 0.55),
-    0 -6px 18px rgba(0, 0, 0, 0.55);
+    0 0 18px rgba(194, 31, 50, 0.55),
+    0 10px 14px -2px rgba(0, 0, 0, 0.7);
 }
 .tab__lamp {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 10px;
-  height: 10px;
+  top: 3px;
+  right: 3px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, #ff8a96, var(--cherry) 60%);
   box-shadow:
@@ -418,29 +403,10 @@ h2 {
     0 0 8px rgba(228, 58, 80, 0.9);
 }
 @media (min-width: 900px) {
-  .tab--vinyl {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: var(--rail-w);
-    height: 112px;
-    flex: none;
-  }
-  .tab--vinyl::after {
-    left: 0;
-    width: calc(var(--rail-w) + 70px);
-  }
   .tab__disc {
-    right: auto;
-    bottom: auto;
-    top: 10px;
-    left: calc(var(--rail-w) - 30px);
-    width: 100px;
-    height: 100px;
-  }
-  /* the logo steps down to make room for the record */
-  .tabs .tabs__logo {
-    margin-top: 104px;
+    width: 62px;
+    height: 62px;
+    margin: 4px 0 0 14px;
   }
 }
 
@@ -2932,13 +2898,10 @@ h2 {
   }
 }
 
-/* clear the corner where My Vinyl spins out of the bar */
+/* the progress line stops short of the record standing in the bar */
 @media (max-width: 899px) {
-  .rail--ic {
-    bottom: 124px;
-  }
   .scrubber {
-    right: calc(92px + var(--safe-r));
+    right: calc(84px + var(--safe-r));
   }
 }
 

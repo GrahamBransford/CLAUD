@@ -70,14 +70,22 @@ function place(list: Marker[]) {
 }
 
 // One revolution every 40 s: slow enough that faces stay readable.
-const DEG_PER_S = 9
+export const DEG_PER_S = 9
+/**
+ * Where a record playing since the page opened would be now. Every record in
+ * CIRCA (this one, and the small one in the tab bar) turns to this clock, so
+ * they spin at the same speed and stay in step.
+ */
+export const clockAngle = () => ((performance.now() / 1000) * DEG_PER_S) % 360
+const wrap = (a: number) => ((((a + 180) % 360) + 360) % 360) - 180
 // Tonearm angles (deg) about its pivot: resting on its post, and in the lead-in groove.
 const ARM_REST = -7
 const ARM_PLAY = 2
 
 /**
- * Turns the platter with some mass: it spins up, coasts down, and the angle
- * carries over between visits. Writes --rot on the deck; CSS does the rest.
+ * Turns the platter with some mass: it spins up and coasts down, and once up
+ * to speed it eases into step with the shared clock. Writes --rot on the
+ * deck; CSS does the rest.
  */
 function usePlatter(deck: RefObject<HTMLDivElement | null>, spinning: boolean) {
   const angle = useRef(-24)
@@ -96,6 +104,10 @@ function usePlatter(deck: RefObject<HTMLDivElement | null>, spinning: boolean) {
       // spin-up ~0.8 s, coast-down ~1.6 s
       speed.current += (target - speed.current) * (1 - Math.exp(-dt / (target ? 0.32 : 0.6)))
       angle.current = (angle.current + speed.current * DEG_PER_S * dt) % 360
+      // once playing, ease into step with the clock (settles within ~2 s)
+      angle.current += wrap(clockAngle() - angle.current) * (1 - Math.exp(-dt / 0.7)) * speed.current
+      // up to speed: exactly on the clock, whatever the frame rate
+      if (want.current && speed.current > 0.995) angle.current = clockAngle()
       deck.current?.style.setProperty('--rot', `${angle.current.toFixed(3)}deg`)
       if (!want.current && speed.current < 0.002) {
         speed.current = 0
@@ -106,7 +118,13 @@ function usePlatter(deck: RefObject<HTMLDivElement | null>, spinning: boolean) {
     }
     raf.current = requestAnimationFrame(tick)
   }, [deck, spinning])
-  useEffect(() => () => cancelAnimationFrame(raf.current), [])
+  useEffect(
+    () => () => {
+      cancelAnimationFrame(raf.current)
+      raf.current = 0 // so a remount can start the loop again
+    },
+    [],
+  )
 }
 
 interface Props {
