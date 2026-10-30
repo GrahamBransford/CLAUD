@@ -1,5 +1,4 @@
 import { AnimatePresence } from 'framer-motion'
-import * as I from '../components/Icons'
 import { useCallback, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
@@ -11,6 +10,7 @@ import { useKeys } from '../hooks/useKeys'
 import { useMediaSession } from '../hooks/useMediaSession'
 import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
+import { PODCAST_DESTINATION } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { tapWasUnlock, useUI } from '../store/useUI'
 import type { Cue, Episode, SaveMethod } from '../types'
@@ -29,7 +29,8 @@ export function useSaveEpisode() {
         unsave(ep.id)
         return
       }
-      if (save(ep.id, 'episode', via)) pushToast({ image: ep.artwork, title: 'Episode saved', detail: ep.title })
+      if (save(ep.id, 'episode', via))
+        pushToast({ image: ep.artwork, title: `Saved to ${PODCAST_DESTINATION.name}`, detail: `${PODCAST_DESTINATION.list} · demo connection, nothing sent` })
     },
     [save, unsave, pushToast],
   )
@@ -181,13 +182,10 @@ export function Podcasts({ active }: { active: boolean }) {
       <TopBar playing={pb.playing} />
       <TapFlash state={flash.state} />
 
-      <div className="rail">
-        <button className={`rail__btn rail__btn--save ${isSaved ? 'is-on' : ''}`} onClick={() => onMove('save')} aria-label="Save">
-          <I.Save size={27} on={isSaved} />
-        </button>
-        <button className="rail__btn" onClick={() => onMove('skip')} aria-label="Skip">
-          <I.Skip size={24} />
-        </button>
+      {/* Swipe is the control; these stay for screen readers and switch access. */}
+      <div className="sr-only">
+        <button onClick={() => onMove('save')} aria-pressed={isSaved}>Save</button>
+        <button onClick={() => onMove('skip')}>Skip</button>
       </div>
 
       <div className="scrubber">

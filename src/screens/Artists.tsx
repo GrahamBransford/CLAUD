@@ -1,5 +1,4 @@
 import { AnimatePresence } from 'framer-motion'
-import * as I from '../components/Icons'
 import { useCallback, useRef, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { MediaSurface } from '../components/MediaSurface'
@@ -32,17 +31,8 @@ export function useSaveSong() {
   return useCallback(
     (song: Song, via: SaveMethod) => {
       if (!save(song.id, 'song', via)) return false
-      const provider = streaming ? PROVIDERS[streaming] : null
-      pushToast(
-        provider
-          ? { image: song.artwork, title: `Saved to ${provider.name}`, detail: `${provider.playlistFor(song)} · demo connection, nothing sent` }
-          : {
-              image: song.artwork,
-              title: via === 'listened' ? 'Saved, you heard it through' : 'Saved in CIRCA',
-              detail: 'No streaming service connected',
-              action: { label: 'Connect', run: () => useUI.getState().openSheet({ kind: 'settings' }) },
-            },
-      )
+      const provider = PROVIDERS[streaming ?? 'spotify']
+      pushToast({ image: song.artwork, title: `Saved to ${provider.name}`, detail: `${provider.playlistFor(song)} · demo connection, nothing sent` })
       return true
     },
     [save, streaming, pushToast],
@@ -175,13 +165,10 @@ export function Artists({ active }: { active: boolean }) {
       <TopBar playing={pb.playing} />
       <TapFlash state={flash.state} />
 
-      <div className="rail">
-        <button className={`rail__btn rail__btn--save ${isSaved ? 'is-on' : ''}`} onClick={() => onMove('save')} aria-label="Save">
-          <I.Save size={27} on={isSaved} />
-        </button>
-        <button className="rail__btn" onClick={() => onMove('skip')} aria-label="Skip">
-          <I.Skip size={24} />
-        </button>
+      {/* Swipe is the control; these stay for screen readers and switch access. */}
+      <div className="sr-only">
+        <button onClick={() => onMove('save')} aria-pressed={isSaved}>Save</button>
+        <button onClick={() => onMove('skip')}>Skip</button>
       </div>
 
       <div className="scrubber">

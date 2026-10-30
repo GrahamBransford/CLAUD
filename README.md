@@ -32,7 +32,7 @@ The app opens with a short brand animation (the two Cs of CIRCA are records), th
 
 The eight other listeners (`content/demo/people.json`) and their portraits are fictional demo data.
 
-**Saves** go to the streaming service chosen in settings (Spotify / Apple Music, both demo connections that send nothing). With none chosen, saves stay in CIRCA and the toast says so.
+**Saves** never stay in CIRCA: it's a funnel to the creators. Songs go to the streaming service chosen in settings (Spotify or Apple Music), and podcast episodes go to YouTube (Watch later), where the long form lives. All of these are demo connections that send nothing, and the toast says so. Swiping is the only visible save/skip control; screen readers get hidden buttons and keyboards the arrow keys.
 
 **Drive** (car button) is audio-only with two stations, Artists and Podcasts, big controls and no moving video. Auto-save and the highlight→episode hand-off keep working.
 

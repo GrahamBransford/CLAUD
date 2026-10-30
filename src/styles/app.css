@@ -53,6 +53,17 @@ svg {
 svg.icon {
   flex: 0 0 auto;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 p,
 h1,
 h2 {
@@ -653,7 +664,16 @@ h2 {
   pointer-events: auto;
 }
 .topbar__logo {
-  padding: 8px 0;
+  width: 30px;
+  height: 30px;
+  color: var(--cream);
+  --groove: rgba(0, 0, 0, 0.32);
+  --hole: var(--espresso);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+}
+.topbar__logo .record-c {
+  width: 100%;
+  height: 100%;
 }
 .topbar__right {
   margin-left: auto;
@@ -2914,9 +2934,6 @@ h2 {
 
 /* clear the corner where My Vinyl spins out of the bar */
 @media (max-width: 899px) {
-  .rail {
-    bottom: 128px;
-  }
   .rail--ic {
     bottom: 124px;
   }

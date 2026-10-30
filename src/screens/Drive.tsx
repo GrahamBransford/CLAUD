@@ -8,6 +8,7 @@ import { creatorById, episodes, songs } from '../data'
 import { useMediaSession } from '../hooks/useMediaSession'
 import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
+import { PODCAST_DESTINATION, PROVIDERS } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import type { Episode, MediaSource } from '../types'
@@ -128,11 +129,11 @@ function DrivePlayer({ station }: { station: 'artists' | 'podcasts' }) {
   }
   const keep = () => {
     if (station === 'artists' && song) {
-      if (saveSong(song, 'button')) flash('Saved to your collection')
+      if (saveSong(song, 'button')) flash(`Saved to ${PROVIDERS[useStore.getState().streaming ?? 'spotify'].name}`)
       nextSong()
     } else if (ep) {
       saveEpisode(ep, 'button')
-      flash('Episode saved')
+      flash(`Saved to ${PODCAST_DESTINATION.name}`)
     }
   }
 

@@ -2,15 +2,15 @@ import { AnimatePresence, motion } from 'framer-motion'
 import * as I from './Icons'
 import { useCallback, useRef, useState } from 'react'
 import { useUI } from '../store/useUI'
-import { Logo } from './Logo'
+import { RecordC } from './Logo'
 
-/** Small logo (its Cs turn while something plays), sound-off badge, Drive. */
+/** CIRCA's record C (it turns while something plays), sound-off badge, Drive. */
 export function TopBar({ playing, drive = true }: { playing: boolean; muted?: boolean; drive?: boolean }) {
   const unlocked = useUI((s) => s.audioUnlocked)
   return (
     <div className="topbar">
-      <span className="topbar__logo">
-        <Logo size="sm" spinning={playing} />
+      <span className="topbar__logo" role="img" aria-label="CIRCA">
+        <RecordC spinning={playing} />
       </span>
       <span className="topbar__right">
         {!unlocked && (

@@ -1,11 +1,14 @@
 import type { Song } from '../types'
 
 /**
- * Seam for future streaming-service integrations (Spotify, Apple Music).
+ * Where saves go. CIRCA keeps no library of its own: it is a funnel to the
+ * creators, so a saved song goes to your streaming service and a saved
+ * episode goes to YouTube, where the long form lives.
  *
- * The prototype ships only a *simulated* provider: it never contacts an
+ * The prototype only simulates these connections: it never contacts an
  * external service. A real implementation would handle OAuth, then call the
- * provider's "save track" and "add to playlist" endpoints in `addToLibrary`.
+ * provider's "save track" / "add to playlist" endpoints, and YouTube's
+ * playlist API for Watch Later.
  */
 export type StreamingProviderId = 'spotify' | 'apple-music'
 
@@ -32,3 +35,6 @@ export const PROVIDERS: Record<StreamingProviderId, StreamingProvider> = {
   spotify: { id: 'spotify', name: 'Spotify', simulated: true, playlistFor },
   'apple-music': { id: 'apple-music', name: 'Apple Music', simulated: true, playlistFor },
 }
+
+/** Podcast saves: the full episode lives on YouTube. */
+export const PODCAST_DESTINATION = { name: 'YouTube', list: 'Watch later' } as const

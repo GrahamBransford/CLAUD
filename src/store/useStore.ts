@@ -71,7 +71,7 @@ const initial = () => ({
   podcastsIndex: 0,
   circleIndex: 0,
   episodeProgress: {} as Record<string, number>,
-  streaming: null as StreamingProviderId | null,
+  streaming: 'spotify' as StreamingProviderId | null,
   profile: {
     name: meSeed.name,
     username: meSeed.username,
