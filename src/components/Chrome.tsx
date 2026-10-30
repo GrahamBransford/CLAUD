@@ -14,8 +14,8 @@ const icons: Record<StationId, ReactElement> = {
 
 /**
  * Three ways in, then you: a bottom bar on phones, a slim rail on wider
- * screens. My Vinyl is a record set into the bar, tilted and standing a
- * little proud of it, its label your photo.
+ * screens. My Vinyl is a small record in line with the rest, its label your
+ * photo, turning in step with the big one.
  */
 export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: RouteId) => void }) {
   const setDrive = useUI((s) => s.setDrive)
