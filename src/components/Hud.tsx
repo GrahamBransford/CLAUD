@@ -9,9 +9,10 @@ export function TopBar({ playing, drive = true }: { playing: boolean; muted?: bo
   const unlocked = useUI((s) => s.audioUnlocked)
   return (
     <div className="topbar">
-      <span className="topbar__logo" role="img" aria-label="CIRCA">
+      {/* the C opens settings: your account first, then the rest */}
+      <button className="topbar__logo" onClick={() => useUI.getState().openSheet({ kind: 'settings' })} aria-label="Settings">
         <RecordC spinning={playing} />
-      </span>
+      </button>
       <span className="topbar__right">
         {!unlocked && (
           <button className="topbar__btn" onClick={() => useUI.getState().unlockAudio()} aria-label="Turn sound on">

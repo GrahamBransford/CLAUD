@@ -31,6 +31,10 @@ interface PersistedState {
   friends: Record<string, FriendState>
   /** Friends whose vinyl updates you follow. */
   vinylFollows: string[]
+  /** Who can open your vinyl (a demo preference: there is no server to enforce it). */
+  vinylVisibility: 'everyone' | 'friends'
+  /** Comments you wrote on Inner Circle moments. Kept on this device only. */
+  myComments: Record<string, { id: string; text: string; at: number }[]>
 
   ensureDefaults: () => void
   save: (id: string, kind: SavedItem['kind'], via: SaveMethod) => boolean
@@ -55,6 +59,8 @@ interface PersistedState {
   toggleFavorite: (creatorId: string) => boolean
   setFriend: (personId: string, state: FriendState | null) => void
   toggleVinylFollow: (personId: string) => boolean
+  setVinylVisibility: (v: 'everyone' | 'friends') => void
+  addComment: (postId: string, text: string) => void
   resetDemo: () => void
 }
 
@@ -84,6 +90,8 @@ const initial = () => ({
   favorites: [...meSeed.favorites],
   friends: { ...meSeed.friends },
   vinylFollows: Object.keys(meSeed.friends).filter((id) => meSeed.friends[id] === 'friends'),
+  vinylVisibility: 'everyone' as 'everyone' | 'friends',
+  myComments: {} as Record<string, { id: string; text: string; at: number }[]>,
 })
 
 const LIVE = (x: Pick<Experience, 'kind' | 'creatorId'>) => !!x.creatorId && x.kind !== 'other'
@@ -189,6 +197,11 @@ export const createStore = (set: string) =>
                   : state ? st.vinylFollows : st.vinylFollows.filter((f) => f !== personId),
             }
           }),
+        setVinylVisibility: (vinylVisibility) => setState({ vinylVisibility }),
+        addComment: (postId, text) =>
+          setState((st) => ({
+            myComments: { ...st.myComments, [postId]: [...(st.myComments[postId] ?? []), { id: `c-${Date.now().toString(36)}`, text, at: Date.now() }] },
+          })),
         toggleVinylFollow: (personId) => {
           const on = !get().vinylFollows.includes(personId)
           setState((st) => ({ vinylFollows: on ? [...st.vinylFollows, personId] : st.vinylFollows.filter((f) => f !== personId) }))

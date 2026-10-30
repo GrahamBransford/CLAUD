@@ -14,6 +14,7 @@ export type Sheet =
   | { kind: 'profile' }
   | { kind: 'live' }
   | { kind: 'friends' }
+  | { kind: 'comments'; postId: string }
   | null
 
 export interface FullEpisodeRequest {

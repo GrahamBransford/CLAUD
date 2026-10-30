@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { TabBar } from './components/Chrome'
+import { CommentsSheet } from './components/CommentsSheet'
 import { CreatorSheet } from './components/CreatorSheet'
 import { FriendsSheet, LiveSheet, ProfileSheet } from './components/IdentitySheets'
 import { PersonVinyl } from './components/PersonVinyl'
@@ -78,6 +79,7 @@ export default function App() {
         {sheet?.kind === 'profile' && <ProfileSheet key="profile" />}
         {sheet?.kind === 'live' && <LiveSheet key="live" />}
         {sheet?.kind === 'friends' && <FriendsSheet key="friends" />}
+        {sheet?.kind === 'comments' && <CommentsSheet key={`cm-${sheet.postId}`} postId={sheet.postId} />}
       </AnimatePresence>
       <AnimatePresence>
         {fullEpisode && <FullEpisode key={`${fullEpisode.episodeId}-${fullEpisode.startAt}`} request={fullEpisode} />}

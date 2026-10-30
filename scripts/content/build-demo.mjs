@@ -104,6 +104,7 @@ const out = {
   defaultFollows: cat.defaultFollows,
   people,
   me: social.me,
+  comments: social.comments,
 }
 writeFileSync(new URL('public/content/demo.json', root), JSON.stringify(out, null, 1))
 console.log(`demo.json: ${creators.length} creators, ${songs.length} songs, ${episodes.length} episodes, ${innerCircle.length} posts, ${people.length} people`)

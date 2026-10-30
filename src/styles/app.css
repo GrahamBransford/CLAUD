@@ -673,10 +673,15 @@ h2 {
 .topbar__logo {
   width: 30px;
   height: 30px;
+  border-radius: 50%;
+  transition: transform 140ms var(--ease);
   color: var(--cream);
   --groove: rgba(0, 0, 0, 0.32);
   --hole: var(--espresso);
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
+}
+.topbar__logo:active {
+  transform: scale(0.92);
 }
 .topbar__logo .record-c {
   width: 100%;
@@ -2601,6 +2606,162 @@ h2 {
   padding: 0;
 }
 
+/* comments under an Inner Circle moment */
+.rail__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.rail__count {
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--cream);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+.comments {
+  display: flex;
+  flex-direction: column;
+  min-height: 46vh;
+}
+.comments__head {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 19px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.comments__head span {
+  margin-left: 6px;
+  font-family: var(--sans);
+  font-size: 13px;
+  color: var(--fg-3);
+}
+.comments__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+.comment {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+}
+.comment__face {
+  flex: 0 0 auto;
+}
+.comment__face img {
+  width: 38px;
+  height: 38px;
+  padding: 2px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--bezel);
+}
+.comment--creator .comment__face img {
+  background: var(--bezel-brass);
+}
+.comment__body {
+  min-width: 0;
+}
+.comment__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+}
+.comment__meta button,
+.comment__name {
+  font-weight: 650;
+  color: var(--cream);
+}
+.comment__badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mustard);
+}
+.comment__ago {
+  font-size: 12px;
+  color: var(--fg-3);
+}
+.comment__text {
+  margin-top: 2px;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.35;
+  color: rgba(246, 236, 216, 0.92);
+}
+.comments__compose {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px 0 2px;
+  background: var(--espresso-2);
+  border-top: 1px solid var(--hair);
+}
+.comments__compose img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.comments__compose input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 20px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--cream);
+  background: var(--espresso);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--hair);
+  user-select: text;
+  -webkit-user-select: text;
+}
+.comments__compose input:focus {
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 1.5px rgba(242, 180, 44, 0.6);
+}
+.comments__send {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--cream);
+  background: radial-gradient(circle at 50% 30%, #e8485e, var(--cherry) 55%, var(--cherry-deep));
+  transition: opacity var(--fast) var(--ease);
+}
+.comments__send:disabled {
+  opacity: 0.35;
+}
+/* the account card at the top of settings */
+.account {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: var(--espresso);
+}
+.account .hit__text em {
+  white-space: normal;
+}
+.account .pill {
+  height: 34px;
+  padding: 0 13px;
+  font-size: 14px;
+}
+
 /* ---------- toasts ---------- */
 .toasts {
   position: fixed;
@@ -2940,10 +3101,13 @@ h2 {
   }
 }
 
-/* the progress line stops short of the record standing in the bar */
+/* clear of the record standing in the bar */
 @media (max-width: 899px) {
   .scrubber {
     right: calc(84px + var(--safe-r));
+  }
+  .rail--ic {
+    bottom: 52px;
   }
 }
 

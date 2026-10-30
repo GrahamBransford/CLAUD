@@ -1,4 +1,4 @@
-import type { ContentSet, Creator, Episode, InnerCirclePost, MediaSource, MeSeed, Person, Signals, Song } from '../types'
+import type { ContentSet, Creator, Episode, InnerCirclePost, MediaSource, MeSeed, Person, PostComment, Signals, Song } from '../types'
 
 /**
  * Content is loaded at runtime from public/content/<set>.json, so artists,
@@ -32,6 +32,7 @@ export let songById: Record<string, Song> = {}
 export let episodeById: Record<string, Episode> = {}
 export let people: Person[] = []
 export let personById: Record<string, Person> = {}
+export let commentsByPost: Record<string, PostComment[]> = {}
 export let meSeed: MeSeed = { name: '', username: '', bio: '', location: '', avatar: '', socials: {}, experiences: [], favorites: [], friends: {} }
 
 const SET_KEY = 'circa-content-set'
@@ -108,6 +109,7 @@ export async function loadContent(): Promise<void> {
   episodeById = Object.fromEntries(episodes.map((e) => [e.id, e]))
   people = (set.people ?? []).map((p) => ({ ...p, avatar: asset(p.avatar) }))
   personById = Object.fromEntries(people.map((p) => [p.id, p]))
+  commentsByPost = set.comments ?? {}
   if (set.me) meSeed = { ...set.me, avatar: set.me.avatar ? asset(set.me.avatar) : '' }
 }
 

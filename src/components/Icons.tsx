@@ -115,6 +115,21 @@ export const Love = ({ size, on }: P) => (
   </Svg>
 )
 
+/** Comments: a speech balloon, rounded like the rest. */
+export const Comment = ({ size }: P) => (
+  <Svg size={size}>
+    <path d="M12 4.6c4.6 0 8.2 3 8.2 6.8s-3.6 6.8-8.2 6.8c-1 0-2-.1-2.9-.4L5 19.4l1.2-3.4C4.8 14.8 3.8 13.2 3.8 11.4 3.8 7.6 7.4 4.6 12 4.6z" />
+  </Svg>
+)
+
+/** Send: a paper plane, kept simple. */
+export const Send = ({ size }: P) => (
+  <Svg size={size}>
+    <path d="M4.6 11.6 19.4 4.6l-4.8 15-3-6.2z" />
+    <path d="M11.6 13.4 19.4 4.6" />
+  </Svg>
+)
+
 /** A ticket stub: shows, festivals, live tapings. */
 export const Ticket = ({ size }: P) => (
   <Svg size={size}>

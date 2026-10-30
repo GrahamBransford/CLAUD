@@ -3,6 +3,7 @@ import * as I from '../components/Icons'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
+import { useCommentCount } from '../components/CommentsSheet'
 import { MediaSurface } from '../components/MediaSurface'
 import { creatorById, creators, innerCircle } from '../data'
 import { useKeys } from '../hooks/useKeys'
@@ -154,6 +155,7 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
     } else p.pause()
   }
 
+  const comments = useCommentCount(post.id)
   if (!c) return null
   const following = follows.includes(c.id)
   return (
@@ -177,6 +179,12 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
         <button className={`rail__btn rail__btn--save ${reacted ? 'is-on' : ''}`} onClick={() => toggleReaction(post.id, post.creatorId)} aria-label="Send love" aria-pressed={reacted}>
           <I.Love size={26} on={reacted} />
         </button>
+        <span className="rail__item">
+          <button className="rail__btn" onClick={() => useUI.getState().openSheet({ kind: 'comments', postId: post.id })} aria-label={`Comments, ${comments}`}>
+            <I.Comment size={25} />
+          </button>
+          <span className="rail__count" aria-hidden>{comments}</span>
+        </span>
       </div>
     </motion.div>
   )

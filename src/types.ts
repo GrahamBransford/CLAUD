@@ -107,6 +107,17 @@ export interface ContentSet {
   people?: Person[]
   /** The demo user's starting profile. */
   me?: MeSeed
+  /** Sample comments on Inner Circle moments, by post id. */
+  comments?: Record<string, PostComment[]>
+}
+
+/** A comment on an Inner Circle moment, by a listener or by the creator. */
+export interface PostComment {
+  /** A person id, or the creator's id for their own replies. */
+  by: string
+  text: string
+  /** As displayed, e.g. "2h". */
+  ago: string
 }
 
 // ---- people & identity ----------------------------------------------------
