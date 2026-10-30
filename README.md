@@ -20,7 +20,7 @@ The app opens with a short brand animation (the two Cs of CIRCA are records), th
 | **Podcasts** | The same feel for conversations: a ~5-minute highlight, with live captions. **Full episode** continues from the exact moment; finishing the highlight hands off to the full episode automatically. |
 | **Inner Circle** | A full-screen, sideways feed of behind-the-scenes moments from creators you follow, closest first. Swipe right for the next moment, left to go back. |
 
-**Your Record** opens from the CIRCA logo (top-left on phones, top of the rail on desktop). It shows everyone you listen to as faces on a spinning record: the closer to the label, the closer you are. Tap a face for their tier, estimated percentile, and what moves them inward. The settings button there sets where saves go.
+**Your Record** opens from the CIRCA logo (top-left on phones, top of the rail on desktop). It shows everyone you listen to as faces on a spinning record: the closer to the label, the closer you are. Tap a face for their tier, estimated percentile, and what moves them inward. The knob on the plinth opens settings, including where saves go.
 
 **Saves** go to the streaming service chosen in settings (Spotify / Apple Music, both demo connections that send nothing). With none chosen, saves stay in CIRCA and the toast says so.
 

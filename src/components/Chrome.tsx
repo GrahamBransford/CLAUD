@@ -7,22 +7,22 @@ import { Logo } from './Logo'
 const icons: Record<Exclude<RouteId, 'home'>, ReactElement> = {
   artists: (
     <svg viewBox="0 0 24 24" aria-hidden>
-      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M10.5 15.6V7.5l5-1.2v2.3l-5 1.2" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M10.5 15.6V7.5l5-1.2v2.3l-5 1.2" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
       <circle cx="9.1" cy="15.8" r="1.9" fill="currentColor" />
     </svg>
   ),
   podcasts: (
     <svg viewBox="0 0 24 24" aria-hidden>
-      <rect x="8.2" y="2.6" width="7.6" height="12" rx="3.8" fill="none" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M8.2 7.4h7.6M8.2 10.2h7.6" stroke="currentColor" strokeWidth="1.2" />
-      <path d="M5.2 11.2a6.8 6.8 0 0 0 13.6 0M12 18v3.4M8.6 21.4h6.8" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <rect x="9.6" y="5.6" width="4.8" height="8.2" rx="2.4" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M7.4 11.6a4.6 4.6 0 0 0 9.2 0M12 16.2v2.2" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
     </svg>
   ),
   'inner-circle': (
     <svg viewBox="0 0 24 24" aria-hidden>
-      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.7" />
-      <circle cx="12" cy="12" r="5.6" fill="none" stroke="currentColor" strokeWidth="1.7" />
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.8" />
+      <circle cx="12" cy="12" r="5.6" fill="none" stroke="currentColor" strokeWidth="1.8" />
       <circle cx="12" cy="12" r="1.9" fill="currentColor" />
     </svg>
   ),

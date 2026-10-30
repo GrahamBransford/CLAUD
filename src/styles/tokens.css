@@ -26,6 +26,10 @@
   --fg-3: rgba(246, 236, 216, 0.45);
   --hair: rgba(246, 236, 216, 0.14);
 
+  /* materials */
+  --bezel: conic-gradient(from 210deg, #8d8f94, #f4f3ef, #a3a5aa, #5c5e64, #dededa, #8d8f94);
+  --bezel-brass: conic-gradient(from 210deg, #9c6b14, #ffe7a3, #d6a032, #7a4f0c, #f6cf6a, #9c6b14);
+
   --display: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --serif: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   --sans: 'Archivo Variable', 'Archivo', system-ui, -apple-system, sans-serif;
