@@ -12,27 +12,34 @@ npm run build      # static site in dist/ — host anywhere (Netlify, any web se
 
 ## What's in it
 
+The app opens with a short brand animation (the two Cs of CIRCA are records), then goes straight into Artists. There are three destinations, each a full-screen, content-first feed:
+
 | Destination | What it does |
 | --- | --- |
-| **Your Record** (home) | A turntable view of everyone you listen to. Creators sit on the record by how close you are: Discovered at the outer edge, then Regular, Devoted, Inner Circle, and Top 1% at the centre. Tap anyone for tier, estimated percentile, statistics, what moves them inward, and the demo reward card. |
-| **Artists** | Music discovery. Each card plays the song's video for a 60–90 s preview. Swipe right to **SAVE**, left to **PASS**, or use the buttons / arrow keys. Hearing the whole preview saves the song automatically. |
-| **Podcasts** | Conversation discovery. A ~5-minute highlight from inside a longer episode. Finish it and the full episode keeps playing from right after the highlight. "Watch / Listen to full episode" continues from the exact moment. Audio-only episodes are presented as audio. |
-| **Inner Circle** | A full-screen, sideways feed of unpolished, behind-the-scenes moments, only from creators you follow, closest relationships first. Swipe right for the next moment, left to go back. |
-| **Drive** | Simulated CarPlay / Android Auto: no moving video, still artwork, big controls, audio only. Auto-save and highlight→episode keep working. Includes a glanceable Your Record. |
-| **Collection** | Saved songs and episodes, simulated streaming destination, content-set switch, demo reset. |
+| **Artists** | Full-screen music video with just the artist and title over it. Swipe right to **SAVE**, left to **PASS**, up/down for next/previous. Tap to pause. Hearing the whole preview saves it automatically. |
+| **Podcasts** | The same feel for conversations: a ~5-minute highlight, with live captions. **Full episode** continues from the exact moment; finishing the highlight hands off to the full episode automatically. |
+| **Inner Circle** | A full-screen, sideways feed of behind-the-scenes moments from creators you follow, closest first. Swipe right for the next moment, left to go back. |
+
+**Your Record** opens from the CIRCA logo (top-left on phones, top of the rail on desktop). It shows everyone you listen to as faces on a spinning record: the closer to the label, the closer you are. Tap a face for their tier, estimated percentile, and what moves them inward. The settings button there sets where saves go.
+
+**Saves** go to the streaming service chosen in settings (Spotify / Apple Music, both demo connections that send nothing). With none chosen, saves stay in CIRCA and the toast says so.
+
+**Drive** (car button) is audio-only with two stations, Artists and Podcasts, big controls and no moving video. Auto-save and the highlight→episode hand-off keep working.
+
+Sound starts muted, as browsers require, and turns on with the first touch.
 
 ### How closeness works
 
 Points per creator come from meaningful signals (`src/lib/affinity.ts`):
 minutes listened (1/min), full listens (8), coming back to something (5), saves (12), following (20), **shows attended (90)**, Inner Circle moments watched (3), reactions (1). Points become an **estimated** percentile against a modelled audience for that creator, which sets the tier and the position on the record. Everything you do in the app moves creators; the demo also starts from a simulated listening history. **Percentiles are estimates, not verified rankings,** and the UI says so.
 
-To demo the top tier: on Your Record, tap Juniper Vale → **I went to a show**. She crosses into the Top 1% and the reward card unlocks.
+To demo the top tier: open Your Record (tap the logo), tap Juniper Vale → **Went to a show**. She crosses into the Top 1% and the reward card unlocks.
 
 ## Content: real media without rebuilding
 
 Content is loaded at runtime from `public/content/` (or `dist/content/` after a build), so you can add or replace artists, videos, episodes and Inner Circle moments by editing JSON and reloading.
 
-- `public/content/index.json` lists the content sets and which one is the default. The Collection panel switches between sets; `?content=<id>` in the URL does too.
+- `public/content/index.json` lists the content sets and which one is the default. Settings (on Your Record) switches between sets; `?content=<id>` in the URL does too.
 - `public/content/demo.json` is the original, fully offline demo set (fictional creators, generated media).
 - `public/content/real.json` is the starter for real artists and podcasts. Add it to `index.json` once it has items.
 
@@ -82,9 +89,9 @@ src/
   lib/players.ts          YouTube + Spotify adapters with one player interface
   lib/affinity.ts         points, simulated percentiles, tiers
   hooks/                  preview windows + honest listen tracking, relationships, keys, media session
-  components/             MediaSurface, dial, swipe card, tier badge/ladder/reward, sheets
+  components/             Logo + splash, Reel (swipe), MediaSurface, dial, tab bar, sheets, tier/reward
   screens/                YourRecord, Artists, Podcasts, FullEpisode, InnerCircle, Drive
-  styles/                 tokens.css (palette), app.css, circa.css (atomic-age layer)
+  styles/                 tokens.css (palette, type, motion), app.css
 scripts/content/          add-youtube, import-podcast, verify, build-demo
 scripts/media/            generators for the original demo media
 content/demo/             generator sources for the demo set

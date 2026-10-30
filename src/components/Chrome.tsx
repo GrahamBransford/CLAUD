@@ -1,82 +1,50 @@
-import { Car, Disc3 } from 'lucide-react'
-import { brand, STATION_ORDER, type RouteId } from '../config/brand'
-import { useStore } from '../store/useStore'
+import { Car } from 'lucide-react'
+import type { ReactElement } from 'react'
+import { brand, type RouteId } from '../config/brand'
 import { useUI } from '../store/useUI'
-import { Wordmark } from './Wordmark'
+import { Logo } from './Logo'
 
-interface NavProps {
-  route: RouteId
-  onChange: (r: RouteId) => void
-}
-
-/** A small vinyl that stands for Your Record. */
-export function RecordGlyph({ size = 26, spinning = false }: { size?: number; spinning?: boolean }) {
-  return (
-    <svg className={`record-glyph ${spinning ? 'is-spinning' : ''}`} width={size} height={size} viewBox="0 0 32 32" aria-hidden>
-      <circle cx="16" cy="16" r="15.5" fill="var(--vinyl)" />
-      <circle cx="16" cy="16" r="12.5" fill="none" stroke="rgba(255,255,255,.13)" strokeWidth=".8" />
-      <circle cx="16" cy="16" r="10" fill="none" stroke="rgba(255,255,255,.1)" strokeWidth=".8" />
-      <circle cx="16" cy="16" r="6.4" fill="var(--mustard)" />
-      <path d="M16 9.6a6.4 6.4 0 0 1 6.4 6.4H16z" fill="var(--cherry)" />
-      <circle cx="16" cy="16" r="1.3" fill="var(--vinyl)" />
+const icons: Record<Exclude<RouteId, 'home'>, ReactElement> = {
+  artists: (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M10.5 15.6V7.5l5-1.2v2.3l-5 1.2" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+      <circle cx="9.1" cy="15.8" r="1.9" fill="currentColor" />
     </svg>
-  )
+  ),
+  podcasts: (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <rect x="8.2" y="2.6" width="7.6" height="12" rx="3.8" fill="none" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M8.2 7.4h7.6M8.2 10.2h7.6" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M5.2 11.2a6.8 6.8 0 0 0 13.6 0M12 18v3.4M8.6 21.4h6.8" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+    </svg>
+  ),
+  'inner-circle': (
+    <svg viewBox="0 0 24 24" aria-hidden>
+      <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="1.7" />
+      <circle cx="12" cy="12" r="5.6" fill="none" stroke="currentColor" strokeWidth="1.7" />
+      <circle cx="12" cy="12" r="1.9" fill="currentColor" />
+    </svg>
+  ),
 }
 
-export function Header({ route, onChange }: NavProps) {
-  const count = useStore((s) => s.saved.length)
-  const openSheet = useUI((s) => s.openSheet)
+/** Three destinations: a bottom bar on phones, a slim rail on wider screens. */
+export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: RouteId) => void }) {
   const setDrive = useUI((s) => s.setDrive)
   return (
-    <header className="header">
-      <button className="header__brand" onClick={() => onChange('home')} aria-label={`${brand.name} — ${brand.home.label}`}>
-        <Wordmark />
+    <nav className="tabs" aria-label="CIRCA">
+      <button className="tabs__logo" aria-current={route === 'home' ? 'page' : undefined} onClick={() => onChange('home')} aria-label={brand.home.label}>
+        <Logo size="sm" spinning={route === 'home'} />
       </button>
-      <nav className="stations stations--top" aria-label="Destinations">
-        <button className="station station--home" aria-current={route === 'home' ? 'page' : undefined} onClick={() => onChange('home')}>
-          <RecordGlyph size={22} spinning={route === 'home'} />
-          <span className="station__label">{brand.home.label}</span>
+      {(['artists', 'podcasts', 'inner-circle'] as const).map((id) => (
+        <button key={id} className="tab" aria-current={route === id ? 'page' : undefined} onClick={() => onChange(id)}>
+          <span className="tab__icon">{icons[id]}</span>
+          <span className="tab__label">{brand.stations[id].label}</span>
         </button>
-        {STATION_ORDER.map((id) => (
-          <button key={id} className="station" aria-current={route === id ? 'page' : undefined} onClick={() => onChange(id)}>
-            <span className="station__freq">{brand.stations[id].frequency}</span>
-            <span className="station__label">{brand.stations[id].label}</span>
-          </button>
-        ))}
-      </nav>
-      <div className="header__actions">
-        <button className="chip-btn chip-btn--on-dark" onClick={() => setDrive(true)} aria-label="Drive mode">
-          <Car size={17} strokeWidth={1.9} />
-          <span>Drive</span>
-        </button>
-        <button className="chip-btn chip-btn--on-dark chip-btn--library" onClick={() => openSheet({ kind: 'library' })} aria-label={`Your collection, ${count} saved`}>
-          <Disc3 size={17} strokeWidth={1.9} />
-          <span>Collection</span>
-          <em className="count" data-empty={count === 0 ? '' : undefined}>{count}</em>
-        </button>
-      </div>
-    </header>
-  )
-}
-
-export function BottomNav({ route, onChange }: NavProps) {
-  const count = useStore((s) => s.saved.length)
-  const openSheet = useUI((s) => s.openSheet)
-  const tab = (id: RouteId, label: string) => (
-    <button className="bnav__tab" aria-current={route === id ? 'page' : undefined} onClick={() => onChange(id)}>
-      <span>{label}</span>
-    </button>
-  )
-  return (
-    <nav className="bnav" aria-label="Destinations">
-      {tab('artists', brand.stations.artists.label)}
-      {tab('podcasts', brand.stations.podcasts.label)}
-      <button className="bnav__record" aria-current={route === 'home' ? 'page' : undefined} onClick={() => onChange('home')} aria-label={brand.home.label}>
-        <RecordGlyph size={52} spinning={route === 'home'} />
-      </button>
-      {tab('inner-circle', brand.stations['inner-circle'].label)}
-      <button className="bnav__tab" onClick={() => openSheet({ kind: 'library' })}>
-        <span>Saved{count ? <em> {count}</em> : null}</span>
+      ))}
+      <button className="tab tab--drive" onClick={() => setDrive(true)} aria-label="Drive mode">
+        <span className="tab__icon"><Car strokeWidth={1.7} /></span>
+        <span className="tab__label">Drive</span>
       </button>
     </nav>
   )

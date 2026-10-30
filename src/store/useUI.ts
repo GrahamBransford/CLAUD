@@ -5,16 +5,15 @@ export interface Toast {
   title: string
   detail?: string
   image?: string
-  tone?: 'save' | 'info' | 'follow'
   action?: { label: string; run: () => void }
 }
 
-export type Sheet = { kind: 'library' } | { kind: 'profile'; creatorId: string } | { kind: 'tuning' } | null
+export type Sheet = { kind: 'creator'; creatorId: string } | { kind: 'settings' } | null
 
 export interface FullEpisodeRequest {
   episodeId: string
   startAt: number
-  reason: 'auto' | 'manual' | 'library'
+  reason: 'auto' | 'manual'
 }
 
 /** Ephemeral UI state; never persisted. */
@@ -23,8 +22,12 @@ interface UIState {
   sheet: Sheet
   fullEpisode: FullEpisodeRequest | null
   drive: boolean
-  /** Browsers only allow audible autoplay after a gesture; set by "Tune in". */
+  /**
+   * Video starts muted (browsers allow that without a gesture); the first
+   * touch anywhere turns sound on, like Instagram.
+   */
   audioUnlocked: boolean
+  unlockedAt: number
   pushToast: (t: Omit<Toast, 'id'>) => void
   dismissToast: (id: number) => void
   openSheet: (s: Sheet) => void
@@ -41,14 +44,20 @@ export const useUI = create<UIState>()((set, get) => ({
   fullEpisode: null,
   drive: false,
   audioUnlocked: false,
+  unlockedAt: 0,
   pushToast: (t) => {
     const id = nextId++
-    set((st) => ({ toasts: [...st.toasts.slice(-2), { ...t, id }] }))
-    window.setTimeout(() => get().dismissToast(id), 3600)
+    set((st) => ({ toasts: [...st.toasts.slice(-1), { ...t, id }] }))
+    window.setTimeout(() => get().dismissToast(id), 2800)
   },
   dismissToast: (id) => set((st) => ({ toasts: st.toasts.filter((t) => t.id !== id) })),
   openSheet: (sheet) => set({ sheet }),
   openFullEpisode: (fullEpisode) => set({ fullEpisode }),
   setDrive: (drive) => set({ drive }),
-  unlockAudio: () => set({ audioUnlocked: true }),
+  unlockAudio: () => {
+    if (!get().audioUnlocked) set({ audioUnlocked: true, unlockedAt: Date.now() })
+  },
 }))
+
+/** True for a tap that only served to turn the sound on. */
+export const tapWasUnlock = () => Date.now() - useUI.getState().unlockedAt < 600

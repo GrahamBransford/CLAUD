@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Check, Heart, UserPlus } from 'lucide-react'
 import { useUI } from '../store/useUI'
 
+/** One quiet line at a time, at the top, clear of the controls. */
 export function Toasts() {
   const toasts = useUI((s) => s.toasts)
   const dismiss = useUI((s) => s.dismissToast)
@@ -11,20 +11,13 @@ export function Toasts() {
         {toasts.map((t) => (
           <motion.div
             key={t.id}
-            className={`toast toast--${t.tone ?? 'info'}`}
+            className="toast"
             layout
-            initial={{ opacity: 0, y: 16, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, transition: { duration: 0.18 } }}
-            transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0, transition: { duration: 0.24, ease: [0.22, 0.7, 0.18, 1] } }}
+            exit={{ opacity: 0, y: -6, transition: { duration: 0.18 } }}
           >
-            {t.image ? (
-              <img className="toast__img" src={t.image} alt="" />
-            ) : (
-              <span className="toast__icon">
-                {t.tone === 'save' ? <Heart size={16} /> : t.tone === 'follow' ? <UserPlus size={16} /> : <Check size={16} />}
-              </span>
-            )}
+            {t.image && <img className="toast__img" src={t.image} alt="" />}
             <span className="toast__text">
               <strong>{t.title}</strong>
               {t.detail && <span>{t.detail}</span>}

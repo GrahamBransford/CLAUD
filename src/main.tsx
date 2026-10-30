@@ -5,7 +5,6 @@ import '@fontsource-variable/fraunces/full.css'
 import '@fontsource-variable/fraunces/full-italic.css'
 import './styles/tokens.css'
 import './styles/app.css'
-import './styles/circa.css'
 import { activeSet, loadContent } from './data'
 import { initStore } from './store/useStore'
 

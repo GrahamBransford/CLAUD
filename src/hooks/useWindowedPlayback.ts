@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type RefObject } from 'react'
 import { claimAudioFocus, releaseAudioFocus } from '../lib/media'
 import type { PlayerLike } from '../lib/players'
+import { useUI } from '../store/useUI'
 
 export interface WindowEnd {
   /** Seconds genuinely heard (seeking forward does not count). */
@@ -61,6 +62,8 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
       listened.current = 0
     }
     claimAudioFocus(el)
+    // muted autoplay is always allowed; sound follows the first touch
+    el.muted = !useUI.getState().audioUnlocked
     const p = el.play()
     if (p) p.then(() => setBlocked(false)).catch(() => setBlocked(true))
   }, [ref, start, end])
@@ -135,6 +138,12 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ref, itemKey, start, end])
+
+  // Turn the sound on as soon as the listener first touches the app.
+  const unlocked = useUI((s) => s.audioUnlocked)
+  useEffect(() => {
+    if (unlocked && ref.current) ref.current.muted = false
+  }, [unlocked, ref])
 
   // Pause when the surface becomes inactive (another tab, drive mode, a sheet).
   useEffect(() => {

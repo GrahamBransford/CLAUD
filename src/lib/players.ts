@@ -13,6 +13,7 @@ export interface PlayerLike {
   readonly duration: number
   readonly paused: boolean
   playbackRate: number
+  muted: boolean
   readonly readyState: number
   play(): Promise<void>
   pause(): void
@@ -97,6 +98,7 @@ export class YouTubePlayer extends EventTarget implements PlayerLike {
           events: {
             onReady: () => {
               this.ready = true
+              if (this._muted) this.yt.mute()
               this.dispatchEvent(new Event('loadedmetadata'))
               if (this.wantPlay) this.yt.playVideo()
             },
@@ -155,6 +157,17 @@ export class YouTubePlayer extends EventTarget implements PlayerLike {
   }
   get readyState() {
     return this.ready ? 4 : 0
+  }
+  private _muted = false
+  get muted() {
+    return this._muted
+  }
+  set muted(m: boolean) {
+    this._muted = m
+    if (this.ready) {
+      if (m) this.yt.mute()
+      else this.yt.unMute()
+    }
   }
 
   /** Resolves once YouTube reports playback; rejects if the browser blocks it. */
@@ -275,6 +288,12 @@ export class SpotifyPlayer extends EventTarget implements PlayerLike {
   }
   get playbackRate() {
     return 1
+  }
+  get muted() {
+    return false
+  }
+  set muted(_m: boolean) {
+    /* the Spotify embed controls its own volume */
   }
   set playbackRate(_r: number) {
     /* the Spotify embed has no speed control */

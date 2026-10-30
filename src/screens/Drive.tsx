@@ -1,24 +1,20 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Bookmark, Heart, Pause, Play, SkipForward, X } from 'lucide-react'
 import { useCallback, useState } from 'react'
-import { RecordGlyph } from '../components/Chrome'
 import { Dial } from '../components/Dial'
 import { MediaSurface } from '../components/MediaSurface'
-import { TierBadge } from '../components/Tier'
-import { Wordmark } from '../components/Wordmark'
 import { brand } from '../config/brand'
 import { creatorById, episodes, songs } from '../data'
 import { useMediaSession } from '../hooks/useMediaSession'
-import { useItemError, useUniverse } from '../hooks/useRelationship'
+import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
-import { standing } from '../lib/affinity'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import type { Episode, MediaSource } from '../types'
 import { AUTO_SAVE_RATIO, usePlayerRef, useSaveSong } from './Artists'
 import { useSaveEpisode } from './Podcasts'
 
-type Station = 'artists' | 'podcasts' | 'record'
+type Station = 'artists' | 'podcasts'
 
 /** Audio-only sources. YouTube is never used here: its terms forbid hidden-video playback. */
 const audioOf = (m?: MediaSource) => (m && (m.kind === 'audio' || m.kind === 'spotify') ? m : undefined)
@@ -35,21 +31,18 @@ export function Drive({ initial }: { initial: Station }) {
   return (
     <motion.div className="drive" role="dialog" aria-label="Drive mode" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <header className="drive__top">
-        <Wordmark />
         <div className="drive__stations" role="tablist">
-          {(['artists', 'podcasts', 'record'] as Station[]).map((s) => (
+          {(['artists', 'podcasts'] as Station[]).map((s) => (
             <button key={s} role="tab" aria-selected={station === s} onClick={() => setStation(s)}>
-              {s === 'record' ? 'Your Record' : brand.stations[s].label}
+              {brand.stations[s].label}
             </button>
           ))}
         </div>
-        <button className="drive__exit" onClick={() => useUI.getState().setDrive(false)}>Exit Drive</button>
+        <button className="drive__exit" onClick={() => useUI.getState().setDrive(false)} aria-label="Exit drive mode">
+          <X size={30} />
+        </button>
       </header>
-      {station === 'record' ? <DriveRecord /> : <DrivePlayer key={station} station={station} />}
-      <p className="drive__note">
-        Simulated CarPlay / Android Auto view. No moving video while driving; audio keeps playing. Finished songs save
-        themselves, and finished highlights roll straight into the full episode.
-      </p>
+      <DrivePlayer key={station} station={station} />
     </motion.div>
   )
 }
@@ -156,15 +149,13 @@ function DrivePlayer({ station }: { station: 'artists' | 'podcasts' }) {
   if (!item || !source)
     return (
       <div className="drive__empty">
-        <h1>Nothing here can play without video.</h1>
-        <p>Add an audio source (a Spotify track or an audio file) to these items in the content file to hear them in Drive.</p>
+        <h1>Nothing to play here while driving.</h1>
       </div>
     )
 
   const who = creatorById[item.creatorId]?.name
   const mode = station === 'artists' ? 'Preview' : phase === 'highlight' ? 'Highlight' : 'Full episode'
   const isSaved = saved.some((x) => x.id === item.id)
-  const skipped = station === 'artists' ? songs.length - sList.length : episodes.length - pList.length
 
   return (
     <>
@@ -177,11 +168,10 @@ function DrivePlayer({ station }: { station: 'artists' | 'podcasts' }) {
           </div>
         </div>
         <div className="drive__text">
-          <p className="drive__mode">{mode} · audio only{source.kind === 'spotify' ? ' · Spotify' : ''}</p>
+          <p className="drive__mode">{mode}</p>
           <h1>{item.title}</h1>
           <p className="drive__who">{who}</p>
           {error ? <p className="drive__error">{error}</p> : <Dial value={pb.time} max={pb.length} label={`${mode} progress`} tone="dark" size="lg" />}
-          {skipped > 0 && <p className="drive__skipnote">{skipped} video-only {skipped === 1 ? 'item is' : 'items are'} left out while driving.</p>}
         </div>
       </div>
 
@@ -207,30 +197,5 @@ function DrivePlayer({ station }: { station: 'artists' | 'podcasts' }) {
         )}
       </AnimatePresence>
     </>
-  )
-}
-
-/** Your Record, simplified for a glance: who's closest, in big type, no motion. */
-function DriveRecord() {
-  const all = useUniverse().slice(0, 5)
-  return (
-    <div className="drive-record">
-      <div className="drive-record__disc" aria-hidden>
-        <RecordGlyph size={220} />
-      </div>
-      <ol className="drive-record__list">
-        {all.map((r, k) => (
-          <li key={r.creatorId}>
-            <span className="drive-record__rank">{k + 1}</span>
-            <img src={creatorById[r.creatorId]?.avatar} alt="" />
-            <span className="drive-record__name">
-              <strong>{creatorById[r.creatorId]?.name}</strong>
-              <em>{standing(r)}</em>
-            </span>
-            <TierBadge tier={r.tier.id} size="sm" />
-          </li>
-        ))}
-      </ol>
-    </div>
   )
 }

@@ -1,92 +1,51 @@
 /*
- * CIRCA — atomic-age hi-fi.
- * Cherry is the brand and owns the chrome; deep navy is "space", where your
- * record lives; mustard and teal support; tomato is the rare pop. Cream is a
- * content surface, no longer the whole look.
- * Type: Archivo expanded for labels and headings (hi-fi faceplates),
- * Fraunces italic for editorial moments (titles, quotes), Archivo for UI.
+ * CIRCA — a record player, not a website.
+ * Ground is espresso (the plinth); cherry is the brand and every "yes";
+ * mustard is the needle and the centre; cream is type and paper.
+ * Turquoise and orange appear only as rare accents.
  */
 :root {
-  /* brand */
-  --cherry: #b4182d;
-  --cherry-deep: #8a0f20;
-  --tomato: #ea4a2e;
+  --espresso: #15100d;
+  --espresso-2: #221a15;
+  --espresso-3: #33281f;
+  --cherry: #c21f32;
+  --cherry-deep: #8f1424;
   --mustard: #f2b42c;
-  --mustard-deep: #c58a0c;
-  --teal: #1f8a87;
-  --teal-deep: #135f5d;
-  --turquoise: #5cc8bd;
-  --orange: #f0782a;
-  --navy: #12203e;
-  --navy-2: #1b2d55;
-  --navy-3: #2a3f6e;
-  --vinyl: #0c0b0e;
+  --orange: #ee7a2b;
+  --turquoise: #4fc1b4;
+  --navy: #13203e;
+  --cream: #f6ecd8;
+  --cream-2: #ead9b8;
+  --ink: #1d1612;
+  --ink-2: #4a3d33;
+  --ink-3: #85766a;
+  --vinyl: #0b0a0c;
 
-  /* paper + ink */
-  --cream: #f7eedb;
-  --paper: #fff8ea;
-  --cream-2: #efe1c6;
-  --cream-3: #e2cfaa;
-  --ink: #1b1714;
-  --ink-2: #3f3630;
-  --ink-3: #6e635a;
-  --ink-4: #a2968a;
-  --on-dark: #fbf3e1;
-  --on-dark-2: rgba(251, 243, 225, 0.7);
-  --on-dark-3: rgba(251, 243, 225, 0.45);
-
-  /* legacy names used across the stylesheet, mapped onto the new palette */
-  --red: var(--cherry);
-  --red-2: var(--cherry-deep);
-  --red-tint: #f7d5d1;
-  --ochre: var(--mustard);
-  --ochre-2: var(--mustard-deep);
-  --ochre-tint: #fbe6b0;
-  --sage: var(--teal);
-  --sage-2: var(--teal-deep);
-  --sage-tint: #cfe9e5;
-  --night: var(--navy);
-
-  --line: rgba(27, 23, 20, 0.13);
-  --line-2: rgba(27, 23, 20, 0.24);
-  --line-dark: rgba(251, 243, 225, 0.16);
-  --shadow-1: 0 1px 0 rgba(27, 23, 20, 0.05), 0 10px 26px -16px rgba(27, 23, 20, 0.4);
-  --shadow-2: 0 2px 0 rgba(27, 23, 20, 0.04), 0 34px 70px -34px rgba(27, 23, 20, 0.6);
+  --fg: var(--cream);
+  --fg-2: rgba(246, 236, 216, 0.72);
+  --fg-3: rgba(246, 236, 216, 0.45);
+  --hair: rgba(246, 236, 216, 0.14);
 
   --display: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --serif: 'Fraunces Variable', 'Fraunces', Georgia, serif;
   --sans: 'Archivo Variable', 'Archivo', system-ui, -apple-system, sans-serif;
 
-  --r-sm: 6px;
-  --r-md: 10px;
-  --r-lg: 16px;
+  --ease: cubic-bezier(0.22, 0.7, 0.18, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --fast: 160ms;
+  --med: 320ms;
 
-  --header-h: 64px;
-  --nav-h: 0px;
-  --gutter: clamp(16px, 4vw, 40px);
-
-  /* each destination has a colour world */
-  --accent: var(--cherry);
-  --accent-tint: var(--red-tint);
+  --tab-h: 64px;
+  --rail-w: 0px;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
 }
 
-.app--podcasts {
-  --accent: var(--teal);
-  --accent-tint: var(--sage-tint);
-}
-
-.app--inner-circle {
-  --accent: var(--mustard);
-  --accent-tint: var(--ochre-tint);
-}
-
-.app--home {
-  --accent: var(--mustard);
-}
-
-@media (max-width: 759px) {
+@media (min-width: 900px) {
   :root {
-    --header-h: 56px;
-    --nav-h: 72px;
+    --tab-h: 0px;
+    --rail-w: 92px;
   }
 }

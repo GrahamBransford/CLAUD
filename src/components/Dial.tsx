@@ -10,7 +10,7 @@ interface Props {
   /** Small markers, e.g. chapter starts. */
   marks?: number[]
   label: string
-  size?: 'md' | 'lg'
+  size?: 'md' | 'lg' | 'slim'
   tone?: 'light' | 'dark'
   showTimes?: boolean
 }

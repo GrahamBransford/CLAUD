@@ -1,14 +1,15 @@
 import { AnimatePresence, motion, type PanInfo } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Heart, Info, Mic2, Music2, Play } from 'lucide-react'
+import { Heart, Plus } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
+import { RecordC } from '../components/Logo'
 import { MediaSurface } from '../components/MediaSurface'
-import { TierBadge } from '../components/Tier'
 import { creatorById, creators, innerCircle } from '../data'
 import { useKeys } from '../hooks/useKeys'
-import { formatTop, rankInnerCircle, type Relationship } from '../lib/affinity'
-import { claimAudioFocus, relativeHours } from '../lib/media'
+import { rankInnerCircle } from '../lib/affinity'
+import { claimAudioFocus } from '../lib/media'
 import { useStore } from '../store/useStore'
-import { useUI } from '../store/useUI'
+import { tapWasUnlock, useUI } from '../store/useUI'
 import type { InnerCirclePost } from '../types'
 import { usePlayerRef } from './Artists'
 
@@ -18,16 +19,11 @@ export function useFollow() {
   return (creatorId: string) => {
     const now = toggle(creatorId)
     const c = creatorById[creatorId]
-    pushToast({
-      tone: 'follow',
-      image: c?.avatar,
-      title: now ? `Following ${c?.name}` : `Unfollowed ${c?.name}`,
-      detail: now ? 'Their Inner Circle moments now reach you.' : 'Their posts have left your Inner Circle.',
-    })
+    pushToast({ image: c?.avatar, title: now ? `Following ${c?.name}` : `Unfollowed ${c?.name}` })
   }
 }
 
-const SWIPE = 90
+const EASE = [0.22, 0.7, 0.18, 1] as const
 
 export function InnerCircle({ active }: { active: boolean }) {
   const follows = useStore((s) => s.follows)
@@ -37,7 +33,7 @@ export function InnerCircle({ active }: { active: boolean }) {
   const setIndex = useStore((s) => s.setCircleIndex)
   const feed = useMemo(() => rankInnerCircle(follows, signals, saved), [follows, signals, saved])
   const [dir, setDir] = useState(1)
-  const total = feed.length + 1 // the last slide is "you're caught up"
+  const total = feed.length + 1 // the last page is "you're caught up"
   const i = Math.min(index, total - 1)
 
   const go = useCallback(
@@ -52,105 +48,83 @@ export function InnerCircle({ active }: { active: boolean }) {
 
   useKeys(active, { ArrowRight: () => go(1), ArrowLeft: () => go(-1) })
 
-  // Swipe right = next, swipe left = previous (CIRCA's sideways feed).
+  // Swipe right = next, swipe left = previous.
   const onDragEnd = (_: unknown, info: PanInfo) => {
-    if (info.offset.x > SWIPE || info.velocity.x > 600) go(1)
-    else if (info.offset.x < -SWIPE || info.velocity.x < -600) go(-1)
+    if (info.offset.x > 80 || info.velocity.x > 550) go(1)
+    else if (info.offset.x < -80 || info.velocity.x < -550) go(-1)
   }
-
-  if (feed.length === 0)
-    return (
-      <section className="ic ic--empty">
-        <div className="ic__empty">
-          <p className="eyebrow">Inner Circle</p>
-          <h1>Nobody in your circle yet.</h1>
-          <p>Follow the artists and podcasters you discover. Their unpolished, behind-the-scenes moments land here, closest relationships first.</p>
-          <Suggestions />
-        </div>
-      </section>
-    )
 
   const item = feed[i]
   return (
-    <section className="ic" aria-label="Inner Circle — behind the work" aria-roledescription="carousel">
-      <div className="ic__top">
-        <div className="ic__ticks" aria-hidden>
-          {Array.from({ length: total }, (_, k) => <span key={k} data-on={k <= i ? '' : undefined} />)}
+    <section className="screen screen--ic" aria-label="Inner Circle">
+      {feed.length > 0 && (
+        <div className="segments" aria-hidden>
+          {Array.from({ length: feed.length }, (_, k) => <span key={k} data-on={k <= i ? '' : undefined} />)}
         </div>
-        <button className="ic__why" onClick={() => useUI.getState().openSheet({ kind: 'tuning' })}>
-          <Info size={14} /> Only people you follow, closest first
-        </button>
-      </div>
-
-      <div className="ic__stage">
-        <button className="ic__nav ic__nav--prev" onClick={() => go(-1)} disabled={i === 0} aria-label="Previous moment">
-          <ChevronLeft size={28} />
-        </button>
-        <AnimatePresence custom={dir} initial={false} mode="popLayout">
-          <motion.div
-            key={item ? item.post.id : 'end'}
-            className="ic__slide"
-            custom={dir}
-            drag="x"
-            dragSnapToOrigin
-            dragElastic={0.5}
-            onDragEnd={onDragEnd}
-            initial={{ x: dir > 0 ? '-60%' : '60%', opacity: 0, rotate: dir > 0 ? -4 : 4 }}
-            animate={{ x: 0, opacity: 1, rotate: 0, transition: { type: 'spring', stiffness: 260, damping: 30 } }}
-            exit={{ x: dir > 0 ? '60%' : '-60%', opacity: 0, rotate: dir > 0 ? 4 : -4, transition: { duration: 0.3 } }}
-          >
-            {item ? (
-              <Moment post={item.post} rel={item.rel} active={active} onEnded={() => go(1)} />
-            ) : (
-              <CaughtUp onRestart={() => { setDir(-1); setIndex(0) }} />
-            )}
-          </motion.div>
-        </AnimatePresence>
-        <button className="ic__nav ic__nav--next" onClick={() => go(1)} disabled={i === total - 1} aria-label="Next moment">
-          <ChevronRight size={28} />
-        </button>
-      </div>
-      <p className="ic__hint">Swipe right for the next moment, left to go back.</p>
+      )}
+      <AnimatePresence custom={dir} initial={false} mode="popLayout">
+        <motion.div
+          key={item ? item.post.id : 'end'}
+          className="page"
+          custom={dir}
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.85}
+          dragTransition={{ bounceStiffness: 520, bounceDamping: 42 }}
+          onDragEnd={onDragEnd}
+          variants={{
+            initial: (d: number) => ({ x: d > 0 ? '-100%' : '100%' }),
+            enter: { x: 0, transition: { duration: 0.36, ease: EASE } },
+            exit: (d: number) => ({ x: d > 0 ? '100%' : '-100%', transition: { duration: 0.36, ease: EASE } }),
+          }}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+        >
+          {item ? <Moment post={item.post} active={active} onEnded={() => go(1)} /> : <CaughtUp empty={feed.length === 0} onRestart={() => { setDir(-1); setIndex(0) }} />}
+        </motion.div>
+      </AnimatePresence>
+      <TopBar playing={false} />
     </section>
   )
 }
 
-function Moment({ post, rel, active, onEnded }: { post: InnerCirclePost; rel: Relationship; active: boolean; onEnded: () => void }) {
+function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: boolean; onEnded: () => void }) {
   const c = creatorById[post.creatorId]
-  const unlocked = useUI((s) => s.audioUnlocked)
   const follows = useStore((s) => s.follows)
   const reacted = useStore((s) => s.reacted.includes(post.id))
   const toggleReaction = useStore((s) => s.toggleReaction)
   const recordView = useStore((s) => s.recordView)
+  const unlocked = useUI((s) => s.audioUnlocked)
   const follow = useFollow()
   const player = usePlayerRef()
+  const flash = useTapFlash()
   const [playing, setPlaying] = useState(false)
-  const [error, setError] = useState<string | null>(null)
   const isVideo = post.media.kind === 'video' || post.media.kind === 'youtube'
 
-  // Autoplay the moment in view (with sound once the listener has tapped anything).
   useEffect(() => {
     const p = player.ref.current
-    if (!p) return
+    if (!p || !isVideo) return
+    let maxT = 0
     const onPlay = () => setPlaying(true)
     const onPause = () => setPlaying(false)
-    let maxT = 0
     const onTime = () => {
       maxT = Math.max(maxT, p.currentTime)
       if (p.duration > 0 && maxT / p.duration > 0.6) recordView(post.id, post.creatorId)
     }
     const onEnd = () => {
       recordView(post.id, post.creatorId)
-      window.setTimeout(onEnded, 1200)
+      window.setTimeout(onEnded, 600)
     }
     p.addEventListener('play', onPlay)
     p.addEventListener('pause', onPause)
     p.addEventListener('timeupdate', onTime)
     p.addEventListener('ended', onEnd)
-    if (active && unlocked) {
+    if (active) {
       claimAudioFocus(p)
+      p.muted = !useUI.getState().audioUnlocked
       p.play().catch(() => setPlaying(false))
-    }
+    } else p.pause()
     return () => {
       p.removeEventListener('play', onPlay)
       p.removeEventListener('pause', onPause)
@@ -159,11 +133,21 @@ function Moment({ post, rel, active, onEnded }: { post: InnerCirclePost; rel: Re
       p.pause()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [player.version, active, unlocked])
+  }, [player.version, active])
 
-  const toggle = () => {
+  useEffect(() => {
+    if (unlocked && player.ref.current) player.ref.current.muted = false
+  }, [unlocked, player.ref])
+
+  const tap = () => {
     const p = player.ref.current
-    if (!p) return
+    if (!p || tapWasUnlock()) return
+    if (p.muted) {
+      p.muted = false
+      useUI.getState().unlockAudio()
+      return
+    }
+    flash.show(playing ? 'pause' : 'play')
     if (p.paused) {
       claimAudioFocus(p)
       void p.play().catch(() => undefined)
@@ -171,88 +155,53 @@ function Moment({ post, rel, active, onEnded }: { post: InnerCirclePost; rel: Re
   }
 
   if (!c) return null
+  const following = follows.includes(c.id)
   return (
-    <article className={`moment moment--${post.media.kind}`}>
-      <div className="moment__frame">
-        {isVideo ? (
-          <MediaSurface source={post.media} className="moment__media" onPlayer={player.onPlayer} onError={setError} onClick={toggle} />
-        ) : (
-          <MediaSurface source={post.media} className="moment__media" onPlayer={() => undefined} />
-        )}
-        {isVideo && post.media.kind !== 'youtube' && !playing && !error && (
-          <button className="moment__play" onClick={toggle} aria-label={`Play ${c.name}'s video`}>
-            <Play size={26} fill="currentColor" />
+    <motion.div className={`moment moment--${post.media.kind}`} onTap={(e) => !(e.target as Element).closest('button') && tap()}>
+      <MediaSurface source={post.media} className="moment__media" onPlayer={isVideo ? player.onPlayer : () => undefined} />
+      <div className="reel__scrim" aria-hidden />
+      <TapFlash state={flash.state} />
+      <div className="moment__meta">
+        <div className="moment__who">
+          <button className="moment__avatar" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: c.id })} aria-label={c.name}>
+            <img src={c.avatar} alt="" />
           </button>
-        )}
-        {error && <div className="sleeve__error"><p>{error}</p></div>}
-      </div>
-
-      <div className="moment__info">
-        <button className="moment__who" onClick={() => useUI.getState().openSheet({ kind: 'profile', creatorId: c.id })}>
-          <img src={c.avatar} alt="" />
-          <span>
-            <strong>{c.name}</strong>
-            <em>
-              <span className={`kind kind--${c.kind}`}>{c.kind === 'artist' ? <Music2 size={11} /> : <Mic2 size={11} />} {c.kind === 'artist' ? 'Artist' : 'Podcast'}</span>
-              {' '}· {post.context} · {relativeHours(post.postedHoursAgo)}
-            </em>
-          </span>
-        </button>
+          <button className="moment__name" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: c.id })}>{c.name}</button>
+          {!following && (
+            <button className="moment__follow" onClick={() => follow(c.id)} aria-label={`Follow ${c.name}`}><Plus size={14} strokeWidth={3} /></button>
+          )}
+        </div>
         <p className="moment__caption">{post.caption}</p>
-        <div className="moment__rel">
-          <TierBadge tier={rel.tier.id} size="sm" />
-          <span>
-            {rel.tier.id === 'top1' ? (
-              <><strong>Top 1%</strong> of listeners <small>(estimate)</small></>
-            ) : (
-              <><strong>{rel.tier.label}</strong> · {formatTop(rel.top)} of listeners <small>(estimate)</small></>
-            )}
-          </span>
-        </div>
-        <div className="moment__actions">
-          <button className={`react-btn ${reacted ? 'is-on' : ''}`} onClick={() => toggleReaction(post.id, post.creatorId)} aria-pressed={reacted}>
-            <Heart size={17} fill={reacted ? 'currentColor' : 'none'} /> {reacted ? 'Sent' : 'Send love'}
-          </button>
-          <button className={`follow-btn follow-btn--dark ${follows.includes(c.id) ? 'is-on' : ''}`} onClick={() => follow(c.id)}>
-            {follows.includes(c.id) ? 'Following' : 'Follow'}
-          </button>
-          <button className="link-btn link-btn--on-dark" onClick={() => useUI.getState().openSheet({ kind: 'profile', creatorId: c.id })}>Profile</button>
-        </div>
       </div>
-    </article>
+      <div className="rail rail--ic">
+        <button className={`rail__btn rail__btn--save ${reacted ? 'is-on' : ''}`} onClick={() => toggleReaction(post.id, post.creatorId)} aria-label="Send love" aria-pressed={reacted}>
+          <Heart size={26} strokeWidth={2} fill={reacted ? 'currentColor' : 'none'} />
+        </button>
+      </div>
+    </motion.div>
   )
 }
 
-function CaughtUp({ onRestart }: { onRestart: () => void }) {
-  return (
-    <div className="caught">
-      <div className="caught__disc" aria-hidden><span /></div>
-      <p className="eyebrow">You&rsquo;re all caught up</p>
-      <h2>That&rsquo;s everyone in your circle.</h2>
-      <p>No endless scroll. Go listen to something, and the people you return to will move closer.</p>
-      <button className="btn btn--accent" onClick={onRestart}>Back to the first moment</button>
-      <Suggestions />
-    </div>
-  )
-}
-
-function Suggestions() {
+function CaughtUp({ empty, onRestart }: { empty: boolean; onRestart: () => void }) {
   const follows = useStore((s) => s.follows)
   const follow = useFollow()
   const outside = creators.filter((c) => !follows.includes(c.id) && innerCircle.some((p) => p.creatorId === c.id))
-  if (!outside.length) return null
   return (
-    <div className="suggest">
-      <p className="eyebrow">Not in your circle yet</p>
-      <ul>
-        {outside.map((c) => (
-          <li key={c.id}>
-            <img src={c.avatar} alt="" />
-            <span><strong>{c.name}</strong><em>{c.kind === 'artist' ? 'Artist' : 'Podcast'} · {c.genre}</em></span>
-            <button className="follow-btn follow-btn--dark" onClick={() => follow(c.id)}>Follow</button>
-          </li>
-        ))}
-      </ul>
+    <div className="end end--ic">
+      <span className="end__disc"><RecordC /></span>
+      <p className="end__title">{empty ? 'Follow someone to start your circle.' : 'You’re all caught up.'}</p>
+      {!empty && <button className="pill" onClick={onRestart}>From the top</button>}
+      {outside.length > 0 && (
+        <div className="faces">
+          {outside.map((c) => (
+            <button key={c.id} className="face" onClick={() => follow(c.id)} aria-label={`Follow ${c.name}`}>
+              <img src={c.avatar} alt="" />
+              <span>{c.name}</span>
+              <i><Plus size={12} strokeWidth={3} /></i>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
