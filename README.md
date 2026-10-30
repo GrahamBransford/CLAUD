@@ -18,7 +18,7 @@ The app opens with a short brand animation (the two Cs of CIRCA are records), th
 | --- | --- |
 | **Artists** | Full-screen music video with just the artist and title over it. Swipe right to **SAVE**, left to **SKIP**, up/down for next/previous. Tap to pause. Hearing the whole preview saves it automatically. |
 | **Podcasts** | The same feel for conversations: a ~5-minute highlight, with live captions. **Full episode** continues from the exact moment; finishing the highlight hands off to the full episode automatically. |
-| **Inner Circle** | A full-screen, sideways feed of behind-the-scenes moments from **creators you follow**, closest first. Swipe right for the next moment, left to go back. Friends never appear here. |
+| **Inner Circle** | A full-screen, sideways feed of behind-the-scenes moments from **creators you follow**, closest first. It reads left to right: swipe left for the next moment, right to go back. Friends never appear here. |
 | **My Vinyl** | Your identity on CIRCA: your own record on a hi-fi turntable, full screen (a 16:9 console on desktop). |
 
 ### My Vinyl: the record is the profile

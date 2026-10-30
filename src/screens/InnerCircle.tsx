@@ -49,10 +49,10 @@ export function InnerCircle({ active }: { active: boolean }) {
 
   useKeys(active, { ArrowRight: () => go(1), ArrowLeft: () => go(-1) })
 
-  // Swipe right = next, swipe left = previous.
+  // Reads left to right: swipe left for the next moment, right to go back.
   const onDragEnd = (_: unknown, info: PanInfo) => {
-    if (info.offset.x > 80 || info.velocity.x > 550) go(1)
-    else if (info.offset.x < -80 || info.velocity.x < -550) go(-1)
+    if (info.offset.x < -80 || info.velocity.x < -550) go(1)
+    else if (info.offset.x > 80 || info.velocity.x > 550) go(-1)
   }
 
   const item = feed[i]
@@ -74,9 +74,9 @@ export function InnerCircle({ active }: { active: boolean }) {
           dragTransition={{ bounceStiffness: 520, bounceDamping: 42 }}
           onDragEnd={onDragEnd}
           variants={{
-            initial: (d: number) => ({ x: d > 0 ? '-100%' : '100%' }),
+            initial: (d: number) => ({ x: d > 0 ? '100%' : '-100%' }),
             enter: { x: 0, transition: { duration: 0.36, ease: EASE } },
-            exit: (d: number) => ({ x: d > 0 ? '100%' : '-100%', transition: { duration: 0.36, ease: EASE } }),
+            exit: (d: number) => ({ x: d > 0 ? '-100%' : '100%', transition: { duration: 0.36, ease: EASE } }),
           }}
           initial="initial"
           animate="enter"
