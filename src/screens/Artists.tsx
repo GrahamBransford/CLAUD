@@ -154,7 +154,7 @@ export function Artists({ active }: { active: boolean }) {
           <div className="reel__scrim" aria-hidden />
           <div className="reel__meta">
             <button className="reel__who" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: creator.id })}>
-              {creator.name}
+              <span>{creator.name}</span>
             </button>
             <p className="reel__title">{song.title}</p>
           </div>

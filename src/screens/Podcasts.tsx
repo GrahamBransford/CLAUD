@@ -36,11 +36,37 @@ export function useSaveEpisode() {
   )
 }
 
-/** One line of what's being said, as a subtitle. */
+/** Splits a long line into subtitle-sized pieces, on word boundaries. */
+function chunks(text: string, max = 56) {
+  const out: string[] = []
+  let line = ''
+  for (const w of text.split(' ')) {
+    if (line && (line + ' ' + w).length > max) {
+      out.push(line)
+      line = w
+    } else line = line ? `${line} ${w}` : w
+  }
+  if (line) out.push(line)
+  return out
+}
+
+/**
+ * What's being said, as a subtitle. Long lines are shown in timed pieces,
+ * each fitting two lines, so nothing is cut and nothing around it moves.
+ */
 export function Caption({ cues, time }: { cues?: Cue[]; time: number }) {
   if (!cues) return null
   const cur = cues.find((c) => time >= c.start - 0.05 && time < c.end + 0.4)
-  return <p className="caption">{cur ? <span key={cur.start}>{cur.text}</span> : null}</p>
+  if (!cur) return <p className="caption" />
+  // narrower screens get shorter pieces, so each still fits two lines
+  const parts = chunks(cur.text, window.innerWidth < 380 ? 38 : 56)
+  const share = Math.max(0, Math.min(0.999, (time - cur.start) / Math.max(0.1, cur.end - cur.start)))
+  const k = Math.floor(share * parts.length)
+  return (
+    <p className="caption">
+      <span key={`${cur.start}-${k}`}>{parts[k]}</span>
+    </p>
+  )
 }
 
 export function Podcasts({ active }: { active: boolean }) {
@@ -168,7 +194,7 @@ export function Podcasts({ active }: { active: boolean }) {
           <div className="reel__meta">
             {!embed && <Caption cues={ep.cues} time={h.start + pb.time} />}
             <button className="reel__who" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: show.id })}>
-              {show.name}
+              <span>{show.name}</span>
             </button>
             <p className="reel__title reel__title--ep">{ep.title}</p>
             <button className="pill pill--light" onClick={(e) => { e.stopPropagation(); full() }}>
