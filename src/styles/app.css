@@ -728,9 +728,26 @@ h2 {
 .topbar > * {
   pointer-events: auto;
 }
+/*
+ * On phones the C sits exactly where My Vinyl's search button sits, and the
+ * buttons on the right mirror it: one set of corners across the app.
+ * --corner-x/y are measured from My Vinyl (see MyVinyl.tsx).
+ */
+@media (max-width: 899px) {
+  .topbar .topbar__logo {
+    position: absolute;
+    left: calc(var(--corner-x, 38px) - 17px);
+    top: calc(var(--corner-y, calc(var(--safe-t) + 34px)) - 17px);
+  }
+  .topbar .topbar__right {
+    position: absolute;
+    right: calc(var(--corner-x, 38px) - 20px);
+    top: calc(var(--corner-y, calc(var(--safe-t) + 34px)) - 20px);
+  }
+}
 .topbar__logo {
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   transition: transform 140ms var(--ease);
   color: var(--cream);
@@ -1396,7 +1413,8 @@ h2 {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
-  padding: 0 14px 4px;
+  margin-top: 12px;
+  padding: 0 14px 2px;
   color: var(--cream);
 }
 @media (min-width: 900px) {
@@ -1728,8 +1746,20 @@ h2 {
 .plate {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding-top: 6px;
+  gap: 7px;
+  padding-top: 2px;
+}
+/* on a phone the plate fills its space: you at the top, the readouts settled at the foot */
+.hifi__nameplate {
+  container-type: size;
+}
+@media (max-width: 899px) {
+  .hifi__nameplate > .plate {
+    min-height: 100%;
+  }
+  .hifi__nameplate .readouts {
+    margin-top: auto;
+  }
 }
 .plate__id {
   display: flex;
@@ -1826,7 +1856,40 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-top: 4px;
+  padding-top: 4px;
+}
+/* tall phones: room for every readout at once, as a grid instead of a strip */
+@container (min-height: 250px) and (max-width: 640px) {
+  .hifi__nameplate .readouts__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+  .hifi__nameplate .readout {
+    min-width: 0;
+    max-width: none;
+    padding: 5px 10px 6px;
+    gap: 2px;
+  }
+  .hifi__nameplate .readout__who strong {
+    font-size: 13px;
+  }
+  .hifi__nameplate .readout__who img {
+    width: 20px;
+    height: 20px;
+  }
+  /* four readouts in a two-by-two block; all six only when there's room for three rows */
+  .hifi__nameplate .readout:nth-child(n + 5) {
+    display: none;
+  }
+}
+@container (min-height: 345px) and (max-width: 640px) {
+  .hifi__nameplate .readout:nth-child(n + 5) {
+    display: flex;
+  }
 }
 .readouts__head {
   display: flex;
@@ -1854,7 +1917,7 @@ h2 {
 .readout {
   flex: 0 0 auto;
   min-width: 128px;
-  max-width: 170px;
+  max-width: 210px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1868,6 +1931,17 @@ h2 {
     inset 0 2px 6px rgba(0, 0, 0, 0.7),
     inset 0 0 0 1px rgba(242, 180, 44, 0.12),
     0 1px 0 rgba(255, 214, 170, 0.08);
+}
+.readout__label,
+.readout__big,
+.readout__sub {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.readout__who {
+  max-width: 100%;
 }
 .readout__label {
   font-size: 9.5px;
@@ -2141,18 +2215,22 @@ h2 {
 
 /* ---------- the catalogue: search ---------- */
 /* the search button, set into the deck in the corner opposite the tonearm */
+/*
+ * The deck's controls frame the record on the tonearm's axes: search sits
+ * level with the arm's pivot (92.6, 9.6), mirrored to (7.4, 9.6); Friends
+ * sits under search and Live under the pivot, at y 90.4.
+ */
 .hifi__search {
   position: absolute;
   z-index: 4;
-  left: 1.2cqw;
-  top: 0.6cqw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
+  left: 7.4cqw;
+  top: 9.6cqw;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
 }
 .hifi__search-cap {
-  width: clamp(38px, 10cqw, 58px);
+  width: clamp(38px, 11cqw, 58px);
   aspect-ratio: 1;
   border-radius: 50%;
   display: grid;
@@ -2182,23 +2260,15 @@ h2 {
 }
 /* one in each bottom corner of the deck, clear of the record */
 .hifi__deck-btn {
-  top: auto;
-  bottom: 0.4cqw;
-}
-.hifi__deck-btn .hifi__search-cap {
-  width: clamp(30px, 9cqw, 52px);
-}
-.hifi__deck-btn--bl1 {
-  left: 1.2cqw;
+  top: 90.4cqw;
 }
 .hifi__deck-btn--br1 {
-  left: auto;
-  right: 1.2cqw;
+  left: 92.6cqw;
 }
 .hifi__deck-lamp {
   position: absolute;
-  top: -1px;
-  right: -1px;
+  top: 1px;
+  right: 1px;
   width: 9px;
   height: 9px;
   border-radius: 50%;

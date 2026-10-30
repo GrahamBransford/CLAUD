@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { brand } from '../config/brand'
 import { creatorById } from '../data'
 import * as I from '../components/Icons'
@@ -31,6 +31,29 @@ export function MyVinyl({ active }: { active: boolean }) {
   const sheet = useUI((s) => s.sheet)
   const [searching, setSearching] = useState(false)
   const [origin, setOrigin] = useState({ x: 36, y: 36 })
+  const search = useRef<HTMLButtonElement>(null)
+
+  // Publish where the search button sits, so the feeds' C can sit in exactly the same place.
+  useLayoutEffect(() => {
+    const el = search.current
+    if (!el) return
+    const root = document.documentElement.style
+    const place = () => {
+      const stage = el.closest('.stage')?.getBoundingClientRect()
+      const r = el.getBoundingClientRect()
+      if (!stage || window.innerWidth >= 900 || !r.width) return
+      root.setProperty('--corner-x', `${(r.left + r.width / 2 - stage.left).toFixed(1)}px`)
+      root.setProperty('--corner-y', `${(r.top + r.height / 2 - stage.top).toFixed(1)}px`)
+    }
+    place()
+    const ro = new ResizeObserver(place)
+    ro.observe(el.closest('.hifi') ?? el)
+    window.addEventListener('resize', place)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener('resize', place)
+    }
+  }, [])
 
   const live = useMemo(() => liveCreators(experiences), [experiences])
   const markers = useMemo<Marker[]>(
@@ -78,6 +101,7 @@ export function MyVinyl({ active }: { active: boolean }) {
             <>
             {/* the search button, built into the deck */}
             <button
+              ref={search}
               className="hifi__search"
               onClick={(e) => {
                 const r = e.currentTarget.getBoundingClientRect()

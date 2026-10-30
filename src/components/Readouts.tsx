@@ -39,7 +39,7 @@ export function Readouts({ rels, experiences }: { rels: Relationship[]; experien
       </p>
       <div className="readouts__row">
         <div className="readout readout--counter">
-          <span className="readout__label">Minutes on record</span>
+          <span className="readout__label">Minutes</span>
           <span className="readout__counter" aria-label={`${minutes} minutes`}>
             {String(Math.min(99999, minutes)).padStart(5, '0').split('').map((d, i) => (
               <i key={i}>{d}</i>
