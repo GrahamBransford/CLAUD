@@ -2180,7 +2180,7 @@ h2 {
     inset 0 2px 5px rgba(0, 0, 0, 0.6),
     0 1px 3px rgba(0, 0, 0, 0.5);
 }
-/* two in each bottom corner of the deck, clear of the record */
+/* one in each bottom corner of the deck, clear of the record */
 .hifi__deck-btn {
   top: auto;
   bottom: 0.4cqw;
@@ -2191,16 +2191,9 @@ h2 {
 .hifi__deck-btn--bl1 {
   left: 1.2cqw;
 }
-.hifi__deck-btn--bl2 {
-  left: 12.4cqw;
-}
 .hifi__deck-btn--br1 {
   left: auto;
   right: 1.2cqw;
-}
-.hifi__deck-btn--br2 {
-  left: auto;
-  right: 12.4cqw;
 }
 .hifi__deck-lamp {
   position: absolute;

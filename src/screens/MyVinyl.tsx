@@ -91,18 +91,12 @@ export function MyVinyl({ active }: { active: boolean }) {
                 <I.Search size={18} />
               </span>
             </button>
-            {/* the deck's own buttons, two in each bottom corner */}
+            {/* the deck's own buttons: friends to the left of the record, live to the right */}
             <DeckButton at="bl1" label={`Friends: ${friendCount}${incoming ? `, ${incoming} new request` : ''}`} lamp={incoming > 0} onClick={() => open({ kind: 'friends' })}>
               <I.People size={19} />
             </DeckButton>
-            <DeckButton at="bl2" label="Live: shows and experiences" onClick={() => open({ kind: 'live' })}>
+            <DeckButton at="br1" label="Live: shows and experiences" onClick={() => open({ kind: 'live' })}>
               <I.Ticket size={19} />
-            </DeckButton>
-            <DeckButton at="br2" label="Edit profile" onClick={() => open({ kind: 'profile' })}>
-              <I.Edit size={18} />
-            </DeckButton>
-            <DeckButton at="br1" label="Settings" onClick={() => open({ kind: 'settings' })}>
-              <I.Knob size={20} />
             </DeckButton>
           </>
           }

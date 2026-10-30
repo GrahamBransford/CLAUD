@@ -87,9 +87,10 @@ export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: Rout
 
   return (
     <nav ref={nav} className="tabs" aria-label="CIRCA">
-      <span className="tabs__logo" aria-hidden>
+      {/* on the desktop rail the logo opens settings, as the C does on phones */}
+      <button className="tabs__logo" onClick={() => useUI.getState().openSheet({ kind: 'settings' })} aria-label="Settings">
         <Logo size="sm" />
-      </span>
+      </button>
       {TABS.map((id) => (
         <button
           key={id}
