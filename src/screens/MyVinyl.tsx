@@ -88,7 +88,6 @@ export function MyVinyl({ active }: { active: boolean }) {
               <span className="hifi__search-cap">
                 <I.Search size={18} />
               </span>
-              <span className="hifi__search-label" aria-hidden>Search</span>
             </button>
           }
           onMarker={(id) => open({ kind: 'creator', creatorId: id })}

@@ -2073,17 +2073,6 @@ h2 {
     color: var(--mustard);
   }
 }
-/* engraved into the deck, like the markings on a hi-fi */
-.hifi__search-label {
-  font-family: var(--display);
-  font-weight: 700;
-  font-stretch: 118%;
-  font-size: clamp(8.5px, 1.9cqw, 11px);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: rgba(246, 236, 216, 0.6);
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
-}
 /* open: the full search page, grown out of the button */
 .catalog {
   position: absolute;
