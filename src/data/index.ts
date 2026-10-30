@@ -1,4 +1,4 @@
-import type { ContentSet, Creator, Episode, InnerCirclePost, MediaSource, Signals, Song } from '../types'
+import type { ContentSet, Creator, Episode, InnerCirclePost, MediaSource, MeSeed, Person, Signals, Song } from '../types'
 
 /**
  * Content is loaded at runtime from public/content/<set>.json, so artists,
@@ -30,6 +30,9 @@ export let defaultFollows: string[] = []
 export let creatorById: Record<string, Creator> = {}
 export let songById: Record<string, Song> = {}
 export let episodeById: Record<string, Episode> = {}
+export let people: Person[] = []
+export let personById: Record<string, Person> = {}
+export let meSeed: MeSeed = { name: '', username: '', bio: '', location: '', avatar: '', socials: {}, experiences: [], favorites: [], friends: {} }
 
 const SET_KEY = 'circa-content-set'
 
@@ -103,6 +106,9 @@ export async function loadContent(): Promise<void> {
   creatorById = Object.fromEntries(creators.map((c) => [c.id, c]))
   songById = Object.fromEntries(songs.map((s) => [s.id, s]))
   episodeById = Object.fromEntries(episodes.map((e) => [e.id, e]))
+  people = (set.people ?? []).map((p) => ({ ...p, avatar: asset(p.avatar) }))
+  personById = Object.fromEntries(people.map((p) => [p.id, p]))
+  if (set.me) meSeed = { ...set.me, avatar: set.me.avatar ? asset(set.me.avatar) : '' }
 }
 
 export const workByCreator = (creatorId: string) => ({

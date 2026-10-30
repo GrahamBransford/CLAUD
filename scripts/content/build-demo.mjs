@@ -83,6 +83,14 @@ const listeningSeed = {
   halden: { plays: 1, minutes: 1 },
 }
 
+// Sample CIRCA listeners (fictional) and the demo user's starting profile.
+const social = read('content/demo/people.json')
+const people = social.people.map((p) => ({
+  ...p,
+  avatar: `media/people/${p.id}.jpg`,
+  experiences: p.experiences.map((x, i) => ({ id: `x-${p.id}-${i + 1}`, ...x })),
+}))
+
 const out = {
   version: 1,
   name: 'CIRCA original demo content',
@@ -94,6 +102,8 @@ const out = {
   innerCircle,
   listeningSeed,
   defaultFollows: cat.defaultFollows,
+  people,
+  me: social.me,
 }
 writeFileSync(new URL('public/content/demo.json', root), JSON.stringify(out, null, 1))
-console.log(`demo.json: ${creators.length} creators, ${songs.length} songs, ${episodes.length} episodes, ${innerCircle.length} posts`)
+console.log(`demo.json: ${creators.length} creators, ${songs.length} songs, ${episodes.length} episodes, ${innerCircle.length} posts, ${people.length} people`)

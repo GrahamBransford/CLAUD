@@ -1,10 +1,31 @@
-import { useEffect, useMemo, useRef } from 'react'
-import { brand } from '../config/brand'
-import { creatorById } from '../data'
-import { useUniverse } from '../hooks/useRelationship'
-import { formatTop, type Relationship } from '../lib/affinity'
-import { useStore } from '../store/useStore'
-import { useUI } from '../store/useUI'
+import { useEffect, useId, useMemo, useRef, type CSSProperties, type ReactNode, type RefObject } from 'react'
+import type { TierId } from '../lib/affinity'
+import * as I from './Icons'
+
+/**
+ * A record player seen from above. The record is someone's vinyl: their
+ * photo on the label, their creators set into the grooves by closeness
+ * (centre = closest), their live experiences etched in the run-out.
+ * Used for your own vinyl and for anyone else's.
+ */
+
+export interface Marker {
+  id: string
+  name: string
+  avatar: string
+  /** Simulated "top X%" of that creator's listeners: sets the radius. */
+  top: number
+  tier: TierId
+  /** Not followed: set back a little. */
+  faint?: boolean
+  /** Moved inward since the last visit. */
+  closer?: boolean
+  /** Seen live. */
+  live?: boolean
+  favorite?: boolean
+  /** On both your vinyl and theirs. */
+  shared?: boolean
+}
 
 /** Equal-width bands for each tier, log-scaled inside a band. Centre = top 0.1%. */
 const BANDS = [0.1, 1, 5, 20, 50, 100]
@@ -18,9 +39,13 @@ function bandRadius(top: number) {
 
 // Radii in % of the record's width (the record is 100 wide).
 const LABEL_R = 16.5 // paper label
+const PHOTO_R = 12.2 // the owner's photo, inside the label
 const RUNOUT_R = 20 // innermost groove
 const OUTER_R = 46 // outermost groove
 const ringR = (f: number) => RUNOUT_R + 1.5 + f * (OUTER_R - RUNOUT_R - 3)
+/** Track gaps sit on the tier boundaries: each band of the record is a tier. */
+const GAPS = BANDS.slice(1, -1).map((t) => ringR(bandRadius(t)))
+const SIZE: Record<TierId, number> = { top1: 15.5, inner: 14, devoted: 13, regular: 12, discovered: 12 }
 
 const hashAngle = (id: string) => {
   let h = 0
@@ -28,51 +53,33 @@ const hashAngle = (id: string) => {
   return (h % 360) * (Math.PI / 180)
 }
 
-interface Placed {
-  rel: Relationship
-  x: number
-  y: number
-  size: number
-  closer: boolean
-}
-
-function place(list: Relationship[], lastTop: Record<string, number>): Placed[] {
-  const out: Placed[] = []
-  for (const rel of list) {
-    const r = ringR(bandRadius(rel.top))
-    let a = hashAngle(rel.creatorId)
+function place(list: Marker[]) {
+  const out: (Marker & { x: number; y: number; size: number })[] = []
+  for (const m of [...list].sort((a, b) => a.top - b.top)) {
+    const r = ringR(bandRadius(m.top))
+    let a = hashAngle(m.id)
     for (let k = 0; k < 36; k++) {
       const x = 50 + Math.cos(a) * r
       const y = 50 + Math.sin(a) * r
       if (out.every((o) => Math.hypot(o.x - x, o.y - y) > 14)) break
       a += 0.61
     }
-    const prev = lastTop[rel.creatorId]
-    out.push({
-      rel,
-      x: 50 + Math.cos(a) * r,
-      y: 50 + Math.sin(a) * r,
-      size: rel.tier.id === 'top1' ? 15.5 : rel.tier.id === 'inner' ? 14 : rel.tier.id === 'devoted' ? 13 : 12,
-      closer: !!prev && prev - rel.top > 0.05,
-    })
+    out.push({ ...m, x: 50 + Math.cos(a) * r, y: 50 + Math.sin(a) * r, size: SIZE[m.tier] })
   }
   return out
 }
 
-/** Track gaps sit on the tier boundaries: each band of the record is a tier. */
-const GAPS = BANDS.slice(1, -1).map((t) => ringR(bandRadius(t)))
-
 // One revolution every 40 s: slow enough that faces stay readable.
 const DEG_PER_S = 9
 // Tonearm angles (deg) about its pivot: resting on its post, and in the lead-in groove.
-const ARM_REST = -13
-const ARM_PLAY = 2.5
+const ARM_REST = -7
+const ARM_PLAY = 2
 
 /**
  * Turns the platter with some mass: it spins up, coasts down, and the angle
  * carries over between visits. Writes --rot on the deck; CSS does the rest.
  */
-function usePlatter(deck: React.RefObject<HTMLDivElement | null>, spinning: boolean) {
+function usePlatter(deck: RefObject<HTMLDivElement | null>, spinning: boolean) {
   const angle = useRef(-24)
   const speed = useRef(0)
   const want = useRef(spinning)
@@ -102,91 +109,91 @@ function usePlatter(deck: React.RefObject<HTMLDivElement | null>, spinning: bool
   useEffect(() => () => cancelAnimationFrame(raf.current), [])
 }
 
-/** Your record: everyone you listen to, set into the grooves by how close you are. */
-export function YourRecord({ active }: { active: boolean }) {
-  const all = useUniverse()
-  const lastTop = useStore((s) => s.lastTop)
-  const setLastTop = useStore((s) => s.setLastTop)
-  const sheet = useUI((s) => s.sheet)
-  const placed = useMemo(() => place(all, lastTop), [all, lastTop])
+interface Props {
+  markers: Marker[]
+  /** The owner: photo on the label, name printed round it. */
+  owner: { name: string; avatar: string }
+  /** Etched into the run-out groove. */
+  etching?: string
+  spinning: boolean
+  onMarker: (id: string) => void
+  /** The nameplate: who this is, set into the plinth. */
+  children?: ReactNode
+  className?: string
+}
+
+export function Turntable({ markers, owner, etching, spinning, onMarker, children, className }: Props) {
+  const placed = useMemo(() => place(markers), [markers])
   const deck = useRef<HTMLDivElement>(null)
-  const spinning = active && !sheet
   usePlatter(deck, spinning)
-
-  // When you leave, remember where everyone was, so moving closer is visible next time.
-  const latest = useRef(all)
-  useEffect(() => {
-    latest.current = all
-  }, [all])
-  useEffect(() => {
-    if (!active) setLastTop(Object.fromEntries(latest.current.map((r) => [r.creatorId, r.top])))
-  }, [active, setLastTop])
-
   return (
-    <section className="screen screen--record" aria-label={brand.home.label}>
-      <div ref={deck} className={`hifi ${spinning ? 'is-spinning' : ''}`} style={{ '--arm': `${spinning ? ARM_PLAY : ARM_REST}deg` } as React.CSSProperties}>
-        <div className="hifi__plate" aria-hidden />
+    <div
+      ref={deck}
+      className={`hifi ${spinning ? 'is-spinning' : ''} ${className ?? ''}`}
+      style={{ '--arm': `${spinning ? ARM_PLAY : ARM_REST}deg` } as CSSProperties}
+    >
+      <div className="hifi__stage">
         <div className="hifi__platter" aria-hidden />
-
         <div className="hifi__record">
           <div className="hifi__turn" aria-hidden>
-            <Disc />
+            <Disc owner={owner} etching={etching} />
           </div>
           <div className="hifi__sheen" aria-hidden />
           <div className="hifi__turn hifi__faces">
-            {placed.map((p) => {
-              const c = creatorById[p.rel.creatorId]
-              return (
-                <button
-                  key={p.rel.creatorId}
-                  className={`face-marker ${p.rel.followed ? '' : 'is-faint'} ${p.rel.tier.id === 'top1' ? 'is-centre' : ''}`}
-                  style={{ left: `${p.x}%`, top: `${p.y}%`, width: `${p.size}%` }}
-                  onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: p.rel.creatorId })}
-                  aria-label={`${c?.name}, ${formatTop(p.rel.top)} of listeners`}
-                >
-                  <span className="face-marker__upright">
-                    <img src={c?.avatar} alt="" draggable={false} />
-                    {p.closer && <i className="face-marker__closer" aria-hidden />}
-                  </span>
-                </button>
-              )
-            })}
+            {placed.map((p) => (
+              <button
+                key={p.id}
+                className={`face-marker ${p.faint ? 'is-faint' : ''} ${p.tier === 'top1' ? 'is-centre' : ''} ${p.shared ? 'is-shared' : ''}`}
+                style={{ left: `${p.x}%`, top: `${p.y}%`, width: `${p.size}%` }}
+                onClick={() => onMarker(p.id)}
+                aria-label={p.name}
+              >
+                <span className="face-marker__upright">
+                  <img src={p.avatar} alt="" draggable={false} />
+                  {p.closer && <i className="face-marker__closer" aria-hidden />}
+                  {p.live && <i className="face-marker__pip face-marker__pip--live" aria-hidden><I.Ticket /></i>}
+                  {p.favorite && <i className="face-marker__pip face-marker__pip--fav" aria-hidden><I.Spark on /></i>}
+                  <span className="face-marker__name" aria-hidden>{p.name}</span>
+                </span>
+              </button>
+            ))}
           </div>
           <span className="hifi__spindle" aria-hidden />
         </div>
-
         <span className="hifi__rest" aria-hidden />
         <span className="hifi__base" aria-hidden />
         <Tonearm />
-
-        <button className="hifi__knob" onClick={() => useUI.getState().openSheet({ kind: 'settings' })} aria-label="Settings">
-          <span />
-        </button>
-        <span className="hifi__lamp" aria-hidden />
       </div>
-    </section>
+      {children && <div className="hifi__nameplate">{children}</div>}
+    </div>
   )
 }
 
-/** The pressing: grooves, track gaps on the tier boundaries, run-out, and the label. */
-function Disc() {
+/** The pressing: grooves, track gaps on the tier boundaries, run-out etching, and the label. */
+function Disc({ owner, etching }: { owner: Props['owner']; etching?: string }) {
+  const id = useId().replace(/:/g, '')
+  const ring = (r: number) => `M 50 ${50 - r} a ${r} ${r} 0 1 1 0 ${2 * r} a ${r} ${r} 0 1 1 0 ${-2 * r}`
   return (
     <svg className="hifi__disc" viewBox="0 0 100 100">
       <defs>
-        <radialGradient id="vinyl-body" cx="50%" cy="50%" r="50%">
+        <radialGradient id={`vb-${id}`} cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#1d1b20" />
           <stop offset="60%" stopColor="#111013" />
           <stop offset="97%" stopColor="#0a090b" />
           <stop offset="100%" stopColor="#1a191c" />
         </radialGradient>
-        <radialGradient id="label-paper" cx="42%" cy="38%" r="70%">
+        <radialGradient id={`lp-${id}`} cx="42%" cy="38%" r="70%">
           <stop offset="0%" stopColor="#d3283b" />
           <stop offset="100%" stopColor="#a8192b" />
         </radialGradient>
-        <path id="label-arc-top" d="M 37.2 50 A 12.8 12.8 0 0 1 62.8 50" />
-        <path id="label-arc-bottom" d="M 36 50 A 14 14 0 0 0 64 50" />
+        <clipPath id={`ph-${id}`}>
+          <circle cx="50" cy="50" r={PHOTO_R} />
+        </clipPath>
+        <path id={`top-${id}`} d={`M ${50 - 14.3} 50 A 14.3 14.3 0 0 1 ${50 + 14.3} 50`} />
+        <path id={`bot-${id}`} d={`M ${50 - 15.4} 50 A 15.4 15.4 0 0 0 ${50 + 15.4} 50`} />
+        <path id={`etch-${id}`} d={ring(18.2)} />
       </defs>
-      <circle cx="50" cy="50" r="50" fill="url(#vinyl-body)" />
+      <circle cx="50" cy="50" r="50" fill={`url(#vb-${id})`} />
       {/* the lead-in edge catches a little light */}
       <circle cx="50" cy="50" r="49.7" fill="none" stroke="#fff" strokeOpacity=".14" strokeWidth=".25" />
       <circle cx="50" cy="50" r={OUTER_R + 1.4} fill="none" stroke="#050506" strokeWidth="2.2" />
@@ -202,54 +209,61 @@ function Disc() {
           <circle cx="50" cy="50" r={r + 0.55} fill="none" stroke="#fff" strokeOpacity=".09" strokeWidth=".12" />
         </g>
       ))}
-      {/* run-out and lock groove */}
+      {/* run-out, with what this person has lived etched into it */}
       <circle cx="50" cy="50" r={(RUNOUT_R + LABEL_R) / 2} fill="none" stroke="#0b0a0c" strokeWidth={RUNOUT_R - LABEL_R} />
-      <circle cx="50" cy="50" r={LABEL_R + 1.4} fill="none" stroke="#fff" strokeOpacity=".07" strokeWidth=".15" />
-      {/* the label */}
-      <circle cx="50" cy="50" r={LABEL_R} fill="url(#label-paper)" />
-      <circle cx="50" cy="50" r={LABEL_R - 1.1} fill="none" stroke="var(--mustard)" strokeOpacity=".85" strokeWidth=".22" />
-      <circle cx="50" cy="50" r={LABEL_R - 1.6} fill="none" stroke="var(--mustard)" strokeOpacity=".5" strokeWidth=".1" />
-      <text className="hifi__wordmark" x="50" y="46.2" textAnchor="middle">{brand.name.toUpperCase()}</text>
-      <line x1="44" x2="56" y1="47.6" y2="47.6" stroke="var(--mustard)" strokeWidth=".14" strokeOpacity=".8" />
-      <text className="hifi__print" x="50" y="58" textAnchor="middle">SIDE A</text>
-      <text className="hifi__print hifi__print--arc">
-        <textPath href="#label-arc-bottom" startOffset="50%" textAnchor="middle">HIGH FIDELITY · LONG PLAYING</textPath>
+      {etching && (
+        <text className="hifi__etching">
+          <textPath href={`#etch-${id}`}>{etching}</textPath>
+        </text>
+      )}
+      {/* the label: the owner's photo in a printed ring */}
+      <circle cx="50" cy="50" r={LABEL_R} fill={`url(#lp-${id})`} />
+      <circle cx="50" cy="50" r={LABEL_R - 0.5} fill="none" stroke="var(--mustard)" strokeOpacity=".85" strokeWidth=".2" />
+      <text className="hifi__print">
+        <textPath href={`#top-${id}`} startOffset="50%" textAnchor="middle">{owner.name.toUpperCase()}</textPath>
       </text>
-      <text className="hifi__print hifi__print--arc">
-        <textPath href="#label-arc-top" startOffset="50%" textAnchor="middle">33⅓</textPath>
+      <text className="hifi__print hifi__print--small">
+        <textPath href={`#bot-${id}`} startOffset="50%" textAnchor="middle">CIRCA · SIDE A · 33⅓</textPath>
       </text>
+      {owner.avatar ? (
+        <image href={owner.avatar} x={50 - PHOTO_R} y={50 - PHOTO_R} width={PHOTO_R * 2} height={PHOTO_R * 2} clipPath={`url(#ph-${id})`} preserveAspectRatio="xMidYMid slice" />
+      ) : (
+        <circle cx="50" cy="50" r={PHOTO_R} fill="var(--cherry-deep)" />
+      )}
+      <circle cx="50" cy="50" r={PHOTO_R} fill="none" stroke="var(--mustard)" strokeWidth=".35" />
     </svg>
   )
 }
 
 /**
- * The arm, drawn hanging straight down from its pivot (0,0) in deck units
- * (1 unit = 1% of the deck's width). Counterweight above, headshell below.
+ * The arm, drawn hanging straight down from its pivot (0,0) in stage units
+ * (1 unit = 1% of the stage's width). Counterweight above, headshell below.
  */
 function Tonearm() {
+  const id = useId().replace(/:/g, '')
   return (
     <svg className="hifi__arm" viewBox="-10 -16 20 70" aria-hidden>
       <defs>
-        <linearGradient id="arm-chrome" x1="0" x2="1" y1="0" y2="0">
+        <linearGradient id={`ch-${id}`} x1="0" x2="1" y1="0" y2="0">
           <stop offset="0" stopColor="#6d6f75" />
           <stop offset=".3" stopColor="#f4f4f2" />
           <stop offset=".55" stopColor="#b9bbc0" />
           <stop offset="1" stopColor="#575960" />
         </linearGradient>
-        <radialGradient id="arm-cap" cx="38%" cy="34%" r="70%">
+        <radialGradient id={`cap-${id}`} cx="38%" cy="34%" r="70%">
           <stop offset="0" stopColor="#ffffff" />
           <stop offset=".45" stopColor="#c7c9cd" />
           <stop offset="1" stopColor="#5b5d63" />
         </radialGradient>
-        <linearGradient id="cart" x1="0" x2="1">
+        <linearGradient id={`ct-${id}`} x1="0" x2="1">
           <stop offset="0" stopColor="#8f1424" />
           <stop offset=".35" stopColor="#d9334a" />
           <stop offset="1" stopColor="#8f1424" />
         </linearGradient>
       </defs>
       {/* counterweight: a knurled drum */}
-      <rect x="-1.1" y="-7" width="2.2" height="6" fill="url(#arm-chrome)" />
-      <rect x="-2.9" y="-14.2" width="5.8" height="7.4" rx=".9" fill="url(#arm-chrome)" />
+      <rect x="-1.1" y="-7" width="2.2" height="6" fill={`url(#ch-${id})`} />
+      <rect x="-2.9" y="-14.2" width="5.8" height="7.4" rx=".9" fill={`url(#ch-${id})`} />
       {Array.from({ length: 9 }, (_, k) => (
         <line key={k} x1="-2.9" x2="2.9" y1={-13.4 + k * 0.72} y2={-13.4 + k * 0.72} stroke="#3a3b40" strokeOpacity=".45" strokeWidth=".12" />
       ))}
@@ -260,15 +274,15 @@ function Tonearm() {
       <path d="M-.28 1 L-.28 37.4 Q-.3 41 -1.75 43.2" fill="none" stroke="#fff" strokeOpacity=".9" strokeWidth=".32" strokeLinecap="round" />
       {/* gimbal and pivot cap */}
       <circle r="3.3" fill="#1d1b1e" />
-      <circle r="2.6" fill="url(#arm-cap)" />
+      <circle r="2.6" fill={`url(#cap-${id})`} />
       <circle r=".7" fill="#2a2a2e" />
       {/* headshell, cartridge and stylus */}
       <g transform="translate(-1.6 44) rotate(26.6)">
-        <rect x="-.95" y="-.6" width="1.9" height="1.4" rx=".3" fill="url(#arm-chrome)" />
+        <rect x="-.95" y="-.6" width="1.9" height="1.4" rx=".3" fill={`url(#ch-${id})`} />
         <path d="M1.4 1.2 Q3.3 1.1 3.7 -.4" fill="none" stroke="#c9cbcf" strokeWidth=".5" strokeLinecap="round" />
         <rect x="-1.55" y=".5" width="3.1" height="5.8" rx=".45" fill="#1b191c" />
         <rect x="-1.55" y=".5" width="3.1" height=".5" rx=".25" fill="#fff" fillOpacity=".18" />
-        <rect x="-1.12" y="2" width="2.24" height="4" rx=".3" fill="url(#cart)" />
+        <rect x="-1.12" y="2" width="2.24" height="4" rx=".3" fill={`url(#ct-${id})`} />
         <rect x="-1.12" y="5.4" width="2.24" height=".35" fill="var(--mustard)" />
         <path d="M-.35 6 L.35 6 L0 6.6 Z" fill="#e9e5dc" />
       </g>

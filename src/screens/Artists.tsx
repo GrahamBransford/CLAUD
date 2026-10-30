@@ -1,5 +1,5 @@
 import { AnimatePresence } from 'framer-motion'
-import { Heart, X } from 'lucide-react'
+import * as I from '../components/Icons'
 import { useCallback, useRef, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { MediaSurface } from '../components/MediaSurface'
@@ -130,7 +130,7 @@ export function Artists({ active }: { active: boolean }) {
 
   useKeys(active && !!song, {
     ArrowRight: () => onMove('save'),
-    ArrowLeft: () => onMove('pass'),
+    ArrowLeft: () => onMove('skip'),
     ArrowDown: () => onMove('next'),
     ArrowUp: () => index > 0 && onMove('prev'),
     ' ': pb.toggle,
@@ -140,7 +140,7 @@ export function Artists({ active }: { active: boolean }) {
     active && !!song,
     song && creator
       ? { title: song.title, artist: creator.name, album: song.release, artwork: song.artwork,
-          onPlay: pb.play, onPause: pb.pause, onNext: () => onMove('pass'), onPrevious: () => index > 0 && onMove('prev') }
+          onPlay: pb.play, onPause: pb.pause, onNext: () => onMove('skip'), onPrevious: () => index > 0 && onMove('prev') }
       : null,
   )
 
@@ -177,10 +177,10 @@ export function Artists({ active }: { active: boolean }) {
 
       <div className="rail">
         <button className={`rail__btn rail__btn--save ${isSaved ? 'is-on' : ''}`} onClick={() => onMove('save')} aria-label="Save">
-          <Heart size={26} strokeWidth={2} fill={isSaved ? 'currentColor' : 'none'} />
+          <I.Save size={27} on={isSaved} />
         </button>
-        <button className="rail__btn" onClick={() => onMove('pass')} aria-label="Pass">
-          <X size={26} strokeWidth={2} />
+        <button className="rail__btn" onClick={() => onMove('skip')} aria-label="Skip">
+          <I.Skip size={24} />
         </button>
       </div>
 

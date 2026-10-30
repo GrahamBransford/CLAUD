@@ -2,7 +2,7 @@ import { motion, useMotionValue, useTransform, type PanInfo, type Variants } fro
 import { useRef, type ReactNode } from 'react'
 
 /** How the current item left: judged sideways, or browsed vertically. */
-export type Move = 'save' | 'pass' | 'next' | 'prev'
+export type Move = 'save' | 'skip' | 'next' | 'prev'
 
 const EASE = [0.22, 0.7, 0.18, 1] as const
 const T = { duration: 0.34, ease: EASE }
@@ -14,7 +14,7 @@ const variants: Variants = {
   exit: (m: Move) =>
     m === 'save'
       ? { x: '115%', rotate: 5, transition: T }
-      : m === 'pass'
+      : m === 'skip'
         ? { x: '-115%', rotate: -5, transition: T }
         : m === 'next'
           ? { y: '-100%', transition: T }
@@ -35,20 +35,20 @@ const Y = 80
 
 /**
  * One full-screen item. Drag locks to the first direction you move in:
- * sideways judges (right = SAVE, left = PASS), up/down browses.
+ * sideways judges (right = SAVE, left = SKIP), up/down browses.
  */
 export function Reel({ move, onMove, onTap, canPrev, children, className }: Props) {
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const axis = useRef<'x' | 'y' | null>(null)
   const save = useTransform(x, [16, X], [0, 1])
-  const pass = useTransform(x, [-X, -16], [1, 0])
+  const skip = useTransform(x, [-X, -16], [1, 0])
   const tilt = useTransform(x, [-400, 400], [-4, 4])
 
   const end = (_: unknown, i: PanInfo) => {
     if (axis.current === 'x') {
       if (i.offset.x > X || i.velocity.x > 650) onMove('save')
-      else if (i.offset.x < -X || i.velocity.x < -650) onMove('pass')
+      else if (i.offset.x < -X || i.velocity.x < -650) onMove('skip')
     } else if (axis.current === 'y') {
       if (i.offset.y < -Y || i.velocity.y < -550) onMove('next')
       else if ((i.offset.y > Y || i.velocity.y > 550) && canPrev) onMove('prev')
@@ -79,7 +79,7 @@ export function Reel({ move, onMove, onTap, canPrev, children, className }: Prop
     >
       {children}
       <motion.span className="verdict verdict--save" style={{ opacity: save }} aria-hidden>SAVE</motion.span>
-      <motion.span className="verdict verdict--pass" style={{ opacity: pass }} aria-hidden>PASS</motion.span>
+      <motion.span className="verdict verdict--skip" style={{ opacity: skip }} aria-hidden>SKIP</motion.span>
     </motion.div>
   )
 }

@@ -7,7 +7,7 @@ export const brand = {
   tagline: 'Radio, re-tuned.',
   promise: 'You discover someone at the edge. You listen, you return, you move closer to the centre.',
   description: 'A new kind of radio for music, conversations and the people who make them.',
-  home: { label: 'Your Record', kicker: 'Your circle of creators' },
+  vinyl: { label: 'My Vinyl', kicker: 'Your taste, pressed into a record' },
   stations: {
     artists: { label: 'Artists', frequency: '88.1', kicker: 'Music' },
     podcasts: { label: 'Podcasts', frequency: '94.5', kicker: 'Conversations' },
@@ -16,6 +16,7 @@ export const brand = {
 } as const
 
 export type StationId = keyof typeof brand.stations
-export type RouteId = 'home' | StationId
+export type RouteId = StationId | 'vinyl'
 export const STATION_ORDER: StationId[] = ['artists', 'podcasts', 'inner-circle']
-export const ROUTES: RouteId[] = ['home', ...STATION_ORDER]
+/** The bottom bar, left to right: three ways in, then you. */
+export const ROUTES: RouteId[] = [...STATION_ORDER, 'vinyl']

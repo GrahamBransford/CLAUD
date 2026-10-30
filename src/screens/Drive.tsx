@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Bookmark, Heart, Pause, Play, SkipForward, X } from 'lucide-react'
+import * as I from '../components/Icons'
 import { useCallback, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { MediaSurface } from '../components/MediaSurface'
@@ -39,7 +39,7 @@ export function Drive({ initial }: { initial: Station }) {
           ))}
         </div>
         <button className="drive__exit" onClick={() => useUI.getState().setDrive(false)} aria-label="Exit drive mode">
-          <X size={30} />
+          <I.Close size={30} />
         </button>
       </header>
       <DrivePlayer key={station} station={station} />
@@ -176,15 +176,15 @@ function DrivePlayer({ station }: { station: 'artists' | 'podcasts' }) {
       </div>
 
       <div className="drive__controls">
-        <button className="drive__btn" onClick={skip} aria-label="Pass">
-          {station === 'artists' ? <X size={44} /> : <SkipForward size={40} />}
-          <span>Pass</span>
+        <button className="drive__btn" onClick={skip} aria-label="Skip">
+          <I.Skip size={40} />
+          <span>Skip</span>
         </button>
         <button className="drive__btn drive__btn--play" onClick={pb.toggle} aria-label={pb.playing ? 'Pause' : 'Play'}>
-          {pb.playing ? <Pause size={52} fill="currentColor" /> : <Play size={52} fill="currentColor" />}
+          {pb.playing ? <I.Pause size={54} /> : <I.Play size={54} />}
         </button>
         <button className={`drive__btn ${isSaved ? 'is-on' : ''}`} onClick={keep} aria-label="Save">
-          {station === 'artists' ? <Heart size={40} fill={isSaved ? 'currentColor' : 'none'} /> : <Bookmark size={40} fill={isSaved ? 'currentColor' : 'none'} />}
+          <I.Save size={42} on={isSaved} />
           <span>{isSaved ? 'Saved' : 'Save'}</span>
         </button>
       </div>

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Bookmark, ChevronDown, Pause, Play, RotateCcw, RotateCw } from 'lucide-react'
+import * as I from '../components/Icons'
 import { useEffect, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { MediaSurface } from '../components/MediaSurface'
@@ -97,9 +97,9 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
       exit={{ y: '100%', transition: { duration: 0.3, ease: [0.4, 0, 0.7, 0.2] } }}
     >
       <div className="episode__bar">
-        <button className="icon-btn" onClick={close} aria-label="Close full episode"><ChevronDown size={26} /></button>
+        <button className="icon-btn" onClick={close} aria-label="Close full episode"><I.Down size={26} /></button>
         <button className={`icon-btn ${saved ? 'is-on' : ''}`} onClick={() => saveEpisode(ep, 'button', true)} aria-label={saved ? 'Saved' : 'Save episode'} aria-pressed={saved}>
-          <Bookmark size={22} fill={saved ? 'currentColor' : 'none'} />
+          <I.Save size={24} on={saved} />
         </button>
       </div>
 
@@ -130,11 +130,11 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
           tone="dark"
         />
         <div className="episode__controls">
-          <button className="icon-btn icon-btn--lg" onClick={() => pb.seek(pb.time - 15)} aria-label="Back 15 seconds"><RotateCcw size={24} /></button>
+          <button className="icon-btn icon-btn--lg" onClick={() => pb.seek(pb.time - 15)} aria-label="Back 15 seconds"><I.Rewind size={26} by={15} /></button>
           <button className="play-btn" onClick={pb.toggle} aria-label={pb.playing ? 'Pause' : 'Play'}>
-            {pb.playing ? <Pause size={30} fill="currentColor" /> : <Play size={30} fill="currentColor" />}
+            {pb.playing ? <I.Pause size={30} /> : <I.Play size={30} />}
           </button>
-          <button className="icon-btn icon-btn--lg" onClick={() => pb.seek(pb.time + 30)} aria-label="Forward 30 seconds"><RotateCw size={24} /></button>
+          <button className="icon-btn icon-btn--lg" onClick={() => pb.seek(pb.time + 30)} aria-label="Forward 30 seconds"><I.Wind size={26} by={30} /></button>
         </div>
       </div>
     </motion.div>

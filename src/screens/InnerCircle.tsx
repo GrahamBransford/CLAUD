@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, type PanInfo } from 'framer-motion'
-import { Heart, Plus } from 'lucide-react'
+import * as I from '../components/Icons'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
@@ -168,14 +168,14 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
           </button>
           <button className="moment__name" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: c.id })}>{c.name}</button>
           {!following && (
-            <button className="moment__follow" onClick={() => follow(c.id)} aria-label={`Follow ${c.name}`}><Plus size={14} strokeWidth={3} /></button>
+            <button className="moment__follow" onClick={() => follow(c.id)} aria-label={`Follow ${c.name}`}><I.Plus size={15} /></button>
           )}
         </div>
         <p className="moment__caption">{post.caption}</p>
       </div>
       <div className="rail rail--ic">
         <button className={`rail__btn rail__btn--save ${reacted ? 'is-on' : ''}`} onClick={() => toggleReaction(post.id, post.creatorId)} aria-label="Send love" aria-pressed={reacted}>
-          <Heart size={26} strokeWidth={2} fill={reacted ? 'currentColor' : 'none'} />
+          <I.Love size={26} on={reacted} />
         </button>
       </div>
     </motion.div>
@@ -197,7 +197,7 @@ function CaughtUp({ empty, onRestart }: { empty: boolean; onRestart: () => void 
             <button key={c.id} className="face" onClick={() => follow(c.id)} aria-label={`Follow ${c.name}`}>
               <img src={c.avatar} alt="" />
               <span>{c.name}</span>
-              <i><Plus size={12} strokeWidth={3} /></i>
+              <i><I.Plus size={13} /></i>
             </button>
           ))}
         </div>

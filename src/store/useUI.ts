@@ -8,7 +8,13 @@ export interface Toast {
   action?: { label: string; run: () => void }
 }
 
-export type Sheet = { kind: 'creator'; creatorId: string } | { kind: 'settings' } | null
+export type Sheet =
+  | { kind: 'creator'; creatorId: string }
+  | { kind: 'settings' }
+  | { kind: 'profile' }
+  | { kind: 'live' }
+  | { kind: 'friends' }
+  | null
 
 export interface FullEpisodeRequest {
   episodeId: string
@@ -22,6 +28,8 @@ interface UIState {
   sheet: Sheet
   fullEpisode: FullEpisodeRequest | null
   drive: boolean
+  /** Someone else's vinyl, open full-screen. */
+  person: string | null
   /**
    * Video starts muted (browsers allow that without a gesture); the first
    * touch anywhere turns sound on, like Instagram.
@@ -33,6 +41,7 @@ interface UIState {
   openSheet: (s: Sheet) => void
   openFullEpisode: (r: FullEpisodeRequest | null) => void
   setDrive: (on: boolean) => void
+  openPerson: (id: string | null) => void
   unlockAudio: () => void
 }
 
@@ -43,6 +52,7 @@ export const useUI = create<UIState>()((set, get) => ({
   sheet: null,
   fullEpisode: null,
   drive: false,
+  person: null,
   audioUnlocked: false,
   unlockedAt: 0,
   pushToast: (t) => {
@@ -54,6 +64,7 @@ export const useUI = create<UIState>()((set, get) => ({
   openSheet: (sheet) => set({ sheet }),
   openFullEpisode: (fullEpisode) => set({ fullEpisode }),
   setDrive: (drive) => set({ drive }),
+  openPerson: (person) => set({ person, sheet: null }),
   unlockAudio: () => {
     if (!get().audioUnlocked) set({ audioUnlocked: true, unlockedAt: Date.now() })
   },

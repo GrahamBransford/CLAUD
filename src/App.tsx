@@ -2,6 +2,8 @@ import { AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { TabBar } from './components/Chrome'
 import { CreatorSheet } from './components/CreatorSheet'
+import { FriendsSheet, LiveSheet, ProfileSheet } from './components/IdentitySheets'
+import { PersonVinyl } from './components/PersonVinyl'
 import { Splash } from './components/Logo'
 import { SettingsSheet } from './components/SettingsSheet'
 import { Toasts } from './components/Toasts'
@@ -11,12 +13,13 @@ import { Drive } from './screens/Drive'
 import { FullEpisode } from './screens/FullEpisode'
 import { InnerCircle } from './screens/InnerCircle'
 import { Podcasts } from './screens/Podcasts'
-import { YourRecord } from './screens/YourRecord'
+import { MyVinyl } from './screens/MyVinyl'
 import { useUI } from './store/useUI'
 
 const fromHash = (): RouteId => {
-  const h = window.location.hash.replace('#', '') as RouteId
-  return ROUTES.includes(h) ? h : 'artists'
+  const h = window.location.hash.replace('#', '')
+  if (h === 'home') return 'vinyl' // earlier links
+  return ROUTES.includes(h as RouteId) ? (h as RouteId) : 'artists'
 }
 
 export default function App() {
@@ -25,6 +28,7 @@ export default function App() {
   const sheet = useUI((s) => s.sheet)
   const fullEpisode = useUI((s) => s.fullEpisode)
   const drive = useUI((s) => s.drive)
+  const person = useUI((s) => s.person)
   const unlockAudio = useUI((s) => s.unlockAudio)
 
   useEffect(() => {
@@ -45,30 +49,35 @@ export default function App() {
   }, [unlockAudio])
 
   const go = (r: RouteId) => {
+    useUI.getState().openPerson(null)
     if (window.location.hash !== `#${r}`) window.history.replaceState(null, '', `#${r}`)
     setRoute(r)
   }
 
-  const overlay = !!fullEpisode || drive || splash
+  const overlay = !!fullEpisode || drive || splash || !!person
   const isActive = (r: RouteId) => route === r && !overlay
 
   return (
     <div className="app" data-route={route}>
       <main className="stage">
-        {(['artists', 'podcasts', 'inner-circle', 'home'] as RouteId[]).map((r) => (
+        {ROUTES.map((r) => (
           <div key={r} className="view" data-active={route === r ? '' : undefined} aria-hidden={route !== r}>
             {r === 'artists' && <Artists active={isActive('artists')} />}
             {r === 'podcasts' && <Podcasts active={isActive('podcasts')} />}
             {r === 'inner-circle' && <InnerCircle active={isActive('inner-circle')} />}
-            {r === 'home' && <YourRecord active={isActive('home')} />}
+            {r === 'vinyl' && <MyVinyl active={isActive('vinyl')} />}
           </div>
         ))}
       </main>
       <TabBar route={route} onChange={go} />
 
+      <AnimatePresence>{person && <PersonVinyl key={person} id={person} />}</AnimatePresence>
       <AnimatePresence>
         {sheet?.kind === 'creator' && <CreatorSheet key={`c-${sheet.creatorId}`} creatorId={sheet.creatorId} />}
         {sheet?.kind === 'settings' && <SettingsSheet key="settings" />}
+        {sheet?.kind === 'profile' && <ProfileSheet key="profile" />}
+        {sheet?.kind === 'live' && <LiveSheet key="live" />}
+        {sheet?.kind === 'friends' && <FriendsSheet key="friends" />}
       </AnimatePresence>
       <AnimatePresence>
         {fullEpisode && <FullEpisode key={`${fullEpisode.episodeId}-${fullEpisode.startAt}`} request={fullEpisode} />}

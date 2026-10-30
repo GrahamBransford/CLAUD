@@ -5436,5 +5436,429 @@
   "teodora-blue",
   "long-way-round",
   "small-machines"
- ]
+ ],
+ "people": [
+  {
+   "id": "maya-chen",
+   "name": "Maya Chen",
+   "username": "mayahears",
+   "location": "Brooklyn, NY",
+   "bio": "Collects B-sides. Will talk your ear off about bass tone.",
+   "palette": [
+    "#C9A25A",
+    "#2F4858",
+    "#E8D9BE",
+    "#3B2A22"
+   ],
+   "hair": "bob",
+   "skin": "#E4B48C",
+   "socials": {
+    "instagram": "mayahears"
+   },
+   "points": {
+    "juniper-vale": 980,
+    "teodora-blue": 340,
+    "long-way-round": 410,
+    "liner-notes": 120,
+    "halden": 60,
+    "cass-ferro": 30
+   },
+   "experiences": [
+    {
+     "id": "x-maya-chen-1",
+     "kind": "concert",
+     "creatorId": "juniper-vale",
+     "title": "Juniper Vale",
+     "place": "Music Hall of Williamsburg",
+     "year": 2025
+    },
+    {
+     "id": "x-maya-chen-2",
+     "kind": "concert",
+     "creatorId": "teodora-blue",
+     "title": "Teodora Blue",
+     "place": "Bowery Ballroom",
+     "year": 2024
+    }
+   ],
+   "friends": [
+    "jonah-bell",
+    "rosa-lindqvist",
+    "sofia-reyes"
+   ],
+   "recent": [
+    "Saw Teodora Blue live",
+    "Added Liner Notes to their vinyl"
+   ],
+   "avatar": "media/people/maya-chen.jpg"
+  },
+  {
+   "id": "theo-okafor",
+   "name": "Theo Okafor",
+   "username": "theo.oka",
+   "location": "London",
+   "bio": "Highlife, jazz, and every liner note ever printed.",
+   "palette": [
+    "#3E6B5A",
+    "#F2B42C",
+    "#EAD9B8",
+    "#1E1B18"
+   ],
+   "hair": "short",
+   "skin": "#7A4A2E",
+   "socials": {
+    "instagram": "theo.oka"
+   },
+   "points": {
+    "yemi-daybreak": 1200,
+    "cass-ferro": 520,
+    "liner-notes": 640,
+    "juniper-vale": 140,
+    "kitchen-table": 90
+   },
+   "experiences": [
+    {
+     "id": "x-theo-okafor-1",
+     "kind": "festival",
+     "creatorId": "yemi-daybreak",
+     "title": "Yemi & the Daybreak at Lagos Live",
+     "place": "Lagos",
+     "year": 2024
+    },
+    {
+     "id": "x-theo-okafor-2",
+     "kind": "concert",
+     "creatorId": "cass-ferro",
+     "title": "Cass Ferro Trio",
+     "place": "Ronnie Scott's",
+     "year": 2025
+    }
+   ],
+   "friends": [
+    "jonah-bell",
+    "amara-diallo"
+   ],
+   "recent": [
+    "Followed Cass Ferro Trio for five years"
+   ],
+   "avatar": "media/people/theo-okafor.jpg"
+  },
+  {
+   "id": "sofia-reyes",
+   "name": "Sofía Reyes",
+   "username": "sofiaonrecord",
+   "location": "Mexico City",
+   "bio": "Synths at sunrise. Podcasts about how things are made.",
+   "palette": [
+    "#C2563A",
+    "#F4D9A6",
+    "#2C3E50",
+    "#1B1412"
+   ],
+   "hair": "long",
+   "skin": "#C68A5E",
+   "socials": {
+    "instagram": "sofiaonrecord"
+   },
+   "points": {
+    "teodora-blue": 760,
+    "halden": 880,
+    "small-machines": 520,
+    "long-way-round": 180,
+    "juniper-vale": 90
+   },
+   "experiences": [
+    {
+     "id": "x-sofia-reyes-1",
+     "kind": "performance",
+     "creatorId": "halden",
+     "title": "Halden, live score",
+     "place": "Museo Tamayo",
+     "year": 2025
+    }
+   ],
+   "friends": [
+    "maya-chen",
+    "rosa-lindqvist",
+    "elliot-park"
+   ],
+   "recent": [
+    "Saw Halden perform a live score"
+   ],
+   "avatar": "media/people/sofia-reyes.jpg"
+  },
+  {
+   "id": "jonah-bell",
+   "name": "Jonah Bell",
+   "username": "jonahb",
+   "location": "Nashville, TN",
+   "bio": "Porch songs and the stories behind them.",
+   "palette": [
+    "#7C8A5E",
+    "#F1E3C6",
+    "#8F1424",
+    "#231A14"
+   ],
+   "hair": "beard",
+   "skin": "#E8C2A0",
+   "socials": {
+    "instagram": "jonahbellmusic"
+   },
+   "points": {
+    "marlow-saltwater": 1100,
+    "juniper-vale": 460,
+    "liner-notes": 380,
+    "long-way-round": 220,
+    "cass-ferro": 40
+   },
+   "experiences": [
+    {
+     "id": "x-jonah-bell-1",
+     "kind": "concert",
+     "creatorId": "marlow-saltwater",
+     "title": "Marlow & the Saltwater",
+     "place": "The Ryman",
+     "year": 2025
+    },
+    {
+     "id": "x-jonah-bell-2",
+     "kind": "concert",
+     "creatorId": "juniper-vale",
+     "title": "Juniper Vale",
+     "place": "The Basement East",
+     "year": 2024
+    }
+   ],
+   "friends": [
+    "maya-chen",
+    "theo-okafor"
+   ],
+   "recent": [
+    "Added Juniper Vale to their inner circle"
+   ],
+   "avatar": "media/people/jonah-bell.jpg"
+  },
+  {
+   "id": "priya-nair",
+   "name": "Priya Nair",
+   "username": "priyalistens",
+   "location": "Toronto",
+   "bio": "Three podcasts a day, minimum. Economics is a love language.",
+   "palette": [
+    "#2F4A6B",
+    "#F2B42C",
+    "#F6ECD8",
+    "#1A1512"
+   ],
+   "hair": "bun",
+   "skin": "#9C6644",
+   "socials": {
+    "instagram": "priyalistens"
+   },
+   "points": {
+    "long-way-round": 1400,
+    "kitchen-table": 1150,
+    "small-machines": 600,
+    "liner-notes": 300,
+    "juniper-vale": 70
+   },
+   "experiences": [
+    {
+     "id": "x-priya-nair-1",
+     "kind": "performance",
+     "creatorId": "long-way-round",
+     "title": "The Long Way Round, live taping",
+     "place": "Massey Hall",
+     "year": 2025
+    }
+   ],
+   "friends": [
+    "amara-diallo"
+   ],
+   "recent": [
+    "Went to a live taping of The Long Way Round"
+   ],
+   "avatar": "media/people/priya-nair.jpg"
+  },
+  {
+   "id": "elliot-park",
+   "name": "Elliot Park",
+   "username": "elliotpark",
+   "location": "Los Angeles",
+   "bio": "Ambient for focus, jazz for everything else.",
+   "palette": [
+    "#1F3A5F",
+    "#9FC9C0",
+    "#F4EBDD",
+    "#14100D"
+   ],
+   "hair": "glasses",
+   "skin": "#E0B58F",
+   "socials": {
+    "instagram": "elliot.park"
+   },
+   "points": {
+    "halden": 1050,
+    "cass-ferro": 700,
+    "small-machines": 240,
+    "teodora-blue": 120
+   },
+   "experiences": [
+    {
+     "id": "x-elliot-park-1",
+     "kind": "concert",
+     "creatorId": "cass-ferro",
+     "title": "Cass Ferro Trio",
+     "place": "Blue Whale",
+     "year": 2024
+    }
+   ],
+   "friends": [
+    "sofia-reyes"
+   ],
+   "recent": [
+    "Saw Cass Ferro Trio live"
+   ],
+   "avatar": "media/people/elliot-park.jpg"
+  },
+  {
+   "id": "amara-diallo",
+   "name": "Amara Diallo",
+   "username": "amaradiallo",
+   "location": "Paris",
+   "bio": "Dance first. Read the liner notes later.",
+   "palette": [
+    "#B5452F",
+    "#F2C46D",
+    "#F6ECD8",
+    "#2A1F18"
+   ],
+   "hair": "curly",
+   "skin": "#5C3A24",
+   "socials": {
+    "instagram": "amara.diallo"
+   },
+   "points": {
+    "yemi-daybreak": 900,
+    "juniper-vale": 520,
+    "kitchen-table": 410,
+    "teodora-blue": 160,
+    "long-way-round": 150
+   },
+   "experiences": [
+    {
+     "id": "x-amara-diallo-1",
+     "kind": "festival",
+     "creatorId": "yemi-daybreak",
+     "title": "Yemi & the Daybreak",
+     "place": "Afropunk Paris",
+     "year": 2025
+    },
+    {
+     "id": "x-amara-diallo-2",
+     "kind": "concert",
+     "creatorId": "juniper-vale",
+     "title": "Juniper Vale",
+     "place": "La Maroquinerie",
+     "year": 2025
+    }
+   ],
+   "friends": [
+    "theo-okafor",
+    "priya-nair"
+   ],
+   "recent": [
+    "Saw Juniper Vale live"
+   ],
+   "avatar": "media/people/amara-diallo.jpg"
+  },
+  {
+   "id": "rosa-lindqvist",
+   "name": "Rosa Lindqvist",
+   "username": "rosalind",
+   "location": "Stockholm",
+   "bio": "Dream pop, long walks, longer playlists.",
+   "palette": [
+    "#8FA9B8",
+    "#F6ECD8",
+    "#C21F32",
+    "#1B1716"
+   ],
+   "hair": "fringe",
+   "skin": "#F0CBAA",
+   "socials": {
+    "instagram": "rosa.lindqvist"
+   },
+   "points": {
+    "teodora-blue": 1300,
+    "juniper-vale": 610,
+    "halden": 430,
+    "long-way-round": 260,
+    "liner-notes": 80
+   },
+   "experiences": [
+    {
+     "id": "x-rosa-lindqvist-1",
+     "kind": "concert",
+     "creatorId": "teodora-blue",
+     "title": "Teodora Blue",
+     "place": "Debaser",
+     "year": 2025
+    },
+    {
+     "id": "x-rosa-lindqvist-2",
+     "kind": "concert",
+     "creatorId": "juniper-vale",
+     "title": "Juniper Vale",
+     "place": "Nalen",
+     "year": 2024
+    }
+   ],
+   "friends": [
+    "maya-chen",
+    "sofia-reyes"
+   ],
+   "recent": [
+    "Saw Teodora Blue live"
+   ],
+   "avatar": "media/people/rosa-lindqvist.jpg"
+  }
+ ],
+ "me": {
+  "name": "Alex Morgan",
+  "username": "alexmorgan",
+  "bio": "Late-night records and long conversations.",
+  "location": "Brooklyn, NY",
+  "avatar": "media/people/you.jpg",
+  "socials": {
+   "instagram": "alexmorgan.wav"
+  },
+  "experiences": [
+   {
+    "id": "x-me-1",
+    "kind": "concert",
+    "creatorId": "juniper-vale",
+    "title": "Juniper Vale",
+    "place": "Music Hall of Williamsburg",
+    "year": 2025
+   },
+   {
+    "id": "x-me-2",
+    "kind": "festival",
+    "creatorId": "juniper-vale",
+    "title": "Juniper Vale at Sound on the Water",
+    "place": "Governors Island",
+    "year": 2024
+   }
+  ],
+  "favorites": [
+   "juniper-vale",
+   "long-way-round"
+  ],
+  "friends": {
+   "maya-chen": "friends",
+   "jonah-bell": "friends",
+   "theo-okafor": "incoming"
+  }
+ }
 }

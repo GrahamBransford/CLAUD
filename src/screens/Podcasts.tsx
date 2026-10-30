@@ -1,5 +1,5 @@
 import { AnimatePresence } from 'framer-motion'
-import { Bookmark, X } from 'lucide-react'
+import * as I from '../components/Icons'
 import { useCallback, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
@@ -121,7 +121,7 @@ export function Podcasts({ active }: { active: boolean }) {
 
   useKeys(active && !!ep, {
     ArrowRight: () => onMove('save'),
-    ArrowLeft: () => onMove('pass'),
+    ArrowLeft: () => onMove('skip'),
     ArrowDown: () => onMove('next'),
     ArrowUp: () => index > 0 && onMove('prev'),
     ' ': pb.toggle,
@@ -131,7 +131,7 @@ export function Podcasts({ active }: { active: boolean }) {
   useMediaSession(
     active && !!ep,
     ep && show
-      ? { title: ep.title, artist: show.name, artwork: ep.artwork, onPlay: pb.play, onPause: pb.pause, onNext: () => onMove('pass') }
+      ? { title: ep.title, artist: show.name, artwork: ep.artwork, onPlay: pb.play, onPause: pb.pause, onNext: () => onMove('skip') }
       : null,
   )
 
@@ -183,10 +183,10 @@ export function Podcasts({ active }: { active: boolean }) {
 
       <div className="rail">
         <button className={`rail__btn rail__btn--save ${isSaved ? 'is-on' : ''}`} onClick={() => onMove('save')} aria-label="Save">
-          <Bookmark size={25} strokeWidth={2} fill={isSaved ? 'currentColor' : 'none'} />
+          <I.Save size={27} on={isSaved} />
         </button>
-        <button className="rail__btn" onClick={() => onMove('pass')} aria-label="Pass">
-          <X size={26} strokeWidth={2} />
+        <button className="rail__btn" onClick={() => onMove('skip')} aria-label="Skip">
+          <I.Skip size={24} />
         </button>
       </div>
 

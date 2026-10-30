@@ -103,6 +103,63 @@ export interface ContentSet {
   /** Simulated history standing in for connected streaming data. */
   listeningSeed: Record<string, Partial<Signals>>
   defaultFollows: string[]
+  /** Sample CIRCA listeners (fictional), for friends, search and shared taste. */
+  people?: Person[]
+  /** The demo user's starting profile. */
+  me?: MeSeed
+}
+
+// ---- people & identity ----------------------------------------------------
+
+export type ExperienceKind = 'concert' | 'festival' | 'performance' | 'other'
+
+/** Something someone lived through. Self-reported: never verified. */
+export interface Experience {
+  id: string
+  kind: ExperienceKind
+  title: string
+  creatorId?: string
+  place?: string
+  year?: number
+}
+
+export interface Socials {
+  instagram?: string
+  website?: string
+}
+
+export interface Profile {
+  name: string
+  username: string
+  bio: string
+  location: string
+  avatar: string
+  socials: Socials
+}
+
+/** Your side of a friendship. */
+export type FriendState = 'friends' | 'outgoing' | 'incoming'
+
+export interface MeSeed extends Profile {
+  experiences: Experience[]
+  favorites: string[]
+  friends: Record<string, FriendState>
+}
+
+export interface Person {
+  id: string
+  name: string
+  username: string
+  bio: string
+  location?: string
+  avatar: string
+  socials?: Socials
+  /** Simulated engagement points per creator (the same scale as yours). */
+  points: Record<string, number>
+  experiences: Experience[]
+  friends: string[]
+  /** Simulated recent changes to their vinyl. */
+  recent?: string[]
 }
 
 export type SaveMethod = 'swipe' | 'button' | 'listened'

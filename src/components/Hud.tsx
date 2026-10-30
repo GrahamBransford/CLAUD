@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { Car, Pause, Play, VolumeX } from 'lucide-react'
+import * as I from './Icons'
 import { useCallback, useRef, useState } from 'react'
 import { useUI } from '../store/useUI'
 import { Logo } from './Logo'
@@ -9,19 +9,18 @@ export function TopBar({ playing, drive = true }: { playing: boolean; muted?: bo
   const unlocked = useUI((s) => s.audioUnlocked)
   return (
     <div className="topbar">
-      {/* the logo is the way to Your Record */}
-      <button className="topbar__logo" onClick={() => (window.location.hash = 'home')} aria-label="Your Record">
+      <span className="topbar__logo">
         <Logo size="sm" spinning={playing} />
-      </button>
+      </span>
       <span className="topbar__right">
         {!unlocked && (
           <button className="topbar__btn" onClick={() => useUI.getState().unlockAudio()} aria-label="Turn sound on">
-            <VolumeX size={18} />
+            <I.Muted size={19} />
           </button>
         )}
         {drive && (
           <button className="topbar__btn topbar__btn--drive" onClick={() => useUI.getState().setDrive(true)} aria-label="Drive mode">
-            <Car size={19} strokeWidth={1.8} />
+            <I.Car size={20} />
           </button>
         )}
       </span>
@@ -53,7 +52,7 @@ export function TapFlash({ state }: { state: { kind: 'play' | 'pause'; n: number
           exit={{ opacity: 0, scale: 1.08, transition: { duration: 0.26 } }}
           aria-hidden
         >
-          {state.kind === 'play' ? <Play size={34} fill="currentColor" /> : <Pause size={34} fill="currentColor" />}
+          {state.kind === 'play' ? <I.Play size={34} /> : <I.Pause size={34} />}
         </motion.span>
       )}
     </AnimatePresence>
