@@ -1208,7 +1208,7 @@ h2 {
   min-height: 0;
   display: flex;
   flex-direction: column;
-  padding: 2px calc(6px + var(--safe-r)) 10px calc(6px + var(--safe-l));
+  padding: calc(var(--safe-t) + 8px) calc(6px + var(--safe-r)) 10px calc(6px + var(--safe-l));
 }
 /*
  * The plinth: walnut, with a brushed deck set into it. On phones the record
@@ -1284,7 +1284,7 @@ h2 {
     container-type: size;
     align-items: center;
     justify-content: center;
-    padding: 6px 32px 32px;
+    padding: 24px 32px;
   }
   .hifi,
   .hifi--guest {
@@ -1898,11 +1898,47 @@ h2 {
 }
 
 /* ---------- the catalogue: search ---------- */
+/* the lens, in the corner of the vinyl area */
+.catalog__open {
+  position: absolute;
+  z-index: 9;
+  top: calc(var(--safe-t) + 18px);
+  left: calc(var(--safe-l) + 18px);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--cream);
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 246, 228, 0.16), transparent 62%),
+    rgba(18, 13, 10, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 246, 228, 0.18),
+    0 0 0 1px rgba(246, 236, 216, 0.14),
+    0 6px 16px rgba(0, 0, 0, 0.45);
+  transition: transform 140ms var(--ease);
+}
+.catalog__open:active {
+  transform: scale(0.92);
+}
+@media (min-width: 900px) {
+  .catalog__open {
+    top: 22px;
+    left: 26px;
+  }
+}
+/* open: the full search page, grown out of the lens */
 .catalog {
-  position: relative;
-  z-index: 8;
-  flex: 0 0 auto;
-  padding: calc(10px + var(--safe-t)) calc(14px + var(--safe-r)) 6px calc(14px + var(--safe-l));
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  display: flex;
+  flex-direction: column;
+  padding: calc(10px + var(--safe-t)) calc(14px + var(--safe-r)) 0 calc(14px + var(--safe-l));
+  background: var(--espresso);
 }
 .catalog__bar {
   display: flex;
@@ -1934,7 +1970,7 @@ h2 {
   background: none;
   color: var(--cream);
   font: inherit;
-  font-size: 15px;
+  font-size: 16px;
   user-select: text;
   -webkit-user-select: text;
 }
@@ -1956,17 +1992,11 @@ h2 {
   padding: 8px 0;
 }
 .catalog__results {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  height: calc(100dvh - var(--tab-h) - var(--safe-b) - var(--safe-t) - 66px);
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 8px calc(14px + var(--safe-r)) 24px calc(14px + var(--safe-l));
-  background: rgba(21, 16, 13, 0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  padding: 8px 0 24px;
 }
 .catalog__results section {
   max-width: 720px;
@@ -2090,9 +2120,16 @@ h2 {
   letter-spacing: 0.1em;
   color: var(--fg-2);
 }
+/* the overlay has its own bar on top */
+.person .vinyl-deck {
+  padding-top: 2px;
+}
 @media (min-width: 900px) {
   .person {
     left: var(--rail-w);
+  }
+  .person .vinyl-deck {
+    padding-top: 6px;
   }
 }
 

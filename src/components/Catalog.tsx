@@ -9,8 +9,9 @@ import type { Person } from '../types'
 import * as I from './Icons'
 
 /**
- * Search, as a record catalogue: two drawers only. Creators appear as
- * medallions; people appear as small records with their face on the label.
+ * Search, as a record catalogue: a lens in the corner of the vinyl area that
+ * opens out into the full search page. Two drawers only: creators appear as
+ * medallions; people as small records with their face on the label.
  */
 export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => void }) {
   const [q, setQ] = useState('')
@@ -48,36 +49,42 @@ export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => voi
   }
 
   return (
-    <div className={`catalog ${open ? 'is-open' : ''}`}>
-      <div className="catalog__bar">
-        <label className="catalog__field">
-          <I.Search size={18} />
-          <input
-            ref={input}
-            type="search"
-            value={q}
-            placeholder="Search artists, podcasts and people"
-            onFocus={() => setOpen(true)}
-            onChange={(e) => setQ(e.target.value)}
-            aria-label="Search artists, podcasts and people"
-            enterKeyHint="search"
-            autoComplete="off"
-          />
-        </label>
-        {open && (
-          <button className="catalog__cancel" onClick={close}>
-            Cancel
-          </button>
-        )}
-      </div>
+    <>
+      {/* collapsed: just the lens, in the corner of the vinyl area */}
+      <button className="catalog__open" onClick={() => setOpen(true)} aria-label="Search artists, podcasts and people" aria-expanded={open}>
+        <I.Search size={20} />
+      </button>
       <AnimatePresence>
         {open && (
           <motion.div
-            className="catalog__results"
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: 0.22 } }}
-            exit={{ opacity: 0, transition: { duration: 0.15 } }}
+            className="catalog is-open"
+            role="dialog"
+            aria-label="Search"
+            initial={{ clipPath: 'circle(24px at 36px 36px)' }}
+            animate={{ clipPath: 'circle(150% at 36px 36px)', transition: { duration: 0.42, ease: [0.4, 0, 0.2, 1] } }}
+            exit={{ clipPath: 'circle(24px at 36px 36px)', transition: { duration: 0.28, ease: [0.4, 0, 0.2, 1] } }}
+            onAnimationComplete={() => input.current?.focus()}
           >
+            <div className="catalog__bar">
+              <label className="catalog__field">
+                <I.Search size={18} />
+                <input
+                  ref={input}
+                  type="search"
+                  value={q}
+                  placeholder="Artists, podcasts, people"
+                  onChange={(e) => setQ(e.target.value)}
+                  aria-label="Search artists, podcasts and people"
+                  enterKeyHint="search"
+                  autoComplete="off"
+                  autoFocus
+                />
+              </label>
+              <button className="catalog__cancel" onClick={close}>
+                Cancel
+              </button>
+            </div>
+            <div className="catalog__results">
             {results.people.length > 0 && (
               <section>
                 <h2 className="catalog__drawer">{q.trim() ? 'People' : 'People who share your taste'}</h2>
@@ -116,9 +123,10 @@ export function Catalog({ onOpenChange }: { onOpenChange: (open: boolean) => voi
               </section>
             )}
             {!results.people.length && !results.creators.length && <p className="catalog__none">Nothing in the catalogue for “{q}”.</p>}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   )
 }
