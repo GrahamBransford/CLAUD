@@ -181,7 +181,11 @@ export function Podcasts({ active }: { active: boolean }) {
       <AnimatePresence custom={move} initial={false} mode="popLayout">
         <Reel key={ep.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
           {video ? (
-            <MediaSurface source={ep.media} start={h.start} className="reel__media reel__media--wide" onPlayer={player.onPlayer} onError={setError} />
+            // the picture sits dead centre, with its subtitles on it like television
+            <div className="reel__frame">
+              <MediaSurface source={ep.media} start={h.start} className="reel__media" onPlayer={player.onPlayer} onError={setError} />
+              {!embed && <Caption cues={ep.cues} time={h.start + pb.time} />}
+            </div>
           ) : (
             <div className="reel__audio">
               <span className={`turntable ${pb.playing ? 'is-playing' : ''}`}>
@@ -192,7 +196,7 @@ export function Podcasts({ active }: { active: boolean }) {
           )}
           <div className="reel__scrim" aria-hidden />
           <div className="reel__meta">
-            {!embed && <Caption cues={ep.cues} time={h.start + pb.time} />}
+            {!video && !embed && <Caption cues={ep.cues} time={h.start + pb.time} />}
             <button className="reel__who" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: show.id })}>
               <span>{show.name}</span>
             </button>

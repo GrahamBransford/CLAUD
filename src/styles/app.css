@@ -456,10 +456,46 @@ h2 {
   object-fit: cover;
   pointer-events: none;
 }
-/* landscape podcast video sits as a picture above the words, never cropped */
-.reel__media--wide {
-  height: calc(100% - 260px);
+/*
+ * Landscape podcast video: a 16:9 picture in the exact centre of the screen,
+ * never cropped, sized so the words below never overlap it.
+ */
+.reel:has(.reel__frame) {
+  container-type: size;
+}
+.reel__frame {
+  --clear: 0px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(100cqw, (100cqh - var(--clear) * 2) * 16 / 9);
+  aspect-ratio: 16 / 9;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+@media (min-width: 900px) {
+  .reel__frame {
+    --clear: 210px;
+  }
+}
+.reel__frame .reel__media {
   object-fit: contain;
+}
+/* subtitles on the picture, like television */
+.reel__frame .caption {
+  top: auto;
+  left: 8%;
+  right: 8%;
+  bottom: 6%;
+  min-height: 0;
+  font-size: clamp(15px, 2.2cqw + 6px, 22px);
+}
+.reel__frame .caption span {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(10, 8, 7, 0.55);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 .reel--embed .reel__media {
   inset: auto 0 auto 0;
@@ -734,7 +770,7 @@ h2 {
   position: absolute;
   z-index: 4;
   left: 50%;
-  top: 46%;
+  top: 50%;
   width: 84px;
   height: 84px;
   margin: -42px 0 0 -42px;
