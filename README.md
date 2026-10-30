@@ -12,7 +12,7 @@ npm run build      # static site in dist/ — host anywhere (Netlify, any web se
 
 ## What's in it
 
-The app opens with a short brand animation (the two Cs of CIRCA are records), then goes straight into Artists. The bottom bar has four destinations: three full-screen ways in, then you.
+The app opens with a short brand animation (the two Cs of CIRCA are records), then goes straight into Artists. The bottom bar has four destinations, each shown as a small record: three full-screen ways in, then you. A little tonearm glides along the bar to whichever one you choose and sets down on it, and only that record spins.
 
 | Destination | What it does |
 | --- | --- |
