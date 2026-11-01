@@ -16,7 +16,7 @@ export function SettingsSheet() {
   const close = () => useUI.getState().openSheet(null)
   const options: StreamingProviderId[] = ['spotify', 'apple-music']
   return (
-    <Sheet label="Settings" onClose={close}>
+    <Sheet label="Settings" onClose={close} title="Settings">
       <div className="settings">
         <p className="settings__label">Account</p>
         <div className="account">
@@ -44,7 +44,7 @@ export function SettingsSheet() {
             </button>
           ))}
         </div>
-        <p className="settings__fine">This is a demo account on this device: there’s no sign-in, and these preferences aren’t sent anywhere.</p>
+        <p className="settings__fine">Demo account on this device. Nothing is sent anywhere.</p>
 
         <p className="settings__label">Music saves go to</p>
         <div className="choices">
@@ -64,10 +64,7 @@ export function SettingsSheet() {
             <em>demo</em>
           </div>
         </div>
-        <p className="settings__fine">
-          CIRCA doesn’t keep a library of its own. Saves go straight to where the creators live: songs to your streaming service, full
-          episodes to YouTube. These connections are demonstrations; nothing is sent.
-        </p>
+        <p className="settings__fine">Saves go straight to where the creators live. Demo connections.</p>
 
         {contentIndex.sets.length > 1 && (
           <>

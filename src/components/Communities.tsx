@@ -38,12 +38,8 @@ export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
     const theirs = all.filter((m) => m.community.creatorId === c.id)
     const scene = all.filter((m) => m.community.creatorId !== c.id && m.near && (m.community.styles[0] === c.style || m.community.styles[1] === c.genre))
     return (
-      <Sheet label={`${c.name}: communities`} onClose={close} tall>
+      <Sheet label={`${c.name}: communities`} onClose={close} tall title="Communities">
         <div className="details">
-          <header className="details__head">
-            <h2>{c.name}’s communities</h2>
-            <span className="details__demo">Demo</span>
-          </header>
           {theirs.length ? theirs.map((m) => <CommunityCard key={m.community.id} m={m} />) : <p className="details__note">No communities yet.</p>}
           {c.style && (
             <>
@@ -53,7 +49,7 @@ export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
               {scene.length ? scene.map((m) => <CommunityCard key={m.community.id} m={m} />) : <p className="details__note">Nothing in person near you yet. The online ones above are open to everyone.</p>}
             </>
           )}
-          <p className="details__note">Matched for you by CIRCA from your listening, your profile location and your friends. Groups, members and gatherings are fictional demo data; joining sends nothing.</p>
+          <p className="sheet__note">Matched from your listening, location and friends · sample groups · demo</p>
         </div>
       </Sheet>
     )
@@ -61,12 +57,8 @@ export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
 
   const list = tab === 'near' ? all.filter((m) => m.near).sort((a, b) => (a.km ?? 0) - (b.km ?? 0)) : tab === 'online' ? all.filter((m) => m.community.format !== 'In person') : all.slice(0, 8)
   return (
-    <Sheet label="Communities" onClose={close} tall>
+    <Sheet label="Communities" onClose={close} tall title="Communities">
       <div className="details" {...swipe}>
-        <header className="details__head">
-          <h2>Communities</h2>
-          <span className="details__demo">Matched for you · demo</span>
-        </header>
         <div className="seg" role="tablist" aria-label="Communities">
           <button role="tab" aria-selected={tab === 'for-you'} onClick={() => setTab('for-you')}>
             For you
@@ -81,7 +73,7 @@ export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
         {list.map((m) => (
           <CommunityCard key={m.community.id} m={m} showCreator />
         ))}
-        <p className="details__note">Matched from your listening, your profile location (not GPS) and your friends. Groups, members and gatherings are fictional demo data; joining sends nothing.</p>
+        <p className="sheet__note">Matched from your listening, location and friends · sample groups · demo</p>
       </div>
     </Sheet>
   )
@@ -99,11 +91,11 @@ export function CommunityCard({ m, showCreator = false, compact = false }: { m: 
   const where = cm.format === 'Online' ? 'Online' : `${cm.format === 'In person' ? '' : 'Online + '}${cm.city?.split(',')[0]}${m.km !== undefined ? ` · ${distanceLabel(m.km)}` : ''}`
   const join = () => {
     const on = toggleJoin(cm.id)
-    toast({ image: creator?.avatar, title: on ? `Joined ${cm.name}` : `Left ${cm.name}`, detail: on ? 'Demo community · nothing sent' : undefined })
+    toast({ image: creator?.avatar, title: on ? `Joined ${cm.name}` : `Left ${cm.name}`, detail: on ? 'Demo' : undefined })
   }
   const rsvp = () => {
     const on = toggleGoing(cm.id)
-    if (on) toast({ image: creator?.avatar, title: `You’re going: ${cm.next.title}`, detail: `${whenLabel(cm.next.inDays)} · ${cm.next.place} · demo` })
+    if (on) toast({ image: creator?.avatar, title: `You’re going: ${cm.next.title}`, detail: `${whenLabel(cm.next.inDays)} · ${cm.next.place}` })
   }
   return (
     <article className={`community ${cm.by === 'creator' ? 'community--curated' : ''} ${m.near ? 'is-near' : ''}`}>

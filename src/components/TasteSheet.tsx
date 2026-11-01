@@ -17,13 +17,9 @@ export function TasteSheet() {
   const twins = useTasteTwins()
   const close = () => useUI.getState().openSheet(null)
   return (
-    <Sheet label="Closest taste" onClose={close} tall>
+    <Sheet label="Taste twin" onClose={close} tall title="Taste twin">
       <div className="details">
-        <header className="details__head">
-          <h2>Your taste, matched</h2>
-          <span className="details__demo">Estimate · demo</span>
-        </header>
-        <p className="details__note">The creators whose own vinyl is closest to yours: what they listen to, and the shows they’ve been to.</p>
+        <p className="details__note">Creators whose own listening is closest to yours.</p>
         <ol className="ranks">
           {twins.map((t, i) => {
             const c = creatorById[t.creatorId]
@@ -46,6 +42,7 @@ export function TasteSheet() {
             )
           })}
         </ol>
+        <p className="sheet__note">Estimates from sample listening · demo</p>
       </div>
     </Sheet>
   )

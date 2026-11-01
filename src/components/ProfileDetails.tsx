@@ -37,12 +37,8 @@ export function ProfileDetails({ owner, tab: initial }: { owner: Owner; tab: Det
   if (!profile) return null
   const title = owner === 'me' ? 'Your listening' : `${profile.who}’s listening`
   return (
-    <Sheet label={title} onClose={close} tall>
+    <Sheet label={title} onClose={close} tall title={title}>
       <div className="details">
-        <header className="details__head">
-          <h2>{title}</h2>
-          <span className="details__demo">Estimates · demo</span>
-        </header>
         <Awards list={owner === 'me' ? meSeed.awards : personFor(owner)?.awards} />
         <nav className="details__tabs" role="tablist" aria-label="Sections">
           {TABS.map((t) => (
@@ -58,6 +54,7 @@ export function ProfileDetails({ owner, tab: initial }: { owner: Owner; tab: Det
           {tab === 'genres' && <Genres p={profile} />}
           {tab === 'live' && <LiveHistory experiences={profile.experiences} who={profile.who} />}
         </div>
+        <p className="sheet__note">Estimates from sample listening · demo</p>
       </div>
     </Sheet>
   )

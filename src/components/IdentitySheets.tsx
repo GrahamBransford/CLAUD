@@ -48,7 +48,7 @@ export function ProfileSheet() {
     close()
   }
   return (
-    <Sheet label="Edit your vinyl" onClose={done}>
+    <Sheet label="Edit profile" onClose={done} title="Edit profile">
       <div className="form">
         <div className="form__photo">
           <span className="minidisc minidisc--lg">
@@ -115,7 +115,7 @@ export function ProfileSheet() {
             )
           })}
         </div>
-        <p className="settings__fine">Favourites wear a spark on your vinyl. Where they sit still comes from how you actually listen.</p>
+        <p className="settings__fine">Favourites wear a spark on your vinyl.</p>
         <button className="pill pill--cherry form__done" onClick={done}>
           Done
         </button>
@@ -152,9 +152,8 @@ export function LiveSheet() {
     useUI.getState().pushToast({ image: c?.avatar, title: 'Added to your vinyl', detail: c && kind !== 'other' ? 'Etched in the run-out · self-reported' : 'Self-reported' })
   }
   return (
-    <Sheet label="Live" onClose={close}>
+    <Sheet label="Live" onClose={close} title="Live">
       <div className="form">
-        <p className="settings__label">Your live history</p>
         {experiences.length > 0 && <LiveStats experiences={experiences} />}
         <p className="settings__label">On your record</p>
         {experiences.length ? (
@@ -211,7 +210,7 @@ export function LiveSheet() {
         <button className="pill pill--cherry form__done" onClick={submit} disabled={!canAdd}>
           <I.Ticket size={16} /> Add to my vinyl
         </button>
-        <p className="settings__fine">Experiences are self-reported. CIRCA doesn’t verify them. A show with someone on CIRCA also brings them closer on your record.</p>
+        <p className="settings__fine">Self-reported, never verified. A show brings that creator closer on your record.</p>
       </div>
     </Sheet>
   )
@@ -238,6 +237,7 @@ export function FriendsSheet() {
   return (
     <Sheet
       label="Friends"
+      title="Friends"
       tall
       onClose={() => {
         seenAll()
@@ -288,7 +288,7 @@ export function FriendsSheet() {
             ) : (
               <p className="settings__fine">When friends add to their vinyl, go to a show or move someone closer, it shows up here.</p>
             )}
-            <p className="settings__fine">From friends whose vinyl updates you follow (on their vinyl). Sample listeners and their activity are simulated.</p>
+            <p className="settings__fine">From friends whose updates you follow · sample listeners</p>
           </>
         )}
 
@@ -320,7 +320,7 @@ export function FriendsSheet() {
                 <button className="pill pill--quiet" onClick={() => act.cancel(id)}>Cancel</button>
               </div>
             ))}
-            <p className="settings__fine">Friends can look through each other’s vinyl. There’s no messaging in CIRCA; to talk, use the socials on someone’s vinyl. Sample listeners are fictional demo profiles.</p>
+            <p className="settings__fine">No messaging in CIRCA: to talk, use the socials on someone’s vinyl. Sample listeners.</p>
           </>
         )}
       </div>

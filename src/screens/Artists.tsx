@@ -35,7 +35,7 @@ export function useSaveSong() {
     (song: Song, via: SaveMethod) => {
       if (!save(song.id, 'song', via)) return false
       const provider = PROVIDERS[streaming ?? 'spotify']
-      pushToast({ image: song.artwork, title: `Saved to ${provider.name}`, detail: `${provider.playlistFor(song)} · demo connection, nothing sent` })
+      pushToast({ image: song.artwork, title: `Saved to ${provider.name}`, detail: `${provider.playlistFor(song)} · demo` })
       return true
     },
     [save, streaming, pushToast],

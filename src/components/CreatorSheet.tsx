@@ -140,24 +140,29 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
           {(song || ep) && (
             <button className="pill pill--cherry" onClick={listen}><I.Play size={15} /> Listen</button>
           )}
-          {creatorVinylById[c.id] && (
-            <button className="pill pill--quiet" onClick={() => useUI.getState().openPerson(`creator:${c.id}`)}>
-              <span className="pill__disc" aria-hidden /> Their vinyl
-            </button>
-          )}
           <button className={`pill ${rel.followed ? 'pill--quiet' : 'pill--light'}`} onClick={() => follow(c.id)}>
             {rel.followed ? 'Following' : 'Follow'}
           </button>
-          <button
-            className="pill pill--quiet"
-            onClick={() => {
-              addExperience({ kind: c.kind === 'artist' ? 'concert' : 'performance', creatorId: c.id, title: c.name, year: new Date().getFullYear() })
-              useUI.getState().pushToast({ image: c.avatar, title: c.kind === 'artist' ? 'Show added to your vinyl' : 'Live taping added to your vinyl', detail: 'Self-reported' })
-            }}
-          >
-            <I.Ticket size={16} /> {c.kind === 'artist' ? 'Went to a show' : 'Went to a taping'}
-          </button>
+          {creatorVinylById[c.id] && (
+            <button className="pill pill--quiet" onClick={() => useUI.getState().openPerson(`creator:${c.id}`)}>
+              Their vinyl
+            </button>
+          )}
         </div>
+        <button
+          className="row-link"
+          onClick={() => {
+            addExperience({ kind: c.kind === 'artist' ? 'concert' : 'performance', creatorId: c.id, title: c.name, year: new Date().getFullYear() })
+            useUI.getState().pushToast({ image: c.avatar, title: c.kind === 'artist' ? 'Show added to your vinyl' : 'Live taping added to your vinyl', detail: 'Self-reported' })
+          }}
+        >
+          <I.Ticket size={18} />
+          <span>
+            <strong>{c.kind === 'artist' ? 'Went to a show' : 'Went to a taping'}</strong>
+            <em>Etch it into your record</em>
+          </span>
+          <I.Plus size={16} />
+        </button>
 
         {com.count > 0 && (
           <button className="row-link" onClick={() => useUI.getState().openSheet({ kind: 'communities', creatorId: c.id })}>

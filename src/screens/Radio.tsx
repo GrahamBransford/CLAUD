@@ -34,7 +34,7 @@ export function useSaveEpisode() {
         return
       }
       if (save(ep.id, 'episode', via))
-        pushToast({ image: ep.artwork, title: `Saved to ${PODCAST_DESTINATION.name}`, detail: `${PODCAST_DESTINATION.list} · demo connection, nothing sent` })
+        pushToast({ image: ep.artwork, title: `Saved to ${PODCAST_DESTINATION.name}`, detail: `${PODCAST_DESTINATION.list} · demo` })
     },
     [save, unsave, pushToast],
   )

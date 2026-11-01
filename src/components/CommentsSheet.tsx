@@ -29,9 +29,8 @@ export function CommentsSheet({ postId }: { postId: string }) {
   }
 
   return (
-    <Sheet label="Comments" onClose={close}>
+    <Sheet label="Comments" onClose={close} title="Comments">
       <div className="comments">
-        <p className="comments__head">Comments</p>
         <ul className="comments__list">
           {sample.map((c, i) => {
             const person = personById[c.by]
