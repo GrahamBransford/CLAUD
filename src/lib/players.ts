@@ -60,8 +60,9 @@ export const YT_ERRORS: Record<number, string> = {
   2: 'The video ID in the content file is not valid.',
   5: 'This video cannot play in an HTML5 player.',
   100: 'This video was removed or made private.',
-  101: 'The owner does not allow this video to be embedded.',
-  150: 'The owner does not allow this video to be embedded.',
+  // YouTube also sends these when it declines playback for other reasons (network, sign-in checks)
+  101: 'YouTube won’t play this video here.',
+  150: 'YouTube won’t play this video here.',
   153: 'YouTube needs to know which site is playing this video.',
 }
 

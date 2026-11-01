@@ -2,7 +2,7 @@
   "about": "CIRCA's real-creator library: the one place to add creators and replace their videos. Every video plays through its platform's official embed; nothing is downloaded or rehosted. Run `npm run content:demo` after editing.",
   "howTo": {
     "addCreator": "Copy a creator block, give it a new id, and list its content. Songs go to Music and the Radio, episodes to the Radio, innerCircle posts to Inner Circle.",
-    "profileImage": "The creator's official channel picture (URL). While it's null, profileImageFallback (a frame from their own video) stands in.",
+    "profileImage": "The creator's official channel picture, from their YouTube channel page (og:image, sized =s240). If it's null, profileImageFallback (a frame from their own video) stands in.",
     "playback": "youtube: an official YouTube upload, by videoId. instagram: an official Instagram embed, by url (plays in Instagram's own player, without CIRCA's controls). video: a creator-authorised file, by src.",
     "innerCircle": "Behind-the-scenes only: rehearsals, studio sessions, sets, tour footage, candid moments. Never an official music video or a full episode."
   },
@@ -11,7 +11,7 @@
       "id": "dua-lipa",
       "type": "artist",
       "name": "Dua Lipa",
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/c3upBFWLu55hnBvqncQS9ZEF_hkvHsNTQiB7m7ZYYavLFMzfyn9Bwo-1VF4HSPGo3G2EdwGtgWg=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/suAR1PYFNYA/mqdefault.jpg",
       "channel": {
         "handle": "@dualipa",
@@ -67,7 +67,7 @@
       "id": "billie-eilish",
       "type": "artist",
       "name": "Billie Eilish",
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/dirvtoDAmx-u0UR76-pxfhYL6Wxj2vfL2geUcxDwk62tTWWhGG6QDGc63RG3NdOz38-yBwRHDQ=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/V9PVRfjEBTI/mqdefault.jpg",
       "channel": {
         "handle": "@BillieEilish",
@@ -123,7 +123,7 @@
       "id": "the-weeknd",
       "type": "artist",
       "name": "The Weeknd",
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/WHvw1ak1FcJaHeEiTmG2iN0dqEjjPxAtT_tA8ruJ3MlNr9I-RHsAur1iAenYeQN_d6LNPH2Z8Ic=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/4NRXx6U8ABQ/mqdefault.jpg",
       "channel": {
         "handle": "@theweeknd",
@@ -161,17 +161,18 @@
           }
         },
         {
-          "id": "ic-weeknd-dancing-in-the-flames",
+          "id": "ic-weeknd-blinding-lights",
           "role": "innerCircle",
-          "title": "Dancing in the Flames (Behind the Scenes)",
-          "caption": "Behind the scenes of Dancing in the Flames.",
+          "title": "Blinding Lights (Behind The Scenes)",
+          "caption": "Behind the scenes of Blinding Lights.",
           "context": "Music video set",
           "playback": "youtube",
-          "videoId": "rZ2ZeR63-ME",
-          "url": "https://www.youtube.com/watch?v=rZ2ZeR63-ME",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/rZ2ZeR63-ME",
-          "thumbnail": "https://i.ytimg.com/vi/rZ2ZeR63-ME/hqdefault.jpg",
-          "orientation": "horizontal"
+          "videoId": "ycdFpM3njTs",
+          "url": "https://www.youtube.com/watch?v=ycdFpM3njTs",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/ycdFpM3njTs",
+          "thumbnail": "https://i.ytimg.com/vi/ycdFpM3njTs/hqdefault.jpg",
+          "orientation": "horizontal",
+          "note": "Replaces rZ2ZeR63-ME (Dancing in the Flames BTS), which YouTube no longer serves: no thumbnail, and its embed check is refused. This one is from TheWeekndVEVO."
         }
       ]
     },
@@ -179,7 +180,7 @@
       "id": "bruno-mars",
       "type": "artist",
       "name": "Bruno Mars",
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/dxwzp4IYsNJKDcwNYgF0UGdw9vCWSMqkHaLtC08VVKg8eybNs69pbdTaGdoaKQYHVQjFyeybzA=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/PMivT7MJ41M/mqdefault.jpg",
       "channel": {
         "handle": "@BrunoMars",
@@ -235,7 +236,7 @@
       "id": "hozier",
       "type": "artist",
       "name": "Hozier",
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/SldyypanXJU4RXlUBHym6PlI3rM8yiDLBMIlt3gD1B3rxdkZG5ykUDRjZ2jsMOpEppXMNFm80g=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/NTpbbQUBbuo/mqdefault.jpg",
       "channel": {
         "handle": "@hozier",
@@ -294,7 +295,7 @@
       "hosts": [
         "Steven Bartlett"
       ],
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/JHCZDz37bsTmwoE1o4LEodF5vhsHfk29kCEauDTFr27-7hHXsHHvvWGzcG77v32ERrkpfInkGQ=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/VHUrdELKjDw/mqdefault.jpg",
       "channel": {
         "handle": "@thediaryofaceo",
@@ -338,7 +339,7 @@
       "hosts": [
         "Dr. Andrew Huberman"
       ],
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/Y8lhyl8aHY42phxwoAwUqwLGDp-z8nmtj3Z7_JB-Oh4yIZ1OFYb-MlJRuz_oygqsYQU-VgGqiOM=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/4b6bwcWK6GE/mqdefault.jpg",
       "channel": {
         "handle": "@hubermanlab",
@@ -381,7 +382,7 @@
         "Tom Holland",
         "Dominic Sandbrook"
       ],
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/Ev51Q_PB8htfXMvYKaA8auCNUqwgpmcx2JqdWHTYt_ZugQOjaNuVWJlX26Fzl9eP1Mb4JoUL64U=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/fo4ZR8hpQ3s/mqdefault.jpg",
       "channel": {
         "handle": "@restishistorypod",
@@ -423,7 +424,7 @@
       "hosts": [
         "Lex Fridman"
       ],
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/ytc/AIdro_ljfMy9kUR1PH9VRf-XsTsPqFMgORC_zodOQVEAm4hx36lC=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/5zOHSysMmH0/mqdefault.jpg",
       "channel": {
         "handle": "@lexfridman",
@@ -467,7 +468,7 @@
       "hosts": [
         "Mel Robbins"
       ],
-      "profileImage": null,
+      "profileImage": "https://yt3.googleusercontent.com/0k8TKNmLHIMquCtAvJPHB8u1Uy1vzb89aYghWZY8CRtKOkfMVmTBlUXvW2GoA3nTpVnputYuJw=s240-c-k-c0x00ffffff-no-rj",
       "profileImageFallback": "https://i.ytimg.com/vi/Ai4iNmW2A1c/mqdefault.jpg",
       "channel": {
         "handle": "@melrobbins",
@@ -583,5 +584,10 @@
     "hozier",
     "diary-of-a-ceo",
     "rest-is-history"
-  ]
+  ],
+  "checked": {
+    "on": "2026-11-01",
+    "how": "YouTube oEmbed for every videoId (exists and embeddable), channel pages for profile pictures.",
+    "results": "All 15 embeddable after the Weeknd swap. YouTube's titles for three episodes differ from the labels here, which are kept as short display titles: VHUrdELKjDw is 'Body Language Expert: Stop Using This…' (guest Vanessa Van Edwards), fo4ZR8hpQ3s is 'Tom Holland Explains the Entire History of Wine in 72 Minutes', Ai4iNmW2A1c is 'The Best Financial Advice You'll Ever Hear' (guest Morgan Housel)."
+  }
 }
