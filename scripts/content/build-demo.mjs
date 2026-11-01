@@ -120,6 +120,7 @@ const out = {
   me: social.me,
   comments: social.comments,
   creatorVinyls: social.creatorVinyls,
+  communities: social.communities,
 }
 writeFileSync(new URL('public/content/demo.json', root), JSON.stringify(out, null, 1))
 console.log(`demo.json: ${creators.length} creators, ${songs.length} songs, ${episodes.length} episodes, ${innerCircle.length} posts, ${people.length} people`)

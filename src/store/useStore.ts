@@ -38,8 +38,13 @@ interface PersistedState {
   myComments: Record<string, { id: string; text: string; at: number }[]>
   /** Friends' vinyl updates already seen (for the lamp). */
   seenUpdates: string[]
+  /** Communities joined and gatherings you said you'd go to (demo: nothing is sent). */
+  joined: string[]
+  going: string[]
 
   markUpdatesSeen: (keys: string[]) => void
+  toggleJoin: (id: string) => boolean
+  toggleGoing: (id: string) => boolean
   ensureDefaults: () => void
   save: (id: string, kind: SavedItem['kind'], via: SaveMethod) => boolean
   unsave: (id: string) => void
@@ -97,6 +102,8 @@ const initial = () => ({
   vinylVisibility: 'everyone' as 'everyone' | 'friends',
   myComments: {} as Record<string, { id: string; text: string; at: number }[]>,
   seenUpdates: [] as string[],
+  joined: [] as string[],
+  going: [] as string[],
 })
 
 const LIVE = (x: Pick<Experience, 'kind' | 'creatorId'>) => !!x.creatorId && x.kind !== 'other'
@@ -207,6 +214,16 @@ export const createStore = (set: string) =>
           setState((st) => ({
             myComments: { ...st.myComments, [postId]: [...(st.myComments[postId] ?? []), { id: `c-${Date.now().toString(36)}`, text, at: Date.now() }] },
           })),
+        toggleJoin: (id) => {
+          const on = !get().joined.includes(id)
+          setState((st) => ({ joined: on ? [...st.joined, id] : st.joined.filter((x) => x !== id), going: on ? st.going : st.going.filter((x) => x !== id) }))
+          return on
+        },
+        toggleGoing: (id) => {
+          const on = !get().going.includes(id)
+          setState((st) => ({ going: on ? [...st.going, id] : st.going.filter((x) => x !== id), joined: on && !st.joined.includes(id) ? [...st.joined, id] : st.joined }))
+          return on
+        },
         markUpdatesSeen: (keys) => setState((st) => ({ seenUpdates: [...new Set([...st.seenUpdates, ...keys])] })),
         toggleVinylFollow: (personId) => {
           const on = !get().vinylFollows.includes(personId)

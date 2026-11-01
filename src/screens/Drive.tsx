@@ -9,6 +9,7 @@ import { useMediaSession } from '../hooks/useMediaSession'
 import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
 import { radioQueue, type RadioEntry } from '../lib/radio'
+import { songWindow } from '../lib/snippet'
 import { PODCAST_DESTINATION, PROVIDERS } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
@@ -107,8 +108,8 @@ function DrivePlayer({ station }: { station: Station }) {
   const pb = useWindowedPlayback({
     ref: player.ref,
     itemKey: `${station}:${cur?.id}:${phase}:${player.version}`,
-    start: song ? song.preview.start : phase === 'highlight' ? (hl?.start ?? 0) : 0,
-    end: song ? song.preview.end : phase === 'highlight' ? (hl?.end ?? 1) : (ep?.duration ?? 7200),
+    start: song ? songWindow(song).start : phase === 'highlight' ? (hl?.start ?? 0) : 0,
+    end: song ? songWindow(song).end : phase === 'highlight' ? (hl?.end ?? 1) : (ep?.duration ?? 7200),
     initialOffset: ep && phase === 'full' ? (hl?.end ?? 0) : 0,
     autoplay: true,
     active: !error,

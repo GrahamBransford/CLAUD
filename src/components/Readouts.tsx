@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { creatorById } from '../data'
 import { formatTop } from '../lib/affinity'
 import type { ListeningProfile } from '../lib/profile'
+import { useStore } from '../store/useStore'
 import { useUI, type DetailTab } from '../store/useUI'
+import { useCommunityMatches } from './Communities'
 
 /**
  * The readouts on the deck, backlit like a hi-fi's meter windows: listening
@@ -74,7 +76,9 @@ export function Readouts({ profile }: { profile: ListeningProfile }) {
             {shows.length ? [...new Set(shows.map((x) => (x.creatorId ? creatorById[x.creatorId]?.name : x.title)))].filter(Boolean).slice(0, 2).join(', ') : me ? 'Add one under Live' : 'None added yet'}
           </span>
         </button>
-        {newest && (
+        {me ? (
+          <CommunitiesTile />
+        ) : newest && (
           <button className="readout" onClick={() => creator(newest.creatorId)}>
             <span className="readout__label">Newest find</span>
             <span className="readout__who">
@@ -86,5 +90,19 @@ export function Readouts({ profile }: { profile: ListeningProfile }) {
         )}
       </div>
     </section>
+  )
+}
+
+/** Your communities: how many you're in, and how many meet near you. */
+function CommunitiesTile() {
+  const { all } = useCommunityMatches()
+  const joined = useStore((s) => s.joined)
+  const near = all.filter((m) => m.near).length
+  return (
+    <button className="readout" onClick={() => useUI.getState().openSheet({ kind: 'communities' })}>
+      <span className="readout__label">Communities</span>
+      <strong className="readout__big">{joined.length ? `${joined.length} joined` : `${all.length} for you`}</strong>
+      <span className="readout__sub">{near} meet near you</span>
+    </button>
   )
 }

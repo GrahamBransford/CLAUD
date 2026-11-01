@@ -8,6 +8,7 @@ import { creatorById, creators, innerCircle } from '../data'
 import { useKeys } from '../hooks/useKeys'
 import { rankInnerCircle } from '../lib/affinity'
 import { claimAudioFocus } from '../lib/media'
+import { tick } from '../lib/haptics'
 import { useStore } from '../store/useStore'
 import { tapWasUnlock, useUI } from '../store/useUI'
 import type { InnerCirclePost } from '../types'
@@ -46,12 +47,17 @@ export function InnerCircle({ active }: { active: boolean }) {
     [i, total, setIndex],
   )
 
-  useKeys(active, { ArrowRight: () => go(1), ArrowLeft: () => go(-1) })
+  useKeys(active, { ArrowDown: () => go(1), ArrowUp: () => go(-1), ArrowRight: () => go(1), ArrowLeft: () => go(-1) })
 
-  // Reads left to right: swipe left for the next moment, right to go back.
+  // Scrolls like a feed: swipe up for the next moment, down to go back.
   const onDragEnd = (_: unknown, info: PanInfo) => {
-    if (info.offset.x < -80 || info.velocity.x < -550) go(1)
-    else if (info.offset.x > 80 || info.velocity.x > 550) go(-1)
+    if (info.offset.y < -80 || info.velocity.y < -550) {
+      tick()
+      go(1)
+    } else if (info.offset.y > 80 || info.velocity.y > 550) {
+      tick()
+      go(-1)
+    }
   }
 
   const item = feed[i]
@@ -67,15 +73,15 @@ export function InnerCircle({ active }: { active: boolean }) {
           key={item ? item.post.id : 'end'}
           className="page"
           custom={dir}
-          drag="x"
-          dragConstraints={{ left: 0, right: 0 }}
+          drag="y"
+          dragConstraints={{ top: 0, bottom: 0 }}
           dragElastic={0.85}
           dragTransition={{ bounceStiffness: 520, bounceDamping: 42 }}
           onDragEnd={onDragEnd}
           variants={{
-            initial: (d: number) => ({ x: d > 0 ? '100%' : '-100%' }),
-            enter: { x: 0, transition: { duration: 0.36, ease: EASE } },
-            exit: (d: number) => ({ x: d > 0 ? '-100%' : '100%', transition: { duration: 0.36, ease: EASE } }),
+            initial: (d: number) => ({ y: d > 0 ? '100%' : '-100%' }),
+            enter: { y: 0, transition: { duration: 0.36, ease: EASE } },
+            exit: (d: number) => ({ y: d > 0 ? '-100%' : '100%', transition: { duration: 0.36, ease: EASE } }),
           }}
           initial="initial"
           animate="enter"

@@ -45,7 +45,8 @@ export function MyVinyl({ active }: { active: boolean }) {
     if (!el) return
     const root = document.documentElement.style
     const place = () => {
-      const stage = el.closest('.stage')?.getBoundingClientRect()
+      // measured against the page itself, so a page mid-slide doesn't skew it
+      const stage = el.closest('.view')?.getBoundingClientRect()
       const r = el.getBoundingClientRect()
       if (!stage || window.innerWidth >= 900 || !r.width) return
       root.setProperty('--corner-x', `${(r.left + r.width / 2 - stage.left).toFixed(1)}px`)

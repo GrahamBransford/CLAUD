@@ -14,6 +14,8 @@ export type Sheet =
   /** owner: whose vinyl it was opened from ('me' when omitted). */
   | { kind: 'creator'; creatorId: string; owner?: string }
   | { kind: 'details'; owner: string; tab: DetailTab }
+  /** Communities: all matched for you, or one creator's (and local scenes in their style). */
+  | { kind: 'communities'; creatorId?: string }
   | { kind: 'settings' }
   | { kind: 'profile' }
   | { kind: 'live' }

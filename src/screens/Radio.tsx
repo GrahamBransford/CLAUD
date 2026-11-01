@@ -15,6 +15,8 @@ import { PODCAST_DESTINATION } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { tapWasUnlock, useUI } from '../store/useUI'
 import { radioQueue, type RadioEntry } from '../lib/radio'
+import { songWindow } from '../lib/snippet'
+import { Credit } from '../components/Credit'
 import type { Cue, Episode, SaveMethod } from '../types'
 import { AUTO_SAVE_RATIO, usePlayerRef, useSaveSong } from './Artists'
 
@@ -97,14 +99,18 @@ export function Radio({ active }: { active: boolean }) {
   const who = entry ? creatorById[entry.creatorId] : undefined
   const isSaved = entry ? saved.some((s) => s.id === entry.id) : false
   const [error, setError] = useItemError(entry?.id)
-  const window_ = song ? song.preview : ep?.highlight
+  // songs: up to three minutes, unless you ask for the whole thing
+  const [fullFor, setFull] = useState<string | null>(null)
+  const wholeSong = !!song && fullFor === song.id
+  const songWin = song ? songWindow(song, wholeSong) : undefined
+  const window_ = songWin ?? ep?.highlight
 
   const go = useCallback(
     (m: Move) => {
       setMove(m)
       setIndex(m === 'prev' ? index - 1 : index + 1)
     },
-    [index, setIndex],
+    [index, setIndex, setMove],
   )
 
   const save = useCallback(
@@ -130,7 +136,7 @@ export function Radio({ active }: { active: boolean }) {
         setIndex(index + 1)
       } else go('next')
     },
-    [item, song, ep, recordListen, saveSong, openFull, setIndex, index, go],
+    [item, song, ep, recordListen, saveSong, openFull, setIndex, index, go, setMove],
   )
 
   const pb = useWindowedPlayback({
@@ -225,17 +231,17 @@ export function Radio({ active }: { active: boolean }) {
             )
           )}
           <div className="reel__scrim" aria-hidden />
-          <div className="reel__meta">
+          <Credit kind={song ? 'song' : 'episode'} creatorId={who.id} title={item.title}>
             {ep && !video && !embed && <Caption cues={ep.cues} time={ep.highlight.start + pb.time} />}
-            <div className="reel__line">
-              <button className="reel__who" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: who.id })}>
-                <span>{who.name}</span>
+          </Credit>
+          {song && songWin && songWin.more && !wholeSong && (
+            <div className="rail rail--full">
+              <button className="rail__btn" onClick={(e) => { e.stopPropagation(); setFull(song.id) }} aria-label="Full song">
+                <I.Expand size={22} />
               </button>
-              {/* what's on air: a record or a conversation */}
-              <span className="reel__kind">{song ? 'Music' : 'Podcast'}</span>
+              <span className="rail__label" aria-hidden>Full song</span>
             </div>
-            <p className={`reel__title ${ep ? 'reel__title--ep' : ''}`}>{item.title}</p>
-          </div>
+          )}
           {ep && (
             // the long form, quietly to one side
             <div className="rail rail--full">

@@ -2,6 +2,7 @@ import { useEffect, useId, useMemo, useRef, useState, type CSSProperties, type R
 import type React from 'react'
 import type { TierId } from '../lib/affinity'
 import * as I from './Icons'
+import { tick } from '../lib/haptics'
 
 /**
  * A cabinet record player: the deck from above, the front below. The record is someone's vinyl: their
@@ -191,6 +192,7 @@ function usePlatter(deck: RefObject<HTMLDivElement | null>, spinning: boolean) {
         speed.current = 0
         e.currentTarget.setPointerCapture(e.pointerId)
         e.currentTarget.closest('.hifi')?.classList.add('is-held')
+        tick()
       }
       const a = (Math.atan2(e.clientY - s.cy, e.clientX - s.cx) * 180) / Math.PI
       const d = wrap(a - s.lastA)

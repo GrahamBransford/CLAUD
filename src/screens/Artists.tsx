@@ -12,6 +12,9 @@ import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
 import type { PlayerLike } from '../lib/players'
 import { PROVIDERS } from '../lib/streaming'
+import { songWindow } from '../lib/snippet'
+import { Credit } from '../components/Credit'
+import * as I from '../components/Icons'
 import { useStore } from '../store/useStore'
 import { tapWasUnlock, useUI } from '../store/useUI'
 import type { SaveMethod, Song } from '../types'
@@ -66,6 +69,10 @@ export function Artists({ active }: { active: boolean }) {
   const creator = song ? creatorById[song.creatorId] : undefined
   const isSaved = song ? saved.some((s) => s.id === song.id) : false
   const [error, setError] = useItemError(song?.id)
+  // up to three minutes, unless you ask for the whole song
+  const [fullFor, setFull] = useState<string | null>(null)
+  const full = !!song && fullFor === song.id
+  const win = song ? songWindow(song, full) : { start: 0, end: 1, more: false }
 
   const go = useCallback(
     (m: Move) => {
@@ -89,8 +96,8 @@ export function Artists({ active }: { active: boolean }) {
   const pb = useWindowedPlayback({
     ref: player.ref,
     itemKey: `${song?.id ?? 'end'}:${player.version}`,
-    start: song?.preview.start ?? 0,
-    end: song?.preview.end ?? 1,
+    start: win.start,
+    end: win.end,
     autoplay: true,
     active: active && !error,
     onWindowEnd,
@@ -152,12 +159,15 @@ export function Artists({ active }: { active: boolean }) {
         <Reel key={song.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
           <MediaSurface source={song.media} start={song.preview.start} className="reel__media" onPlayer={player.onPlayer} onError={setError} />
           <div className="reel__scrim" aria-hidden />
-          <div className="reel__meta">
-            <button className="reel__who" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: creator.id })}>
-              <span>{creator.name}</span>
-            </button>
-            <p className="reel__title">{song.title}</p>
-          </div>
+          <Credit kind="song" creatorId={creator.id} title={song.title} />
+          {win.more && !full && (
+            <div className="rail rail--full">
+              <button className="rail__btn" onClick={(e) => { e.stopPropagation(); setFull(song.id) }} aria-label="Full song">
+                <I.Expand size={22} />
+              </button>
+              <span className="rail__label" aria-hidden>Full song</span>
+            </div>
+          )}
           {error && <p className="reel__error">{error}</p>}
         </Reel>
       </AnimatePresence>

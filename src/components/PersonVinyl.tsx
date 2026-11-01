@@ -4,6 +4,7 @@ import { creatorById, creatorVinylById, episodes, personById, songs } from '../d
 import { useProfile } from '../hooks/useProfile'
 import { useAlignment, useFriendActions, usePersonMarkers } from '../hooks/useSocial'
 import { Readouts } from './Readouts'
+import { CommunityCard, useCreatorCommunities } from './Communities'
 import { useFollow } from '../screens/InnerCircle'
 import { mutualFriends } from '../lib/social'
 import { etchingOf } from '../screens/MyVinyl'
@@ -79,6 +80,7 @@ export function PersonVinyl({ id }: { id: string }) {
             <p className="plate__bio">{p.bio}</p>
             {creator ? <CreatorKeys creatorId={creator.id} /> : <Friendship person={p} />}
             <Match person={p} />
+            {creator && <CreatorCommunities creatorId={creator.id} />}
             {profile && <Readouts profile={profile} />}
             {p.socials?.instagram && (
               <a className="plate__link" aria-label={`Instagram: ${p.socials.instagram}`} href={`https://instagram.com/${p.socials.instagram}`} target="_blank" rel="noreferrer">
@@ -242,5 +244,29 @@ function CreatorKeys({ creatorId }: { creatorId: string }) {
         <span className="key__label">{followed ? 'Following' : 'Follow'}</span>
       </button>
     </div>
+  )
+}
+
+/** On a creator's vinyl: the communities they foster, nearest and best-matched first. */
+function CreatorCommunities({ creatorId }: { creatorId: string }) {
+  const { matches, near } = useCreatorCommunities(creatorId)
+  if (!matches.length) return null
+  const first = [...matches].sort((a, b) => Number(b.near) - Number(a.near) || b.score - a.score)[0]
+  return (
+    <section className="plate__communities" aria-label="Communities">
+      <p className="readouts__head">
+        <span>Communities</span>
+        <span>{near ? `${near} near you` : `${matches.length} to join`}</span>
+      </p>
+      <CommunityCard m={first} compact />
+      <button className="row-link" onClick={() => useUI.getState().openSheet({ kind: 'communities', creatorId })}>
+        <I.People size={18} />
+        <span>
+          <strong>All communities</strong>
+          <em>Theirs, and local scenes in their style</em>
+        </span>
+        <I.Down size={16} />
+      </button>
+    </section>
   )
 }

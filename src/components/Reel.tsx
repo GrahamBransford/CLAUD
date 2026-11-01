@@ -1,4 +1,5 @@
 import { motion, useMotionValue, useTransform, type PanInfo, type Variants } from 'framer-motion'
+import { tick } from '../lib/haptics'
 import { useRef, type ReactNode } from 'react'
 
 /** How the current item left: judged sideways, or browsed vertically. */
@@ -47,11 +48,22 @@ export function Reel({ move, onMove, onTap, canPrev, children, className }: Prop
 
   const end = (_: unknown, i: PanInfo) => {
     if (axis.current === 'x') {
-      if (i.offset.x > X || i.velocity.x > 650) onMove('save')
-      else if (i.offset.x < -X || i.velocity.x < -650) onMove('skip')
+      // a save lands with a firmer tick than a skip
+      if (i.offset.x > X || i.velocity.x > 650) {
+        tick('firm')
+        onMove('save')
+      } else if (i.offset.x < -X || i.velocity.x < -650) {
+        tick()
+        onMove('skip')
+      }
     } else if (axis.current === 'y') {
-      if (i.offset.y < -Y || i.velocity.y < -550) onMove('next')
-      else if ((i.offset.y > Y || i.velocity.y > 550) && canPrev) onMove('prev')
+      if (i.offset.y < -Y || i.velocity.y < -550) {
+        tick()
+        onMove('next')
+      } else if ((i.offset.y > Y || i.velocity.y > 550) && canPrev) {
+        tick()
+        onMove('prev')
+      }
     }
     axis.current = null
   }

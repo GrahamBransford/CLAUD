@@ -115,6 +115,8 @@ export interface ContentSet {
   me?: MeSeed
   /** Sample comments on Inner Circle moments, by post id. */
   comments?: Record<string, PostComment[]>
+  /** Communities around creators: curated by them, or run by fans. */
+  communities?: Community[]
   /** What the creators themselves listen to: their own vinyls. */
   creatorVinyls?: Record<string, { points: Record<string, number>; experiences: Omit<Experience, 'id'>[] }>
 }
@@ -209,4 +211,25 @@ export interface Signals {
   reactions: number
   /** Inner Circle posts watched most of the way through. */
   views: number
+}
+
+/**
+ * A community around a creator: one they curate themselves, or one their
+ * fans run. Online, in person, or both. (Demo data: fictional groups.)
+ */
+export interface Community {
+  id: string
+  name: string
+  creatorId: string
+  by: 'creator' | 'fans'
+  format: 'Online' | 'In person' | 'Online + in person'
+  city?: string
+  coords?: Coords
+  members: number
+  rhythm: string
+  about: string
+  styles: (string | undefined)[]
+  /** Sample listeners who are members. */
+  memberIds: string[]
+  next: { title: string; inDays: number; place: string }
 }

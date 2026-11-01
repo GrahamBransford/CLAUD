@@ -87,6 +87,16 @@ export function Catalog({ open, onClose, origin }: { open: boolean; onClose: () 
               </button>
             </div>
             <div className="catalog__results">
+            {!q.trim() && (
+              <button className="row-link row-link--catalog" onClick={() => pick(() => useUI.getState().openSheet({ kind: 'communities' }))}>
+                <I.People size={18} />
+                <span>
+                  <strong>Communities for you</strong>
+                  <em>Groups around the creators you love, online and near {location || 'you'}</em>
+                </span>
+                <I.Down size={16} />
+              </button>
+            )}
             {results.people.length > 0 && (
               <section>
                 <h2 className="catalog__drawer">{q.trim() ? 'People' : here ? 'People near you who share your taste' : 'People who share your taste'}</h2>

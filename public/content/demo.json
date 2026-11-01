@@ -6476,5 +6476,750 @@
    },
    "experiences": []
   }
- }
+ },
+ "communities": [
+  {
+   "id": "cm-1",
+   "name": "Two A.M. Club",
+   "creatorId": "juniper-vale",
+   "by": "creator",
+   "format": "Online + in person",
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ],
+   "members": 412,
+   "rhythm": "Monthly listening night",
+   "about": "Juniper's own late-night circle: new demos first, then records everyone brings. She hosts the Brooklyn night in person.",
+   "styles": [
+    "Soul & R&B",
+    "Bedroom soul"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "jonah-bell",
+    "amara-diallo",
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Listening night: unfinished songs",
+    "inDays": 9,
+    "place": "Union Pool back room, Williamsburg"
+   }
+  },
+  {
+   "id": "cm-2",
+   "name": "Rhodes & Records",
+   "creatorId": "juniper-vale",
+   "by": "fans",
+   "format": "In person",
+   "city": "Asheville, NC",
+   "coords": [
+    35.5951,
+    -82.5515
+   ],
+   "members": 96,
+   "rhythm": "Every other Sunday",
+   "about": "Fans in Juniper's hometown swapping secondhand keys and records at a church-hall café.",
+   "styles": [
+    "Soul & R&B",
+    "Bedroom soul"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "jonah-bell",
+    "amara-diallo",
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Record swap",
+    "inDays": 5,
+    "place": "Haywood Road café"
+   }
+  },
+  {
+   "id": "cm-3",
+   "name": "Bedroom Soul NYC",
+   "creatorId": "juniper-vale",
+   "by": "fans",
+   "format": "In person",
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ],
+   "members": 238,
+   "rhythm": "Twice a month",
+   "about": "Listening parties and show meet-ups for bedroom soul and neo-soul around the city.",
+   "styles": [
+    "Soul & R&B",
+    "Bedroom soul"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "jonah-bell",
+    "amara-diallo",
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Pre-show meet-up: Juniper Vale",
+    "inDays": 16,
+    "place": "Bar near Music Hall of Williamsburg"
+   }
+  },
+  {
+   "id": "cm-4",
+   "name": "The Saltwater Porch",
+   "creatorId": "marlow-saltwater",
+   "by": "creator",
+   "format": "Online + in person",
+   "city": "Portland, OR",
+   "coords": [
+    45.5152,
+    -122.6784
+   ],
+   "members": 188,
+   "rhythm": "Seasonal campfire sessions",
+   "about": "Songwriting circle run by the band: share a verse, get notes, play it on the porch.",
+   "styles": [
+    "Folk",
+    "Indie folk"
+   ],
+   "memberIds": [
+    "jonah-bell"
+   ],
+   "next": {
+    "title": "Song circle: coastline songs",
+    "inDays": 21,
+    "place": "Back porch, St Johns"
+   }
+  },
+  {
+   "id": "cm-5",
+   "name": "Blue Hour Society",
+   "creatorId": "teodora-blue",
+   "by": "creator",
+   "format": "Online",
+   "members": 327,
+   "rhythm": "Weekly listening room",
+   "about": "Dream-pop listening room Teodora curates: one album start to finish, chat only between sides.",
+   "styles": [
+    "Indie & dream pop",
+    "Dream pop"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "sofia-reyes",
+    "amara-diallo",
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Album night: Glasshouse",
+    "inDays": 3,
+    "place": "Online listening room"
+   }
+  },
+  {
+   "id": "cm-6",
+   "name": "Reverb & Rooftops",
+   "creatorId": "teodora-blue",
+   "by": "fans",
+   "format": "In person",
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ],
+   "members": 142,
+   "rhythm": "Monthly, weather allowing",
+   "about": "Dream-pop fans on a Bushwick rooftop with a borrowed PA.",
+   "styles": [
+    "Indie & dream pop",
+    "Dream pop"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "sofia-reyes",
+    "amara-diallo",
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Rooftop listening",
+    "inDays": 12,
+    "place": "Bushwick rooftop"
+   }
+  },
+  {
+   "id": "cm-7",
+   "name": "Daybreak Dance Class",
+   "creatorId": "yemi-daybreak",
+   "by": "creator",
+   "format": "In person",
+   "city": "London, UK",
+   "coords": [
+    51.5072,
+    -0.1276
+   ],
+   "members": 260,
+   "rhythm": "Saturday mornings",
+   "about": "Yemi's band teaches highlife steps before the band plays a short set.",
+   "styles": [
+    "Afro & highlife",
+    "Highlife"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "amara-diallo"
+   ],
+   "next": {
+    "title": "Highlife morning",
+    "inDays": 6,
+    "place": "Peckham community hall"
+   }
+  },
+  {
+   "id": "cm-8",
+   "name": "Highlife Brooklyn",
+   "creatorId": "yemi-daybreak",
+   "by": "fans",
+   "format": "In person",
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ],
+   "members": 118,
+   "rhythm": "Monthly",
+   "about": "Highlife and Afrobeat dance night for anyone who loves a horn section.",
+   "styles": [
+    "Afro & highlife",
+    "Highlife"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "amara-diallo"
+   ],
+   "next": {
+    "title": "Dance night",
+    "inDays": 18,
+    "place": "Flatbush social club"
+   }
+  },
+  {
+   "id": "cm-9",
+   "name": "Ferro Trio Listening Room",
+   "creatorId": "cass-ferro",
+   "by": "creator",
+   "format": "Online + in person",
+   "city": "Chicago, IL",
+   "coords": [
+    41.8781,
+    -87.6298
+   ],
+   "members": 205,
+   "rhythm": "First Thursday",
+   "about": "The trio plays a standard, then breaks it down with the room.",
+   "styles": [
+    "Jazz",
+    "Jazz trio"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Listening room: Night Ferry",
+    "inDays": 11,
+    "place": "Green Mill side room"
+   }
+  },
+  {
+   "id": "cm-10",
+   "name": "Late Set Jazz Club",
+   "creatorId": "cass-ferro",
+   "by": "fans",
+   "format": "In person",
+   "city": "Queens, NY",
+   "coords": [
+    40.7282,
+    -73.7949
+   ],
+   "members": 88,
+   "rhythm": "Weekly",
+   "about": "Jazz fans heading to late sets together, then arguing about them over pie.",
+   "styles": [
+    "Jazz",
+    "Jazz trio"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Late set at Smalls",
+    "inDays": 4,
+    "place": "Meet at West 10th St"
+   }
+  },
+  {
+   "id": "cm-11",
+   "name": "Field Notes",
+   "creatorId": "halden",
+   "by": "creator",
+   "format": "Online",
+   "members": 301,
+   "rhythm": "Monthly sound walk",
+   "about": "Halden posts a field recording; members record the same hour where they live.",
+   "styles": [
+    "Electronic",
+    "Ambient electronic"
+   ],
+   "memberIds": [
+    "sofia-reyes",
+    "elliot-park",
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Sound walk: dawn",
+    "inDays": 8,
+    "place": "Wherever you are"
+   }
+  },
+  {
+   "id": "cm-12",
+   "name": "The Long Way Round Book Club",
+   "creatorId": "long-way-round",
+   "by": "creator",
+   "format": "Online + in person",
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ],
+   "members": 540,
+   "rhythm": "Every new episode",
+   "about": "Priya and Theo pick the reading behind each episode; members meet in a bookshop to talk it through.",
+   "styles": [
+    "Culture",
+    "Culture & curiosity"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "sofia-reyes",
+    "jonah-bell",
+    "priya-nair"
+   ],
+   "next": {
+    "title": "In Defense of Boredom, in person",
+    "inDays": 7,
+    "place": "McNally Jackson, Nolita"
+   }
+  },
+  {
+   "id": "cm-13",
+   "name": "Liner Notes Listening Club",
+   "creatorId": "liner-notes",
+   "by": "creator",
+   "format": "Online",
+   "members": 366,
+   "rhythm": "Weekly",
+   "about": "Desmond plays the record the episode is about; members bring the stories behind their copies.",
+   "styles": [
+    "Music",
+    "Music history"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "jonah-bell",
+    "priya-nair"
+   ],
+   "next": {
+    "title": "Bassline night",
+    "inDays": 2,
+    "place": "Online listening room"
+   }
+  },
+  {
+   "id": "cm-14",
+   "name": "Small Machines Repair Café",
+   "creatorId": "small-machines",
+   "by": "creator",
+   "format": "In person",
+   "city": "Philadelphia, PA",
+   "coords": [
+    39.9526,
+    -75.1652
+   ],
+   "members": 154,
+   "rhythm": "Monthly",
+   "about": "Bring a broken radio or tape deck; Imani and members fix them together.",
+   "styles": [
+    "Craft",
+    "Craft & technology"
+   ],
+   "memberIds": [
+    "sofia-reyes",
+    "priya-nair",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Repair café",
+    "inDays": 14,
+    "place": "Fishtown makerspace"
+   }
+  },
+  {
+   "id": "cm-15",
+   "name": "Radio Tinkerers NYC",
+   "creatorId": "small-machines",
+   "by": "fans",
+   "format": "In person",
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ],
+   "members": 72,
+   "rhythm": "Monthly",
+   "about": "Old radios, soldering irons and coffee in Gowanus.",
+   "styles": [
+    "Craft",
+    "Craft & technology"
+   ],
+   "memberIds": [
+    "sofia-reyes",
+    "priya-nair",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Valve radio night",
+    "inDays": 20,
+    "place": "Gowanus workshop"
+   }
+  },
+  {
+   "id": "cm-16",
+   "name": "Kitchen Table Money Circle",
+   "creatorId": "kitchen-table",
+   "by": "creator",
+   "format": "Online",
+   "members": 288,
+   "rhythm": "Every two weeks",
+   "about": "Small groups talking through money and culture, the way the show does.",
+   "styles": [
+    "Money",
+    "Money & culture"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "amara-diallo"
+   ],
+   "next": {
+    "title": "Who gets paid?",
+    "inDays": 10,
+    "place": "Online"
+   }
+  },
+  {
+   "id": "cm-17",
+   "name": "Wren's Choir",
+   "creatorId": "odessa-wren",
+   "by": "creator",
+   "format": "In person",
+   "city": "Detroit, MI",
+   "coords": [
+    42.3314,
+    -83.0458
+   ],
+   "members": 176,
+   "rhythm": "Wednesday nights",
+   "about": "An open community choir Odessa leads in the church hall where she recorded.",
+   "styles": [
+    "Soul & R&B",
+    "Neo-soul"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "jonah-bell"
+   ],
+   "next": {
+    "title": "Open rehearsal",
+    "inDays": 2,
+    "place": "East side church hall"
+   }
+  },
+  {
+   "id": "cm-18",
+   "name": "Neo-Soul Sundays",
+   "creatorId": "odessa-wren",
+   "by": "fans",
+   "format": "In person",
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ],
+   "members": 214,
+   "rhythm": "Sundays",
+   "about": "Neo-soul brunch and records in Bed-Stuy.",
+   "styles": [
+    "Soul & R&B",
+    "Neo-soul"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "jonah-bell"
+   ],
+   "next": {
+    "title": "Sunday session",
+    "inDays": 4,
+    "place": "Bed-Stuy café"
+   }
+  },
+  {
+   "id": "cm-19",
+   "name": "Memphis Soul Society",
+   "creatorId": "velvet-hours",
+   "by": "fans",
+   "format": "In person",
+   "city": "Memphis, TN",
+   "coords": [
+    35.1495,
+    -90.049
+   ],
+   "members": 130,
+   "rhythm": "Monthly",
+   "about": "Soul revival fans and players, jam after the records.",
+   "styles": [
+    "Soul & R&B",
+    "Soul revival"
+   ],
+   "memberIds": [
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Jam night",
+    "inDays": 13,
+    "place": "Broad Avenue bar"
+   }
+  },
+  {
+   "id": "cm-20",
+   "name": "Long Exhale Sessions",
+   "creatorId": "nadia-okoro",
+   "by": "creator",
+   "format": "Online + in person",
+   "city": "London, UK",
+   "coords": [
+    51.5072,
+    -0.1276
+   ],
+   "members": 190,
+   "rhythm": "Monthly",
+   "about": "Spiritual jazz listening in the dark, then a conversation with the quartet.",
+   "styles": [
+    "Jazz",
+    "Spiritual jazz"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "priya-nair",
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Dark listening",
+    "inDays": 15,
+    "place": "Dalston studio"
+   }
+  },
+  {
+   "id": "cm-21",
+   "name": "Solo Piano Hour",
+   "creatorId": "eli-marchetti",
+   "by": "fans",
+   "format": "Online",
+   "members": 94,
+   "rhythm": "Weekly",
+   "about": "One standard, many recordings, gently compared.",
+   "styles": [
+    "Jazz",
+    "Jazz piano"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "priya-nair"
+   ],
+   "next": {
+    "title": "Blue in Green, five ways",
+    "inDays": 6,
+    "place": "Online"
+   }
+  },
+  {
+   "id": "cm-22",
+   "name": "Lake Notes",
+   "creatorId": "lumen-field",
+   "by": "creator",
+   "format": "In person",
+   "city": "Berlin, DE",
+   "coords": [
+    52.52,
+    13.405
+   ],
+   "members": 140,
+   "rhythm": "Monthly at dawn",
+   "about": "Modular synths by the lake; bring headphones.",
+   "styles": [
+    "Electronic",
+    "Ambient electronic"
+   ],
+   "memberIds": [
+    "sofia-reyes"
+   ],
+   "next": {
+    "title": "Dawn set",
+    "inDays": 19,
+    "place": "Tegeler See"
+   }
+  },
+  {
+   "id": "cm-23",
+   "name": "Coast & Banjo",
+   "creatorId": "wren-hollow",
+   "by": "fans",
+   "format": "In person",
+   "city": "Portland, OR",
+   "coords": [
+    45.5152,
+    -122.6784
+   ],
+   "members": 66,
+   "rhythm": "Monthly",
+   "about": "Folk pickers' circle.",
+   "styles": [
+    "Folk",
+    "Indie folk"
+   ],
+   "memberIds": [
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Picking circle",
+    "inDays": 9,
+    "place": "Alberta St café"
+   }
+  },
+  {
+   "id": "cm-24",
+   "name": "Osu Night Market Sound System",
+   "creatorId": "kwame-asante",
+   "by": "creator",
+   "format": "In person",
+   "city": "Accra, GH",
+   "coords": [
+    5.6037,
+    -0.187
+   ],
+   "members": 420,
+   "rhythm": "Fridays",
+   "about": "The band plays the night market; diaspora members stream it.",
+   "styles": [
+    "Afro & highlife",
+    "Afrobeat"
+   ],
+   "memberIds": [
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Friday market set",
+    "inDays": 3,
+    "place": "Osu"
+   }
+  },
+  {
+   "id": "cm-25",
+   "name": "Mile End Dream Pop",
+   "creatorId": "sora-lake",
+   "by": "fans",
+   "format": "In person",
+   "city": "Montréal, QC",
+   "coords": [
+    45.5019,
+    -73.5674
+   ],
+   "members": 81,
+   "rhythm": "Monthly",
+   "about": "Snowy-night listening parties.",
+   "styles": [
+    "Indie & dream pop",
+    "Dream pop"
+   ],
+   "memberIds": [
+    "maya-chen"
+   ],
+   "next": {
+    "title": "Snow day radio night",
+    "inDays": 12,
+    "place": "Mile End loft"
+   }
+  },
+  {
+   "id": "cm-26",
+   "name": "The Studio Floor Workshop",
+   "creatorId": "studio-floor",
+   "by": "creator",
+   "format": "Online + in person",
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ],
+   "members": 233,
+   "rhythm": "Monthly",
+   "about": "Ruth brings a session file; members try their own mix, then compare with the engineer.",
+   "styles": [
+    "Music",
+    "Music production"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "amara-diallo"
+   ],
+   "next": {
+    "title": "Mixing in mono, together",
+    "inDays": 8,
+    "place": "Greenpoint studio"
+   }
+  },
+  {
+   "id": "cm-27",
+   "name": "Stoop Walks",
+   "creatorId": "slow-cities",
+   "by": "creator",
+   "format": "In person",
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ],
+   "members": 158,
+   "rhythm": "Saturday mornings",
+   "about": "Walk a neighbourhood with the hosts, end on someone's stoop.",
+   "styles": [
+    "Culture",
+    "Cities & design"
+   ],
+   "memberIds": [
+    "sofia-reyes",
+    "jonah-bell",
+    "amara-diallo"
+   ],
+   "next": {
+    "title": "Walk: Crown Heights",
+    "inDays": 5,
+    "place": "Franklin Ave station"
+   }
+  }
+ ]
 }

@@ -1,4 +1,5 @@
-import { useId } from 'react'
+import { motion } from 'framer-motion'
+import { useId, useLayoutEffect, useRef, useState } from 'react'
 import { brand } from '../config/brand'
 
 /**
@@ -53,11 +54,73 @@ export function Logo({ size = 'md', spinning = false }: { size?: 'sm' | 'md' | '
   )
 }
 
-/** The opening: the Cs spin up, the letters settle, and the app is there. */
+/**
+ * The opening, in three beats. CIRCA rises in with both Cs turning; the
+ * letters draw together and fold into a single C; that C flies to its place
+ * in the tonearm's pivot on your vinyl and settles there as the room appears.
+ */
 export function Splash({ onDone }: { onDone: () => void }) {
+  const box = useRef<HTMLSpanElement>(null)
+  const [phase, setPhase] = useState<'in' | 'merge' | 'fly' | 'gone'>('in')
+  const [geo, setGeo] = useState<{ rects: DOMRect[]; cx: number; cy: number; target?: { cx: number; cy: number; size: number } } | null>(null)
+  const done = useRef(onDone)
+  useLayoutEffect(() => {
+    done.current = onDone
+  })
+
+  useLayoutEffect(() => {
+    const kids = box.current ? [...box.current.children] : []
+    setGeo({ rects: kids.map((k) => k.getBoundingClientRect()), cx: window.innerWidth / 2, cy: window.innerHeight / 2 })
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const t = (ms: number, f: () => void) => window.setTimeout(f, reduce ? ms / 3 : ms)
+    const timers = [
+      t(820, () => setPhase('merge')),
+      t(1500, () => {
+        // where the C lives: the tonearm's pivot on your vinyl (measured as if its page weren't mid-slide)
+        const el = document.querySelector<HTMLElement>('.hifi__settings .record-c')
+        const view = el?.closest('.view')?.getBoundingClientRect()
+        const r = el?.getBoundingClientRect()
+        setGeo((g) => (g && r && view ? { ...g, target: { cx: r.left - view.left + r.width / 2, cy: r.top - view.top + r.height / 2, size: r.width } } : g))
+        setPhase('fly')
+      }),
+      t(2350, () => setPhase('gone')),
+      t(2600, () => done.current()),
+    ]
+    return () => timers.forEach(clearTimeout)
+  }, [])
+
+  const name = brand.name.toUpperCase()
+  const firstC = name.indexOf('C')
+  const ease = [0.65, 0, 0.2, 1] as const
   return (
-    <div className="splash" onAnimationEnd={(e) => e.target === e.currentTarget && onDone()}>
-      <Logo size="xl" spinning />
+    <div className="splash" aria-hidden>
+      <motion.div className="splash__room" animate={{ opacity: phase === 'fly' || phase === 'gone' ? 0 : 1 }} transition={{ duration: 0.75, ease: [0.4, 0, 0.2, 1] }} />
+      <span ref={box} className="logo logo--xl splash__logo">
+        {name.split('').map((ch, i) => {
+          const r = geo?.rects[i]
+          const toCentre = r && geo ? { x: geo.cx - (r.left + r.width / 2), y: geo.cy - (r.top + r.height / 2) } : { x: 0, y: 0 }
+          const isHero = i === firstC
+          let animate: Record<string, number> = { opacity: 1, x: 0, y: 0, scale: 1 }
+          let transition: Record<string, unknown> = { duration: 0.5, delay: 0.02 + i * 0.07, ease: [0.16, 1, 0.3, 1] }
+          if (phase === 'merge')
+            animate = isHero ? { opacity: 1, ...toCentre, scale: 1.18 } : { opacity: 0, ...toCentre, scale: ch === 'C' ? 1.18 : 0.4 }
+          if (phase !== 'in') transition = { duration: 0.62, ease }
+          if ((phase === 'fly' || phase === 'gone') && isHero && r && geo?.target)
+            animate = {
+              opacity: phase === 'gone' ? 0 : 1,
+              x: geo.target.cx - (r.left + r.width / 2),
+              y: geo.target.cy - (r.top + r.height / 2),
+              scale: geo.target.size / r.width,
+            }
+          if ((phase === 'fly' || phase === 'gone') && isHero) transition = { duration: phase === 'gone' ? 0.25 : 0.82, ease: [0.7, 0, 0.18, 1] }
+          if ((phase === 'fly' || phase === 'gone') && !isHero) animate = { opacity: 0, ...toCentre, scale: 0.4 }
+          return (
+            <motion.span key={i} className="splash__ch" initial={{ opacity: 0, y: 18 }} animate={animate} transition={transition}>
+              {ch === 'C' ? <RecordC spinning /> : <span className="logo__ch">{ch}</span>}
+            </motion.span>
+          )
+        })}
+      </span>
     </div>
   )
 }

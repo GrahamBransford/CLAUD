@@ -12,6 +12,7 @@ import { useUI } from '../store/useUI'
 import * as I from './Icons'
 import { Sheet } from './Sheet'
 import { RewardCard, TierBadge } from './Tier'
+import { useCreatorCommunities } from './Communities'
 
 /**
  * A creator, seen from whichever vinyl you tapped them on: that listener's
@@ -22,6 +23,7 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
   const c = creatorById[creatorId]
   const rel = useRelationship(creatorId)
   const profile = useProfile(owner)
+  const com = useCreatorCommunities(creatorId)
   const follow = useFollow()
   const addExperience = useStore((s) => s.addExperience)
   const favorite = useStore((s) => s.favorites.includes(creatorId))
@@ -154,6 +156,19 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
           </button>
         </div>
 
+        {com.count > 0 && (
+          <button className="row-link" onClick={() => useUI.getState().openSheet({ kind: 'communities', creatorId: c.id })}>
+            <I.People size={18} />
+            <span>
+              <strong>Communities</strong>
+              <em>
+                {com.count} {com.count === 1 ? 'community' : 'communities'}
+                {com.near ? ` · ${com.near} near you` : ''}
+              </em>
+            </span>
+            <I.Down size={16} />
+          </button>
+        )}
         {mine && <RewardCard rel={rel} />}
 
         {listeners.length > 0 && (

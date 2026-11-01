@@ -12,14 +12,29 @@ npm run build      # static site in dist/ — host anywhere (Netlify, any web se
 
 ## What's in it
 
-The app opens with a short brand animation (the two Cs of CIRCA are records), then goes straight into the Radio. The bottom bar has four destinations, each shown as a small record: three full-screen ways in, then you. A little tonearm glides along the bar to whichever one you choose and sets down on it, and only that record spins.
+The app opens with a short brand animation (the two Cs of CIRCA are records), then CIRCA folds into a single C that flies to its place in the tonearm's pivot, and the app is there. Pages slide in from the side they sit on in the bar; every button answers a press (and a light haptic tick where the phone allows: Android's Vibration API, or the system switch tick on iPhone). The bottom bar has four destinations, each shown as a small record: three full-screen ways in, then you. A little tonearm glides along the bar to whichever one you choose and sets down on it, and only that record spins.
 
 | Destination | What it does |
 | --- | --- |
-| **Radio** | Everything at once, like a wireless on the sideboard: music and podcast highlights in one running order, spread evenly so neither bunches up, each tagged **Music** or **Podcast**. Swipe right to **SAVE**, left to **SKIP**, up/down for next/previous; tap to pause. A song heard all the way through saves itself; a podcast highlight (with live captions) has **Full episode**, and finishing the highlight hands off to the full episode. The demo catalogue has songs and podcast highlights; audio-only items play on the Radio as a spinning record. |
-| **Music** | Just the music: full-screen video with the artist and title over it, the same gestures. |
-| **Inner Circle** | A full-screen, sideways feed of behind-the-scenes moments from **creators you follow**, closest first. It reads left to right: swipe left for the next moment, right to go back. Friends never appear here. |
+| **Radio** | Everything at once, like a wireless on the sideboard: music and podcast highlights in one running order, spread evenly so neither bunches up. The credit is identical for both (same size, same place); a small brass note or microphone beside the name says which it is. Swipe right to **SAVE**, left to **SKIP**, up/down for next/previous; tap to pause. A song heard all the way through saves itself; a podcast highlight (with live captions) has **Full episode**, and finishing the highlight hands off to the full episode. The demo catalogue has songs and podcast highlights; audio-only items play on the Radio as a spinning record. |
+| **Music** | Just the music: full-screen video with the artist and title over it, the same gestures. Songs play up to **three minutes**; anything longer offers **Full song**, the way podcasts offer the full episode. (The demo songs are all under three minutes, so they play whole.) |
+| **Inner Circle** | A full-screen, sideways feed of behind-the-scenes moments from **creators you follow**, closest first. It scrolls like a feed: swipe up for the next moment, down to go back. Friends never appear here. |
 | **My Vinyl** | Your identity on CIRCA: a radiogram, the deck seen from straight above on the top half, its front with your nameplate and knobs on the bottom half (side by side on desktop). |
+
+### Communities
+
+Finding your people is the point. Every creator can have communities: ones they curate themselves, and ones their fans run, online, in person, or both, each with how often it meets and its next gathering.
+
+- **On a creator's vinyl** and their profile sheet: their communities, and the **local scenes in their style** near you.
+- **Communities for you** (from search, or the Communities window on your vinyl): matched across everything, with the reasons shown ("You're in the top 1% of Juniper Vale's listeners", "Soul & R&B is 62% of your music", "Meets 12 km from you", "Maya is a member"). Tabs for near you and online.
+- **Join** and **I'll be there** are demo actions: nothing is sent. Groups, members and gatherings are fictional demo data (`content/demo/people.json` → `communities`); "near you" uses your profile location, not GPS.
+
+### Where this is going (not built in the prototype)
+
+- An AI that matches people to the creator communities that fit them best, online and in real life, including local communities around a genre or an artist you've just found.
+- Free to listen, because it's a radio: sponsored songs, podcasts and a single, conscious ad every 15 to 30 minutes, never enough to bend anyone's own tailoring.
+- A premium home for the music that matters to you, alongside the playlists people keep elsewhere: favourite artists, the songs you keep because they mean something.
+- Human creativity first: AI for the engineering, never in place of the art.
 
 ### Look and feel
 

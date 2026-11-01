@@ -2,6 +2,7 @@ import { AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { TabBar } from './components/Chrome'
 import { CommentsSheet } from './components/CommentsSheet'
+import { CommunitiesSheet } from './components/Communities'
 import { CreatorSheet } from './components/CreatorSheet'
 import { FriendsSheet, LiveSheet, ProfileSheet } from './components/IdentitySheets'
 import { PersonVinyl } from './components/PersonVinyl'
@@ -64,7 +65,14 @@ export default function App() {
     <div className="app" data-route={route}>
       <main className="stage">
         {ROUTES.map((r) => (
-          <div key={r} className="view" data-active={route === r ? '' : undefined} aria-hidden={route !== r}>
+          <div
+            key={r}
+            className="view"
+            data-active={route === r ? '' : undefined}
+            // pages slide in from the side they sit on in the bar, like turning to the next page
+            data-pos={route === r ? undefined : ROUTES.indexOf(r) < ROUTES.indexOf(route) ? 'before' : 'after'}
+            aria-hidden={route !== r}
+          >
             {r === 'radio' && <Radio active={isActive('radio')} />}
             {r === 'artists' && <Artists active={isActive('artists')} />}
             {r === 'inner-circle' && <InnerCircle active={isActive('inner-circle')} />}
@@ -77,6 +85,7 @@ export default function App() {
       <AnimatePresence>{person && <PersonVinyl key={person} id={person} />}</AnimatePresence>
       <AnimatePresence>
         {sheet?.kind === 'creator' && <CreatorSheet key={`c-${sheet.creatorId}-${sheet.owner ?? 'me'}`} creatorId={sheet.creatorId} owner={sheet.owner ?? 'me'} />}
+        {sheet?.kind === 'communities' && <CommunitiesSheet key={`cm-${sheet.creatorId ?? 'all'}`} creatorId={sheet.creatorId} />}
         {sheet?.kind === 'details' && <ProfileDetails key={`d-${sheet.owner}-${sheet.tab}`} owner={sheet.owner} tab={sheet.tab} />}
         {sheet?.kind === 'settings' && <SettingsSheet key="settings" />}
         {sheet?.kind === 'profile' && <ProfileSheet key="profile" />}

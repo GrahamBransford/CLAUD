@@ -7,6 +7,7 @@ import './styles/tokens.css'
 import './styles/app.css'
 import { activeSet, loadContent } from './data'
 import { initStore } from './store/useStore'
+import { installHaptics } from './lib/haptics'
 
 const root = createRoot(document.getElementById('root')!)
 
@@ -14,6 +15,7 @@ const root = createRoot(document.getElementById('root')!)
 loadContent()
   .then(async () => {
     initStore(activeSet)
+    installHaptics()
     const { default: App } = await import('./App.tsx')
     root.render(
       <StrictMode>

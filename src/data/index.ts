@@ -1,4 +1,4 @@
-import type { ContentSet, Creator, Episode, InnerCirclePost, MediaSource, MeSeed, Person, PostComment, Signals, Song } from '../types'
+import type { Community, ContentSet, Creator, Episode, InnerCirclePost, MediaSource, MeSeed, Person, PostComment, Signals, Song } from '../types'
 
 /**
  * Content is loaded at runtime from public/content/<set>.json, so artists,
@@ -35,6 +35,7 @@ export let personById: Record<string, Person> = {}
 export let commentsByPost: Record<string, PostComment[]> = {}
 /** Every creator's own vinyl, shaped like a listener's (keyed by creator id). */
 export let creatorVinylById: Record<string, Person> = {}
+export let communities: Community[] = []
 export let meSeed: MeSeed = { name: '', username: '', bio: '', location: '', avatar: '', socials: {}, experiences: [], favorites: [], friends: {} }
 
 const SET_KEY = 'circa-content-set'
@@ -112,6 +113,7 @@ export async function loadContent(): Promise<void> {
   people = (set.people ?? []).map((p) => ({ ...p, avatar: asset(p.avatar) }))
   personById = Object.fromEntries(people.map((p) => [p.id, p]))
   commentsByPost = set.comments ?? {}
+  communities = set.communities ?? []
   creatorVinylById = Object.fromEntries(
     Object.entries(set.creatorVinyls ?? {})
       .filter(([id]) => creatorById[id])
