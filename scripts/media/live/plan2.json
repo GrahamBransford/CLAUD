@@ -1,0 +1,46 @@
+{
+ "songs": [
+  {"name":"dex-holloway-blue-booth","clip":664,"cx":0.58,"track":39},
+  {"name":"ines-moreau-rooftop-etude","clip":654,"cx":0.55,"track":587},
+  {"name":"arden-strings-glasswork","clip":41703,"cx":0.42,"track":614},
+  {"name":"sola-pink-hour","clip":831,"cx":0.55,"track":371},
+  {"name":"salon-azul-late-seating","clip":50319,"cx":0.42,"track":989},
+  {"name":"canal-street-brass-overpass","clip":40407,"cx":0.62,"track":872},
+  {"name":"lucia-paz-sol-de-tarde","clip":653,"cx":0.5,"track":580},
+  {"name":"aurelio-fen-nocturne","clip":33936,"cx":0.62,"track":657}
+ ],
+ "moments": [
+  {"name":"ic-dex-packing-up","clip":649,"cx":0.55,"track":39},
+  {"name":"ic-dex-fog","clip":646,"cx":0.5,"track":39},
+  {"name":"ic-ines-close","clip":657,"cx":0.5,"track":587},
+  {"name":"ic-ines-case","clip":637,"cx":0.5,"track":587},
+  {"name":"ic-arden-take","clip":41700,"cx":0.6,"track":614},
+  {"name":"ic-arden-silhouette","clip":41706,"cx":0.4,"track":614},
+  {"name":"ic-sola-setup","clip":4127,"cx":0.5,"track":371},
+  {"name":"ic-sola-decks","clip":836,"cx":0.5,"track":371},
+  {"name":"ic-salon-drums","clip":50323,"cx":0.72,"track":989},
+  {"name":"ic-salon-bass","clip":50314,"cx":0.45,"track":989},
+  {"name":"ic-canal-room","clip":40409,"cx":0.5,"track":872},
+  {"name":"ic-lucia-log","clip":661,"cx":0.55,"track":580},
+  {"name":"ic-aurelio-practice","clip":43774,"cx":0.6,"track":657}
+ ],
+ "avatars": [
+  {"name":"av-dex-holloway","clip":"664","t":6,"cx":0.62,"cy":0.32,"size":0.5},
+  {"name":"av-ines-moreau","clip":"657","t":6,"cx":0.5,"cy":0.36,"size":0.56},
+  {"name":"av-arden-strings","clip":"41703","t":6,"cx":0.42,"cy":0.42,"size":0.72},
+  {"name":"av-sola","clip":"831","t":6,"cx":0.6,"cy":0.36,"size":0.62},
+  {"name":"av-salon-azul","clip":"50319","t":6,"cx":0.42,"cy":0.4,"size":0.66},
+  {"name":"av-canal-street-brass","clip":"40407","t":6,"cx":0.5,"cy":0.45,"size":0.85},
+  {"name":"av-lucia-paz","clip":"653","t":6,"cx":0.5,"cy":0.36,"size":0.5},
+  {"name":"av-aurelio-fen","clip":"33936","t":6,"cx":0.62,"cy":0.52,"size":0.62}
+ ],
+ "episodes": [
+  {"name":"stg-space-gardening","src":"stg-gardening","start":0,"length":166},
+  {"name":"whats-up-april-2026","src":"whatsup-apr26","start":0,"length":137},
+  {"name":"sciencecasts-eye-on-neptune","src":"sc-neptune","start":0,"length":194},
+  {"name":"gravity-assist-ancient-lakes","src":"ga-lynch","start":380,"length":210},
+  {"name":"nisv-life-on-mars","src":"nisv-mars","start":1176,"length":210},
+  {"name":"nasa-explorers-on-station","src":"explorers-s4e6","start":0,"length":210},
+  {"name":"down-to-earth-miracle-planet","src":"dte-miracle","start":0,"length":210}
+ ]
+}

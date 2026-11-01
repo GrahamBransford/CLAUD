@@ -23,6 +23,14 @@ const PLACES: [string, Coords][] = [
   ['berlin', [52.52, 13.405]],
   ['stockholm', [59.3293, 18.0686]],
   ['lagos', [6.5244, 3.3792]],
+  ['new orleans', [29.9511, -90.0715]],
+  ['austin', [30.2672, -97.7431]],
+  ['houston', [29.7604, -95.3698]],
+  ['pasadena', [34.1478, -118.1445]],
+  ['mountain view', [37.3861, -122.0839]],
+  ['washington', [38.9072, -77.0369]],
+  ['greenbelt', [39.0046, -76.8755]],
+  ['kennedy space center', [28.5729, -80.649]],
 ]
 
 export function coordsFor(location: string | undefined): Coords | undefined {

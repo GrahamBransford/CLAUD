@@ -1,7 +1,7 @@
 {
  "version": 1,
  "name": "CIRCA demo content",
- "notes": "Demo identities (names, bios and captions are invented) on licensed stock footage of real performers from Mixkit, with licensed music from Mixkit's composers. The performers are not the people named. Real NASA shows and episodes, excerpted (five minutes each). NASA media is public domain; NASA does not endorse CIRCA. Sample listeners and every listening figure are simulated.",
+ "notes": "Demo identities (names, bios and captions are invented) on licensed stock footage of real performers from Mixkit, with licensed music from Mixkit's composers. The performers are not the people named. Real NASA shows and episodes; long ones are excerpted. NASA media is public domain; NASA does not endorse CIRCA. Sample listeners and every listening figure are simulated.",
  "creators": [
   {
    "id": "ellis-rae",
@@ -165,6 +165,230 @@
    ],
    "style": "Science",
    "followers": 54300
+  },
+  {
+   "id": "dex-holloway",
+   "kind": "artist",
+   "name": "Dex Holloway",
+   "avatar": "media/live/av-dex-holloway.jpg",
+   "genre": "Jazz saxophone",
+   "bio": "Plays the late set at a restaurant that closed its kitchen years ago. Blue Booth is named after his table.",
+   "location": "New Orleans, LA",
+   "palette": [
+    "#2A2320",
+    "#C99A4E",
+    "#ECE2D0"
+   ],
+   "style": "Jazz",
+   "followers": 31200
+  },
+  {
+   "id": "ines-moreau",
+   "kind": "artist",
+   "name": "Inés Moreau",
+   "avatar": "media/live/av-ines-moreau.jpg",
+   "genre": "Modern classical",
+   "bio": "Trained in conservatory, now writes for rooftops and film. Plays her grandfather's violin.",
+   "location": "Mexico City, MX",
+   "palette": [
+    "#2B2B2E",
+    "#B8553F",
+    "#F0E6D8"
+   ],
+   "style": "Classical",
+   "followers": 44600
+  },
+  {
+   "id": "arden-strings",
+   "kind": "artist",
+   "name": "The Arden Strings",
+   "avatar": "media/live/av-arden-strings.jpg",
+   "genre": "Chamber pop",
+   "bio": "Two violinists who met in a pit orchestra and kept playing after the curtain. Glasswork is their first record.",
+   "location": "London, UK",
+   "palette": [
+    "#1F2A3A",
+    "#C9A55B",
+    "#EDE6DA"
+   ],
+   "style": "Classical",
+   "followers": 18900
+  },
+  {
+   "id": "sola",
+   "kind": "artist",
+   "name": "SOLA",
+   "avatar": "media/live/av-sola.jpg",
+   "genre": "House",
+   "bio": "Plays long sets and short sleeves. Pink Hour is the track that closes every night.",
+   "location": "Berlin, DE",
+   "palette": [
+    "#3A1F3F",
+    "#E06A9A",
+    "#F1E6D3"
+   ],
+   "style": "Electronic",
+   "followers": 96500
+  },
+  {
+   "id": "salon-azul",
+   "kind": "artist",
+   "name": "Salón Azul Quartet",
+   "avatar": "media/live/av-salon-azul.jpg",
+   "genre": "Jazz funk",
+   "bio": "A house band for an old ballroom that never stopped having parties. Late Seating is their dinner-set closer.",
+   "location": "Mexico City, MX",
+   "palette": [
+    "#2B3A6B",
+    "#D6A84F",
+    "#EFE3CF"
+   ],
+   "style": "Jazz",
+   "followers": 22800
+  },
+  {
+   "id": "canal-street-brass",
+   "kind": "artist",
+   "name": "Canal Street Brass",
+   "avatar": "media/live/av-canal-street-brass.jpg",
+   "genre": "Street jazz",
+   "bio": "Horns that play wherever the echo is best: underpasses, stairwells, the odd wedding.",
+   "location": "New Orleans, LA",
+   "palette": [
+    "#3A2A1A",
+    "#D9A23F",
+    "#F3E7CF"
+   ],
+   "style": "Jazz",
+   "followers": 27500
+  },
+  {
+   "id": "lucia-paz",
+   "kind": "artist",
+   "name": "Lucía Paz",
+   "avatar": "media/live/av-lucia-paz.jpg",
+   "genre": "Acoustic guitar",
+   "bio": "Writes outside, mostly. Sol de Tarde was finished on a fallen tree by the river.",
+   "location": "Austin, TX",
+   "palette": [
+    "#4D5A45",
+    "#D8C59A",
+    "#F0E6D2"
+   ],
+   "style": "Folk",
+   "followers": 38400
+  },
+  {
+   "id": "aurelio-fen",
+   "kind": "artist",
+   "name": "Aurelio Fen",
+   "avatar": "media/live/av-aurelio-fen.jpg",
+   "genre": "Neo-classical piano",
+   "bio": "A pianist who scores silent films for fun. Nocturne is for the walk home in October.",
+   "location": "Paris, FR",
+   "palette": [
+    "#1D2228",
+    "#B9894F",
+    "#ECE2D0"
+   ],
+   "style": "Classical",
+   "followers": 52300
+  },
+  {
+   "id": "space-to-ground",
+   "kind": "podcast",
+   "name": "Space to Ground",
+   "avatar": "media/live/av-space-to-ground.jpg",
+   "genre": "Space station",
+   "bio": "NASA's weekly update on what's happening aboard the International Space Station.",
+   "location": "Houston, TX",
+   "palette": [
+    "#0B1F3A",
+    "#8FB3D9",
+    "#EEF2F6"
+   ],
+   "style": "Science",
+   "followers": 61800
+  },
+  {
+   "id": "whats-up",
+   "kind": "podcast",
+   "name": "What’s Up",
+   "avatar": "media/live/av-whats-up.jpg",
+   "genre": "Skywatching",
+   "bio": "NASA JPL's monthly guide to what to look for in the night sky.",
+   "location": "Pasadena, CA",
+   "palette": [
+    "#0E1430",
+    "#E0B676",
+    "#F2EEE4"
+   ],
+   "style": "Science",
+   "followers": 73400
+  },
+  {
+   "id": "sciencecasts",
+   "kind": "podcast",
+   "name": "NASA ScienceCasts",
+   "avatar": "media/live/av-sciencecasts.jpg",
+   "genre": "Science",
+   "bio": "Short NASA episodes on the science behind what's in the news and in the sky.",
+   "location": "Washington, DC",
+   "palette": [
+    "#151B2E",
+    "#5FA8D3",
+    "#EDF1F5"
+   ],
+   "style": "Science",
+   "followers": 29900
+  },
+  {
+   "id": "gravity-assist",
+   "kind": "podcast",
+   "name": "Gravity Assist",
+   "avatar": "media/live/av-gravity-assist.jpg",
+   "genre": "Planetary science",
+   "bio": "NASA's podcast of conversations with scientists about the search for life and the worlds of our solar system.",
+   "location": "Washington, DC",
+   "palette": [
+    "#2A1F14",
+    "#D98A3F",
+    "#F3E7D8"
+   ],
+   "style": "Science",
+   "followers": 47600
+  },
+  {
+   "id": "nasa-in-silicon-valley",
+   "kind": "podcast",
+   "name": "NASA in Silicon Valley Live",
+   "avatar": "media/live/av-nasa-in-silicon-valley.jpg",
+   "genre": "Science & technology",
+   "bio": "A talk show from NASA's Ames Research Center with the scientists, researchers and engineers pushing innovation.",
+   "location": "Mountain View, CA",
+   "palette": [
+    "#0D2A2E",
+    "#3FB8A8",
+    "#EAF4F2"
+   ],
+   "style": "Science",
+   "followers": 18300
+  },
+  {
+   "id": "nasa-explorers",
+   "kind": "podcast",
+   "name": "NASA Explorers",
+   "avatar": "media/live/av-nasa-explorers.jpg",
+   "genre": "Science documentary",
+   "bio": "A NASA documentary series following researchers through an experiment, from the lab to the space station.",
+   "location": "Houston, TX",
+   "palette": [
+    "#1E2630",
+    "#C2413A",
+    "#EDE6DC"
+   ],
+   "style": "Science",
+   "followers": 21400
   }
  ],
  "songs": [
@@ -341,6 +565,238 @@
    },
    "duration": 96.39,
    "display": "fill"
+  },
+  {
+   "id": "blue-booth",
+   "creatorId": "dex-holloway",
+   "title": "Blue Booth",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "Bossa-tinged saxophone for the last table in the room.",
+   "mood": [
+    "smoky",
+    "late night",
+    "jazz"
+   ],
+   "artwork": "media/live/dex-holloway-blue-booth.jpg",
+   "media": {
+    "kind": "video",
+    "src": "media/live/dex-holloway-blue-booth.mp4",
+    "poster": "media/live/dex-holloway-blue-booth.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/dex-holloway-blue-booth.mp4"
+   },
+   "preview": {
+    "start": 0,
+    "end": 95.14
+   },
+   "duration": 95.14,
+   "display": "fill"
+  },
+  {
+   "id": "rooftop-etude",
+   "creatorId": "ines-moreau",
+   "title": "Rooftop Étude",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "A small piece for strings that keeps climbing.",
+   "mood": [
+    "soaring",
+    "cinematic",
+    "morning"
+   ],
+   "artwork": "media/live/ines-moreau-rooftop-etude.jpg",
+   "media": {
+    "kind": "video",
+    "src": "media/live/ines-moreau-rooftop-etude.mp4",
+    "poster": "media/live/ines-moreau-rooftop-etude.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/ines-moreau-rooftop-etude.mp4"
+   },
+   "preview": {
+    "start": 0,
+    "end": 144.04
+   },
+   "duration": 144.04,
+   "display": "fill"
+  },
+  {
+   "id": "glasswork",
+   "creatorId": "arden-strings",
+   "title": "Glasswork",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "Two violins, one piano, and a lot of space.",
+   "mood": [
+    "melancholic",
+    "strings",
+    "rainy"
+   ],
+   "artwork": "media/live/arden-strings-glasswork.jpg",
+   "media": {
+    "kind": "video",
+    "src": "media/live/arden-strings-glasswork.mp4",
+    "poster": "media/live/arden-strings-glasswork.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/arden-strings-glasswork.mp4"
+   },
+   "preview": {
+    "start": 0,
+    "end": 160.42
+   },
+   "duration": 160.42,
+   "display": "fill"
+  },
+  {
+   "id": "pink-hour",
+   "creatorId": "sola",
+   "title": "Pink Hour",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "Four-on-the-floor house for the hour before the lights come up.",
+   "mood": [
+    "dance",
+    "driving",
+    "night out"
+   ],
+   "artwork": "media/live/sola-pink-hour.jpg",
+   "media": {
+    "kind": "video",
+    "src": "media/live/sola-pink-hour.mp4",
+    "poster": "media/live/sola-pink-hour.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/sola-pink-hour.mp4"
+   },
+   "preview": {
+    "start": 0,
+    "end": 124.03
+   },
+   "duration": 124.03,
+   "display": "fill"
+  },
+  {
+   "id": "late-seating",
+   "creatorId": "salon-azul",
+   "title": "Late Seating",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "Jazz funk with a wink, played in a ballroom.",
+   "mood": [
+    "groove",
+    "playful",
+    "dinner"
+   ],
+   "artwork": "media/live/salon-azul-late-seating.jpg",
+   "media": {
+    "kind": "video",
+    "src": "media/live/salon-azul-late-seating.mp4",
+    "poster": "media/live/salon-azul-late-seating.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/salon-azul-late-seating.mp4"
+   },
+   "preview": {
+    "start": 0,
+    "end": 89.18
+   },
+   "duration": 89.18,
+   "display": "fill"
+  },
+  {
+   "id": "under-the-overpass",
+   "creatorId": "canal-street-brass",
+   "title": "Under the Overpass",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "Sax and trumpet bouncing off concrete.",
+   "mood": [
+    "funky",
+    "bright",
+    "street"
+   ],
+   "artwork": "media/live/canal-street-brass-overpass.jpg",
+   "media": {
+    "kind": "video",
+    "src": "media/live/canal-street-brass-overpass.mp4",
+    "poster": "media/live/canal-street-brass-overpass.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/canal-street-brass-overpass.mp4"
+   },
+   "preview": {
+    "start": 0,
+    "end": 88.42
+   },
+   "duration": 88.42,
+   "display": "fill"
+  },
+  {
+   "id": "sol-de-tarde",
+   "creatorId": "lucia-paz",
+   "title": "Sol de Tarde",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "Nylon strings and late sun.",
+   "mood": [
+    "warm",
+    "acoustic",
+    "afternoon"
+   ],
+   "artwork": "media/live/lucia-paz-sol-de-tarde.jpg",
+   "media": {
+    "kind": "video",
+    "src": "media/live/lucia-paz-sol-de-tarde.mp4",
+    "poster": "media/live/lucia-paz-sol-de-tarde.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/lucia-paz-sol-de-tarde.mp4"
+   },
+   "preview": {
+    "start": 0,
+    "end": 167.81
+   },
+   "duration": 167.81,
+   "display": "fill"
+  },
+  {
+   "id": "nocturne",
+   "creatorId": "aurelio-fen",
+   "title": "Nocturne for Leaves",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "Harp and piano, slow and close.",
+   "mood": [
+    "tender",
+    "piano",
+    "autumn"
+   ],
+   "artwork": "media/live/aurelio-fen-nocturne.jpg",
+   "media": {
+    "kind": "video",
+    "src": "media/live/aurelio-fen-nocturne.mp4",
+    "poster": "media/live/aurelio-fen-nocturne.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/aurelio-fen-nocturne.mp4"
+   },
+   "preview": {
+    "start": 0,
+    "end": 145.82
+   },
+   "duration": 145.82,
+   "display": "fill"
   }
  ],
  "episodes": [
@@ -455,6 +911,34 @@
    "display": "fit"
   },
   {
+   "id": "down-to-earth-miracle-planet",
+   "creatorId": "down-to-earth",
+   "title": "The Miracle Planet",
+   "guests": [
+    "Sunita Williams",
+    "Adrien Prouty"
+   ],
+   "topic": "Suni and Adrien discuss protecting our planet's environment, and share their closing thoughts.",
+   "artwork": "media/live/down-to-earth-miracle-planet.jpg",
+   "published": "2022-05-20",
+   "media": {
+    "kind": "video",
+    "src": "media/live/down-to-earth-miracle-planet.mp4",
+    "poster": "media/live/down-to-earth-miracle-planet.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/down-to-earth-miracle-planet.mp4"
+   },
+   "duration": 210,
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "Protecting the planet"
+   },
+   "display": "fit"
+  },
+  {
    "id": "nasa-science-live-black-holes",
    "creatorId": "nasa-science-live",
    "title": "Black Hole 101",
@@ -476,6 +960,158 @@
     "start": 0,
     "end": 180,
     "title": "Seeing the invisible"
+   },
+   "display": "fit"
+  },
+  {
+   "id": "stg-space-gardening",
+   "creatorId": "space-to-ground",
+   "title": "Space Gardening",
+   "guests": [],
+   "topic": "NASA's weekly update from the International Space Station: this week, growing plants in orbit.",
+   "artwork": "media/live/stg-space-gardening.jpg",
+   "published": "2022-08-12",
+   "media": {
+    "kind": "video",
+    "src": "media/live/stg-space-gardening.mp4",
+    "poster": "media/live/stg-space-gardening.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/stg-space-gardening.mp4"
+   },
+   "duration": 166,
+   "highlight": {
+    "start": 0,
+    "end": 160,
+    "title": "This week on the station"
+   },
+   "display": "fit"
+  },
+  {
+   "id": "whats-up-april-2026",
+   "creatorId": "whats-up",
+   "title": "April 2026 Skywatching",
+   "guests": [],
+   "topic": "Mercury at its brightest for the year, the Lyrid meteor shower and a bright new comet in April's night sky.",
+   "artwork": "media/live/whats-up-april-2026.jpg",
+   "published": "2026-03-26",
+   "media": {
+    "kind": "video",
+    "src": "media/live/whats-up-april-2026.mp4",
+    "poster": "media/live/whats-up-april-2026.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/whats-up-april-2026.mp4"
+   },
+   "duration": 137,
+   "highlight": {
+    "start": 0,
+    "end": 131,
+    "title": "What to look for this month"
+   },
+   "display": "fit"
+  },
+  {
+   "id": "sciencecasts-eye-on-neptune",
+   "creatorId": "sciencecasts",
+   "title": "Eye on Neptune",
+   "guests": [],
+   "topic": "Neptune reaches opposition, giving sky watchers and astronomers a chance to observe a planet invisible to the naked eye.",
+   "artwork": "media/live/sciencecasts-eye-on-neptune.jpg",
+   "published": "2019-09-09",
+   "media": {
+    "kind": "video",
+    "src": "media/live/sciencecasts-eye-on-neptune.mp4",
+    "poster": "media/live/sciencecasts-eye-on-neptune.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/sciencecasts-eye-on-neptune.mp4"
+   },
+   "duration": 194,
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "Watching a planet you can't see"
+   },
+   "display": "fit"
+  },
+  {
+   "id": "gravity-assist-ancient-lakes",
+   "creatorId": "gravity-assist",
+   "title": "Looking for Life in Ancient Lakes",
+   "guests": [
+    "Kennda Lynch"
+   ],
+   "topic": "Astrobiologist Kennda Lynch on studying ancient lakes on Earth that resemble the Perseverance rover's landing site on Mars, to help search for life.",
+   "artwork": "media/live/gravity-assist-ancient-lakes.jpg",
+   "published": "2020-08-14",
+   "media": {
+    "kind": "video",
+    "src": "media/live/gravity-assist-ancient-lakes.mp4",
+    "poster": "media/live/gravity-assist-ancient-lakes.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/gravity-assist-ancient-lakes.mp4"
+   },
+   "duration": 210,
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "Mars, by way of Earth's lakes"
+   },
+   "display": "fit"
+  },
+  {
+   "id": "nisv-life-on-mars",
+   "creatorId": "nasa-in-silicon-valley",
+   "title": "Is There Life on Mars?",
+   "guests": [],
+   "topic": "How NASA is developing new tools to search for life on Mars.",
+   "artwork": "media/live/nisv-life-on-mars.jpg",
+   "published": "2019-09-19",
+   "media": {
+    "kind": "video",
+    "src": "media/live/nisv-life-on-mars.mp4",
+    "poster": "media/live/nisv-life-on-mars.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/nisv-life-on-mars.mp4"
+   },
+   "duration": 210,
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "New tools for an old question"
+   },
+   "display": "fit"
+  },
+  {
+   "id": "nasa-explorers-on-station",
+   "creatorId": "nasa-explorers",
+   "title": "On Station",
+   "guests": [],
+   "topic": "The researchers' experiment reaches the International Space Station: astronauts test the samples in microgravity while the team on Earth runs its own part.",
+   "artwork": "media/live/nasa-explorers-on-station.jpg",
+   "published": "2020-03-04",
+   "media": {
+    "kind": "video",
+    "src": "media/live/nasa-explorers-on-station.mp4",
+    "poster": "media/live/nasa-explorers-on-station.jpg"
+   },
+   "audio": {
+    "kind": "audio",
+    "src": "media/live/nasa-explorers-on-station.mp4"
+   },
+   "duration": 210,
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "The experiment reaches orbit"
    },
    "display": "fit"
   }
@@ -630,6 +1266,201 @@
    "poster": "media/live/ic-halyards-crowd.jpg",
    "duration": 14.08,
    "display": "fill"
+  },
+  {
+   "id": "ic-dex-packing-up",
+   "creatorId": "dex-holloway",
+   "caption": "Packing up after the late set. Same chair every night.",
+   "context": "After the set",
+   "postedHoursAgo": 5,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-dex-packing-up.mp4",
+    "poster": "media/live/ic-dex-packing-up.jpg"
+   },
+   "poster": "media/live/ic-dex-packing-up.jpg",
+   "duration": 22,
+   "display": "fill"
+  },
+  {
+   "id": "ic-dex-fog",
+   "creatorId": "dex-holloway",
+   "caption": "Empty room, smoke machine, one more take for the camera.",
+   "context": "Video shoot",
+   "postedHoursAgo": 33,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-dex-fog.mp4",
+    "poster": "media/live/ic-dex-fog.jpg"
+   },
+   "poster": "media/live/ic-dex-fog.jpg",
+   "duration": 20.17,
+   "display": "fill"
+  },
+  {
+   "id": "ic-ines-close",
+   "creatorId": "ines-moreau",
+   "caption": "Ten minutes of scales before anyone else is awake.",
+   "context": "Morning practice",
+   "postedHoursAgo": 7,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-ines-close.mp4",
+    "poster": "media/live/ic-ines-close.jpg"
+   },
+   "poster": "media/live/ic-ines-close.jpg",
+   "duration": 19.44,
+   "display": "fill"
+  },
+  {
+   "id": "ic-ines-case",
+   "creatorId": "ines-moreau",
+   "caption": "Dusting off Abuelo's violin for the recording.",
+   "context": "Before the session",
+   "postedHoursAgo": 50,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-ines-case.mp4",
+    "poster": "media/live/ic-ines-case.jpg"
+   },
+   "poster": "media/live/ic-ines-case.jpg",
+   "duration": 22,
+   "display": "fill"
+  },
+  {
+   "id": "ic-arden-take",
+   "creatorId": "arden-strings",
+   "caption": "Take four. We stopped counting after this one.",
+   "context": "Studio session",
+   "postedHoursAgo": 10,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-arden-take.mp4",
+    "poster": "media/live/ic-arden-take.jpg"
+   },
+   "poster": "media/live/ic-arden-take.jpg",
+   "duration": 15.02,
+   "display": "fill"
+  },
+  {
+   "id": "ic-arden-silhouette",
+   "creatorId": "arden-strings",
+   "caption": "Lights off for the last pass. It always sounds better.",
+   "context": "Studio, late",
+   "postedHoursAgo": 44,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-arden-silhouette.mp4",
+    "poster": "media/live/ic-arden-silhouette.jpg"
+   },
+   "poster": "media/live/ic-arden-silhouette.jpg",
+   "duration": 13.26,
+   "display": "fill"
+  },
+  {
+   "id": "ic-sola-setup",
+   "creatorId": "sola",
+   "caption": "Laptop, two decks, a lot of trust in the venue's power.",
+   "context": "Setting up",
+   "postedHoursAgo": 3,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-sola-setup.mp4",
+    "poster": "media/live/ic-sola-setup.jpg"
+   },
+   "poster": "media/live/ic-sola-setup.jpg",
+   "duration": 14.93,
+   "display": "fill"
+  },
+  {
+   "id": "ic-sola-decks",
+   "creatorId": "sola",
+   "caption": "From where I stand. Thank you for staying till 4.",
+   "context": "Club set",
+   "postedHoursAgo": 27,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-sola-decks.mp4",
+    "poster": "media/live/ic-sola-decks.jpg"
+   },
+   "poster": "media/live/ic-sola-decks.jpg",
+   "duration": 20.19,
+   "display": "fill"
+  },
+  {
+   "id": "ic-salon-drums",
+   "creatorId": "salon-azul",
+   "caption": "Rubén warming up. The chandeliers were not consulted.",
+   "context": "Soundcheck",
+   "postedHoursAgo": 14,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-salon-drums.mp4",
+    "poster": "media/live/ic-salon-drums.jpg"
+   },
+   "poster": "media/live/ic-salon-drums.jpg",
+   "duration": 12.68,
+   "display": "fill"
+  },
+  {
+   "id": "ic-salon-bass",
+   "creatorId": "salon-azul",
+   "caption": "New strings on the old bass. Listen to that low end.",
+   "context": "Before doors",
+   "postedHoursAgo": 60,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-salon-bass.mp4",
+    "poster": "media/live/ic-salon-bass.jpg"
+   },
+   "poster": "media/live/ic-salon-bass.jpg",
+   "duration": 15.35,
+   "display": "fill"
+  },
+  {
+   "id": "ic-canal-room",
+   "creatorId": "canal-street-brass",
+   "caption": "Practice room. The graffiti came with the lease.",
+   "context": "Rehearsal",
+   "postedHoursAgo": 8,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-canal-room.mp4",
+    "poster": "media/live/ic-canal-room.jpg"
+   },
+   "poster": "media/live/ic-canal-room.jpg",
+   "duration": 13.96,
+   "display": "fill"
+  },
+  {
+   "id": "ic-lucia-log",
+   "creatorId": "lucia-paz",
+   "caption": "Found the log. Found the song.",
+   "context": "Writing outside",
+   "postedHoursAgo": 12,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-lucia-log.mp4",
+    "poster": "media/live/ic-lucia-log.jpg"
+   },
+   "poster": "media/live/ic-lucia-log.jpg",
+   "duration": 22,
+   "display": "fill"
+  },
+  {
+   "id": "ic-aurelio-practice",
+   "creatorId": "aurelio-fen",
+   "caption": "Rehearsing with Clara on the old upright before the show.",
+   "context": "Rehearsal",
+   "postedHoursAgo": 20,
+   "media": {
+    "kind": "video",
+    "src": "media/live/ic-aurelio-practice.mp4",
+    "poster": "media/live/ic-aurelio-practice.jpg"
+   },
+   "poster": "media/live/ic-aurelio-practice.jpg",
+   "duration": 18.94,
+   "display": "fill"
   }
  ],
  "listeningSeed": {
@@ -696,6 +1527,58 @@
    "plays": 2,
    "completions": 1,
    "minutes": 48
+  },
+  "sola": {
+   "plays": 38,
+   "completions": 34,
+   "minutes": 130,
+   "repeats": 26,
+   "saves": 2
+  },
+  "aurelio-fen": {
+   "plays": 22,
+   "completions": 20,
+   "minutes": 66,
+   "repeats": 10,
+   "saves": 1
+  },
+  "dex-holloway": {
+   "plays": 14,
+   "completions": 12,
+   "minutes": 34,
+   "repeats": 5
+  },
+  "lucia-paz": {
+   "plays": 11,
+   "completions": 9,
+   "minutes": 30,
+   "repeats": 3
+  },
+  "ines-moreau": {
+   "plays": 7,
+   "completions": 5,
+   "minutes": 17
+  },
+  "salon-azul": {
+   "plays": 5,
+   "completions": 4,
+   "minutes": 11
+  },
+  "whats-up": {
+   "plays": 6,
+   "completions": 6,
+   "minutes": 14,
+   "saves": 1
+  },
+  "gravity-assist": {
+   "plays": 4,
+   "completions": 3,
+   "minutes": 120
+  },
+  "space-to-ground": {
+   "plays": 5,
+   "completions": 5,
+   "minutes": 14
   }
  },
  "defaultFollows": [
@@ -706,7 +1589,17 @@
   "kairo-banks",
   "the-halyards",
   "houston-we-have-a-podcast",
-  "rocket-ranch"
+  "rocket-ranch",
+  "sola",
+  "aurelio-fen",
+  "dex-holloway",
+  "lucia-paz",
+  "ines-moreau",
+  "arden-strings",
+  "salon-azul",
+  "canal-street-brass",
+  "whats-up",
+  "gravity-assist"
  ],
  "people": [
   {
@@ -732,7 +1625,13 @@
     "houston-we-have-a-podcast": 450,
     "nasa-science-live": 120,
     "the-halyards": 67,
-    "marisol-vega": 520
+    "marisol-vega": 520,
+    "sola": 520,
+    "lucia-paz": 380,
+    "aurelio-fen": 240,
+    "whats-up": 160,
+    "arden-strings": 120,
+    "space-to-ground": 90
    },
    "experiences": [
     {
@@ -803,7 +1702,12 @@
     "nasa-science-live": 640,
     "ellis-rae": 465,
     "down-to-earth": 90,
-    "marisol-vega": 790
+    "marisol-vega": 790,
+    "dex-holloway": 640,
+    "salon-azul": 480,
+    "canal-street-brass": 360,
+    "gravity-assist": 200,
+    "sola": 140
    },
    "experiences": [
     {
@@ -820,6 +1724,14 @@
      "creatorId": "the-halyards",
      "title": "The Halyards",
      "place": "Paradise Rock Club",
+     "year": 2025
+    },
+    {
+     "id": "x-theo-okafor-3",
+     "kind": "concert",
+     "creatorId": "dex-holloway",
+     "title": "Dex Holloway",
+     "place": "Preservation Hall, New Orleans",
      "year": 2025
     }
    ],
@@ -866,7 +1778,12 @@
     "rocket-ranch": 520,
     "houston-we-have-a-podcast": 180,
     "ellis-rae": 90,
-    "nasa-science-live": 200
+    "nasa-science-live": 200,
+    "ines-moreau": 720,
+    "arden-strings": 560,
+    "aurelio-fen": 420,
+    "sciencecasts": 180,
+    "nasa-explorers": 120
    },
    "experiences": [
     {
@@ -875,6 +1792,14 @@
      "creatorId": "the-halyards",
      "title": "The Halyards",
      "place": "Foro Indie Rocks, Mexico City",
+     "year": 2025
+    },
+    {
+     "id": "x-sofia-reyes-2",
+     "kind": "concert",
+     "creatorId": "ines-moreau",
+     "title": "Inés Moreau",
+     "place": "Palacio de Bellas Artes, Mexico City",
      "year": 2025
     }
    ],
@@ -922,7 +1847,12 @@
     "nasa-science-live": 515,
     "houston-we-have-a-podcast": 220,
     "the-halyards": 40,
-    "marisol-vega": 237
+    "marisol-vega": 237,
+    "canal-street-brass": 520,
+    "dex-holloway": 380,
+    "lucia-paz": 300,
+    "space-to-ground": 140,
+    "nasa-in-silicon-valley": 90
    },
    "experiences": [
     {
@@ -987,7 +1917,13 @@
     "nasa-science-live": 300,
     "ellis-rae": 257,
     "marisol-vega": 460,
-    "nova-lin": 100
+    "nova-lin": 100,
+    "salon-azul": 600,
+    "gravity-assist": 420,
+    "nasa-in-silicon-valley": 360,
+    "sciencecasts": 240,
+    "whats-up": 200,
+    "dex-holloway": 160
    },
    "experiences": [
     {
@@ -1045,7 +1981,12 @@
     "rocket-ranch": 240,
     "nova-lin": 147,
     "juniper-lowe": 500,
-    "kairo-banks": 265
+    "kairo-banks": 265,
+    "sola": 640,
+    "arden-strings": 300,
+    "nasa-explorers": 260,
+    "space-to-ground": 220,
+    "aurelio-fen": 140
    },
    "experiences": [
     {
@@ -1061,7 +2002,8 @@
     "sofia-reyes"
    ],
    "recent": [
-    "Saw The Halyards live"
+    "Saw The Halyards live",
+    "Added SOLA to their inner circle"
    ],
    "coords": [
     40.7282,
@@ -1100,7 +2042,12 @@
     "nova-lin": 160,
     "houston-we-have-a-podcast": 577,
     "nasa-science-live": 290,
-    "marisol-vega": 120
+    "marisol-vega": 120,
+    "sola": 700,
+    "canal-street-brass": 440,
+    "salon-azul": 320,
+    "lucia-paz": 180,
+    "whats-up": 120
    },
    "experiences": [
     {
@@ -1118,6 +2065,14 @@
      "title": "Ellis Rae",
      "place": "La Maroquinerie",
      "year": 2025
+    },
+    {
+     "id": "x-amara-diallo-3",
+     "kind": "concert",
+     "creatorId": "sola",
+     "title": "SOLA",
+     "place": "Tresor, Berlin",
+     "year": 2026
     }
    ],
    "friends": [
@@ -1169,7 +2124,12 @@
     "the-halyards": 430,
     "houston-we-have-a-podcast": 260,
     "nasa-science-live": 80,
-    "marisol-vega": 658
+    "marisol-vega": 658,
+    "aurelio-fen": 680,
+    "ines-moreau": 520,
+    "arden-strings": 400,
+    "lucia-paz": 260,
+    "gravity-assist": 110
    },
    "experiences": [
     {
@@ -1187,6 +2147,14 @@
      "title": "Ellis Rae",
      "place": "Nalen",
      "year": 2024
+    },
+    {
+     "id": "x-rosa-lindqvist-3",
+     "kind": "concert",
+     "creatorId": "aurelio-fen",
+     "title": "Aurelio Fen",
+     "place": "Salle Cortot, Paris",
+     "year": 2025
     }
    ],
    "friends": [
@@ -1194,7 +2162,8 @@
     "sofia-reyes"
    ],
    "recent": [
-    "Saw Nova Lin live"
+    "Saw Nova Lin live",
+    "Saw Aurelio Fen in Paris"
    ],
    "coords": [
     59.3293,
@@ -1391,6 +2360,111 @@
     "text": "I could hear it from the bar. Loudest crowd of the year.",
     "ago": "2h"
    }
+  ],
+  "ic-dex-packing-up": [
+   {
+    "by": "theo-okafor",
+    "text": "Same chair every night is the most jazz sentence ever written.",
+    "ago": "1h"
+   },
+   {
+    "by": "dex-holloway",
+    "text": "the chair has seniority.",
+    "ago": "3h"
+   }
+  ],
+  "ic-ines-close": [
+   {
+    "by": "sofia-reyes",
+    "text": "Scales never sounded this good at 7am.",
+    "ago": "1h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "The tone on that violin.",
+    "ago": "3h"
+   }
+  ],
+  "ic-ines-case": [
+   {
+    "by": "sofia-reyes",
+    "text": "Abuelo would be proud.",
+    "ago": "1h"
+   },
+   {
+    "by": "ines-moreau",
+    "text": "he would ask why it took me so long.",
+    "ago": "3h"
+   }
+  ],
+  "ic-sola-setup": [
+   {
+    "by": "amara-diallo",
+    "text": "The venue power held. Barely. Best night of the year.",
+    "ago": "1h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Pink Hour at 3:58 was unreal.",
+    "ago": "3h"
+   }
+  ],
+  "ic-sola-decks": [
+   {
+    "by": "maya-chen",
+    "text": "Stayed till 4. No regrets.",
+    "ago": "1h"
+   },
+   {
+    "by": "sola",
+    "text": "you were the loud ones at the front, weren’t you.",
+    "ago": "3h"
+   }
+  ],
+  "ic-salon-drums": [
+   {
+    "by": "priya-nair",
+    "text": "The chandeliers definitely approved.",
+    "ago": "1h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "Rubén is a menace in the best way.",
+    "ago": "3h"
+   }
+  ],
+  "ic-arden-take": [
+   {
+    "by": "rosa-lindqvist",
+    "text": "Take four is the one. Trust me.",
+    "ago": "1h"
+   }
+  ],
+  "ic-lucia-log": [
+   {
+    "by": "maya-chen",
+    "text": "Please release the log version.",
+    "ago": "1h"
+   },
+   {
+    "by": "lucia-paz",
+    "text": "the log gets a writing credit.",
+    "ago": "3h"
+   }
+  ],
+  "ic-aurelio-practice": [
+   {
+    "by": "rosa-lindqvist",
+    "text": "Clara and that upright. Perfect.",
+    "ago": "1h"
+   }
+  ],
+  "ic-canal-room": [
+   {
+    "by": "jonah-bell",
+    "text": "That room has the best echo in the city.",
+    "ago": "1h"
+   }
   ]
  },
  "creatorVinyls": {
@@ -1399,7 +2473,8 @@
     "nova-lin": 980,
     "the-halyards": 715,
     "nasa-science-live": 520,
-    "juniper-lowe": 140
+    "juniper-lowe": 140,
+    "sola": 260
    },
    "experiences": [
     {
@@ -1437,7 +2512,8 @@
     "marisol-vega": 742,
     "houston-we-have-a-podcast": 450,
     "juniper-lowe": 75,
-    "kairo-banks": 50
+    "kairo-banks": 50,
+    "sola": 480
    },
    "experiences": [
     {
@@ -1479,7 +2555,82 @@
     "nova-lin": 540,
     "rocket-ranch": 980,
     "ellis-rae": 300,
-    "houston-we-have-a-podcast": 260
+    "houston-we-have-a-podcast": 260,
+    "salon-azul": 520
+   },
+   "experiences": []
+  },
+  "dex-holloway": {
+   "points": {
+    "salon-azul": 900,
+    "canal-street-brass": 760,
+    "marisol-vega": 420,
+    "aurelio-fen": 300,
+    "gravity-assist": 140
+   },
+   "experiences": []
+  },
+  "ines-moreau": {
+   "points": {
+    "arden-strings": 980,
+    "aurelio-fen": 820,
+    "marisol-vega": 360,
+    "lucia-paz": 300,
+    "whats-up": 120
+   },
+   "experiences": []
+  },
+  "arden-strings": {
+   "points": {
+    "ines-moreau": 900,
+    "aurelio-fen": 640,
+    "nova-lin": 260,
+    "sciencecasts": 120
+   },
+   "experiences": []
+  },
+  "sola": {
+   "points": {
+    "nova-lin": 880,
+    "kairo-banks": 620,
+    "ellis-rae": 300,
+    "space-to-ground": 160
+   },
+   "experiences": []
+  },
+  "salon-azul": {
+   "points": {
+    "dex-holloway": 940,
+    "canal-street-brass": 700,
+    "marisol-vega": 560,
+    "houston-we-have-a-podcast": 140
+   },
+   "experiences": []
+  },
+  "canal-street-brass": {
+   "points": {
+    "dex-holloway": 860,
+    "salon-azul": 720,
+    "kairo-banks": 300,
+    "juniper-lowe": 200
+   },
+   "experiences": []
+  },
+  "lucia-paz": {
+   "points": {
+    "juniper-lowe": 900,
+    "ines-moreau": 480,
+    "ellis-rae": 300,
+    "whats-up": 180
+   },
+   "experiences": []
+  },
+  "aurelio-fen": {
+   "points": {
+    "ines-moreau": 880,
+    "arden-strings": 760,
+    "marisol-vega": 320,
+    "nasa-science-live": 140
    },
    "experiences": []
   }
@@ -1890,6 +3041,305 @@
     40.6782,
     -73.9442
    ]
+  },
+  {
+   "id": "cm-16",
+   "name": "Pink Hour Collective",
+   "creatorId": "sola",
+   "by": "creator",
+   "format": "Online + in person",
+   "members": 3400,
+   "rhythm": "Monthly",
+   "about": "SOLA streams a set from the studio, then hosts an afterparty for members in Berlin.",
+   "styles": [
+    "Electronic",
+    "House"
+   ],
+   "memberIds": [
+    "amara-diallo",
+    "elliot-park",
+    "maya-chen"
+   ],
+   "next": {
+    "title": "Studio set + afterparty",
+    "inDays": 10,
+    "place": "Kreuzberg, Berlin"
+   },
+   "city": "Berlin, DE",
+   "coords": [
+    52.52,
+    13.405
+   ]
+  },
+  {
+   "id": "cm-17",
+   "name": "House Music Brooklyn",
+   "creatorId": "sola",
+   "by": "fans",
+   "format": "In person",
+   "members": 880,
+   "rhythm": "Weekly",
+   "about": "House heads dancing in a Bushwick warehouse every Friday.",
+   "styles": [
+    "Electronic",
+    "House"
+   ],
+   "memberIds": [
+    "amara-diallo",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Friday warehouse night",
+    "inDays": 3,
+    "place": "Bushwick, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
+  },
+  {
+   "id": "cm-18",
+   "name": "Late Set Club",
+   "creatorId": "dex-holloway",
+   "by": "fans",
+   "format": "In person",
+   "members": 420,
+   "rhythm": "Weekly",
+   "about": "Jazz fans heading to late sets together, then arguing about them over pie.",
+   "styles": [
+    "Jazz"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "jonah-bell",
+    "priya-nair"
+   ],
+   "next": {
+    "title": "Late set at Smalls",
+    "inDays": 5,
+    "place": "West Village"
+   },
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ]
+  },
+  {
+   "id": "cm-19",
+   "name": "Second Line Sundays",
+   "creatorId": "canal-street-brass",
+   "by": "creator",
+   "format": "In person",
+   "members": 610,
+   "rhythm": "Sundays",
+   "about": "Canal Street Brass lead a walking second line; members bring a horn, a drum or just their feet.",
+   "styles": [
+    "Jazz",
+    "Street jazz"
+   ],
+   "memberIds": [
+    "jonah-bell",
+    "amara-diallo"
+   ],
+   "next": {
+    "title": "Second line",
+    "inDays": 4,
+    "place": "Tremé, New Orleans"
+   },
+   "city": "New Orleans, LA",
+   "coords": [
+    29.9511,
+    -90.0715
+   ]
+  },
+  {
+   "id": "cm-20",
+   "name": "Strings & Candlelight",
+   "creatorId": "arden-strings",
+   "by": "creator",
+   "format": "Online + in person",
+   "members": 540,
+   "rhythm": "Monthly",
+   "about": "The Arden Strings play a candlelit set in a church, then take questions about the pieces.",
+   "styles": [
+    "Classical",
+    "Chamber pop"
+   ],
+   "memberIds": [
+    "rosa-lindqvist",
+    "sofia-reyes"
+   ],
+   "next": {
+    "title": "Candlelit set",
+    "inDays": 16,
+    "place": "Shoreditch, London"
+   },
+   "city": "London, UK",
+   "coords": [
+    51.5072,
+    -0.1276
+   ]
+  },
+  {
+   "id": "cm-21",
+   "name": "Modern Classical NYC",
+   "creatorId": "ines-moreau",
+   "by": "fans",
+   "format": "In person",
+   "members": 360,
+   "rhythm": "Monthly",
+   "about": "Listening nights for contemporary classical and film scores.",
+   "styles": [
+    "Classical"
+   ],
+   "memberIds": [
+    "sofia-reyes",
+    "rosa-lindqvist",
+    "maya-chen"
+   ],
+   "next": {
+    "title": "Listening night: new strings",
+    "inDays": 8,
+    "place": "Upper West Side"
+   },
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ]
+  },
+  {
+   "id": "cm-22",
+   "name": "Piano in the Dark",
+   "creatorId": "aurelio-fen",
+   "by": "creator",
+   "format": "Online",
+   "members": 2700,
+   "rhythm": "Monthly",
+   "about": "Aurelio plays a silent film score live from his flat; members watch the film along with him.",
+   "styles": [
+    "Classical",
+    "Neo-classical piano"
+   ],
+   "memberIds": [
+    "rosa-lindqvist",
+    "sofia-reyes",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Silent film night",
+    "inDays": 12,
+    "place": "Online"
+   }
+  },
+  {
+   "id": "cm-23",
+   "name": "Ballroom Jazz Supper",
+   "creatorId": "salon-azul",
+   "by": "creator",
+   "format": "In person",
+   "members": 290,
+   "rhythm": "Monthly",
+   "about": "Dinner, then the Salón Azul Quartet play the room. Members get the first tables.",
+   "styles": [
+    "Jazz",
+    "Jazz funk"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "theo-okafor"
+   ],
+   "next": {
+    "title": "Supper set",
+    "inDays": 18,
+    "place": "Roma Norte, Mexico City"
+   },
+   "city": "Mexico City, MX",
+   "coords": [
+    19.4326,
+    -99.1332
+   ]
+  },
+  {
+   "id": "cm-24",
+   "name": "Campfire Guitar Club",
+   "creatorId": "lucia-paz",
+   "by": "fans",
+   "format": "In person",
+   "members": 210,
+   "rhythm": "Monthly",
+   "about": "Acoustic players meeting in Prospect Park to swap songs.",
+   "styles": [
+    "Folk",
+    "Acoustic guitar"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "jonah-bell"
+   ],
+   "next": {
+    "title": "Park session",
+    "inDays": 6,
+    "place": "Prospect Park, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
+  },
+  {
+   "id": "cm-25",
+   "name": "Backyard Skywatchers",
+   "creatorId": "whats-up",
+   "by": "fans",
+   "format": "In person",
+   "members": 520,
+   "rhythm": "Monthly",
+   "about": "Telescopes in a Queens backyard on the nights the monthly sky guide says to look up.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "maya-chen",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Lyrids watch",
+    "inDays": 9,
+    "place": "Astoria, Queens"
+   },
+   "city": "Queens, NY",
+   "coords": [
+    40.7282,
+    -73.7949
+   ]
+  },
+  {
+   "id": "cm-26",
+   "name": "Astrobiology Reading Group",
+   "creatorId": "gravity-assist",
+   "by": "fans",
+   "format": "Online",
+   "members": 940,
+   "rhythm": "Every other week",
+   "about": "Listeners reading the papers behind each episode about the search for life.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "sofia-reyes"
+   ],
+   "next": {
+    "title": "Paper night: ancient lakes",
+    "inDays": 7,
+    "place": "Online"
+   }
   }
  ],
  "credits": [
@@ -2206,12 +3656,439 @@
    }
   },
   {
+   "id": "down-to-earth-miracle-planet",
+   "creatorId": "down-to-earth",
+   "title": "The Miracle Planet",
+   "footage": {
+    "source": "NASA (Johnson Space Center)",
+    "url": "https://images.nasa.gov/details/jsc2022m000151_Down_to_Earth_S2_E3_The_Miracle_Planet-SOCIAL",
+    "license": "Public domain (NASA media; no endorsement implied)"
+   }
+  },
+  {
    "id": "nasa-science-live-black-holes",
    "creatorId": "nasa-science-live",
    "title": "Black Hole 101",
    "footage": {
     "source": "NASA (Goddard Space Flight Center)",
     "url": "https://images.nasa.gov/details/GSFC_20191120_M13480_NSL11",
+    "license": "Public domain (NASA media; no endorsement implied)"
+   }
+  },
+  {
+   "id": "blue-booth",
+   "creatorId": "dex-holloway",
+   "title": "Blue Booth",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/saxophonist-playing-in-a-bar-664/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Latin Lovers",
+    "artist": "Ahjay Stelino",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-dex-packing-up",
+   "creatorId": "dex-holloway",
+   "title": "Packing up after the late set. Same chair every night.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/man-packing-his-saxophone-649/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Latin Lovers",
+    "artist": "Ahjay Stelino",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-dex-fog",
+   "creatorId": "dex-holloway",
+   "title": "Empty room, smoke machine, one more take for the camera.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/saxophonist-playing-jazz-in-an-empty-restaurant-646/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Latin Lovers",
+    "artist": "Ahjay Stelino",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "rooftop-etude",
+   "creatorId": "ines-moreau",
+   "title": "Rooftop Étude",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/woman-playing-violin-654/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Discover",
+    "artist": "Eugenio Mininni",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-ines-close",
+   "creatorId": "ines-moreau",
+   "title": "Ten minutes of scales before anyone else is awake.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/woman-playing-the-violin-with-skill-657/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Discover",
+    "artist": "Eugenio Mininni",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-ines-case",
+   "creatorId": "ines-moreau",
+   "title": "Dusting off Abuelo's violin for the recording.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/dust-off-violin-637/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Discover",
+    "artist": "Eugenio Mininni",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "glasswork",
+   "creatorId": "arden-strings",
+   "title": "Glasswork",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/two-talented-violinists-playing-in-a-studio-41703/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Silent Descent",
+    "artist": "Eugenio Mininni",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-arden-take",
+   "creatorId": "arden-strings",
+   "title": "Take four. We stopped counting after this one.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/young-female-violinist-playing-in-a-recording-studio-41700/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Silent Descent",
+    "artist": "Eugenio Mininni",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-arden-silhouette",
+   "creatorId": "arden-strings",
+   "title": "Lights off for the last pass. It always sounds better.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/violinist-playing-with-sheet-music-in-a-recording-studio-41706/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Silent Descent",
+    "artist": "Eugenio Mininni",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "pink-hour",
+   "creatorId": "sola",
+   "title": "Pink Hour",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/dj-playing-music-at-a-nightclub-831/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Cat Walk",
+    "artist": "Arulo",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-sola-setup",
+   "creatorId": "sola",
+   "title": "Laptop, two decks, a lot of trust in the venue's power.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/dj-mixing-acetate-discs-4127/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Cat Walk",
+    "artist": "Arulo",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-sola-decks",
+   "creatorId": "sola",
+   "title": "From where I stand. Thank you for staying till 4.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/close-up-of-a-dj-playing-music-at-nightclub-836/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Cat Walk",
+    "artist": "Arulo",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "late-seating",
+   "creatorId": "salon-azul",
+   "title": "Late Seating",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/drummer-and-saxophonist-playing-in-an-elegant-place-50319/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Dirty Thinkin'",
+    "artist": "Michael Ramir C.",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-salon-drums",
+   "creatorId": "salon-azul",
+   "title": "Rubén warming up. The chandeliers were not consulted.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/drummer-playing-in-a-fancy-old-venue-50323/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Dirty Thinkin'",
+    "artist": "Michael Ramir C.",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-salon-bass",
+   "creatorId": "salon-azul",
+   "title": "New strings on the old bass. Listen to that low end.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/talented-bass-player-with-double-bass-in-luxurious-setting-50314/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Dirty Thinkin'",
+    "artist": "Michael Ramir C.",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "under-the-overpass",
+   "creatorId": "canal-street-brass",
+   "title": "Under the Overpass",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/jazz-musicians-playing-alongside-traffic-40407/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Gimme that Groove!",
+    "artist": "Michael Ramir C.",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-canal-room",
+   "creatorId": "canal-street-brass",
+   "title": "Practice room. The graffiti came with the lease.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/saxophonist-playing-a-quiet-song-40409/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Gimme that Groove!",
+    "artist": "Michael Ramir C.",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "sol-de-tarde",
+   "creatorId": "lucia-paz",
+   "title": "Sol de Tarde",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/woman-playing-an-acoustic-guitar-outside-653/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Sun and His Daughter",
+    "artist": "Eugenio Mininni",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-lucia-log",
+   "creatorId": "lucia-paz",
+   "title": "Found the log. Found the song.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/woman-playing-guitar-on-a-fallen-log-661/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Sun and His Daughter",
+    "artist": "Eugenio Mininni",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "nocturne",
+   "creatorId": "aurelio-fen",
+   "title": "Nocturne for Leaves",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/silhouette-of-a-man-playing-the-piano-in-the-dark-33936/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Wedding 01",
+    "artist": "Francisco Alvear",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "ic-aurelio-practice",
+   "creatorId": "aurelio-fen",
+   "title": "Rehearsing with Clara on the old upright before the show.",
+   "footage": {
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-video/talented-pianist-playing-an-elegant-grand-piano-43774/",
+    "license": "Mixkit Stock Video Free License"
+   },
+   "music": {
+    "title": "Wedding 01",
+    "artist": "Francisco Alvear",
+    "source": "Mixkit",
+    "url": "https://mixkit.co/free-stock-music/",
+    "license": "Mixkit Stock Music Free License"
+   }
+  },
+  {
+   "id": "stg-space-gardening",
+   "creatorId": "space-to-ground",
+   "title": "Space Gardening",
+   "footage": {
+    "source": "NASA (Johnson Space Center)",
+    "url": "https://images.nasa.gov/details/jcs2022m000034_Space%20to%20Ground_434_220812",
+    "license": "Public domain (NASA media; no endorsement implied)"
+   }
+  },
+  {
+   "id": "whats-up-april-2026",
+   "creatorId": "whats-up",
+   "title": "April 2026 Skywatching",
+   "footage": {
+    "source": "NASA (Jet Propulsion Laboratory)",
+    "url": "https://images.nasa.gov/details/JPL-20260326-WHATSUf-0001-Whats_Up_April_2026",
+    "license": "Public domain (NASA media; no endorsement implied)"
+   }
+  },
+  {
+   "id": "sciencecasts-eye-on-neptune",
+   "creatorId": "sciencecasts",
+   "title": "Eye on Neptune",
+   "footage": {
+    "source": "NASA (NASA Headquarters)",
+    "url": "https://images.nasa.gov/details/302_EyeOnNeptune",
+    "license": "Public domain (NASA media; no endorsement implied)"
+   }
+  },
+  {
+   "id": "gravity-assist-ancient-lakes",
+   "creatorId": "gravity-assist",
+   "title": "Looking for Life in Ancient Lakes",
+   "footage": {
+    "source": "NASA (NASA Headquarters)",
+    "url": "https://images.nasa.gov/details/NHQ_2020_0814_Gravity%20Assist_Kennda%20Lynch",
+    "license": "Public domain (NASA media; no endorsement implied)"
+   }
+  },
+  {
+   "id": "nisv-life-on-mars",
+   "creatorId": "nasa-in-silicon-valley",
+   "title": "Is There Life on Mars?",
+   "footage": {
+    "source": "NASA (Ames Research Center)",
+    "url": "https://images.nasa.gov/details/ARC-20190924-AAV3224-NiSVLive-S02-Ep05-LifeOnMars-NASAWeb",
+    "license": "Public domain (NASA media; no endorsement implied)"
+   }
+  },
+  {
+   "id": "nasa-explorers-on-station",
+   "creatorId": "nasa-explorers",
+   "title": "On Station",
+   "footage": {
+    "source": "NASA (Johnson Space Center)",
+    "url": "https://images.nasa.gov/details/NASAExplorers-S4E6",
     "license": "Public domain (NASA media; no endorsement implied)"
    }
   }

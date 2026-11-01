@@ -8,7 +8,7 @@
   },
   "sources": {
     "artists": "Demo identities (names, bios and captions are invented) on licensed stock footage of real performers from Mixkit, with licensed music from Mixkit's composers. The performers are not the people named.",
-    "podcasts": "Real NASA shows and episodes, excerpted (five minutes each). NASA media is public domain; NASA does not endorse CIRCA."
+    "podcasts": "Real NASA shows and episodes; long ones are excerpted. NASA media is public domain; NASA does not endorse CIRCA."
   },
   "display": {
     "note": "How videos sit in the vertical feeds. fill: cropped to fill the screen. fit: whole, with a soft glow in the creator's colours around it.",
@@ -747,6 +747,33 @@
               "license": "Public domain (NASA media; no endorsement implied)"
             }
           }
+        },
+        {
+          "id": "down-to-earth-miracle-planet",
+          "role": "episode",
+          "title": "The Miracle Planet",
+          "guests": [
+            "Sunita Williams",
+            "Adrien Prouty"
+          ],
+          "topic": "Suni and Adrien discuss protecting our planet's environment, and share their closing thoughts.",
+          "playback": "video",
+          "src": "media/live/down-to-earth-miracle-planet.mp4",
+          "poster": "media/live/down-to-earth-miracle-planet.jpg",
+          "duration": 210.0,
+          "highlight": {
+            "start": 0,
+            "end": 180,
+            "title": "Protecting the planet"
+          },
+          "published": "2022-05-20",
+          "credits": {
+            "footage": {
+              "source": "NASA (Johnson Space Center)",
+              "url": "https://images.nasa.gov/details/jsc2022m000151_Down_to_Earth_S2_E3_The_Miracle_Planet-SOCIAL",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
+          }
         }
       ]
     },
@@ -787,6 +814,1015 @@
             "footage": {
               "source": "NASA (Goddard Space Flight Center)",
               "url": "https://images.nasa.gov/details/GSFC_20191120_M13480_NSL11",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "dex-holloway",
+      "type": "artist",
+      "name": "Dex Holloway",
+      "demo": true,
+      "profileImage": "media/live/av-dex-holloway.jpg",
+      "genre": "Jazz saxophone",
+      "style": "Jazz",
+      "location": "New Orleans, LA",
+      "description": "Plays the late set at a restaurant that closed its kitchen years ago. Blue Booth is named after his table.",
+      "palette": [
+        "#2A2320",
+        "#C99A4E",
+        "#ECE2D0"
+      ],
+      "followers": 31200,
+      "content": [
+        {
+          "id": "blue-booth",
+          "role": "song",
+          "title": "Blue Booth",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Bossa-tinged saxophone for the last table in the room.",
+          "mood": [
+            "smoky",
+            "late night",
+            "jazz"
+          ],
+          "playback": "video",
+          "src": "media/live/dex-holloway-blue-booth.mp4",
+          "poster": "media/live/dex-holloway-blue-booth.jpg",
+          "duration": 95.14,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/saxophonist-playing-in-a-bar-664/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Latin Lovers",
+              "artist": "Ahjay Stelino",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-dex-packing-up",
+          "role": "innerCircle",
+          "caption": "Packing up after the late set. Same chair every night.",
+          "context": "After the set",
+          "playback": "video",
+          "src": "media/live/ic-dex-packing-up.mp4",
+          "poster": "media/live/ic-dex-packing-up.jpg",
+          "duration": 22.0,
+          "postedHoursAgo": 5,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/man-packing-his-saxophone-649/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Latin Lovers",
+              "artist": "Ahjay Stelino",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-dex-fog",
+          "role": "innerCircle",
+          "caption": "Empty room, smoke machine, one more take for the camera.",
+          "context": "Video shoot",
+          "playback": "video",
+          "src": "media/live/ic-dex-fog.mp4",
+          "poster": "media/live/ic-dex-fog.jpg",
+          "duration": 20.17,
+          "postedHoursAgo": 33,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/saxophonist-playing-jazz-in-an-empty-restaurant-646/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Latin Lovers",
+              "artist": "Ahjay Stelino",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ines-moreau",
+      "type": "artist",
+      "name": "Inés Moreau",
+      "demo": true,
+      "profileImage": "media/live/av-ines-moreau.jpg",
+      "genre": "Modern classical",
+      "style": "Classical",
+      "location": "Mexico City, MX",
+      "description": "Trained in conservatory, now writes for rooftops and film. Plays her grandfather's violin.",
+      "palette": [
+        "#2B2B2E",
+        "#B8553F",
+        "#F0E6D8"
+      ],
+      "followers": 44600,
+      "content": [
+        {
+          "id": "rooftop-etude",
+          "role": "song",
+          "title": "Rooftop Étude",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "A small piece for strings that keeps climbing.",
+          "mood": [
+            "soaring",
+            "cinematic",
+            "morning"
+          ],
+          "playback": "video",
+          "src": "media/live/ines-moreau-rooftop-etude.mp4",
+          "poster": "media/live/ines-moreau-rooftop-etude.jpg",
+          "duration": 144.04,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/woman-playing-violin-654/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Discover",
+              "artist": "Eugenio Mininni",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-ines-close",
+          "role": "innerCircle",
+          "caption": "Ten minutes of scales before anyone else is awake.",
+          "context": "Morning practice",
+          "playback": "video",
+          "src": "media/live/ic-ines-close.mp4",
+          "poster": "media/live/ic-ines-close.jpg",
+          "duration": 19.44,
+          "postedHoursAgo": 7,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/woman-playing-the-violin-with-skill-657/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Discover",
+              "artist": "Eugenio Mininni",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-ines-case",
+          "role": "innerCircle",
+          "caption": "Dusting off Abuelo's violin for the recording.",
+          "context": "Before the session",
+          "playback": "video",
+          "src": "media/live/ic-ines-case.mp4",
+          "poster": "media/live/ic-ines-case.jpg",
+          "duration": 22.0,
+          "postedHoursAgo": 50,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/dust-off-violin-637/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Discover",
+              "artist": "Eugenio Mininni",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "arden-strings",
+      "type": "artist",
+      "name": "The Arden Strings",
+      "demo": true,
+      "profileImage": "media/live/av-arden-strings.jpg",
+      "genre": "Chamber pop",
+      "style": "Classical",
+      "location": "London, UK",
+      "description": "Two violinists who met in a pit orchestra and kept playing after the curtain. Glasswork is their first record.",
+      "palette": [
+        "#1F2A3A",
+        "#C9A55B",
+        "#EDE6DA"
+      ],
+      "followers": 18900,
+      "content": [
+        {
+          "id": "glasswork",
+          "role": "song",
+          "title": "Glasswork",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Two violins, one piano, and a lot of space.",
+          "mood": [
+            "melancholic",
+            "strings",
+            "rainy"
+          ],
+          "playback": "video",
+          "src": "media/live/arden-strings-glasswork.mp4",
+          "poster": "media/live/arden-strings-glasswork.jpg",
+          "duration": 160.42,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/two-talented-violinists-playing-in-a-studio-41703/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Silent Descent",
+              "artist": "Eugenio Mininni",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-arden-take",
+          "role": "innerCircle",
+          "caption": "Take four. We stopped counting after this one.",
+          "context": "Studio session",
+          "playback": "video",
+          "src": "media/live/ic-arden-take.mp4",
+          "poster": "media/live/ic-arden-take.jpg",
+          "duration": 15.02,
+          "postedHoursAgo": 10,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/young-female-violinist-playing-in-a-recording-studio-41700/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Silent Descent",
+              "artist": "Eugenio Mininni",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-arden-silhouette",
+          "role": "innerCircle",
+          "caption": "Lights off for the last pass. It always sounds better.",
+          "context": "Studio, late",
+          "playback": "video",
+          "src": "media/live/ic-arden-silhouette.mp4",
+          "poster": "media/live/ic-arden-silhouette.jpg",
+          "duration": 13.26,
+          "postedHoursAgo": 44,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/violinist-playing-with-sheet-music-in-a-recording-studio-41706/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Silent Descent",
+              "artist": "Eugenio Mininni",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "sola",
+      "type": "artist",
+      "name": "SOLA",
+      "demo": true,
+      "profileImage": "media/live/av-sola.jpg",
+      "genre": "House",
+      "style": "Electronic",
+      "location": "Berlin, DE",
+      "description": "Plays long sets and short sleeves. Pink Hour is the track that closes every night.",
+      "palette": [
+        "#3A1F3F",
+        "#E06A9A",
+        "#F1E6D3"
+      ],
+      "followers": 96500,
+      "content": [
+        {
+          "id": "pink-hour",
+          "role": "song",
+          "title": "Pink Hour",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Four-on-the-floor house for the hour before the lights come up.",
+          "mood": [
+            "dance",
+            "driving",
+            "night out"
+          ],
+          "playback": "video",
+          "src": "media/live/sola-pink-hour.mp4",
+          "poster": "media/live/sola-pink-hour.jpg",
+          "duration": 124.03,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/dj-playing-music-at-a-nightclub-831/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Cat Walk",
+              "artist": "Arulo",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-sola-setup",
+          "role": "innerCircle",
+          "caption": "Laptop, two decks, a lot of trust in the venue's power.",
+          "context": "Setting up",
+          "playback": "video",
+          "src": "media/live/ic-sola-setup.mp4",
+          "poster": "media/live/ic-sola-setup.jpg",
+          "duration": 14.93,
+          "postedHoursAgo": 3,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/dj-mixing-acetate-discs-4127/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Cat Walk",
+              "artist": "Arulo",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-sola-decks",
+          "role": "innerCircle",
+          "caption": "From where I stand. Thank you for staying till 4.",
+          "context": "Club set",
+          "playback": "video",
+          "src": "media/live/ic-sola-decks.mp4",
+          "poster": "media/live/ic-sola-decks.jpg",
+          "duration": 20.19,
+          "postedHoursAgo": 27,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/close-up-of-a-dj-playing-music-at-nightclub-836/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Cat Walk",
+              "artist": "Arulo",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "salon-azul",
+      "type": "artist",
+      "name": "Salón Azul Quartet",
+      "demo": true,
+      "profileImage": "media/live/av-salon-azul.jpg",
+      "genre": "Jazz funk",
+      "style": "Jazz",
+      "location": "Mexico City, MX",
+      "description": "A house band for an old ballroom that never stopped having parties. Late Seating is their dinner-set closer.",
+      "palette": [
+        "#2B3A6B",
+        "#D6A84F",
+        "#EFE3CF"
+      ],
+      "followers": 22800,
+      "content": [
+        {
+          "id": "late-seating",
+          "role": "song",
+          "title": "Late Seating",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Jazz funk with a wink, played in a ballroom.",
+          "mood": [
+            "groove",
+            "playful",
+            "dinner"
+          ],
+          "playback": "video",
+          "src": "media/live/salon-azul-late-seating.mp4",
+          "poster": "media/live/salon-azul-late-seating.jpg",
+          "duration": 89.18,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/drummer-and-saxophonist-playing-in-an-elegant-place-50319/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Dirty Thinkin'",
+              "artist": "Michael Ramir C.",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-salon-drums",
+          "role": "innerCircle",
+          "caption": "Rubén warming up. The chandeliers were not consulted.",
+          "context": "Soundcheck",
+          "playback": "video",
+          "src": "media/live/ic-salon-drums.mp4",
+          "poster": "media/live/ic-salon-drums.jpg",
+          "duration": 12.68,
+          "postedHoursAgo": 14,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/drummer-playing-in-a-fancy-old-venue-50323/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Dirty Thinkin'",
+              "artist": "Michael Ramir C.",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-salon-bass",
+          "role": "innerCircle",
+          "caption": "New strings on the old bass. Listen to that low end.",
+          "context": "Before doors",
+          "playback": "video",
+          "src": "media/live/ic-salon-bass.mp4",
+          "poster": "media/live/ic-salon-bass.jpg",
+          "duration": 15.35,
+          "postedHoursAgo": 60,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/talented-bass-player-with-double-bass-in-luxurious-setting-50314/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Dirty Thinkin'",
+              "artist": "Michael Ramir C.",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "canal-street-brass",
+      "type": "artist",
+      "name": "Canal Street Brass",
+      "demo": true,
+      "profileImage": "media/live/av-canal-street-brass.jpg",
+      "genre": "Street jazz",
+      "style": "Jazz",
+      "location": "New Orleans, LA",
+      "description": "Horns that play wherever the echo is best: underpasses, stairwells, the odd wedding.",
+      "palette": [
+        "#3A2A1A",
+        "#D9A23F",
+        "#F3E7CF"
+      ],
+      "followers": 27500,
+      "content": [
+        {
+          "id": "under-the-overpass",
+          "role": "song",
+          "title": "Under the Overpass",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Sax and trumpet bouncing off concrete.",
+          "mood": [
+            "funky",
+            "bright",
+            "street"
+          ],
+          "playback": "video",
+          "src": "media/live/canal-street-brass-overpass.mp4",
+          "poster": "media/live/canal-street-brass-overpass.jpg",
+          "duration": 88.42,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/jazz-musicians-playing-alongside-traffic-40407/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Gimme that Groove!",
+              "artist": "Michael Ramir C.",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-canal-room",
+          "role": "innerCircle",
+          "caption": "Practice room. The graffiti came with the lease.",
+          "context": "Rehearsal",
+          "playback": "video",
+          "src": "media/live/ic-canal-room.mp4",
+          "poster": "media/live/ic-canal-room.jpg",
+          "duration": 13.96,
+          "postedHoursAgo": 8,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/saxophonist-playing-a-quiet-song-40409/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Gimme that Groove!",
+              "artist": "Michael Ramir C.",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "lucia-paz",
+      "type": "artist",
+      "name": "Lucía Paz",
+      "demo": true,
+      "profileImage": "media/live/av-lucia-paz.jpg",
+      "genre": "Acoustic guitar",
+      "style": "Folk",
+      "location": "Austin, TX",
+      "description": "Writes outside, mostly. Sol de Tarde was finished on a fallen tree by the river.",
+      "palette": [
+        "#4D5A45",
+        "#D8C59A",
+        "#F0E6D2"
+      ],
+      "followers": 38400,
+      "content": [
+        {
+          "id": "sol-de-tarde",
+          "role": "song",
+          "title": "Sol de Tarde",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Nylon strings and late sun.",
+          "mood": [
+            "warm",
+            "acoustic",
+            "afternoon"
+          ],
+          "playback": "video",
+          "src": "media/live/lucia-paz-sol-de-tarde.mp4",
+          "poster": "media/live/lucia-paz-sol-de-tarde.jpg",
+          "duration": 167.81,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/woman-playing-an-acoustic-guitar-outside-653/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Sun and His Daughter",
+              "artist": "Eugenio Mininni",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-lucia-log",
+          "role": "innerCircle",
+          "caption": "Found the log. Found the song.",
+          "context": "Writing outside",
+          "playback": "video",
+          "src": "media/live/ic-lucia-log.mp4",
+          "poster": "media/live/ic-lucia-log.jpg",
+          "duration": 22.0,
+          "postedHoursAgo": 12,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/woman-playing-guitar-on-a-fallen-log-661/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Sun and His Daughter",
+              "artist": "Eugenio Mininni",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "aurelio-fen",
+      "type": "artist",
+      "name": "Aurelio Fen",
+      "demo": true,
+      "profileImage": "media/live/av-aurelio-fen.jpg",
+      "genre": "Neo-classical piano",
+      "style": "Classical",
+      "location": "Paris, FR",
+      "description": "A pianist who scores silent films for fun. Nocturne is for the walk home in October.",
+      "palette": [
+        "#1D2228",
+        "#B9894F",
+        "#ECE2D0"
+      ],
+      "followers": 52300,
+      "content": [
+        {
+          "id": "nocturne",
+          "role": "song",
+          "title": "Nocturne for Leaves",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Harp and piano, slow and close.",
+          "mood": [
+            "tender",
+            "piano",
+            "autumn"
+          ],
+          "playback": "video",
+          "src": "media/live/aurelio-fen-nocturne.mp4",
+          "poster": "media/live/aurelio-fen-nocturne.jpg",
+          "duration": 145.82,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/silhouette-of-a-man-playing-the-piano-in-the-dark-33936/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Wedding 01",
+              "artist": "Francisco Alvear",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-aurelio-practice",
+          "role": "innerCircle",
+          "caption": "Rehearsing with Clara on the old upright before the show.",
+          "context": "Rehearsal",
+          "playback": "video",
+          "src": "media/live/ic-aurelio-practice.mp4",
+          "poster": "media/live/ic-aurelio-practice.jpg",
+          "duration": 18.94,
+          "postedHoursAgo": 20,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/talented-pianist-playing-an-elegant-grand-piano-43774/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Wedding 01",
+              "artist": "Francisco Alvear",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "space-to-ground",
+      "type": "podcast",
+      "name": "Space to Ground",
+      "profileImage": "media/live/av-space-to-ground.jpg",
+      "genre": "Space station",
+      "style": "Science",
+      "location": "Houston, TX",
+      "description": "NASA's weekly update on what's happening aboard the International Space Station.",
+      "palette": [
+        "#0B1F3A",
+        "#8FB3D9",
+        "#EEF2F6"
+      ],
+      "followers": 61800,
+      "real": true,
+      "content": [
+        {
+          "id": "stg-space-gardening",
+          "role": "episode",
+          "title": "Space Gardening",
+          "guests": [],
+          "topic": "NASA's weekly update from the International Space Station: this week, growing plants in orbit.",
+          "playback": "video",
+          "src": "media/live/stg-space-gardening.mp4",
+          "poster": "media/live/stg-space-gardening.jpg",
+          "duration": 166.0,
+          "highlight": {
+            "start": 0,
+            "end": 160,
+            "title": "This week on the station"
+          },
+          "published": "2022-08-12",
+          "credits": {
+            "footage": {
+              "source": "NASA (Johnson Space Center)",
+              "url": "https://images.nasa.gov/details/jcs2022m000034_Space%20to%20Ground_434_220812",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "whats-up",
+      "type": "podcast",
+      "name": "What’s Up",
+      "profileImage": "media/live/av-whats-up.jpg",
+      "genre": "Skywatching",
+      "style": "Science",
+      "location": "Pasadena, CA",
+      "description": "NASA JPL's monthly guide to what to look for in the night sky.",
+      "palette": [
+        "#0E1430",
+        "#E0B676",
+        "#F2EEE4"
+      ],
+      "followers": 73400,
+      "real": true,
+      "content": [
+        {
+          "id": "whats-up-april-2026",
+          "role": "episode",
+          "title": "April 2026 Skywatching",
+          "guests": [],
+          "topic": "Mercury at its brightest for the year, the Lyrid meteor shower and a bright new comet in April's night sky.",
+          "playback": "video",
+          "src": "media/live/whats-up-april-2026.mp4",
+          "poster": "media/live/whats-up-april-2026.jpg",
+          "duration": 137.0,
+          "highlight": {
+            "start": 0,
+            "end": 131,
+            "title": "What to look for this month"
+          },
+          "published": "2026-03-26",
+          "credits": {
+            "footage": {
+              "source": "NASA (Jet Propulsion Laboratory)",
+              "url": "https://images.nasa.gov/details/JPL-20260326-WHATSUf-0001-Whats_Up_April_2026",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "sciencecasts",
+      "type": "podcast",
+      "name": "NASA ScienceCasts",
+      "profileImage": "media/live/av-sciencecasts.jpg",
+      "genre": "Science",
+      "style": "Science",
+      "location": "Washington, DC",
+      "description": "Short NASA episodes on the science behind what's in the news and in the sky.",
+      "palette": [
+        "#151B2E",
+        "#5FA8D3",
+        "#EDF1F5"
+      ],
+      "followers": 29900,
+      "real": true,
+      "content": [
+        {
+          "id": "sciencecasts-eye-on-neptune",
+          "role": "episode",
+          "title": "Eye on Neptune",
+          "guests": [],
+          "topic": "Neptune reaches opposition, giving sky watchers and astronomers a chance to observe a planet invisible to the naked eye.",
+          "playback": "video",
+          "src": "media/live/sciencecasts-eye-on-neptune.mp4",
+          "poster": "media/live/sciencecasts-eye-on-neptune.jpg",
+          "duration": 194.0,
+          "highlight": {
+            "start": 0,
+            "end": 180,
+            "title": "Watching a planet you can't see"
+          },
+          "published": "2019-09-09",
+          "credits": {
+            "footage": {
+              "source": "NASA (NASA Headquarters)",
+              "url": "https://images.nasa.gov/details/302_EyeOnNeptune",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "gravity-assist",
+      "type": "podcast",
+      "name": "Gravity Assist",
+      "profileImage": "media/live/av-gravity-assist.jpg",
+      "genre": "Planetary science",
+      "style": "Science",
+      "location": "Washington, DC",
+      "description": "NASA's podcast of conversations with scientists about the search for life and the worlds of our solar system.",
+      "palette": [
+        "#2A1F14",
+        "#D98A3F",
+        "#F3E7D8"
+      ],
+      "followers": 47600,
+      "real": true,
+      "content": [
+        {
+          "id": "gravity-assist-ancient-lakes",
+          "role": "episode",
+          "title": "Looking for Life in Ancient Lakes",
+          "guests": [
+            "Kennda Lynch"
+          ],
+          "topic": "Astrobiologist Kennda Lynch on studying ancient lakes on Earth that resemble the Perseverance rover's landing site on Mars, to help search for life.",
+          "playback": "video",
+          "src": "media/live/gravity-assist-ancient-lakes.mp4",
+          "poster": "media/live/gravity-assist-ancient-lakes.jpg",
+          "duration": 210.0,
+          "highlight": {
+            "start": 0,
+            "end": 180,
+            "title": "Mars, by way of Earth's lakes"
+          },
+          "published": "2020-08-14",
+          "credits": {
+            "footage": {
+              "source": "NASA (NASA Headquarters)",
+              "url": "https://images.nasa.gov/details/NHQ_2020_0814_Gravity%20Assist_Kennda%20Lynch",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "nasa-in-silicon-valley",
+      "type": "podcast",
+      "name": "NASA in Silicon Valley Live",
+      "profileImage": "media/live/av-nasa-in-silicon-valley.jpg",
+      "genre": "Science & technology",
+      "style": "Science",
+      "location": "Mountain View, CA",
+      "description": "A talk show from NASA's Ames Research Center with the scientists, researchers and engineers pushing innovation.",
+      "palette": [
+        "#0D2A2E",
+        "#3FB8A8",
+        "#EAF4F2"
+      ],
+      "followers": 18300,
+      "real": true,
+      "content": [
+        {
+          "id": "nisv-life-on-mars",
+          "role": "episode",
+          "title": "Is There Life on Mars?",
+          "guests": [],
+          "topic": "How NASA is developing new tools to search for life on Mars.",
+          "playback": "video",
+          "src": "media/live/nisv-life-on-mars.mp4",
+          "poster": "media/live/nisv-life-on-mars.jpg",
+          "duration": 210.0,
+          "highlight": {
+            "start": 0,
+            "end": 180,
+            "title": "New tools for an old question"
+          },
+          "published": "2019-09-19",
+          "credits": {
+            "footage": {
+              "source": "NASA (Ames Research Center)",
+              "url": "https://images.nasa.gov/details/ARC-20190924-AAV3224-NiSVLive-S02-Ep05-LifeOnMars-NASAWeb",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "nasa-explorers",
+      "type": "podcast",
+      "name": "NASA Explorers",
+      "profileImage": "media/live/av-nasa-explorers.jpg",
+      "genre": "Science documentary",
+      "style": "Science",
+      "location": "Houston, TX",
+      "description": "A NASA documentary series following researchers through an experiment, from the lab to the space station.",
+      "palette": [
+        "#1E2630",
+        "#C2413A",
+        "#EDE6DC"
+      ],
+      "followers": 21400,
+      "real": true,
+      "content": [
+        {
+          "id": "nasa-explorers-on-station",
+          "role": "episode",
+          "title": "On Station",
+          "guests": [],
+          "topic": "The researchers' experiment reaches the International Space Station: astronauts test the samples in microgravity while the team on Earth runs its own part.",
+          "playback": "video",
+          "src": "media/live/nasa-explorers-on-station.mp4",
+          "poster": "media/live/nasa-explorers-on-station.jpg",
+          "duration": 210.0,
+          "highlight": {
+            "start": 0,
+            "end": 180,
+            "title": "The experiment reaches orbit"
+          },
+          "published": "2020-03-04",
+          "credits": {
+            "footage": {
+              "source": "NASA (Johnson Space Center)",
+              "url": "https://images.nasa.gov/details/NASAExplorers-S4E6",
               "license": "Public domain (NASA media; no endorsement implied)"
             }
           }
@@ -859,6 +1895,58 @@
       "plays": 2,
       "completions": 1,
       "minutes": 48
+    },
+    "sola": {
+      "plays": 38,
+      "completions": 34,
+      "minutes": 130,
+      "repeats": 26,
+      "saves": 2
+    },
+    "aurelio-fen": {
+      "plays": 22,
+      "completions": 20,
+      "minutes": 66,
+      "repeats": 10,
+      "saves": 1
+    },
+    "dex-holloway": {
+      "plays": 14,
+      "completions": 12,
+      "minutes": 34,
+      "repeats": 5
+    },
+    "lucia-paz": {
+      "plays": 11,
+      "completions": 9,
+      "minutes": 30,
+      "repeats": 3
+    },
+    "ines-moreau": {
+      "plays": 7,
+      "completions": 5,
+      "minutes": 17
+    },
+    "salon-azul": {
+      "plays": 5,
+      "completions": 4,
+      "minutes": 11
+    },
+    "whats-up": {
+      "plays": 6,
+      "completions": 6,
+      "minutes": 14,
+      "saves": 1
+    },
+    "gravity-assist": {
+      "plays": 4,
+      "completions": 3,
+      "minutes": 120
+    },
+    "space-to-ground": {
+      "plays": 5,
+      "completions": 5,
+      "minutes": 14
     }
   },
   "follows": [
@@ -869,6 +1957,16 @@
     "kairo-banks",
     "the-halyards",
     "houston-we-have-a-podcast",
-    "rocket-ranch"
+    "rocket-ranch",
+    "sola",
+    "aurelio-fen",
+    "dex-holloway",
+    "lucia-paz",
+    "ines-moreau",
+    "arden-strings",
+    "salon-azul",
+    "canal-street-brass",
+    "whats-up",
+    "gravity-assist"
   ]
 }
