@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { TabBar } from './components/Chrome'
 import { CommentsSheet } from './components/CommentsSheet'
 import { CommunitiesSheet } from './components/Communities'
+import { TasteSheet } from './components/TasteSheet'
 import { CreatorSheet } from './components/CreatorSheet'
 import { FriendsSheet, LiveSheet, ProfileSheet } from './components/IdentitySheets'
 import { PersonVinyl } from './components/PersonVinyl'
@@ -85,6 +86,7 @@ export default function App() {
       <AnimatePresence>{person && <PersonVinyl key={person} id={person} />}</AnimatePresence>
       <AnimatePresence>
         {sheet?.kind === 'creator' && <CreatorSheet key={`c-${sheet.creatorId}-${sheet.owner ?? 'me'}`} creatorId={sheet.creatorId} owner={sheet.owner ?? 'me'} />}
+        {sheet?.kind === 'taste' && <TasteSheet key="taste" />}
         {sheet?.kind === 'communities' && <CommunitiesSheet key={`cm-${sheet.creatorId ?? 'all'}`} creatorId={sheet.creatorId} />}
         {sheet?.kind === 'details' && <ProfileDetails key={`d-${sheet.owner}-${sheet.tab}`} owner={sheet.owner} tab={sheet.tab} />}
         {sheet?.kind === 'settings' && <SettingsSheet key="settings" />}

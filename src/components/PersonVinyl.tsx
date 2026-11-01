@@ -4,6 +4,8 @@ import { creatorById, creatorVinylById, episodes, personById, songs } from '../d
 import { useProfile } from '../hooks/useProfile'
 import { useAlignment, useFriendActions, usePersonMarkers } from '../hooks/useSocial'
 import { Readouts } from './Readouts'
+import { Awards, isGilded } from './Awards'
+import { followerCount, followingOf, fmtCount } from '../lib/creators'
 import { CommunityCard, useCreatorCommunities } from './Communities'
 import { useFollow } from '../screens/InnerCircle'
 import { mutualFriends } from '../lib/social'
@@ -27,6 +29,7 @@ export function PersonVinyl({ id }: { id: string }) {
   const creator = p?.creatorId ? creatorById[p.creatorId] : undefined
   const markers = usePersonMarkers(p)
   const profile = useProfile(id)
+  const followsCreator = useStore((s) => !!creator && s.follows.includes(creator.id))
   const sheet = useUI((s) => s.sheet)
   const close = () => useUI.getState().openPerson(null)
 
@@ -61,6 +64,7 @@ export function PersonVinyl({ id }: { id: string }) {
           spinning={!sheet}
           className="hifi--guest"
           edition={creator?.kind}
+          gilded={isGilded(p.awards)}
           onMarker={(cid) => useUI.getState().openSheet({ kind: 'creator', creatorId: cid, owner: id })}
         >
           <div className="plate">
@@ -69,15 +73,20 @@ export function PersonVinyl({ id }: { id: string }) {
                 {p.name}
                 {creator && <span className="plate__tag">{creator.kind === 'podcast' ? 'Podcast' : 'Artist'}</span>}
               </h1>
-              {p.location && (
+              {(p.location || creator) && (
                 <p className="plate__meta">
-                  <span>
-                    <I.Pin size={13} /> {p.location}
-                  </span>
+                  {creator && <span>{fmtCount(followerCount(creator.id, followsCreator))} followers</span>}
+                  {p.location && (
+                    <span>
+                      <I.Pin size={13} /> {p.location}
+                    </span>
+                  )}
                 </p>
               )}
             </div>
             <p className="plate__bio">{p.bio}</p>
+            {!creator && <Awards list={p.awards} />}
+            {creator && <CreatorFollows creatorId={creator.id} />}
             {creator ? <CreatorKeys creatorId={creator.id} /> : <Friendship person={p} />}
             <Match person={p} />
             {creator && <CreatorCommunities creatorId={creator.id} />}
@@ -268,5 +277,23 @@ function CreatorCommunities({ creatorId }: { creatorId: string }) {
         <I.Down size={16} />
       </button>
     </section>
+  )
+}
+
+/** Creators follow creators only: who this one follows, as a row of faces. */
+function CreatorFollows({ creatorId }: { creatorId: string }) {
+  const ids = followingOf(creatorId)
+  if (!ids.length) return null
+  return (
+    <div className="follows">
+      <span className="follows__label">Follows {ids.length} {ids.length === 1 ? 'creator' : 'creators'}</span>
+      <span className="follows__faces">
+        {ids.map((id) => (
+          <button key={id} onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: id, owner: `creator:${creatorId}` })} aria-label={creatorById[id]?.name}>
+            <img src={creatorById[id]?.avatar} alt="" />
+          </button>
+        ))}
+      </span>
+    </div>
   )
 }

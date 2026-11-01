@@ -13,7 +13,8 @@
     "#E9C77B",
     "#F1E6D3"
    ],
-   "style": "Soul & R&B"
+   "style": "Soul & R&B",
+   "followers": 48200
   },
   {
    "id": "marlow-saltwater",
@@ -28,7 +29,8 @@
     "#E8DCC4",
     "#B8553F"
    ],
-   "style": "Folk"
+   "style": "Folk",
+   "followers": 21700
   },
   {
    "id": "teodora-blue",
@@ -43,7 +45,8 @@
     "#D6A84F",
     "#C8695A"
    ],
-   "style": "Indie & dream pop"
+   "style": "Indie & dream pop",
+   "followers": 63900
   },
   {
    "id": "yemi-daybreak",
@@ -58,7 +61,8 @@
     "#3B2A22",
     "#EED9A6"
    ],
-   "style": "Afro & highlife"
+   "style": "Afro & highlife",
+   "followers": 35100
   },
   {
    "id": "cass-ferro",
@@ -73,7 +77,8 @@
     "#963F36",
     "#E6D5B8"
    ],
-   "style": "Jazz"
+   "style": "Jazz",
+   "followers": 12400
   },
   {
    "id": "halden",
@@ -88,7 +93,8 @@
     "#EFE4D0",
     "#D6A84F"
    ],
-   "style": "Electronic"
+   "style": "Electronic",
+   "followers": 27800
   },
   {
    "id": "long-way-round",
@@ -106,7 +112,8 @@
     "#292722",
     "#F4EBDD"
    ],
-   "style": "Culture"
+   "style": "Culture",
+   "followers": 112000
   },
   {
    "id": "liner-notes",
@@ -123,7 +130,8 @@
     "#F4EBDD",
     "#292722"
    ],
-   "style": "Music"
+   "style": "Music",
+   "followers": 54300
   },
   {
    "id": "small-machines",
@@ -140,7 +148,8 @@
     "#F4EBDD",
     "#7E2F2A"
    ],
-   "style": "Craft"
+   "style": "Craft",
+   "followers": 18900
   },
   {
    "id": "kitchen-table",
@@ -158,7 +167,8 @@
     "#E9C77B",
     "#F4EBDD"
    ],
-   "style": "Money"
+   "style": "Money",
+   "followers": 76500
   },
   {
    "id": "odessa-wren",
@@ -178,7 +188,8 @@
     "Ninth Street Hymn",
     "Low Light Lover"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 88400
   },
   {
    "id": "velvet-hours",
@@ -198,7 +209,8 @@
     "Saturday Ruin",
     "Bluff City Lights"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 31200
   },
   {
    "id": "nadia-okoro",
@@ -218,7 +230,8 @@
     "Harp & Harbour",
     "The Long Exhale"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 44600
   },
   {
    "id": "eli-marchetti",
@@ -238,7 +251,8 @@
     "Lakeshore at Four",
     "Night Ferry"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 9800
   },
   {
    "id": "lumen-field",
@@ -258,7 +272,8 @@
     "Lake Notes",
     "Slow Signal"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 23500
   },
   {
    "id": "wren-hollow",
@@ -278,7 +293,8 @@
     "The Keeper",
     "Winter Wheat"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 7600
   },
   {
    "id": "kwame-asante",
@@ -298,7 +314,8 @@
     "Kpanlogo Sunday",
     "Long Way Home"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 57300
   },
   {
    "id": "sora-lake",
@@ -318,7 +335,8 @@
     "Snow Day Radio",
     "Soft Machinery"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 15900
   },
   {
    "id": "studio-floor",
@@ -340,7 +358,8 @@
     "Mixing in Mono",
     "Tape Is Not Dead"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 41200
   },
   {
    "id": "slow-cities",
@@ -363,7 +382,8 @@
     "Night Buses",
     "Who Owns the Corner?"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 22800
   }
  ],
  "songs": [

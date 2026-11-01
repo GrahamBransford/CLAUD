@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { creatorById } from '../data'
+import { creatorById, meSeed } from '../data'
 import { useProfile } from '../hooks/useProfile'
 import { formatTop } from '../lib/affinity'
-import { fmtHours, fmtMinutes, type CreatorStats, type ListeningProfile, type Owner } from '../lib/profile'
+import { fmtHours, fmtMinutes, personFor, type CreatorStats, type ListeningProfile, type Owner } from '../lib/profile'
+import { Awards } from './Awards'
 import { useUI, type DetailTab } from '../store/useUI'
 import type { Experience } from '../types'
 import * as I from './Icons'
@@ -34,6 +35,7 @@ export function ProfileDetails({ owner, tab: initial }: { owner: Owner; tab: Det
           <h2>{title}</h2>
           <span className="details__demo">Estimates · demo</span>
         </header>
+        <Awards list={owner === 'me' ? meSeed.awards : personFor(owner)?.awards} />
         <nav className="details__tabs" role="tablist" aria-label="Sections">
           {TABS.map((t) => (
             <button key={t.id} role="tab" aria-selected={tab === t.id} className="details__tab" onClick={() => setTab(t.id)}>

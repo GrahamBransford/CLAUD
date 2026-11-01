@@ -21,6 +21,12 @@ The app opens with a short brand animation (the two Cs of CIRCA are records), th
 | **Inner Circle** | A full-screen, sideways feed of behind-the-scenes moments from **creators you follow**, closest first. It scrolls like a feed: swipe up for the next moment, down to go back. Friends never appear here. |
 | **My Vinyl** | Your identity on CIRCA: a radiogram, the deck seen from straight above on the top half, its front with your nameplate and knobs on the bottom half (side by side on desktop). |
 
+### Standing out
+
+- **Creators** show their follower count, and follow other creators only: their vinyl shows who they follow, as a row of faces.
+- **Listeners earn awards**, shown as small medallions on their vinyl (tap one for the story): **Event superhost** (runs gatherings for a community, linked to it), an **industry role** (self-reported), **Tastemaker**, **Founding listener**, and **Top 1% of listeners this year**, which also puts a gold ring round their record.
+- **Taste twin.** Your vinyl shows the creator whose own listening is closest to yours ("Teodora Blue · 87% match"); tap for the full ranking, and open any of their vinyls. With real profiles this becomes artists and well-known names.
+
 ### Communities
 
 Finding your people is the point. Every creator can have communities: ones they curate themselves, and ones their fans run, online, in person, or both, each with how often it meets and its next gathering.
@@ -35,6 +41,7 @@ Finding your people is the point. Every creator can have communities: ones they 
 - Free to listen, because it's a radio: sponsored songs, podcasts and a single, conscious ad every 15 to 30 minutes, never enough to bend anyone's own tailoring.
 - A premium home for the music that matters to you, alongside the playlists people keep elsewhere: favourite artists, the songs you keep because they mean something.
 - Human creativity first: AI for the engineering, never in place of the art.
+- Hands-free discovery: abbreviated music and conversations you can take in while driving, through a legal car mode (Drive), where scrolling a video feed isn't possible.
 
 ### Look and feel
 

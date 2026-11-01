@@ -11,6 +11,11 @@ body,
   height: 100%;
   margin: 0;
 }
+/* styled lists start from zero (low specificity, so each list's own spacing wins) */
+:where(ul, ol)[class] {
+  margin: 0;
+  padding: 0;
+}
 html {
   background: var(--espresso);
   color-scheme: dark;
@@ -3863,7 +3868,7 @@ h2 {
   height: 21px;
   font-size: 13px;
 }
-@container (min-height: 340px) {
+@container (min-height: 372px) {
   .hifi__front .readout:nth-child(n + 4) {
     display: flex;
   }
@@ -5162,4 +5167,172 @@ button:active:not(:disabled),
 }
 .row-link--catalog {
   margin-bottom: 14px;
+}
+
+/* ---------- awards: small struck medallions ---------- */
+.awards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.details .awards {
+  align-items: flex-start;
+}
+.awards__row {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+.details .awards__row {
+  justify-content: flex-start;
+}
+.award {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 10px 0 4px;
+  border-radius: 13px;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ivory);
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 0 0 1px rgba(184, 156, 102, 0.35);
+}
+.award.is-open {
+  box-shadow: inset 0 0 0 1px var(--brass-hi);
+}
+.award__medal {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #1a120c;
+  background: var(--bezel-brass);
+}
+.award--industry .award__medal {
+  background: var(--bezel);
+}
+.award--top {
+  color: #1a120c;
+  background: linear-gradient(180deg, #ecd9a0, #c9a75e);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+.award--top .award__medal {
+  color: #f4e4b0;
+  background: #1a120c;
+}
+.awards__detail {
+  max-width: 34em;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--fg-2);
+}
+.details .awards__detail {
+  text-align: left;
+}
+.awards__link {
+  color: var(--brass-hi);
+  text-decoration: underline;
+  text-decoration-color: rgba(220, 200, 156, 0.4);
+  text-underline-offset: 3px;
+}
+@container (max-height: 245px) {
+  .hifi__front .awards {
+    display: none;
+  }
+}
+
+/* top 1% of listeners: a gold ring round the record */
+.hifi--gilded .hifi__record {
+  box-shadow:
+    0 0 0 0.5cqw #e9d398,
+    0 0 0 0.8cqw #9c7a35,
+    0 0 3cqw rgba(233, 211, 152, 0.4),
+    0 1cqw 2.4cqw rgba(0, 0, 0, 0.6);
+}
+
+/* creators follow creators: a row of faces */
+.follows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.follows__label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+.follows__faces {
+  display: flex;
+}
+.follows__faces button {
+  margin-left: -6px;
+  border-radius: 50%;
+}
+.follows__faces img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 1px;
+  background: var(--bezel-brass);
+  box-shadow: 0 0 0 2px #0b1a13;
+}
+.hifi--gilded .hifi__record::after {
+  content: '';
+  position: absolute;
+  inset: -2.2cqw;
+  border-radius: 50%;
+  pointer-events: none;
+  background: conic-gradient(from 200deg, #b08a3a, #fff4d0, #e4c068, #9a7230, #fbe6a6, #b08a3a);
+  -webkit-mask: radial-gradient(closest-side, transparent calc(100% - 1.7cqw), #000 calc(100% - 1.6cqw), #000 calc(100% - 0.3cqw), transparent 100%);
+  mask: radial-gradient(closest-side, transparent calc(100% - 1.7cqw), #000 calc(100% - 1.6cqw), #000 calc(100% - 0.3cqw), transparent 100%);
+  filter: drop-shadow(0 0 2cqw rgba(251, 230, 166, 0.55));
+}
+/* the narrowest fronts show two windows: minutes, and (on your vinyl) your closest taste */
+@container (max-width: 330px) {
+  .hifi__front .readouts__row:has(.readout--twin) .readout:nth-child(2) {
+    display: none;
+  }
+  .hifi__front .readouts__row .readout--twin {
+    display: flex;
+  }
+}
+/* awards: a comfortable tap, a quiet look */
+.award {
+  height: 32px;
+  border-radius: 16px;
+  padding: 0 11px 0 6px;
+}
+.hifi__front .plate {
+  gap: 8px;
+}
+.hifi__front .awards {
+  margin-top: -2px;
+}
+.hifi {
+  --front-room: clamp(236px, 37cqh, 330px);
+}
+.awards {
+  align-items: stretch;
+  width: 100%;
+}
+.awards__row {
+  width: 100%;
+}
+.award {
+  white-space: nowrap;
+}
+.awards__row {
+  margin: 0;
+  padding: 0;
 }

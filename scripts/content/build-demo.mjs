@@ -21,6 +21,7 @@ const creators = cat.creators.map((c) => ({
   ...(c.style ? { style: c.style } : {}),
   ...(c.works ? { works: c.works } : {}),
   ...(c.catalogOnly ? { catalogOnly: true } : {}),
+  ...(c.followers ? { followers: c.followers } : {}),
 }))
 
 const songs = cat.songs.map((s) => {

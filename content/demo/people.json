@@ -38,6 +38,18 @@
   "coords": [
    40.6782,
    -73.9442
+  ],
+  "awards": [
+   {
+    "kind": "tastemaker",
+    "title": "Tastemaker",
+    "detail": "Had Odessa Wren on your vinyl before 1,000 others did"
+   },
+   {
+    "kind": "founding",
+    "title": "Founding listener",
+    "detail": "On CIRCA since the first month"
+   }
   ]
  },
  "people": [
@@ -97,6 +109,19 @@
    "coords": [
     40.6782,
     -73.9442
+   ],
+   "awards": [
+    {
+     "kind": "host",
+     "title": "Event superhost",
+     "detail": "Hosts Bedroom Soul NYC listening nights · 14 gatherings this year",
+     "communityId": "cm-3"
+    },
+    {
+     "kind": "tastemaker",
+     "title": "Tastemaker",
+     "detail": "Had Juniper Vale on their vinyl before 1,000 others did"
+    }
    ]
   },
   {
@@ -152,6 +177,13 @@
    "coords": [
     51.5072,
     -0.1276
+   ],
+   "awards": [
+    {
+     "kind": "industry",
+     "title": "A&R, Blue Hour Records",
+     "detail": "Signs and develops artists · self-reported"
+    }
    ]
   },
   {
@@ -201,6 +233,13 @@
    "coords": [
     19.4326,
     -99.1332
+   ],
+   "awards": [
+    {
+     "kind": "top",
+     "title": "Top 1% of listeners, 2026",
+     "detail": "More minutes than 99% of CIRCA listeners worldwide this year"
+    }
    ]
   },
   {
@@ -256,6 +295,14 @@
    "coords": [
     36.1627,
     -86.7816
+   ],
+   "awards": [
+    {
+     "kind": "host",
+     "title": "Event superhost",
+     "detail": "Organises late-set meet-ups for Late Set Jazz Club",
+     "communityId": "cm-10"
+    }
    ]
   },
   {
@@ -303,6 +350,18 @@
    "coords": [
     43.6532,
     -79.3832
+   ],
+   "awards": [
+    {
+     "kind": "industry",
+     "title": "Session bassist",
+     "detail": "Plays on records in Toronto · self-reported"
+    },
+    {
+     "kind": "founding",
+     "title": "Founding listener",
+     "detail": "On CIRCA since the first month"
+    }
    ]
   },
   {
@@ -349,6 +408,13 @@
    "coords": [
     40.7282,
     -73.7949
+   ],
+   "awards": [
+    {
+     "kind": "founding",
+     "title": "Founding listener",
+     "detail": "On CIRCA since the first month"
+    }
    ]
   },
   {
@@ -404,6 +470,19 @@
    "coords": [
     48.8566,
     2.3522
+   ],
+   "awards": [
+    {
+     "kind": "top",
+     "title": "Top 1% of listeners, 2026",
+     "detail": "More minutes than 99% of CIRCA listeners worldwide this year"
+    },
+    {
+     "kind": "host",
+     "title": "Event superhost",
+     "detail": "Runs Highlife dance nights · 9 gatherings this year",
+     "communityId": "cm-8"
+    }
    ]
   },
   {
@@ -459,6 +538,13 @@
    "coords": [
     59.3293,
     18.0686
+   ],
+   "awards": [
+    {
+     "kind": "industry",
+     "title": "Radio producer",
+     "detail": "Produces a late-night music show in Stockholm · self-reported"
+    }
    ]
   }
  ],
@@ -652,12 +738,33 @@
   },
   "teodora-blue": {
    "points": {
-    "juniper-vale": 820,
-    "halden": 900,
-    "small-machines": 180,
-    "liner-notes": 240
+    "juniper-vale": 980,
+    "halden": 120,
+    "small-machines": 90,
+    "liner-notes": 120,
+    "odessa-wren": 640,
+    "long-way-round": 420,
+    "velvet-hours": 260,
+    "cass-ferro": 200,
+    "nadia-okoro": 150,
+    "studio-floor": 120,
+    "eli-marchetti": 170,
+    "sora-lake": 150,
+    "lumen-field": 90,
+    "wren-hollow": 60,
+    "kwame-asante": 50,
+    "slow-cities": 90,
+    "marlow-saltwater": 60
    },
-   "experiences": []
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "juniper-vale",
+     "title": "Juniper Vale",
+     "place": "Music Hall of Williamsburg",
+     "year": 2025
+    }
+   ]
   },
   "yemi-daybreak": {
    "points": {

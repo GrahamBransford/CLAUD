@@ -16,7 +16,8 @@
     "#E9C77B",
     "#F1E6D3"
    ],
-   "style": "Soul & R&B"
+   "style": "Soul & R&B",
+   "followers": 48200
   },
   {
    "id": "marlow-saltwater",
@@ -31,7 +32,8 @@
     "#E8DCC4",
     "#B8553F"
    ],
-   "style": "Folk"
+   "style": "Folk",
+   "followers": 21700
   },
   {
    "id": "teodora-blue",
@@ -46,7 +48,8 @@
     "#D6A84F",
     "#C8695A"
    ],
-   "style": "Indie & dream pop"
+   "style": "Indie & dream pop",
+   "followers": 63900
   },
   {
    "id": "yemi-daybreak",
@@ -61,7 +64,8 @@
     "#3B2A22",
     "#EED9A6"
    ],
-   "style": "Afro & highlife"
+   "style": "Afro & highlife",
+   "followers": 35100
   },
   {
    "id": "cass-ferro",
@@ -76,7 +80,8 @@
     "#963F36",
     "#E6D5B8"
    ],
-   "style": "Jazz"
+   "style": "Jazz",
+   "followers": 12400
   },
   {
    "id": "halden",
@@ -91,7 +96,8 @@
     "#EFE4D0",
     "#D6A84F"
    ],
-   "style": "Electronic"
+   "style": "Electronic",
+   "followers": 27800
   },
   {
    "id": "long-way-round",
@@ -109,7 +115,8 @@
     "#292722",
     "#F4EBDD"
    ],
-   "style": "Culture"
+   "style": "Culture",
+   "followers": 112000
   },
   {
    "id": "liner-notes",
@@ -126,7 +133,8 @@
     "#F4EBDD",
     "#292722"
    ],
-   "style": "Music"
+   "style": "Music",
+   "followers": 54300
   },
   {
    "id": "small-machines",
@@ -143,7 +151,8 @@
     "#F4EBDD",
     "#7E2F2A"
    ],
-   "style": "Craft"
+   "style": "Craft",
+   "followers": 18900
   },
   {
    "id": "kitchen-table",
@@ -161,7 +170,8 @@
     "#E9C77B",
     "#F4EBDD"
    ],
-   "style": "Money"
+   "style": "Money",
+   "followers": 76500
   },
   {
    "id": "odessa-wren",
@@ -182,7 +192,8 @@
     "Ninth Street Hymn",
     "Low Light Lover"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 88400
   },
   {
    "id": "velvet-hours",
@@ -203,7 +214,8 @@
     "Saturday Ruin",
     "Bluff City Lights"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 31200
   },
   {
    "id": "nadia-okoro",
@@ -224,7 +236,8 @@
     "Harp & Harbour",
     "The Long Exhale"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 44600
   },
   {
    "id": "eli-marchetti",
@@ -245,7 +258,8 @@
     "Lakeshore at Four",
     "Night Ferry"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 9800
   },
   {
    "id": "lumen-field",
@@ -266,7 +280,8 @@
     "Lake Notes",
     "Slow Signal"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 23500
   },
   {
    "id": "wren-hollow",
@@ -287,7 +302,8 @@
     "The Keeper",
     "Winter Wheat"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 7600
   },
   {
    "id": "kwame-asante",
@@ -308,7 +324,8 @@
     "Kpanlogo Sunday",
     "Long Way Home"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 57300
   },
   {
    "id": "sora-lake",
@@ -329,7 +346,8 @@
     "Snow Day Radio",
     "Soft Machinery"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 15900
   },
   {
    "id": "studio-floor",
@@ -352,7 +370,8 @@
     "Mixing in Mono",
     "Tape Is Not Dead"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 41200
   },
   {
    "id": "slow-cities",
@@ -376,7 +395,8 @@
     "Night Buses",
     "Who Owns the Corner?"
    ],
-   "catalogOnly": true
+   "catalogOnly": true,
+   "followers": 22800
   }
  ],
  "songs": [
@@ -5782,6 +5802,19 @@
     40.6782,
     -73.9442
    ],
+   "awards": [
+    {
+     "kind": "host",
+     "title": "Event superhost",
+     "detail": "Hosts Bedroom Soul NYC listening nights · 14 gatherings this year",
+     "communityId": "cm-3"
+    },
+    {
+     "kind": "tastemaker",
+     "title": "Tastemaker",
+     "detail": "Had Juniper Vale on their vinyl before 1,000 others did"
+    }
+   ],
    "avatar": "media/people/maya-chen.jpg"
   },
   {
@@ -5840,6 +5873,13 @@
     51.5072,
     -0.1276
    ],
+   "awards": [
+    {
+     "kind": "industry",
+     "title": "A&R, Blue Hour Records",
+     "detail": "Signs and develops artists · self-reported"
+    }
+   ],
    "avatar": "media/people/theo-okafor.jpg"
   },
   {
@@ -5890,6 +5930,13 @@
    "coords": [
     19.4326,
     -99.1332
+   ],
+   "awards": [
+    {
+     "kind": "top",
+     "title": "Top 1% of listeners, 2026",
+     "detail": "More minutes than 99% of CIRCA listeners worldwide this year"
+    }
    ],
    "avatar": "media/people/sofia-reyes.jpg"
   },
@@ -5949,6 +5996,14 @@
     36.1627,
     -86.7816
    ],
+   "awards": [
+    {
+     "kind": "host",
+     "title": "Event superhost",
+     "detail": "Organises late-set meet-ups for Late Set Jazz Club",
+     "communityId": "cm-10"
+    }
+   ],
    "avatar": "media/people/jonah-bell.jpg"
   },
   {
@@ -5998,6 +6053,18 @@
     43.6532,
     -79.3832
    ],
+   "awards": [
+    {
+     "kind": "industry",
+     "title": "Session bassist",
+     "detail": "Plays on records in Toronto · self-reported"
+    },
+    {
+     "kind": "founding",
+     "title": "Founding listener",
+     "detail": "On CIRCA since the first month"
+    }
+   ],
    "avatar": "media/people/priya-nair.jpg"
   },
   {
@@ -6045,6 +6112,13 @@
    "coords": [
     40.7282,
     -73.7949
+   ],
+   "awards": [
+    {
+     "kind": "founding",
+     "title": "Founding listener",
+     "detail": "On CIRCA since the first month"
+    }
    ],
    "avatar": "media/people/elliot-park.jpg"
   },
@@ -6104,6 +6178,19 @@
     48.8566,
     2.3522
    ],
+   "awards": [
+    {
+     "kind": "top",
+     "title": "Top 1% of listeners, 2026",
+     "detail": "More minutes than 99% of CIRCA listeners worldwide this year"
+    },
+    {
+     "kind": "host",
+     "title": "Event superhost",
+     "detail": "Runs Highlife dance nights · 9 gatherings this year",
+     "communityId": "cm-8"
+    }
+   ],
    "avatar": "media/people/amara-diallo.jpg"
   },
   {
@@ -6162,6 +6249,13 @@
     59.3293,
     18.0686
    ],
+   "awards": [
+    {
+     "kind": "industry",
+     "title": "Radio producer",
+     "detail": "Produces a late-night music show in Stockholm · self-reported"
+    }
+   ],
    "avatar": "media/people/rosa-lindqvist.jpg"
   }
  ],
@@ -6204,6 +6298,18 @@
   "coords": [
    40.6782,
    -73.9442
+  ],
+  "awards": [
+   {
+    "kind": "tastemaker",
+    "title": "Tastemaker",
+    "detail": "Had Odessa Wren on your vinyl before 1,000 others did"
+   },
+   {
+    "kind": "founding",
+    "title": "Founding listener",
+    "detail": "On CIRCA since the first month"
+   }
   ]
  },
  "comments": {
@@ -6396,12 +6502,33 @@
   },
   "teodora-blue": {
    "points": {
-    "juniper-vale": 820,
-    "halden": 900,
-    "small-machines": 180,
-    "liner-notes": 240
+    "juniper-vale": 980,
+    "halden": 120,
+    "small-machines": 90,
+    "liner-notes": 120,
+    "odessa-wren": 640,
+    "long-way-round": 420,
+    "velvet-hours": 260,
+    "cass-ferro": 200,
+    "nadia-okoro": 150,
+    "studio-floor": 120,
+    "eli-marchetti": 170,
+    "sora-lake": 150,
+    "lumen-field": 90,
+    "wren-hollow": 60,
+    "kwame-asante": 50,
+    "slow-cities": 90,
+    "marlow-saltwater": 60
    },
-   "experiences": []
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "juniper-vale",
+     "title": "Juniper Vale",
+     "place": "Music Hall of Williamsburg",
+     "year": 2025
+    }
+   ]
   },
   "yemi-daybreak": {
    "points": {

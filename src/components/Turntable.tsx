@@ -251,16 +251,18 @@ interface Props {
   className?: string
   /** A creator's own vinyl: pressed on cream, a special edition (artist or podcast). */
   edition?: 'artist' | 'podcast'
+  /** Top 1% of listeners this year: a gold ring round the record. */
+  gilded?: boolean
 }
 
-export function Turntable({ markers, owner, etching, spinning, onMarker, children, controls, className, edition }: Props) {
+export function Turntable({ markers, owner, etching, spinning, onMarker, children, controls, className, edition, gilded }: Props) {
   const placed = useMemo(() => place(markers), [markers])
   const deck = useRef<HTMLDivElement>(null)
   const hand = usePlatter(deck, spinning)
   return (
     <div
       ref={deck}
-      className={`hifi ${spinning ? 'is-spinning' : ''} ${edition ? `hifi--edition hifi--${edition}` : ''} ${className ?? ''}`}
+      className={`hifi ${spinning ? 'is-spinning' : ''} ${edition ? `hifi--edition hifi--${edition}` : ''} ${gilded ? 'hifi--gilded' : ''} ${className ?? ''}`}
       style={{ '--arm': `${spinning ? ARM_PLAY : ARM_REST}deg` } as CSSProperties}
     >
       {/* the deck, straight down from above */}

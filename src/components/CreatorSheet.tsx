@@ -3,6 +3,7 @@ import { creatorById, creatorVinylById, episodes, songs } from '../data'
 import { useProfile } from '../hooks/useProfile'
 import { useRelationship } from '../hooks/useRelationship'
 import { fmtMinutes, type Owner } from '../lib/profile'
+import { followerCount, fmtCount } from '../lib/creators'
 import { formatTop } from '../lib/affinity'
 import { topListeners } from '../lib/social'
 import { useFollow } from '../screens/InnerCircle'
@@ -59,7 +60,9 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
           <img src={c.avatar} alt="" />
           <div>
             <h2>{c.name}</h2>
-            <p>{c.genre}</p>
+            <p>
+              {c.genre} · {fmtCount(followerCount(c.id, rel.followed))} followers
+            </p>
           </div>
           <button
             className={`creator__fav ${favorite ? 'is-on' : ''}`}

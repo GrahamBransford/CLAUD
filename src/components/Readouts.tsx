@@ -5,6 +5,7 @@ import type { ListeningProfile } from '../lib/profile'
 import { useStore } from '../store/useStore'
 import { useUI, type DetailTab } from '../store/useUI'
 import { useCommunityMatches } from './Communities'
+import { useTasteTwins } from './TasteSheet'
 
 /**
  * The readouts on the deck, backlit like a hi-fi's meter windows: listening
@@ -50,6 +51,7 @@ export function Readouts({ profile }: { profile: ListeningProfile }) {
             <span className="readout__sub">{formatTop(artist.top)} of fans</span>
           </button>
         )}
+        {me && <TwinTile />}
         {podcast && (
           <button className="readout" onClick={() => details('podcasts')}>
             <span className="readout__label">Top podcast</span>
@@ -67,6 +69,7 @@ export function Readouts({ profile }: { profile: ListeningProfile }) {
             <span className="readout__sub">{Math.round(sound.share * 100)}% of the music</span>
           </button>
         )}
+        {!me && (
         <button className="readout" onClick={() => details('live')}>
           <span className="readout__label">Seen live</span>
           <strong className="readout__big">
@@ -76,6 +79,7 @@ export function Readouts({ profile }: { profile: ListeningProfile }) {
             {shows.length ? [...new Set(shows.map((x) => (x.creatorId ? creatorById[x.creatorId]?.name : x.title)))].filter(Boolean).slice(0, 2).join(', ') : me ? 'Add one under Live' : 'None added yet'}
           </span>
         </button>
+        )}
         {me ? (
           <CommunitiesTile />
         ) : newest && (
@@ -103,6 +107,24 @@ function CommunitiesTile() {
       <span className="readout__label">Communities</span>
       <strong className="readout__big">{joined.length ? `${joined.length} joined` : `${all.length} for you`}</strong>
       <span className="readout__sub">{near} meet near you</span>
+    </button>
+  )
+}
+
+/** Whose taste is closest to yours, among creators: the hook. */
+function TwinTile() {
+  const twins = useTasteTwins()
+  const t = twins[0]
+  if (!t) return null
+  const c = creatorById[t.creatorId]
+  return (
+    <button className="readout readout--twin" onClick={() => useUI.getState().openSheet({ kind: 'taste' })}>
+      <span className="readout__label">Taste twin</span>
+      <span className="readout__who">
+        <img src={c.avatar} alt="" />
+        <strong>{c.name}</strong>
+      </span>
+      <span className="readout__sub">{t.score}% match</span>
     </button>
   )
 }

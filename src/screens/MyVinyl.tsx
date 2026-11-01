@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { brand } from '../config/brand'
-import { creatorById } from '../data'
+import { Awards } from '../components/Awards'
+import { creatorById, meSeed } from '../data'
 import * as I from '../components/Icons'
 import { Catalog } from '../components/Catalog'
 import { RecordC } from '../components/Logo'
@@ -159,6 +160,7 @@ export function MyVinyl({ active }: { active: boolean }) {
             </Knob>
             </div>
             {profile.bio && <p className="plate__bio">{profile.bio}</p>}
+            <Awards list={meSeed.awards} />
             {profileData && <Readouts profile={profileData} />}
           </div>
         </Turntable>

@@ -31,6 +31,8 @@ export interface Creator {
   works?: string[]
   /** Heard through a connected service; not yet in CIRCA's feeds. */
   catalogOnly?: boolean
+  /** Followers on CIRCA (demo figure). */
+  followers?: number
   links?: { label: string; url: string }[]
 }
 
@@ -169,6 +171,7 @@ export interface MeSeed extends Profile {
   experiences: Experience[]
   favorites: string[]
   friends: Record<string, FriendState>
+  awards?: Award[]
 }
 
 export interface Person {
@@ -188,6 +191,8 @@ export interface Person {
   coords?: Coords
   /** Set when this vinyl belongs to a creator rather than a listener. */
   creatorId?: string
+  /** What they've earned or do: hosting, industry roles, top-listener status. */
+  awards?: Award[]
 }
 
 export type SaveMethod = 'swipe' | 'button' | 'listened'
@@ -232,4 +237,16 @@ export interface Community {
   /** Sample listeners who are members. */
   memberIds: string[]
   next: { title: string; inDays: number; place: string }
+}
+
+/**
+ * Something a listener has earned or does, shown on their vinyl. Hosting and
+ * top-listener status come from CIRCA; industry roles are self-reported.
+ */
+export interface Award {
+  kind: 'host' | 'industry' | 'top' | 'tastemaker' | 'founding'
+  title: string
+  detail: string
+  /** For hosts: the community they run gatherings for. */
+  communityId?: string
 }

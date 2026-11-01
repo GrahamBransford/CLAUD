@@ -16,6 +16,7 @@ export type Sheet =
   | { kind: 'details'; owner: string; tab: DetailTab }
   /** Communities: all matched for you, or one creator's (and local scenes in their style). */
   | { kind: 'communities'; creatorId?: string }
+  | { kind: 'taste' }
   | { kind: 'settings' }
   | { kind: 'profile' }
   | { kind: 'live' }
