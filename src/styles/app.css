@@ -5364,3 +5364,11 @@ button:active:not(:disabled),
     font-size: 10.5px;
   }
 }
+/* the intro: the C on the arm waits until the flying one has landed, then takes over */
+.hifi__settings .record-c {
+  transition: opacity 0.3s ease-out;
+}
+.is-intro .hifi__settings .record-c {
+  opacity: 0;
+  transition: none;
+}

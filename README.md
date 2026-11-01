@@ -12,7 +12,7 @@ npm run build      # static site in dist/ — host anywhere (Netlify, any web se
 
 ## What's in it
 
-The app opens with a short brand animation (the two Cs of CIRCA are records), then CIRCA folds into a single C that flies to its place in the tonearm's pivot, and the app is there. Pages slide in from the side they sit on in the bar; every button answers a press (and a light haptic tick where the phone allows: Android's Vibration API, or the system switch tick on iPhone). The bottom bar has four destinations, each shown as a small record with its name underneath (Radio, Music, Inner Circle, Home): three full-screen ways in, then you. A little tonearm glides along the bar to whichever one you choose and sets down on it, and only that record spins.
+The app opens with a short brand animation (the two Cs of CIRCA are records), then CIRCA folds into a single C that flies to the tonearm's pivot on Home and settles into place (the app opens on Home; opened from a link to another page, the C lands in the Home record in the bar instead). Pages slide in from the side they sit on in the bar; every button answers a press (and a light haptic tick where the phone allows: Android's Vibration API, or the system switch tick on iPhone). The bottom bar has four destinations, each shown as a small record with its name underneath (Radio, Music, Inner Circle, Home): three full-screen ways in, then you. A little tonearm glides along the bar to whichever one you choose and sets down on it, and only that record spins.
 
 | Destination | What it does |
 | --- | --- |

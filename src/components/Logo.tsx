@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useId, useLayoutEffect, useRef, useState } from 'react'
 import { brand } from '../config/brand'
+import { tick } from '../lib/haptics'
 
 /**
  * A "C" cut from a record: a grooved ring with its mouth open to the right,
@@ -69,24 +70,49 @@ export function Splash({ onDone }: { onDone: () => void }) {
   })
 
   useLayoutEffect(() => {
-    const kids = box.current ? [...box.current.children] : []
-    setGeo({ rects: kids.map((k) => k.getBoundingClientRect()), cx: window.innerWidth / 2, cy: window.innerHeight / 2 })
+    // Each letter's resting place (its layout box, ignoring any animation transform), measured
+    // when it's about to move, so a late-loading font can't leave the C off its mark.
+    const measure = () => {
+      const logo = box.current
+      if (!logo) return []
+      const o = logo.getBoundingClientRect()
+      return [...logo.children].map((k) => {
+        const el = k as HTMLElement
+        return new DOMRect(o.left + el.offsetLeft, o.top + el.offsetTop, el.offsetWidth, el.offsetHeight)
+      })
+    }
+    setGeo({ rects: measure(), cx: window.innerWidth / 2, cy: window.innerHeight / 2 })
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const t = (ms: number, f: () => void) => window.setTimeout(f, reduce ? ms / 3 : ms)
+    // the real C on the arm waits, hidden, until this one has clicked into place
+    const root = document.documentElement
+    root.classList.add('is-intro')
     const timers = [
-      t(820, () => setPhase('merge')),
+      t(820, () => {
+        setGeo((g) => (g ? { ...g, rects: measure() } : g))
+        setPhase('merge')
+      }),
       t(1500, () => {
-        // where the C lives: the tonearm's pivot on your vinyl (measured as if its page weren't mid-slide)
-        const el = document.querySelector<HTMLElement>('.hifi__settings .record-c')
-        const view = el?.closest('.view')?.getBoundingClientRect()
+        // Where the C lives: the tonearm's pivot on your vinyl, when that's the page you open on;
+        // otherwise the Home record in the bar, which is where your vinyl is.
+        const arm = document.querySelector<HTMLElement>('.view[data-active] .hifi__settings .record-c')
+        const el = arm ?? document.querySelector<HTMLElement>('.tab--vinyl .tab__disc')
         const r = el?.getBoundingClientRect()
-        setGeo((g) => (g && r && view ? { ...g, target: { cx: r.left - view.left + r.width / 2, cy: r.top - view.top + r.height / 2, size: r.width } } : g))
+        setGeo((g) => (g && r ? { ...g, rects: measure(), target: { cx: r.left + r.width / 2, cy: r.top + r.height / 2, size: r.width } } : g))
         setPhase('fly')
       }),
-      t(2350, () => setPhase('gone')),
-      t(2600, () => done.current()),
+      // touchdown: a small settle and a tick under the finger
+      t(2280, () => tick('firm')),
+      t(2380, () => {
+        setPhase('gone')
+        root.classList.remove('is-intro')
+      }),
+      t(2700, () => done.current()),
     ]
-    return () => timers.forEach(clearTimeout)
+    return () => {
+      timers.forEach(clearTimeout)
+      root.classList.remove('is-intro')
+    }
   }, [])
 
   const name = brand.name.toUpperCase()
@@ -112,7 +138,14 @@ export function Splash({ onDone }: { onDone: () => void }) {
               y: geo.target.cy - (r.top + r.height / 2),
               scale: geo.target.size / r.width,
             }
-          if ((phase === 'fly' || phase === 'gone') && isHero) transition = { duration: phase === 'gone' ? 0.25 : 0.82, ease: [0.7, 0, 0.18, 1] }
+          if (phase === 'fly' && isHero)
+            transition = {
+              x: { duration: 0.8, ease: [0.7, 0, 0.18, 1] },
+              y: { duration: 0.8, ease: [0.7, 0, 0.18, 1] },
+              // it arrives a touch large and settles into the socket
+              scale: { duration: 0.8, ease: [0.55, 0, 0.3, 1.45] },
+            }
+          if (phase === 'gone' && isHero) transition = { duration: 0.3, ease: 'easeOut' }
           if ((phase === 'fly' || phase === 'gone') && !isHero) animate = { opacity: 0, ...toCentre, scale: 0.4 }
           return (
             <motion.span key={i} className="splash__ch" initial={{ opacity: 0, y: 18 }} animate={animate} transition={transition}>
