@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState, type ReactElement } from 'react'
 import { brand, type RouteId, type StationId } from '../config/brand'
+import { useUpdates } from '../hooks/useUpdates'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import * as I from './Icons'
@@ -22,7 +23,8 @@ const TABS: RouteId[] = ['radio', 'artists', 'inner-circle', 'vinyl']
 export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: RouteId) => void }) {
   const setDrive = useUI((s) => s.setDrive)
   const avatar = useStore((s) => s.profile.avatar)
-  const incoming = useStore((s) => Object.values(s.friends).some((f) => f === 'incoming'))
+  const news = useUpdates()
+  const incoming = news.incoming > 0 || news.unseen > 0
   const nav = useRef<HTMLElement>(null)
   const discs = useRef<Record<string, HTMLSpanElement | null>>({})
   const labels = useRef<Record<string, HTMLSpanElement | null>>({})

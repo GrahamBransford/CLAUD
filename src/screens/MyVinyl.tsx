@@ -3,8 +3,12 @@ import { brand } from '../config/brand'
 import { creatorById } from '../data'
 import * as I from '../components/Icons'
 import { Catalog } from '../components/Catalog'
+import { RecordC } from '../components/Logo'
 import { Readouts } from '../components/Readouts'
 import { Turntable, type Marker } from '../components/Turntable'
+import { useProfile } from '../hooks/useProfile'
+import { ON_RECORD } from '../lib/profile'
+import { useUpdates } from '../hooks/useUpdates'
 import { useUniverse } from '../hooks/useRelationship'
 import { experienceLine, liveCreators } from '../lib/social'
 import { useStore } from '../store/useStore'
@@ -22,6 +26,8 @@ export const etchingOf = (xs: Experience[]) =>
 /** Your identity on CIRCA: the record is the profile. */
 export function MyVinyl({ active }: { active: boolean }) {
   const all = useUniverse()
+  const profileData = useProfile('me')
+  const updates = useUpdates()
   const lastTop = useStore((s) => s.lastTop)
   const setLastTop = useStore((s) => s.setLastTop)
   const profile = useStore((s) => s.profile)
@@ -58,7 +64,8 @@ export function MyVinyl({ active }: { active: boolean }) {
   const live = useMemo(() => liveCreators(experiences), [experiences])
   const markers = useMemo<Marker[]>(
     () =>
-      all.map((r) => {
+      // the twelve closest sit on the record; everyone else is in the lists behind the readouts
+      all.slice(0, ON_RECORD).map((r) => {
         const c = creatorById[r.creatorId]
         const prev = lastTop[r.creatorId]
         return {
@@ -112,8 +119,12 @@ export function MyVinyl({ active }: { active: boolean }) {
               aria-label="Search artists, podcasts and people"
             >
               <span className="knob__cap">
-                <I.Search size={16} />
+                <I.Search size={18} />
               </span>
+            </button>
+            {/* the C, set into the tonearm's pivot: your account and settings */}
+            <button className="hifi__settings" onClick={() => open({ kind: 'settings' })} aria-label="Settings and your account">
+              <RecordC spinning={active && !sheet && !searching} />
             </button>
           </>
           }
@@ -122,7 +133,7 @@ export function MyVinyl({ active }: { active: boolean }) {
           <div className="plate">
             {/* the fascia: a knob either side of your nameplate, like the radio's tuning and volume */}
             <div className="plate__fascia">
-            <Knob label={`Friends: ${friendCount}${incoming ? `, ${incoming} new request` : ''}`} lamp={incoming > 0} onClick={() => open({ kind: 'friends' })}>
+            <Knob label={`Friends: ${friendCount}${incoming ? `, ${incoming} new request` : ''}${updates.unseen ? `, ${updates.unseen} new updates` : ''}`} lamp={incoming > 0 || updates.unseen > 0} onClick={() => open({ kind: 'friends' })}>
               <I.People size={18} />
             </Knob>
             <div className="plate__id">
@@ -147,7 +158,7 @@ export function MyVinyl({ active }: { active: boolean }) {
             </Knob>
             </div>
             {profile.bio && <p className="plate__bio">{profile.bio}</p>}
-            <Readouts rels={all} experiences={experiences} />
+            {profileData && <Readouts profile={profileData} />}
           </div>
         </Turntable>
       </div>

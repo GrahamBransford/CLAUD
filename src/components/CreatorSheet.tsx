@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { creatorById, creatorVinylById, episodes, songs } from '../data'
+import { useProfile } from '../hooks/useProfile'
 import { useRelationship } from '../hooks/useRelationship'
+import { fmtMinutes, type Owner } from '../lib/profile'
 import { formatTop } from '../lib/affinity'
 import { topListeners } from '../lib/social'
 import { useFollow } from '../screens/InnerCircle'
@@ -11,10 +13,15 @@ import * as I from './Icons'
 import { Sheet } from './Sheet'
 import { RewardCard, TierBadge } from './Tier'
 
-/** A creator's profile: where you stand, what moves you closer, and who else loves them. */
-export function CreatorSheet({ creatorId }: { creatorId: string }) {
+/**
+ * A creator, seen from whichever vinyl you tapped them on: that listener's
+ * minutes, full listens, most played, how long they've followed, shows,
+ * recent activity and standing. On your own vinyl, that listener is you.
+ */
+export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; owner?: Owner }) {
   const c = creatorById[creatorId]
   const rel = useRelationship(creatorId)
+  const profile = useProfile(owner)
   const follow = useFollow()
   const addExperience = useStore((s) => s.addExperience)
   const favorite = useStore((s) => s.favorites.includes(creatorId))
@@ -37,7 +44,9 @@ export function CreatorSheet({ creatorId }: { creatorId: string }) {
       window.location.hash = 'radio'
     }
   }
-  const s = rel.signals
+  const st = profile ? [...profile.artists, ...profile.podcasts].find((x) => x.creatorId === c.id) : undefined
+  const mine = owner === 'me'
+  const whose = mine ? 'Your' : `${profile?.who ?? 'Their'}’s`
   const progress = rel.next ? Math.max(4, Math.min(96, 100 - (rel.next.pointsNeeded / (rel.points + rel.next.pointsNeeded)) * 100)) : 100
   const listeners = topListeners(c.id)
 
@@ -60,25 +69,67 @@ export function CreatorSheet({ creatorId }: { creatorId: string }) {
           </button>
         </div>
 
+        {!mine && <p className="creator__whose">On {profile?.who}’s vinyl</p>}
         <div className="creator__standing">
-          <TierBadge tier={rel.tier.id} />
+          <TierBadge tier={(st ?? rel).tier.id} />
           <div>
-            <p className="creator__top">{rel.points > 0 ? formatTop(rel.top) : 'New'}</p>
-            <p className="creator__of">{rel.points > 0 ? `of ${c.name}’s listeners · estimate` : 'on the edge of your vinyl'}</p>
+            <p className="creator__top">{(st?.points ?? rel.points) > 0 ? formatTop((st ?? rel).top) : 'New'}</p>
+            <p className="creator__of">
+              {(st?.points ?? rel.points) > 0 ? `of ${c.name}’s listeners · estimate` : 'on the edge of your vinyl'}
+            </p>
+            <p className="creator__level">{(st ?? rel).tier.label}: {(st ?? rel).tier.line.replace('You keep', mine ? 'You keep' : 'Keeps').replace('Part of your', mine ? 'Part of your' : 'Part of their')}</p>
           </div>
         </div>
 
-        {rel.next && (
+        {mine && rel.next && (
           <div className="creator__next">
             <span className="creator__bar"><i style={{ width: `${progress}%` }} /></span>
             <p>{rel.next.tier.label} in {rel.next.hint}</p>
           </div>
         )}
 
-        <p className="creator__stats">
-          {Math.round(s.minutes)} min · {s.completions} full {c.kind === 'podcast' ? 'episodes' : 'listens'}
-          {s.concerts ? ` · ${s.concerts} ${s.concerts === 1 ? 'show' : 'shows'}` : ''}
-        </p>
+        {st && (
+          <>
+            <p className="settings__label">{whose} listening</p>
+            <dl className="cstats">
+              <div>
+                <dt>Minutes listened</dt>
+                <dd>{fmtMinutes(st.minutes)}</dd>
+              </div>
+              <div>
+                <dt>{c.kind === 'podcast' ? 'Episodes finished' : 'Songs heard in full'}</dt>
+                <dd>{st.completions}</dd>
+              </div>
+              <div className="cstats__wide">
+                <dt>Most played</dt>
+                <dd>{st.mostPlayed ? <>“{st.mostPlayed.title}” <em>{st.mostPlayed.plays} plays</em></> : '—'}</dd>
+              </div>
+              <div>
+                <dt>Following since</dt>
+                <dd>{st.followedSince ?? 'Not following'}</dd>
+              </div>
+              <div>
+                <dt>{c.kind === 'podcast' ? 'Live tapings' : 'Shows attended'}</dt>
+                <dd>{st.shows}</dd>
+              </div>
+            </dl>
+            {st.recent.length > 0 && (
+              <>
+                <p className="settings__label">Recently</p>
+                <ul className="recent">
+                  {st.recent.map((r) => (
+                    <li key={r}>{r}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </>
+        )}
+        {!mine && rel.points > 0 && (
+          <p className="creator__you">
+            You: {formatTop(rel.top)} · {rel.tier.label}
+          </p>
+        )}
 
         <div className="creator__actions">
           {(song || ep) && (
@@ -103,7 +154,7 @@ export function CreatorSheet({ creatorId }: { creatorId: string }) {
           </button>
         </div>
 
-        <RewardCard rel={rel} />
+        {mine && <RewardCard rel={rel} />}
 
         {listeners.length > 0 && (
           <div className="fans">

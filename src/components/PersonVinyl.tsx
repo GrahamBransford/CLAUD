@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { creatorById, creatorVinylById, episodes, personById, songs } from '../data'
+import { useProfile } from '../hooks/useProfile'
 import { useAlignment, useFriendActions, usePersonMarkers } from '../hooks/useSocial'
+import { Readouts } from './Readouts'
 import { useFollow } from '../screens/InnerCircle'
 import { mutualFriends } from '../lib/social'
 import { etchingOf } from '../screens/MyVinyl'
@@ -23,6 +25,7 @@ export function PersonVinyl({ id }: { id: string }) {
   const p = id.startsWith('creator:') ? creatorVinylById[id.slice(8)] : personById[id]
   const creator = p?.creatorId ? creatorById[p.creatorId] : undefined
   const markers = usePersonMarkers(p)
+  const profile = useProfile(id)
   const sheet = useUI((s) => s.sheet)
   const close = () => useUI.getState().openPerson(null)
 
@@ -56,7 +59,8 @@ export function PersonVinyl({ id }: { id: string }) {
           etching={etchingOf(p.experiences)}
           spinning={!sheet}
           className="hifi--guest"
-          onMarker={(cid) => useUI.getState().openSheet({ kind: 'creator', creatorId: cid })}
+          edition={creator?.kind}
+          onMarker={(cid) => useUI.getState().openSheet({ kind: 'creator', creatorId: cid, owner: id })}
         >
           <div className="plate">
             <div className="plate__id">
@@ -75,6 +79,7 @@ export function PersonVinyl({ id }: { id: string }) {
             <p className="plate__bio">{p.bio}</p>
             {creator ? <CreatorKeys creatorId={creator.id} /> : <Friendship person={p} />}
             <Match person={p} />
+            {profile && <Readouts profile={profile} />}
             {p.socials?.instagram && (
               <a className="plate__link" aria-label={`Instagram: ${p.socials.instagram}`} href={`https://instagram.com/${p.socials.instagram}`} target="_blank" rel="noreferrer">
                 <I.Instagram size={15} />

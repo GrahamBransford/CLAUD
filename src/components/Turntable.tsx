@@ -247,16 +247,18 @@ interface Props {
   /** Hardware set into the deck beside the record (e.g. the search button). */
   controls?: ReactNode
   className?: string
+  /** A creator's own vinyl: pressed on cream, a special edition (artist or podcast). */
+  edition?: 'artist' | 'podcast'
 }
 
-export function Turntable({ markers, owner, etching, spinning, onMarker, children, controls, className }: Props) {
+export function Turntable({ markers, owner, etching, spinning, onMarker, children, controls, className, edition }: Props) {
   const placed = useMemo(() => place(markers), [markers])
   const deck = useRef<HTMLDivElement>(null)
   const hand = usePlatter(deck, spinning)
   return (
     <div
       ref={deck}
-      className={`hifi ${spinning ? 'is-spinning' : ''} ${className ?? ''}`}
+      className={`hifi ${spinning ? 'is-spinning' : ''} ${edition ? `hifi--edition hifi--${edition}` : ''} ${className ?? ''}`}
       style={{ '--arm': `${spinning ? ARM_PLAY : ARM_REST}deg` } as CSSProperties}
     >
       {/* the deck, straight down from above */}
@@ -265,7 +267,7 @@ export function Turntable({ markers, owner, etching, spinning, onMarker, childre
         <div className="hifi__platter" aria-hidden />
         <div className="hifi__record" {...hand}>
           <div className="hifi__turn" aria-hidden>
-            <Disc owner={owner} etching={etching} />
+            <Disc owner={owner} etching={etching} edition={edition} />
           </div>
           <div className="hifi__sheen" aria-hidden />
           <div className="hifi__turn hifi__faces">
@@ -307,21 +309,25 @@ export function Turntable({ markers, owner, etching, spinning, onMarker, childre
 }
 
 /** The pressing: grooves, track gaps on the tier boundaries, run-out etching, and the label. */
-function Disc({ owner, etching }: { owner: Props['owner']; etching?: string }) {
+function Disc({ owner, etching, edition }: { owner: Props['owner']; etching?: string; edition?: Props['edition'] }) {
+  const cream = !!edition
+  const ink = cream ? '#2c2418' : '#fff'
+  // spoken-word pressings have fewer, wider grooves
+  const grooves = edition === 'podcast' ? 46 : 90
   const id = useId().replace(/:/g, '')
   const ring = (r: number) => `M 50 ${50 - r} a ${r} ${r} 0 1 1 0 ${2 * r} a ${r} ${r} 0 1 1 0 ${-2 * r}`
   return (
     <svg className="hifi__disc" viewBox="0 0 100 100">
       <defs>
         <radialGradient id={`vb-${id}`} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#1d1b20" />
-          <stop offset="60%" stopColor="#111013" />
-          <stop offset="97%" stopColor="#0a090b" />
-          <stop offset="100%" stopColor="#1a191c" />
+          <stop offset="0%" stopColor={cream ? '#efe7d6' : '#1d1b20'} />
+          <stop offset="60%" stopColor={cream ? '#e4d9c2' : '#111013'} />
+          <stop offset="97%" stopColor={cream ? '#d4c6aa' : '#0a090b'} />
+          <stop offset="100%" stopColor={cream ? '#e9dfca' : '#1a191c'} />
         </radialGradient>
         <radialGradient id={`lp-${id}`} cx="42%" cy="38%" r="70%">
-          <stop offset="0%" stopColor="#1a3b2c" />
-          <stop offset="100%" stopColor="#0c2017" />
+          <stop offset="0%" stopColor={edition === 'podcast' ? '#b98a6c' : '#1a3b2c'} />
+          <stop offset="100%" stopColor={edition === 'podcast' ? '#86604c' : '#0c2017'} />
         </radialGradient>
         <clipPath id={`ph-${id}`}>
           <circle cx="50" cy="50" r={PHOTO_R} />
@@ -332,22 +338,22 @@ function Disc({ owner, etching }: { owner: Props['owner']; etching?: string }) {
       </defs>
       <circle cx="50" cy="50" r="50" fill={`url(#vb-${id})`} />
       {/* the lead-in edge catches a little light */}
-      <circle cx="50" cy="50" r="49.7" fill="none" stroke="#fff" strokeOpacity=".14" strokeWidth=".25" />
-      <circle cx="50" cy="50" r={OUTER_R + 1.4} fill="none" stroke="#050506" strokeWidth="2.2" />
+      <circle cx="50" cy="50" r="49.7" fill="none" stroke={ink} strokeOpacity=".14" strokeWidth=".25" />
+      <circle cx="50" cy="50" r={OUTER_R + 1.4} fill="none" stroke={cream ? '#cbbd9f' : '#050506'} strokeWidth="2.2" />
       {/* fine grooves */}
-      {Array.from({ length: 90 }, (_, k) => {
-        const r = RUNOUT_R + (k / 89) * (OUTER_R - RUNOUT_R)
-        return <circle key={k} cx="50" cy="50" r={r} fill="none" stroke="#fff" strokeOpacity={k % 3 ? 0.028 : 0.05} strokeWidth=".14" />
+      {Array.from({ length: grooves }, (_, k) => {
+        const r = RUNOUT_R + (k / (grooves - 1)) * (OUTER_R - RUNOUT_R)
+        return <circle key={k} cx="50" cy="50" r={r} fill="none" stroke={ink} strokeOpacity={(k % 3 ? 0.028 : 0.05) * (cream ? 2.2 : 1)} strokeWidth={edition === 'podcast' ? '.22' : '.14'} />
       })}
       {/* track gaps: smooth, glossy bands between tiers */}
       {GAPS.map((r) => (
         <g key={r}>
-          <circle cx="50" cy="50" r={r} fill="none" stroke="#060607" strokeWidth="1.1" />
-          <circle cx="50" cy="50" r={r + 0.55} fill="none" stroke="#fff" strokeOpacity=".09" strokeWidth=".12" />
+          <circle cx="50" cy="50" r={r} fill="none" stroke={cream ? '#c9b994' : '#060607'} strokeWidth="1.1" />
+          <circle cx="50" cy="50" r={r + 0.55} fill="none" stroke={cream ? '#fff' : '#fff'} strokeOpacity={cream ? 0.5 : 0.09} strokeWidth=".12" />
         </g>
       ))}
       {/* run-out, with what this person has lived etched into it */}
-      <circle cx="50" cy="50" r={(RUNOUT_R + LABEL_R) / 2} fill="none" stroke="#0b0a0c" strokeWidth={RUNOUT_R - LABEL_R} />
+      <circle cx="50" cy="50" r={(RUNOUT_R + LABEL_R) / 2} fill="none" stroke={cream ? '#dbcfb6' : '#0b0a0c'} strokeWidth={RUNOUT_R - LABEL_R} />
       {etching && (
         <text className="hifi__etching">
           <textPath href={`#etch-${id}`}>{etching}</textPath>
@@ -360,7 +366,9 @@ function Disc({ owner, etching }: { owner: Props['owner']; etching?: string }) {
         <textPath href={`#top-${id}`} startOffset="50%" textAnchor="middle">{owner.name.toUpperCase()}</textPath>
       </text>
       <text className="hifi__print hifi__print--small">
-        <textPath href={`#bot-${id}`} startOffset="50%" textAnchor="middle">CIRCA · SIDE A · 33⅓</textPath>
+        <textPath href={`#bot-${id}`} startOffset="50%" textAnchor="middle">
+          {edition === 'podcast' ? 'CIRCA · SPOKEN WORD · 33⅓' : edition ? 'CIRCA · SPECIAL EDITION' : 'CIRCA · SIDE A · 33⅓'}
+        </textPath>
       </text>
       {owner.avatar ? (
         <image href={owner.avatar} x={50 - PHOTO_R} y={50 - PHOTO_R} width={PHOTO_R * 2} height={PHOTO_R * 2} clipPath={`url(#ph-${id})`} preserveAspectRatio="xMidYMid slice" />

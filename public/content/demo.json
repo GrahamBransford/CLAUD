@@ -15,7 +15,8 @@
     "#7E2F2A",
     "#E9C77B",
     "#F1E6D3"
-   ]
+   ],
+   "style": "Soul & R&B"
   },
   {
    "id": "marlow-saltwater",
@@ -29,7 +30,8 @@
     "#5F6E56",
     "#E8DCC4",
     "#B8553F"
-   ]
+   ],
+   "style": "Folk"
   },
   {
    "id": "teodora-blue",
@@ -43,7 +45,8 @@
     "#2F3550",
     "#D6A84F",
     "#C8695A"
-   ]
+   ],
+   "style": "Indie & dream pop"
   },
   {
    "id": "yemi-daybreak",
@@ -57,7 +60,8 @@
     "#C9832F",
     "#3B2A22",
     "#EED9A6"
-   ]
+   ],
+   "style": "Afro & highlife"
   },
   {
    "id": "cass-ferro",
@@ -71,7 +75,8 @@
     "#292722",
     "#963F36",
     "#E6D5B8"
-   ]
+   ],
+   "style": "Jazz"
   },
   {
    "id": "halden",
@@ -85,7 +90,8 @@
     "#6F8790",
     "#EFE4D0",
     "#D6A84F"
-   ]
+   ],
+   "style": "Electronic"
   },
   {
    "id": "long-way-round",
@@ -102,7 +108,8 @@
     "#D6A84F",
     "#292722",
     "#F4EBDD"
-   ]
+   ],
+   "style": "Culture"
   },
   {
    "id": "liner-notes",
@@ -118,7 +125,8 @@
     "#963F36",
     "#F4EBDD",
     "#292722"
-   ]
+   ],
+   "style": "Music"
   },
   {
    "id": "small-machines",
@@ -134,7 +142,8 @@
     "#8A967B",
     "#F4EBDD",
     "#7E2F2A"
-   ]
+   ],
+   "style": "Craft"
   },
   {
    "id": "kitchen-table",
@@ -151,7 +160,223 @@
     "#3E4A3D",
     "#E9C77B",
     "#F4EBDD"
-   ]
+   ],
+   "style": "Money"
+  },
+  {
+   "id": "odessa-wren",
+   "kind": "artist",
+   "name": "Odessa Wren",
+   "avatar": "media/avatars/odessa-wren.jpg",
+   "genre": "Neo-soul",
+   "bio": "Sings over drum machines she rewires herself. Her second record was cut live in one night at a church hall on the east side.",
+   "location": "Detroit, MI",
+   "palette": [
+    "#3E2A3A",
+    "#D9A36A",
+    "#F1E2CC"
+   ],
+   "style": "Soul & R&B",
+   "works": [
+    "Slow Honey",
+    "Ninth Street Hymn",
+    "Low Light Lover"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "velvet-hours",
+   "kind": "artist",
+   "name": "The Velvet Hours",
+   "avatar": "media/avatars/velvet-hours.jpg",
+   "genre": "Soul revival",
+   "bio": "A seven-piece with a horn section and a habit of recording to tape in a converted laundromat.",
+   "location": "Memphis, TN",
+   "palette": [
+    "#6B2D24",
+    "#E7C27D",
+    "#EFE3CF"
+   ],
+   "style": "Soul & R&B",
+   "works": [
+    "Hold the Line",
+    "Saturday Ruin",
+    "Bluff City Lights"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "nadia-okoro",
+   "kind": "artist",
+   "name": "Nadia Okoro Quartet",
+   "avatar": "media/avatars/nadia-okoro.jpg",
+   "genre": "Spiritual jazz",
+   "bio": "Saxophone, harp, upright bass and drums. Long pieces that take their time and earn it.",
+   "location": "London, UK",
+   "palette": [
+    "#1F3A4A",
+    "#C99A4E",
+    "#E9DFCC"
+   ],
+   "style": "Jazz",
+   "works": [
+    "Mother Tongue",
+    "Harp & Harbour",
+    "The Long Exhale"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "eli-marchetti",
+   "kind": "artist",
+   "name": "Eli Marchetti",
+   "avatar": "media/avatars/eli-marchetti.jpg",
+   "genre": "Jazz piano",
+   "bio": "Solo piano, mostly standards, played like he is figuring them out for the first time.",
+   "location": "Chicago, IL",
+   "palette": [
+    "#2B2622",
+    "#B9894F",
+    "#ECE2D0"
+   ],
+   "style": "Jazz",
+   "works": [
+    "Blue in Green, Again",
+    "Lakeshore at Four",
+    "Night Ferry"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "lumen-field",
+   "kind": "artist",
+   "name": "Lumen Field",
+   "avatar": "media/avatars/lumen-field.jpg",
+   "genre": "Ambient electronic",
+   "bio": "Field recordings and modular synths. Every record is built from one place: a lake, a station, a forest at dawn.",
+   "location": "Berlin, DE",
+   "palette": [
+    "#24343A",
+    "#9FB3A8",
+    "#E6DFCF"
+   ],
+   "style": "Electronic",
+   "works": [
+    "Tegel at Dawn",
+    "Lake Notes",
+    "Slow Signal"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "wren-hollow",
+   "kind": "artist",
+   "name": "Wren & Hollow",
+   "avatar": "media/avatars/wren-hollow.jpg",
+   "genre": "Indie folk",
+   "bio": "Two voices and a borrowed banjo, writing about the coast and the people who stay.",
+   "location": "Portland, OR",
+   "palette": [
+    "#4D5A45",
+    "#D8C59A",
+    "#F0E6D2"
+   ],
+   "style": "Folk",
+   "works": [
+    "Cannon Beach",
+    "The Keeper",
+    "Winter Wheat"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "kwame-asante",
+   "kind": "artist",
+   "name": "Kwame Asante Band",
+   "avatar": "media/avatars/kwame-asante.jpg",
+   "genre": "Afrobeat",
+   "bio": "Twelve players, two drummers, one very long groove. A legendary live band finally on record.",
+   "location": "Accra, GH",
+   "palette": [
+    "#B4642B",
+    "#2E2620",
+    "#F0DDAF"
+   ],
+   "style": "Afro & highlife",
+   "works": [
+    "Osu Night Market",
+    "Kpanlogo Sunday",
+    "Long Way Home"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "sora-lake",
+   "kind": "artist",
+   "name": "Sora Lake",
+   "avatar": "media/avatars/sora-lake.jpg",
+   "genre": "Dream pop",
+   "bio": "Reverb-soaked guitar pop recorded in a cold apartment in Mile End.",
+   "location": "Montréal, QC",
+   "palette": [
+    "#3A3F5C",
+    "#C8A0B4",
+    "#EEE4DA"
+   ],
+   "style": "Indie & dream pop",
+   "works": [
+    "Glasshouse",
+    "Snow Day Radio",
+    "Soft Machinery"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "studio-floor",
+   "kind": "podcast",
+   "name": "The Studio Floor",
+   "avatar": "media/avatars/studio-floor.jpg",
+   "genre": "Music production",
+   "bio": "Producers and engineers on how one record got made, from the first demo to the final master.",
+   "hosts": [
+    "Ruth Abara"
+   ],
+   "palette": [
+    "#2D3B33",
+    "#D2B47A",
+    "#EFE6D4"
+   ],
+   "style": "Music",
+   "works": [
+    "The Drum Sound on Slow Honey",
+    "Mixing in Mono",
+    "Tape Is Not Dead"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "slow-cities",
+   "kind": "podcast",
+   "name": "Slow Cities",
+   "avatar": "media/avatars/slow-cities.jpg",
+   "genre": "Cities & design",
+   "bio": "How streets, stoops and corner shops shape the way we live together.",
+   "hosts": [
+    "Jonas Weller",
+    "Ama Mensah"
+   ],
+   "palette": [
+    "#5A4B3A",
+    "#E2CFA6",
+    "#F2EADB"
+   ],
+   "style": "Culture",
+   "works": [
+    "The Stoop",
+    "Night Buses",
+    "Who Owns the Corner?"
+   ],
+   "catalogOnly": true
   }
  ],
  "songs": [
@@ -5428,6 +5653,64 @@
   "halden": {
    "plays": 1,
    "minutes": 1
+  },
+  "odessa-wren": {
+   "plays": 34,
+   "completions": 30,
+   "minutes": 118,
+   "repeats": 22,
+   "saves": 2
+  },
+  "velvet-hours": {
+   "plays": 16,
+   "completions": 13,
+   "minutes": 52,
+   "repeats": 6,
+   "saves": 1
+  },
+  "nadia-okoro": {
+   "plays": 9,
+   "completions": 6,
+   "minutes": 74,
+   "repeats": 2
+  },
+  "eli-marchetti": {
+   "plays": 7,
+   "completions": 5,
+   "minutes": 31,
+   "repeats": 2
+  },
+  "sora-lake": {
+   "plays": 5,
+   "completions": 3,
+   "minutes": 14,
+   "repeats": 1
+  },
+  "lumen-field": {
+   "plays": 4,
+   "completions": 2,
+   "minutes": 22
+  },
+  "wren-hollow": {
+   "plays": 3,
+   "completions": 2,
+   "minutes": 9
+  },
+  "kwame-asante": {
+   "plays": 2,
+   "completions": 1,
+   "minutes": 8
+  },
+  "studio-floor": {
+   "plays": 6,
+   "completions": 5,
+   "minutes": 205,
+   "saves": 1
+  },
+  "slow-cities": {
+   "plays": 2,
+   "completions": 1,
+   "minutes": 48
   }
  },
  "defaultFollows": [
@@ -5435,7 +5718,9 @@
   "cass-ferro",
   "teodora-blue",
   "long-way-round",
-  "small-machines"
+  "small-machines",
+  "odessa-wren",
+  "studio-floor"
  ],
  "people": [
   {
@@ -5461,7 +5746,10 @@
     "long-way-round": 410,
     "liner-notes": 120,
     "halden": 60,
-    "cass-ferro": 30
+    "cass-ferro": 30,
+    "odessa-wren": 520,
+    "sora-lake": 210,
+    "studio-floor": 160
    },
    "experiences": [
     {
@@ -5518,7 +5806,10 @@
     "cass-ferro": 520,
     "liner-notes": 640,
     "juniper-vale": 140,
-    "kitchen-table": 90
+    "kitchen-table": 90,
+    "nadia-okoro": 760,
+    "eli-marchetti": 430,
+    "velvet-hours": 120
    },
    "experiences": [
     {
@@ -5573,7 +5864,10 @@
     "halden": 880,
     "small-machines": 520,
     "long-way-round": 180,
-    "juniper-vale": 90
+    "juniper-vale": 90,
+    "lumen-field": 690,
+    "sora-lake": 150,
+    "slow-cities": 200
    },
    "experiences": [
     {
@@ -5621,7 +5915,10 @@
     "juniper-vale": 460,
     "liner-notes": 380,
     "long-way-round": 220,
-    "cass-ferro": 40
+    "cass-ferro": 40,
+    "slow-cities": 420,
+    "odessa-wren": 215,
+    "velvet-hours": 90
    },
    "experiences": [
     {
@@ -5676,7 +5973,10 @@
     "kitchen-table": 1150,
     "small-machines": 600,
     "liner-notes": 300,
-    "juniper-vale": 70
+    "juniper-vale": 70,
+    "nadia-okoro": 460,
+    "eli-marchetti": 240,
+    "lumen-field": 100
    },
    "experiences": [
     {
@@ -5721,7 +6021,10 @@
     "halden": 1050,
     "cass-ferro": 700,
     "small-machines": 240,
-    "teodora-blue": 120
+    "teodora-blue": 120,
+    "wren-hollow": 500,
+    "kwame-asante": 265,
+    "sora-lake": 110
    },
    "experiences": [
     {
@@ -5767,7 +6070,10 @@
     "juniper-vale": 520,
     "kitchen-table": 410,
     "teodora-blue": 160,
-    "long-way-round": 150
+    "long-way-round": 150,
+    "studio-floor": 540,
+    "slow-cities": 290,
+    "odessa-wren": 120
    },
    "experiences": [
     {
@@ -5822,7 +6128,10 @@
     "juniper-vale": 610,
     "halden": 430,
     "long-way-round": 260,
-    "liner-notes": 80
+    "liner-notes": 80,
+    "velvet-hours": 580,
+    "nadia-okoro": 315,
+    "eli-marchetti": 130
    },
    "experiences": [
     {

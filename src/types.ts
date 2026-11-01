@@ -25,6 +25,12 @@ export interface Creator {
   hosts?: string[]
   /** Two or three brand colours used for markers and accents. */
   palette: string[]
+  /** A broader family for grouping (e.g. "Soul & R&B" holds bedroom soul and neo-soul). */
+  style?: string
+  /** Song or episode titles, for creators whose catalogue isn't playable in CIRCA. */
+  works?: string[]
+  /** Heard through a connected service; not yet in CIRCA's feeds. */
+  catalogOnly?: boolean
   links?: { label: string; url: string }[]
 }
 

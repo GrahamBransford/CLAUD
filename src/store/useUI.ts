@@ -8,8 +8,12 @@ export interface Toast {
   action?: { label: string; run: () => void }
 }
 
+export type DetailTab = 'listening' | 'artists' | 'podcasts' | 'genres' | 'live'
+
 export type Sheet =
-  | { kind: 'creator'; creatorId: string }
+  /** owner: whose vinyl it was opened from ('me' when omitted). */
+  | { kind: 'creator'; creatorId: string; owner?: string }
+  | { kind: 'details'; owner: string; tab: DetailTab }
   | { kind: 'settings' }
   | { kind: 'profile' }
   | { kind: 'live' }

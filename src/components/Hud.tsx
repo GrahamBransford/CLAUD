@@ -2,17 +2,15 @@ import { AnimatePresence, motion } from 'framer-motion'
 import * as I from './Icons'
 import { useCallback, useRef, useState } from 'react'
 import { useUI } from '../store/useUI'
-import { RecordC } from './Logo'
 
-/** CIRCA's record C (it turns while something plays), sound-off badge, Drive. */
-export function TopBar({ playing, drive = true }: { playing: boolean; muted?: boolean; drive?: boolean }) {
+/**
+ * The feeds keep their corners clear for the work: just the sound-off badge
+ * and Drive, top right. (The C lives on your own vinyl, on the tonearm.)
+ */
+export function TopBar({ drive = true }: { playing?: boolean; muted?: boolean; drive?: boolean }) {
   const unlocked = useUI((s) => s.audioUnlocked)
   return (
     <div className="topbar">
-      {/* the C opens settings: your account first, then the rest */}
-      <button className="topbar__logo" onClick={() => useUI.getState().openSheet({ kind: 'settings' })} aria-label="Settings">
-        <RecordC spinning={playing} />
-      </button>
       <span className="topbar__right">
         {!unlocked && (
           <button className="topbar__btn" onClick={() => useUI.getState().unlockAudio()} aria-label="Turn sound on">

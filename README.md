@@ -27,6 +27,13 @@ Every colour comes from a vintage cabinet radio and gramophone, held back so it 
 
 ### My Vinyl: the record is the profile
 
+- **Everything behind the readouts.** Every window on the front opens one sheet with five tabs, the same for every account (yours, a friend's, a creator's): **Listening** (minutes this week, month, year and all time, the last eight weeks, music vs talk, how much is heard all the way through, when they listen most), **Artists** (top ten; when one style carries a big share of their music, a toggle shows their top three in it), **Podcasts** (top five, with episodes finished), **Genres** (share of the music and how it's listened to, kept separate from the artist list) and **Live** (shows, artists, venues and a year-by-year timeline). Periods, time-of-day habits and "following since" are estimates, labelled as such.
+- **Tap a face, see the relationship.** The creator sheet shows the stats of whoever's vinyl you tapped it on: minutes, songs heard in full or episodes finished, most played, following since, shows, recent activity, percentile and relationship level. On your record that's you; on a friend's, it's them (with your own standing underneath).
+- **Creators' records are special editions,** pressed on cream: artists get a green label and brass hardware ("Special edition"); podcasters get a bronze label, rose-gold hardware and fewer, wider grooves, like a spoken-word pressing.
+- **Updates.** The Friends knob opens on **Updates**: friend requests and what changed on the vinyls of friends you follow, newest first, with a small lamp on the knob (and on the My Vinyl tab) when something's new.
+- **The C** sits on the tonearm's pivot and opens your account and settings; the feeds keep their corners clear.
+- **Twelve faces on the record,** the closest; everyone else is in the lists.
+
 - **The record.** Your photo is the centre label. Every creator you listen to sits in the grooves: the closer to the label, the stronger the relationship; new discoveries sit at the edge. Creators you've seen live wear a ticket pip, favourites a spark. Shows you've been to are etched into the run-out groove. Tap a face for that creator's profile.
 - **Your record, every day.** Under your name, backlit readouts in the spirit of an annual Wrapped, except updated daily: minutes on record (a tape counter), top artist, top podcast, your sound (leading genre and its share), shows seen live, and your newest find. All from what CIRCA knows; in the demo that includes a simulated history, and it says so.
 - **Turn it by hand.** Touch and drag the record and it turns under your finger; flick it and it carries the spin, then eases back to 33⅓. A tap on a face still opens that creator.
@@ -61,6 +68,7 @@ Content is loaded at runtime from `public/content/` (or `dist/content/` after a 
 
 - `public/content/index.json` lists the content sets and which one is the default. Settings (the knob on My Vinyl) switches between sets; `?content=<id>` in the URL does too.
 - `public/content/demo.json` is the original, fully offline demo set (fictional creators, generated media).
+- Some creators are **catalogue-only** (`catalogOnly: true`): heard through a connected service, shown in listening histories and search, but with nothing playable in the feeds yet. Their avatars come from `scripts/media/catalog_avatars.py`; `style` groups genres into families and `works` lists their titles.
 - `public/content/real.json` is the starter for real artists and podcasts. Add it to `index.json` once it has items.
 
 Every item names its creator, metadata and a **media source**:

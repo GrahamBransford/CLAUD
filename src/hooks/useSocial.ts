@@ -5,6 +5,7 @@ import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import type { Person } from '../types'
 import type { Marker } from '../components/Turntable'
+import { ON_RECORD } from '../lib/profile'
 import { useUniverse } from './useRelationship'
 
 /** Your taste as a vector of points per creator. */
@@ -26,7 +27,7 @@ export function usePersonMarkers(p: Person | undefined): Marker[] {
   return useMemo(() => {
     if (!p) return []
     const live = liveCreators(p.experiences)
-    return vinylOf(p).map((r) => {
+    return vinylOf(p).slice(0, ON_RECORD).map((r) => {
       const c = creatorById[r.creatorId]
       return { id: r.creatorId, name: c.name, avatar: c.avatar, top: r.top, tier: r.tier.id, live: live.has(r.creatorId), shared: (mine[r.creatorId] ?? 0) > 0 }
     })

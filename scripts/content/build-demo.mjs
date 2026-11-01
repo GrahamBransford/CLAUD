@@ -18,6 +18,9 @@ const creators = cat.creators.map((c) => ({
   ...(c.location ? { location: c.location } : {}),
   ...(c.hosts ? { hosts: c.hosts } : {}),
   palette: c.palette,
+  ...(c.style ? { style: c.style } : {}),
+  ...(c.works ? { works: c.works } : {}),
+  ...(c.catalogOnly ? { catalogOnly: true } : {}),
 }))
 
 const songs = cat.songs.map((s) => {
@@ -81,6 +84,17 @@ const listeningSeed = {
   'small-machines': { plays: 2, completions: 1, minutes: 24 },
   'marlow-saltwater': { plays: 2, completions: 1, minutes: 3 },
   halden: { plays: 1, minutes: 1 },
+  // catalogue-only creators: heard through a connected service, not yet in CIRCA's feeds
+  'odessa-wren': { plays: 34, completions: 30, minutes: 118, repeats: 22, saves: 2 },
+  'velvet-hours': { plays: 16, completions: 13, minutes: 52, repeats: 6, saves: 1 },
+  'nadia-okoro': { plays: 9, completions: 6, minutes: 74, repeats: 2 },
+  'eli-marchetti': { plays: 7, completions: 5, minutes: 31, repeats: 2 },
+  'sora-lake': { plays: 5, completions: 3, minutes: 14, repeats: 1 },
+  'lumen-field': { plays: 4, completions: 2, minutes: 22 },
+  'wren-hollow': { plays: 3, completions: 2, minutes: 9 },
+  'kwame-asante': { plays: 2, completions: 1, minutes: 8 },
+  'studio-floor': { plays: 6, completions: 5, minutes: 205, saves: 1 },
+  'slow-cities': { plays: 2, completions: 1, minutes: 48 },
 }
 
 // Sample CIRCA listeners (fictional) and the demo user's starting profile.

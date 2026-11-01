@@ -1,5 +1,7 @@
 import { useState, type ChangeEvent } from 'react'
-import { creators, meSeed, personById } from '../data'
+import { creatorById, creators, meSeed, personById } from '../data'
+import { useUpdates } from '../hooks/useUpdates'
+import { ago } from '../lib/updates'
 import { useMyTaste, useFriendActions } from '../hooks/useSocial'
 import { useUniverse } from '../hooks/useRelationship'
 import { alignment, experienceLine } from '../lib/social'
@@ -7,6 +9,7 @@ import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import type { ExperienceKind, Profile } from '../types'
 import * as I from './Icons'
+import { LiveStats } from './ProfileDetails'
 import { Sheet } from './Sheet'
 
 const close = () => useUI.getState().openSheet(null)
@@ -150,12 +153,14 @@ export function LiveSheet() {
   return (
     <Sheet label="Live" onClose={close}>
       <div className="form">
+        <p className="settings__label">Your live history</p>
+        {experiences.length > 0 && <LiveStats experiences={experiences} />}
         <p className="settings__label">On your record</p>
         {experiences.length ? (
           <ul className="live-list">
             {experiences.map((x) => (
               <li key={x.id}>
-                <I.Ticket size={18} />
+                {x.creatorId && creatorById[x.creatorId] ? <img className="live-list__face" src={creatorById[x.creatorId].avatar} alt="" /> : <I.Ticket size={18} />}
                 <span>{experienceLine(x)}</span>
                 <button className="icon-btn" onClick={() => remove(x.id)} aria-label={`Remove ${experienceLine(x)}`}>
                   <I.Close size={16} />
@@ -214,80 +219,107 @@ export function LiveSheet() {
 /** Requests, friends, and updates from the vinyls you follow. No messaging, on purpose. */
 export function FriendsSheet() {
   const friends = useStore((s) => s.friends)
-  const vinylFollows = useStore((s) => s.vinylFollows)
   const experiences = useStore((s) => s.experiences)
+  const markSeen = useStore((s) => s.markUpdatesSeen)
   const mine = useMyTaste()
   const act = useFriendActions()
+  const updates = useUpdates()
+  const [tab, setTab] = useState<'updates' | 'friends'>('updates')
   const ids = (st: string) => Object.keys(friends).filter((id) => friends[id] === st && personById[id])
-  const open = (id: string) => useUI.getState().openPerson(id)
+  // what you've looked at here counts as seen, once you leave
+  const seenAll = () => markSeen(updates.list.map((u) => u.key))
+  const open = (id: string) => {
+    seenAll()
+    useUI.getState().openPerson(id)
+  }
   const score = (id: string) => alignment(mine, personById[id].points, experiences, personById[id].experiences).score
-  const updates = vinylFollows.filter((id) => friends[id] === 'friends' && personById[id]?.recent?.length)
   return (
-    <Sheet label="Friends" onClose={close}>
+    <Sheet
+      label="Friends"
+      onClose={() => {
+        seenAll()
+        close()
+      }}
+    >
       <div className="form">
-        {ids('incoming').length > 0 && (
+        <div className="seg" role="tablist" aria-label="Friends">
+          <button role="tab" aria-selected={tab === 'updates'} onClick={() => setTab('updates')}>
+            Updates{updates.unseen + updates.incoming > 0 ? <i className="seg__count">{updates.unseen + updates.incoming}</i> : null}
+          </button>
+          <button role="tab" aria-selected={tab === 'friends'} onClick={() => setTab('friends')}>
+            Friends · {ids('friends').length}
+          </button>
+        </div>
+
+        {tab === 'updates' && (
           <>
-            <p className="settings__label">Requests</p>
             {ids('incoming').map((id) => (
-              <div key={id} className="person-row">
+              <div key={id} className="person-row note is-new">
                 <button className="person-row__who" onClick={() => open(id)}>
                   <span className="minidisc"><img src={personById[id].avatar} alt="" /></span>
                   <span className="hit__text">
                     <strong>{personById[id].name}</strong>
-                    <em>{score(id)}% aligned</em>
+                    <em>Wants to be friends · {score(id)}% aligned</em>
                   </span>
                 </button>
                 <button className="pill pill--cherry" onClick={() => act.accept(id)}>Accept</button>
                 <button className="pill pill--quiet" onClick={() => act.decline(id)}>Decline</button>
               </div>
             ))}
+            {updates.list.length ? (
+              <ul className="notes">
+                {updates.list.map((u) => {
+                  const c = u.creatorId ? creatorById[u.creatorId] : undefined
+                  return (
+                    <li key={u.key}>
+                      <button className={`note ${updates.seen.has(u.key) ? '' : 'is-new'}`} onClick={() => open(u.personId)}>
+                        <span className="minidisc"><img src={personById[u.personId].avatar} alt="" /></span>
+                        <span className="note__text">{u.text}</span>
+                        {c && <img className="note__creator" src={c.avatar} alt="" />}
+                        <span className="note__ago">{ago(u.hoursAgo)}</span>
+                      </button>
+                    </li>
+                  )
+                })}
+              </ul>
+            ) : (
+              <p className="settings__fine">When friends add to their vinyl, go to a show or move someone closer, it shows up here.</p>
+            )}
+            <p className="settings__fine">From friends whose vinyl updates you follow (on their vinyl). Sample listeners and their activity are simulated.</p>
           </>
         )}
-        <p className="settings__label">Friends</p>
-        {ids('friends').length ? (
-          ids('friends').map((id) => (
-            <button key={id} className="person-row person-row__who" onClick={() => open(id)}>
-              <span className="minidisc"><img src={personById[id].avatar} alt="" /></span>
-              <span className="hit__text">
-                <strong>{personById[id].name}</strong>
-                <em>@{personById[id].username}</em>
-              </span>
-              <span className="hit__match">{score(id)}%</span>
-            </button>
-          ))
-        ) : (
-          <p className="settings__fine">Search for people above your record, and open their vinyl to add them.</p>
-        )}
-        {ids('outgoing').map((id) => (
-          <div key={id} className="person-row">
-            <button className="person-row__who" onClick={() => open(id)}>
-              <span className="minidisc"><img src={personById[id].avatar} alt="" /></span>
-              <span className="hit__text">
-                <strong>{personById[id].name}</strong>
-                <em>Request sent</em>
-              </span>
-            </button>
-            <button className="pill pill--quiet" onClick={() => act.cancel(id)}>Cancel</button>
-          </div>
-        ))}
-        {updates.length > 0 && (
+
+        {tab === 'friends' && (
           <>
-            <p className="settings__label">Vinyl updates</p>
-            <ul className="live-list">
-              {updates.flatMap((id) =>
-                personById[id].recent!.map((line) => (
-                  <li key={id + line}>
-                    <img className="live-list__face" src={personById[id].avatar} alt="" />
-                    <span>
-                      <strong>{personById[id].name.split(' ')[0]}</strong> · {line}
-                    </span>
-                  </li>
-                )),
-              )}
-            </ul>
+            {ids('friends').length ? (
+              ids('friends').map((id) => (
+                <button key={id} className="person-row person-row__who" onClick={() => open(id)}>
+                  <span className="minidisc"><img src={personById[id].avatar} alt="" /></span>
+                  <span className="hit__text">
+                    <strong>{personById[id].name}</strong>
+                    <em>@{personById[id].username}</em>
+                  </span>
+                  <span className="hit__match">{score(id)}%</span>
+                </button>
+              ))
+            ) : (
+              <p className="settings__fine">Search for people above your record, and open their vinyl to add them.</p>
+            )}
+            {ids('outgoing').map((id) => (
+              <div key={id} className="person-row">
+                <button className="person-row__who" onClick={() => open(id)}>
+                  <span className="minidisc"><img src={personById[id].avatar} alt="" /></span>
+                  <span className="hit__text">
+                    <strong>{personById[id].name}</strong>
+                    <em>Request sent</em>
+                  </span>
+                </button>
+                <button className="pill pill--quiet" onClick={() => act.cancel(id)}>Cancel</button>
+              </div>
+            ))}
+            <p className="settings__fine">Friends can look through each other’s vinyl. There’s no messaging in CIRCA; to talk, use the socials on someone’s vinyl. Sample listeners are fictional demo profiles.</p>
           </>
         )}
-        <p className="settings__fine">Friends can look through each other’s vinyl. There’s no messaging in CIRCA; to talk, use the socials on someone’s vinyl. Sample listeners are fictional demo profiles.</p>
       </div>
     </Sheet>
   )

@@ -5,6 +5,7 @@ import { CommentsSheet } from './components/CommentsSheet'
 import { CreatorSheet } from './components/CreatorSheet'
 import { FriendsSheet, LiveSheet, ProfileSheet } from './components/IdentitySheets'
 import { PersonVinyl } from './components/PersonVinyl'
+import { ProfileDetails } from './components/ProfileDetails'
 import { Splash } from './components/Logo'
 import { SettingsSheet } from './components/SettingsSheet'
 import { Toasts } from './components/Toasts'
@@ -75,7 +76,8 @@ export default function App() {
 
       <AnimatePresence>{person && <PersonVinyl key={person} id={person} />}</AnimatePresence>
       <AnimatePresence>
-        {sheet?.kind === 'creator' && <CreatorSheet key={`c-${sheet.creatorId}`} creatorId={sheet.creatorId} />}
+        {sheet?.kind === 'creator' && <CreatorSheet key={`c-${sheet.creatorId}-${sheet.owner ?? 'me'}`} creatorId={sheet.creatorId} owner={sheet.owner ?? 'me'} />}
+        {sheet?.kind === 'details' && <ProfileDetails key={`d-${sheet.owner}-${sheet.tab}`} owner={sheet.owner} tab={sheet.tab} />}
         {sheet?.kind === 'settings' && <SettingsSheet key="settings" />}
         {sheet?.kind === 'profile' && <ProfileSheet key="profile" />}
         {sheet?.kind === 'live' && <LiveSheet key="live" />}

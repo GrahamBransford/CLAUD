@@ -36,7 +36,10 @@ interface PersistedState {
   vinylVisibility: 'everyone' | 'friends'
   /** Comments you wrote on Inner Circle moments. Kept on this device only. */
   myComments: Record<string, { id: string; text: string; at: number }[]>
+  /** Friends' vinyl updates already seen (for the lamp). */
+  seenUpdates: string[]
 
+  markUpdatesSeen: (keys: string[]) => void
   ensureDefaults: () => void
   save: (id: string, kind: SavedItem['kind'], via: SaveMethod) => boolean
   unsave: (id: string) => void
@@ -93,6 +96,7 @@ const initial = () => ({
   vinylFollows: Object.keys(meSeed.friends).filter((id) => meSeed.friends[id] === 'friends'),
   vinylVisibility: 'everyone' as 'everyone' | 'friends',
   myComments: {} as Record<string, { id: string; text: string; at: number }[]>,
+  seenUpdates: [] as string[],
 })
 
 const LIVE = (x: Pick<Experience, 'kind' | 'creatorId'>) => !!x.creatorId && x.kind !== 'other'
@@ -203,6 +207,7 @@ export const createStore = (set: string) =>
           setState((st) => ({
             myComments: { ...st.myComments, [postId]: [...(st.myComments[postId] ?? []), { id: `c-${Date.now().toString(36)}`, text, at: Date.now() }] },
           })),
+        markUpdatesSeen: (keys) => setState((st) => ({ seenUpdates: [...new Set([...st.seenUpdates, ...keys])] })),
         toggleVinylFollow: (personId) => {
           const on = !get().vinylFollows.includes(personId)
           setState((st) => ({ vinylFollows: on ? [...st.vinylFollows, personId] : st.vinylFollows.filter((f) => f !== personId) }))

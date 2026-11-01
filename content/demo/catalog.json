@@ -1,302 +1,636 @@
 {
-  "creators": [
-    {
-      "id": "juniper-vale",
-      "kind": "artist",
-      "name": "Juniper Vale",
-      "handle": "junipervale",
-      "location": "Asheville, NC",
-      "genre": "Bedroom soul",
-      "bio": "Writes at two in the morning on a secondhand Rhodes she bought from a church sale. Paper Moons is her first release after four years of playing other people's records at a bar on Lexington Avenue.",
-      "palette": ["#7E2F2A", "#E9C77B", "#F1E6D3"]
-    },
-    {
-      "id": "marlow-saltwater",
-      "kind": "artist",
-      "name": "Marlow & the Saltwater",
-      "handle": "marlowsaltwater",
-      "location": "Portland, ME",
-      "genre": "Indie folk",
-      "bio": "Three friends, two acoustic guitars and a borrowed upright bass. They record in a converted net loft on the harbor, windows open, whatever the weather.",
-      "palette": ["#5F6E56", "#E8DCC4", "#B8553F"]
-    },
-    {
-      "id": "teodora-blue",
-      "kind": "artist",
-      "name": "Teodora Blue",
-      "handle": "teodorablue",
-      "location": "Detroit, MI",
-      "genre": "Dream pop",
-      "bio": "Synth player, choir kid, former church organist. Builds wide, glowing songs out of analog synths and the reverb of empty rooms.",
-      "palette": ["#2F3550", "#D6A84F", "#C8695A"]
-    },
-    {
-      "id": "yemi-daybreak",
-      "kind": "artist",
-      "name": "Yemi & the Daybreak",
-      "handle": "yemidaybreak",
-      "location": "Houston, TX",
-      "genre": "Highlife",
-      "bio": "A seven-piece band led by guitarist Yemi Adeyele, playing the highlife records his parents danced to in Lagos, rewired for a Gulf Coast summer.",
-      "palette": ["#C9832F", "#3B2A22", "#EED9A6"]
-    },
-    {
-      "id": "cass-ferro",
-      "kind": "artist",
-      "name": "Cass Ferro Trio",
-      "handle": "cassferro",
-      "location": "Chicago, IL",
-      "genre": "Jazz trio",
-      "bio": "Pianist Cass Ferro, bassist Del Okafor and drummer Mina Sato. Late sets, low lights, songs that take their time getting where they are going.",
-      "palette": ["#292722", "#963F36", "#E6D5B8"]
-    },
-    {
-      "id": "halden",
-      "kind": "artist",
-      "name": "Halden",
-      "handle": "halden",
-      "location": "Duluth, MN",
-      "genre": "Ambient electronic",
-      "bio": "One person, one four-track tape machine and a lake that freezes for five months a year. Music for long drives and early mornings.",
-      "palette": ["#6F8790", "#EFE4D0", "#D6A84F"]
-    },
-    {
-      "id": "long-way-round",
-      "kind": "podcast",
-      "name": "The Long Way Round",
-      "handle": "longwayround",
-      "hosts": ["Priya Raman", "Theo Marsh"],
-      "genre": "Culture & curiosity",
-      "bio": "Two old friends take the scenic route through the small questions of modern life: attention, habits, wonder, and why we do the things we do.",
-      "palette": ["#D6A84F", "#292722", "#F4EBDD"]
-    },
-    {
-      "id": "liner-notes",
-      "kind": "podcast",
-      "name": "Liner Notes",
-      "handle": "linernotes",
-      "hosts": ["Desmond Hale"],
-      "genre": "Music history",
-      "bio": "Desmond Hale talks with the people whose names you only find in the small print: session players, engineers, arrangers and the stories behind the records.",
-      "palette": ["#963F36", "#F4EBDD", "#292722"]
-    },
-    {
-      "id": "small-machines",
-      "kind": "podcast",
-      "name": "Small Machines",
-      "handle": "smallmachines",
-      "hosts": ["Imani Brooks"],
-      "genre": "Craft & technology",
-      "bio": "Imani Brooks visits the workshops of people who build, fix and care for the objects we live with, and asks what those objects have to teach us.",
-      "palette": ["#8A967B", "#F4EBDD", "#7E2F2A"]
-    },
-    {
-      "id": "kitchen-table",
-      "kind": "podcast",
-      "name": "Kitchen Table Economics",
-      "handle": "kitchentable",
-      "hosts": ["Nadia Kessler", "Sam Okafor"],
-      "genre": "Money & culture",
-      "bio": "Two economists without the jargon. Nadia and Sam take one everyday transaction each week and follow the money until it stops.",
-      "palette": ["#3E4A3D", "#E9C77B", "#F4EBDD"]
-    }
-  ],
-
-  "songs": [
-    {
-      "id": "paper-moons",
-      "creatorId": "juniper-vale",
-      "title": "Paper Moons",
-      "release": "Single",
-      "year": 2026,
-      "blurb": "Unhurried neo-soul built on a secondhand Rhodes, brushed drums and a bassline that never raises its voice.",
-      "mood": ["late night", "warm", "slow"],
-      "preview": { "start": 0, "end": 72 }
-    },
-    {
-      "id": "coastline-static",
-      "creatorId": "marlow-saltwater",
-      "title": "Coastline Static",
-      "release": "From the album Net Loft",
-      "year": 2026,
-      "blurb": "Interlocking fingerpicked guitars and upright bass, recorded with the harbor windows open.",
-      "mood": ["acoustic", "open air", "morning"],
-      "preview": { "start": 0, "end": 80 }
-    },
-    {
-      "id": "cathedral-lights",
-      "creatorId": "teodora-blue",
-      "title": "Cathedral Lights",
-      "release": "Single",
-      "year": 2026,
-      "blurb": "Glowing analog arpeggios and a slow-motion drum machine. A choir kid's idea of a dance record.",
-      "mood": ["dreamy", "driving", "wide"],
-      "preview": { "start": 0, "end": 68 }
-    },
-    {
-      "id": "harmattan-sun",
-      "creatorId": "yemi-daybreak",
-      "title": "Harmattan Sun",
-      "release": "From the EP Gulf Coast Highlife",
-      "year": 2026,
-      "blurb": "Bright, circling guitar lines over a rolling percussion section. Impossible to hear sitting still.",
-      "mood": ["joyful", "groove", "summer"],
-      "preview": { "start": 0, "end": 84 }
-    },
-    {
-      "id": "slow-burn-avenue",
-      "creatorId": "cass-ferro",
-      "title": "Slow Burn Avenue",
-      "release": "From the album Last Set",
-      "year": 2026,
-      "blurb": "A late-set piano trio tune that takes its time, swinging gently under low lights.",
-      "mood": ["jazz", "after hours", "intimate"],
-      "preview": { "start": 0, "end": 88 }
-    },
-    {
-      "id": "glass-horizon",
-      "creatorId": "halden",
-      "title": "Glass Horizon",
-      "release": "From the album Ice Out",
-      "year": 2026,
-      "blurb": "Tape-warped pads and a soft, patient beat. Music for the hour before anyone else is awake.",
-      "mood": ["ambient", "calm", "focus"],
-      "preview": { "start": 0, "end": 76 }
-    }
-  ],
-
-  "episodes": [
-    {
-      "id": "in-defense-of-boredom",
-      "creatorId": "long-way-round",
-      "number": 41,
-      "title": "In Defense of Boredom",
-      "guests": [],
-      "topic": "Theo spent a week without headphones. What he heard instead changed how he thinks about attention, and about why the best ideas arrive when nothing is happening.",
-      "highlightTitle": "The week without headphones"
-    },
-    {
-      "id": "the-bassline",
-      "creatorId": "liner-notes",
-      "number": 18,
-      "title": "The Bassline You've Hummed a Thousand Times",
-      "guests": ["Rosa Quintero"],
-      "topic": "Session bassist Rosa Quintero has played on hundreds of records most people have never connected to her name. She talks about the one take that followed her everywhere.",
-      "highlightTitle": "The take that wasn't supposed to be kept"
-    },
-    {
-      "id": "what-an-old-radio-knows",
-      "creatorId": "small-machines",
-      "number": 7,
-      "title": "What an Old Radio Knows",
-      "guests": ["Walter Fenn"],
-      "topic": "Walter Fenn has restored tube radios for forty years. Imani asks him how a radio actually finds a station, and what tuning in has to do with paying attention.",
-      "highlightTitle": "How a radio finds a voice in the noise"
-    },
-    {
-      "id": "who-gets-paid",
-      "creatorId": "kitchen-table",
-      "number": 63,
-      "title": "Who Gets Paid When You Press Play?",
-      "guests": [],
-      "topic": "Nadia and Sam follow a single stream of a single song from your headphones back to the people who made it, and ask what a healthy middle class for musicians would look like.",
-      "highlightTitle": "Following one stream back to the artist"
-    }
-  ],
-
-  "handhelds": [
-    {
-      "id": "hh-juniper-2am",
-      "creatorId": "juniper-vale",
-      "type": "video",
-      "caption": "2am. New one, no words yet. Just the Rhodes and whatever this is.",
-      "context": "Bedroom, unreleased sketch",
-      "postedHoursAgo": 3
-    },
-    {
-      "id": "hh-cass-bridge",
-      "creatorId": "cass-ferro",
-      "type": "video",
-      "caption": "Working out the bridge for the next record. Del says it needs one more chord. Del is usually right.",
-      "context": "Rehearsal, phone on the piano lid",
-      "postedHoursAgo": 7
-    },
-    {
-      "id": "hh-imani-radio",
-      "creatorId": "small-machines",
-      "type": "video",
-      "caption": "Look what came into the shop this morning. 1962 tabletop set, first time it's made a sound in decades. Listen to what it found.",
-      "context": "Workshop, unedited",
-      "postedHoursAgo": 11
-    },
-    {
-      "id": "hh-teodora-soundcheck",
-      "creatorId": "teodora-blue",
-      "type": "video",
-      "caption": "Soundcheck. This room is enormous and I am very small.",
-      "context": "Backstage, Detroit",
-      "postedHoursAgo": 20
-    },
-    {
-      "id": "hh-priya-walk",
-      "creatorId": "long-way-round",
-      "type": "video",
-      "caption": "Priya here. Walking home and thinking out loud about next week's episode. Tell us if this is a terrible idea.",
-      "context": "Voice memo, on the walk home",
-      "postedHoursAgo": 26
-    },
-    {
-      "id": "hh-marlow-porch",
-      "creatorId": "marlow-saltwater",
-      "type": "video",
-      "caption": "Coastline Static, porch version. The wind insisted on singing harmony.",
-      "context": "Acoustic, one take",
-      "postedHoursAgo": 30
-    },
-    {
-      "id": "hh-yemi-rehearsal",
-      "creatorId": "yemi-daybreak",
-      "type": "video",
-      "caption": "Tuesday rehearsal. Kunle found this groove at the end of the night and nobody wanted to go home.",
-      "context": "Rehearsal room",
-      "postedHoursAgo": 34
-    },
-    {
-      "id": "hh-halden-tape",
-      "creatorId": "halden",
-      "type": "video",
-      "caption": "Feeding the four-track a loop of rain I recorded last April. The lake is still frozen.",
-      "context": "Home studio",
-      "postedHoursAgo": 48
-    },
-    {
-      "id": "hh-juniper-lyrics",
-      "creatorId": "juniper-vale",
-      "type": "image",
-      "caption": "Lyric sheet for Paper Moons. Coffee ring included at no extra charge.",
-      "context": "Notebook",
-      "postedHoursAgo": 52
-    },
-    {
-      "id": "hh-kitchen-whiteboard",
-      "creatorId": "kitchen-table",
-      "type": "image",
-      "caption": "Our whiteboard after recording this week's episode. We may have gotten carried away.",
-      "context": "After the recording",
-      "postedHoursAgo": 60
-    }
-  ],
-
-  "listeningSeed": {
-    "note": "Simulated listening history standing in for data a connected streaming service would provide.",
-    "creators": {
-      "juniper-vale": { "plays": 38, "completion": 0.91, "saves": 3 },
-      "cass-ferro": { "plays": 12, "completion": 0.74, "saves": 1 },
-      "teodora-blue": { "plays": 4, "completion": 0.52, "saves": 0 },
-      "long-way-round": { "plays": 9, "completion": 0.88, "saves": 2 },
-      "small-machines": { "plays": 2, "completion": 0.6, "saves": 0 }
-    }
+ "creators": [
+  {
+   "id": "juniper-vale",
+   "kind": "artist",
+   "name": "Juniper Vale",
+   "handle": "junipervale",
+   "location": "Asheville, NC",
+   "genre": "Bedroom soul",
+   "bio": "Writes at two in the morning on a secondhand Rhodes she bought from a church sale. Paper Moons is her first release after four years of playing other people's records at a bar on Lexington Avenue.",
+   "palette": [
+    "#7E2F2A",
+    "#E9C77B",
+    "#F1E6D3"
+   ],
+   "style": "Soul & R&B"
   },
-
-  "defaultFollows": ["juniper-vale", "cass-ferro", "teodora-blue", "long-way-round", "small-machines"]
+  {
+   "id": "marlow-saltwater",
+   "kind": "artist",
+   "name": "Marlow & the Saltwater",
+   "handle": "marlowsaltwater",
+   "location": "Portland, ME",
+   "genre": "Indie folk",
+   "bio": "Three friends, two acoustic guitars and a borrowed upright bass. They record in a converted net loft on the harbor, windows open, whatever the weather.",
+   "palette": [
+    "#5F6E56",
+    "#E8DCC4",
+    "#B8553F"
+   ],
+   "style": "Folk"
+  },
+  {
+   "id": "teodora-blue",
+   "kind": "artist",
+   "name": "Teodora Blue",
+   "handle": "teodorablue",
+   "location": "Detroit, MI",
+   "genre": "Dream pop",
+   "bio": "Synth player, choir kid, former church organist. Builds wide, glowing songs out of analog synths and the reverb of empty rooms.",
+   "palette": [
+    "#2F3550",
+    "#D6A84F",
+    "#C8695A"
+   ],
+   "style": "Indie & dream pop"
+  },
+  {
+   "id": "yemi-daybreak",
+   "kind": "artist",
+   "name": "Yemi & the Daybreak",
+   "handle": "yemidaybreak",
+   "location": "Houston, TX",
+   "genre": "Highlife",
+   "bio": "A seven-piece band led by guitarist Yemi Adeyele, playing the highlife records his parents danced to in Lagos, rewired for a Gulf Coast summer.",
+   "palette": [
+    "#C9832F",
+    "#3B2A22",
+    "#EED9A6"
+   ],
+   "style": "Afro & highlife"
+  },
+  {
+   "id": "cass-ferro",
+   "kind": "artist",
+   "name": "Cass Ferro Trio",
+   "handle": "cassferro",
+   "location": "Chicago, IL",
+   "genre": "Jazz trio",
+   "bio": "Pianist Cass Ferro, bassist Del Okafor and drummer Mina Sato. Late sets, low lights, songs that take their time getting where they are going.",
+   "palette": [
+    "#292722",
+    "#963F36",
+    "#E6D5B8"
+   ],
+   "style": "Jazz"
+  },
+  {
+   "id": "halden",
+   "kind": "artist",
+   "name": "Halden",
+   "handle": "halden",
+   "location": "Duluth, MN",
+   "genre": "Ambient electronic",
+   "bio": "One person, one four-track tape machine and a lake that freezes for five months a year. Music for long drives and early mornings.",
+   "palette": [
+    "#6F8790",
+    "#EFE4D0",
+    "#D6A84F"
+   ],
+   "style": "Electronic"
+  },
+  {
+   "id": "long-way-round",
+   "kind": "podcast",
+   "name": "The Long Way Round",
+   "handle": "longwayround",
+   "hosts": [
+    "Priya Raman",
+    "Theo Marsh"
+   ],
+   "genre": "Culture & curiosity",
+   "bio": "Two old friends take the scenic route through the small questions of modern life: attention, habits, wonder, and why we do the things we do.",
+   "palette": [
+    "#D6A84F",
+    "#292722",
+    "#F4EBDD"
+   ],
+   "style": "Culture"
+  },
+  {
+   "id": "liner-notes",
+   "kind": "podcast",
+   "name": "Liner Notes",
+   "handle": "linernotes",
+   "hosts": [
+    "Desmond Hale"
+   ],
+   "genre": "Music history",
+   "bio": "Desmond Hale talks with the people whose names you only find in the small print: session players, engineers, arrangers and the stories behind the records.",
+   "palette": [
+    "#963F36",
+    "#F4EBDD",
+    "#292722"
+   ],
+   "style": "Music"
+  },
+  {
+   "id": "small-machines",
+   "kind": "podcast",
+   "name": "Small Machines",
+   "handle": "smallmachines",
+   "hosts": [
+    "Imani Brooks"
+   ],
+   "genre": "Craft & technology",
+   "bio": "Imani Brooks visits the workshops of people who build, fix and care for the objects we live with, and asks what those objects have to teach us.",
+   "palette": [
+    "#8A967B",
+    "#F4EBDD",
+    "#7E2F2A"
+   ],
+   "style": "Craft"
+  },
+  {
+   "id": "kitchen-table",
+   "kind": "podcast",
+   "name": "Kitchen Table Economics",
+   "handle": "kitchentable",
+   "hosts": [
+    "Nadia Kessler",
+    "Sam Okafor"
+   ],
+   "genre": "Money & culture",
+   "bio": "Two economists without the jargon. Nadia and Sam take one everyday transaction each week and follow the money until it stops.",
+   "palette": [
+    "#3E4A3D",
+    "#E9C77B",
+    "#F4EBDD"
+   ],
+   "style": "Money"
+  },
+  {
+   "id": "odessa-wren",
+   "kind": "artist",
+   "name": "Odessa Wren",
+   "genre": "Neo-soul",
+   "style": "Soul & R&B",
+   "location": "Detroit, MI",
+   "palette": [
+    "#3E2A3A",
+    "#D9A36A",
+    "#F1E2CC"
+   ],
+   "bio": "Sings over drum machines she rewires herself. Her second record was cut live in one night at a church hall on the east side.",
+   "works": [
+    "Slow Honey",
+    "Ninth Street Hymn",
+    "Low Light Lover"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "velvet-hours",
+   "kind": "artist",
+   "name": "The Velvet Hours",
+   "genre": "Soul revival",
+   "style": "Soul & R&B",
+   "location": "Memphis, TN",
+   "palette": [
+    "#6B2D24",
+    "#E7C27D",
+    "#EFE3CF"
+   ],
+   "bio": "A seven-piece with a horn section and a habit of recording to tape in a converted laundromat.",
+   "works": [
+    "Hold the Line",
+    "Saturday Ruin",
+    "Bluff City Lights"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "nadia-okoro",
+   "kind": "artist",
+   "name": "Nadia Okoro Quartet",
+   "genre": "Spiritual jazz",
+   "style": "Jazz",
+   "location": "London, UK",
+   "palette": [
+    "#1F3A4A",
+    "#C99A4E",
+    "#E9DFCC"
+   ],
+   "bio": "Saxophone, harp, upright bass and drums. Long pieces that take their time and earn it.",
+   "works": [
+    "Mother Tongue",
+    "Harp & Harbour",
+    "The Long Exhale"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "eli-marchetti",
+   "kind": "artist",
+   "name": "Eli Marchetti",
+   "genre": "Jazz piano",
+   "style": "Jazz",
+   "location": "Chicago, IL",
+   "palette": [
+    "#2B2622",
+    "#B9894F",
+    "#ECE2D0"
+   ],
+   "bio": "Solo piano, mostly standards, played like he is figuring them out for the first time.",
+   "works": [
+    "Blue in Green, Again",
+    "Lakeshore at Four",
+    "Night Ferry"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "lumen-field",
+   "kind": "artist",
+   "name": "Lumen Field",
+   "genre": "Ambient electronic",
+   "style": "Electronic",
+   "location": "Berlin, DE",
+   "palette": [
+    "#24343A",
+    "#9FB3A8",
+    "#E6DFCF"
+   ],
+   "bio": "Field recordings and modular synths. Every record is built from one place: a lake, a station, a forest at dawn.",
+   "works": [
+    "Tegel at Dawn",
+    "Lake Notes",
+    "Slow Signal"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "wren-hollow",
+   "kind": "artist",
+   "name": "Wren & Hollow",
+   "genre": "Indie folk",
+   "style": "Folk",
+   "location": "Portland, OR",
+   "palette": [
+    "#4D5A45",
+    "#D8C59A",
+    "#F0E6D2"
+   ],
+   "bio": "Two voices and a borrowed banjo, writing about the coast and the people who stay.",
+   "works": [
+    "Cannon Beach",
+    "The Keeper",
+    "Winter Wheat"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "kwame-asante",
+   "kind": "artist",
+   "name": "Kwame Asante Band",
+   "genre": "Afrobeat",
+   "style": "Afro & highlife",
+   "location": "Accra, GH",
+   "palette": [
+    "#B4642B",
+    "#2E2620",
+    "#F0DDAF"
+   ],
+   "bio": "Twelve players, two drummers, one very long groove. A legendary live band finally on record.",
+   "works": [
+    "Osu Night Market",
+    "Kpanlogo Sunday",
+    "Long Way Home"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "sora-lake",
+   "kind": "artist",
+   "name": "Sora Lake",
+   "genre": "Dream pop",
+   "style": "Indie & dream pop",
+   "location": "Montréal, QC",
+   "palette": [
+    "#3A3F5C",
+    "#C8A0B4",
+    "#EEE4DA"
+   ],
+   "bio": "Reverb-soaked guitar pop recorded in a cold apartment in Mile End.",
+   "works": [
+    "Glasshouse",
+    "Snow Day Radio",
+    "Soft Machinery"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "studio-floor",
+   "kind": "podcast",
+   "name": "The Studio Floor",
+   "genre": "Music production",
+   "style": "Music",
+   "hosts": [
+    "Ruth Abara"
+   ],
+   "palette": [
+    "#2D3B33",
+    "#D2B47A",
+    "#EFE6D4"
+   ],
+   "bio": "Producers and engineers on how one record got made, from the first demo to the final master.",
+   "works": [
+    "The Drum Sound on Slow Honey",
+    "Mixing in Mono",
+    "Tape Is Not Dead"
+   ],
+   "catalogOnly": true
+  },
+  {
+   "id": "slow-cities",
+   "kind": "podcast",
+   "name": "Slow Cities",
+   "genre": "Cities & design",
+   "style": "Culture",
+   "hosts": [
+    "Jonas Weller",
+    "Ama Mensah"
+   ],
+   "palette": [
+    "#5A4B3A",
+    "#E2CFA6",
+    "#F2EADB"
+   ],
+   "bio": "How streets, stoops and corner shops shape the way we live together.",
+   "works": [
+    "The Stoop",
+    "Night Buses",
+    "Who Owns the Corner?"
+   ],
+   "catalogOnly": true
+  }
+ ],
+ "songs": [
+  {
+   "id": "paper-moons",
+   "creatorId": "juniper-vale",
+   "title": "Paper Moons",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "Unhurried neo-soul built on a secondhand Rhodes, brushed drums and a bassline that never raises its voice.",
+   "mood": [
+    "late night",
+    "warm",
+    "slow"
+   ],
+   "preview": {
+    "start": 0,
+    "end": 72
+   }
+  },
+  {
+   "id": "coastline-static",
+   "creatorId": "marlow-saltwater",
+   "title": "Coastline Static",
+   "release": "From the album Net Loft",
+   "year": 2026,
+   "blurb": "Interlocking fingerpicked guitars and upright bass, recorded with the harbor windows open.",
+   "mood": [
+    "acoustic",
+    "open air",
+    "morning"
+   ],
+   "preview": {
+    "start": 0,
+    "end": 80
+   }
+  },
+  {
+   "id": "cathedral-lights",
+   "creatorId": "teodora-blue",
+   "title": "Cathedral Lights",
+   "release": "Single",
+   "year": 2026,
+   "blurb": "Glowing analog arpeggios and a slow-motion drum machine. A choir kid's idea of a dance record.",
+   "mood": [
+    "dreamy",
+    "driving",
+    "wide"
+   ],
+   "preview": {
+    "start": 0,
+    "end": 68
+   }
+  },
+  {
+   "id": "harmattan-sun",
+   "creatorId": "yemi-daybreak",
+   "title": "Harmattan Sun",
+   "release": "From the EP Gulf Coast Highlife",
+   "year": 2026,
+   "blurb": "Bright, circling guitar lines over a rolling percussion section. Impossible to hear sitting still.",
+   "mood": [
+    "joyful",
+    "groove",
+    "summer"
+   ],
+   "preview": {
+    "start": 0,
+    "end": 84
+   }
+  },
+  {
+   "id": "slow-burn-avenue",
+   "creatorId": "cass-ferro",
+   "title": "Slow Burn Avenue",
+   "release": "From the album Last Set",
+   "year": 2026,
+   "blurb": "A late-set piano trio tune that takes its time, swinging gently under low lights.",
+   "mood": [
+    "jazz",
+    "after hours",
+    "intimate"
+   ],
+   "preview": {
+    "start": 0,
+    "end": 88
+   }
+  },
+  {
+   "id": "glass-horizon",
+   "creatorId": "halden",
+   "title": "Glass Horizon",
+   "release": "From the album Ice Out",
+   "year": 2026,
+   "blurb": "Tape-warped pads and a soft, patient beat. Music for the hour before anyone else is awake.",
+   "mood": [
+    "ambient",
+    "calm",
+    "focus"
+   ],
+   "preview": {
+    "start": 0,
+    "end": 76
+   }
+  }
+ ],
+ "episodes": [
+  {
+   "id": "in-defense-of-boredom",
+   "creatorId": "long-way-round",
+   "number": 41,
+   "title": "In Defense of Boredom",
+   "guests": [],
+   "topic": "Theo spent a week without headphones. What he heard instead changed how he thinks about attention, and about why the best ideas arrive when nothing is happening.",
+   "highlightTitle": "The week without headphones"
+  },
+  {
+   "id": "the-bassline",
+   "creatorId": "liner-notes",
+   "number": 18,
+   "title": "The Bassline You've Hummed a Thousand Times",
+   "guests": [
+    "Rosa Quintero"
+   ],
+   "topic": "Session bassist Rosa Quintero has played on hundreds of records most people have never connected to her name. She talks about the one take that followed her everywhere.",
+   "highlightTitle": "The take that wasn't supposed to be kept"
+  },
+  {
+   "id": "what-an-old-radio-knows",
+   "creatorId": "small-machines",
+   "number": 7,
+   "title": "What an Old Radio Knows",
+   "guests": [
+    "Walter Fenn"
+   ],
+   "topic": "Walter Fenn has restored tube radios for forty years. Imani asks him how a radio actually finds a station, and what tuning in has to do with paying attention.",
+   "highlightTitle": "How a radio finds a voice in the noise"
+  },
+  {
+   "id": "who-gets-paid",
+   "creatorId": "kitchen-table",
+   "number": 63,
+   "title": "Who Gets Paid When You Press Play?",
+   "guests": [],
+   "topic": "Nadia and Sam follow a single stream of a single song from your headphones back to the people who made it, and ask what a healthy middle class for musicians would look like.",
+   "highlightTitle": "Following one stream back to the artist"
+  }
+ ],
+ "handhelds": [
+  {
+   "id": "hh-juniper-2am",
+   "creatorId": "juniper-vale",
+   "type": "video",
+   "caption": "2am. New one, no words yet. Just the Rhodes and whatever this is.",
+   "context": "Bedroom, unreleased sketch",
+   "postedHoursAgo": 3
+  },
+  {
+   "id": "hh-cass-bridge",
+   "creatorId": "cass-ferro",
+   "type": "video",
+   "caption": "Working out the bridge for the next record. Del says it needs one more chord. Del is usually right.",
+   "context": "Rehearsal, phone on the piano lid",
+   "postedHoursAgo": 7
+  },
+  {
+   "id": "hh-imani-radio",
+   "creatorId": "small-machines",
+   "type": "video",
+   "caption": "Look what came into the shop this morning. 1962 tabletop set, first time it's made a sound in decades. Listen to what it found.",
+   "context": "Workshop, unedited",
+   "postedHoursAgo": 11
+  },
+  {
+   "id": "hh-teodora-soundcheck",
+   "creatorId": "teodora-blue",
+   "type": "video",
+   "caption": "Soundcheck. This room is enormous and I am very small.",
+   "context": "Backstage, Detroit",
+   "postedHoursAgo": 20
+  },
+  {
+   "id": "hh-priya-walk",
+   "creatorId": "long-way-round",
+   "type": "video",
+   "caption": "Priya here. Walking home and thinking out loud about next week's episode. Tell us if this is a terrible idea.",
+   "context": "Voice memo, on the walk home",
+   "postedHoursAgo": 26
+  },
+  {
+   "id": "hh-marlow-porch",
+   "creatorId": "marlow-saltwater",
+   "type": "video",
+   "caption": "Coastline Static, porch version. The wind insisted on singing harmony.",
+   "context": "Acoustic, one take",
+   "postedHoursAgo": 30
+  },
+  {
+   "id": "hh-yemi-rehearsal",
+   "creatorId": "yemi-daybreak",
+   "type": "video",
+   "caption": "Tuesday rehearsal. Kunle found this groove at the end of the night and nobody wanted to go home.",
+   "context": "Rehearsal room",
+   "postedHoursAgo": 34
+  },
+  {
+   "id": "hh-halden-tape",
+   "creatorId": "halden",
+   "type": "video",
+   "caption": "Feeding the four-track a loop of rain I recorded last April. The lake is still frozen.",
+   "context": "Home studio",
+   "postedHoursAgo": 48
+  },
+  {
+   "id": "hh-juniper-lyrics",
+   "creatorId": "juniper-vale",
+   "type": "image",
+   "caption": "Lyric sheet for Paper Moons. Coffee ring included at no extra charge.",
+   "context": "Notebook",
+   "postedHoursAgo": 52
+  },
+  {
+   "id": "hh-kitchen-whiteboard",
+   "creatorId": "kitchen-table",
+   "type": "image",
+   "caption": "Our whiteboard after recording this week's episode. We may have gotten carried away.",
+   "context": "After the recording",
+   "postedHoursAgo": 60
+  }
+ ],
+ "listeningSeed": {
+  "note": "Simulated listening history standing in for data a connected streaming service would provide.",
+  "creators": {
+   "juniper-vale": {
+    "plays": 38,
+    "completion": 0.91,
+    "saves": 3
+   },
+   "cass-ferro": {
+    "plays": 12,
+    "completion": 0.74,
+    "saves": 1
+   },
+   "teodora-blue": {
+    "plays": 4,
+    "completion": 0.52,
+    "saves": 0
+   },
+   "long-way-round": {
+    "plays": 9,
+    "completion": 0.88,
+    "saves": 2
+   },
+   "small-machines": {
+    "plays": 2,
+    "completion": 0.6,
+    "saves": 0
+   }
+  }
+ },
+ "defaultFollows": [
+  "juniper-vale",
+  "cass-ferro",
+  "teodora-blue",
+  "long-way-round",
+  "small-machines",
+  "odessa-wren",
+  "studio-floor"
+ ]
 }

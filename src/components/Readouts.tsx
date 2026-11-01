@@ -1,53 +1,45 @@
 import { useState } from 'react'
 import { creatorById } from '../data'
-import { formatTop, type Relationship } from '../lib/affinity'
-import { liveCreators } from '../lib/social'
-import { useUI } from '../store/useUI'
-import type { Experience } from '../types'
+import { formatTop } from '../lib/affinity'
+import type { ListeningProfile } from '../lib/profile'
+import { useUI, type DetailTab } from '../store/useUI'
 
 /**
- * Your year in listening, except it's every day: the readouts on the deck,
- * backlit like the meter windows on a hi-fi. Everything here comes from what
- * CIRCA already knows (in the demo, a simulated history plus what you do).
+ * The readouts on the deck, backlit like a hi-fi's meter windows: listening
+ * time, top artist and podcast, the sound, shows lived and the newest find.
+ * Every window opens onto the full story behind it.
  */
-export function Readouts({ rels, experiences }: { rels: Relationship[]; experiences: Experience[] }) {
+export function Readouts({ profile }: { profile: ListeningProfile }) {
   const [today] = useState(() => new Date().toLocaleDateString(undefined, { day: 'numeric', month: 'short' }))
-  const open = (id: string) => useUI.getState().openSheet({ kind: 'creator', creatorId: id })
-  const minutes = Math.round(rels.reduce((n, r) => n + r.signals.minutes, 0))
-  const byKind = (k: 'artist' | 'podcast') => rels.filter((r) => creatorById[r.creatorId]?.kind === k).sort((a, b) => a.top - b.top)[0]
-  const artist = byKind('artist')
-  const podcast = byKind('podcast')
-
-  // your sound: the genre carrying the most of your listening
-  const genres = new Map<string, number>()
-  for (const r of rels) {
-    const g = creatorById[r.creatorId]?.genre
-    if (g) genres.set(g, (genres.get(g) ?? 0) + r.points)
-  }
-  const total = [...genres.values()].reduce((a, b) => a + b, 0) || 1
-  const [sound, soundPts] = [...genres.entries()].sort((a, b) => b[1] - a[1])[0] ?? ['—', 0]
-
-  const live = liveCreators(experiences)
-  const shows = experiences.filter((x) => x.kind !== 'other').length
-  const newest = rels.filter((r) => r.tier.id === 'discovered').sort((a, b) => b.points - a.points)[0]
+  const owner = profile.owner
+  const details = (tab: DetailTab) => useUI.getState().openSheet({ kind: 'details', owner, tab })
+  const creator = (id: string) => useUI.getState().openSheet({ kind: 'creator', creatorId: id, owner })
+  const artist = profile.artists[0]
+  const podcast = profile.podcasts[0]
+  const sound = profile.genres[0]
+  const shows = profile.experiences.filter((x) => x.kind !== 'other')
+  const newest = [...profile.artists, ...profile.podcasts].filter((s) => s.tier.id === 'discovered').sort((a, b) => b.points - a.points)[0]
+  const me = owner === 'me'
+  const minutes = profile.minutes.all
 
   return (
-    <section className="readouts" aria-label="Your listening, updated daily">
+    <section className="readouts" aria-label="Listening, updated daily">
       <p className="readouts__head">
-        <span>Today</span>
+        <span>{me ? 'Today' : 'Their listening'}</span>
         <span>{today} · demo</span>
       </p>
       <div className="readouts__row">
-        <div className="readout readout--counter">
+        <button className="readout readout--counter" onClick={() => details('listening')}>
           <span className="readout__label">Minutes</span>
           <span className="readout__counter" aria-label={`${minutes} minutes`}>
             {String(Math.min(99999, minutes)).padStart(5, '0').split('').map((d, i) => (
               <i key={i}>{d}</i>
             ))}
           </span>
-        </div>
+          <span className="readout__sub">{profile.minutes.week.toLocaleString()} this week</span>
+        </button>
         {artist && (
-          <button className="readout" onClick={() => open(artist.creatorId)}>
+          <button className="readout" onClick={() => details('artists')}>
             <span className="readout__label">Top artist</span>
             <span className="readout__who">
               <img src={creatorById[artist.creatorId].avatar} alt="" />
@@ -57,7 +49,7 @@ export function Readouts({ rels, experiences }: { rels: Relationship[]; experien
           </button>
         )}
         {podcast && (
-          <button className="readout" onClick={() => open(podcast.creatorId)}>
+          <button className="readout" onClick={() => details('podcasts')}>
             <span className="readout__label">Top podcast</span>
             <span className="readout__who">
               <img src={creatorById[podcast.creatorId].avatar} alt="" />
@@ -66,26 +58,30 @@ export function Readouts({ rels, experiences }: { rels: Relationship[]; experien
             <span className="readout__sub">{formatTop(podcast.top)} of fans</span>
           </button>
         )}
-        <div className="readout">
-          <span className="readout__label">Your sound</span>
-          <strong className="readout__big">{sound}</strong>
-          <span className="readout__sub">{Math.round((soundPts / total) * 100)}% of your listening</span>
-        </div>
-        <div className="readout">
+        {sound && (
+          <button className="readout" onClick={() => details('genres')}>
+            <span className="readout__label">{me ? 'Your sound' : 'Their sound'}</span>
+            <strong className="readout__big">{sound.genre}</strong>
+            <span className="readout__sub">{Math.round(sound.share * 100)}% of the music</span>
+          </button>
+        )}
+        <button className="readout" onClick={() => details('live')}>
           <span className="readout__label">Seen live</span>
           <strong className="readout__big">
-            {shows} {shows === 1 ? 'show' : 'shows'}
+            {shows.length} {shows.length === 1 ? 'show' : 'shows'}
           </strong>
-          <span className="readout__sub">{live.size ? [...live].map((id) => creatorById[id]?.name).filter(Boolean).slice(0, 2).join(', ') : 'Add one under Live'}</span>
-        </div>
+          <span className="readout__sub">
+            {shows.length ? [...new Set(shows.map((x) => (x.creatorId ? creatorById[x.creatorId]?.name : x.title)))].filter(Boolean).slice(0, 2).join(', ') : me ? 'Add one under Live' : 'None added yet'}
+          </span>
+        </button>
         {newest && (
-          <button className="readout" onClick={() => open(newest.creatorId)}>
+          <button className="readout" onClick={() => creator(newest.creatorId)}>
             <span className="readout__label">Newest find</span>
             <span className="readout__who">
               <img src={creatorById[newest.creatorId].avatar} alt="" />
               <strong>{creatorById[newest.creatorId].name}</strong>
             </span>
-            <span className="readout__sub">At the edge of your vinyl</span>
+            <span className="readout__sub">At the edge of the vinyl</span>
           </button>
         )}
       </div>
