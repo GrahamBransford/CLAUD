@@ -5372,3 +5372,24 @@ button:active:not(:disabled),
   opacity: 0;
   transition: none;
 }
+
+/* ---------- sheets: content scrolls natively; only the grab strip drags the sheet ---------- */
+.sheet {
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 0;
+}
+.sheet__grab {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  margin: 0 calc(-22px - var(--safe-r)) 8px calc(-22px - var(--safe-l));
+  padding: 10px 0 12px;
+  touch-action: none;
+  cursor: grab;
+  background: linear-gradient(180deg, #10241b 60%, rgba(16, 36, 27, 0));
+}
+.sheet__grab .sheet__handle {
+  margin: 0 auto;
+}
