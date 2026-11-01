@@ -1,8 +1,234 @@
 {
  "version": 1,
- "name": "CIRCA original demo content",
- "notes": "All artists, shows, people and media in this set are original and fictional, generated for the prototype. Works offline.",
+ "name": "CIRCA demo content",
+ "notes": "Real creators from content/real/library.json play through official YouTube embeds. Every other artist, show, person and media file is original and fictional, generated for the prototype. Listening figures are simulated throughout.",
  "creators": [
+  {
+   "id": "dua-lipa",
+   "kind": "artist",
+   "name": "Dua Lipa",
+   "avatar": "https://i.ytimg.com/vi/suAR1PYFNYA/mqdefault.jpg",
+   "genre": "Dance-pop",
+   "genres": "Dance-pop, electropop, disco-pop",
+   "bio": "British singer-songwriter known for sophisticated dance-pop production and confident, disco-influenced music.",
+   "palette": [
+    "#5B1E2D",
+    "#D9A86C",
+    "#F2E4D3"
+   ],
+   "style": "Pop",
+   "followers": 2410000,
+   "channel": {
+    "handle": "@dualipa",
+    "url": "https://www.youtube.com/@dualipa",
+    "platform": "YouTube"
+   }
+  },
+  {
+   "id": "billie-eilish",
+   "kind": "artist",
+   "name": "Billie Eilish",
+   "avatar": "https://i.ytimg.com/vi/V9PVRfjEBTI/mqdefault.jpg",
+   "genre": "Alternative pop",
+   "genres": "Alternative pop, indie pop",
+   "bio": "American singer-songwriter recognized for atmospheric production, intimate vocals, and distinctive alternative-pop songwriting.",
+   "palette": [
+    "#1F3B2D",
+    "#B9C27A",
+    "#EDE6D4"
+   ],
+   "style": "Pop",
+   "followers": 3180000,
+   "channel": {
+    "handle": "@BillieEilish",
+    "url": "https://www.youtube.com/@BillieEilish",
+    "platform": "YouTube"
+   }
+  },
+  {
+   "id": "the-weeknd",
+   "kind": "artist",
+   "name": "The Weeknd",
+   "avatar": "https://i.ytimg.com/vi/4NRXx6U8ABQ/mqdefault.jpg",
+   "genre": "R&B",
+   "genres": "R&B, synth-pop, alternative R&B",
+   "bio": "Canadian singer known for cinematic production, contemporary R&B, and atmospheric pop.",
+   "palette": [
+    "#3A0F14",
+    "#C2413A",
+    "#EADBC8"
+   ],
+   "style": "Soul & R&B",
+   "followers": 2870000,
+   "channel": {
+    "handle": "@theweeknd",
+    "url": "https://www.youtube.com/@theweeknd",
+    "platform": "YouTube"
+   }
+  },
+  {
+   "id": "bruno-mars",
+   "kind": "artist",
+   "name": "Bruno Mars",
+   "avatar": "https://i.ytimg.com/vi/PMivT7MJ41M/mqdefault.jpg",
+   "genre": "Pop",
+   "genres": "Pop, funk, R&B, soul",
+   "bio": "American singer, songwriter, producer, and performer known for combining contemporary pop with funk, soul, and vintage influences.",
+   "palette": [
+    "#2E2418",
+    "#D4A74A",
+    "#F3E7CF"
+   ],
+   "style": "Soul & R&B",
+   "followers": 2650000,
+   "channel": {
+    "handle": "@BrunoMars",
+    "url": "https://www.youtube.com/@BrunoMars",
+    "platform": "YouTube"
+   }
+  },
+  {
+   "id": "hozier",
+   "kind": "artist",
+   "name": "Hozier",
+   "avatar": "https://i.ytimg.com/vi/NTpbbQUBbuo/mqdefault.jpg",
+   "genre": "Alternative",
+   "genres": "Alternative, indie rock, soul, folk",
+   "bio": "Irish singer-songwriter known for soulful vocals, poetic songwriting, and blues- and folk-influenced alternative music.",
+   "palette": [
+    "#2C3A33",
+    "#8C9A7C",
+    "#EAE1CC"
+   ],
+   "style": "Folk",
+   "followers": 1730000,
+   "channel": {
+    "handle": "@hozier",
+    "url": "https://www.youtube.com/@hozier",
+    "platform": "YouTube"
+   }
+  },
+  {
+   "id": "diary-of-a-ceo",
+   "kind": "podcast",
+   "name": "The Diary of a CEO",
+   "avatar": "https://i.ytimg.com/vi/VHUrdELKjDw/mqdefault.jpg",
+   "genre": "Business",
+   "genres": "Business, psychology, personal development",
+   "bio": "Long-form conversations with entrepreneurs, scientists, performers, and influential thinkers about business, relationships, psychology, and personal growth.",
+   "hosts": [
+    "Steven Bartlett"
+   ],
+   "palette": [
+    "#151515",
+    "#C9A55B",
+    "#F2EBDD"
+   ],
+   "style": "Business",
+   "followers": 1940000,
+   "channel": {
+    "handle": "@thediaryofaceo",
+    "url": "https://www.youtube.com/@thediaryofaceo",
+    "platform": "YouTube"
+   }
+  },
+  {
+   "id": "huberman-lab",
+   "kind": "podcast",
+   "name": "Huberman Lab",
+   "avatar": "https://i.ytimg.com/vi/4b6bwcWK6GE/mqdefault.jpg",
+   "genre": "Science",
+   "genres": "Science, neuroscience, health, education",
+   "bio": "Science-focused conversations exploring neuroscience, human behavior, performance, sleep, and practical applications of scientific research.",
+   "hosts": [
+    "Dr. Andrew Huberman"
+   ],
+   "palette": [
+    "#1D2A36",
+    "#9DB4C0",
+    "#F0EADF"
+   ],
+   "style": "Science",
+   "followers": 1520000,
+   "channel": {
+    "handle": "@hubermanlab",
+    "url": "https://www.youtube.com/@hubermanlab",
+    "platform": "YouTube"
+   }
+  },
+  {
+   "id": "rest-is-history",
+   "kind": "podcast",
+   "name": "The Rest Is History",
+   "avatar": "https://i.ytimg.com/vi/fo4ZR8hpQ3s/mqdefault.jpg",
+   "genre": "History",
+   "genres": "History, culture, education",
+   "bio": "Engaging long-form conversations exploring historical events, people, civilizations, and the cultural forces that shaped the world.",
+   "hosts": [
+    "Tom Holland",
+    "Dominic Sandbrook"
+   ],
+   "palette": [
+    "#4A2E22",
+    "#C7964F",
+    "#F1E5CE"
+   ],
+   "style": "History",
+   "followers": 890000,
+   "channel": {
+    "handle": "@restishistorypod",
+    "url": "https://www.youtube.com/@restishistorypod",
+    "platform": "YouTube"
+   }
+  },
+  {
+   "id": "lex-fridman",
+   "kind": "podcast",
+   "name": "Lex Fridman Podcast",
+   "avatar": "https://i.ytimg.com/vi/5zOHSysMmH0/mqdefault.jpg",
+   "genre": "Technology",
+   "genres": "Technology, science, philosophy, culture",
+   "bio": "In-depth conversations with leading figures in technology, science, philosophy, and society.",
+   "hosts": [
+    "Lex Fridman"
+   ],
+   "palette": [
+    "#202326",
+    "#A7A9A4",
+    "#EDE9E0"
+   ],
+   "style": "Technology",
+   "followers": 1260000,
+   "channel": {
+    "handle": "@lexfridman",
+    "url": "https://www.youtube.com/@lexfridman",
+    "platform": "YouTube"
+   }
+  },
+  {
+   "id": "mel-robbins",
+   "kind": "podcast",
+   "name": "The Mel Robbins Podcast",
+   "avatar": "https://i.ytimg.com/vi/Ai4iNmW2A1c/mqdefault.jpg",
+   "genre": "Personal development",
+   "genres": "Personal development, psychology, relationships, finance",
+   "bio": "Conversations and practical advice about behavior, mindset, relationships, personal growth, and building a better life.",
+   "hosts": [
+    "Mel Robbins"
+   ],
+   "palette": [
+    "#3B2B3F",
+    "#E0B676",
+    "#F4EADB"
+   ],
+   "style": "Personal growth",
+   "followers": 1380000,
+   "channel": {
+    "handle": "@melrobbins",
+    "url": "https://www.youtube.com/@melrobbins",
+    "platform": "YouTube"
+   }
+  },
   {
    "id": "juniper-vale",
    "kind": "artist",
@@ -401,6 +627,32 @@
  ],
  "songs": [
   {
+   "id": "houdini",
+   "creatorId": "dua-lipa",
+   "title": "Houdini",
+   "release": "Radical Optimism",
+   "year": 2023,
+   "blurb": "Disco-pop with a light touch and a chorus built to disappear into.",
+   "mood": [
+    "dance",
+    "bright",
+    "night out"
+   ],
+   "artwork": "https://i.ytimg.com/vi/suAR1PYFNYA/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "suAR1PYFNYA"
+   },
+   "preview": {
+    "start": 0,
+    "end": 180
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=suAR1PYFNYA",
+    "title": "Houdini"
+   }
+  },
+  {
    "id": "paper-moons",
    "creatorId": "juniper-vale",
    "title": "Paper Moons",
@@ -427,6 +679,32 @@
     "end": 68.57
    },
    "duration": 128.71
+  },
+  {
+   "id": "birds-of-a-feather",
+   "creatorId": "billie-eilish",
+   "title": "BIRDS OF A FEATHER",
+   "release": "HIT ME HARD AND SOFT",
+   "year": 2024,
+   "blurb": "A soft-focus love song that sounds like it was written with the windows down.",
+   "mood": [
+    "warm",
+    "tender",
+    "summer"
+   ],
+   "artwork": "https://i.ytimg.com/vi/V9PVRfjEBTI/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "V9PVRfjEBTI"
+   },
+   "preview": {
+    "start": 0,
+    "end": 180
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=V9PVRfjEBTI",
+    "title": "BIRDS OF A FEATHER"
+   }
   },
   {
    "id": "coastline-static",
@@ -457,6 +735,32 @@
    "duration": 113
   },
   {
+   "id": "blinding-lights",
+   "creatorId": "the-weeknd",
+   "title": "Blinding Lights",
+   "release": "After Hours",
+   "year": 2019,
+   "blurb": "Eighties synths at full speed, for driving through a city at night.",
+   "mood": [
+    "night drive",
+    "neon",
+    "fast"
+   ],
+   "artwork": "https://i.ytimg.com/vi/4NRXx6U8ABQ/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "4NRXx6U8ABQ"
+   },
+   "preview": {
+    "start": 0,
+    "end": 180
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
+    "title": "Blinding Lights"
+   }
+  },
+  {
    "id": "cathedral-lights",
    "creatorId": "teodora-blue",
    "title": "Cathedral Lights",
@@ -485,6 +789,32 @@
    "duration": 104.5
   },
   {
+   "id": "thats-what-i-like",
+   "creatorId": "bruno-mars",
+   "title": "That’s What I Like",
+   "release": "24K Magic",
+   "year": 2016,
+   "blurb": "Smooth, playful R&B with a groove that takes its time.",
+   "mood": [
+    "smooth",
+    "playful",
+    "groove"
+   ],
+   "artwork": "https://i.ytimg.com/vi/PMivT7MJ41M/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "PMivT7MJ41M"
+   },
+   "preview": {
+    "start": 0,
+    "end": 180
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=PMivT7MJ41M",
+    "title": "That’s What I Like"
+   }
+  },
+  {
    "id": "harmattan-sun",
    "creatorId": "yemi-daybreak",
    "title": "Harmattan Sun",
@@ -511,6 +841,32 @@
     "end": 74.48
    },
    "duration": 118.83
+  },
+  {
+   "id": "too-sweet",
+   "creatorId": "hozier",
+   "title": "Too Sweet",
+   "release": "Unheard",
+   "year": 2024,
+   "blurb": "A swaggering, bluesy groove with a wry smile in every line.",
+   "mood": [
+    "bluesy",
+    "wry",
+    "warm"
+   ],
+   "artwork": "https://i.ytimg.com/vi/NTpbbQUBbuo/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "NTpbbQUBbuo"
+   },
+   "preview": {
+    "start": 0,
+    "end": 180
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=NTpbbQUBbuo",
+    "title": "Too Sweet"
+   }
   },
   {
    "id": "slow-burn-avenue",
@@ -570,6 +926,29 @@
   }
  ],
  "episodes": [
+  {
+   "id": "science-of-charisma",
+   "creatorId": "diary-of-a-ceo",
+   "title": "The Science of Charisma",
+   "guests": [
+    "Vanessa Van Edwards"
+   ],
+   "topic": "Vanessa Van Edwards on the science of charisma.",
+   "artwork": "https://i.ytimg.com/vi/VHUrdELKjDw/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "VHUrdELKjDw"
+   },
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "The opening"
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=VHUrdELKjDw",
+    "title": "The Science of Charisma"
+   }
+  },
   {
    "id": "in-defense-of-boredom",
    "creatorId": "long-way-round",
@@ -2047,6 +2426,27 @@
    ]
   },
   {
+   "id": "welcome-to-huberman-lab",
+   "creatorId": "huberman-lab",
+   "title": "Welcome to the Huberman Lab Podcast",
+   "guests": [],
+   "topic": "What the show covers, and how.",
+   "artwork": "https://i.ytimg.com/vi/4b6bwcWK6GE/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "4b6bwcWK6GE"
+   },
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "The opening"
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=4b6bwcWK6GE",
+    "title": "Welcome to the Huberman Lab Podcast"
+   }
+  },
+  {
    "id": "the-bassline",
    "creatorId": "liner-notes",
    "number": 18,
@@ -3421,6 +3821,27 @@
    ]
   },
   {
+   "id": "complete-history-of-wine",
+   "creatorId": "rest-is-history",
+   "title": "The Complete History of Wine",
+   "guests": [],
+   "topic": "The story of wine, from its beginnings onward.",
+   "artwork": "https://i.ytimg.com/vi/fo4ZR8hpQ3s/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "fo4ZR8hpQ3s"
+   },
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "The opening"
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=fo4ZR8hpQ3s",
+    "title": "The Complete History of Wine"
+   }
+  },
+  {
    "id": "what-an-old-radio-knows",
    "creatorId": "small-machines",
    "number": 7,
@@ -4467,6 +4888,29 @@
    ]
   },
   {
+   "id": "zuckerberg-metaverse",
+   "creatorId": "lex-fridman",
+   "title": "Technology and the Metaverse",
+   "guests": [
+    "Mark Zuckerberg"
+   ],
+   "topic": "Mark Zuckerberg on technology and the metaverse.",
+   "artwork": "https://i.ytimg.com/vi/5zOHSysMmH0/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "5zOHSysMmH0"
+   },
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "The opening"
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=5zOHSysMmH0",
+    "title": "Technology and the Metaverse"
+   }
+  },
+  {
    "id": "who-gets-paid",
    "creatorId": "kitchen-table",
    "number": 63,
@@ -5491,9 +5935,117 @@
      "text": "Follow the money."
     }
    ]
+  },
+  {
+   "id": "money-habits-housel",
+   "creatorId": "mel-robbins",
+   "title": "Money Habits and Building Wealth",
+   "guests": [
+    "Morgan Housel"
+   ],
+   "topic": "Morgan Housel on money habits and building wealth.",
+   "artwork": "https://i.ytimg.com/vi/Ai4iNmW2A1c/hqdefault.jpg",
+   "media": {
+    "kind": "youtube",
+    "id": "Ai4iNmW2A1c"
+   },
+   "highlight": {
+    "start": 0,
+    "end": 180,
+    "title": "The opening"
+   },
+   "source": {
+    "url": "https://www.youtube.com/watch?v=Ai4iNmW2A1c",
+    "title": "Money Habits and Building Wealth"
+   }
   }
  ],
  "innerCircle": [
+  {
+   "id": "ic-dua-training-season",
+   "creatorId": "dua-lipa",
+   "caption": "On set for Training Season.",
+   "context": "Music video set",
+   "postedHoursAgo": 2,
+   "media": {
+    "kind": "youtube",
+    "id": "tcncnzizxUA"
+   },
+   "poster": "https://i.ytimg.com/vi/tcncnzizxUA/hqdefault.jpg",
+   "orientation": "horizontal",
+   "source": {
+    "url": "https://www.youtube.com/watch?v=tcncnzizxUA",
+    "title": "Training Season (Behind The Scenes)"
+   }
+  },
+  {
+   "id": "ic-billie-happier-than-ever",
+   "creatorId": "billie-eilish",
+   "caption": "Making the Happier Than Ever video.",
+   "context": "Music video set",
+   "postedHoursAgo": 5,
+   "media": {
+    "kind": "youtube",
+    "id": "pooDUsGR1n4"
+   },
+   "poster": "https://i.ytimg.com/vi/pooDUsGR1n4/hqdefault.jpg",
+   "orientation": "horizontal",
+   "source": {
+    "url": "https://www.youtube.com/watch?v=pooDUsGR1n4",
+    "title": "Happier Than Ever (Making Of The Video)"
+   }
+  },
+  {
+   "id": "ic-weeknd-dancing-in-the-flames",
+   "creatorId": "the-weeknd",
+   "caption": "Behind the scenes of Dancing in the Flames.",
+   "context": "Music video set",
+   "postedHoursAgo": 8,
+   "media": {
+    "kind": "youtube",
+    "id": "rZ2ZeR63-ME"
+   },
+   "poster": "https://i.ytimg.com/vi/rZ2ZeR63-ME/hqdefault.jpg",
+   "orientation": "horizontal",
+   "source": {
+    "url": "https://www.youtube.com/watch?v=rZ2ZeR63-ME",
+    "title": "Dancing in the Flames (Behind the Scenes)"
+   }
+  },
+  {
+   "id": "ic-bruno-grenade",
+   "creatorId": "bruno-mars",
+   "caption": "Making the Grenade video.",
+   "context": "Music video set",
+   "postedHoursAgo": 11,
+   "media": {
+    "kind": "youtube",
+    "id": "c-nP-XdX2UM"
+   },
+   "poster": "https://i.ytimg.com/vi/c-nP-XdX2UM/hqdefault.jpg",
+   "orientation": "horizontal",
+   "source": {
+    "url": "https://www.youtube.com/watch?v=c-nP-XdX2UM",
+    "title": "The Making Of The Grenade Music Video"
+   }
+  },
+  {
+   "id": "ic-hozier-someone-new",
+   "creatorId": "hozier",
+   "caption": "Behind the scenes of Someone New.",
+   "context": "Music video set",
+   "postedHoursAgo": 14,
+   "media": {
+    "kind": "youtube",
+    "id": "pTFRSWhwmwA"
+   },
+   "poster": "https://i.ytimg.com/vi/pTFRSWhwmwA/hqdefault.jpg",
+   "orientation": "horizontal",
+   "source": {
+    "url": "https://www.youtube.com/watch?v=pTFRSWhwmwA",
+    "title": "Someone New (Behind The Scenes)"
+   }
+  },
   {
    "id": "hh-juniper-2am",
    "creatorId": "juniper-vale",
@@ -5632,6 +6184,73 @@
   }
  ],
  "listeningSeed": {
+  "dua-lipa": {
+   "plays": 64,
+   "completions": 58,
+   "minutes": 196,
+   "repeats": 48,
+   "saves": 3,
+   "concerts": 1
+  },
+  "billie-eilish": {
+   "plays": 58,
+   "completions": 52,
+   "minutes": 180,
+   "repeats": 40,
+   "saves": 3,
+   "concerts": 1
+  },
+  "the-weeknd": {
+   "plays": 44,
+   "completions": 38,
+   "minutes": 150,
+   "repeats": 24,
+   "saves": 2,
+   "concerts": 1
+  },
+  "bruno-mars": {
+   "plays": 40,
+   "completions": 34,
+   "minutes": 132,
+   "repeats": 18,
+   "saves": 2,
+   "concerts": 1
+  },
+  "hozier": {
+   "plays": 50,
+   "completions": 46,
+   "minutes": 170,
+   "repeats": 30,
+   "saves": 2,
+   "concerts": 2
+  },
+  "diary-of-a-ceo": {
+   "plays": 8,
+   "completions": 5,
+   "minutes": 410,
+   "saves": 1
+  },
+  "huberman-lab": {
+   "plays": 5,
+   "completions": 3,
+   "minutes": 290
+  },
+  "rest-is-history": {
+   "plays": 6,
+   "completions": 5,
+   "minutes": 330,
+   "saves": 1
+  },
+  "lex-fridman": {
+   "plays": 2,
+   "completions": 1,
+   "minutes": 140
+  },
+  "mel-robbins": {
+   "plays": 3,
+   "completions": 2,
+   "minutes": 96
+  },
   "juniper-vale": {
    "plays": 52,
    "completions": 48,
@@ -5734,6 +6353,13 @@
   }
  },
  "defaultFollows": [
+  "dua-lipa",
+  "billie-eilish",
+  "the-weeknd",
+  "bruno-mars",
+  "hozier",
+  "diary-of-a-ceo",
+  "rest-is-history",
   "juniper-vale",
   "cass-ferro",
   "teodora-blue",

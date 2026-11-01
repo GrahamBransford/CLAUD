@@ -190,7 +190,7 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
   if (!c) return null
   const following = follows.includes(c.id)
   return (
-    <motion.div ref={root} className={`moment moment--${post.media.kind}`} onTap={onTap}>
+    <motion.div ref={root} className={`moment moment--${post.media.kind}`} data-orientation={post.orientation} onTap={onTap}>
       {burst && (
         <span key={burst.n} className="moment__loved" aria-hidden>
           <span className="moment__heart" style={{ left: burst.x, top: burst.y }}>
@@ -198,7 +198,9 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
           </span>
         </span>
       )}
-      <MediaSurface source={post.media} className="moment__media" onPlayer={isVideo ? player.onPlayer : () => undefined} />
+      {/* a horizontal source keeps its shape; its own frame, softly blurred, fills the screen behind it */}
+      {post.orientation === 'horizontal' && post.poster && <img className="moment__backdrop" src={post.poster} alt="" aria-hidden />}
+      <MediaSurface source={post.media} className="moment__media" poster={post.poster} onPlayer={isVideo ? player.onPlayer : () => undefined} />
       <div className="reel__scrim" aria-hidden />
       <TapFlash state={flash.state} />
       <div className="moment__meta">

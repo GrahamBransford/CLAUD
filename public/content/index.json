@@ -4,8 +4,8 @@
     {
       "id": "demo",
       "file": "demo.json",
-      "label": "Original demo",
-      "description": "Original, fictional artists and shows generated for the prototype. Plays anywhere, including offline."
+      "label": "CIRCA demo",
+      "description": "Ten real artists and podcasts through official YouTube embeds, alongside original, fictional creators generated for the prototype."
     }
   ]
 }

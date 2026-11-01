@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { defaultFollows, meSeed } from '../data'
+import { creatorById, defaultFollows, meSeed } from '../data'
 import type { Experience, FriendState, Profile, SaveMethod, SavedItem, Signals } from '../types'
 import type { StreamingProviderId } from '../lib/streaming'
 
@@ -9,6 +9,8 @@ const emptySignals = (): Signals => ({ minutes: 0, completions: 0, repeats: 0, p
 /** Durable, per-device state. Persisted to localStorage, per content set. */
 interface PersistedState {
   initialized: boolean
+  /** Default follows already offered, so creators added to the content later still arrive (null on older saves). */
+  offered: string[] | null
   saved: SavedItem[]
   follows: string[]
   /** Engagement recorded inside CIRCA, per creator. */
@@ -75,6 +77,7 @@ interface PersistedState {
 
 const initial = () => ({
   initialized: false,
+  offered: null as string[] | null,
   saved: [] as SavedItem[],
   follows: [] as string[],
   signals: {} as Record<string, Signals>,
@@ -122,7 +125,12 @@ export const createStore = (set: string) =>
         ...initial(),
 
         ensureDefaults: () => {
-          if (!get().initialized) setState({ initialized: true, follows: [...defaultFollows] })
+          const st = get()
+          if (!st.initialized) return setState({ initialized: true, follows: [...defaultFollows], offered: [...defaultFollows] })
+          // a save from before real creators existed: everything but them was already offered
+          const offered = st.offered ?? defaultFollows.filter((id) => !creatorById[id]?.channel)
+          const fresh = defaultFollows.filter((id) => !offered.includes(id))
+          if (fresh.length || !st.offered) setState({ follows: [...new Set([...st.follows, ...fresh])], offered: [...offered, ...fresh] })
         },
 
         save: (id, kind, via) => {
@@ -230,7 +238,7 @@ export const createStore = (set: string) =>
           setState((st) => ({ vinylFollows: on ? [...st.vinylFollows, personId] : st.vinylFollows.filter((f) => f !== personId) }))
           return on
         },
-        resetDemo: () => setState({ ...initial(), initialized: true, follows: [...defaultFollows] }),
+        resetDemo: () => setState({ ...initial(), initialized: true, follows: [...defaultFollows], offered: [...defaultFollows] }),
       }),
       {
         name: storageKey(set),

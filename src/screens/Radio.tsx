@@ -16,6 +16,7 @@ import { useStore } from '../store/useStore'
 import { tapWasUnlock, useUI } from '../store/useUI'
 import { radioQueue, type RadioEntry } from '../lib/radio'
 import { songWindow } from '../lib/snippet'
+import { useKnownDuration } from '../hooks/useKnownDuration'
 import { Credit } from '../components/Credit'
 import type { Cue, Episode, SaveMethod } from '../types'
 import { AUTO_SAVE_RATIO, usePlayerRef, useSaveSong } from './Artists'
@@ -102,7 +103,8 @@ export function Radio({ active }: { active: boolean }) {
   // songs: up to three minutes, unless you ask for the whole thing
   const [fullFor, setFull] = useState<string | null>(null)
   const wholeSong = !!song && fullFor === song.id
-  const songWin = song ? songWindow(song, wholeSong) : undefined
+  const known = useKnownDuration(player.ref, player.version)
+  const songWin = song ? songWindow(song, wholeSong, known) : undefined
   const window_ = songWin ?? ep?.highlight
 
   const go = useCallback(
@@ -212,12 +214,13 @@ export function Radio({ active }: { active: boolean }) {
     <section className="screen" aria-label="Radio">
       <AnimatePresence custom={move} initial={false} mode="popLayout">
         <Reel key={entry.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
+          {embed && item.artwork && <img className="reel__backdrop" src={item.artwork} alt="" aria-hidden />}
           {song ? (
-            <MediaSurface source={song.media} start={song.preview.start} className="reel__media" onPlayer={player.onPlayer} onError={setError} />
+            <MediaSurface source={song.media} start={song.preview.start} className="reel__media" poster={song.artwork} onPlayer={player.onPlayer} onError={setError} />
           ) : ep && video ? (
             // the picture sits dead centre, with its subtitles on it like television
             <div className="reel__frame">
-              <MediaSurface source={ep.media} start={ep.highlight.start} className="reel__media" onPlayer={player.onPlayer} onError={setError} />
+              <MediaSurface source={ep.media} start={ep.highlight.start} className="reel__media" poster={ep.artwork} onPlayer={player.onPlayer} onError={setError} />
               {!embed && <Caption cues={ep.cues} time={ep.highlight.start + pb.time} />}
             </div>
           ) : (

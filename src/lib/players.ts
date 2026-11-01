@@ -62,6 +62,7 @@ export const YT_ERRORS: Record<number, string> = {
   100: 'This video was removed or made private.',
   101: 'The owner does not allow this video to be embedded.',
   150: 'The owner does not allow this video to be embedded.',
+  153: 'YouTube needs to know which site is playing this video.',
 }
 
 export class YouTubePlayer extends EventTarget implements PlayerLike {
@@ -72,16 +73,25 @@ export class YouTubePlayer extends EventTarget implements PlayerLike {
   private pendingPlay: { resolve: () => void; reject: (e: Error) => void } | null = null
   private wantPlay = false
   private destroyed = false
+  private watchdog = 0
   errorCode: number | null = null
 
   constructor(host: HTMLElement, videoId: string, start = 0) {
     super()
     const mount = document.createElement('div')
     host.appendChild(mount)
+    // the page or network may block YouTube outright: give up gracefully rather than spin forever
+    this.watchdog = window.setTimeout(() => {
+      if (!this.ready && this.errorCode === null) {
+        this.errorCode = -1
+        this.dispatchEvent(new Event('error'))
+      }
+    }, 15000)
     youTubeApi()
       .then((YT) => {
         if (this.destroyed) return
         this.yt = new YT.Player(mount, {
+          host: 'https://www.youtube-nocookie.com',
           videoId,
           width: '100%',
           height: '100%',
@@ -97,6 +107,8 @@ export class YouTubePlayer extends EventTarget implements PlayerLike {
           },
           events: {
             onReady: () => {
+              window.clearTimeout(this.watchdog)
+              if (this.errorCode === -1) return
               this.ready = true
               if (this._muted) this.yt.mute()
               this.dispatchEvent(new Event('loadedmetadata'))
@@ -115,6 +127,8 @@ export class YouTubePlayer extends EventTarget implements PlayerLike {
         iframe?.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture')
       })
       .catch(() => {
+        window.clearTimeout(this.watchdog)
+        if (this.errorCode !== null) return
         this.errorCode = -1
         this.dispatchEvent(new Event('error'))
       })
@@ -194,6 +208,7 @@ export class YouTubePlayer extends EventTarget implements PlayerLike {
   destroy() {
     this.destroyed = true
     window.clearInterval(this.timer)
+    window.clearTimeout(this.watchdog)
     try {
       this.yt?.destroy()
     } catch {

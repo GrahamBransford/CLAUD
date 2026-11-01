@@ -5,6 +5,8 @@ export type CreatorKind = 'artist' | 'podcast'
  *  - video / audio: a file URL (self-hosted, or a podcast RSS enclosure)
  *  - youtube: an official YouTube upload, played through the YouTube IFrame Player API
  *  - spotify: a Spotify URI, played through the Spotify embed (iFrame API)
+ *  - embed: another platform's official embed page (e.g. an Instagram Reel). It
+ *    plays in that platform's own player; CIRCA can't drive it.
  *  - image: a still
  */
 export type MediaSource =
@@ -12,7 +14,14 @@ export type MediaSource =
   | { kind: 'audio'; src: string }
   | { kind: 'youtube'; id: string }
   | { kind: 'spotify'; uri: string }
+  | { kind: 'embed'; provider: string; src: string; url?: string }
   | { kind: 'image'; src: string }
+
+/** Where a real piece of work lives on its platform: "Watch on YouTube", only when asked. */
+export interface SourceLink {
+  url: string
+  title?: string
+}
 
 export interface Creator {
   id: string
@@ -34,6 +43,10 @@ export interface Creator {
   /** Followers on CIRCA (demo figure). */
   followers?: number
   links?: { label: string; url: string }[]
+  /** The full genre line, when `genre` is its short form. */
+  genres?: string
+  /** A real creator's official channel. */
+  channel?: { platform: string; handle: string; url: string }
 }
 
 export interface Song {
@@ -53,6 +66,7 @@ export interface Song {
   preview: { start: number; end: number }
   /** Full length, when known (seconds). */
   duration?: number
+  source?: SourceLink
 }
 
 export interface Cue {
@@ -87,6 +101,7 @@ export interface Episode {
   speakers?: Record<string, { name: string }>
   chapters?: Chapter[]
   cues?: Cue[]
+  source?: SourceLink
 }
 
 export interface InnerCirclePost {
@@ -98,6 +113,9 @@ export interface InnerCirclePost {
   media: MediaSource
   poster?: string
   duration?: number
+  /** Horizontal sources keep their shape inside the vertical feed. */
+  orientation?: 'vertical' | 'horizontal'
+  source?: SourceLink
 }
 
 export interface ContentSet {

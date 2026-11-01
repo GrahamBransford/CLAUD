@@ -177,6 +177,17 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
             <I.Down size={16} />
           </button>
         )}
+        {c.channel && (
+          // their official channel: leaving CIRCA is always your choice
+          <a className="row-link" href={c.channel.url} target="_blank" rel="noopener noreferrer">
+            <I.Play size={18} />
+            <span>
+              <strong>{c.channel.platform}</strong>
+              <em>{c.channel.handle} · official channel</em>
+            </span>
+            <I.Expand size={16} />
+          </a>
+        )}
         {mine && <RewardCard rel={rel} />}
 
         {listeners.length > 0 && (

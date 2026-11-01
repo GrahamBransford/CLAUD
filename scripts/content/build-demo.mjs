@@ -106,17 +106,107 @@ const people = social.people.map((p) => ({
   experiences: p.experiences.map((x, i) => ({ id: `x-${p.id}-${i + 1}`, ...x })),
 }))
 
+// ---- real creators: content/real/library.json -----------------------------
+// One file holds every real creator and their videos. Songs join Music and
+// the Radio, episodes join the Radio, innerCircle posts join Inner Circle.
+// Everything plays through the platform's official embed.
+const lib = read('content/real/library.json')
+const YT = /^[\w-]{11}$/
+const mediaFor = (item, where) => {
+  if (item.playback === 'youtube') {
+    if (!YT.test(item.videoId ?? '')) throw new Error(`${where}: videoId must be an 11-character YouTube id`)
+    for (const k of ['url', 'embedUrl', 'thumbnail'])
+      if (item[k] && !item[k].includes(item.videoId)) throw new Error(`${where}: ${k} does not match videoId ${item.videoId}`)
+    return { kind: 'youtube', id: item.videoId }
+  }
+  if (item.playback === 'instagram') {
+    const code = item.url?.match(/instagram\.com\/(?:reel|reels|p)\/([\w-]+)/)?.[1]
+    if (!code) throw new Error(`${where}: instagram needs a reel or post url`)
+    return { kind: 'embed', provider: 'instagram', src: `https://www.instagram.com/reel/${code}/embed/`, url: item.url }
+  }
+  if (item.playback === 'video') return { kind: 'video', src: item.src, ...(item.poster ? { poster: item.poster } : {}) }
+  throw new Error(`${where}: unknown playback "${item.playback}"`)
+}
+const real = { creators: [], songs: [], episodes: [], innerCircle: [] }
+lib.creators.forEach((c) => {
+  if (creators.some((x) => x.id === c.id)) throw new Error(`creator id ${c.id} is already taken`)
+  real.creators.push({
+    id: c.id,
+    kind: c.type,
+    name: c.name,
+    // the channel picture when we have it; until then, a frame from their own video
+    avatar: c.profileImage ?? c.profileImageFallback,
+    genre: c.genre.split(',')[0].trim(),
+    genres: c.genre,
+    bio: c.description,
+    ...(c.hosts ? { hosts: c.hosts } : {}),
+    palette: c.palette,
+    ...(c.style ? { style: c.style } : {}),
+    ...(c.followers ? { followers: c.followers } : {}),
+    channel: { ...c.channel, platform: 'YouTube' },
+  })
+  c.content.forEach((item, n) => {
+    const where = `${c.id} content[${n}] (${item.id})`
+    const media = mediaFor(item, where)
+    const source = { url: item.url, title: item.title }
+    if (item.role === 'song')
+      real.songs.push({
+        id: item.id,
+        creatorId: c.id,
+        title: item.title,
+        release: item.release ?? 'Single',
+        year: item.year,
+        blurb: item.blurb ?? '',
+        mood: item.mood ?? [],
+        artwork: item.thumbnail ?? '',
+        media,
+        preview: { start: item.preview?.start ?? 0, end: item.preview?.end ?? (item.preview?.start ?? 0) + 180 },
+        ...(item.duration ? { duration: item.duration } : {}),
+        source,
+      })
+    else if (item.role === 'episode')
+      real.episodes.push({
+        id: item.id,
+        creatorId: c.id,
+        title: item.title,
+        guests: item.guests ?? [],
+        topic: item.topic ?? '',
+        artwork: item.thumbnail ?? '',
+        media,
+        ...(item.duration ? { duration: item.duration } : {}),
+        highlight: item.highlight,
+        source,
+      })
+    else if (item.role === 'innerCircle')
+      real.innerCircle.push({
+        id: item.id,
+        creatorId: c.id,
+        caption: item.caption,
+        context: item.context ?? '',
+        postedHoursAgo: item.postedHoursAgo ?? 2 + real.innerCircle.length * 3,
+        media,
+        ...(item.thumbnail ? { poster: item.thumbnail } : {}),
+        ...(item.orientation ? { orientation: item.orientation } : {}),
+        source,
+      })
+    else throw new Error(`${where}: role must be song, episode or innerCircle`)
+  })
+})
+// real and original work take turns, real first
+const weave = (a, b) => Array.from({ length: Math.max(a.length, b.length) }, (_, i) => [a[i], b[i]]).flat().filter(Boolean)
+const { note: _note, ...realListening } = lib.listening ?? {}
+
 const out = {
   version: 1,
-  name: 'CIRCA original demo content',
+  name: 'CIRCA demo content',
   notes:
-    'All artists, shows, people and media in this set are original and fictional, generated for the prototype. Works offline.',
-  creators,
-  songs,
-  episodes,
-  innerCircle,
-  listeningSeed,
-  defaultFollows: cat.defaultFollows,
+    'Real creators from content/real/library.json play through official YouTube embeds. Every other artist, show, person and media file is original and fictional, generated for the prototype. Listening figures are simulated throughout.',
+  creators: [...real.creators, ...creators],
+  songs: weave(real.songs, songs),
+  episodes: weave(real.episodes, episodes),
+  innerCircle: [...real.innerCircle, ...innerCircle],
+  listeningSeed: { ...realListening, ...listeningSeed },
+  defaultFollows: [...new Set([...(lib.follows ?? []), ...cat.defaultFollows])],
   people,
   me: social.me,
   comments: social.comments,
@@ -124,4 +214,4 @@ const out = {
   communities: social.communities,
 }
 writeFileSync(new URL('public/content/demo.json', root), JSON.stringify(out, null, 1))
-console.log(`demo.json: ${creators.length} creators, ${songs.length} songs, ${episodes.length} episodes, ${innerCircle.length} posts, ${people.length} people`)
+console.log(`demo.json: ${out.creators.length} creators (${real.creators.length} real), ${out.songs.length} songs, ${out.episodes.length} episodes, ${out.innerCircle.length} posts, ${people.length} people`)

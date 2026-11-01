@@ -13,6 +13,7 @@ import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlaybac
 import type { PlayerLike } from '../lib/players'
 import { PROVIDERS } from '../lib/streaming'
 import { songWindow } from '../lib/snippet'
+import { useKnownDuration } from '../hooks/useKnownDuration'
 import { Credit } from '../components/Credit'
 import * as I from '../components/Icons'
 import { useStore } from '../store/useStore'
@@ -72,7 +73,8 @@ export function Artists({ active }: { active: boolean }) {
   // up to three minutes, unless you ask for the whole song
   const [fullFor, setFull] = useState<string | null>(null)
   const full = !!song && fullFor === song.id
-  const win = song ? songWindow(song, full) : { start: 0, end: 1, more: false }
+  const known = useKnownDuration(player.ref, player.version)
+  const win = song ? songWindow(song, full, known) : { start: 0, end: 1, more: false }
 
   const go = useCallback(
     (m: Move) => {
@@ -157,7 +159,8 @@ export function Artists({ active }: { active: boolean }) {
     <section className="screen" aria-label="Artists">
       <AnimatePresence custom={move} initial={false} mode="popLayout">
         <Reel key={song.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
-          <MediaSurface source={song.media} start={song.preview.start} className="reel__media" onPlayer={player.onPlayer} onError={setError} />
+          {embed && <img className="reel__backdrop" src={song.artwork} alt="" aria-hidden />}
+          <MediaSurface source={song.media} start={song.preview.start} className="reel__media" poster={song.artwork} onPlayer={player.onPlayer} onError={setError} />
           <div className="reel__scrim" aria-hidden />
           <Credit kind="song" creatorId={creator.id} title={song.title} />
           {win.more && !full && (

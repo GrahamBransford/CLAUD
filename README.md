@@ -84,6 +84,16 @@ minutes listened (1/min), full listens (8), coming back to something (5), saves 
 
 To demo the top tier: open My Vinyl, tap Juniper Vale → **Went to a show**. She crosses into the Top 1% and the reward card unlocks.
 
+## Real creators: one library file
+
+Ten real creators are in the prototype: Dua Lipa, Billie Eilish, The Weeknd, Bruno Mars and Hozier (Music, the Radio and Inner Circle), and The Diary of a CEO, Huberman Lab, The Rest Is History, Lex Fridman Podcast and The Mel Robbins Podcast (the Radio). They all live in **`content/real/library.json`**, one block per creator with their channel, genre, description, palette and content. `npm run content:demo` checks every video ID against its links and builds them into the app, alongside the original fictional creators (real first, then taking turns).
+
+- **Content roles.** `song` goes to Music and the Radio (three minutes, then *Full song*, using the player's real length). `episode` goes to the Radio (a highlight window, then *Full episode*). `innerCircle` goes to Inner Circle, and is for behind-the-scenes only: sets, studios, rehearsals, tour footage. Never an official video or a full episode.
+- **Playback.** `youtube` (by `videoId`) plays through YouTube's official player (privacy-enhanced host), with a poster while it loads, and a plain error state with an optional *Watch on YouTube* if it can't play. `instagram` (by `url`) uses Instagram's own embed, which CIRCA can't drive. `video` (by `src`) is for creator-authorised files.
+- **Shape.** Horizontal sources keep 16:9 inside the vertical feeds, over a blurred frame of their own. Nothing is layered over an official player once it's ready, so swipes and double-taps work around it, not on it.
+- **Profile pictures.** `profileImage` holds the official channel picture. While it's `null`, `profileImageFallback`, a frame from the creator's own video, stands in.
+- **What's simulated.** Listening history, CIRCA follower counts and taste figures for these creators are demo estimates, like everything else on the vinyl. Nothing claims to be their real data, and no words are put in their mouths.
+
 ## Content: real media without rebuilding
 
 Content is loaded at runtime from `public/content/` (or `dist/content/` after a build), so you can add or replace artists, videos, episodes and Inner Circle moments by editing JSON and reloading.
