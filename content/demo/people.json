@@ -12,23 +12,23 @@
    {
     "id": "x-me-1",
     "kind": "concert",
-    "creatorId": "juniper-vale",
-    "title": "Juniper Vale",
+    "creatorId": "ellis-rae",
+    "title": "Ellis Rae",
     "place": "Music Hall of Williamsburg",
     "year": 2025
    },
    {
     "id": "x-me-2",
     "kind": "festival",
-    "creatorId": "juniper-vale",
-    "title": "Juniper Vale at Sound on the Water",
+    "creatorId": "ellis-rae",
+    "title": "Ellis Rae at Sound on the Water",
     "place": "Governors Island",
     "year": 2024
    }
   ],
   "favorites": [
-   "juniper-vale",
-   "long-way-round"
+   "ellis-rae",
+   "houston-we-have-a-podcast"
   ],
   "friends": {
    "maya-chen": "friends",
@@ -43,7 +43,7 @@
    {
     "kind": "tastemaker",
     "title": "Tastemaker",
-    "detail": "Had Odessa Wren on your vinyl before 1,000 others did"
+    "detail": "Had Marisol Vega on your vinyl before 1,000 others did"
    },
    {
     "kind": "founding",
@@ -71,28 +71,25 @@
     "instagram": "mayahears"
    },
    "points": {
-    "juniper-vale": 980,
-    "teodora-blue": 340,
-    "long-way-round": 410,
-    "liner-notes": 120,
-    "halden": 60,
-    "cass-ferro": 30,
-    "odessa-wren": 520,
-    "sora-lake": 210,
-    "studio-floor": 160
+    "ellis-rae": 980,
+    "nova-lin": 392,
+    "houston-we-have-a-podcast": 450,
+    "nasa-science-live": 120,
+    "the-halyards": 67,
+    "marisol-vega": 520
    },
    "experiences": [
     {
      "kind": "concert",
-     "creatorId": "juniper-vale",
-     "title": "Juniper Vale",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
      "place": "Music Hall of Williamsburg",
      "year": 2025
     },
     {
      "kind": "concert",
-     "creatorId": "teodora-blue",
-     "title": "Teodora Blue",
+     "creatorId": "nova-lin",
+     "title": "Nova Lin",
      "place": "Bowery Ballroom",
      "year": 2024
     }
@@ -103,8 +100,8 @@
     "sofia-reyes"
    ],
    "recent": [
-    "Saw Teodora Blue live",
-    "Added Liner Notes to their vinyl"
+    "Saw Nova Lin live",
+    "Added NASA Science Live to their vinyl"
    ],
    "coords": [
     40.6782,
@@ -114,13 +111,13 @@
     {
      "kind": "host",
      "title": "Event superhost",
-     "detail": "Hosts Bedroom Soul NYC listening nights · 14 gatherings this year",
+     "detail": "Hosts Soul After Dark NYC listening nights · 14 gatherings this year",
      "communityId": "cm-3"
     },
     {
      "kind": "tastemaker",
      "title": "Tastemaker",
-     "detail": "Had Juniper Vale on their vinyl before 1,000 others did"
+     "detail": "Had Ellis Rae on their vinyl before 1,000 others did"
     }
    ]
   },
@@ -142,28 +139,26 @@
     "instagram": "theo.oka"
    },
    "points": {
-    "yemi-daybreak": 1200,
-    "cass-ferro": 520,
-    "liner-notes": 640,
-    "juniper-vale": 140,
-    "kitchen-table": 90,
-    "nadia-okoro": 760,
-    "eli-marchetti": 430,
-    "velvet-hours": 120
+    "kairo-banks": 1200,
+    "the-halyards": 520,
+    "nasa-science-live": 640,
+    "ellis-rae": 465,
+    "down-to-earth": 90,
+    "marisol-vega": 790
    },
    "experiences": [
     {
-     "kind": "festival",
-     "creatorId": "yemi-daybreak",
-     "title": "Yemi & the Daybreak at Lagos Live",
-     "place": "Lagos",
+     "kind": "concert",
+     "creatorId": "kairo-banks",
+     "title": "Kairo Banks",
+     "place": "Thalia Hall, Chicago",
      "year": 2024
     },
     {
      "kind": "concert",
-     "creatorId": "cass-ferro",
-     "title": "Cass Ferro Trio",
-     "place": "Ronnie Scott's",
+     "creatorId": "the-halyards",
+     "title": "The Halyards",
+     "place": "Paradise Rock Club",
      "year": 2025
     }
    ],
@@ -172,7 +167,7 @@
     "amara-diallo"
    ],
    "recent": [
-    "Followed Cass Ferro Trio for five years"
+    "Followed The Halyards for five years"
    ],
    "coords": [
     51.5072,
@@ -204,21 +199,19 @@
     "instagram": "sofiaonrecord"
    },
    "points": {
-    "teodora-blue": 760,
-    "halden": 880,
-    "small-machines": 520,
-    "long-way-round": 180,
-    "juniper-vale": 90,
-    "lumen-field": 690,
-    "sora-lake": 150,
-    "slow-cities": 200
+    "nova-lin": 969,
+    "the-halyards": 880,
+    "rocket-ranch": 520,
+    "houston-we-have-a-podcast": 180,
+    "ellis-rae": 90,
+    "nasa-science-live": 200
    },
    "experiences": [
     {
-     "kind": "performance",
-     "creatorId": "halden",
-     "title": "Halden, live score",
-     "place": "Museo Tamayo",
+     "kind": "concert",
+     "creatorId": "the-halyards",
+     "title": "The Halyards",
+     "place": "Foro Indie Rocks, Mexico City",
      "year": 2025
     }
    ],
@@ -228,7 +221,7 @@
     "elliot-park"
    ],
    "recent": [
-    "Saw Halden perform a live score"
+    "Saw The Halyards in Mexico City"
    ],
    "coords": [
     19.4326,
@@ -260,27 +253,25 @@
     "instagram": "jonahbellmusic"
    },
    "points": {
-    "marlow-saltwater": 1100,
-    "juniper-vale": 460,
-    "liner-notes": 380,
-    "long-way-round": 220,
-    "cass-ferro": 40,
-    "slow-cities": 420,
-    "odessa-wren": 215,
-    "velvet-hours": 90
+    "juniper-lowe": 1100,
+    "ellis-rae": 460,
+    "nasa-science-live": 515,
+    "houston-we-have-a-podcast": 220,
+    "the-halyards": 40,
+    "marisol-vega": 237
    },
    "experiences": [
     {
      "kind": "concert",
-     "creatorId": "marlow-saltwater",
-     "title": "Marlow & the Saltwater",
+     "creatorId": "juniper-lowe",
+     "title": "Juniper & Lowe",
      "place": "The Ryman",
      "year": 2025
     },
     {
      "kind": "concert",
-     "creatorId": "juniper-vale",
-     "title": "Juniper Vale",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
      "place": "The Basement East",
      "year": 2024
     }
@@ -290,7 +281,7 @@
     "theo-okafor"
    ],
    "recent": [
-    "Added Juniper Vale to their inner circle"
+    "Added Ellis Rae to their inner circle"
    ],
    "coords": [
     36.1627,
@@ -300,7 +291,7 @@
     {
      "kind": "host",
      "title": "Event superhost",
-     "detail": "Organises late-set meet-ups for Late Set Jazz Club",
+     "detail": "Organises pre-show meet-ups for Front Left",
      "communityId": "cm-10"
     }
    ]
@@ -323,20 +314,19 @@
     "instagram": "priyalistens"
    },
    "points": {
-    "long-way-round": 1400,
-    "kitchen-table": 1150,
-    "small-machines": 600,
-    "liner-notes": 300,
-    "juniper-vale": 70,
-    "nadia-okoro": 460,
-    "eli-marchetti": 240,
-    "lumen-field": 100
+    "houston-we-have-a-podcast": 1400,
+    "down-to-earth": 1150,
+    "rocket-ranch": 600,
+    "nasa-science-live": 300,
+    "ellis-rae": 257,
+    "marisol-vega": 460,
+    "nova-lin": 100
    },
    "experiences": [
     {
-     "kind": "performance",
-     "creatorId": "long-way-round",
-     "title": "The Long Way Round, live taping",
+     "kind": "concert",
+     "creatorId": "juniper-lowe",
+     "title": "Juniper & Lowe",
      "place": "Massey Hall",
      "year": 2025
     }
@@ -345,7 +335,7 @@
     "amara-diallo"
    ],
    "recent": [
-    "Went to a live taping of The Long Way Round"
+    "Saw Juniper & Lowe at Massey Hall"
    ],
    "coords": [
     43.6532,
@@ -382,20 +372,18 @@
     "instagram": "elliot.park"
    },
    "points": {
-    "halden": 1050,
-    "cass-ferro": 700,
-    "small-machines": 240,
-    "teodora-blue": 120,
-    "wren-hollow": 500,
-    "kwame-asante": 265,
-    "sora-lake": 110
+    "the-halyards": 1225,
+    "rocket-ranch": 240,
+    "nova-lin": 147,
+    "juniper-lowe": 500,
+    "kairo-banks": 265
    },
    "experiences": [
     {
      "kind": "concert",
-     "creatorId": "cass-ferro",
-     "title": "Cass Ferro Trio",
-     "place": "Village Vanguard",
+     "creatorId": "the-halyards",
+     "title": "The Halyards",
+     "place": "Brooklyn Bowl",
      "year": 2024
     }
    ],
@@ -403,7 +391,7 @@
     "sofia-reyes"
    ],
    "recent": [
-    "Saw Cass Ferro Trio live"
+    "Saw The Halyards live"
    ],
    "coords": [
     40.7282,
@@ -435,27 +423,26 @@
     "instagram": "amara.diallo"
    },
    "points": {
-    "yemi-daybreak": 900,
-    "juniper-vale": 520,
-    "kitchen-table": 410,
-    "teodora-blue": 160,
-    "long-way-round": 150,
-    "studio-floor": 540,
-    "slow-cities": 290,
-    "odessa-wren": 120
+    "kairo-banks": 900,
+    "ellis-rae": 520,
+    "down-to-earth": 410,
+    "nova-lin": 160,
+    "houston-we-have-a-podcast": 577,
+    "nasa-science-live": 290,
+    "marisol-vega": 120
    },
    "experiences": [
     {
-     "kind": "festival",
-     "creatorId": "yemi-daybreak",
-     "title": "Yemi & the Daybreak",
-     "place": "Afropunk Paris",
+     "kind": "concert",
+     "creatorId": "kairo-banks",
+     "title": "Kairo Banks",
+     "place": "La Cigale, Paris",
      "year": 2025
     },
     {
      "kind": "concert",
-     "creatorId": "juniper-vale",
-     "title": "Juniper Vale",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
      "place": "La Maroquinerie",
      "year": 2025
     }
@@ -465,7 +452,7 @@
     "priya-nair"
    ],
    "recent": [
-    "Saw Juniper Vale live"
+    "Saw Ellis Rae live"
    ],
    "coords": [
     48.8566,
@@ -480,7 +467,7 @@
     {
      "kind": "host",
      "title": "Event superhost",
-     "detail": "Runs Highlife dance nights · 9 gatherings this year",
+     "detail": "Runs the Night Shift Cypher in Bushwick",
      "communityId": "cm-8"
     }
    ]
@@ -503,27 +490,25 @@
     "instagram": "rosa.lindqvist"
    },
    "points": {
-    "teodora-blue": 1300,
-    "juniper-vale": 610,
-    "halden": 430,
-    "long-way-round": 260,
-    "liner-notes": 80,
-    "velvet-hours": 580,
-    "nadia-okoro": 315,
-    "eli-marchetti": 130
+    "nova-lin": 1300,
+    "ellis-rae": 642,
+    "the-halyards": 430,
+    "houston-we-have-a-podcast": 260,
+    "nasa-science-live": 80,
+    "marisol-vega": 658
    },
    "experiences": [
     {
      "kind": "concert",
-     "creatorId": "teodora-blue",
-     "title": "Teodora Blue",
+     "creatorId": "nova-lin",
+     "title": "Nova Lin",
      "place": "Debaser",
      "year": 2025
     },
     {
      "kind": "concert",
-     "creatorId": "juniper-vale",
-     "title": "Juniper Vale",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
      "place": "Nalen",
      "year": 2024
     }
@@ -533,7 +518,7 @@
     "sofia-reyes"
    ],
    "recent": [
-    "Saw Teodora Blue live"
+    "Saw Nova Lin live"
    ],
    "coords": [
     59.3293,
@@ -549,11 +534,11 @@
   }
  ],
  "comments": {
-  "hh-juniper-2am": [
+  "ic-ellis-session": [
    {
     "by": "maya-chen",
-    "text": "The Rhodes at 2am is a genre of its own. Please keep the tape hiss.",
-    "ago": "1h"
+    "text": "Leaving the crack in is the whole point. Please never fix it.",
+    "ago": "2h"
    },
    {
     "by": "rosa-lindqvist",
@@ -561,281 +546,210 @@
     "ago": "3h"
    },
    {
-    "by": "juniper-vale",
-    "text": "tape hiss stays. promise.",
+    "by": "ellis-rae",
+    "text": "it stays. promise.",
+    "ago": "5h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "That breath before the chorus. Twice.",
+    "ago": "8h"
+   }
+  ],
+  "ic-ellis-rehearsal": [
+   {
+    "by": "rosa-lindqvist",
+    "text": "Danny on guitar is the secret weapon.",
     "ago": "2h"
    },
    {
     "by": "jonah-bell",
-    "text": "That chord at 0:41. Twice.",
-    "ago": "5h"
+    "text": "The chord change at 0:07 is a whole other song.",
+    "ago": "3h"
    }
   ],
-  "hh-cass-bridge": [
+  "ic-halyards-soundcheck": [
    {
     "by": "theo-okafor",
-    "text": "Del is right. Give it the extra eight bars.",
+    "text": "That window light should get a writing credit.",
     "ago": "2h"
    },
    {
     "by": "elliot-park",
-    "text": "Would happily listen to forty minutes of this exact loop.",
-    "ago": "6h"
+    "text": "Would happily listen to forty minutes of this soundcheck.",
+    "ago": "3h"
    },
    {
-    "by": "cass-ferro",
-    "text": "Del says thank you. I say we'll see.",
-    "ago": "4h"
+    "by": "the-halyards",
+    "text": "Mira says thank you. The light says nothing.",
+    "ago": "5h"
    }
   ],
-  "hh-imani-radio": [
-   {
-    "by": "priya-nair",
-    "text": "The tuning dial on that one. Unreal.",
-    "ago": "40m"
-   },
+  "ic-halyards-crowd": [
    {
     "by": "sofia-reyes",
-    "text": "Episode about restoring it please?",
+    "text": "I was in that crowd. Still can’t hear properly.",
     "ago": "2h"
    },
    {
-    "by": "small-machines",
-    "text": "Already recording it. Valves arrive Thursday.",
-    "ago": "1h"
+    "by": "elliot-park",
+    "text": "Undertow live is a different animal.",
+    "ago": "3h"
    }
   ],
-  "hh-teodora-soundcheck": [
+  "ic-nova-dance": [
    {
     "by": "rosa-lindqvist",
-    "text": "See you in that enormous room tonight, front left.",
-    "ago": "20m"
+    "text": "See you in that room tonight, front left.",
+    "ago": "2h"
    },
    {
     "by": "maya-chen",
-    "text": "The reverb in there is doing half the work. Gorgeous.",
-    "ago": "1h"
+    "text": "The choreo is going to be everywhere by summer.",
+    "ago": "3h"
    },
    {
-    "by": "teodora-blue",
+    "by": "nova-lin",
     "text": "front left gets the encore wave.",
-    "ago": "12m"
-   }
-  ],
-  "hh-priya-walk": [
-   {
-    "by": "priya-nair",
-    "text": "Thinking-out-loud walks are my favourite part of this show. More of these.",
-    "ago": "2h"
-   },
-   {
-    "by": "amara-diallo",
-    "text": "These voice notes are better than most finished podcasts.",
-    "ago": "4h"
-   }
-  ],
-  "hh-marlow-porch": [
-   {
-    "by": "jonah-bell",
-    "text": "The wind deserves a writing credit.",
-    "ago": "1h"
-   },
-   {
-    "by": "marlow-saltwater",
-    "text": "splitting it 50/50 with the wind, yes.",
-    "ago": "50m"
-   },
-   {
-    "by": "maya-chen",
-    "text": "Porch versions forever.",
-    "ago": "3h"
-   }
-  ],
-  "hh-yemi-rehearsal": [
-   {
-    "by": "amara-diallo",
-    "text": "Kunle, put this groove on the record. Please.",
-    "ago": "30m"
-   },
-   {
-    "by": "theo-okafor",
-    "text": "Danced in my kitchen to a phone recording. No regrets.",
-    "ago": "2h"
-   }
-  ],
-  "hh-halden-tape": [
-   {
-    "by": "sofia-reyes",
-    "text": "Rain from last April, looped on a four-track. This is the whole mood.",
-    "ago": "1h"
-   },
-   {
-    "by": "elliot-park",
-    "text": "Put this on for focus and forgot to work.",
     "ago": "5h"
    }
   ],
-  "hh-juniper-lyrics": [
-   {
-    "by": "rosa-lindqvist",
-    "text": "The coffee ring is the best part of the lyric sheet.",
-    "ago": "1d"
-   },
+  "ic-juniper-lowe-street": [
    {
     "by": "jonah-bell",
-    "text": "Crossed-out line in verse two is a whole other song.",
-    "ago": "1d"
-   }
-  ],
-  "hh-kitchen-whiteboard": [
+    "text": "The kid dancing deserves a writing credit.",
+    "ago": "2h"
+   },
    {
-    "by": "priya-nair",
-    "text": "Zooming in on the arrows like it's a treasure map.",
+    "by": "juniper-lowe",
+    "text": "splitting it 50/50 with the kid, yes.",
     "ago": "3h"
    },
    {
-    "by": "kitchen-table",
-    "text": "There is a method. We think.",
+    "by": "maya-chen",
+    "text": "Street versions forever.",
+    "ago": "5h"
+   }
+  ],
+  "ic-kairo-booth": [
+   {
+    "by": "amara-diallo",
+    "text": "Verse two. Put it out exactly like this.",
+    "ago": "2h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "Played this on my commute three times today.",
+    "ago": "3h"
+   }
+  ],
+  "ic-marisol-warmup": [
+   {
+    "by": "priya-nair",
+    "text": "That room. That voice. Unreal.",
+    "ago": "2h"
+   },
+   {
+    "by": "marisol-vega",
+    "text": "the room does half the work, honestly.",
+    "ago": "3h"
+   }
+  ],
+  "ic-nova-stage": [
+   {
+    "by": "amara-diallo",
+    "text": "I could hear it from the bar. Loudest crowd of the year.",
     "ago": "2h"
    }
   ]
  },
  "creatorVinyls": {
-  "juniper-vale": {
+  "ellis-rae": {
    "points": {
-    "teodora-blue": 980,
-    "halden": 640,
-    "liner-notes": 520,
-    "cass-ferro": 300,
-    "marlow-saltwater": 140
+    "nova-lin": 980,
+    "the-halyards": 715,
+    "nasa-science-live": 520,
+    "juniper-lowe": 140
    },
    "experiences": [
     {
      "kind": "festival",
-     "creatorId": "teodora-blue",
-     "title": "Teodora Blue at Sound on the Water",
+     "creatorId": "nova-lin",
+     "title": "Nova Lin at Sound on the Water",
      "place": "Governors Island",
      "year": 2024
     }
    ]
   },
-  "marlow-saltwater": {
+  "juniper-lowe": {
    "points": {
-    "juniper-vale": 700,
-    "liner-notes": 880,
-    "yemi-daybreak": 260,
-    "long-way-round": 220
+    "ellis-rae": 700,
+    "nasa-science-live": 880,
+    "kairo-banks": 260,
+    "houston-we-have-a-podcast": 220
    },
    "experiences": [
     {
      "kind": "concert",
-     "creatorId": "juniper-vale",
-     "title": "Juniper Vale",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
      "place": "The Basement East",
      "year": 2024
     }
    ]
   },
-  "teodora-blue": {
+  "nova-lin": {
    "points": {
-    "juniper-vale": 980,
-    "halden": 120,
-    "small-machines": 90,
-    "liner-notes": 120,
-    "odessa-wren": 640,
-    "long-way-round": 420,
-    "velvet-hours": 260,
-    "cass-ferro": 200,
-    "nadia-okoro": 150,
-    "studio-floor": 120,
-    "eli-marchetti": 170,
-    "sora-lake": 150,
-    "lumen-field": 90,
-    "wren-hollow": 60,
-    "kwame-asante": 50,
-    "slow-cities": 90,
-    "marlow-saltwater": 60
+    "ellis-rae": 1022,
+    "the-halyards": 230,
+    "rocket-ranch": 90,
+    "nasa-science-live": 142,
+    "marisol-vega": 742,
+    "houston-we-have-a-podcast": 450,
+    "juniper-lowe": 75,
+    "kairo-banks": 50
    },
    "experiences": [
     {
      "kind": "concert",
-     "creatorId": "juniper-vale",
-     "title": "Juniper Vale",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
      "place": "Music Hall of Williamsburg",
      "year": 2025
     }
    ]
   },
-  "yemi-daybreak": {
+  "kairo-banks": {
    "points": {
-    "cass-ferro": 760,
-    "liner-notes": 610,
-    "kitchen-table": 180,
-    "juniper-vale": 160
+    "the-halyards": 760,
+    "nasa-science-live": 610,
+    "down-to-earth": 180,
+    "ellis-rae": 160
    },
    "experiences": [
     {
      "kind": "concert",
-     "creatorId": "cass-ferro",
-     "title": "Cass Ferro Trio",
+     "creatorId": "the-halyards",
+     "title": "The Halyards",
      "place": "Ronnie Scott's",
      "year": 2025
     }
    ]
   },
-  "cass-ferro": {
+  "the-halyards": {
    "points": {
-    "yemi-daybreak": 900,
-    "liner-notes": 1100,
-    "halden": 220,
-    "juniper-vale": 200
+    "kairo-banks": 900,
+    "nasa-science-live": 1100,
+    "ellis-rae": 200
    },
    "experiences": []
   },
-  "halden": {
+  "marisol-vega": {
    "points": {
-    "teodora-blue": 540,
-    "small-machines": 980,
-    "juniper-vale": 300,
-    "long-way-round": 260
-   },
-   "experiences": []
-  },
-  "long-way-round": {
-   "points": {
-    "kitchen-table": 900,
-    "small-machines": 620,
-    "liner-notes": 540,
-    "juniper-vale": 410,
-    "halden": 160
-   },
-   "experiences": []
-  },
-  "liner-notes": {
-   "points": {
-    "cass-ferro": 1000,
-    "yemi-daybreak": 860,
-    "marlow-saltwater": 520,
-    "juniper-vale": 480,
-    "teodora-blue": 300
-   },
-   "experiences": []
-  },
-  "small-machines": {
-   "points": {
-    "halden": 760,
-    "long-way-round": 540,
-    "kitchen-table": 420,
-    "cass-ferro": 160
-   },
-   "experiences": []
-  },
-  "kitchen-table": {
-   "points": {
-    "long-way-round": 980,
-    "small-machines": 500,
-    "liner-notes": 260,
-    "yemi-daybreak": 200
+    "nova-lin": 540,
+    "rocket-ranch": 980,
+    "ellis-rae": 300,
+    "houston-we-have-a-podcast": 260
    },
    "experiences": []
   }
@@ -843,21 +757,16 @@
  "communities": [
   {
    "id": "cm-1",
-   "name": "Two A.M. Club",
-   "creatorId": "juniper-vale",
+   "name": "Low Light Club",
+   "creatorId": "ellis-rae",
    "by": "creator",
    "format": "Online + in person",
-   "city": "Brooklyn, NY",
-   "coords": [
-    40.6782,
-    -73.9442
-   ],
    "members": 412,
    "rhythm": "Monthly listening night",
-   "about": "Juniper's own late-night circle: new demos first, then records everyone brings. She hosts the Brooklyn night in person.",
+   "about": "Ellis's own late-night circle: new demos first, then records everyone brings. He hosts the Brooklyn night in person.",
    "styles": [
     "Soul & R&B",
-    "Bedroom soul"
+    "Alt-soul"
    ],
    "memberIds": [
     "maya-chen",
@@ -869,720 +778,388 @@
     "title": "Listening night: unfinished songs",
     "inDays": 9,
     "place": "Union Pool back room, Williamsburg"
-   }
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
   },
   {
    "id": "cm-2",
-   "name": "Rhodes & Records",
-   "creatorId": "juniper-vale",
+   "name": "Alt-Soul Sundays",
+   "creatorId": "ellis-rae",
    "by": "fans",
    "format": "In person",
-   "city": "Asheville, NC",
-   "coords": [
-    35.5951,
-    -82.5515
-   ],
-   "members": 96,
+   "members": 268,
    "rhythm": "Every other Sunday",
-   "about": "Fans in Juniper's hometown swapping secondhand keys and records at a church-hall café.",
+   "about": "Fans spinning alt-soul and neo-soul over brunch in Bed-Stuy.",
    "styles": [
     "Soul & R&B",
-    "Bedroom soul"
+    "Alt-soul"
    ],
    "memberIds": [
-    "maya-chen",
-    "jonah-bell",
     "amara-diallo",
-    "rosa-lindqvist"
-   ],
-   "next": {
-    "title": "Record swap",
-    "inDays": 5,
-    "place": "Haywood Road café"
-   }
-  },
-  {
-   "id": "cm-3",
-   "name": "Bedroom Soul NYC",
-   "creatorId": "juniper-vale",
-   "by": "fans",
-   "format": "In person",
-   "city": "Manhattan, NY",
-   "coords": [
-    40.7831,
-    -73.9712
-   ],
-   "members": 238,
-   "rhythm": "Twice a month",
-   "about": "Listening parties and show meet-ups for bedroom soul and neo-soul around the city.",
-   "styles": [
-    "Soul & R&B",
-    "Bedroom soul"
-   ],
-   "memberIds": [
-    "maya-chen",
-    "jonah-bell",
-    "amara-diallo",
-    "rosa-lindqvist"
-   ],
-   "next": {
-    "title": "Pre-show meet-up: Juniper Vale",
-    "inDays": 16,
-    "place": "Bar near Music Hall of Williamsburg"
-   }
-  },
-  {
-   "id": "cm-4",
-   "name": "The Saltwater Porch",
-   "creatorId": "marlow-saltwater",
-   "by": "creator",
-   "format": "Online + in person",
-   "city": "Portland, OR",
-   "coords": [
-    45.5152,
-    -122.6784
-   ],
-   "members": 188,
-   "rhythm": "Seasonal campfire sessions",
-   "about": "Songwriting circle run by the band: share a verse, get notes, play it on the porch.",
-   "styles": [
-    "Folk",
-    "Indie folk"
-   ],
-   "memberIds": [
-    "jonah-bell"
-   ],
-   "next": {
-    "title": "Song circle: coastline songs",
-    "inDays": 21,
-    "place": "Back porch, St Johns"
-   }
-  },
-  {
-   "id": "cm-5",
-   "name": "Blue Hour Society",
-   "creatorId": "teodora-blue",
-   "by": "creator",
-   "format": "Online",
-   "members": 327,
-   "rhythm": "Weekly listening room",
-   "about": "Dream-pop listening room Teodora curates: one album start to finish, chat only between sides.",
-   "styles": [
-    "Indie & dream pop",
-    "Dream pop"
-   ],
-   "memberIds": [
-    "maya-chen",
-    "sofia-reyes",
-    "amara-diallo",
-    "rosa-lindqvist"
-   ],
-   "next": {
-    "title": "Album night: Glasshouse",
-    "inDays": 3,
-    "place": "Online listening room"
-   }
-  },
-  {
-   "id": "cm-6",
-   "name": "Reverb & Rooftops",
-   "creatorId": "teodora-blue",
-   "by": "fans",
-   "format": "In person",
-   "city": "Brooklyn, NY",
-   "coords": [
-    40.6782,
-    -73.9442
-   ],
-   "members": 142,
-   "rhythm": "Monthly, weather allowing",
-   "about": "Dream-pop fans on a Bushwick rooftop with a borrowed PA.",
-   "styles": [
-    "Indie & dream pop",
-    "Dream pop"
-   ],
-   "memberIds": [
-    "maya-chen",
-    "sofia-reyes",
-    "amara-diallo",
-    "rosa-lindqvist"
-   ],
-   "next": {
-    "title": "Rooftop listening",
-    "inDays": 12,
-    "place": "Bushwick rooftop"
-   }
-  },
-  {
-   "id": "cm-7",
-   "name": "Daybreak Dance Class",
-   "creatorId": "yemi-daybreak",
-   "by": "creator",
-   "format": "In person",
-   "city": "London, UK",
-   "coords": [
-    51.5072,
-    -0.1276
-   ],
-   "members": 260,
-   "rhythm": "Saturday mornings",
-   "about": "Yemi's band teaches highlife steps before the band plays a short set.",
-   "styles": [
-    "Afro & highlife",
-    "Highlife"
-   ],
-   "memberIds": [
-    "theo-okafor",
-    "amara-diallo"
-   ],
-   "next": {
-    "title": "Highlife morning",
-    "inDays": 6,
-    "place": "Peckham community hall"
-   }
-  },
-  {
-   "id": "cm-8",
-   "name": "Highlife Brooklyn",
-   "creatorId": "yemi-daybreak",
-   "by": "fans",
-   "format": "In person",
-   "city": "Brooklyn, NY",
-   "coords": [
-    40.6782,
-    -73.9442
-   ],
-   "members": 118,
-   "rhythm": "Monthly",
-   "about": "Highlife and Afrobeat dance night for anyone who loves a horn section.",
-   "styles": [
-    "Afro & highlife",
-    "Highlife"
-   ],
-   "memberIds": [
-    "theo-okafor",
-    "amara-diallo"
-   ],
-   "next": {
-    "title": "Dance night",
-    "inDays": 18,
-    "place": "Flatbush social club"
-   }
-  },
-  {
-   "id": "cm-9",
-   "name": "Ferro Trio Listening Room",
-   "creatorId": "cass-ferro",
-   "by": "creator",
-   "format": "Online + in person",
-   "city": "Chicago, IL",
-   "coords": [
-    41.8781,
-    -87.6298
-   ],
-   "members": 205,
-   "rhythm": "First Thursday",
-   "about": "The trio plays a standard, then breaks it down with the room.",
-   "styles": [
-    "Jazz",
-    "Jazz trio"
-   ],
-   "memberIds": [
-    "theo-okafor",
-    "elliot-park"
-   ],
-   "next": {
-    "title": "Listening room: Night Ferry",
-    "inDays": 11,
-    "place": "Green Mill side room"
-   }
-  },
-  {
-   "id": "cm-10",
-   "name": "Late Set Jazz Club",
-   "creatorId": "cass-ferro",
-   "by": "fans",
-   "format": "In person",
-   "city": "Queens, NY",
-   "coords": [
-    40.7282,
-    -73.7949
-   ],
-   "members": 88,
-   "rhythm": "Weekly",
-   "about": "Jazz fans heading to late sets together, then arguing about them over pie.",
-   "styles": [
-    "Jazz",
-    "Jazz trio"
-   ],
-   "memberIds": [
-    "theo-okafor",
-    "elliot-park"
-   ],
-   "next": {
-    "title": "Late set at Smalls",
-    "inDays": 4,
-    "place": "Meet at West 10th St"
-   }
-  },
-  {
-   "id": "cm-11",
-   "name": "Field Notes",
-   "creatorId": "halden",
-   "by": "creator",
-   "format": "Online",
-   "members": 301,
-   "rhythm": "Monthly sound walk",
-   "about": "Halden posts a field recording; members record the same hour where they live.",
-   "styles": [
-    "Electronic",
-    "Ambient electronic"
-   ],
-   "memberIds": [
-    "sofia-reyes",
-    "elliot-park",
-    "rosa-lindqvist"
-   ],
-   "next": {
-    "title": "Sound walk: dawn",
-    "inDays": 8,
-    "place": "Wherever you are"
-   }
-  },
-  {
-   "id": "cm-12",
-   "name": "The Long Way Round Book Club",
-   "creatorId": "long-way-round",
-   "by": "creator",
-   "format": "Online + in person",
-   "city": "Manhattan, NY",
-   "coords": [
-    40.7831,
-    -73.9712
-   ],
-   "members": 540,
-   "rhythm": "Every new episode",
-   "about": "Priya and Theo pick the reading behind each episode; members meet in a bookshop to talk it through.",
-   "styles": [
-    "Culture",
-    "Culture & curiosity"
-   ],
-   "memberIds": [
-    "maya-chen",
-    "sofia-reyes",
-    "jonah-bell",
-    "priya-nair"
-   ],
-   "next": {
-    "title": "In Defense of Boredom, in person",
-    "inDays": 7,
-    "place": "McNally Jackson, Nolita"
-   }
-  },
-  {
-   "id": "cm-13",
-   "name": "Liner Notes Listening Club",
-   "creatorId": "liner-notes",
-   "by": "creator",
-   "format": "Online",
-   "members": 366,
-   "rhythm": "Weekly",
-   "about": "Desmond plays the record the episode is about; members bring the stories behind their copies.",
-   "styles": [
-    "Music",
-    "Music history"
-   ],
-   "memberIds": [
-    "theo-okafor",
-    "jonah-bell",
-    "priya-nair"
-   ],
-   "next": {
-    "title": "Bassline night",
-    "inDays": 2,
-    "place": "Online listening room"
-   }
-  },
-  {
-   "id": "cm-14",
-   "name": "Small Machines Repair Café",
-   "creatorId": "small-machines",
-   "by": "creator",
-   "format": "In person",
-   "city": "Philadelphia, PA",
-   "coords": [
-    39.9526,
-    -75.1652
-   ],
-   "members": 154,
-   "rhythm": "Monthly",
-   "about": "Bring a broken radio or tape deck; Imani and members fix them together.",
-   "styles": [
-    "Craft",
-    "Craft & technology"
-   ],
-   "memberIds": [
-    "sofia-reyes",
-    "priya-nair",
-    "elliot-park"
-   ],
-   "next": {
-    "title": "Repair café",
-    "inDays": 14,
-    "place": "Fishtown makerspace"
-   }
-  },
-  {
-   "id": "cm-15",
-   "name": "Radio Tinkerers NYC",
-   "creatorId": "small-machines",
-   "by": "fans",
-   "format": "In person",
-   "city": "Brooklyn, NY",
-   "coords": [
-    40.6782,
-    -73.9442
-   ],
-   "members": 72,
-   "rhythm": "Monthly",
-   "about": "Old radios, soldering irons and coffee in Gowanus.",
-   "styles": [
-    "Craft",
-    "Craft & technology"
-   ],
-   "memberIds": [
-    "sofia-reyes",
-    "priya-nair",
-    "elliot-park"
-   ],
-   "next": {
-    "title": "Valve radio night",
-    "inDays": 20,
-    "place": "Gowanus workshop"
-   }
-  },
-  {
-   "id": "cm-16",
-   "name": "Kitchen Table Money Circle",
-   "creatorId": "kitchen-table",
-   "by": "creator",
-   "format": "Online",
-   "members": 288,
-   "rhythm": "Every two weeks",
-   "about": "Small groups talking through money and culture, the way the show does.",
-   "styles": [
-    "Money",
-    "Money & culture"
-   ],
-   "memberIds": [
-    "priya-nair",
-    "amara-diallo"
-   ],
-   "next": {
-    "title": "Who gets paid?",
-    "inDays": 10,
-    "place": "Online"
-   }
-  },
-  {
-   "id": "cm-17",
-   "name": "Wren's Choir",
-   "creatorId": "odessa-wren",
-   "by": "creator",
-   "format": "In person",
-   "city": "Detroit, MI",
-   "coords": [
-    42.3314,
-    -83.0458
-   ],
-   "members": 176,
-   "rhythm": "Wednesday nights",
-   "about": "An open community choir Odessa leads in the church hall where she recorded.",
-   "styles": [
-    "Soul & R&B",
-    "Neo-soul"
-   ],
-   "memberIds": [
-    "maya-chen",
-    "jonah-bell"
-   ],
-   "next": {
-    "title": "Open rehearsal",
-    "inDays": 2,
-    "place": "East side church hall"
-   }
-  },
-  {
-   "id": "cm-18",
-   "name": "Neo-Soul Sundays",
-   "creatorId": "odessa-wren",
-   "by": "fans",
-   "format": "In person",
-   "city": "Brooklyn, NY",
-   "coords": [
-    40.6782,
-    -73.9442
-   ],
-   "members": 214,
-   "rhythm": "Sundays",
-   "about": "Neo-soul brunch and records in Bed-Stuy.",
-   "styles": [
-    "Soul & R&B",
-    "Neo-soul"
-   ],
-   "memberIds": [
-    "maya-chen",
-    "jonah-bell"
+    "maya-chen"
    ],
    "next": {
     "title": "Sunday session",
     "inDays": 4,
-    "place": "Bed-Stuy café"
-   }
+    "place": "Bed-Stuy, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
   },
   {
-   "id": "cm-19",
-   "name": "Memphis Soul Society",
-   "creatorId": "velvet-hours",
+   "id": "cm-3",
+   "name": "Soul After Dark NYC",
+   "creatorId": "ellis-rae",
    "by": "fans",
    "format": "In person",
-   "city": "Memphis, TN",
-   "coords": [
-    35.1495,
-    -90.049
-   ],
-   "members": 130,
-   "rhythm": "Monthly",
-   "about": "Soul revival fans and players, jam after the records.",
+   "members": 530,
+   "rhythm": "Weekly",
+   "about": "Listening parties and show meet-ups for alt-soul and R&B around the city.",
    "styles": [
     "Soul & R&B",
-    "Soul revival"
+    "Alt-soul"
    ],
    "memberIds": [
-    "rosa-lindqvist"
+    "maya-chen",
+    "jonah-bell",
+    "elliot-park"
    ],
    "next": {
-    "title": "Jam night",
-    "inDays": 13,
-    "place": "Broad Avenue bar"
-   }
+    "title": "Pre-show meet-up: Ellis Rae",
+    "inDays": 6,
+    "place": "Lower East Side"
+   },
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ]
   },
   {
-   "id": "cm-20",
-   "name": "Long Exhale Sessions",
-   "creatorId": "nadia-okoro",
+   "id": "cm-4",
+   "name": "Candela Listening Room",
+   "creatorId": "marisol-vega",
    "by": "creator",
    "format": "Online + in person",
-   "city": "London, UK",
-   "coords": [
-    51.5072,
-    -0.1276
-   ],
-   "members": 190,
+   "members": 388,
    "rhythm": "Monthly",
-   "about": "Spiritual jazz listening in the dark, then a conversation with the quartet.",
+   "about": "Marisol plays one bolero record start to finish, then sings her version of a song from it.",
    "styles": [
-    "Jazz",
-    "Spiritual jazz"
+    "Soul & R&B",
+    "Bolero soul"
    ],
    "memberIds": [
-    "theo-okafor",
     "priya-nair",
     "rosa-lindqvist"
    ],
    "next": {
-    "title": "Dark listening",
-    "inDays": 15,
-    "place": "Dalston studio"
-   }
-  },
-  {
-   "id": "cm-21",
-   "name": "Solo Piano Hour",
-   "creatorId": "eli-marchetti",
-   "by": "fans",
-   "format": "Online",
-   "members": 94,
-   "rhythm": "Weekly",
-   "about": "One standard, many recordings, gently compared.",
-   "styles": [
-    "Jazz",
-    "Jazz piano"
-   ],
-   "memberIds": [
-    "theo-okafor",
-    "priya-nair"
-   ],
-   "next": {
-    "title": "Blue in Green, five ways",
-    "inDays": 6,
-    "place": "Online"
-   }
-  },
-  {
-   "id": "cm-22",
-   "name": "Lake Notes",
-   "creatorId": "lumen-field",
-   "by": "creator",
-   "format": "In person",
-   "city": "Berlin, DE",
+    "title": "Album night: boleros",
+    "inDays": 12,
+    "place": "Echo Park"
+   },
+   "city": "Los Angeles, CA",
    "coords": [
-    52.52,
-    13.405
-   ],
-   "members": 140,
-   "rhythm": "Monthly at dawn",
-   "about": "Modular synths by the lake; bring headphones.",
-   "styles": [
-    "Electronic",
-    "Ambient electronic"
-   ],
-   "memberIds": [
-    "sofia-reyes"
-   ],
-   "next": {
-    "title": "Dawn set",
-    "inDays": 19,
-    "place": "Tegeler See"
-   }
+    34.0522,
+    -118.2437
+   ]
   },
   {
-   "id": "cm-23",
-   "name": "Coast & Banjo",
-   "creatorId": "wren-hollow",
+   "id": "cm-5",
+   "name": "Boleros & Soul NYC",
+   "creatorId": "marisol-vega",
    "by": "fans",
    "format": "In person",
-   "city": "Portland, OR",
-   "coords": [
-    45.5152,
-    -122.6784
-   ],
-   "members": 66,
+   "members": 214,
    "rhythm": "Monthly",
-   "about": "Folk pickers' circle.",
+   "about": "Bolero and soul fans swapping records in Jackson Heights.",
+   "styles": [
+    "Soul & R&B",
+    "Bolero soul"
+   ],
+   "memberIds": [
+    "sofia-reyes",
+    "amara-diallo"
+   ],
+   "next": {
+    "title": "Record swap",
+    "inDays": 8,
+    "place": "Jackson Heights, Queens"
+   },
+   "city": "Queens, NY",
+   "coords": [
+    40.7282,
+    -73.7949
+   ]
+  },
+  {
+   "id": "cm-6",
+   "name": "The Street Set",
+   "creatorId": "juniper-lowe",
+   "by": "creator",
+   "format": "Online + in person",
+   "members": 176,
+   "rhythm": "Sundays",
+   "about": "Juniper & Lowe busk the same corner every Sunday; members bring an instrument and join for the last song.",
    "styles": [
     "Folk",
     "Indie folk"
    ],
    "memberIds": [
+    "jonah-bell",
     "elliot-park"
    ],
    "next": {
-    "title": "Picking circle",
-    "inDays": 9,
-    "place": "Alberta St café"
-   }
-  },
-  {
-   "id": "cm-24",
-   "name": "Osu Night Market Sound System",
-   "creatorId": "kwame-asante",
-   "by": "creator",
-   "format": "In person",
-   "city": "Accra, GH",
-   "coords": [
-    5.6037,
-    -0.187
-   ],
-   "members": 420,
-   "rhythm": "Fridays",
-   "about": "The band plays the night market; diaspora members stream it.",
-   "styles": [
-    "Afro & highlife",
-    "Afrobeat"
-   ],
-   "memberIds": [
-    "elliot-park"
-   ],
-   "next": {
-    "title": "Friday market set",
+    "title": "Sunday busk",
     "inDays": 3,
-    "place": "Osu"
-   }
+    "place": "East Nashville"
+   },
+   "city": "Nashville, TN",
+   "coords": [
+    36.1627,
+    -86.7816
+   ]
   },
   {
-   "id": "cm-25",
-   "name": "Mile End Dream Pop",
-   "creatorId": "sora-lake",
+   "id": "cm-7",
+   "name": "Banjo & Coffee Brooklyn",
+   "creatorId": "juniper-lowe",
    "by": "fans",
    "format": "In person",
-   "city": "Montréal, QC",
-   "coords": [
-    45.5019,
-    -73.5674
-   ],
-   "members": 81,
+   "members": 142,
    "rhythm": "Monthly",
-   "about": "Snowy-night listening parties.",
+   "about": "Folk pickers’ circle in a Greenpoint coffee shop.",
    "styles": [
-    "Indie & dream pop",
-    "Dream pop"
+    "Folk",
+    "Indie folk"
    ],
    "memberIds": [
+    "jonah-bell",
     "maya-chen"
    ],
    "next": {
-    "title": "Snow day radio night",
-    "inDays": 12,
-    "place": "Mile End loft"
-   }
-  },
-  {
-   "id": "cm-26",
-   "name": "The Studio Floor Workshop",
-   "creatorId": "studio-floor",
-   "by": "creator",
-   "format": "Online + in person",
+    "title": "Picking circle",
+    "inDays": 10,
+    "place": "Greenpoint, Brooklyn"
+   },
    "city": "Brooklyn, NY",
    "coords": [
     40.6782,
     -73.9442
-   ],
-   "members": 233,
-   "rhythm": "Monthly",
-   "about": "Ruth brings a session file; members try their own mix, then compare with the engineer.",
-   "styles": [
-    "Music",
-    "Music production"
-   ],
-   "memberIds": [
-    "maya-chen",
-    "amara-diallo"
-   ],
-   "next": {
-    "title": "Mixing in mono, together",
-    "inDays": 8,
-    "place": "Greenpoint studio"
-   }
+   ]
   },
   {
-   "id": "cm-27",
-   "name": "Stoop Walks",
-   "creatorId": "slow-cities",
-   "by": "creator",
+   "id": "cm-8",
+   "name": "Night Shift Cypher",
+   "creatorId": "kairo-banks",
+   "by": "fans",
    "format": "In person",
+   "members": 322,
+   "rhythm": "Weekly",
+   "about": "Open cypher and listening night for anyone who loves a late beat.",
+   "styles": [
+    "Hip-hop"
+   ],
+   "memberIds": [
+    "amara-diallo",
+    "theo-okafor"
+   ],
+   "next": {
+    "title": "Cypher night",
+    "inDays": 5,
+    "place": "Bushwick, Brooklyn"
+   },
    "city": "Brooklyn, NY",
    "coords": [
     40.6782,
     -73.9442
-   ],
-   "members": 158,
-   "rhythm": "Saturday mornings",
-   "about": "Walk a neighbourhood with the hosts, end on someone's stoop.",
+   ]
+  },
+  {
+   "id": "cm-9",
+   "name": "The Booth",
+   "creatorId": "kairo-banks",
+   "by": "creator",
+   "format": "Online",
+   "members": 1240,
+   "rhythm": "Monthly",
+   "about": "Kairo shares a session file; members write a verse over it, he picks one to play live.",
    "styles": [
-    "Culture",
-    "Cities & design"
+    "Hip-hop"
    ],
    "memberIds": [
-    "sofia-reyes",
-    "jonah-bell",
-    "amara-diallo"
+    "theo-okafor",
+    "amara-diallo",
+    "elliot-park"
    ],
    "next": {
-    "title": "Walk: Crown Heights",
-    "inDays": 5,
-    "place": "Franklin Ave station"
+    "title": "Verse challenge",
+    "inDays": 14,
+    "place": "Online"
    }
+  },
+  {
+   "id": "cm-10",
+   "name": "Front Left",
+   "creatorId": "nova-lin",
+   "by": "fans",
+   "format": "In person",
+   "members": 460,
+   "rhythm": "Before every NYC show",
+   "about": "Fans who meet up before Nova Lin shows and claim the front-left corner.",
+   "styles": [
+    "Pop",
+    "Dance-pop"
+   ],
+   "memberIds": [
+    "jonah-bell",
+    "rosa-lindqvist",
+    "maya-chen"
+   ],
+   "next": {
+    "title": "Pre-show meet-up",
+    "inDays": 7,
+    "place": "Astoria, Queens"
+   },
+   "city": "Queens, NY",
+   "coords": [
+    40.7282,
+    -73.7949
+   ]
+  },
+  {
+   "id": "cm-11",
+   "name": "Afterglow Dance Class",
+   "creatorId": "nova-lin",
+   "by": "creator",
+   "format": "Online",
+   "members": 2100,
+   "rhythm": "Monthly",
+   "about": "Nova teaches the choreography from her shows, one routine at a time.",
+   "styles": [
+    "Pop",
+    "Dance-pop"
+   ],
+   "memberIds": [
+    "rosa-lindqvist",
+    "sofia-reyes"
+   ],
+   "next": {
+    "title": "Choreo class: Afterglow",
+    "inDays": 11,
+    "place": "Online"
+   }
+  },
+  {
+   "id": "cm-12",
+   "name": "Loud Room Club",
+   "creatorId": "the-halyards",
+   "by": "fans",
+   "format": "In person",
+   "members": 198,
+   "rhythm": "Monthly",
+   "about": "Alt-rock fans heading to small shows together.",
+   "styles": [
+    "Rock",
+    "Alt-rock"
+   ],
+   "memberIds": [
+    "elliot-park",
+    "theo-okafor"
+   ],
+   "next": {
+    "title": "Show night",
+    "inDays": 13,
+    "place": "Allston, Boston"
+   },
+   "city": "Boston, MA",
+   "coords": [
+    42.3601,
+    -71.0589
+   ]
+  },
+  {
+   "id": "cm-13",
+   "name": "Space Podcast Club",
+   "creatorId": "houston-we-have-a-podcast",
+   "by": "fans",
+   "format": "Online + in person",
+   "members": 640,
+   "rhythm": "Monthly",
+   "about": "Listeners of space podcasts meeting to talk through an episode, then stargaze from the roof.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "sofia-reyes",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Episode night: Mental Health with Shinedown",
+    "inDays": 9,
+    "place": "Upper West Side"
+   },
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ]
+  },
+  {
+   "id": "cm-14",
+   "name": "Black Hole Fridays",
+   "creatorId": "nasa-science-live",
+   "by": "fans",
+   "format": "Online",
+   "members": 1830,
+   "rhythm": "Weekly",
+   "about": "A watch-along for science shows, with a different listener explaining one idea each week.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "theo-okafor"
+   ],
+   "next": {
+    "title": "Watch-along: Black Hole 101",
+    "inDays": 2,
+    "place": "Online"
+   }
+  },
+  {
+   "id": "cm-15",
+   "name": "Launch Watchers Brooklyn",
+   "creatorId": "rocket-ranch",
+   "by": "fans",
+   "format": "In person",
+   "members": 256,
+   "rhythm": "Launch days",
+   "about": "Launch livestreams on a big screen in a Gowanus bar.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "elliot-park",
+    "jonah-bell"
+   ],
+   "next": {
+    "title": "Launch watch party",
+    "inDays": 6,
+    "place": "Gowanus, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
   }
  ]
 }

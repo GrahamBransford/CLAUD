@@ -32,7 +32,7 @@ The app opens with a short brand animation (the two Cs of CIRCA are records), th
 Finding your people is the point. Every creator can have communities: ones they curate themselves, and ones their fans run, online, in person, or both, each with how often it meets and its next gathering.
 
 - **On a creator's vinyl** and their profile sheet: their communities, and the **local scenes in their style** near you.
-- **Communities for you** (from search, or the Communities window on your vinyl): matched across everything, with the reasons shown ("You're in the top 1% of Juniper Vale's listeners", "Soul & R&B is 62% of your music", "Meets 12 km from you", "Maya is a member"). Tabs for near you and online.
+- **Communities for you** (from search, or the Communities window on your vinyl): matched across everything, with the reasons shown ("You're in the top 1% of Ellis Rae's listeners", "Soul & R&B is 62% of your music", "Meets 12 km from you", "Maya is a member"). Tabs for near you and online.
 - **Join** and **I'll be there** are demo actions: nothing is sent. Groups, members and gatherings are fictional demo data (`content/demo/people.json` → `communities`); "near you" uses your profile location, not GPS.
 
 ### Where this is going (not built in the prototype)
@@ -82,25 +82,25 @@ Sound starts muted, as browsers require, and turns on with the first touch. Icon
 Points per creator come from meaningful signals (`src/lib/affinity.ts`):
 minutes listened (1/min), full listens (8), coming back to something (5), saves (12), following (20), **shows attended (90)**, Inner Circle moments watched (3), reactions (1). Points become an **estimated** percentile against a modelled audience for that creator, which sets the tier and the position on your vinyl. Everything you do in the app moves creators; the demo also starts from a simulated listening history. **Percentiles are estimates, not verified rankings,** and the UI says so.
 
-To demo the top tier: open My Vinyl, tap Juniper Vale → **Went to a show**. She crosses into the Top 1% and the reward card unlocks.
+To demo the top tier: open My Vinyl, tap Ellis Rae → **Went to a show**. He crosses into the Top 1% and the reward card unlocks.
 
-## Real creators: one library file
+## Creators and media: one library file
 
-Ten real creators are in the prototype: Dua Lipa, Billie Eilish, The Weeknd, Bruno Mars and Hozier (Music, the Radio and Inner Circle), and The Diary of a CEO, Huberman Lab, The Rest Is History, Lex Fridman Podcast and The Mel Robbins Podcast (the Radio). They all live in **`content/real/library.json`**, one block per creator with their channel, genre, description, palette and content. `npm run content:demo` checks every video ID against its links and builds them into the app, alongside the original fictional creators (real first, then taking turns).
+Every creator and every video lives in **`content/real/library.json`**, and every media file is stored inside the app in `public/media/live`. Nothing loads from another site, so the demo plays anywhere, including inside the claude.ai preview and offline. `npm run content:demo` checks that every file exists and builds the app's content.
 
-- **Content roles.** `song` goes to Music and the Radio (three minutes, then *Full song*, using the player's real length). `episode` goes to the Radio (a highlight window, then *Full episode*). `innerCircle` goes to Inner Circle, and is for behind-the-scenes only: sets, studios, rehearsals, tour footage. Never an official video or a full episode.
-- **Playback.** `youtube` (by `videoId`) plays through YouTube's official player (privacy-enhanced host), with a poster while it loads, and a plain error state with an optional *Watch on YouTube* if it can't play. `instagram` (by `url`) uses Instagram's own embed, which CIRCA can't drive. `video` (by `src`) is for creator-authorised files.
-- **Shape.** Set in `display` in the library (per creator type, or per item). Artists are `fill`: the player is cropped to fill the vertical screen like a reel, and CIRCA's own tap and swipe drive it. Podcasts are `fit`: the whole 16:9 picture, lit by a soft glow in the show's own colours, with the official player left untouched. Cropping hides the sides of YouTube's player, which YouTube's API policies may not allow in a public release; for launch, creator-supplied vertical videos (`playback: "video"`) or vertical uploads avoid that.
-- **Profile pictures.** `profileImage` holds the official channel picture (from the channel page). If it's `null`, `profileImageFallback`, a frame from the creator's own video, stands in.
-- **Checked.** Every video ID passes YouTube's oEmbed check (exists, embeddable); the result and any swaps are recorded under `checked` and per-item `note` in the library.
-- **What's simulated.** Listening history, CIRCA follower counts and taste figures for these creators are demo estimates, like everything else on the vinyl. Nothing claims to be their real data, and no words are put in their mouths.
+- **Artists (six):** Ellis Rae, Marisol Vega, Juniper & Lowe, Kairo Banks, Nova Lin and The Halyards. These are demo identities: the names, bios and captions are invented. They're shown on licensed stock footage of real performers (Mixkit), with licensed music from Mixkit's composers. The performers aren't the people named.
+- **Podcasts (four):** real NASA shows: *Houston We Have a Podcast* (two episodes, one with the band Shinedown), *Rocket Ranch*, *Down to Earth: Conversations* and *NASA Science Live*. Each is a five-minute excerpt from NASA's public-domain library. NASA doesn't endorse CIRCA.
+- **Shapes:** songs and Inner Circle moments are vertical (9:16). Episodes stay 16:9, lit by a soft glow in the show's colours.
+- **Credits:** every item records its footage and music source and licence. The app lists them under Settings, Credits. `scripts/media/live/` holds the recipe and sources used to cut the files.
+- **Real people only say what they said:** NASA guests appear only in their own footage. They have no invented captions, comments, communities "curated by" them, or creator vinyls. Sample listeners and every listening figure are simulated.
+- **Other sources:** the library still accepts `youtube` (official embeds; these won't play inside the claude.ai preview) and `instagram` items, for when the app is hosted on its own address.
 
 ## Content: real media without rebuilding
 
 Content is loaded at runtime from `public/content/` (or `dist/content/` after a build), so you can add or replace artists, videos, episodes and Inner Circle moments by editing JSON and reloading.
 
 - `public/content/index.json` lists the content sets and which one is the default. Settings (the knob on My Vinyl) switches between sets; `?content=<id>` in the URL does too.
-- `public/content/demo.json` is the original, fully offline demo set (fictional creators, generated media).
+- `public/content/demo.json` is built from `content/real/library.json` and `content/demo/people.json`; all its media is stored with the app, so it works offline.
 - Some creators are **catalogue-only** (`catalogOnly: true`): heard through a connected service, shown in listening histories and search, but with nothing playable in the feeds yet. Their avatars come from `scripts/media/catalog_avatars.py`; `style` groups genres into families and `works` lists their titles.
 - `public/content/real.json` is the starter for real artists and podcasts. Add it to `index.json` once it has items.
 

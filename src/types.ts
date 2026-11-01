@@ -143,8 +143,27 @@ export interface ContentSet {
   comments?: Record<string, PostComment[]>
   /** Communities around creators: curated by them, or run by fans. */
   communities?: Community[]
+  /** Where every piece of footage and music comes from, and its licence. */
+  credits?: Credit[]
   /** What the creators themselves listen to: their own vinyls. */
   creatorVinyls?: Record<string, { points: Record<string, number>; experiences: Omit<Experience, 'id'>[] }>
+}
+
+export interface CreditSource {
+  source: string
+  url: string
+  license: string
+  title?: string
+  artist?: string
+}
+
+/** Footage and music credits for one item. */
+export interface Credit {
+  id: string
+  creatorId: string
+  title: string
+  footage?: CreditSource
+  music?: CreditSource
 }
 
 /** A comment on an Inner Circle moment, by a listener or by the creator. */

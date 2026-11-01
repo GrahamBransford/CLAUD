@@ -212,8 +212,9 @@ export function Radio({ active }: { active: boolean }) {
   // artist videos fill the screen like a reel; podcasts stay whole, lit by the show's own colours
   const fill = media.kind === 'youtube' && item.display === 'fill'
   const embed = (media.kind === 'youtube' || media.kind === 'spotify') && !fill
-  const glow = ep && embed ? who?.palette : undefined
   const video = ep ? isVideo(ep) : true
+  // a whole 16:9 conversation (an embed or a file) sits in the show's own colours, never in black
+  const glow = ep && (embed || video) ? who?.palette : undefined
   return (
     <section className="screen" aria-label="Radio">
       <AnimatePresence custom={move} initial={false} mode="popLayout">

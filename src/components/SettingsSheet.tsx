@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { activeSet, chooseSet, contentIndex } from '../data'
+import { activeSet, chooseSet, contentIndex, creatorById, credits } from '../data'
 import { PODCAST_DESTINATION, PROVIDERS, type StreamingProviderId } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
@@ -13,6 +13,7 @@ export function SettingsSheet() {
   const visibility = useStore((s) => s.vinylVisibility)
   const setVisibility = useStore((s) => s.setVinylVisibility)
   const [confirm, setConfirm] = useState(false)
+  const [showCredits, setShowCredits] = useState(false)
   const close = () => useUI.getState().openSheet(null)
   const options: StreamingProviderId[] = ['spotify', 'apple-music']
   return (
@@ -77,6 +78,40 @@ export function SettingsSheet() {
               ))}
             </div>
           </>
+        )}
+
+        <button className="row-link" onClick={() => setShowCredits(!showCredits)} aria-expanded={showCredits}>
+          <span>
+            <strong>Credits</strong>
+            <em>Footage, music and licences</em>
+          </span>
+        </button>
+        {showCredits && (
+          <div className="credits">
+            <p className="settings__fine">
+              Artist names, bios and captions are invented for the demo, shown on licensed stock footage of real performers; the performers are not the people named.
+              Podcasts are real NASA shows, excerpted; NASA does not endorse CIRCA.
+            </p>
+            <ul className="credits__list">
+              {credits.map((c) => (
+                <li key={c.id}>
+                  <strong>
+                    {creatorById[c.creatorId]?.name} · {c.title}
+                  </strong>
+                  {c.footage && (
+                    <em>
+                      Video: <a href={c.footage.url} target="_blank" rel="noopener noreferrer">{c.footage.source}</a> · {c.footage.license}
+                    </em>
+                  )}
+                  {c.music && (
+                    <em>
+                      Music: “{c.music.title}” by {c.music.artist} · <a href={c.music.url} target="_blank" rel="noopener noreferrer">{c.music.source}</a> · {c.music.license}
+                    </em>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
 
         {confirm ? (

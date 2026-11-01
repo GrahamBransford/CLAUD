@@ -1,0 +1,37 @@
+{
+ "songs": [
+  {"name":"elliot-rae-low-light","clip":42842,"cx":0.38,"track":695},
+  {"name":"marisol-vega-candela","clip":50330,"cx":0.55,"track":659},
+  {"name":"juniper-lowe-paper-lanterns","clip":13757,"cx":0.32,"track":493},
+  {"name":"kairo-banks-night-shift","clip":13019,"cx":0.5,"track":400},
+  {"name":"nova-lin-afterglow","clip":485,"cx":0.6,"track":1210},
+  {"name":"the-halyards-undertow","clip":14106,"cx":0.5,"track":51}
+ ],
+ "moments": [
+  {"name":"ic-elliot-rehearsal","clip":42828,"cx":0.32,"track":695},
+  {"name":"ic-elliot-session","clip":42841,"cx":0.45,"track":695},
+  {"name":"ic-marisol-warmup","clip":50326,"cx":0.42,"track":659},
+  {"name":"ic-marisol-room","clip":50325,"cx":0.48,"track":659},
+  {"name":"ic-juniper-lowe-street","clip":13752,"cx":0.32,"track":493},
+  {"name":"ic-kairo-late","clip":443,"cx":0.5,"track":400},
+  {"name":"ic-nova-stage","clip":490,"cx":0.66,"track":1210},
+  {"name":"ic-nova-dance","clip":482,"cx":0.48,"track":1210},
+  {"name":"ic-halyards-soundcheck","clip":5124,"cx":0.32,"track":51},
+  {"name":"ic-halyards-crowd","clip":14756,"cx":0.68,"track":51}
+ ],
+ "avatars": [
+  {"name":"av-elliot-rae","clip":"42823","t":5,"cx":0.62,"cy":0.42,"size":0.62},
+  {"name":"av-marisol-vega","clip":"50326","t":8,"cx":0.42,"cy":0.36,"size":0.46},
+  {"name":"av-juniper-lowe","clip":"13752","t":6,"cx":0.5,"cy":0.42,"size":0.84},
+  {"name":"av-kairo-banks","clip":"13019","t":8,"cx":0.52,"cy":0.36,"size":0.6},
+  {"name":"av-nova-lin","clip":"490","t":11,"cx":0.66,"cy":0.32,"size":0.42},
+  {"name":"av-the-halyards","clip":"5124","t":10,"cx":0.33,"cy":0.55,"size":0.6}
+ ],
+ "episodes": [
+  {"name":"hwhap-shinedown","src":"iss059m261371859_HWHAP_Mental_Health_Shi","start":1264,"length":300},
+  {"name":"hwhap-artemis-flight-directors","src":"jsc2021m000179_Houston_We_Have_a_Podcast","start":274,"length":300},
+  {"name":"rocket-ranch-moogega-cooper","src":"KSC-20210205-VP-FJM04_0001-ROCKETRANCH-M","start":210,"length":300},
+  {"name":"down-to-earth-sensory-overload","src":"jsc2022m000138_Down_to_Earth_S2_E2_Senso","start":0,"length":330},
+  {"name":"nasa-science-live-black-holes","src":"GSFC_20191120_M13480_NSL11","start":504,"length":300}
+ ]
+}

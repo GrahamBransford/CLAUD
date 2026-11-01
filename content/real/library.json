@@ -1,598 +1,874 @@
 {
-  "about": "CIRCA's real-creator library: the one place to add creators and replace their videos. Every video plays through its platform's official embed; nothing is downloaded or rehosted. Run `npm run content:demo` after editing.",
+  "about": "CIRCA's creator library: every creator and every video in the demo. All media is stored inside the app (public/media/live), so it plays anywhere, including inside the claude.ai preview. Run `npm run content:demo` after editing.",
   "howTo": {
     "addCreator": "Copy a creator block, give it a new id, and list its content. Songs go to Music and the Radio, episodes to the Radio, innerCircle posts to Inner Circle.",
-    "profileImage": "The creator's official channel picture, from their YouTube channel page (og:image, sized =s240). If it's null, profileImageFallback (a frame from their own video) stands in.",
-    "playback": "youtube: an official YouTube upload, by videoId. instagram: an official Instagram embed, by url (plays in Instagram's own player, without CIRCA's controls). video: a creator-authorised file, by src.",
-    "innerCircle": "Behind-the-scenes only: rehearsals, studio sessions, sets, tour footage, candid moments. Never an official music video or a full episode."
+    "playback": "video: a file in public/media (src + poster). youtube: an official YouTube upload by videoId (plays only where YouTube's player is allowed; not in the claude.ai preview). instagram: an official Instagram embed by url.",
+    "innerCircle": "Behind-the-scenes only: rehearsals, studio sessions, soundchecks, tour moments. Never a polished video or a full episode.",
+    "credits": "Every item records where its footage and music come from and under what licence. The app lists them in Settings, Credits."
+  },
+  "sources": {
+    "artists": "Demo identities (names, bios and captions are invented) on licensed stock footage of real performers from Mixkit, with licensed music from Mixkit's composers. The performers are not the people named.",
+    "podcasts": "Real NASA shows and episodes, excerpted (five minutes each). NASA media is public domain; NASA does not endorse CIRCA."
   },
   "display": {
-    "note": "How each kind of creator's videos sit in the vertical feeds. fill: cropped to fill the screen like a vertical reel (horizontal sources lose their sides). fit: kept whole at 16:9, with a soft glow in the creator's colours around it. Any item can override with its own \"display\".",
+    "note": "How videos sit in the vertical feeds. fill: cropped to fill the screen. fit: whole, with a soft glow in the creator's colours around it.",
     "artist": "fill",
     "podcast": "fit"
   },
   "creators": [
     {
-      "id": "dua-lipa",
+      "id": "ellis-rae",
       "type": "artist",
-      "name": "Dua Lipa",
-      "profileImage": "https://yt3.googleusercontent.com/c3upBFWLu55hnBvqncQS9ZEF_hkvHsNTQiB7m7ZYYavLFMzfyn9Bwo-1VF4HSPGo3G2EdwGtgWg=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/suAR1PYFNYA/mqdefault.jpg",
-      "channel": {
-        "handle": "@dualipa",
-        "url": "https://www.youtube.com/@dualipa"
-      },
-      "genre": "Dance-pop, electropop, disco-pop",
-      "style": "Pop",
-      "description": "British singer-songwriter known for sophisticated dance-pop production and confident, disco-influenced music.",
+      "name": "Ellis Rae",
+      "demo": true,
+      "profileImage": "media/live/av-ellis-rae.jpg",
+      "genre": "Alt-soul",
+      "style": "Soul & R&B",
+      "location": "Brooklyn, NY",
+      "description": "Writes in a brick-walled room in Bushwick with one good microphone and the lights low. Low Light is the first thing he's let leave the room.",
       "palette": [
-        "#5B1E2D",
+        "#3B2A22",
         "#D9A86C",
-        "#F2E4D3"
+        "#F1E6D3"
       ],
-      "followers": 2410000,
+      "followers": 48200,
       "content": [
         {
-          "id": "houdini",
+          "id": "low-light",
           "role": "song",
-          "title": "Houdini",
-          "release": "Radical Optimism",
-          "year": 2023,
-          "blurb": "Disco-pop with a light touch and a chorus built to disappear into.",
+          "title": "Low Light",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Unhurried alt-soul for the last hour before sleep.",
+          "mood": [
+            "late night",
+            "warm",
+            "slow"
+          ],
+          "playback": "video",
+          "src": "media/live/ellis-rae-low-light.mp4",
+          "poster": "media/live/ellis-rae-low-light.jpg",
+          "duration": 154.15,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/silhouette-of-a-man-singing-with-a-microphone-42842/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Pop 05",
+              "artist": "Grigoriy Nuzhny",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-ellis-rehearsal",
+          "role": "innerCircle",
+          "caption": "Rehearsal with Danny. He keeps changing the chords on me and he's right every time.",
+          "context": "Rehearsal room",
+          "playback": "video",
+          "src": "media/live/ic-ellis-rehearsal.mp4",
+          "poster": "media/live/ic-ellis-rehearsal.jpg",
+          "duration": 12.55,
+          "postedHoursAgo": 3,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/boy-band-performing-a-love-song-42828/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Pop 05",
+              "artist": "Grigoriy Nuzhny",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-ellis-session",
+          "role": "innerCircle",
+          "caption": "Take nine. Leaving the crack in the voice in.",
+          "context": "Vocal session",
+          "playback": "video",
+          "src": "media/live/ic-ellis-session.mp4",
+          "poster": "media/live/ic-ellis-session.jpg",
+          "duration": 20.69,
+          "postedHoursAgo": 20,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/face-of-a-man-singing-in-front-of-a-microphone-42841/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Pop 05",
+              "artist": "Grigoriy Nuzhny",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "marisol-vega",
+      "type": "artist",
+      "name": "Marisol Vega",
+      "demo": true,
+      "profileImage": "media/live/av-marisol-vega.jpg",
+      "genre": "Bolero soul",
+      "style": "Soul & R&B",
+      "location": "Los Angeles, CA",
+      "description": "Grew up on her grandmother's bolero records and plays them back through a soul band. Candela was recorded live in one afternoon.",
+      "palette": [
+        "#2B3A6B",
+        "#D6A84F",
+        "#F2E4D3"
+      ],
+      "followers": 63900,
+      "content": [
+        {
+          "id": "candela",
+          "role": "song",
+          "title": "Candela",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Piano, double bass and a bolero heart, played slow.",
+          "mood": [
+            "romantic",
+            "warm",
+            "evening"
+          ],
+          "playback": "video",
+          "src": "media/live/marisol-vega-candela.mp4",
+          "poster": "media/live/marisol-vega-candela.jpg",
+          "duration": 158.59,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/hands-of-a-skillful-musician-playing-a-wooden-piano-50330/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Romantic",
+              "artist": "Francisco Alvear",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-marisol-warmup",
+          "role": "innerCircle",
+          "caption": "Warming up in the old ballroom before the first take.",
+          "context": "Live session, warm-up",
+          "playback": "video",
+          "src": "media/live/ic-marisol-warmup.mp4",
+          "poster": "media/live/ic-marisol-warmup.jpg",
+          "duration": 16.02,
+          "postedHoursAgo": 6,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/talented-female-singer-in-a-fancy-old-place-50326/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Romantic",
+              "artist": "Francisco Alvear",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-marisol-room",
+          "role": "innerCircle",
+          "caption": "This room has better acoustics than any studio I've paid for.",
+          "context": "On location",
+          "playback": "video",
+          "src": "media/live/ic-marisol-room.mp4",
+          "poster": "media/live/ic-marisol-room.jpg",
+          "duration": 13.85,
+          "postedHoursAgo": 30,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/girl-singing-in-a-fancy-old-place-50325/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Romantic",
+              "artist": "Francisco Alvear",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "juniper-lowe",
+      "type": "artist",
+      "name": "Juniper & Lowe",
+      "demo": true,
+      "profileImage": "media/live/av-juniper-lowe.jpg",
+      "genre": "Indie folk",
+      "style": "Folk",
+      "location": "Nashville, TN",
+      "description": "A guitar and a banjo that met busking outside the same coffee shop. They still play the street on Sundays.",
+      "palette": [
+        "#5F6E56",
+        "#E8DCC4",
+        "#B8553F"
+      ],
+      "followers": 21700,
+      "content": [
+        {
+          "id": "paper-lanterns",
+          "role": "song",
+          "title": "Paper Lanterns",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Front-porch folk with nowhere to be.",
+          "mood": [
+            "sunny",
+            "acoustic",
+            "easy"
+          ],
+          "playback": "video",
+          "src": "media/live/juniper-lowe-paper-lanterns.mp4",
+          "poster": "media/live/juniper-lowe-paper-lanterns.jpg",
+          "duration": 97.02,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/a-man-and-a-woman-walking-down-the-street-playing-13757/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Beautiful Dream",
+              "artist": "Diego Nava",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-juniper-lowe-street",
+          "role": "innerCircle",
+          "caption": "Sunday busk. Someone's kid danced through the whole set.",
+          "context": "Street set",
+          "playback": "video",
+          "src": "media/live/ic-juniper-lowe-street.mp4",
+          "poster": "media/live/ic-juniper-lowe-street.jpg",
+          "duration": 12.92,
+          "postedHoursAgo": 9,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/male-and-female-friends-walking-through-a-park-while-playing-13752/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Beautiful Dream",
+              "artist": "Diego Nava",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "kairo-banks",
+      "type": "artist",
+      "name": "Kairo Banks",
+      "demo": true,
+      "profileImage": "media/live/av-kairo-banks.jpg",
+      "genre": "Hip-hop",
+      "style": "Hip-hop",
+      "location": "Chicago, IL",
+      "description": "Records at night after shifts at his uncle's shop. Night Shift is the sound of that commute.",
+      "palette": [
+        "#1F2A33",
+        "#C99A4E",
+        "#E9DFCC"
+      ],
+      "followers": 35100,
+      "content": [
+        {
+          "id": "night-shift",
+          "role": "song",
+          "title": "Night Shift",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Late-night bars over a slow, heavy beat.",
+          "mood": [
+            "night drive",
+            "low-key",
+            "bass"
+          ],
+          "playback": "video",
+          "src": "media/live/kairo-banks-night-shift.mp4",
+          "poster": "media/live/kairo-banks-night-shift.jpg",
+          "duration": 99.37,
+          "preview": {
+            "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/a-rapper-with-headphones-recording-in-the-studio-13019/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "C.B.P.D",
+              "artist": "Arulo",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-kairo-booth",
+          "role": "innerCircle",
+          "caption": "In the booth till 3. Verse two finally sounds like me.",
+          "context": "Studio, late",
+          "playback": "video",
+          "src": "media/live/ic-kairo-booth.mp4",
+          "poster": "media/live/ic-kairo-booth.jpg",
+          "duration": 16.0,
+          "postedHoursAgo": 4,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/a-rapper-with-headphones-recording-in-the-studio-13019/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "C.B.P.D",
+              "artist": "Arulo",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "nova-lin",
+      "type": "artist",
+      "name": "Nova Lin",
+      "demo": true,
+      "profileImage": "media/live/av-nova-lin.jpg",
+      "genre": "Dance-pop",
+      "style": "Pop",
+      "location": "Toronto, ON",
+      "description": "Plays every small club that will have her and treats each like an arena. Afterglow is written for the walk home after.",
+      "palette": [
+        "#3A1F5C",
+        "#E06A9A",
+        "#F1E6D3"
+      ],
+      "followers": 88400,
+      "content": [
+        {
+          "id": "afterglow",
+          "role": "song",
+          "title": "Afterglow",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Future-bass pop built for the last song of the night.",
           "mood": [
             "dance",
             "bright",
             "night out"
           ],
-          "playback": "youtube",
-          "videoId": "suAR1PYFNYA",
-          "url": "https://www.youtube.com/watch?v=suAR1PYFNYA",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/suAR1PYFNYA",
-          "thumbnail": "https://i.ytimg.com/vi/suAR1PYFNYA/hqdefault.jpg",
+          "playback": "video",
+          "src": "media/live/nova-lin-afterglow.mp4",
+          "poster": "media/live/nova-lin-afterglow.jpg",
+          "duration": 90.7,
           "preview": {
             "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/rock-band-live-performance-485/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Can't Get You Off My Mind",
+              "artist": "Michael Ramir C.",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
           }
         },
         {
-          "id": "ic-dua-training-season",
+          "id": "ic-nova-stage",
           "role": "innerCircle",
-          "title": "Training Season (Behind The Scenes)",
-          "caption": "On set for Training Season.",
-          "context": "Music video set",
-          "playback": "youtube",
-          "videoId": "tcncnzizxUA",
-          "url": "https://www.youtube.com/watch?v=tcncnzizxUA",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/tcncnzizxUA",
-          "thumbnail": "https://i.ytimg.com/vi/tcncnzizxUA/hqdefault.jpg",
-          "orientation": "horizontal"
+          "caption": "Last night. You were so loud I couldn't hear my in-ears.",
+          "context": "Live, The Urban",
+          "playback": "video",
+          "src": "media/live/ic-nova-stage.mp4",
+          "poster": "media/live/ic-nova-stage.jpg",
+          "duration": 22.0,
+          "postedHoursAgo": 2,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/person-singing-on-stage-490/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Can't Get You Off My Mind",
+              "artist": "Michael Ramir C.",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-nova-dance",
+          "role": "innerCircle",
+          "caption": "Running the new choreo at soundcheck. Be nice.",
+          "context": "Soundcheck",
+          "playback": "video",
+          "src": "media/live/ic-nova-dance.mp4",
+          "poster": "media/live/ic-nova-dance.jpg",
+          "duration": 14.6,
+          "postedHoursAgo": 26,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/singer-of-a-rock-band-dancing-on-stage-482/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Can't Get You Off My Mind",
+              "artist": "Michael Ramir C.",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
         }
       ]
     },
     {
-      "id": "billie-eilish",
+      "id": "the-halyards",
       "type": "artist",
-      "name": "Billie Eilish",
-      "profileImage": "https://yt3.googleusercontent.com/dirvtoDAmx-u0UR76-pxfhYL6Wxj2vfL2geUcxDwk62tTWWhGG6QDGc63RG3NdOz38-yBwRHDQ=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/V9PVRfjEBTI/mqdefault.jpg",
-      "channel": {
-        "handle": "@BillieEilish",
-        "url": "https://www.youtube.com/@BillieEilish"
-      },
-      "genre": "Alternative pop, indie pop",
-      "style": "Pop",
-      "description": "American singer-songwriter recognized for atmospheric production, intimate vocals, and distinctive alternative-pop songwriting.",
+      "name": "The Halyards",
+      "demo": true,
+      "profileImage": "media/live/av-the-halyards.jpg",
+      "genre": "Alt-rock",
+      "style": "Rock",
+      "location": "Boston, MA",
+      "description": "Four friends from a sailing town who got loud. Undertow is their first single on a real label.",
       "palette": [
-        "#1F3B2D",
-        "#B9C27A",
-        "#EDE6D4"
-      ],
-      "followers": 3180000,
-      "content": [
-        {
-          "id": "birds-of-a-feather",
-          "role": "song",
-          "title": "BIRDS OF A FEATHER",
-          "release": "HIT ME HARD AND SOFT",
-          "year": 2024,
-          "blurb": "A soft-focus love song that sounds like it was written with the windows down.",
-          "mood": [
-            "warm",
-            "tender",
-            "summer"
-          ],
-          "playback": "youtube",
-          "videoId": "V9PVRfjEBTI",
-          "url": "https://www.youtube.com/watch?v=V9PVRfjEBTI",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/V9PVRfjEBTI",
-          "thumbnail": "https://i.ytimg.com/vi/V9PVRfjEBTI/hqdefault.jpg",
-          "preview": {
-            "start": 0
-          }
-        },
-        {
-          "id": "ic-billie-happier-than-ever",
-          "role": "innerCircle",
-          "title": "Happier Than Ever (Making Of The Video)",
-          "caption": "Making the Happier Than Ever video.",
-          "context": "Music video set",
-          "playback": "youtube",
-          "videoId": "pooDUsGR1n4",
-          "url": "https://www.youtube.com/watch?v=pooDUsGR1n4",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/pooDUsGR1n4",
-          "thumbnail": "https://i.ytimg.com/vi/pooDUsGR1n4/hqdefault.jpg",
-          "orientation": "horizontal"
-        }
-      ]
-    },
-    {
-      "id": "the-weeknd",
-      "type": "artist",
-      "name": "The Weeknd",
-      "profileImage": "https://yt3.googleusercontent.com/WHvw1ak1FcJaHeEiTmG2iN0dqEjjPxAtT_tA8ruJ3MlNr9I-RHsAur1iAenYeQN_d6LNPH2Z8Ic=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/4NRXx6U8ABQ/mqdefault.jpg",
-      "channel": {
-        "handle": "@theweeknd",
-        "url": "https://www.youtube.com/@theweeknd"
-      },
-      "genre": "R&B, synth-pop, alternative R&B",
-      "style": "Soul & R&B",
-      "description": "Canadian singer known for cinematic production, contemporary R&B, and atmospheric pop.",
-      "palette": [
-        "#3A0F14",
+        "#2C3A33",
         "#C2413A",
         "#EADBC8"
       ],
-      "followers": 2870000,
+      "followers": 27800,
       "content": [
         {
-          "id": "blinding-lights",
+          "id": "undertow",
           "role": "song",
-          "title": "Blinding Lights",
-          "release": "After Hours",
-          "year": 2019,
-          "blurb": "Eighties synths at full speed, for driving through a city at night.",
+          "title": "Undertow",
+          "release": "Single",
+          "year": 2026,
+          "blurb": "Big guitars and a chorus for a room full of hands.",
           "mood": [
-            "night drive",
-            "neon",
-            "fast"
+            "loud",
+            "driving",
+            "live"
           ],
-          "playback": "youtube",
-          "videoId": "4NRXx6U8ABQ",
-          "url": "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/4NRXx6U8ABQ",
-          "thumbnail": "https://i.ytimg.com/vi/4NRXx6U8ABQ/hqdefault.jpg",
+          "playback": "video",
+          "src": "media/live/the-halyards-undertow.mp4",
+          "poster": "media/live/the-halyards-undertow.jpg",
+          "duration": 96.39,
           "preview": {
             "start": 0
+          },
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/crowd-and-band-at-the-concert-14106/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Sports Highlights",
+              "artist": "Ahjay Stelino",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
           }
         },
         {
-          "id": "ic-weeknd-blinding-lights",
+          "id": "ic-halyards-soundcheck",
           "role": "innerCircle",
-          "title": "Blinding Lights (Behind The Scenes)",
-          "caption": "Behind the scenes of Blinding Lights.",
-          "context": "Music video set",
-          "playback": "youtube",
-          "videoId": "ycdFpM3njTs",
-          "url": "https://www.youtube.com/watch?v=ycdFpM3njTs",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/ycdFpM3njTs",
-          "thumbnail": "https://i.ytimg.com/vi/ycdFpM3njTs/hqdefault.jpg",
-          "orientation": "horizontal",
-          "note": "Replaces rZ2ZeR63-ME (Dancing in the Flames BTS), which YouTube no longer serves: no thumbnail, and its embed check is refused. This one is from TheWeekndVEVO."
+          "caption": "Soundcheck under the old rig. Mira wanted the window light.",
+          "context": "Soundcheck",
+          "playback": "video",
+          "src": "media/live/ic-halyards-soundcheck.mp4",
+          "poster": "media/live/ic-halyards-soundcheck.jpg",
+          "duration": 20.02,
+          "postedHoursAgo": 12,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/vocalist-and-guitarist-of-a-rock-band-singing-5124/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Sports Highlights",
+              "artist": "Ahjay Stelino",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
+        },
+        {
+          "id": "ic-halyards-crowd",
+          "role": "innerCircle",
+          "caption": "From the stage, Friday. Thank you for this.",
+          "context": "Live",
+          "playback": "video",
+          "src": "media/live/ic-halyards-crowd.mp4",
+          "poster": "media/live/ic-halyards-crowd.jpg",
+          "duration": 14.08,
+          "postedHoursAgo": 40,
+          "credits": {
+            "footage": {
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-video/an-artist-singing-in-the-stage-14756/",
+              "license": "Mixkit Stock Video Free License"
+            },
+            "music": {
+              "title": "Sports Highlights",
+              "artist": "Ahjay Stelino",
+              "source": "Mixkit",
+              "url": "https://mixkit.co/free-stock-music/",
+              "license": "Mixkit Stock Music Free License"
+            }
+          }
         }
       ]
     },
     {
-      "id": "bruno-mars",
-      "type": "artist",
-      "name": "Bruno Mars",
-      "profileImage": "https://yt3.googleusercontent.com/dxwzp4IYsNJKDcwNYgF0UGdw9vCWSMqkHaLtC08VVKg8eybNs69pbdTaGdoaKQYHVQjFyeybzA=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/PMivT7MJ41M/mqdefault.jpg",
-      "channel": {
-        "handle": "@BrunoMars",
-        "url": "https://www.youtube.com/@BrunoMars"
-      },
-      "genre": "Pop, funk, R&B, soul",
-      "style": "Soul & R&B",
-      "description": "American singer, songwriter, producer, and performer known for combining contemporary pop with funk, soul, and vintage influences.",
-      "palette": [
-        "#2E2418",
-        "#D4A74A",
-        "#F3E7CF"
-      ],
-      "followers": 2650000,
-      "content": [
-        {
-          "id": "thats-what-i-like",
-          "role": "song",
-          "title": "That’s What I Like",
-          "release": "24K Magic",
-          "year": 2016,
-          "blurb": "Smooth, playful R&B with a groove that takes its time.",
-          "mood": [
-            "smooth",
-            "playful",
-            "groove"
-          ],
-          "playback": "youtube",
-          "videoId": "PMivT7MJ41M",
-          "url": "https://www.youtube.com/watch?v=PMivT7MJ41M",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/PMivT7MJ41M",
-          "thumbnail": "https://i.ytimg.com/vi/PMivT7MJ41M/hqdefault.jpg",
-          "preview": {
-            "start": 0
-          }
-        },
-        {
-          "id": "ic-bruno-grenade",
-          "role": "innerCircle",
-          "title": "The Making Of The Grenade Music Video",
-          "caption": "Making the Grenade video.",
-          "context": "Music video set",
-          "playback": "youtube",
-          "videoId": "c-nP-XdX2UM",
-          "url": "https://www.youtube.com/watch?v=c-nP-XdX2UM",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/c-nP-XdX2UM",
-          "thumbnail": "https://i.ytimg.com/vi/c-nP-XdX2UM/hqdefault.jpg",
-          "orientation": "horizontal"
-        }
-      ]
-    },
-    {
-      "id": "hozier",
-      "type": "artist",
-      "name": "Hozier",
-      "profileImage": "https://yt3.googleusercontent.com/SldyypanXJU4RXlUBHym6PlI3rM8yiDLBMIlt3gD1B3rxdkZG5ykUDRjZ2jsMOpEppXMNFm80g=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/NTpbbQUBbuo/mqdefault.jpg",
-      "channel": {
-        "handle": "@hozier",
-        "url": "https://www.youtube.com/@hozier"
-      },
-      "genre": "Alternative, indie rock, soul, folk",
-      "style": "Folk",
-      "description": "Irish singer-songwriter known for soulful vocals, poetic songwriting, and blues- and folk-influenced alternative music.",
-      "palette": [
-        "#2C3A33",
-        "#8C9A7C",
-        "#EAE1CC"
-      ],
-      "followers": 1730000,
-      "content": [
-        {
-          "id": "too-sweet",
-          "role": "song",
-          "title": "Too Sweet",
-          "release": "Unheard",
-          "year": 2024,
-          "blurb": "A swaggering, bluesy groove with a wry smile in every line.",
-          "mood": [
-            "bluesy",
-            "wry",
-            "warm"
-          ],
-          "playback": "youtube",
-          "videoId": "NTpbbQUBbuo",
-          "url": "https://www.youtube.com/watch?v=NTpbbQUBbuo",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/NTpbbQUBbuo",
-          "thumbnail": "https://i.ytimg.com/vi/NTpbbQUBbuo/hqdefault.jpg",
-          "preview": {
-            "start": 0
-          }
-        },
-        {
-          "id": "ic-hozier-someone-new",
-          "role": "innerCircle",
-          "title": "Someone New (Behind The Scenes)",
-          "caption": "Behind the scenes of Someone New.",
-          "context": "Music video set",
-          "playback": "youtube",
-          "videoId": "pTFRSWhwmwA",
-          "url": "https://www.youtube.com/watch?v=pTFRSWhwmwA",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/pTFRSWhwmwA",
-          "thumbnail": "https://i.ytimg.com/vi/pTFRSWhwmwA/hqdefault.jpg",
-          "orientation": "horizontal"
-        }
-      ]
-    },
-    {
-      "id": "diary-of-a-ceo",
+      "id": "houston-we-have-a-podcast",
       "type": "podcast",
-      "name": "The Diary of a CEO",
+      "name": "Houston We Have a Podcast",
+      "profileImage": "media/live/av-houston-we-have-a-podcast.jpg",
+      "genre": "Space & science",
+      "style": "Science",
+      "location": "Houston, TX",
       "hosts": [
-        "Steven Bartlett"
+        "Gary Jordan"
       ],
-      "profileImage": "https://yt3.googleusercontent.com/JHCZDz37bsTmwoE1o4LEodF5vhsHfk29kCEauDTFr27-7hHXsHHvvWGzcG77v32ERrkpfInkGQ=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/VHUrdELKjDw/mqdefault.jpg",
-      "channel": {
-        "handle": "@thediaryofaceo",
-        "url": "https://www.youtube.com/@thediaryofaceo"
-      },
-      "genre": "Business, psychology, personal development",
-      "style": "Business",
-      "description": "Long-form conversations with entrepreneurs, scientists, performers, and influential thinkers about business, relationships, psychology, and personal growth.",
+      "description": "NASA Johnson Space Center's official podcast: long-form conversations with the people who fly, train and plan human spaceflight.",
       "palette": [
-        "#151515",
+        "#0B1F3A",
         "#C9A55B",
         "#F2EBDD"
       ],
-      "followers": 1940000,
+      "followers": 112000,
+      "real": true,
       "content": [
         {
-          "id": "science-of-charisma",
+          "id": "hwhap-shinedown",
           "role": "episode",
-          "title": "The Science of Charisma",
+          "title": "Mental Health with Shinedown",
           "guests": [
-            "Vanessa Van Edwards"
+            "Shinedown"
           ],
-          "topic": "Vanessa Van Edwards on the science of charisma.",
-          "playback": "youtube",
-          "videoId": "VHUrdELKjDw",
-          "url": "https://www.youtube.com/watch?v=VHUrdELKjDw",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/VHUrdELKjDw",
-          "thumbnail": "https://i.ytimg.com/vi/VHUrdELKjDw/hqdefault.jpg",
+          "topic": "In honour of Mental Health Awareness Month, the rock band Shinedown talks with an astronaut and NASA researchers about mental health for touring band members, orbiting astronauts and everyone.",
+          "playback": "video",
+          "src": "media/live/hwhap-shinedown.mp4",
+          "poster": "media/live/hwhap-shinedown.jpg",
+          "duration": 300.0,
           "highlight": {
             "start": 0,
             "end": 180,
-            "title": "The opening"
+            "title": "Touring bands and orbiting astronauts"
+          },
+          "published": "2019-05-17",
+          "credits": {
+            "footage": {
+              "source": "NASA (Johnson Space Center)",
+              "url": "https://images.nasa.gov/details/iss059m261371859_HWHAP_Mental_Health_Shinedown_5-17-19",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
+          }
+        },
+        {
+          "id": "hwhap-artemis-flight-directors",
+          "role": "episode",
+          "title": "Artemis Flight Directors",
+          "guests": [
+            "Rick LaBrode",
+            "Judd Frieling"
+          ],
+          "topic": "Gary Jordan walks through Artemis I, the uncrewed test flight around the Moon, with lead flight director Rick LaBrode and ascent and entry flight director Judd Frieling.",
+          "playback": "video",
+          "src": "media/live/hwhap-artemis-flight-directors.mp4",
+          "poster": "media/live/hwhap-artemis-flight-directors.jpg",
+          "duration": 300.0,
+          "highlight": {
+            "start": 0,
+            "end": 180,
+            "title": "Flying Orion to the Moon"
+          },
+          "published": "2021-08-20",
+          "credits": {
+            "footage": {
+              "source": "NASA (Johnson Space Center)",
+              "url": "https://images.nasa.gov/details/jsc2021m000179_Houston_We_Have_a_Podcast-Artemis_Flight_Directors-MP4",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
           }
         }
       ]
     },
     {
-      "id": "huberman-lab",
+      "id": "rocket-ranch",
       "type": "podcast",
-      "name": "Huberman Lab",
-      "hosts": [
-        "Dr. Andrew Huberman"
-      ],
-      "profileImage": "https://yt3.googleusercontent.com/Y8lhyl8aHY42phxwoAwUqwLGDp-z8nmtj3Z7_JB-Oh4yIZ1OFYb-MlJRuz_oygqsYQU-VgGqiOM=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/4b6bwcWK6GE/mqdefault.jpg",
-      "channel": {
-        "handle": "@hubermanlab",
-        "url": "https://www.youtube.com/@hubermanlab"
-      },
-      "genre": "Science, neuroscience, health, education",
+      "name": "Rocket Ranch",
+      "profileImage": "media/live/av-rocket-ranch.jpg",
+      "genre": "Space & engineering",
       "style": "Science",
-      "description": "Science-focused conversations exploring neuroscience, human behavior, performance, sleep, and practical applications of scientific research.",
+      "location": "Kennedy Space Center, FL",
+      "description": "NASA Kennedy Space Center's podcast about the people and work behind getting to space.",
+      "palette": [
+        "#3A2A1A",
+        "#D9A23F",
+        "#F3E7CF"
+      ],
+      "followers": 41200,
+      "real": true,
+      "content": [
+        {
+          "id": "rocket-ranch-moogega-cooper",
+          "role": "episode",
+          "title": "Landing on Mars, Protecting Mars",
+          "guests": [
+            "Dr. Moogega Cooper"
+          ],
+          "topic": "Dr. Moogega Cooper, planetary protection lead for the Perseverance rover at NASA's Jet Propulsion Laboratory, on the manoeuvres needed to land on Mars and how her team protects it.",
+          "playback": "video",
+          "src": "media/live/rocket-ranch-moogega-cooper.mp4",
+          "poster": "media/live/rocket-ranch-moogega-cooper.jpg",
+          "duration": 300.0,
+          "highlight": {
+            "start": 0,
+            "end": 180,
+            "title": "Keeping Mars clean"
+          },
+          "published": "2021-01-05",
+          "credits": {
+            "footage": {
+              "source": "NASA (Kennedy Space Center)",
+              "url": "https://images.nasa.gov/details/KSC-20210205-VP-FJM04_0001-ROCKETRANCH-MOO-3255897",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "down-to-earth",
+      "type": "podcast",
+      "name": "Down to Earth: Conversations",
+      "profileImage": "media/live/av-down-to-earth.jpg",
+      "genre": "Life in space",
+      "style": "Science",
+      "location": "Houston, TX",
+      "description": "A NASA series pairing astronauts with students to talk about what living and working in space is really like.",
       "palette": [
         "#1D2A36",
-        "#9DB4C0",
+        "#D9B44A",
         "#F0EADF"
       ],
-      "followers": 1520000,
+      "followers": 22800,
+      "real": true,
       "content": [
         {
-          "id": "welcome-to-huberman-lab",
+          "id": "down-to-earth-sensory-overload",
           "role": "episode",
-          "title": "Welcome to the Huberman Lab Podcast",
-          "guests": [],
-          "topic": "What the show covers, and how.",
-          "playback": "youtube",
-          "videoId": "4b6bwcWK6GE",
-          "url": "https://www.youtube.com/watch?v=4b6bwcWK6GE",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/4b6bwcWK6GE",
-          "thumbnail": "https://i.ytimg.com/vi/4b6bwcWK6GE/hqdefault.jpg",
-          "highlight": {
-            "start": 0,
-            "end": 180,
-            "title": "The opening"
-          }
-        }
-      ]
-    },
-    {
-      "id": "rest-is-history",
-      "type": "podcast",
-      "name": "The Rest Is History",
-      "hosts": [
-        "Tom Holland",
-        "Dominic Sandbrook"
-      ],
-      "profileImage": "https://yt3.googleusercontent.com/Ev51Q_PB8htfXMvYKaA8auCNUqwgpmcx2JqdWHTYt_ZugQOjaNuVWJlX26Fzl9eP1Mb4JoUL64U=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/fo4ZR8hpQ3s/mqdefault.jpg",
-      "channel": {
-        "handle": "@restishistorypod",
-        "url": "https://www.youtube.com/@restishistorypod"
-      },
-      "genre": "History, culture, education",
-      "style": "History",
-      "description": "Engaging long-form conversations exploring historical events, people, civilizations, and the cultural forces that shaped the world.",
-      "palette": [
-        "#4A2E22",
-        "#C7964F",
-        "#F1E5CE"
-      ],
-      "followers": 890000,
-      "content": [
-        {
-          "id": "complete-history-of-wine",
-          "role": "episode",
-          "title": "The Complete History of Wine",
-          "guests": [],
-          "topic": "The story of wine, from its beginnings onward.",
-          "playback": "youtube",
-          "videoId": "fo4ZR8hpQ3s",
-          "url": "https://www.youtube.com/watch?v=fo4ZR8hpQ3s",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/fo4ZR8hpQ3s",
-          "thumbnail": "https://i.ytimg.com/vi/fo4ZR8hpQ3s/hqdefault.jpg",
-          "highlight": {
-            "start": 0,
-            "end": 180,
-            "title": "The opening"
-          }
-        }
-      ]
-    },
-    {
-      "id": "lex-fridman",
-      "type": "podcast",
-      "name": "Lex Fridman Podcast",
-      "hosts": [
-        "Lex Fridman"
-      ],
-      "profileImage": "https://yt3.googleusercontent.com/ytc/AIdro_ljfMy9kUR1PH9VRf-XsTsPqFMgORC_zodOQVEAm4hx36lC=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/5zOHSysMmH0/mqdefault.jpg",
-      "channel": {
-        "handle": "@lexfridman",
-        "url": "https://www.youtube.com/@lexfridman"
-      },
-      "genre": "Technology, science, philosophy, culture",
-      "style": "Technology",
-      "description": "In-depth conversations with leading figures in technology, science, philosophy, and society.",
-      "palette": [
-        "#202326",
-        "#A7A9A4",
-        "#EDE9E0"
-      ],
-      "followers": 1260000,
-      "content": [
-        {
-          "id": "zuckerberg-metaverse",
-          "role": "episode",
-          "title": "Technology and the Metaverse",
+          "title": "Sensory Overload",
           "guests": [
-            "Mark Zuckerberg"
+            "Sunita Williams",
+            "Adrien Prouty"
           ],
-          "topic": "Mark Zuckerberg on technology and the metaverse.",
-          "playback": "youtube",
-          "videoId": "5zOHSysMmH0",
-          "url": "https://www.youtube.com/watch?v=5zOHSysMmH0",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/5zOHSysMmH0",
-          "thumbnail": "https://i.ytimg.com/vi/5zOHSysMmH0/hqdefault.jpg",
+          "topic": "Astronaut Sunita Williams and environmental studies student Adrien Prouty explore what it's like to do a spacewalk on the International Space Station.",
+          "playback": "video",
+          "src": "media/live/down-to-earth-sensory-overload.mp4",
+          "poster": "media/live/down-to-earth-sensory-overload.jpg",
+          "duration": 330.0,
           "highlight": {
             "start": 0,
             "end": 180,
-            "title": "The opening"
+            "title": "What a spacewalk feels like"
+          },
+          "published": "2022-05-04",
+          "credits": {
+            "footage": {
+              "source": "NASA (Johnson Space Center)",
+              "url": "https://images.nasa.gov/details/jsc2022m000138_Down_to_Earth_S2_E2_Sensory_Overload-SOCIAL",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
           }
         }
       ]
     },
     {
-      "id": "mel-robbins",
+      "id": "nasa-science-live",
       "type": "podcast",
-      "name": "The Mel Robbins Podcast",
-      "hosts": [
-        "Mel Robbins"
-      ],
-      "profileImage": "https://yt3.googleusercontent.com/0k8TKNmLHIMquCtAvJPHB8u1Uy1vzb89aYghWZY8CRtKOkfMVmTBlUXvW2GoA3nTpVnputYuJw=s240-c-k-c0x00ffffff-no-rj",
-      "profileImageFallback": "https://i.ytimg.com/vi/Ai4iNmW2A1c/mqdefault.jpg",
-      "channel": {
-        "handle": "@melrobbins",
-        "url": "https://www.youtube.com/@melrobbins"
-      },
-      "genre": "Personal development, psychology, relationships, finance",
-      "style": "Personal growth",
-      "description": "Conversations and practical advice about behavior, mindset, relationships, personal growth, and building a better life.",
+      "name": "NASA Science Live",
+      "profileImage": "media/live/av-nasa-science-live.jpg",
+      "genre": "Science",
+      "style": "Science",
+      "location": "Greenbelt, MD",
+      "description": "A live show where NASA scientists answer questions about the universe, from black holes to rising seas.",
       "palette": [
-        "#3B2B3F",
-        "#E0B676",
-        "#F4EADB"
+        "#120E1A",
+        "#E07B39",
+        "#F0E6D8"
       ],
-      "followers": 1380000,
+      "followers": 54300,
+      "real": true,
       "content": [
         {
-          "id": "money-habits-housel",
+          "id": "nasa-science-live-black-holes",
           "role": "episode",
-          "title": "Money Habits and Building Wealth",
-          "guests": [
-            "Morgan Housel"
-          ],
-          "topic": "Morgan Housel on money habits and building wealth.",
-          "playback": "youtube",
-          "videoId": "Ai4iNmW2A1c",
-          "url": "https://www.youtube.com/watch?v=Ai4iNmW2A1c",
-          "embedUrl": "https://www.youtube-nocookie.com/embed/Ai4iNmW2A1c",
-          "thumbnail": "https://i.ytimg.com/vi/Ai4iNmW2A1c/hqdefault.jpg",
+          "title": "Black Hole 101",
+          "guests": [],
+          "topic": "NASA scientists on what black holes are, and how we know they exist even though we can't see them.",
+          "playback": "video",
+          "src": "media/live/nasa-science-live-black-holes.mp4",
+          "poster": "media/live/nasa-science-live-black-holes.jpg",
+          "duration": 300.0,
           "highlight": {
             "start": 0,
             "end": 180,
-            "title": "The opening"
+            "title": "Seeing the invisible"
+          },
+          "published": "2019-11-20",
+          "credits": {
+            "footage": {
+              "source": "NASA (Goddard Space Flight Center)",
+              "url": "https://images.nasa.gov/details/GSFC_20191120_M13480_NSL11",
+              "license": "Public domain (NASA media; no endorsement implied)"
+            }
           }
         }
       ]
     }
   ],
   "listening": {
-    "note": "Simulated listening for the demo user, so these creators sit on the vinyl like the rest. Not real data.",
-    "dua-lipa": {
-      "plays": 64,
-      "completions": 58,
-      "minutes": 196,
-      "repeats": 48,
+    "note": "Simulated listening for the demo user. Not real data.",
+    "ellis-rae": {
+      "plays": 52,
+      "completions": 48,
+      "minutes": 140,
+      "repeats": 44,
       "saves": 3,
-      "concerts": 1
-    },
-    "billie-eilish": {
-      "plays": 58,
-      "completions": 52,
-      "minutes": 180,
-      "repeats": 40,
-      "saves": 3,
-      "concerts": 1
-    },
-    "the-weeknd": {
-      "plays": 44,
-      "completions": 38,
-      "minutes": 150,
-      "repeats": 24,
-      "saves": 2,
-      "concerts": 1
-    },
-    "bruno-mars": {
-      "plays": 40,
-      "completions": 34,
-      "minutes": 132,
-      "repeats": 18,
-      "saves": 2,
-      "concerts": 1
-    },
-    "hozier": {
-      "plays": 50,
-      "completions": 46,
-      "minutes": 170,
-      "repeats": 30,
-      "saves": 2,
       "concerts": 2
     },
-    "diary-of-a-ceo": {
-      "plays": 8,
-      "completions": 5,
-      "minutes": 410,
+    "marisol-vega": {
+      "plays": 34,
+      "completions": 30,
+      "minutes": 118,
+      "repeats": 22,
+      "saves": 2
+    },
+    "nova-lin": {
+      "plays": 26,
+      "completions": 22,
+      "minutes": 74,
+      "repeats": 12,
+      "saves": 2,
+      "concerts": 1
+    },
+    "juniper-lowe": {
+      "plays": 12,
+      "completions": 9,
+      "minutes": 31,
+      "repeats": 4,
       "saves": 1
     },
-    "huberman-lab": {
-      "plays": 5,
-      "completions": 3,
-      "minutes": 290
+    "kairo-banks": {
+      "plays": 9,
+      "completions": 6,
+      "minutes": 22,
+      "repeats": 2
     },
-    "rest-is-history": {
+    "the-halyards": {
       "plays": 6,
-      "completions": 5,
-      "minutes": 330,
+      "completions": 4,
+      "minutes": 14,
+      "repeats": 1
+    },
+    "houston-we-have-a-podcast": {
+      "plays": 9,
+      "completions": 8,
+      "minutes": 262,
+      "saves": 2
+    },
+    "rocket-ranch": {
+      "plays": 4,
+      "completions": 3,
+      "minutes": 96,
       "saves": 1
     },
-    "lex-fridman": {
+    "down-to-earth": {
+      "plays": 3,
+      "completions": 3,
+      "minutes": 17
+    },
+    "nasa-science-live": {
       "plays": 2,
       "completions": 1,
-      "minutes": 140
-    },
-    "mel-robbins": {
-      "plays": 3,
-      "completions": 2,
-      "minutes": 96
+      "minutes": 48
     }
   },
   "follows": [
-    "dua-lipa",
-    "billie-eilish",
-    "the-weeknd",
-    "bruno-mars",
-    "hozier",
-    "diary-of-a-ceo",
-    "rest-is-history"
-  ],
-  "checked": {
-    "on": "2026-11-01",
-    "how": "YouTube oEmbed for every videoId (exists and embeddable), channel pages for profile pictures.",
-    "results": "All 15 embeddable after the Weeknd swap. YouTube's titles for three episodes differ from the labels here, which are kept as short display titles: VHUrdELKjDw is 'Body Language Expert: Stop Using This…' (guest Vanessa Van Edwards), fo4ZR8hpQ3s is 'Tom Holland Explains the Entire History of Wine in 72 Minutes', Ai4iNmW2A1c is 'The Best Financial Advice You'll Ever Hear' (guest Morgan Housel)."
-  }
+    "ellis-rae",
+    "marisol-vega",
+    "nova-lin",
+    "juniper-lowe",
+    "kairo-banks",
+    "the-halyards",
+    "houston-we-have-a-podcast",
+    "rocket-ranch"
+  ]
 }

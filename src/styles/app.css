@@ -6083,3 +6083,30 @@ a.row-link { text-decoration: none; color: inherit; }
     #070c09;
 }
 
+
+/* ---- Credits (Settings) ---- */
+.credits__list {
+  display: grid;
+  gap: 12px;
+  margin: 10px 0 18px;
+}
+.credits__list li {
+  display: grid;
+  gap: 3px;
+}
+.credits__list strong {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ivory, #efe6d3);
+}
+.credits__list em {
+  font-style: normal;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--fg-2);
+}
+.credits__list a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

@@ -195,10 +195,16 @@ export function rankInnerCircle(follows: string[], live: Record<string, Signals>
     if (!rel.has(id)) rel.set(id, relationshipFor(id, follows, live, saved))
     return rel.get(id)!
   }
-  return innerCircle
+  const ranked = innerCircle
     .filter((p) => follows.includes(p.creatorId))
     .map((post) => ({ post, rel: r(post.creatorId) }))
     .sort((a, b) => a.rel.top - b.rel.top || a.post.postedHoursAgo - b.post.postedHoursAgo)
+  // closest creators first, but never the same person twice in a row: one round of everyone, then the next
+  const queues = new Map<string, typeof ranked>()
+  for (const x of ranked) queues.set(x.post.creatorId, [...(queues.get(x.post.creatorId) ?? []), x])
+  const out: typeof ranked = []
+  while (out.length < ranked.length) for (const q of queues.values()) if (q.length) out.push(q.shift()!)
+  return out
 }
 
 export const formatTop = (top: number) =>
