@@ -13,6 +13,8 @@ const icons: Record<StationId, ReactElement> = {
   'inner-circle': <I.StationCircle />,
 }
 const TABS: RouteId[] = ['radio', 'artists', 'inner-circle', 'vinyl']
+/** What each record is called under it, like the labels on a radio's preset keys. */
+const tabLabel = (id: RouteId) => (id === 'vinyl' ? 'Home' : brand.stations[id].label)
 
 /**
  * Every destination is a small record. One tonearm rides the bar like a
@@ -99,13 +101,16 @@ export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: Rout
           className={`tab tab--${id}`}
           aria-current={route === id ? 'page' : undefined}
           onClick={() => onChange(id)}
-          aria-label={id === 'vinyl' ? brand.vinyl.label : brand.stations[id].label}
+          aria-label={tabLabel(id)}
         >
           <span className="tab__disc" ref={(el) => void (discs.current[id] = el)} aria-hidden>
             <span className={`tab__art ${id === 'vinyl' ? 'tab__art--photo' : ''}`} ref={(el) => void (labels.current[id] = el)}>
               {id === 'vinyl' ? avatar && <img src={avatar} alt="" /> : icons[id]}
             </span>
             {id === 'vinyl' && incoming && <i className="tab__lamp" />}
+          </span>
+          <span className="tab__label" aria-hidden>
+            {tabLabel(id)}
           </span>
         </button>
       ))}

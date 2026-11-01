@@ -65,7 +65,7 @@
   --fast: 160ms;
   --med: 320ms;
 
-  --tab-h: 64px;
+  --tab-h: 74px;
   --rail-w: 0px;
   --safe-t: env(safe-area-inset-top, 0px);
   --safe-b: env(safe-area-inset-bottom, 0px);
