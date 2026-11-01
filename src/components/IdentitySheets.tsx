@@ -11,6 +11,7 @@ import type { ExperienceKind, Profile } from '../types'
 import * as I from './Icons'
 import { LiveStats } from './ProfileDetails'
 import { Sheet } from './Sheet'
+import { useSwipeTabs } from '../hooks/useSwipe'
 
 const close = () => useUI.getState().openSheet(null)
 
@@ -225,6 +226,7 @@ export function FriendsSheet() {
   const act = useFriendActions()
   const updates = useUpdates()
   const [tab, setTab] = useState<'updates' | 'friends'>('updates')
+  const swipe = useSwipeTabs(['updates', 'friends'] as const, tab, setTab)
   const ids = (st: string) => Object.keys(friends).filter((id) => friends[id] === st && personById[id])
   // what you've looked at here counts as seen, once you leave
   const seenAll = () => markSeen(updates.list.map((u) => u.key))
@@ -236,12 +238,13 @@ export function FriendsSheet() {
   return (
     <Sheet
       label="Friends"
+      tall
       onClose={() => {
         seenAll()
         close()
       }}
     >
-      <div className="form">
+      <div className="form form--tabs" {...swipe}>
         <div className="seg" role="tablist" aria-label="Friends">
           <button role="tab" aria-selected={tab === 'updates'} onClick={() => setTab('updates')}>
             Updates{updates.unseen + updates.incoming > 0 ? <i className="seg__count">{updates.unseen + updates.incoming}</i> : null}

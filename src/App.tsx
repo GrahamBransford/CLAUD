@@ -1,5 +1,6 @@
 import { AnimatePresence } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { tick } from './lib/haptics'
 import { TabBar } from './components/Chrome'
 import { CommentsSheet } from './components/CommentsSheet'
 import { CommunitiesSheet } from './components/Communities'
@@ -60,12 +61,62 @@ export default function App() {
     setRoute(r)
   }
 
+  // Swipe between pages, like Instagram. On the Radio and in Music a sideways swipe is Save or
+  // Skip, so there a page swipe starts at the screen's edge (like the iPhone's back gesture).
+  // In Inner Circle (which scrolls vertically) and on Home, anywhere works, except on the record,
+  // which you turn by hand.
+  const stage = useRef<HTMLElement>(null)
+  const nav = useRef({ route, blocked: false })
+  useEffect(() => {
+    nav.current = { route, blocked: !!fullEpisode || drive || splash || !!person || !!sheet }
+  })
+  useEffect(() => {
+    const el = stage.current
+    if (!el) return
+    const EDGE = 26
+    let start: { x: number; y: number; t: number; id: number } | null = null
+    const down = (e: PointerEvent) => {
+      start = null
+      const { route: r, blocked } = nav.current
+      if (blocked || (e.target as HTMLElement).closest('.catalog, .hifi__record, input, [data-noswipe]')) return
+      const edge = e.clientX < EDGE || e.clientX > window.innerWidth - EDGE
+      if ((r === 'radio' || r === 'artists') && !edge) return
+      if (r === 'radio' || r === 'artists') e.stopPropagation() // the reel doesn't take an edge swipe as Save or Skip
+      start = { x: e.clientX, y: e.clientY, t: e.timeStamp, id: e.pointerId }
+    }
+    const up = (e: PointerEvent) => {
+      const s = start
+      start = null
+      if (!s || s.id !== e.pointerId) return
+      const dx = e.clientX - s.x
+      const dy = e.clientY - s.y
+      const fast = Math.abs(dx) / Math.max(1, e.timeStamp - s.t) > 0.35
+      if (Math.abs(dx) < (fast ? 45 : 80) || Math.abs(dx) < Math.abs(dy) * 1.6) return
+      const i = ROUTES.indexOf(nav.current.route)
+      const next = ROUTES[i + (dx < 0 ? 1 : -1)]
+      if (next) {
+        tick()
+        go(next)
+      }
+    }
+    const cancel = () => (start = null)
+    el.addEventListener('pointerdown', down, { capture: true })
+    window.addEventListener('pointerup', up)
+    window.addEventListener('pointercancel', cancel)
+    return () => {
+      el.removeEventListener('pointerdown', down, { capture: true })
+      window.removeEventListener('pointerup', up)
+      window.removeEventListener('pointercancel', cancel)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const overlay = !!fullEpisode || drive || splash || !!person
   const isActive = (r: RouteId) => route === r && !overlay
 
   return (
     <div className="app" data-route={route}>
-      <main className="stage">
+      <main className="stage" ref={stage}>
         {ROUTES.map((r) => (
           <div
             key={r}

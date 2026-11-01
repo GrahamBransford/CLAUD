@@ -17,7 +17,7 @@ export function TasteSheet() {
   const twins = useTasteTwins()
   const close = () => useUI.getState().openSheet(null)
   return (
-    <Sheet label="Closest taste" onClose={close}>
+    <Sheet label="Closest taste" onClose={close} tall>
       <div className="details">
         <header className="details__head">
           <h2>Your taste, matched</h2>

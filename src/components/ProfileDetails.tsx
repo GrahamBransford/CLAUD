@@ -8,6 +8,7 @@ import { useUI, type DetailTab } from '../store/useUI'
 import type { Experience } from '../types'
 import * as I from './Icons'
 import { Sheet } from './Sheet'
+import { useSwipeTabs } from '../hooks/useSwipe'
 
 const TABS: { id: DetailTab; label: string }[] = [
   { id: 'listening', label: 'Listening' },
@@ -24,12 +25,19 @@ const TABS: { id: DetailTab; label: string }[] = [
  */
 export function ProfileDetails({ owner, tab: initial }: { owner: Owner; tab: DetailTab }) {
   const profile = useProfile(owner)
-  const [tab, setTab] = useState<DetailTab>(initial)
+  const [tab, setTabState] = useState<DetailTab>(initial)
+  const [dir, setDir] = useState(1)
+  const ids = TABS.map((t) => t.id)
+  const setTab = (t: DetailTab) => {
+    setDir(ids.indexOf(t) >= ids.indexOf(tab) ? 1 : -1)
+    setTabState(t)
+  }
+  const swipe = useSwipeTabs(ids, tab, setTab)
   const close = () => useUI.getState().openSheet(null)
   if (!profile) return null
   const title = owner === 'me' ? 'Your listening' : `${profile.who}’s listening`
   return (
-    <Sheet label={title} onClose={close}>
+    <Sheet label={title} onClose={close} tall>
       <div className="details">
         <header className="details__head">
           <h2>{title}</h2>
@@ -43,7 +51,7 @@ export function ProfileDetails({ owner, tab: initial }: { owner: Owner; tab: Det
             </button>
           ))}
         </nav>
-        <div className="details__body" role="tabpanel">
+        <div className="details__body" role="tabpanel" {...swipe} key={tab} data-dir={dir}>
           {tab === 'listening' && <Listening p={profile} />}
           {tab === 'artists' && <Artists p={profile} />}
           {tab === 'podcasts' && <Podcasts p={profile} />}

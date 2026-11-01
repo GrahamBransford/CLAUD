@@ -7,6 +7,7 @@ import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import * as I from './Icons'
 import { Sheet } from './Sheet'
+import { useSwipeTabs } from '../hooks/useSwipe'
 
 /** Your location, the matches, and what you've joined: shared by everything community-shaped. */
 export function useCommunityMatches() {
@@ -29,6 +30,7 @@ export function useCommunityMatches() {
 export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
   const { all, location } = useCommunityMatches()
   const [tab, setTab] = useState<'for-you' | 'near' | 'online'>('for-you')
+  const swipe = useSwipeTabs(['for-you', 'near', 'online'] as const, tab, setTab)
   const close = () => useUI.getState().openSheet(null)
   const c = creatorId ? creatorById[creatorId] : undefined
 
@@ -36,7 +38,7 @@ export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
     const theirs = all.filter((m) => m.community.creatorId === c.id)
     const scene = all.filter((m) => m.community.creatorId !== c.id && m.near && (m.community.styles[0] === c.style || m.community.styles[1] === c.genre))
     return (
-      <Sheet label={`${c.name}: communities`} onClose={close}>
+      <Sheet label={`${c.name}: communities`} onClose={close} tall>
         <div className="details">
           <header className="details__head">
             <h2>{c.name}’s communities</h2>
@@ -59,8 +61,8 @@ export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
 
   const list = tab === 'near' ? all.filter((m) => m.near).sort((a, b) => (a.km ?? 0) - (b.km ?? 0)) : tab === 'online' ? all.filter((m) => m.community.format !== 'In person') : all.slice(0, 8)
   return (
-    <Sheet label="Communities" onClose={close}>
-      <div className="details">
+    <Sheet label="Communities" onClose={close} tall>
+      <div className="details" {...swipe}>
         <header className="details__head">
           <h2>Communities</h2>
           <span className="details__demo">Matched for you · demo</span>

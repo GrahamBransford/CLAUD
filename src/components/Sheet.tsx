@@ -8,7 +8,7 @@ const EASE = [0.22, 0.7, 0.18, 1] as const
  * down to dismiss from the grab strip at its top (which stays put while you
  * scroll); a tap outside or Escape closes it.
  */
-export function Sheet({ label, onClose, children }: { label: string; onClose: () => void; children: ReactNode }) {
+export function Sheet({ label, onClose, children, tall = false }: { label: string; onClose: () => void; children: ReactNode; tall?: boolean }) {
   const drag = useDragControls()
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
@@ -19,7 +19,7 @@ export function Sheet({ label, onClose, children }: { label: string; onClose: ()
     <div className="sheet-root">
       <motion.div className="sheet-scrim" onClick={onClose} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} />
       <motion.div
-        className="sheet"
+        className={`sheet ${tall ? 'sheet--tall' : ''}`}
         role="dialog"
         aria-modal="true"
         aria-label={label}

@@ -5455,3 +5455,40 @@ button:active:not(:disabled),
     animation-duration: 400ms;
   }
 }
+
+/* ---------- tabbed sheets keep one size; their sections slide in from the side you swiped ---------- */
+.sheet--tall {
+  height: 86%;
+  max-height: 86%;
+}
+@media (min-width: 900px) {
+  .sheet--tall {
+    height: min(86%, 780px);
+  }
+}
+.details__body {
+  animation: tab-in 260ms cubic-bezier(0.2, 0.75, 0.15, 1) both;
+}
+.details__body[data-dir='-1'] {
+  animation-name: tab-in-back;
+}
+@keyframes tab-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+}
+@keyframes tab-in-back {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+}
+.details,
+.form--tabs {
+  min-height: 100%;
+}
+/* the front scrolls vertically only, so a sideways swipe reaches the page */
+.hifi__nameplate {
+  touch-action: pan-y;
+}
