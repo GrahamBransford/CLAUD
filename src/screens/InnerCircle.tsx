@@ -106,6 +106,10 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
   const player = usePlayerRef()
   const flash = useTapFlash()
   const [playing, setPlaying] = useState(false)
+  const [burst, setBurst] = useState<{ n: number; x: number; y: number } | null>(null)
+  const lastTap = useRef(0)
+  const root = useRef<HTMLDivElement>(null)
+  const single = useRef(0)
   const isVideo = post.media.kind === 'video' || post.media.kind === 'youtube'
 
   useEffect(() => {
@@ -160,10 +164,40 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
     } else p.pause()
   }
 
+  // Double-tap to love, like Instagram: a second tap within a beat loves the moment (never
+  // un-loves it), pulses the screen's edges in the love button's bronze and blooms a heart
+  // where you tapped. A single tap still plays and pauses, once it's clear it wasn't a double.
+  const onTap = (e: MouseEvent | TouchEvent | PointerEvent, info: { point: { x: number; y: number } }) => {
+    if ((e.target as Element).closest('button')) return
+    const now = performance.now()
+    window.clearTimeout(single.current)
+    if (now - lastTap.current < 300) {
+      lastTap.current = 0
+      // where the finger was, inside this moment (framer gives page coordinates)
+      const box = root.current?.getBoundingClientRect()
+      const x = box ? info.point.x - window.scrollX - box.left : 0
+      const y = box ? info.point.y - window.scrollY - box.top : 0
+      setBurst({ n: (burst?.n ?? 0) + 1, x, y })
+      tick('firm')
+      if (!useStore.getState().reacted.includes(post.id)) toggleReaction(post.id, post.creatorId)
+      return
+    }
+    lastTap.current = now
+    single.current = window.setTimeout(tap, 260)
+  }
+  useEffect(() => () => window.clearTimeout(single.current), [])
+
   if (!c) return null
   const following = follows.includes(c.id)
   return (
-    <motion.div className={`moment moment--${post.media.kind}`} onTap={(e) => !(e.target as Element).closest('button') && tap()}>
+    <motion.div ref={root} className={`moment moment--${post.media.kind}`} onTap={onTap}>
+      {burst && (
+        <span key={burst.n} className="moment__loved" aria-hidden>
+          <span className="moment__heart" style={{ left: burst.x, top: burst.y }}>
+            <I.Love size={92} on />
+          </span>
+        </span>
+      )}
       <MediaSurface source={post.media} className="moment__media" onPlayer={isVideo ? player.onPlayer : () => undefined} />
       <div className="reel__scrim" aria-hidden />
       <TapFlash state={flash.state} />
