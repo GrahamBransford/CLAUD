@@ -1,35 +1,58 @@
-/*
- * CIRCA — a record player, not a website.
- * Ground is espresso (the plinth); cherry is the brand and every "yes";
- * mustard is the needle and the centre; cream is type and paper.
- * Turquoise and orange appear only as rare accents.
- */
+/* CIRCA — a lacquered green radiogram with brass and rose-gold fittings. */
 :root {
-  --espresso: #15100d;
-  --espresso-2: #221a15;
-  --espresso-3: #33281f;
-  --cherry: #c21f32;
-  --cherry-deep: #8f1424;
-  --mustard: #f2b42c;
-  --orange: #ee7a2b;
-  --turquoise: #4fc1b4;
-  --navy: #13203e;
-  --cream: #f6ecd8;
-  --cream-2: #ead9b8;
-  --ink: #1d1612;
-  --ink-2: #4a3d33;
-  --ink-3: #85766a;
+  /*
+   * Lacquered racing green is the ground; antique brass and rose gold are the
+   * hardware; ivory is type and dial faces; walnut and leather tan are the
+   * furniture around it. Black only for grilles and vinyl.
+   */
+  --green-950: #06120c;
+  --green-900: #0b1d14;
+  --green-800: #10281b;
+  --green-700: #163524;
+  --green-600: #1d4530;
+  --green-500: #28593f;
+  --green-hi: #3c7655;
+  --brass: #c9a75e;
+  --brass-hi: #eedca3;
+  --brass-lo: #86682f;
+  --rose: #d39b7a;
+  --rose-hi: #f3cdb2;
+  --rose-lo: #8c573e;
+  --ivory: #f4ead2;
+  --ivory-2: #e6d6b2;
+  --tan: #cdb185;
+  --walnut: #5b2615;
+  --walnut-hi: #8c4126;
+  --grille: #0e0c0a;
+
+  /* older names, now in the new palette */
+  --espresso: var(--green-900);
+  --espresso-2: var(--green-800);
+  --espresso-3: var(--green-700);
+  --cherry: var(--rose);
+  --cherry-deep: var(--rose-lo);
+  --mustard: var(--brass);
+  --orange: var(--rose-hi);
+  --turquoise: var(--brass-hi);
+  --navy: var(--green-950);
+  --cream: var(--ivory);
+  --cream-2: var(--ivory-2);
+  --ink: #0f1a13;
+  --ink-2: #34453a;
+  --ink-3: #6e7b70;
   --vinyl: #0b0a0c;
 
-  --fg: var(--cream);
-  --fg-2: rgba(246, 236, 216, 0.72);
-  --fg-3: rgba(246, 236, 216, 0.45);
-  --hair: rgba(246, 236, 216, 0.14);
-  --bar: #19120e;
+  --fg: var(--ivory);
+  --fg-2: rgba(244, 234, 210, 0.74);
+  --fg-3: rgba(244, 234, 210, 0.48);
+  --hair: rgba(201, 167, 94, 0.22);
+  --bar: #0a1a11;
 
   /* materials */
-  --bezel: conic-gradient(from 210deg, #8d8f94, #f4f3ef, #a3a5aa, #5c5e64, #dededa, #8d8f94);
-  --bezel-brass: conic-gradient(from 210deg, #9c6b14, #ffe7a3, #d6a032, #7a4f0c, #f6cf6a, #9c6b14);
+  --lacquer: linear-gradient(180deg, #23513a 0%, #173826 38%, #10291c 70%, #0c2015 100%);
+  --bezel: conic-gradient(from 210deg, #8c573e, #f6d6bf, #c48a69, #6e4130, #ecc0a2, #8c573e);
+  --bezel-brass: conic-gradient(from 210deg, #86682f, #f4e4b0, #c9a75e, #6a5023, #e6cf8e, #86682f);
+  --pinstripe: linear-gradient(90deg, #86682f, #eedca3 30%, #c9a75e 60%, #86682f);
 
   --display: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --serif: 'Fraunces Variable', 'Fraunces', Georgia, serif;

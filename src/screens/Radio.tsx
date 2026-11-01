@@ -6,7 +6,7 @@ import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
 import { MediaSurface } from '../components/MediaSurface'
 import { Reel, type Move } from '../components/Reel'
-import { creatorById, episodes } from '../data'
+import { creatorById } from '../data'
 import { useKeys } from '../hooks/useKeys'
 import { useMediaSession } from '../hooks/useMediaSession'
 import { useItemError } from '../hooks/useRelationship'
@@ -14,8 +14,9 @@ import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlaybac
 import { PODCAST_DESTINATION } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { tapWasUnlock, useUI } from '../store/useUI'
+import { radioQueue, type RadioEntry } from '../lib/radio'
 import type { Cue, Episode, SaveMethod } from '../types'
-import { AUTO_SAVE_RATIO, usePlayerRef } from './Artists'
+import { AUTO_SAVE_RATIO, usePlayerRef, useSaveSong } from './Artists'
 
 /** Audio-only episodes are presented as audio, never dressed up as video. */
 export const isVideo = (ep: Episode) => ep.media.kind === 'video' || ep.media.kind === 'youtube'
@@ -70,21 +71,33 @@ export function Caption({ cues, time }: { cues?: Cue[]; time: number }) {
   )
 }
 
-export function Podcasts({ active }: { active: boolean }) {
-  const index = useStore((s) => s.podcastsIndex)
-  const setIndex = useStore((s) => s.setPodcastsIndex)
+/**
+ * The Radio: music and conversations in one stream, like the wireless on the
+ * sideboard. A record, then a podcast highlight, then another record. Swipe,
+ * scrub and save work exactly as on the single-kind stations; what changes is
+ * only what plays next.
+ */
+export function Radio({ active }: { active: boolean }) {
+  const queue = radioQueue()
+  const index = useStore((s) => s.radioIndex)
+  const setIndex = useStore((s) => s.setRadioIndex)
   const recordListen = useStore((s) => s.recordListen)
   const saved = useStore((s) => s.saved)
   const openFull = useUI((s) => s.openFullEpisode)
   const saveEpisode = useSaveEpisode()
+  const saveSong = useSaveSong()
   const [move, setMove] = useState<Move>('next')
   const player = usePlayerRef()
   const flash = useTapFlash()
 
-  const ep = episodes[index] as Episode | undefined
-  const show = ep ? creatorById[ep.creatorId] : undefined
-  const isSaved = ep ? saved.some((s) => s.id === ep.id) : false
-  const [error, setError] = useItemError(ep?.id)
+  const entry = queue[index] as RadioEntry | undefined
+  const song = entry?.kind === 'song' ? entry.song : undefined
+  const ep = entry?.kind === 'episode' ? entry.ep : undefined
+  const item = song ?? ep
+  const who = entry ? creatorById[entry.creatorId] : undefined
+  const isSaved = entry ? saved.some((s) => s.id === entry.id) : false
+  const [error, setError] = useItemError(entry?.id)
+  const window_ = song ? song.preview : ep?.highlight
 
   const go = useCallback(
     (m: Move) => {
@@ -94,26 +107,37 @@ export function Podcasts({ active }: { active: boolean }) {
     [index, setIndex],
   )
 
+  const save = useCallback(
+    (via: SaveMethod) => {
+      if (song) saveSong(song, via)
+      else if (ep) saveEpisode(ep, via)
+    },
+    [song, ep, saveSong, saveEpisode],
+  )
+
   const onWindowEnd = useCallback(
     ({ listened, length }: WindowEnd) => {
-      if (!ep) return
+      if (!item) return
       const through = listened / length >= AUTO_SAVE_RATIO
-      recordListen(ep.creatorId, ep.id, listened, through)
-      if (through) {
+      recordListen(item.creatorId, item.id, listened, through)
+      if (song) {
+        if (through) saveSong(song, 'listened')
+        window.setTimeout(() => go('next'), 900)
+      } else if (ep && through) {
         // you stayed for the whole highlight: the full episode simply continues
         openFull({ episodeId: ep.id, startAt: ep.highlight.end, reason: 'auto' })
         setMove('next')
         setIndex(index + 1)
       } else go('next')
     },
-    [ep, recordListen, openFull, setIndex, index, go],
+    [item, song, ep, recordListen, saveSong, openFull, setIndex, index, go],
   )
 
   const pb = useWindowedPlayback({
     ref: player.ref,
-    itemKey: `${ep?.id ?? 'end'}:${player.version}`,
-    start: ep?.highlight.start ?? 0,
-    end: ep?.highlight.end ?? 1,
+    itemKey: `${entry?.id ?? 'end'}:${player.version}`,
+    start: window_?.start ?? 0,
+    end: window_?.end ?? 1,
     autoplay: true,
     active: active && !error,
     onWindowEnd,
@@ -121,13 +145,13 @@ export function Podcasts({ active }: { active: boolean }) {
 
   const onMove = useCallback(
     (m: Move) => {
-      if (!ep) return
+      if (!item) return
       const heard = pb.listened()
-      if (m !== 'prev' && heard > 3 && !pb.ended) recordListen(ep.creatorId, ep.id, heard, false)
-      if (m === 'save') saveEpisode(ep, 'swipe')
+      if (m !== 'prev' && heard > 3 && !pb.ended) recordListen(item.creatorId, item.id, heard, false)
+      if (m === 'save') save('swipe')
       go(m)
     },
-    [ep, pb, recordListen, saveEpisode, go],
+    [item, pb, recordListen, save, go],
   )
 
   const full = useCallback(() => {
@@ -147,7 +171,7 @@ export function Podcasts({ active }: { active: boolean }) {
     pb.toggle()
   }
 
-  useKeys(active && !!ep, {
+  useKeys(active && !!item, {
     ArrowRight: () => onMove('save'),
     ArrowLeft: () => onMove('skip'),
     ArrowDown: () => onMove('next'),
@@ -157,59 +181,70 @@ export function Podcasts({ active }: { active: boolean }) {
   })
 
   useMediaSession(
-    active && !!ep,
-    ep && show
-      ? { title: ep.title, artist: show.name, artwork: ep.artwork, onPlay: pb.play, onPause: pb.pause, onNext: () => onMove('skip') }
+    active && !!item,
+    item && who
+      ? { title: item.title, artist: who.name, artwork: item.artwork, onPlay: pb.play, onPause: pb.pause, onNext: () => onMove('skip'),
+          onPrevious: () => index > 0 && onMove('prev') }
       : null,
   )
 
-  if (!ep || !show)
+  if (!entry || !item || !who)
     return (
       <section className="screen screen--end">
         <div className="end">
           <span className="end__disc"><RecordC spinning /></span>
-          <p className="end__title">That&rsquo;s every conversation for today.</p>
+          <p className="end__title">That&rsquo;s the end of today&rsquo;s broadcast.</p>
           <button className="pill" onClick={() => { setMove('prev'); setIndex(0) }}>Start again</button>
         </div>
       </section>
     )
 
-  const h = ep.highlight
-  const video = isVideo(ep)
-  const embed = ep.media.kind === 'youtube' || ep.media.kind === 'spotify'
+  const media = item.media
+  const embed = media.kind === 'youtube' || media.kind === 'spotify'
+  const video = ep ? isVideo(ep) : true
   return (
-    <section className="screen" aria-label="Podcasts">
+    <section className="screen" aria-label="Radio">
       <AnimatePresence custom={move} initial={false} mode="popLayout">
-        <Reel key={ep.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
-          {video ? (
+        <Reel key={entry.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
+          {song ? (
+            <MediaSurface source={song.media} start={song.preview.start} className="reel__media" onPlayer={player.onPlayer} onError={setError} />
+          ) : ep && video ? (
             // the picture sits dead centre, with its subtitles on it like television
             <div className="reel__frame">
-              <MediaSurface source={ep.media} start={h.start} className="reel__media" onPlayer={player.onPlayer} onError={setError} />
-              {!embed && <Caption cues={ep.cues} time={h.start + pb.time} />}
+              <MediaSurface source={ep.media} start={ep.highlight.start} className="reel__media" onPlayer={player.onPlayer} onError={setError} />
+              {!embed && <Caption cues={ep.cues} time={ep.highlight.start + pb.time} />}
             </div>
           ) : (
-            <div className="reel__audio">
-              <span className={`turntable ${pb.playing ? 'is-playing' : ''}`}>
-                <img src={ep.artwork} alt="" />
-              </span>
-              <MediaSurface source={ep.media} onPlayer={player.onPlayer} onError={setError} />
-            </div>
+            ep && (
+              <div className="reel__audio">
+                <span className={`turntable ${pb.playing ? 'is-playing' : ''}`}>
+                  <img src={ep.artwork} alt="" />
+                </span>
+                <MediaSurface source={ep.media} onPlayer={player.onPlayer} onError={setError} />
+              </div>
+            )
           )}
           <div className="reel__scrim" aria-hidden />
           <div className="reel__meta">
-            {!video && !embed && <Caption cues={ep.cues} time={h.start + pb.time} />}
-            <button className="reel__who" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: show.id })}>
-              <span>{show.name}</span>
-            </button>
-            <p className="reel__title reel__title--ep">{ep.title}</p>
+            {ep && !video && !embed && <Caption cues={ep.cues} time={ep.highlight.start + pb.time} />}
+            <div className="reel__line">
+              <button className="reel__who" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: who.id })}>
+                <span>{who.name}</span>
+              </button>
+              {/* what's on air: a record or a conversation */}
+              <span className="reel__kind">{song ? 'Music' : 'Podcast'}</span>
+            </div>
+            <p className={`reel__title ${ep ? 'reel__title--ep' : ''}`}>{item.title}</p>
           </div>
-          {/* the long form, quietly to one side */}
-          <div className="rail rail--full">
-            <button className="rail__btn" onClick={(e) => { e.stopPropagation(); full() }} aria-label="Full episode">
-              <I.Expand size={22} />
-            </button>
-            <span className="rail__label" aria-hidden>Full episode</span>
-          </div>
+          {ep && (
+            // the long form, quietly to one side
+            <div className="rail rail--full">
+              <button className="rail__btn" onClick={(e) => { e.stopPropagation(); full() }} aria-label="Full episode">
+                <I.Expand size={22} />
+              </button>
+              <span className="rail__label" aria-hidden>Full episode</span>
+            </div>
+          )}
           {error && <p className="reel__error">{error}</p>}
         </Reel>
       </AnimatePresence>
@@ -224,7 +259,7 @@ export function Podcasts({ active }: { active: boolean }) {
       </div>
 
       <div className="scrubber">
-        <Dial value={pb.time} max={pb.length} onSeek={pb.seek} label={`${ep.title} highlight`} tone="dark" showTimes={false} size="slim" />
+        <Dial value={pb.time} max={pb.length} onSeek={pb.seek} label={`${item.title} ${song ? 'preview' : 'highlight'}`} tone="dark" showTimes={false} size="slim" />
       </div>
     </section>
   )

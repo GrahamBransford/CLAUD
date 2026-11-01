@@ -21,6 +21,8 @@ interface PersistedState {
   lastTop: Record<string, number>
   artistsIndex: number
   podcastsIndex: number
+  /** Position in the Radio's mixed running order. */
+  radioIndex: number
   circleIndex: number
   episodeProgress: Record<string, number>
   streaming: StreamingProviderId | null
@@ -49,6 +51,7 @@ interface PersistedState {
   setLastTop: (m: Record<string, number>) => void
   setArtistsIndex: (i: number) => void
   setPodcastsIndex: (i: number) => void
+  setRadioIndex: (i: number) => void
   setCircleIndex: (i: number) => void
   setEpisodeProgress: (id: string, t: number) => void
   setStreaming: (p: StreamingProviderId | null) => void
@@ -75,6 +78,7 @@ const initial = () => ({
   lastTop: {} as Record<string, number>,
   artistsIndex: 0,
   podcastsIndex: 0,
+  radioIndex: 0,
   circleIndex: 0,
   episodeProgress: {} as Record<string, number>,
   streaming: 'spotify' as StreamingProviderId | null,
@@ -162,6 +166,7 @@ export const createStore = (set: string) =>
         setLastTop: (lastTop) => setState({ lastTop }),
         setArtistsIndex: (i) => setState({ artistsIndex: Math.max(0, i) }),
         setPodcastsIndex: (i) => setState({ podcastsIndex: Math.max(0, i) }),
+        setRadioIndex: (i) => setState({ radioIndex: Math.max(0, i) }),
         setCircleIndex: (i) => setState({ circleIndex: Math.max(0, i) }),
         setEpisodeProgress: (id, t) => setState((st) => ({ episodeProgress: { ...st.episodeProgress, [id]: t } })),
         setStreaming: (p) => setState({ streaming: p }),

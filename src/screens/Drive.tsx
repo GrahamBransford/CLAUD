@@ -4,24 +4,25 @@ import { useCallback, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { MediaSurface } from '../components/MediaSurface'
 import { brand } from '../config/brand'
-import { creatorById, episodes, songs } from '../data'
+import { creatorById, songs } from '../data'
 import { useMediaSession } from '../hooks/useMediaSession'
 import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
+import { radioQueue, type RadioEntry } from '../lib/radio'
 import { PODCAST_DESTINATION, PROVIDERS } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import type { Episode, MediaSource } from '../types'
 import { AUTO_SAVE_RATIO, usePlayerRef, useSaveSong } from './Artists'
-import { useSaveEpisode } from './Podcasts'
+import { useSaveEpisode } from './Radio'
 
-type Station = 'artists' | 'podcasts'
+type Station = 'radio' | 'artists'
 
 /** Audio-only sources. YouTube is never used here: its terms forbid hidden-video playback. */
 const audioOf = (m?: MediaSource) => (m && (m.kind === 'audio' || m.kind === 'spotify') ? m : undefined)
 const episodeAudio = (e: Episode) => audioOf(e.audio) ?? audioOf(e.media)
-const driveSongs = () => songs.filter((s) => audioOf(s.audio) ?? audioOf(s.media))
-const driveEpisodes = () => episodes.filter((e) => episodeAudio(e))
+const songEntries = (): RadioEntry[] => songs.map((song) => ({ kind: 'song', id: song.id, creatorId: song.creatorId, song }))
+const playable = (e: RadioEntry) => (e.kind === 'song' ? !!(audioOf(e.song.audio) ?? audioOf(e.song.media)) : !!episodeAudio(e.ep))
 
 /**
  * Simulated CarPlay / Android Auto surface: no moving video, still artwork,
@@ -33,7 +34,7 @@ export function Drive({ initial }: { initial: Station }) {
     <motion.div className="drive" role="dialog" aria-label="Drive mode" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
       <header className="drive__top">
         <div className="drive__stations" role="tablist">
-          {(['artists', 'podcasts'] as Station[]).map((s) => (
+          {(['radio', 'artists'] as Station[]).map((s) => (
             <button key={s} role="tab" aria-selected={station === s} onClick={() => setStation(s)}>
               {brand.stations[s].label}
             </button>
@@ -48,70 +49,67 @@ export function Drive({ initial }: { initial: Station }) {
   )
 }
 
-function DrivePlayer({ station }: { station: 'artists' | 'podcasts' }) {
+function DrivePlayer({ station }: { station: Station }) {
   const [phase, setPhase] = useState<'highlight' | 'full'>('highlight')
   const [banner, setBanner] = useState<string | null>(null)
-  const sIndex = useStore((s) => s.artistsIndex)
-  const pIndex = useStore((s) => s.podcastsIndex)
-  const setS = useStore((s) => s.setArtistsIndex)
-  const setP = useStore((s) => s.setPodcastsIndex)
+  const index = useStore((s) => (station === 'radio' ? s.radioIndex : s.artistsIndex))
+  const setIndex = useStore((s) => (station === 'radio' ? s.setRadioIndex : s.setArtistsIndex))
   const recordListen = useStore((s) => s.recordListen)
   const saved = useStore((s) => s.saved)
   const saveSong = useSaveSong()
   const saveEpisode = useSaveEpisode()
   const player = usePlayerRef()
 
-  const sList = driveSongs()
-  const pList = driveEpisodes()
+  // The station's running order, and the part of it that can play in the car.
+  const all = station === 'radio' ? radioQueue() : songEntries()
+  const list = all.filter(playable)
   // Start from the station's current item if it can play in the car, else the first that can.
-  const song = sList.find((s) => s === songs[sIndex]) ?? sList[0]
-  const ep = pList.find((e) => e === episodes[pIndex]) ?? pList[0]
-  const [error, setError] = useItemError(`${station}:${song?.id}:${ep?.id}`)
+  const cur = list.find((e) => e.id === all[index]?.id) ?? list[0]
+  const song = cur?.kind === 'song' ? cur.song : undefined
+  const ep = cur?.kind === 'episode' ? cur.ep : undefined
+  const [error, setError] = useItemError(`${station}:${cur?.id}`)
 
   const flash = (msg: string) => {
     setBanner(msg)
     window.setTimeout(() => setBanner((b) => (b === msg ? null : b)), 2600)
   }
 
-  const nextSong = useCallback(() => {
-    const i = sList.indexOf(song)
-    setS(songs.indexOf(sList[(i + 1) % sList.length]))
-  }, [sList, song, setS])
-  const nextEpisode = useCallback(() => {
+  const next = useCallback(() => {
     setPhase('highlight')
-    const i = pList.indexOf(ep)
-    setP(episodes.indexOf(pList[(i + 1) % pList.length]))
-  }, [pList, ep, setP])
+    const n = list[(list.indexOf(cur) + 1) % list.length]
+    setIndex(all.findIndex((e) => e.id === n.id))
+  }, [list, all, cur, setIndex])
 
   const onWindowEnd = useCallback(
     ({ listened, length }: WindowEnd) => {
       const ratio = listened / length
-      if (station === 'artists') {
+      if (song) {
         recordListen(song.creatorId, song.id, listened, ratio >= AUTO_SAVE_RATIO)
         if (ratio >= AUTO_SAVE_RATIO && saveSong(song, 'listened')) flash('Saved. You listened all the way through')
-        window.setTimeout(nextSong, 1800)
-      } else if (phase === 'highlight') {
+        window.setTimeout(next, 1800)
+      } else if (!ep) return
+      else if (phase === 'highlight') {
         recordListen(ep.creatorId, ep.id, listened, ratio >= AUTO_SAVE_RATIO)
         if (ratio >= AUTO_SAVE_RATIO) {
           flash('Continuing the full episode')
           setPhase('full')
-        } else nextEpisode()
+        } else next()
       } else {
         recordListen(ep.creatorId, ep.id, listened, ratio > 0.85)
-        nextEpisode()
+        next()
       }
     },
-    [station, phase, song, ep, recordListen, saveSong, nextSong, nextEpisode],
+    [phase, song, ep, recordListen, saveSong, next],
   )
 
-  const source = station === 'artists' ? song && (audioOf(song.audio) ?? audioOf(song.media)) : ep && episodeAudio(ep)
+  const source = song ? audioOf(song.audio) ?? audioOf(song.media) : ep && episodeAudio(ep)
   const hl = ep ? (ep.audioHighlight ?? ep.highlight) : undefined
   const pb = useWindowedPlayback({
     ref: player.ref,
-    itemKey: `${station}:${station === 'artists' ? song?.id : ep?.id}:${phase}:${player.version}`,
-    start: station === 'artists' ? (song?.preview.start ?? 0) : phase === 'highlight' ? (hl?.start ?? 0) : 0,
-    end: station === 'artists' ? (song?.preview.end ?? 1) : phase === 'highlight' ? (hl?.end ?? 1) : (ep?.duration ?? 7200),
-    initialOffset: station === 'podcasts' && phase === 'full' ? (hl?.end ?? 0) : 0,
+    itemKey: `${station}:${cur?.id}:${phase}:${player.version}`,
+    start: song ? song.preview.start : phase === 'highlight' ? (hl?.start ?? 0) : 0,
+    end: song ? song.preview.end : phase === 'highlight' ? (hl?.end ?? 1) : (ep?.duration ?? 7200),
+    initialOffset: ep && phase === 'full' ? (hl?.end ?? 0) : 0,
     autoplay: true,
     active: !error,
     onWindowEnd,
@@ -119,25 +117,25 @@ function DrivePlayer({ station }: { station: 'artists' | 'podcasts' }) {
 
   const skip = () => {
     const heard = pb.listened()
-    if (station === 'artists' && song) {
+    if (song) {
       if (heard > 3) recordListen(song.creatorId, song.id, heard, false)
-      nextSong()
+      next()
     } else if (ep) {
       if (heard > 3) recordListen(ep.creatorId, ep.id, heard, false)
-      nextEpisode()
+      next()
     }
   }
   const keep = () => {
-    if (station === 'artists' && song) {
+    if (song) {
       if (saveSong(song, 'button')) flash(`Saved to ${PROVIDERS[useStore.getState().streaming ?? 'spotify'].name}`)
-      nextSong()
+      next()
     } else if (ep) {
       saveEpisode(ep, 'button')
       flash(`Saved to ${PODCAST_DESTINATION.name}`)
     }
   }
 
-  const item = station === 'artists' ? song : ep
+  const item = song ?? ep
   useMediaSession(!!item, item ? {
     title: item.title,
     artist: creatorById[item.creatorId]?.name ?? '',
@@ -155,7 +153,7 @@ function DrivePlayer({ station }: { station: 'artists' | 'podcasts' }) {
     )
 
   const who = creatorById[item.creatorId]?.name
-  const mode = station === 'artists' ? 'Preview' : phase === 'highlight' ? 'Highlight' : 'Full episode'
+  const mode = song ? (station === 'radio' ? 'Music' : 'Preview') : phase === 'highlight' ? 'Highlight' : 'Full episode'
   const isSaved = saved.some((x) => x.id === item.id)
 
   return (

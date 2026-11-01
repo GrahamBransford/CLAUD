@@ -11,7 +11,7 @@ import { formatTime } from '../lib/media'
 import { useStore } from '../store/useStore'
 import { useUI, type FullEpisodeRequest } from '../store/useUI'
 import { usePlayerRef } from './Artists'
-import { Caption, isVideo, useSaveEpisode } from './Podcasts'
+import { Caption, isVideo, useSaveEpisode } from './Radio'
 
 
 const announced = new WeakSet<FullEpisodeRequest>()

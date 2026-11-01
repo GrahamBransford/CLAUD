@@ -4,6 +4,7 @@ import { useRelationship } from '../hooks/useRelationship'
 import { formatTop } from '../lib/affinity'
 import { topListeners } from '../lib/social'
 import { useFollow } from '../screens/InnerCircle'
+import { radioIndexOf } from '../lib/radio'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import * as I from './Icons'
@@ -32,8 +33,8 @@ export function CreatorSheet({ creatorId }: { creatorId: string }) {
       useStore.getState().setArtistsIndex(songs.indexOf(song))
       window.location.hash = 'artists'
     } else if (ep) {
-      useStore.getState().setPodcastsIndex(episodes.indexOf(ep))
-      window.location.hash = 'podcasts'
+      useStore.getState().setRadioIndex(Math.max(0, radioIndexOf(ep.id)))
+      window.location.hash = 'radio'
     }
   }
   const s = rel.signals

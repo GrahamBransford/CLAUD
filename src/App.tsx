@@ -13,14 +13,15 @@ import { Artists } from './screens/Artists'
 import { Drive } from './screens/Drive'
 import { FullEpisode } from './screens/FullEpisode'
 import { InnerCircle } from './screens/InnerCircle'
-import { Podcasts } from './screens/Podcasts'
 import { MyVinyl } from './screens/MyVinyl'
+import { Radio } from './screens/Radio'
 import { useUI } from './store/useUI'
 
 const fromHash = (): RouteId => {
   const h = window.location.hash.replace('#', '')
   if (h === 'home') return 'vinyl' // earlier links
-  return ROUTES.includes(h as RouteId) ? (h as RouteId) : 'artists'
+  if (h === 'podcasts') return 'radio' // podcasts now play on the Radio
+  return ROUTES.includes(h as RouteId) ? (h as RouteId) : 'radio'
 }
 
 export default function App() {
@@ -63,8 +64,8 @@ export default function App() {
       <main className="stage">
         {ROUTES.map((r) => (
           <div key={r} className="view" data-active={route === r ? '' : undefined} aria-hidden={route !== r}>
+            {r === 'radio' && <Radio active={isActive('radio')} />}
             {r === 'artists' && <Artists active={isActive('artists')} />}
-            {r === 'podcasts' && <Podcasts active={isActive('podcasts')} />}
             {r === 'inner-circle' && <InnerCircle active={isActive('inner-circle')} />}
             {r === 'vinyl' && <MyVinyl active={isActive('vinyl')} />}
           </div>
@@ -84,7 +85,7 @@ export default function App() {
       <AnimatePresence>
         {fullEpisode && <FullEpisode key={`${fullEpisode.episodeId}-${fullEpisode.startAt}`} request={fullEpisode} />}
       </AnimatePresence>
-      <AnimatePresence>{drive && <Drive key="drive" initial={route === 'podcasts' ? 'podcasts' : 'artists'} />}</AnimatePresence>
+      <AnimatePresence>{drive && <Drive key="drive" initial={route === 'artists' ? 'artists' : 'radio'} />}</AnimatePresence>
       {splash && <Splash onDone={() => setSplash(false)} />}
       <Toasts />
     </div>

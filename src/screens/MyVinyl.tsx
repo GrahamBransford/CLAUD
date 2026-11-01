@@ -115,18 +115,16 @@ export function MyVinyl({ active }: { active: boolean }) {
                 <I.Search size={18} />
               </span>
             </button>
-            {/* the deck's own buttons: friends to the left of the record, live to the right */}
-            <DeckButton at="bl1" label={`Friends: ${friendCount}${incoming ? `, ${incoming} new request` : ''}`} lamp={incoming > 0} onClick={() => open({ kind: 'friends' })}>
-              <I.People size={19} />
-            </DeckButton>
-            <DeckButton at="br1" label="Live: shows and experiences" onClick={() => open({ kind: 'live' })}>
-              <I.Ticket size={19} />
-            </DeckButton>
           </>
           }
           onMarker={(id) => open({ kind: 'creator', creatorId: id })}
         >
           <div className="plate">
+            {/* the fascia: a knob either side of your nameplate, like the radio's tuning and volume */}
+            <div className="plate__fascia">
+            <Knob label={`Friends: ${friendCount}${incoming ? `, ${incoming} new request` : ''}`} lamp={incoming > 0} onClick={() => open({ kind: 'friends' })}>
+              <I.People size={15} />
+            </Knob>
             <div className="plate__id">
               <h1 className="plate__name">{profile.name || 'Your name'}</h1>
               <p className="plate__meta">
@@ -143,6 +141,10 @@ export function MyVinyl({ active }: { active: boolean }) {
                 )}
               </p>
             </div>
+            <Knob label="Live: shows and experiences" onClick={() => open({ kind: 'live' })}>
+              <I.Ticket size={15} />
+            </Knob>
+            </div>
             {profile.bio && <p className="plate__bio">{profile.bio}</p>}
             <Readouts rels={all} experiences={experiences} />
           </div>
@@ -153,12 +155,13 @@ export function MyVinyl({ active }: { active: boolean }) {
   )
 }
 
-/** A push-button set into the deck, like the search button. */
-function DeckButton({ at, label, lamp, onClick, children }: { at: string; label: string; lamp?: boolean; onClick: () => void; children: ReactNode }) {
+/** A rose-gold knob on the cabinet front, its symbol engraved above it. */
+export function Knob({ label, lamp, onClick, children }: { label: string; lamp?: boolean; onClick: () => void; children: ReactNode }) {
   return (
-    <button className={`hifi__search hifi__deck-btn hifi__deck-btn--${at}`} onClick={onClick} aria-label={label} title={label.split(':')[0]}>
-      <span className="hifi__search-cap">{children}</span>
-      {lamp && <i className="hifi__deck-lamp" aria-hidden />}
+    <button className="knob" onClick={onClick} aria-label={label} title={label.split(':')[0]}>
+      <span className="knob__mark" aria-hidden>{children}</span>
+      <span className="knob__cap" aria-hidden />
+      {lamp && <i className="knob__lamp" aria-hidden />}
     </button>
   )
 }

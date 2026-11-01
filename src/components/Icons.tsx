@@ -81,8 +81,8 @@ export const Muted = ({ size }: P) => (
 export const Car = ({ size }: P) => (
   <Svg size={size}>
     <path d="M3 15.6v-2.4c0-1 .7-1.8 1.6-2l2.2-.5 2.3-3a2.4 2.4 0 0 1 1.9-.9h3.4c.8 0 1.6.4 2 1.1l1.8 2.8 1.8.4c1 .2 1.7 1 1.7 2v2.5c0 .5-.4.9-.9.9H3.9a.9.9 0 0 1-.9-.9z" />
-    <circle cx="7.4" cy="16.6" r="1.9" fill="var(--icon-bg, #15100d)" />
-    <circle cx="16.6" cy="16.6" r="1.9" fill="var(--icon-bg, #15100d)" />
+    <circle cx="7.4" cy="16.6" r="1.9" fill="var(--icon-bg, #0b1d14)" />
+    <circle cx="16.6" cy="16.6" r="1.9" fill="var(--icon-bg, #0b1d14)" />
     <path d="M8.6 10.6h7.4" />
   </Svg>
 )
@@ -201,6 +201,16 @@ export const Knob = ({ size }: P) => (
 )
 
 /** Artists, podcasts, Inner Circle: each a ringed station mark. */
+export const StationRadio = ({ size }: P) => (
+  <Svg size={size}>
+    <circle cx="12" cy="12" r="10" />
+    {/* a little cabinet radio: grille on the left, dial on the right */}
+    <rect x="6" y="8" width="12" height="8.6" rx="1.8" />
+    <path d="M8.2 10.6h3.2M8.2 12.4h3.2M8.2 14.2h3.2" />
+    <circle cx="15" cy="12.3" r="1.7" />
+    <path d="M9 8 11.6 5.6" />
+  </Svg>
+)
 export const StationArtists = ({ size }: P) => (
   <Svg size={size}>
     <circle cx="12" cy="12" r="10" />
