@@ -33,10 +33,10 @@ export function RecordC({ spinning = false }: { spinning?: boolean }) {
         </g>
       </g>
       <g className="record-c__spin">
-        <circle cx="50" cy="50" r="14" fill="var(--label, #1d4530)" />
-        <rect x="49" y="38.5" width="2" height="5" rx="1" fill="var(--label-mark, #c9a75e)" />
+        <circle cx="50" cy="50" r="14" fill="var(--label, #163024)" />
+        <rect x="49" y="38.5" width="2" height="5" rx="1" fill="var(--label-mark, #b89c66)" />
       </g>
-      <circle cx="50" cy="50" r="2.6" fill="var(--hole, #0b1d14)" />
+      <circle cx="50" cy="50" r="2.6" fill="var(--hole, #07120d)" />
     </svg>
   )
 }

@@ -5,25 +5,25 @@
    * hardware; ivory is type and dial faces; walnut and leather tan are the
    * furniture around it. Black only for grilles and vinyl.
    */
-  --green-950: #06120c;
-  --green-900: #0b1d14;
-  --green-800: #10281b;
-  --green-700: #163524;
-  --green-600: #1d4530;
-  --green-500: #28593f;
-  --green-hi: #3c7655;
-  --brass: #c9a75e;
-  --brass-hi: #eedca3;
-  --brass-lo: #86682f;
-  --rose: #d39b7a;
-  --rose-hi: #f3cdb2;
-  --rose-lo: #8c573e;
-  --ivory: #f4ead2;
-  --ivory-2: #e6d6b2;
-  --tan: #cdb185;
-  --walnut: #5b2615;
-  --walnut-hi: #8c4126;
-  --grille: #0e0c0a;
+  --green-950: #040b08;
+  --green-900: #07120d;
+  --green-800: #0b1a14;
+  --green-700: #10241b;
+  --green-600: #163024;
+  --green-500: #1e3d2f;
+  --green-hi: #2b5241;
+  --brass: #b89c66;
+  --brass-hi: #dcc89c;
+  --brass-lo: #7b6439;
+  --rose: #c49c84;
+  --rose-hi: #e5c8b4;
+  --rose-lo: #86604c;
+  --ivory: #efe6d3;
+  --ivory-2: #ddd0b5;
+  --tan: #c4ab84;
+  --walnut: #4a2216;
+  --walnut-hi: #6e3624;
+  --grille: #0b0a09;
 
   /* older names, now in the new palette */
   --espresso: var(--green-900);
@@ -37,22 +37,24 @@
   --navy: var(--green-950);
   --cream: var(--ivory);
   --cream-2: var(--ivory-2);
-  --ink: #0f1a13;
-  --ink-2: #34453a;
-  --ink-3: #6e7b70;
+  --ink: #0b1510;
+  --ink-2: #33433a;
+  --ink-3: #6c776f;
   --vinyl: #0b0a0c;
 
   --fg: var(--ivory);
-  --fg-2: rgba(244, 234, 210, 0.74);
-  --fg-3: rgba(244, 234, 210, 0.48);
-  --hair: rgba(201, 167, 94, 0.22);
-  --bar: #0a1a11;
+  --fg-2: rgba(239, 230, 211, 0.72);
+  --fg-3: rgba(239, 230, 211, 0.46);
+  --hair: rgba(184, 156, 102, 0.2);
+  --bar: #06100c;
 
   /* materials */
-  --lacquer: linear-gradient(180deg, #23513a 0%, #173826 38%, #10291c 70%, #0c2015 100%);
-  --bezel: conic-gradient(from 210deg, #8c573e, #f6d6bf, #c48a69, #6e4130, #ecc0a2, #8c573e);
-  --bezel-brass: conic-gradient(from 210deg, #86682f, #f4e4b0, #c9a75e, #6a5023, #e6cf8e, #86682f);
-  --pinstripe: linear-gradient(90deg, #86682f, #eedca3 30%, #c9a75e 60%, #86682f);
+  --lacquer: linear-gradient(180deg, #12291f 0%, #0d1f17 45%, #091710 100%);
+  --bezel: conic-gradient(from 210deg, #86604c, #e5c8b4, #b48a72, #6f4c3b, #d9b7a0, #86604c);
+  --bezel-brass: conic-gradient(from 210deg, #7b6439, #e2d1a8, #b89c66, #67522c, #d3bd8c, #7b6439);
+  --pinstripe: linear-gradient(90deg, transparent, #7b6439 12%, #dcc89c 50%, #7b6439 88%, transparent);
+  /* a fine grain, so surfaces read as material rather than flat colour */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
   --display: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
   --serif: 'Fraunces Variable', 'Fraunces', Georgia, serif;

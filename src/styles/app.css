@@ -232,7 +232,7 @@ h2 {
   z-index: 1;
   background: var(--bar);
   box-shadow:
-    inset 0 1px 0 rgba(244, 234, 210, 0.09),
+    inset 0 1px 0 rgba(239, 230, 211, 0.09),
     0 -1px 0 rgba(0, 0, 0, 0.6);
   pointer-events: none;
 }
@@ -254,7 +254,7 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  color: rgba(244, 234, 210, 0.62);
+  color: rgba(239, 230, 211, 0.62);
   transition: color var(--fast) var(--ease);
 }
 .tab[aria-current='page'] {
@@ -387,12 +387,12 @@ h2 {
 }
 /* Inner Circle's centre glows, brighter when it's playing */
 .icon__glow {
-  fill: #d99d7b;
-  filter: drop-shadow(0 0 2px rgba(226, 160, 122, 0.85));
+  fill: #c49c84;
+  filter: drop-shadow(0 0 2px rgba(196, 156, 132, 0.85));
 }
 .tab[aria-current='page'] .icon__glow {
-  fill: #f0c09f;
-  filter: drop-shadow(0 0 3.5px rgba(240, 190, 150, 1));
+  fill: #e5c8b4;
+  filter: drop-shadow(0 0 3.5px rgba(229, 200, 180, 1));
 }
 /* the tonearm, parked over the playing record */
 .tabs__arm {
@@ -434,10 +434,10 @@ h2 {
   width: 9px;
   height: 9px;
   border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #f6d3b9, var(--cherry) 60%);
+  background: radial-gradient(circle at 40% 35%, #e8cfbd, var(--cherry) 60%);
   box-shadow:
     0 0 0 2px var(--bar),
-    0 0 8px rgba(226, 160, 122, 0.9);
+    0 0 8px rgba(196, 156, 132, 0.9);
 }
 /* ---------- reels (Radio, Music) ---------- */
 .reel {
@@ -571,7 +571,7 @@ h2 {
   text-overflow: ellipsis;
   font-family: var(--serif);
   font-weight: 450;
-  font-variation-settings: 'opsz' 144, 'SOFT' 60, 'WONK' 1;
+  font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0;
   font-size: clamp(32px, 8.4vw, 52px);
   line-height: 1.04;
   letter-spacing: -0.015em;
@@ -582,7 +582,7 @@ h2 {
   padding-top: 0;
   font-size: calc(var(--slot) / 2.24);
   line-height: 1.12;
-  font-variation-settings: 'opsz' 96, 'SOFT' 40, 'WONK' 0;
+  font-variation-settings: 'opsz' 96, 'SOFT' 0, 'WONK' 0;
   white-space: normal;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -808,7 +808,7 @@ h2 {
   display: grid;
   place-items: center;
   color: var(--cream);
-  background: rgba(11, 29, 20, 0.45);
+  background: rgba(7, 18, 13, 0.45);
   pointer-events: none;
 }
 .rail {
@@ -874,11 +874,11 @@ h2 {
 }
 .rail__btn--save.is-on {
   color: #fff;
-  background: radial-gradient(circle at 50% 30%, #e2ab8a, var(--cherry) 55%, var(--cherry-deep));
+  background: radial-gradient(circle at 50% 30%, #c9a28a, var(--cherry) 55%, var(--cherry-deep));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.35),
     inset 0 -2px 4px rgba(0, 0, 0, 0.3),
-    0 0 18px rgba(201, 138, 104, 0.45),
+    0 0 18px rgba(196, 156, 132, 0.45),
     0 6px 18px rgba(0, 0, 0, 0.35);
 }
 .rail__btn--save.is-on::before {
@@ -935,7 +935,7 @@ h2 {
   position: absolute;
   bottom: 0;
   height: 100%;
-  background: rgba(214, 180, 108, 0.16);
+  background: rgba(184, 156, 102, 0.16);
   border-bottom: 2px solid var(--mustard);
 }
 .dial__mark {
@@ -953,9 +953,9 @@ h2 {
   bottom: -2px;
   width: 2px;
   margin-left: -1px;
-  background: #d99d7b;
+  background: #c49c84;
   border-radius: 1px;
-  box-shadow: 0 0 6px rgba(226, 160, 122, 0.85);
+  box-shadow: 0 0 6px rgba(196, 156, 132, 0.85);
 }
 .dial__needle span {
   position: absolute;
@@ -1010,7 +1010,7 @@ h2 {
   border-radius: 20px;
   font-family: var(--serif);
   font-weight: 500;
-  font-variation-settings: 'opsz' 18, 'SOFT' 60;
+  font-variation-settings: 'opsz' 18, 'SOFT' 0;
   font-size: 15px;
   letter-spacing: 0.005em;
   background: linear-gradient(180deg, #fbf3e3, var(--cream-2));
@@ -1034,13 +1034,13 @@ h2 {
   height: 14px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--cherry) 0 30%, transparent 32%), repeating-radial-gradient(circle, #121014 0 1px, #2a2729 1px 2px);
-  box-shadow: 0 0 0 1px rgba(244, 234, 210, 0.3);
+  box-shadow: 0 0 0 1px rgba(239, 230, 211, 0.3);
 }
 .pill--light {
   background: linear-gradient(180deg, rgba(251, 243, 227, 0.96), rgba(234, 217, 184, 0.94));
 }
 .pill--cherry {
-  background: linear-gradient(180deg, #dba07f, var(--cherry) 60%, var(--cherry-deep));
+  background: linear-gradient(180deg, #c49c84, var(--cherry) 60%, var(--cherry-deep));
   color: var(--cream);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.3),
@@ -1050,7 +1050,7 @@ h2 {
 .pill--quiet {
   background: transparent;
   color: var(--cream);
-  box-shadow: inset 0 0 0 1px rgba(244, 234, 210, 0.24);
+  box-shadow: inset 0 0 0 1px rgba(239, 230, 211, 0.24);
 }
 .icon-btn {
   position: relative;
@@ -1082,12 +1082,12 @@ h2 {
   display: grid;
   place-items: center;
   color: var(--cream);
-  background: radial-gradient(circle at 50% 28%, #e2ab8a, var(--cherry) 52%, var(--cherry-deep));
+  background: radial-gradient(circle at 50% 28%, #c9a28a, var(--cherry) 52%, var(--cherry-deep));
   box-shadow:
     inset 0 1.5px 0 rgba(255, 255, 255, 0.35),
     inset 0 -3px 6px rgba(0, 0, 0, 0.3),
     0 0 0 5px var(--espresso-2),
-    0 0 0 6px rgba(244, 234, 210, 0.12),
+    0 0 0 6px rgba(239, 230, 211, 0.12),
     0 10px 24px rgba(0, 0, 0, 0.45);
   transition:
     transform 140ms var(--ease),
@@ -1189,7 +1189,7 @@ h2 {
   flex: 1;
   height: 2.5px;
   border-radius: 2px;
-  background: rgba(244, 234, 210, 0.25);
+  background: rgba(239, 230, 211, 0.25);
   transition: background var(--med) var(--ease);
 }
 .segments span[data-on] {
@@ -1294,7 +1294,7 @@ h2 {
   font-size: 14px;
   font-weight: 650;
   line-height: 1.3em;
-  color: rgba(244, 234, 210, 0.75);
+  color: rgba(239, 230, 211, 0.75);
   background: linear-gradient(90deg, transparent, rgba(4, 12, 8, 0.85) 1.6em);
 }
 /* opened: the whole caption, over a darker scrim, scrolling if it must */
@@ -1329,193 +1329,7 @@ h2 {
   background: var(--espresso);
 }
 
-/* ---------- My Vinyl: the record player is the profile ---------- */
-/*
- * A lacquered green cabinet gramophone in a dim green room, standing on a
- * walnut sideboard. The lid is a real plane in perspective: the record lies
- * on it and the faces stand up on the record. The cabinet's front carries
- * who you are: a brass-framed nameplate between two rose-gold knobs, and
- * your listening in little lit windows.
- */
-.screen--vinyl,
-.person {
-  display: flex;
-  flex-direction: column;
-  background:
-    /* the sideboard it stands on */
-    linear-gradient(180deg, transparent calc(100% - 46px), rgba(0, 0, 0, 0.5) calc(100% - 46px), transparent calc(100% - 38px)),
-    linear-gradient(180deg, transparent calc(100% - 46px), #5b2615 calc(100% - 46px), #3e190d),
-    /* a lamp somewhere above */
-    radial-gradient(ellipse 80% 50% at 50% 30%, rgba(238, 220, 163, 0.09), transparent 70%),
-    radial-gradient(ellipse 120% 90% at 50% 35%, var(--green-700), var(--green-900) 60%, var(--green-950));
-  touch-action: pan-y;
-}
-.vinyl-deck {
-  position: relative;
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  padding: calc(var(--safe-t) + 16px) calc(10px + var(--safe-r)) 18px calc(10px + var(--safe-l));
-}
-.hifi {
-  --rot: 0deg;
-  --arm: -7deg;
-  /* how far the lid leans back, and what that leaves of its height on screen */
-  --tilt: 34deg;
-  --lean: 0.83;
-  /* room the cabinet front needs below the lid */
-  --front-room: 300px;
-  /* the lid's width: as wide as the screen allows, unless that would crowd the front */
-  --lid: min(100cqw, (100cqh - var(--front-room)) / var(--lean), 640px);
-  container-type: size;
-  position: relative;
-  flex: 1 1 auto;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.hifi--guest {
-  --front-room: 330px;
-}
-/* the lid, leaning back */
-.hifi__top {
-  position: relative;
-  z-index: 2;
-  flex: 0 0 auto;
-  width: var(--lid);
-  height: calc(var(--lid) * var(--lean));
-  perspective: calc(var(--lid) * 3);
-  perspective-origin: 50% 0%;
-}
-.hifi__deck {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: var(--lid);
-  padding: calc(var(--lid) * 0.035);
-  border-radius: calc(var(--lid) * 0.05);
-  transform-origin: 50% 100%;
-  transform: rotateX(var(--tilt));
-  transform-style: preserve-3d;
-  background:
-    /* gloss: the lamp, caught in the lacquer */
-    radial-gradient(ellipse 60% 35% at 30% 18%, rgba(238, 240, 220, 0.16), transparent 70%),
-    linear-gradient(160deg, rgba(255, 255, 255, 0.06), transparent 40%),
-    linear-gradient(180deg, #1f4a34, #163a28 50%, #112e20);
-  box-shadow:
-    /* brass pinstripe inlaid round the lid */
-    inset 0 0 0 calc(var(--lid) * 0.012) transparent,
-    inset 0 0 0 calc(var(--lid) * 0.014) rgba(201, 167, 94, 0.95),
-    inset 0 0 0 calc(var(--lid) * 0.018) rgba(5, 15, 10, 0.5),
-    0 0 0 1px rgba(201, 167, 94, 0.5);
-}
-/* the lid's edge, toward you: a brass-capped moulding with some depth */
-.hifi__top::after {
-  content: '';
-  position: absolute;
-  left: -1.5%;
-  right: -1.5%;
-  bottom: calc(var(--lid) * -0.045);
-  height: calc(var(--lid) * 0.045);
-  border-radius: 0 0 10px 10px;
-  background:
-    linear-gradient(180deg, #eedca3, #c9a75e 18%, #86682f 30%, transparent 31%),
-    linear-gradient(180deg, #1d4530, #0c2015);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.45);
-}
-/*
- * Inside the stage everything is in its own units: 1cqw = 1% of its width.
- * Record centre (47, 53.5), radius 43. Tonearm pivot (92.6, 9.6).
- */
-.hifi__stage {
-  container-type: inline-size;
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1;
-  transform-style: preserve-3d;
-}
-/* the cabinet front */
-.hifi__front {
-  position: relative;
-  flex: 1 1 auto;
-  min-height: 0;
-  width: calc(var(--lid) * 0.97);
-  margin-top: calc(var(--lid) * 0.045);
-  display: flex;
-  padding: 14px calc(var(--lid) * 0.07) 12px;
-  border-radius: 0 0 14px 14px;
-  background:
-    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(238, 220, 163, 0.1), transparent 70%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.35), transparent 12%, transparent 88%, rgba(0, 0, 0, 0.35)),
-    var(--lacquer);
-  box-shadow:
-    inset 0 -3px 0 #86682f,
-    inset 0 -5px 0 #eedca3,
-    inset 0 -7px 0 #0c2015,
-    0 20px 30px -10px rgba(0, 0, 0, 0.7);
-}
-/* turned columns at the corners, ringed in brass */
-.hifi__front::before,
-.hifi__front::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 7px;
-  width: calc(var(--lid) * 0.045);
-  background:
-    repeating-linear-gradient(180deg, transparent 0 42px, #86682f 42px, #eedca3 44px, #86682f 46px, transparent 46px 50px),
-    linear-gradient(90deg, #0a1d13, #2a6142 35%, #3c7655 45%, #1d4530 65%, #08170f);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
-}
-.hifi__front::before {
-  left: calc(var(--lid) * 0.012);
-}
-.hifi__front::after {
-  right: calc(var(--lid) * 0.012);
-}
-/* brass bun feet, on the sideboard */
-.hifi::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -12px;
-  width: calc(var(--lid) * 0.82);
-  height: 12px;
-  transform: translateX(-50%);
-  background:
-    radial-gradient(ellipse 50% 60% at 50% 30%, #eedca3, #c9a75e 45%, #6a5023 100%) left / 34px 100% no-repeat,
-    radial-gradient(ellipse 50% 60% at 50% 30%, #eedca3, #c9a75e 45%, #6a5023 100%) right / 34px 100% no-repeat;
-  filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.6));
-}
-.hifi__nameplate {
-  position: relative;
-  flex: 1 1 auto;
-  width: 100%;
-  min-height: 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: none;
-  color: var(--ivory);
-}
-@media (min-width: 900px) {
-  .vinyl-deck {
-    padding: 22px 32px 30px;
-  }
-  .hifi {
-    --front-room: 372px;
-    --lid: min(100cqw, (100cqh - var(--front-room)) / var(--lean), 760px);
-  }
-  .hifi--guest {
-    --front-room: 300px;
-  }
-  .hifi__front {
-    width: calc(var(--lid) * 1.06);
-    padding: 18px calc(var(--lid) * 0.07) 14px;
-  }
-}
+/* (My Vinyl: see "the radiogram" at the end of this file) */
 .hifi__platter {
   position: absolute;
   left: 2.8cqw;
@@ -1525,7 +1339,7 @@ h2 {
   border-radius: 50%;
   background:
     repeating-conic-gradient(from var(--rot), rgba(30, 30, 34, 0.18) 0 0.7deg, transparent 0.7deg 4deg),
-    conic-gradient(from 200deg, #c9a75e, #f1f0ec, #9fa1a6, #5f6167, #d9d9d6, #c9a75e);
+    conic-gradient(from 200deg, #b89c66, #f1f0ec, #9fa1a6, #5f6167, #d9d9d6, #b89c66);
   -webkit-mask: radial-gradient(circle, transparent 62%, #000 calc(62% + 0.5px));
   mask: radial-gradient(circle, transparent 62%, #000 calc(62% + 0.5px));
   box-shadow: 0 0.5cqw 1.4cqw rgba(0, 0, 0, 0.45);
@@ -1726,7 +1540,7 @@ h2 {
 }
 .face-marker.is-faint img {
   padding: 5%;
-  background: #2a3a30;
+  background: #1e2c25;
   filter: grayscale(0.55) brightness(0.88) contrast(0.92);
 }
 .face-marker.is-centre img {
@@ -1734,7 +1548,7 @@ h2 {
   background: var(--bezel-brass);
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.7),
-    0 0 2.2cqw rgba(214, 180, 108, 0.35),
+    0 0 2.2cqw rgba(184, 156, 102, 0.35),
     0.25cqw 0.6cqw 0.9cqw rgba(0, 0, 0, 0.7);
 }
 .face-marker__closer {
@@ -1744,15 +1558,15 @@ h2 {
   width: 26%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: radial-gradient(circle at 38% 32%, #fbf0cf, var(--mustard) 50%, #86682f);
+  background: radial-gradient(circle at 38% 32%, #efe3c4, var(--mustard) 50%, #7b6439);
   box-shadow: 0 0 0 1.5px #111;
 }
 
 .face-marker.is-shared img {
-  background: radial-gradient(circle, #f6d3b9, var(--cherry) 70%);
+  background: radial-gradient(circle, #e8cfbd, var(--cherry) 70%);
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.7),
-    0 0 2.6cqw rgba(226, 160, 122, 0.75),
+    0 0 2.6cqw rgba(196, 156, 132, 0.75),
     0.25cqw 0.6cqw 0.9cqw rgba(0, 0, 0, 0.7);
 }
 /* small enamel pips: seen live, favourite */
@@ -1773,13 +1587,13 @@ h2 {
   left: -6%;
   bottom: -4%;
   color: var(--ink);
-  background: radial-gradient(circle at 40% 32%, #fbf0cf, var(--mustard) 60%, #86682f);
+  background: radial-gradient(circle at 40% 32%, #efe3c4, var(--mustard) 60%, #7b6439);
 }
 .face-marker__pip--fav {
   right: -6%;
   bottom: -4%;
   color: var(--mustard);
-  background: radial-gradient(circle at 40% 32%, #1d4530, #0b1d14);
+  background: radial-gradient(circle at 40% 32%, #163024, #07120d);
 }
 /* the name, engraved underneath, on hover or focus */
 .face-marker__name {
@@ -1834,11 +1648,11 @@ h2 {
 .plate__name {
   font-family: var(--serif);
   font-weight: 500;
-  font-variation-settings: 'opsz' 96, 'SOFT' 50;
+  font-variation-settings: 'opsz' 96, 'SOFT' 0;
   font-size: clamp(24px, 6.4cqw, 44px);
   line-height: 1.02;
   letter-spacing: -0.01em;
-  color: #f7eed8;
+  color: #efe6d3;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 .plate__tag {
@@ -1860,7 +1674,7 @@ h2 {
   font-stretch: 112%;
   font-size: 12px;
   letter-spacing: 0.08em;
-  color: rgba(244, 234, 210, 0.7);
+  color: rgba(239, 230, 211, 0.7);
 }
 .plate__meta span {
   display: inline-flex;
@@ -1872,7 +1686,7 @@ h2 {
   font-style: italic;
   font-size: 15px;
   line-height: 1.35;
-  color: rgba(244, 234, 210, 0.88);
+  color: rgba(239, 230, 211, 0.88);
   max-width: 34em;
 }
 .plate__meta .plate__link {
@@ -1884,7 +1698,7 @@ h2 {
   font-weight: 700;
   color: var(--mustard);
   text-decoration: none;
-  border-bottom: 1px solid rgba(214, 180, 108, 0.4);
+  border-bottom: 1px solid rgba(184, 156, 102, 0.4);
 }
 @media (min-width: 900px) {
   .plate {
@@ -1965,7 +1779,7 @@ h2 {
   font-size: 10.5px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(244, 234, 210, 0.55);
+  color: rgba(239, 230, 211, 0.55);
 }
 .readouts__row {
   display: flex;
@@ -1991,11 +1805,11 @@ h2 {
   border-radius: 10px;
   text-align: left;
   scroll-snap-align: start;
-  background: linear-gradient(180deg, #07140d, #0d2318);
+  background: linear-gradient(180deg, #050e0a, #0b1a14);
   box-shadow:
     inset 0 2px 6px rgba(0, 0, 0, 0.7),
-    inset 0 0 0 1px rgba(214, 180, 108, 0.12),
-    0 1px 0 rgba(238, 220, 163, 0.08);
+    inset 0 0 0 1px rgba(184, 156, 102, 0.12),
+    0 1px 0 rgba(220, 200, 156, 0.08);
 }
 .readout__label,
 .readout__big,
@@ -2013,7 +1827,7 @@ h2 {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(244, 234, 210, 0.5);
+  color: rgba(239, 230, 211, 0.5);
 }
 /* backlit: values glow amber, like a lit dial */
 .readout__big,
@@ -2022,8 +1836,8 @@ h2 {
   font-weight: 500;
   font-size: 17px;
   line-height: 1.15;
-  color: #eedca3;
-  text-shadow: 0 0 10px rgba(214, 180, 108, 0.45);
+  color: #dcc89c;
+  text-shadow: 0 0 10px rgba(184, 156, 102, 0.45);
 }
 .readout__who {
   display: flex;
@@ -2048,7 +1862,7 @@ h2 {
 }
 .readout__sub {
   font-size: 11.5px;
-  color: rgba(244, 234, 210, 0.62);
+  color: rgba(239, 230, 211, 0.62);
 }
 /* a tape counter: cream digits on dark drums */
 .readout__counter {
@@ -2066,8 +1880,8 @@ h2 {
   font-weight: 700;
   font-size: 15px;
   font-variant-numeric: tabular-nums;
-  color: #f4ead2;
-  background: linear-gradient(180deg, #173524, #07140d 50%, #173524);
+  color: #efe6d3;
+  background: linear-gradient(180deg, #10241b, #050e0a 50%, #10241b);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 0 0 1px rgba(0, 0, 0, 0.6);
@@ -2103,16 +1917,16 @@ h2 {
   border-radius: 7px 7px 10px 10px;
   font-family: var(--serif);
   font-weight: 500;
-  font-variation-settings: 'opsz' 18, 'SOFT' 60;
+  font-variation-settings: 'opsz' 18, 'SOFT' 0;
   font-size: 15px;
   letter-spacing: 0.005em;
-  color: #f7eed8;
-  background: linear-gradient(180deg, #23513a, #173826 80%, #10291c);
+  color: #efe6d3;
+  background: linear-gradient(180deg, #163024, #10241b 80%, #0b1a14);
   box-shadow:
     inset 0 1px 0 rgba(255, 246, 228, 0.16),
     inset 0 -3px 0 rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(0, 0, 0, 0.6),
-    0 3px 0 #050f0a,
+    0 3px 0 #040b08,
     0 5px 10px rgba(0, 0, 0, 0.45);
   transition:
     transform 110ms var(--ease),
@@ -2125,21 +1939,21 @@ h2 {
     inset 0 1px 0 rgba(255, 246, 228, 0.12),
     inset 0 -2px 0 rgba(0, 0, 0, 0.3),
     0 0 0 1px rgba(0, 0, 0, 0.6),
-    0 1px 0 #050f0a,
+    0 1px 0 #040b08,
     0 2px 5px rgba(0, 0, 0, 0.45);
 }
 .key--primary {
   color: var(--cream);
-  background: linear-gradient(180deg, #dda483, var(--cherry) 70%, var(--cherry-deep));
+  background: linear-gradient(180deg, #c49c84, var(--cherry) 70%, var(--cherry-deep));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.35),
     inset 0 -3px 0 rgba(0, 0, 0, 0.18),
     0 0 0 1px rgba(0, 0, 0, 0.6),
-    0 3px 0 #5c3524,
+    0 3px 0 #4f3528,
     0 5px 8px rgba(0, 0, 0, 0.25);
 }
 .key--warn {
-  color: #f6d3b9;
+  color: #e8cfbd;
 }
 .key--round {
   width: 40px;
@@ -2155,12 +1969,12 @@ h2 {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #3d4a3f;
+  background: #2e3a33;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4);
 }
 .key__lamp.is-on {
-  background: radial-gradient(circle at 40% 35%, #f6d3b9, var(--cherry) 60%);
-  box-shadow: 0 0 6px rgba(226, 160, 122, 0.9);
+  background: radial-gradient(circle at 40% 35%, #e8cfbd, var(--cherry) 60%);
+  box-shadow: 0 0 6px rgba(196, 156, 132, 0.9);
 }
 
 /* shared taste, on a VU meter */
@@ -2174,7 +1988,7 @@ h2 {
   background: rgba(0, 0, 0, 0.28);
   box-shadow:
     inset 0 1px 3px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(244, 234, 210, 0.06);
+    0 0 0 1px rgba(239, 230, 211, 0.06);
 }
 .vu {
   flex: 0 0 auto;
@@ -2182,12 +1996,12 @@ h2 {
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25));
 }
 .vu__face {
-  fill: #f4ead2;
+  fill: #efe6d3;
   stroke: #0f1a13;
   stroke-width: 2;
 }
 .vu__tick {
-  stroke: #163524;
+  stroke: #10241b;
   stroke-width: 1.2;
 }
 .vu__tick--hot,
@@ -2205,7 +2019,7 @@ h2 {
   font-size: 7px;
   letter-spacing: 0.24em;
   text-anchor: middle;
-  fill: #86682f;
+  fill: #7b6439;
 }
 .vu__needle {
   stroke: #0f1a13;
@@ -2221,7 +2035,7 @@ h2 {
   gap: 5px;
   min-width: 0;
   font-size: 13px;
-  color: rgba(244, 234, 210, 0.88);
+  color: rgba(239, 230, 211, 0.88);
 }
 .match__score {
   font-size: 13px;
@@ -2232,14 +2046,14 @@ h2 {
   flex-direction: column;
   gap: 6px;
   font-size: 13px;
-  color: rgba(244, 234, 210, 0.88);
+  color: rgba(239, 230, 211, 0.88);
 }
 .match__score strong {
   font-family: var(--display);
   font-weight: 800;
   font-stretch: 118%;
   font-size: 22px;
-  color: #f3c6a6;
+  color: #e5c8b4;
   margin-right: 4px;
 }
 .match__shared,
@@ -2267,14 +2081,14 @@ h2 {
 }
 .match__fine {
   font-size: 11px;
-  color: rgba(244, 234, 210, 0.5);
+  color: rgba(239, 230, 211, 0.5);
 }
 .mutual {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  color: rgba(244, 234, 210, 0.82);
+  color: rgba(239, 230, 211, 0.82);
   text-align: left;
 }
 
@@ -2285,49 +2099,8 @@ h2 {
  * level with the arm's pivot (92.6, 9.6), mirrored to (7.4, 9.6); Friends
  * sits under search and Live under the pivot, at y 90.4.
  */
-.hifi__search {
-  position: absolute;
-  z-index: 4;
-  left: 7.4cqw;
-  top: 9.6cqw;
-  transform: translate(-50%, -50%);
-  display: grid;
-  place-items: center;
-}
-.hifi__search-cap {
-  width: clamp(38px, 11cqw, 58px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #f7eed8;
-  background:
-    radial-gradient(circle at 50% 30%, rgba(255, 246, 228, 0.18), transparent 60%),
-    radial-gradient(circle, #1d4530, #0b1d14 75%);
-  box-shadow:
-    0 0 0 2px #08170f,
-    0 0 0 3.5px rgba(212, 214, 218, 0.75),
-    0 0 0 5px #050f0a,
-    inset 0 1px 0 rgba(255, 246, 228, 0.2),
-    0 4px 10px rgba(0, 0, 0, 0.55);
-  transition:
-    transform 120ms var(--ease),
-    box-shadow 120ms var(--ease);
-}
-.hifi__search:active .hifi__search-cap {
-  transform: translateY(1.5px) scale(0.96);
-  box-shadow:
-    0 0 0 2px #08170f,
-    0 0 0 3.5px rgba(212, 214, 218, 0.75),
-    0 0 0 5px #050f0a,
-    inset 0 2px 5px rgba(0, 0, 0, 0.6),
-    0 1px 3px rgba(0, 0, 0, 0.5);
-}
 /* one in each bottom corner of the deck, clear of the record */
 @media (hover: hover) {
-  .hifi__search:hover .hifi__search-cap {
-    color: var(--mustard);
-  }
 }
 /* open: the full search page, grown out of the button */
 .catalog {
@@ -2355,11 +2128,11 @@ h2 {
   padding: 0 16px;
   border-radius: 22px;
   color: var(--fg-3);
-  background: linear-gradient(180deg, #08170f, #0f2619);
+  background: linear-gradient(180deg, #06100b, #0b1a14);
   box-shadow:
     inset 0 2px 5px rgba(0, 0, 0, 0.6),
-    inset 0 -1px 0 rgba(244, 234, 210, 0.06),
-    0 0 0 1px rgba(244, 234, 210, 0.1);
+    inset 0 -1px 0 rgba(239, 230, 211, 0.06),
+    0 0 0 1px rgba(239, 230, 211, 0.1);
 }
 .catalog__field input {
   flex: 1;
@@ -2382,7 +2155,7 @@ h2 {
 .catalog.is-open .catalog__field {
   box-shadow:
     inset 0 2px 5px rgba(0, 0, 0, 0.6),
-    0 0 0 1.5px rgba(214, 180, 108, 0.6);
+    0 0 0 1.5px rgba(184, 156, 102, 0.6);
 }
 .catalog__cancel {
   font-size: 14px;
@@ -2557,7 +2330,7 @@ h2 {
   overflow-y: auto;
   padding: 10px calc(22px + var(--safe-r)) calc(26px + var(--safe-b)) calc(22px + var(--safe-l));
   border-radius: 24px 24px 0 0;
-  background: linear-gradient(180deg, #163524, var(--espresso-2) 120px);
+  background: linear-gradient(180deg, #10241b, var(--espresso-2) 120px);
   box-shadow:
     inset 0 1px 0 rgba(255, 246, 228, 0.12),
     0 -10px 40px rgba(0, 0, 0, 0.45);
@@ -2580,7 +2353,7 @@ h2 {
   height: 5px;
   margin: 0 auto 18px;
   border-radius: 3px;
-  background: linear-gradient(180deg, #c9a75e, #86682f);
+  background: linear-gradient(180deg, #b89c66, #7b6439);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
@@ -2627,7 +2400,7 @@ h2 {
   background: var(--espresso);
 }
 .creator--top .creator__standing {
-  box-shadow: inset 0 0 0 1px rgba(214, 180, 108, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(184, 156, 102, 0.45);
 }
 .creator__top {
   font-family: var(--display);
@@ -2789,10 +2562,10 @@ h2 {
   box-shadow: inset 0 0 0 1.5px var(--fg-3);
 }
 .choice.is-on::after {
-  background: radial-gradient(circle at 40% 35%, #f6d3b9, var(--cherry) 55%, var(--cherry-deep));
+  background: radial-gradient(circle at 40% 35%, #e8cfbd, var(--cherry) 55%, var(--cherry-deep));
   box-shadow:
     inset 0 0 0 1.5px rgba(0, 0, 0, 0.3),
-    0 0 10px rgba(201, 138, 104, 0.6);
+    0 0 10px rgba(196, 156, 132, 0.6);
 }
 .settings__fine {
   font-size: 12px;
@@ -2867,7 +2640,7 @@ h2 {
 .form__row textarea:focus,
 .form__row select:focus {
   outline: none;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 1.5px rgba(214, 180, 108, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 1.5px rgba(184, 156, 102, 0.6);
 }
 .form__pair {
   display: flex;
@@ -2916,7 +2689,7 @@ h2 {
   padding: 2px;
   border-radius: 50%;
   object-fit: cover;
-  background: #2a3a30;
+  background: #1e2c25;
   filter: grayscale(0.5) brightness(0.8);
   transition: filter var(--fast) var(--ease);
 }
@@ -3001,7 +2774,7 @@ h2 {
 }
 .creator__fav.is-on {
   color: var(--mustard);
-  box-shadow: inset 0 0 0 1px rgba(214, 180, 108, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(184, 156, 102, 0.5);
 }
 .creator__head > div {
   min-width: 0;
@@ -3103,7 +2876,7 @@ h2 {
   font-family: var(--serif);
   font-size: 16px;
   line-height: 1.35;
-  color: rgba(244, 234, 210, 0.92);
+  color: rgba(239, 230, 211, 0.92);
 }
 .comments__compose {
   position: sticky;
@@ -3139,7 +2912,7 @@ h2 {
 }
 .comments__compose input:focus {
   outline: none;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 1.5px rgba(214, 180, 108, 0.6);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 0 1.5px rgba(184, 156, 102, 0.6);
 }
 .comments__send {
   width: 40px;
@@ -3148,7 +2921,7 @@ h2 {
   display: grid;
   place-items: center;
   color: var(--cream);
-  background: radial-gradient(circle at 50% 30%, #e2ab8a, var(--cherry) 55%, var(--cherry-deep));
+  background: radial-gradient(circle at 50% 30%, #c9a28a, var(--cherry) 55%, var(--cherry-deep));
   transition: opacity var(--fast) var(--ease);
 }
 .comments__send:disabled {
@@ -3197,7 +2970,7 @@ h2 {
   gap: 12px;
   padding: 10px 12px;
   border-radius: 14px;
-  background: rgba(244, 234, 210, 0.96);
+  background: rgba(239, 230, 211, 0.96);
   color: var(--ink);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   pointer-events: auto;
@@ -3314,7 +3087,7 @@ h2 {
   display: flex;
   flex-direction: column;
   padding: calc(14px + var(--safe-t)) calc(22px + var(--safe-r)) calc(18px + var(--safe-b)) calc(22px + var(--safe-l));
-  background: #06120c;
+  background: #040b08;
   color: var(--cream);
 }
 .drive__top {
@@ -3336,7 +3109,7 @@ h2 {
   border-radius: 30px;
   font-family: var(--serif);
   font-weight: 500;
-  font-variation-settings: 'opsz' 18, 'SOFT' 60;
+  font-variation-settings: 'opsz' 18, 'SOFT' 0;
   font-size: 20px;
   color: var(--fg-3);
 }
@@ -3436,11 +3209,11 @@ h2 {
   box-shadow:
     inset 0 1px 0 rgba(255, 246, 228, 0.14),
     inset 0 -3px 6px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(244, 234, 210, 0.1),
+    0 0 0 1px rgba(239, 230, 211, 0.1),
     0 10px 24px rgba(0, 0, 0, 0.4);
   font-family: var(--serif);
   font-weight: 500;
-  font-variation-settings: 'opsz' 18, 'SOFT' 60;
+  font-variation-settings: 'opsz' 18, 'SOFT' 0;
   font-size: 17px;
   transition: transform 140ms var(--ease);
 }
@@ -3455,12 +3228,12 @@ h2 {
   height: 132px;
   border-radius: 50%;
   color: var(--cream);
-  background: radial-gradient(circle at 50% 28%, #e2ab8a, var(--cherry) 52%, var(--cherry-deep));
+  background: radial-gradient(circle at 50% 28%, #c9a28a, var(--cherry) 52%, var(--cherry-deep));
   box-shadow:
     inset 0 2px 0 rgba(255, 255, 255, 0.35),
     inset 0 -4px 8px rgba(0, 0, 0, 0.3),
-    0 0 0 7px #08170f,
-    0 0 0 8px rgba(244, 234, 210, 0.14),
+    0 0 0 7px #06100b,
+    0 0 0 8px rgba(239, 230, 211, 0.14),
     0 14px 30px rgba(0, 0, 0, 0.5);
 }
 .drive__banner {
@@ -3566,264 +3339,8 @@ h2 {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ivory);
-  background: rgba(11, 29, 20, 0.55);
-  box-shadow: inset 0 0 0 1px rgba(201, 167, 94, 0.55);
-}
-
-/* ---------- the cabinet's hardware: brass and rose gold ---------- */
-.hifi__platter {
-  background:
-    repeating-conic-gradient(from var(--rot), rgba(60, 40, 10, 0.22) 0 0.7deg, transparent 0.7deg 4deg),
-    var(--bezel-brass);
-}
-.hifi__spindle {
-  background: radial-gradient(circle at 35% 32%, #fff8e0, #eedca3 30%, #c9a75e 60%, #6a5023);
-}
-.hifi__base {
-  background:
-    radial-gradient(circle, transparent 54%, #0b1d14 55%, #163524 64%, transparent 65%),
-    repeating-radial-gradient(circle, rgba(255, 255, 255, 0.14) 0 0.6px, transparent 0.6px 1.6px),
-    var(--bezel-brass);
-  box-shadow:
-    0 0 0 0.45cqw #0b1d14,
-    0.3cqw 0.8cqw 1.2cqw rgba(0, 0, 0, 0.45);
-}
-.hifi__rest {
-  background: radial-gradient(circle at 40% 35%, #28593f, #0b1d14 70%);
-  box-shadow:
-    inset 0 0 0 0.5cqw rgba(201, 167, 94, 0.9),
-    0.3cqw 0.6cqw 0.8cqw rgba(0, 0, 0, 0.4);
-}
-/* the arm and the search knob sit just proud of the lid */
-.hifi__arm {
-  transform: translateZ(1px) rotate(var(--arm));
-}
-.hifi__search {
-  transform: translate(-50%, -50%) translateZ(1px);
-}
-
-/* the faces stand up on the record, turning with it and always facing you */
-.hifi__record,
-.hifi__faces,
-.face-marker {
-  transform-style: preserve-3d;
-}
-.face-marker::before {
-  /* where each one stands, a soft shadow on the vinyl */
-  content: '';
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 30%;
-  bottom: 30%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.7), transparent);
-  pointer-events: none;
-}
-.face-marker__upright {
-  transform: rotate(calc(var(--rot) * -1)) rotateX(calc(var(--tilt) * -1)) translateY(-46%);
-}
-
-/* the search knob on the lid: rose gold, with a magnifier engraved in it */
-.hifi__search-cap {
-  color: #4a2a1c;
-  background:
-    radial-gradient(circle at 38% 30%, rgba(255, 245, 235, 0.85), transparent 38%),
-    radial-gradient(circle at 50% 50%, #e9b998, #c88b69 55%, #8c573e 100%);
-  box-shadow:
-    0 0 0 1.5px #5c3524,
-    0 0 0 3px rgba(201, 167, 94, 0.9),
-    0 0 0 4.5px #0b1d14,
-    /* its height, toward you */
-    0 3px 0 4px #0b1d14,
-    0 6px 10px 3px rgba(0, 0, 0, 0.5);
-}
-.hifi__search:active .hifi__search-cap {
-  transform: translateY(2px);
-  box-shadow:
-    0 0 0 1.5px #5c3524,
-    0 0 0 3px rgba(201, 167, 94, 0.9),
-    0 0 0 4.5px #0b1d14,
-    0 1px 0 4px #0b1d14,
-    inset 0 2px 5px rgba(60, 30, 15, 0.5);
-}
-@media (hover: hover) {
-  .hifi__search:hover .hifi__search-cap {
-    color: #2e170d;
-    filter: brightness(1.08);
-  }
-}
-
-/* ---------- the fascia: knob, nameplate, knob ---------- */
-.plate__fascia {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.hifi__front .plate__id {
-  flex: 1 1 auto;
-  min-width: 0;
-  align-items: center;
-  text-align: center;
-  padding: 9px 12px 10px;
-  border-radius: 10px;
-  /* green leather in a rose-gold frame, like the radio's dial panel */
-  background:
-    radial-gradient(ellipse 80% 70% at 50% 0%, rgba(255, 255, 255, 0.06), transparent 70%),
-    linear-gradient(180deg, #173826, #0f281b);
-  box-shadow:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.5),
-    0 0 0 2px #c88b69,
-    0 0 0 3px #f3cdb2,
-    0 0 0 4px #8c573e,
-    0 4px 10px 4px rgba(0, 0, 0, 0.35);
-}
-.hifi__front .plate__name {
-  max-width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font-size: clamp(22px, 7.4cqw, 38px);
-  color: var(--ivory);
-}
-.hifi__front .plate__meta {
-  justify-content: center;
-  font-size: 11px;
-  color: var(--brass);
-}
-.hifi__front .plate__meta .plate__link {
-  color: var(--brass-hi);
-  border-bottom-color: rgba(238, 220, 163, 0.4);
-}
-.plate__bio {
-  text-align: center;
-  align-self: center;
-  margin-top: 4px;
-}
-.plate__fascia ~ .plate__bio {
-  font-size: 14px;
-}
-
-/* a rose-gold knob, its symbol engraved in the lacquer above it */
-.knob {
-  position: relative;
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  min-width: 44px;
-  padding: 2px 0;
-}
-.knob__mark {
-  display: grid;
-  place-items: center;
-  color: var(--brass);
-  opacity: 0.9;
-}
-.knob__cap {
-  width: clamp(34px, 10cqw, 46px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 36% 30%, rgba(255, 248, 240, 0.95), rgba(255, 248, 240, 0) 30%),
-    radial-gradient(circle at 60% 70%, rgba(80, 40, 25, 0.35), transparent 55%),
-    radial-gradient(circle, #f0c4a5, #cf9373 50%, #8c573e 92%);
-  box-shadow:
-    0 0 0 1.5px #5c3524,
-    0 0 0 3px rgba(5, 15, 10, 0.6),
-    0 5px 8px rgba(0, 0, 0, 0.55);
-  transition: transform 120ms var(--ease), box-shadow 120ms var(--ease);
-}
-.knob:active .knob__cap {
-  transform: translateY(1.5px) scale(0.97);
-  box-shadow:
-    0 0 0 1.5px #5c3524,
-    0 0 0 3px rgba(5, 15, 10, 0.6),
-    0 1px 3px rgba(0, 0, 0, 0.55);
-}
-@media (hover: hover) {
-  .knob:hover .knob__cap {
-    filter: brightness(1.07);
-  }
-  .knob:hover .knob__mark {
-    color: var(--brass-hi);
-  }
-}
-/* a pilot lamp: someone wants to be friends */
-.knob__lamp {
-  position: absolute;
-  top: 0;
-  right: 2px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #fff6d8, #eedca3 45%, #c9a75e);
-  box-shadow: 0 0 0 1.5px #0b1d14, 0 0 9px rgba(238, 220, 163, 0.95);
-}
-
-/* ---------- the readouts: little lit windows set into the lacquer ---------- */
-.readouts__head {
-  color: var(--brass);
-}
-.readout {
-  border-radius: 8px;
-  background: linear-gradient(180deg, #06120c, #0c2015);
-  box-shadow:
-    inset 0 2px 6px rgba(0, 0, 0, 0.75),
-    inset 0 0 0 1px rgba(201, 167, 94, 0.28),
-    0 0 0 1px rgba(5, 15, 10, 0.8),
-    0 1px 0 1px rgba(238, 220, 163, 0.1);
-}
-.readout__label {
-  color: var(--brass);
-  opacity: 0.85;
-}
-.readout__big,
-.readout__who strong {
-  color: var(--ivory);
-  text-shadow: 0 0 10px rgba(238, 220, 163, 0.25);
-}
-.readout__who img {
-  background: var(--bezel);
-}
-.readout__counter i {
-  color: #2e170d;
-  background: linear-gradient(180deg, #f3cdb2, #d39b7a 48%, #b97c5c 52%, #e7b493);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    0 0 0 1px rgba(0, 0, 0, 0.55);
-}
-/* blending would flatten the record (and the standing faces) back into a picture */
-.hifi__sheen {
-  mix-blend-mode: normal;
-  opacity: 0.8;
-}
-
-/* short cabinets: the bio keeps to one line */
-@container (max-height: 299px) {
-  .plate__fascia ~ .plate__bio {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-    font-size: 13px;
-  }
-  .hifi__front .plate__id {
-    padding: 7px 10px 8px;
-  }
-}
-.hifi__front .plate__meta {
-  gap: 1px 9px;
-  letter-spacing: 0.04em;
-}
-.hifi__front .plate__meta > * {
-  white-space: nowrap;
-}
-/* in the cabinet the strip of readouts keeps inside the columns */
-.hifi__front .readouts__row {
-  margin: 0;
-  padding: 2px 0 4px;
+  background: rgba(7, 18, 13, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(184, 156, 102, 0.55);
 }
 
 /* ---------- chrome in the new metals ---------- */
@@ -3834,11 +3351,11 @@ h2 {
 .topbar__btn {
   color: var(--ivory);
   background:
-    radial-gradient(circle at 50% 28%, rgba(238, 220, 163, 0.16), transparent 62%),
-    rgba(11, 29, 20, 0.66);
+    radial-gradient(circle at 50% 28%, rgba(220, 200, 156, 0.16), transparent 62%),
+    rgba(7, 18, 13, 0.66);
   box-shadow:
-    0 0 0 1px rgba(201, 167, 94, 0.55),
-    inset 0 1px 0 rgba(238, 220, 163, 0.2),
+    0 0 0 1px rgba(184, 156, 102, 0.55),
+    inset 0 1px 0 rgba(220, 200, 156, 0.2),
     inset 0 -2px 4px rgba(0, 0, 0, 0.35),
     0 6px 18px rgba(0, 0, 0, 0.35);
 }
@@ -3848,119 +3365,752 @@ h2 {
 }
 .catalog {
   background:
-    radial-gradient(ellipse 90% 40% at 50% 0%, rgba(238, 220, 163, 0.07), transparent 70%),
+    radial-gradient(ellipse 90% 40% at 50% 0%, rgba(220, 200, 156, 0.07), transparent 70%),
     linear-gradient(180deg, var(--green-800), var(--green-900) 40%, var(--green-950));
 }
 
-/* in 3D, soft glows would be cut square: the standing faces use crisp rims */
-.face-marker img {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7);
+
+/* ===================================================================
+ * My Vinyl — the radiogram.
+ * The top half is the deck seen straight from above: the record on its
+ * brass platter, the tonearm, the search knob in the corner. A brass seam
+ * folds it into the front below, where the knobs and nameplate live.
+ * Full-bleed, quiet, and made of materials rather than drawings.
+ * =================================================================== */
+.screen--vinyl,
+.person {
+  display: flex;
+  flex-direction: column;
+  background: var(--green-900);
+  touch-action: pan-y;
 }
-.face-marker.is-centre img {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7), 0 0 0 2.5px rgba(238, 220, 163, 0.55);
+.vinyl-deck {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
-.face-marker.is-shared img {
-  background: radial-gradient(circle, #f6d3b9, var(--rose) 70%);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7), 0 0 0 3px rgba(243, 205, 178, 0.75);
+.hifi {
+  --rot: 0deg;
+  --arm: -7deg;
+  /* the front takes about two-fifths of the height; the record gets the rest */
+  --front-room: clamp(262px, 41cqh, 360px);
+  --stage: min(100cqw, 100cqh - var(--front-room) - var(--safe-t), 620px);
+  container-type: size;
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
-.face-marker__pip {
-  box-shadow: 0 0 0 1.5px #0b1d14;
+.hifi--guest {
+  --front-room: clamp(260px, 46cqh, 400px);
 }
-.hifi__front .plate__id {
-  align-self: stretch;
-}
-.hifi__front .plate > .keys {
+/* the deck: lacquer under a lamp, lit around the record */
+.hifi__top {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
   justify-content: center;
+  padding-top: var(--safe-t);
+  background:
+    radial-gradient(circle at 50% 56%, rgba(220, 200, 156, 0.07), transparent 58%),
+    radial-gradient(ellipse 120% 90% at 50% 40%, #11271d, #0a1812 70%, #07120d),
+    var(--green-900);
+}
+.hifi__top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grain);
+  opacity: 0.9;
+  pointer-events: none;
+}
+/*
+ * Inside the stage everything is in its own units: 1cqw = 1% of its width.
+ * Record centre (47, 53.5), radius 43. Tonearm pivot (92.6, 9.6).
+ */
+.hifi__stage {
+  container-type: inline-size;
+  position: relative;
+  width: var(--stage);
+  aspect-ratio: 1;
+}
+/* the seam and the front: green leather, the way the radio's panel is */
+.hifi__front {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  padding: 22px max(22px, var(--safe-l)) 14px max(22px, var(--safe-r));
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 18px),
+    radial-gradient(ellipse 90% 70% at 50% 0%, rgba(220, 200, 156, 0.05), transparent 70%),
+    linear-gradient(180deg, #0f2219, #0b1a13 60%, #08140e);
+}
+.hifi__front::before {
+  /* the brass seam where the deck folds into the front */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: var(--pinstripe);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+}
+.hifi__front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grain);
+  opacity: 0.7;
+  pointer-events: none;
+}
+.hifi__nameplate {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  color: var(--ivory);
 }
 @media (min-width: 900px) {
+  /* side by side: the deck on the left, the front on the right, a brass seam between */
+  .hifi,
   .hifi--guest {
-    --front-room: 420px;
+    --stage: min(100cqh - 64px, 60cqw, 820px);
+    flex-direction: row;
   }
+  .hifi__top {
+    flex: 0 0 auto;
+    align-items: center;
+    padding: 32px 40px;
+  }
+  .hifi__front {
+    padding: 48px 56px;
+    align-items: center;
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.42), transparent 22px),
+      radial-gradient(ellipse 80% 60% at 0% 50%, rgba(220, 200, 156, 0.05), transparent 70%),
+      linear-gradient(90deg, #0f2219, #0b1a13 60%, #08140e);
+  }
+  .hifi__front::before {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, transparent, #7b6439 12%, #dcc89c 50%, #7b6439 88%, transparent);
+  }
+  .hifi__nameplate {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+/* the record and its hardware, in quieter metals */
+.hifi__platter {
+  background:
+    repeating-conic-gradient(from var(--rot), rgba(40, 30, 10, 0.22) 0 0.7deg, transparent 0.7deg 4deg),
+    var(--bezel-brass);
+  box-shadow: 0 1.2cqw 3cqw rgba(0, 0, 0, 0.55);
+}
+.hifi__record {
+  box-shadow:
+    0 1cqw 2.4cqw rgba(0, 0, 0, 0.6),
+    0 0 0 0.2cqw rgba(0, 0, 0, 0.7);
+}
+.hifi__spindle {
+  background: radial-gradient(circle at 35% 32%, #f6efe0, #dcc89c 30%, #b89c66 60%, #5e4a28);
+}
+.hifi__base {
+  background:
+    radial-gradient(circle, transparent 54%, #07120d 55%, #10241b 64%, transparent 65%),
+    repeating-radial-gradient(circle, rgba(255, 255, 255, 0.1) 0 0.6px, transparent 0.6px 1.6px),
+    var(--bezel-brass);
+  box-shadow: 0 0 0 0.35cqw #07120d, 0.3cqw 0.8cqw 1.4cqw rgba(0, 0, 0, 0.5);
+}
+.hifi__rest {
+  background: radial-gradient(circle at 40% 35%, #1e3d2f, #07120d 70%);
+  box-shadow: inset 0 0 0 0.45cqw rgba(184, 156, 102, 0.85), 0.3cqw 0.6cqw 0.8cqw rgba(0, 0, 0, 0.4);
+}
+.hifi__sheen {
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+/* the faces, lying in the grooves: fine brass rims, colour held back a little */
+.face-marker {
+  pointer-events: auto;
+}
+.face-marker__upright {
+  transform: rotate(calc(var(--rot) * -1));
+}
+.face-marker img {
+  padding: 4.5%;
+  background: var(--bezel-brass);
+  filter: saturate(0.82) contrast(1.04);
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.8),
+    0 0.5cqw 1.2cqw rgba(0, 0, 0, 0.55);
+}
+.face-marker.is-faint img {
+  padding: 3.5%;
+  background: #24332b;
+  filter: grayscale(0.6) brightness(0.8) contrast(0.95);
+}
+.face-marker.is-centre img {
+  padding: 6%;
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.8),
+    0 0 0 0.45cqw rgba(220, 200, 156, 0.35),
+    0 0.5cqw 1.2cqw rgba(0, 0, 0, 0.55);
+}
+.face-marker.is-shared img {
+  background: var(--bezel);
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.8),
+    0 0 0 0.45cqw rgba(229, 200, 180, 0.45),
+    0 0.5cqw 1.2cqw rgba(0, 0, 0, 0.55);
+}
+.face-marker__pip {
+  width: 30%;
+  box-shadow: 0 0 0 1px #07120d;
+}
+.face-marker__pip--live {
+  color: var(--ink);
+  background: radial-gradient(circle at 40% 32%, #efe3c4, var(--brass) 70%);
+}
+.face-marker__pip--fav {
+  color: var(--brass-hi);
+  background: #0b1a13;
+}
+.face-marker__closer {
+  background: var(--brass-hi);
+  box-shadow: 0 0 0 1px #07120d;
+}
+
+/*
+ * A machined knob: a turned brass collar round a dark enamel face, the
+ * symbol engraved in it. Used for search on the deck and the knobs below.
+ */
+.knob,
+.hifi__search {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--brass-hi);
+}
+.knob__cap {
+  --size: 48px;
+  width: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.05), transparent 55%),
+    radial-gradient(circle, #10241b 0 62%, transparent 63%),
+    repeating-conic-gradient(rgba(0, 0, 0, 0.12) 0 2deg, rgba(255, 255, 255, 0.05) 2deg 4deg),
+    var(--bezel-brass);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 4px 10px rgba(0, 0, 0, 0.45);
+  transition: transform 140ms var(--ease), color 140ms var(--ease);
+}
+.knob__cap .icon {
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.6));
+}
+.knob:active .knob__cap,
+.hifi__search:active .knob__cap {
+  transform: scale(0.95);
+}
+@media (hover: hover) {
+  .knob:hover,
+  .hifi__search:hover {
+    color: var(--ivory);
+  }
+}
+/* a pilot lamp, warm and small: someone wants to be friends */
+.knob__lamp {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #fff4dc, #dcc89c 55%, #b89c66);
+  box-shadow: 0 0 0 1.5px #07120d, 0 0 6px rgba(220, 200, 156, 0.7);
+}
+/* search sits in the deck's top-left corner, level with the tonearm's pivot */
+.hifi__search {
+  position: absolute;
+  z-index: 4;
+  left: max(16px, var(--safe-l));
+  top: calc(var(--safe-t) + var(--stage) * 0.096 - 22px);
+}
+.hifi__search .knob__cap {
+  --size: 38px;
+}
+
+/* the fascia: knob, nameplate, knob */
+.plate {
+  gap: 10px;
+}
+.plate__fascia {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hifi__front .plate__id {
+  flex: 1 1 auto;
+  min-width: 0;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
 }
 .hifi__front .plate > .plate__id {
   flex: none;
 }
+.hifi__front .plate__name {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: var(--serif);
+  font-weight: 400;
+  font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0;
+  font-size: clamp(24px, 7.6cqw, 40px);
+  letter-spacing: -0.005em;
+  color: var(--ivory);
+  text-shadow: none;
+}
+.hifi__front .plate__meta {
+  justify-content: center;
+  gap: 2px 12px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(184, 156, 102, 0.28);
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 112%;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass);
+}
+.hifi__front .plate__meta > * {
+  white-space: nowrap;
+}
+.hifi__front .plate__meta .plate__link {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  color: var(--brass-hi);
+  border-bottom: 0;
+}
+.hifi__front .plate__bio {
+  align-self: center;
+  text-align: center;
+  font-size: 14.5px;
+  color: var(--fg-2);
+}
 .hifi__front .plate > .plate__link {
   align-self: center;
 }
-/* (no contact shadow: a 3D layer cuts its soft edge into a square) */
-.face-marker::before {
-  display: none;
+.hifi__front .plate > .keys {
+  justify-content: center;
 }
-/* the search knob reads small in perspective; its tap area doesn't */
-.hifi__search {
-  padding: 9px;
+
+/* the readouts: small windows with brass edges, ivory inside */
+.readouts__head {
+  color: var(--brass);
+  opacity: 0.8;
+  font-weight: 600;
+  font-size: 9.5px;
+  letter-spacing: 0.2em;
+}
+.readout {
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.24);
+  box-shadow:
+    inset 0 0 0 1px rgba(184, 156, 102, 0.2),
+    inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.readout__label {
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--brass);
+  opacity: 0.85;
+}
+.readout__big,
+.readout__who strong {
+  font-weight: 400;
+  color: var(--ivory);
+  text-shadow: none;
+}
+.readout__who img {
+  padding: 1px;
+  background: var(--bezel-brass);
+  filter: saturate(0.82);
+}
+.readout__counter i {
+  font-weight: 500;
+  color: var(--ivory);
+  background: linear-gradient(180deg, #1a2e24, #07120d 50%, #1a2e24);
+  box-shadow: inset 0 0 0 1px rgba(184, 156, 102, 0.22);
+}
+.hifi__front .readouts__row {
+  margin: 0;
+  padding: 2px 0 4px;
+}
+/* tall fronts: every readout at once, as a grid */
+@container (min-height: 300px) and (max-width: 640px) {
+  .hifi__nameplate .readouts__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+  }
+  .hifi__nameplate .readout {
+    min-width: 0;
+    max-width: none;
+  }
+}
+@container (max-height: 299px) {
+  .hifi__front .plate__bio {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 13px;
+  }
 }
 @media (max-width: 899px) {
-  .hifi__front {
-    padding-left: calc(var(--lid) * 0.06);
-    padding-right: calc(var(--lid) * 0.06);
+  .hifi__nameplate > .plate {
+    min-height: 100%;
   }
-  .hifi__nameplate .readout__who strong {
-    font-size: 12.5px;
-  }
-  .hifi__front .plate__name {
-    font-size: clamp(18px, 7.4cqw, 38px);
+  .hifi__nameplate .readouts {
+    margin-top: auto;
   }
 }
-/* the narrowest cabinets: knobs closer in, so a name still fits */
-@container (max-width: 240px) {
+@container (max-width: 300px) {
   .plate__fascia {
-    gap: 4px;
+    gap: 8px;
   }
-  .hifi__front .plate__id {
-    padding-left: 6px;
-    padding-right: 6px;
-  }
-  .hifi__front .plate__name {
-    font-size: 18px;
-  }
-}
-/* only the standing face takes the tap, not its footprint on the record */
-.face-marker {
-  pointer-events: none;
-}
-.face-marker__upright {
-  pointer-events: auto;
-  border-radius: 50%;
-}
-@container (max-width: 240px) {
-  .plate__fascia {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px 48px;
-  }
-  .plate__fascia .plate__id {
-    order: -1;
-    flex-basis: 100%;
-  }
-  .plate__fascia .knob {
-    gap: 2px;
-  }
-  .plate__fascia .knob__cap {
-    width: 28px;
+  .knob .knob__cap {
+    --size: 40px;
   }
   .hifi__front .plate__name {
-    font-size: 20px;
-  }
-  .plate__fascia .plate__meta > * {
-    white-space: normal;
+    font-size: 21px;
   }
   .hifi__front .readouts__head {
     display: none;
   }
-  .hifi__front .plate {
-    gap: 5px;
+}
+.hifi__front {
+  padding-left: max(16px, var(--safe-l));
+  padding-right: max(16px, var(--safe-r));
+}
+.hifi__nameplate {
+  padding: 0 6px;
+}
+.hifi__front .plate__meta .plate__link {
+  font-weight: 500;
+}
+/* the readouts never scroll sideways: three across, a second row when there's room */
+.hifi__front .readouts__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+  overflow: visible;
+}
+.hifi__front .readout {
+  min-width: 0;
+  max-width: none;
+  padding: 8px 9px 9px;
+  gap: 3px;
+}
+.hifi__front .readout:nth-child(n + 4) {
+  display: none;
+}
+.hifi__front .readout__who strong,
+.hifi__front .readout__big {
+  font-size: 13.5px;
+}
+.hifi__front .readout__who img {
+  width: 18px;
+  height: 18px;
+}
+.hifi__front .readout__sub {
+  font-size: 10.5px;
+}
+.hifi__front .readout__counter i {
+  width: 14px;
+  height: 21px;
+  font-size: 13px;
+}
+@container (min-height: 340px) {
+  .hifi__front .readout:nth-child(n + 4) {
+    display: flex;
   }
-  .plate__fascia ~ .plate__bio {
+}
+@media (min-width: 900px) {
+  .hifi__front {
+    align-items: stretch;
+  }
+  .hifi__nameplate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hifi__front .readout__who strong,
+  .hifi__front .readout__big {
+    font-size: 15px;
+  }
+}
+@container (max-height: 250px) {
+  .hifi__front .readouts__head {
+    display: none;
+  }
+}
+/* a little air above the deck; search keeps level with the tonearm's pivot */
+@media (max-width: 899px) {
+  .hifi__top {
+    padding-top: calc(var(--safe-t) + 10px);
+  }
+  .hifi {
+    --stage: min(100cqw, 100cqh - var(--front-room) - var(--safe-t) - 10px, 620px);
+  }
+  .hifi__search {
+    top: calc(var(--safe-t) + 10px + var(--stage) * 0.096 - 22px);
+  }
+}
+.hifi__front .plate__meta {
+  letter-spacing: 0.09em;
+}
+@container (max-width: 330px) {
+  .hifi__front .readouts__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .hifi__front .readout:nth-child(n + 3) {
+    display: none;
+  }
+}
+@media (min-width: 900px) {
+  .hifi,
+  .hifi--guest {
+    --stage: min(100cqh - 120px, 54cqw, 760px);
+  }
+  .hifi__top {
+    padding: 48px 56px;
+  }
+  .hifi__nameplate {
+    max-width: 600px;
+  }
+  .hifi__front .plate {
+    gap: 18px;
+  }
+  .hifi__front .plate__name {
+    font-size: 46px;
+  }
+  .hifi__front .plate__meta {
+    font-size: 11.5px;
+  }
+  .hifi__front .plate__bio {
+    font-size: 17px;
+  }
+  .knob .knob__cap {
+    --size: 56px;
+  }
+  .hifi__search {
+    left: 28px;
+    top: calc(48px + var(--stage) * 0.096 - 22px);
+  }
+}
+
+/* ---------- the bar: quieter records, brass marks on green labels ---------- */
+.tabs::before {
+  background:
+    var(--grain),
+    linear-gradient(180deg, #0a1812, #06100c);
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+}
+.tabs::after {
+  /* a hairline of brass along the top edge */
+  content: '';
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: var(--pinstripe);
+  opacity: 0.55;
+  pointer-events: none;
+}
+@media (min-width: 900px) {
+  .tabs::after {
+    left: auto;
+    right: 0;
+    width: 1px;
+    height: auto;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent, #7b6439 12%, #dcc89c 50%, #7b6439 88%, transparent);
+  }
+}
+.tab__disc {
+  width: 36px;
+  height: 36px;
+  background:
+    radial-gradient(circle, transparent 0 94%, rgba(255, 255, 255, 0.1) 95% 97%, transparent 98%),
+    repeating-radial-gradient(circle, #0d0d0e 0 1px, #151516 1px 2px);
+  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.9), 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.tab__disc::after {
+  background: conic-gradient(from 300deg, transparent, rgba(255, 255, 255, 0.09) 28deg, transparent 56deg, transparent 180deg, rgba(255, 255, 255, 0.06) 208deg, transparent 236deg);
+}
+.tab__art {
+  width: 20px;
+  height: 20px;
+  padding: 1px;
+  color: var(--brass-hi);
+  background: #10241b;
+  box-shadow: 0 0 0 0.5px rgba(184, 156, 102, 0.6);
+  opacity: 0.6;
+}
+.tab__art svg {
+  stroke-width: 1.5;
+}
+.tab__art--photo {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: #10241b;
+  box-shadow: 0 0 0 1px var(--brass-lo);
+}
+.tab[aria-current='page'] .tab__art {
+  opacity: 1;
+}
+.icon__glow {
+  fill: var(--brass-hi);
+  filter: none;
+}
+.tab[aria-current='page'] .icon__glow {
+  fill: var(--ivory);
+  filter: drop-shadow(0 0 2px rgba(220, 200, 156, 0.6));
+}
+.tab__lamp {
+  width: 7px;
+  height: 7px;
+  background: radial-gradient(circle at 40% 35%, #fff4dc, #dcc89c 55%, #b89c66);
+  box-shadow: 0 0 0 1.5px var(--bar), 0 0 5px rgba(220, 200, 156, 0.6);
+}
+/* the front's contents spread evenly down it, rather than leaving a hole in the middle */
+@media (max-width: 899px) {
+  .hifi__nameplate > .plate {
+    justify-content: space-evenly;
+  }
+  .hifi__nameplate .readouts {
     margin-top: 0;
   }
 }
-/* short screens: the lid leans further back, so the cabinet can be wider */
-@media (max-width: 899px) and (max-height: 620px) {
-  .hifi {
-    --tilt: 46deg;
-    --lean: 0.705;
-    --front-room: 285px;
+.knob {
+  flex: none;
+}
+/* names in the readouts may take two lines rather than lose their ends */
+.hifi__front .readout__who {
+  align-items: flex-start;
+}
+.hifi__front .readout__who strong,
+.hifi__front .readout__big {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.18;
+}
+.hifi__front .readout__who img {
+  margin-top: 1px;
+}
+@media (min-width: 900px) {
+  .hifi__top {
+    align-items: flex-start;
+    padding-top: calc((100cqh - var(--stage)) / 2);
   }
+  .hifi__search {
+    top: calc((100cqh - var(--stage)) / 2 + var(--stage) * 0.096 - 22px);
+  }
+}
+
+/* ---------- buttons and cards: hairlines and quiet fills, no chunky plastic ---------- */
+.key {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 20px;
+  font-weight: 400;
+  color: var(--ivory);
+  background: rgba(239, 230, 211, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(184, 156, 102, 0.42);
+}
+.key:active,
+.key.is-down {
+  transform: scale(0.98);
+  box-shadow: inset 0 0 0 1px rgba(184, 156, 102, 0.6);
+  background: rgba(239, 230, 211, 0.06);
+}
+.key--primary {
+  color: #1a120c;
+  background: linear-gradient(180deg, #dcc89c, #b89c66);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.key--primary:active {
+  background: linear-gradient(180deg, #cdb88a, #a98e5a);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.pill:not([class*='pill--']) {
+  font-weight: 400;
+  background: linear-gradient(180deg, #e9dfca, #d9cbad);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.reward,
+.reward--top {
+  background: rgba(0, 0, 0, 0.22);
+  color: var(--ivory);
+  box-shadow: inset 0 0 0 1px rgba(184, 156, 102, 0.35);
+}
+.reward--top {
+  box-shadow: inset 0 0 0 1px rgba(220, 200, 156, 0.7);
+}
+.reward__title {
+  font-weight: 400;
+}
+.reward__body {
+  color: var(--fg-2);
+}
+.reward__demo {
+  color: var(--brass);
+}
+.pill--cherry {
+  color: #1a120c;
+  font-weight: 400;
+  background: linear-gradient(180deg, #dcc89c, #b89c66);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.pill--quiet {
+  color: var(--ivory);
+  font-weight: 400;
+  background: rgba(239, 230, 211, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(184, 156, 102, 0.42);
+}
+.pill--quiet.is-on,
+.pill--quiet[aria-pressed='true'] {
+  background: rgba(184, 156, 102, 0.14);
 }

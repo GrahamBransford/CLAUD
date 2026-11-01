@@ -53,7 +53,7 @@ export function Readouts({ rels, experiences }: { rels: Relationship[]; experien
               <img src={creatorById[artist.creatorId].avatar} alt="" />
               <strong>{creatorById[artist.creatorId].name}</strong>
             </span>
-            <span className="readout__sub">{formatTop(artist.top)} of listeners</span>
+            <span className="readout__sub">{formatTop(artist.top)} of fans</span>
           </button>
         )}
         {podcast && (
@@ -63,7 +63,7 @@ export function Readouts({ rels, experiences }: { rels: Relationship[]; experien
               <img src={creatorById[podcast.creatorId].avatar} alt="" />
               <strong>{creatorById[podcast.creatorId].name}</strong>
             </span>
-            <span className="readout__sub">{formatTop(podcast.top)} of listeners</span>
+            <span className="readout__sub">{formatTop(podcast.top)} of fans</span>
           </button>
         )}
         <div className="readout">

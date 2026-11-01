@@ -3,7 +3,7 @@ import type { TierId } from '../lib/affinity'
 import * as I from './Icons'
 
 /**
- * A cabinet record player, seen from just above. The record is someone's vinyl: their
+ * A cabinet record player: the deck from above, the front below. The record is someone's vinyl: their
  * photo on the label, their creators set into the grooves by closeness
  * (centre = closest), their live experiences etched in the run-out.
  * Used for your own vinyl and for anyone else's.
@@ -163,9 +163,8 @@ export function Turntable({ markers, owner, etching, spinning, onMarker, childre
       className={`hifi ${spinning ? 'is-spinning' : ''} ${className ?? ''}`}
       style={{ '--arm': `${spinning ? ARM_PLAY : ARM_REST}deg` } as CSSProperties}
     >
-      {/* the lid of the cabinet, seen from above and in front: a tilted plane */}
+      {/* the deck, straight down from above */}
       <div className="hifi__top">
-      <div className="hifi__deck">
       <div className="hifi__stage">
         <div className="hifi__platter" aria-hidden />
         <div className="hifi__record">
@@ -197,11 +196,11 @@ export function Turntable({ markers, owner, etching, spinning, onMarker, childre
         <span className="hifi__rest" aria-hidden />
         <span className="hifi__base" aria-hidden />
         <Tonearm />
-        {controls}
       </div>
+      {/* hardware in the deck's corners, outside the record's square */}
+      {controls}
       </div>
-      </div>
-      {/* the cabinet's front: lacquer, brass, turned columns */}
+      {/* the cabinet's front, below a brass seam */}
       {children && (
         <div className="hifi__front">
           <div className="hifi__nameplate">{children}</div>
@@ -225,8 +224,8 @@ function Disc({ owner, etching }: { owner: Props['owner']; etching?: string }) {
           <stop offset="100%" stopColor="#1a191c" />
         </radialGradient>
         <radialGradient id={`lp-${id}`} cx="42%" cy="38%" r="70%">
-          <stop offset="0%" stopColor="#245a3e" />
-          <stop offset="100%" stopColor="#123222" />
+          <stop offset="0%" stopColor="#1a3b2c" />
+          <stop offset="100%" stopColor="#0c2017" />
         </radialGradient>
         <clipPath id={`ph-${id}`}>
           <circle cx="50" cy="50" r={PHOTO_R} />
@@ -287,32 +286,32 @@ function Tonearm() {
     <svg className="hifi__arm" viewBox="-10 -16 20 70" aria-hidden>
       <defs>
         <linearGradient id={`ch-${id}`} x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#6a5023" />
-          <stop offset=".3" stopColor="#f4e4b0" />
-          <stop offset=".55" stopColor="#c9a75e" />
-          <stop offset="1" stopColor="#5e4520" />
+          <stop offset="0" stopColor="#5e4a28" />
+          <stop offset=".3" stopColor="#e2d1a8" />
+          <stop offset=".55" stopColor="#b89c66" />
+          <stop offset="1" stopColor="#56432a" />
         </linearGradient>
         <radialGradient id={`cap-${id}`} cx="38%" cy="34%" r="70%">
-          <stop offset="0" stopColor="#fff8e6" />
-          <stop offset=".45" stopColor="#d9b98a" />
-          <stop offset="1" stopColor="#6e4130" />
+          <stop offset="0" stopColor="#f6efe0" />
+          <stop offset=".45" stopColor="#cbb08a" />
+          <stop offset="1" stopColor="#6a4c3c" />
         </radialGradient>
         <linearGradient id={`ct-${id}`} x1="0" x2="1">
-          <stop offset="0" stopColor="#0f2a1c" />
-          <stop offset=".35" stopColor="#2a6142" />
-          <stop offset="1" stopColor="#0f2a1c" />
+          <stop offset="0" stopColor="#0b1d15" />
+          <stop offset=".35" stopColor="#1e3d2f" />
+          <stop offset="1" stopColor="#0b1d15" />
         </linearGradient>
       </defs>
       {/* counterweight: a knurled drum */}
       <rect x="-1.1" y="-7" width="2.2" height="6" fill={`url(#ch-${id})`} />
       <rect x="-2.9" y="-14.2" width="5.8" height="7.4" rx=".9" fill={`url(#ch-${id})`} />
       {Array.from({ length: 9 }, (_, k) => (
-        <line key={k} x1="-2.9" x2="2.9" y1={-13.4 + k * 0.72} y2={-13.4 + k * 0.72} stroke="#4a3816" strokeOpacity=".5" strokeWidth=".12" />
+        <line key={k} x1="-2.9" x2="2.9" y1={-13.4 + k * 0.72} y2={-13.4 + k * 0.72} stroke="#43361f" strokeOpacity=".5" strokeWidth=".12" />
       ))}
       <rect x="-2.9" y="-8.4" width="5.8" height="1.4" rx=".5" fill="#1d1b1e" />
       {/* tube, with a gentle bend into the headshell */}
-      <path d="M0 0 L0 37.5 Q0 41.6 -1.6 44" fill="none" stroke="#5e4520" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M0 0 L0 37.5 Q0 41.6 -1.6 44" fill="none" stroke="#d8bd7c" strokeWidth="1.15" strokeLinecap="round" />
+      <path d="M0 0 L0 37.5 Q0 41.6 -1.6 44" fill="none" stroke="#56432a" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M0 0 L0 37.5 Q0 41.6 -1.6 44" fill="none" stroke="#cdb68a" strokeWidth="1.15" strokeLinecap="round" />
       <path d="M-.28 1 L-.28 37.4 Q-.3 41 -1.75 43.2" fill="none" stroke="#fff" strokeOpacity=".9" strokeWidth=".32" strokeLinecap="round" />
       {/* gimbal and pivot cap */}
       <circle r="3.3" fill="#1d1b1e" />
@@ -321,7 +320,7 @@ function Tonearm() {
       {/* headshell, cartridge and stylus */}
       <g transform="translate(-1.6 44) rotate(26.6)">
         <rect x="-.95" y="-.6" width="1.9" height="1.4" rx=".3" fill={`url(#ch-${id})`} />
-        <path d="M1.4 1.2 Q3.3 1.1 3.7 -.4" fill="none" stroke="#d8bd7c" strokeWidth=".5" strokeLinecap="round" />
+        <path d="M1.4 1.2 Q3.3 1.1 3.7 -.4" fill="none" stroke="#cdb68a" strokeWidth=".5" strokeLinecap="round" />
         <rect x="-1.55" y=".5" width="3.1" height="5.8" rx=".45" fill="#1b191c" />
         <rect x="-1.55" y=".5" width="3.1" height=".5" rx=".25" fill="#fff" fillOpacity=".18" />
         <rect x="-1.12" y="2" width="2.24" height="4" rx=".3" fill={`url(#ct-${id})`} />

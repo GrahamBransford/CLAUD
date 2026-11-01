@@ -81,8 +81,8 @@ export const Muted = ({ size }: P) => (
 export const Car = ({ size }: P) => (
   <Svg size={size}>
     <path d="M3 15.6v-2.4c0-1 .7-1.8 1.6-2l2.2-.5 2.3-3a2.4 2.4 0 0 1 1.9-.9h3.4c.8 0 1.6.4 2 1.1l1.8 2.8 1.8.4c1 .2 1.7 1 1.7 2v2.5c0 .5-.4.9-.9.9H3.9a.9.9 0 0 1-.9-.9z" />
-    <circle cx="7.4" cy="16.6" r="1.9" fill="var(--icon-bg, #0b1d14)" />
-    <circle cx="16.6" cy="16.6" r="1.9" fill="var(--icon-bg, #0b1d14)" />
+    <circle cx="7.4" cy="16.6" r="1.9" fill="var(--icon-bg, #07120d)" />
+    <circle cx="16.6" cy="16.6" r="1.9" fill="var(--icon-bg, #07120d)" />
     <path d="M8.6 10.6h7.4" />
   </Svg>
 )

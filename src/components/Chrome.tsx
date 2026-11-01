@@ -115,14 +115,14 @@ export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: Rout
           <svg viewBox="0 0 40 40" className="tabs__arm-swing">
             <defs>
               <linearGradient id="tab-arm" x1="0" x2="1">
-                <stop offset="0" stopColor="#6a5023" />
-                <stop offset=".4" stopColor="#f4e4b0" />
-                <stop offset="1" stopColor="#86682f" />
+                <stop offset="0" stopColor="#5e4a28" />
+                <stop offset=".4" stopColor="#e2d1a8" />
+                <stop offset="1" stopColor="#7b6439" />
               </linearGradient>
             </defs>
             <path d="M31 8 Q30 19 21 25" fill="none" stroke="url(#tab-arm)" strokeWidth="1.8" strokeLinecap="round" />
             <rect x="17.4" y="23.2" width="5" height="3.4" rx=".8" transform="rotate(38 19.9 24.9)" fill="var(--cherry)" />
-            <circle cx="31" cy="8" r="3.6" fill="#0b1d14" />
+            <circle cx="31" cy="8" r="3.6" fill="#07120d" />
             <circle cx="31" cy="8" r="2.4" fill="url(#tab-arm)" />
           </svg>
         </span>

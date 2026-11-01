@@ -111,8 +111,8 @@ export function MyVinyl({ active }: { active: boolean }) {
               }}
               aria-label="Search artists, podcasts and people"
             >
-              <span className="hifi__search-cap">
-                <I.Search size={18} />
+              <span className="knob__cap">
+                <I.Search size={16} />
               </span>
             </button>
           </>
@@ -123,7 +123,7 @@ export function MyVinyl({ active }: { active: boolean }) {
             {/* the fascia: a knob either side of your nameplate, like the radio's tuning and volume */}
             <div className="plate__fascia">
             <Knob label={`Friends: ${friendCount}${incoming ? `, ${incoming} new request` : ''}`} lamp={incoming > 0} onClick={() => open({ kind: 'friends' })}>
-              <I.People size={15} />
+              <I.People size={18} />
             </Knob>
             <div className="plate__id">
               <h1 className="plate__name">{profile.name || 'Your name'}</h1>
@@ -142,7 +142,7 @@ export function MyVinyl({ active }: { active: boolean }) {
               </p>
             </div>
             <Knob label="Live: shows and experiences" onClick={() => open({ kind: 'live' })}>
-              <I.Ticket size={15} />
+              <I.Ticket size={18} />
             </Knob>
             </div>
             {profile.bio && <p className="plate__bio">{profile.bio}</p>}
@@ -155,12 +155,11 @@ export function MyVinyl({ active }: { active: boolean }) {
   )
 }
 
-/** A rose-gold knob on the cabinet front, its symbol engraved above it. */
+/** A machined knob on the cabinet front, its symbol engraved in the face. */
 export function Knob({ label, lamp, onClick, children }: { label: string; lamp?: boolean; onClick: () => void; children: ReactNode }) {
   return (
     <button className="knob" onClick={onClick} aria-label={label} title={label.split(':')[0]}>
-      <span className="knob__mark" aria-hidden>{children}</span>
-      <span className="knob__cap" aria-hidden />
+      <span className="knob__cap" aria-hidden>{children}</span>
       {lamp && <i className="knob__lamp" aria-hidden />}
     </button>
   )
