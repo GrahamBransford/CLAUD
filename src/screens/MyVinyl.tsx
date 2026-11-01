@@ -135,8 +135,9 @@ export function MyVinyl({ active }: { active: boolean }) {
                   </span>
                 )}
                 {profile.socials.instagram && (
-                  <a className="plate__link" href={`https://instagram.com/${profile.socials.instagram}`} target="_blank" rel="noreferrer">
-                    IG @{profile.socials.instagram}
+                  <a className="plate__link" aria-label={`Instagram: ${profile.socials.instagram}`} href={`https://instagram.com/${profile.socials.instagram}`} target="_blank" rel="noreferrer">
+                    <I.Instagram size={14} />
+                    <span>{profile.socials.instagram}</span>
                   </a>
                 )}
               </p>

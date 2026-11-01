@@ -76,8 +76,9 @@ export function PersonVinyl({ id }: { id: string }) {
             {creator ? <CreatorKeys creatorId={creator.id} /> : <Friendship person={p} />}
             <Match person={p} />
             {p.socials?.instagram && (
-              <a className="plate__link" href={`https://instagram.com/${p.socials.instagram}`} target="_blank" rel="noreferrer">
-                Instagram · @{p.socials.instagram}
+              <a className="plate__link" aria-label={`Instagram: ${p.socials.instagram}`} href={`https://instagram.com/${p.socials.instagram}`} target="_blank" rel="noreferrer">
+                <I.Instagram size={15} />
+                <span>{p.socials.instagram}</span>
               </a>
             )}
           </div>

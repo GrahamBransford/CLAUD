@@ -35,7 +35,7 @@ export function Readouts({ rels, experiences }: { rels: Relationship[]; experien
     <section className="readouts" aria-label="Your listening, updated daily">
       <p className="readouts__head">
         <span>Today</span>
-        <span>Updated {today} · demo</span>
+        <span>{today} · demo</span>
       </p>
       <div className="readouts__row">
         <div className="readout readout--counter">
@@ -85,7 +85,7 @@ export function Readouts({ rels, experiences }: { rels: Relationship[]; experien
               <img src={creatorById[newest.creatorId].avatar} alt="" />
               <strong>{creatorById[newest.creatorId].name}</strong>
             </span>
-            <span className="readout__sub">On the edge of your vinyl</span>
+            <span className="readout__sub">At the edge of your vinyl</span>
           </button>
         )}
       </div>

@@ -4114,3 +4114,122 @@ h2 {
 .pill--quiet[aria-pressed='true'] {
   background: rgba(184, 156, 102, 0.14);
 }
+
+/* ===================================================================
+ * Curation pass: the work first, the frame second.
+ * Credits read like a gallery wall label; nothing competes with the art.
+ * =================================================================== */
+
+/* the record answers your hand */
+.hifi__record {
+  touch-action: none;
+  cursor: grab;
+}
+.hifi.is-held .hifi__record {
+  cursor: grabbing;
+}
+
+/* the record is the main event: it gets more of the screen */
+.hifi {
+  --front-room: clamp(226px, 36cqh, 320px);
+}
+.hifi--guest {
+  --front-room: clamp(250px, 42cqh, 380px);
+}
+@media (min-width: 900px) {
+  .hifi,
+  .hifi--guest {
+    --stage: min(100cqh - 80px, 60cqw, 860px);
+  }
+}
+
+/* Instagram: a brass mark and the handle, nothing else */
+.plate__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  border-bottom: 0;
+}
+.plate__link .icon--ig {
+  flex: none;
+}
+.hifi__front .plate__meta .plate__link {
+  letter-spacing: 0.06em;
+}
+
+/* credits on the feeds: the artist's name as a wall label, the title in the serif */
+.reel__who::before {
+  display: none;
+}
+.reel__who {
+  font-weight: 600;
+  font-stretch: 112%;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--brass-hi);
+}
+.reel__kind {
+  padding: 0 0 0 12px;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  position: relative;
+  font-weight: 500;
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  color: var(--fg-3);
+}
+.reel__kind::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 1px;
+  background: currentColor;
+}
+.reel__title {
+  font-weight: 350;
+  letter-spacing: -0.02em;
+}
+
+/* the tier figure on a creator's sheet, set in the serif rather than shouted */
+.creator__top {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-stretch: 100%;
+  font-variation-settings: 'opsz' 144, 'SOFT' 0, 'WONK' 0;
+  letter-spacing: -0.01em;
+}
+/* short fronts (smaller phones): the essentials, tighter */
+@container (max-height: 245px) {
+  .hifi__front .plate {
+    gap: 6px;
+  }
+  .hifi__front .readout__sub {
+    display: none;
+  }
+  .hifi__front .readout {
+    padding: 6px 8px 7px;
+  }
+  .hifi__front .plate__name {
+    font-size: clamp(21px, 6.6cqw, 30px);
+  }
+  .hifi__front .plate__meta {
+    padding-top: 5px;
+  }
+  .knob .knob__cap {
+    --size: 42px;
+  }
+}
+.hifi__front .readout__sub {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (min-width: 900px) {
+  .hifi__front .readouts__row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

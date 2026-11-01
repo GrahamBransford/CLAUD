@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useId, type ReactNode } from 'react'
 
 /**
  * CIRCA's icon family, drawn from the markings on tape decks, turntables and
@@ -226,3 +226,24 @@ export const StationCircle = ({ size }: P) => (
     <circle className="icon__glow" cx="12" cy="12" r="2.3" stroke="none" />
   </Svg>
 )
+
+/** Instagram's mark, struck in brass: a link out, never a feed. */
+export function Instagram({ size = 16 }: P) {
+  const id = useId().replace(/:/g, '')
+  return (
+    <svg className="icon icon--ig" width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
+      <defs>
+        <linearGradient id={`ig-${id}`} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="#e9d6a8" />
+          <stop offset=".45" stopColor="#b89c66" />
+          <stop offset="1" stopColor="#8a6a3c" />
+        </linearGradient>
+      </defs>
+      <g stroke={`url(#ig-${id})`} strokeWidth="1.7">
+        <rect x="3" y="3" width="18" height="18" rx="5.2" />
+        <circle cx="12" cy="12" r="4.1" />
+      </g>
+      <circle cx="17.3" cy="6.7" r="1.15" fill={`url(#ig-${id})`} />
+    </svg>
+  )
+}

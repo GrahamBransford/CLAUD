@@ -1,4 +1,5 @@
-import { useEffect, useId, useMemo, useRef, type CSSProperties, type ReactNode, type RefObject } from 'react'
+import { useEffect, useId, useMemo, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from 'react'
+import type React from 'react'
 import type { TierId } from '../lib/affinity'
 import * as I from './Icons'
 
@@ -84,6 +85,7 @@ const ARM_PLAY = 2
 
 const SPIN_UP = 0.32 // s, time constant of the platter coming up to speed
 const COAST = 0.6 // s, coasting down
+const FLICK = 1.6 // s, a hand-thrown spin fading back to speed
 
 /** Faded out or off screen: it can be repositioned without anyone seeing. */
 const unseen = (el: HTMLElement) => {
@@ -94,40 +96,67 @@ const unseen = (el: HTMLElement) => {
 /**
  * Turns the platter with some mass: it spins up and coasts down. Arriving on
  * the page, it starts from just the angle where its spin-up lands in step
- * with the shared clock, so it never visibly catches up. Writes --rot on the
- * deck; CSS does the rest.
+ * with the shared clock, so it never visibly catches up. You can also take
+ * hold of the record and turn it by hand: it follows your finger, keeps the
+ * momentum of a flick, then settles back to 33. Writes --rot on the deck.
  */
 function usePlatter(deck: RefObject<HTMLDivElement | null>, spinning: boolean) {
   const angle = useRef(-24)
   const speed = useRef(0)
   const want = useRef(spinning)
   const raf = useRef(0)
+  /** Where this record sits relative to the shared clock (changes when you turn it by hand). */
+  const offset = useRef(0)
+  /** Held by a finger: the loop leaves the angle alone. */
+  const held = useRef(false)
+  /** Just let go of a flick: momentum fades slowly instead of snapping back. */
+  const flick = useRef(false)
+
+  const loop = useRef<() => void>(() => {})
+  useEffect(() => {
+    loop.current = () => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || raf.current) return
+      let last = performance.now()
+      const tick = (now: number) => {
+        // real elapsed time, so a slow frame never leaves the record behind
+        const dt = Math.min(1, (now - last) / 1000)
+        last = now
+        if (!held.current) {
+          const target = want.current ? 1 : 0
+          const tau = flick.current ? FLICK : target ? SPIN_UP : COAST
+          speed.current += (target - speed.current) * (1 - Math.exp(-dt / tau))
+          if (flick.current && Math.abs(speed.current - target) < 0.02) {
+            flick.current = false
+            // wherever the hand left it becomes its place against the clock
+            offset.current = wrap(angle.current - clockAngle())
+          }
+          angle.current = (angle.current + speed.current * DEG_PER_S * dt) % 360
+          // up to speed, drift back onto the clock imperceptibly (a fraction of a degree a second)
+          if (want.current && !flick.current && speed.current > 0.98)
+            angle.current += wrap(clockAngle() + offset.current - angle.current) * (1 - Math.exp(-dt / 2))
+          deck.current?.style.setProperty('--rot', `${angle.current.toFixed(3)}deg`)
+          if (!want.current && !flick.current && speed.current < 0.002) {
+            speed.current = 0
+            raf.current = 0
+            return
+          }
+        }
+        raf.current = requestAnimationFrame(tick)
+      }
+      raf.current = requestAnimationFrame(tick)
+    }
+  }, [deck])
+
   useEffect(() => {
     want.current = spinning
     const el = deck.current
     // A spin-up from rest falls DEG_PER_S × SPIN_UP degrees behind the clock; start that far ahead.
-    if (spinning && speed.current < 0.01 && el && unseen(el)) angle.current = (clockAngle() + DEG_PER_S * SPIN_UP) % 360
-    el?.style.setProperty('--rot', `${angle.current}deg`)
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || raf.current) return
-    let last = performance.now()
-    const tick = (now: number) => {
-      // real elapsed time, so a slow frame never leaves the record behind
-      const dt = Math.min(1, (now - last) / 1000)
-      last = now
-      const target = want.current ? 1 : 0
-      speed.current += (target - speed.current) * (1 - Math.exp(-dt / (target ? SPIN_UP : COAST)))
-      angle.current = (angle.current + speed.current * DEG_PER_S * dt) % 360
-      // up to speed, drift back onto the clock imperceptibly (a fraction of a degree a second)
-      if (want.current && speed.current > 0.98) angle.current += wrap(clockAngle() - angle.current) * (1 - Math.exp(-dt / 2))
-      deck.current?.style.setProperty('--rot', `${angle.current.toFixed(3)}deg`)
-      if (!want.current && speed.current < 0.002) {
-        speed.current = 0
-        raf.current = 0
-        return
-      }
-      raf.current = requestAnimationFrame(tick)
+    if (spinning && speed.current < 0.01 && el && unseen(el)) {
+      offset.current = 0
+      angle.current = (clockAngle() + DEG_PER_S * SPIN_UP) % 360
     }
-    raf.current = requestAnimationFrame(tick)
+    el?.style.setProperty('--rot', `${angle.current}deg`)
+    loop.current()
   }, [deck, spinning])
   useEffect(
     () => () => {
@@ -136,6 +165,73 @@ function usePlatter(deck: RefObject<HTMLDivElement | null>, spinning: boolean) {
     },
     [],
   )
+
+  /** Turning by hand: pointer handlers for the record. A tap still reaches the faces. */
+  const g = useRef({ start: null as { x: number; y: number; id: number } | null, cx: 0, cy: 0, lastA: 0, lastT: 0, vel: 0, dragging: false })
+  const [handlers] = useState(() => ({
+    onPointerDown(e: React.PointerEvent<HTMLElement>) {
+      if (e.button !== 0) return
+      const r = e.currentTarget.getBoundingClientRect()
+      const s = g.current
+      s.cx = r.left + r.width / 2
+      s.cy = r.top + r.height / 2
+      s.start = { x: e.clientX, y: e.clientY, id: e.pointerId }
+      s.lastA = (Math.atan2(e.clientY - s.cy, e.clientX - s.cx) * 180) / Math.PI
+      s.lastT = e.timeStamp
+      s.vel = 0
+      s.dragging = false
+    },
+    onPointerMove(e: React.PointerEvent<HTMLElement>) {
+      const s = g.current
+      if (!s.start || e.pointerId !== s.start.id) return
+      if (!s.dragging) {
+        if (Math.hypot(e.clientX - s.start.x, e.clientY - s.start.y) < 6) return
+        s.dragging = true
+        held.current = true
+        speed.current = 0
+        e.currentTarget.setPointerCapture(e.pointerId)
+        e.currentTarget.closest('.hifi')?.classList.add('is-held')
+      }
+      const a = (Math.atan2(e.clientY - s.cy, e.clientX - s.cx) * 180) / Math.PI
+      const d = wrap(a - s.lastA)
+      const dt = Math.max(1, e.timeStamp - s.lastT) / 1000
+      s.vel = s.vel * 0.6 + (d / dt) * 0.4
+      s.lastA = a
+      s.lastT = e.timeStamp
+      angle.current = (angle.current + d) % 360
+      e.currentTarget.closest<HTMLElement>('.hifi')?.style.setProperty('--rot', `${angle.current.toFixed(3)}deg`)
+    },
+    onPointerUp(e: React.PointerEvent<HTMLElement>) {
+      const s = g.current
+      if (!s.start || e.pointerId !== s.start.id) return
+      s.start = null
+      if (!s.dragging) return
+      held.current = false
+      e.currentTarget.closest('.hifi')?.classList.remove('is-held')
+      // a flick keeps its momentum (clamped to something a hand could do)
+      const still = e.timeStamp - s.lastT > 120
+      speed.current = still ? 0 : Math.max(-12, Math.min(12, s.vel / DEG_PER_S))
+      flick.current = true
+      loop.current()
+      // the gesture was a turn, not a tap: keep it from opening a face
+      const swallow = (ev: Event) => {
+        ev.stopPropagation()
+        ev.preventDefault()
+      }
+      window.addEventListener('click', swallow, { capture: true, once: true })
+      window.setTimeout(() => window.removeEventListener('click', swallow, { capture: true }), 0)
+    },
+    onPointerCancel(e: React.PointerEvent<HTMLElement>) {
+      const s = g.current
+      s.start = null
+      if (!s.dragging) return
+      held.current = false
+      flick.current = true
+      e.currentTarget.closest('.hifi')?.classList.remove('is-held')
+      loop.current()
+    },
+  }))
+  return handlers
 }
 
 interface Props {
@@ -156,7 +252,7 @@ interface Props {
 export function Turntable({ markers, owner, etching, spinning, onMarker, children, controls, className }: Props) {
   const placed = useMemo(() => place(markers), [markers])
   const deck = useRef<HTMLDivElement>(null)
-  usePlatter(deck, spinning)
+  const hand = usePlatter(deck, spinning)
   return (
     <div
       ref={deck}
@@ -167,7 +263,7 @@ export function Turntable({ markers, owner, etching, spinning, onMarker, childre
       <div className="hifi__top">
       <div className="hifi__stage">
         <div className="hifi__platter" aria-hidden />
-        <div className="hifi__record">
+        <div className="hifi__record" {...hand}>
           <div className="hifi__turn" aria-hidden>
             <Disc owner={owner} etching={etching} />
           </div>
