@@ -200,7 +200,7 @@ export const Knob = ({ size }: P) => (
   </Svg>
 )
 
-/** Artists, podcasts, Inner Circle: each a ringed station mark. */
+/** Radio, Music, Inner Circle: each a ringed station mark. */
 export const StationRadio = ({ size }: P) => (
   <Svg size={size}>
     <circle cx="12" cy="12" r="10" />
@@ -216,13 +216,6 @@ export const StationArtists = ({ size }: P) => (
     <circle cx="12" cy="12" r="10" />
     <path d="M10.6 15.6V7.6l5-1.2v2.4l-5 1.2" />
     <circle cx="9.1" cy="15.8" r="1.9" fill="currentColor" stroke="none" />
-  </Svg>
-)
-export const StationPodcasts = ({ size }: P) => (
-  <Svg size={size}>
-    <circle cx="12" cy="12" r="10" />
-    <rect x="9.6" y="5.6" width="4.8" height="8.2" rx="2.4" />
-    <path d="M7.4 11.6a4.6 4.6 0 0 0 9.2 0M12 16.2v2.2" />
   </Svg>
 )
 export const StationCircle = ({ size }: P) => (

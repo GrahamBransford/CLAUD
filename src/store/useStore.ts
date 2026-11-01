@@ -20,7 +20,6 @@ interface PersistedState {
   /** Where each creator sat on the record at the last visit to Your Record. */
   lastTop: Record<string, number>
   artistsIndex: number
-  podcastsIndex: number
   /** Position in the Radio's mixed running order. */
   radioIndex: number
   circleIndex: number
@@ -50,7 +49,6 @@ interface PersistedState {
   recordView: (postId: string, creatorId: string) => void
   setLastTop: (m: Record<string, number>) => void
   setArtistsIndex: (i: number) => void
-  setPodcastsIndex: (i: number) => void
   setRadioIndex: (i: number) => void
   setCircleIndex: (i: number) => void
   setEpisodeProgress: (id: string, t: number) => void
@@ -77,7 +75,6 @@ const initial = () => ({
   viewed: [] as string[],
   lastTop: {} as Record<string, number>,
   artistsIndex: 0,
-  podcastsIndex: 0,
   radioIndex: 0,
   circleIndex: 0,
   episodeProgress: {} as Record<string, number>,
@@ -165,7 +162,6 @@ export const createStore = (set: string) =>
 
         setLastTop: (lastTop) => setState({ lastTop }),
         setArtistsIndex: (i) => setState({ artistsIndex: Math.max(0, i) }),
-        setPodcastsIndex: (i) => setState({ podcastsIndex: Math.max(0, i) }),
         setRadioIndex: (i) => setState({ radioIndex: Math.max(0, i) }),
         setCircleIndex: (i) => setState({ circleIndex: Math.max(0, i) }),
         setEpisodeProgress: (id, t) => setState((st) => ({ episodeProgress: { ...st.episodeProgress, [id]: t } })),

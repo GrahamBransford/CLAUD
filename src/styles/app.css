@@ -439,7 +439,7 @@ h2 {
     0 0 0 2px var(--bar),
     0 0 8px rgba(226, 160, 122, 0.9);
 }
-/* ---------- reels (Artists, Podcasts) ---------- */
+/* ---------- reels (Radio, Music) ---------- */
 .reel {
   position: absolute;
   inset: 0;
@@ -555,7 +555,7 @@ h2 {
   flex: 0 0 auto;
 }
 /*
- * Artists and Podcasts share one title slot, so the name above it sits at
+ * Songs and podcast highlights share one title slot, so the name above it sits at
  * the same height on both: a song title is one large line at the foot of
  * the slot; an episode title is two smaller lines filling it.
  */
