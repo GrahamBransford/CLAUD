@@ -647,6 +647,7 @@
     "start": 0,
     "end": 180
    },
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=suAR1PYFNYA",
     "title": "Houdini"
@@ -701,6 +702,7 @@
     "start": 0,
     "end": 180
    },
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=V9PVRfjEBTI",
     "title": "BIRDS OF A FEATHER"
@@ -755,6 +757,7 @@
     "start": 0,
     "end": 180
    },
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
     "title": "Blinding Lights"
@@ -809,6 +812,7 @@
     "start": 0,
     "end": 180
    },
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=PMivT7MJ41M",
     "title": "That’s What I Like"
@@ -863,6 +867,7 @@
     "start": 0,
     "end": 180
    },
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=NTpbbQUBbuo",
     "title": "Too Sweet"
@@ -944,6 +949,7 @@
     "end": 180,
     "title": "The opening"
    },
+   "display": "fit",
    "source": {
     "url": "https://www.youtube.com/watch?v=VHUrdELKjDw",
     "title": "The Science of Charisma"
@@ -2441,6 +2447,7 @@
     "end": 180,
     "title": "The opening"
    },
+   "display": "fit",
    "source": {
     "url": "https://www.youtube.com/watch?v=4b6bwcWK6GE",
     "title": "Welcome to the Huberman Lab Podcast"
@@ -3836,6 +3843,7 @@
     "end": 180,
     "title": "The opening"
    },
+   "display": "fit",
    "source": {
     "url": "https://www.youtube.com/watch?v=fo4ZR8hpQ3s",
     "title": "The Complete History of Wine"
@@ -4905,6 +4913,7 @@
     "end": 180,
     "title": "The opening"
    },
+   "display": "fit",
    "source": {
     "url": "https://www.youtube.com/watch?v=5zOHSysMmH0",
     "title": "Technology and the Metaverse"
@@ -5954,6 +5963,7 @@
     "end": 180,
     "title": "The opening"
    },
+   "display": "fit",
    "source": {
     "url": "https://www.youtube.com/watch?v=Ai4iNmW2A1c",
     "title": "Money Habits and Building Wealth"
@@ -5973,6 +5983,7 @@
    },
    "poster": "https://i.ytimg.com/vi/tcncnzizxUA/hqdefault.jpg",
    "orientation": "horizontal",
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=tcncnzizxUA",
     "title": "Training Season (Behind The Scenes)"
@@ -5990,6 +6001,7 @@
    },
    "poster": "https://i.ytimg.com/vi/pooDUsGR1n4/hqdefault.jpg",
    "orientation": "horizontal",
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=pooDUsGR1n4",
     "title": "Happier Than Ever (Making Of The Video)"
@@ -6007,6 +6019,7 @@
    },
    "poster": "https://i.ytimg.com/vi/ycdFpM3njTs/hqdefault.jpg",
    "orientation": "horizontal",
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=ycdFpM3njTs",
     "title": "Blinding Lights (Behind The Scenes)"
@@ -6024,6 +6037,7 @@
    },
    "poster": "https://i.ytimg.com/vi/c-nP-XdX2UM/hqdefault.jpg",
    "orientation": "horizontal",
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=c-nP-XdX2UM",
     "title": "The Making Of The Grenade Music Video"
@@ -6041,6 +6055,7 @@
    },
    "poster": "https://i.ytimg.com/vi/pTFRSWhwmwA/hqdefault.jpg",
    "orientation": "horizontal",
+   "display": "fill",
    "source": {
     "url": "https://www.youtube.com/watch?v=pTFRSWhwmwA",
     "title": "Someone New (Behind The Scenes)"

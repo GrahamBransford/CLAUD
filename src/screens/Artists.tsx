@@ -154,13 +154,15 @@ export function Artists({ active }: { active: boolean }) {
       </section>
     )
 
-  const embed = song.media.kind === 'youtube' || song.media.kind === 'spotify'
+  // artist videos fill the screen like a reel; only whole-frame embeds keep the official player's own touch
+  const fill = song.media.kind === 'youtube' && song.display === 'fill'
+  const embed = (song.media.kind === 'youtube' || song.media.kind === 'spotify') && !fill
   return (
     <section className="screen" aria-label="Artists">
       <AnimatePresence custom={move} initial={false} mode="popLayout">
         <Reel key={song.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
           {embed && <img className="reel__backdrop" src={song.artwork} alt="" aria-hidden />}
-          <MediaSurface source={song.media} start={song.preview.start} className="reel__media" poster={song.artwork} onPlayer={player.onPlayer} onError={setError} />
+          <MediaSurface source={song.media} start={song.preview.start} className="reel__media" poster={song.artwork} fill={fill} onPlayer={player.onPlayer} onError={setError} />
           <div className="reel__scrim" aria-hidden />
           <Credit kind="song" creatorId={creator.id} title={song.title} />
           {win.more && !full && (

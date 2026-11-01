@@ -5,6 +5,7 @@ import { Dial } from '../components/Dial'
 import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
 import { MediaSurface } from '../components/MediaSurface'
+import type { CSSProperties } from 'react'
 import { Reel, type Move } from '../components/Reel'
 import { creatorById } from '../data'
 import { useKeys } from '../hooks/useKeys'
@@ -208,15 +209,22 @@ export function Radio({ active }: { active: boolean }) {
     )
 
   const media = item.media
-  const embed = media.kind === 'youtube' || media.kind === 'spotify'
+  // artist videos fill the screen like a reel; podcasts stay whole, lit by the show's own colours
+  const fill = media.kind === 'youtube' && item.display === 'fill'
+  const embed = (media.kind === 'youtube' || media.kind === 'spotify') && !fill
+  const glow = ep && embed ? who?.palette : undefined
   const video = ep ? isVideo(ep) : true
   return (
     <section className="screen" aria-label="Radio">
       <AnimatePresence custom={move} initial={false} mode="popLayout">
         <Reel key={entry.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
-          {embed && item.artwork && <img className="reel__backdrop" src={item.artwork} alt="" aria-hidden />}
+          {glow ? (
+            <div className="reel__glow" aria-hidden style={{ '--g1': glow[0], '--g2': glow[1] ?? glow[0], '--g3': glow[2] ?? glow[1] ?? glow[0] } as CSSProperties} />
+          ) : (
+            embed && item.artwork && <img className="reel__backdrop" src={item.artwork} alt="" aria-hidden />
+          )}
           {song ? (
-            <MediaSurface source={song.media} start={song.preview.start} className="reel__media" poster={song.artwork} onPlayer={player.onPlayer} onError={setError} />
+            <MediaSurface source={song.media} start={song.preview.start} className="reel__media" poster={song.artwork} fill={fill} onPlayer={player.onPlayer} onError={setError} />
           ) : ep && video ? (
             // the picture sits dead centre, with its subtitles on it like television
             <div className="reel__frame">

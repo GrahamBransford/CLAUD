@@ -14,6 +14,8 @@ interface Props {
   spotifyHeight?: number
   /** Shown while an embedded player loads, and behind its error state. */
   poster?: string
+  /** Crop a horizontal embed to fill the frame, like a vertical reel. CIRCA's own gestures drive it. */
+  fill?: boolean
 }
 
 /** loading → ready (the platform's own player is showing) → playing; or error. */
@@ -28,7 +30,7 @@ const platformName = (s: MediaSource) => (s.kind === 'youtube' ? 'YouTube' : s.k
  * official YouTube video or a Spotify embed — and hands back a common
  * PlayerLike so the rest of CIRCA doesn't care which.
  */
-export function MediaSurface({ source, className, start = 0, onPlayer, onError, onClick, spotifyHeight = 152, poster }: Props) {
+export function MediaSurface({ source, className, start = 0, onPlayer, onError, onClick, spotifyHeight = 152, poster, fill = false }: Props) {
   const host = useRef<HTMLDivElement>(null)
   const media = useRef<HTMLMediaElement | null>(null)
   const cb = useRef(onPlayer)
@@ -119,7 +121,7 @@ export function MediaSurface({ source, className, start = 0, onPlayer, onError, 
     // The official player stays fully visible and interactive: nothing is
     // layered over it once it's ready (YouTube's and Spotify's embed terms
     // require this). The poster only covers the gap while it loads.
-    <div className={`${className ?? ''} embed embed--${source.kind}`} data-phase={current.phase}>
+    <div className={`${className ?? ''} embed embed--${source.kind} ${fill ? 'embed--fill' : ''}`} data-phase={current.phase}>
       <div ref={host} className="embed__host" />
       {poster && current.phase !== 'ready' && current.phase !== 'playing' && <img className="embed__poster" src={poster} alt="" draggable={false} />}
       {current.phase === 'loading' && <span className="embed__loading" aria-label="Loading" />}

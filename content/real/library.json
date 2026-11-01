@@ -6,6 +6,11 @@
     "playback": "youtube: an official YouTube upload, by videoId. instagram: an official Instagram embed, by url (plays in Instagram's own player, without CIRCA's controls). video: a creator-authorised file, by src.",
     "innerCircle": "Behind-the-scenes only: rehearsals, studio sessions, sets, tour footage, candid moments. Never an official music video or a full episode."
   },
+  "display": {
+    "note": "How each kind of creator's videos sit in the vertical feeds. fill: cropped to fill the screen like a vertical reel (horizontal sources lose their sides). fit: kept whole at 16:9, with a soft glow in the creator's colours around it. Any item can override with its own \"display\".",
+    "artist": "fill",
+    "podcast": "fit"
+  },
   "creators": [
     {
       "id": "dua-lipa",

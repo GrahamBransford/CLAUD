@@ -146,6 +146,8 @@ lib.creators.forEach((c) => {
     channel: { ...c.channel, platform: 'YouTube' },
   })
   c.content.forEach((item, n) => {
+    // fill (cropped to a vertical reel) or fit (whole, 16:9): per item, else per creator type
+    const display = item.display ?? lib.display?.[c.type] ?? 'fit'
     const where = `${c.id} content[${n}] (${item.id})`
     const media = mediaFor(item, where)
     const source = { url: item.url, title: item.title }
@@ -162,6 +164,7 @@ lib.creators.forEach((c) => {
         media,
         preview: { start: item.preview?.start ?? 0, end: item.preview?.end ?? (item.preview?.start ?? 0) + 180 },
         ...(item.duration ? { duration: item.duration } : {}),
+        display,
         source,
       })
     else if (item.role === 'episode')
@@ -175,6 +178,7 @@ lib.creators.forEach((c) => {
         media,
         ...(item.duration ? { duration: item.duration } : {}),
         highlight: item.highlight,
+        display,
         source,
       })
     else if (item.role === 'innerCircle')
@@ -187,6 +191,7 @@ lib.creators.forEach((c) => {
         media,
         ...(item.thumbnail ? { poster: item.thumbnail } : {}),
         ...(item.orientation ? { orientation: item.orientation } : {}),
+        display,
         source,
       })
     else throw new Error(`${where}: role must be song, episode or innerCircle`)

@@ -6043,3 +6043,43 @@ button:active:not(:disabled),
   inset: 0;
 }
 a.row-link { text-decoration: none; color: inherit; }
+
+/* ---- Artist videos: cropped to fill a vertical screen, like a reel --------
+   The player is scaled to cover the frame (a 16:9 source loses its sides) and
+   CIRCA's own gestures drive it: tap to play or pause, swipe to move on. */
+.embed--fill {
+  container-type: size;
+  pointer-events: none;
+}
+.embed--fill .embed__host {
+  inset: auto;
+  left: 50%;
+  top: 50%;
+  width: max(100cqw, 100cqh * 16 / 9);
+  height: max(100cqh, 100cqw * 9 / 16);
+  transform: translate(-50%, -50%);
+}
+.embed--fill .embed__host,
+.embed--fill .embed__host iframe {
+  pointer-events: none;
+}
+.embed--fill .embed__error {
+  pointer-events: auto;
+}
+.moment--fill .moment__media {
+  pointer-events: none;
+}
+
+/* ---- Podcasts: the whole picture, softly lit in the show's own colours ---- */
+.reel__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* the show's accent spills softly from behind the picture, like Instagram's ambient frame */
+  background:
+    radial-gradient(130% 52% at 50% 50%, color-mix(in srgb, var(--g2) 42%, transparent), transparent 78%),
+    radial-gradient(140% 60% at 50% -4%, color-mix(in srgb, var(--g2) 24%, transparent), transparent 78%),
+    radial-gradient(140% 60% at 50% 104%, color-mix(in srgb, var(--g2) 16%, transparent), transparent 78%),
+    #070c09;
+}
+

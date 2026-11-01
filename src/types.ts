@@ -18,6 +18,9 @@ export type MediaSource =
   | { kind: 'image'; src: string }
 
 /** Where a real piece of work lives on its platform: "Watch on YouTube", only when asked. */
+/** fill: cropped to fill a vertical screen, like a reel. fit: kept whole, letterboxed. */
+export type Display = 'fill' | 'fit'
+
 export interface SourceLink {
   url: string
   title?: string
@@ -66,6 +69,7 @@ export interface Song {
   preview: { start: number; end: number }
   /** Full length, when known (seconds). */
   duration?: number
+  display?: Display
   source?: SourceLink
 }
 
@@ -101,6 +105,7 @@ export interface Episode {
   speakers?: Record<string, { name: string }>
   chapters?: Chapter[]
   cues?: Cue[]
+  display?: Display
   source?: SourceLink
 }
 
@@ -115,6 +120,7 @@ export interface InnerCirclePost {
   duration?: number
   /** Horizontal sources keep their shape inside the vertical feed. */
   orientation?: 'vertical' | 'horizontal'
+  display?: Display
   source?: SourceLink
 }
 
