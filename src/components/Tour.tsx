@@ -193,7 +193,7 @@ export function Tour({ onDone }: { onDone: () => void }) {
           <Spotlight rect={rect} round={!!step.round} open={!!step.tap} />
           {step.ghost && rect && <Ghost rect={rect} />}
           <AnimatePresence mode="wait">
-            {rect && <Card key={i} step={step} index={i} rect={rect} onNext={next} onSkip={finish} />}
+            {rect && <Card key={i} step={step} index={i} rect={rect} onNext={next} />}
           </AnimatePresence>
         </>
       )}
@@ -306,7 +306,7 @@ function Ghost({ rect }: { rect: DOMRect }) {
   )
 }
 
-function Card({ step, index, rect, onNext, onSkip }: { step: Step; index: number; rect: DOMRect; onNext: () => void; onSkip: () => void }) {
+function Card({ step, index, rect, onNext }: { step: Step; index: number; rect: DOMRect; onNext: () => void }) {
   const vw = window.innerWidth
   const vh = window.innerHeight
   const w = Math.min(340, vw - 32)
@@ -373,9 +373,6 @@ function Card({ step, index, rect, onNext, onSkip }: { step: Step; index: number
         </ul>
       )}
       <div className="tour__foot">
-        <button className="tour__skip" onClick={onSkip}>
-          Skip tour
-        </button>
         {step.tap ? (
           <span className="tour__hint">Tap it to continue</span>
         ) : (

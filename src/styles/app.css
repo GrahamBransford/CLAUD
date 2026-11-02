@@ -6571,7 +6571,7 @@ a.row-link { text-decoration: none; color: inherit; }
 .tour__foot {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 12px;
   margin-top: 14px;
 }
@@ -6605,7 +6605,6 @@ a.row-link { text-decoration: none; color: inherit; }
   color: #efe6d3;
   background: rgba(10, 18, 14, 0.62);
 }
-.tour__skip,
 .tour__quiet {
   font-size: 13px;
   color: rgba(239, 230, 211, 0.6);
