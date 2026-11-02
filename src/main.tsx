@@ -8,6 +8,9 @@ import './styles/app.css'
 import { activeSet, loadContent } from './data'
 import { initStore } from './store/useStore'
 import { installHaptics } from './lib/haptics'
+import { installViewportFill } from './lib/viewport'
+
+installViewportFill()
 
 // A picture that can't load (a blocked image host, a moved channel photo) becomes a
 // quiet record label instead of a broken-image icon.
