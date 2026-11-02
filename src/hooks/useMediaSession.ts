@@ -10,6 +10,10 @@ interface SessionInfo {
   onPause: () => void
   onNext?: () => void
   onPrevious?: () => void
+  /** Scrubbing from the lock screen: seconds into what's playing. */
+  onSeek?: (seconds: number) => void
+  /** Where it's got to, so the lock screen can show (and scrub) the position. */
+  position?: { time: number; length: number }
 }
 
 /**
@@ -35,11 +39,12 @@ export function useMediaSession(active: boolean, info: SessionInfo | null) {
       album: info.album,
       artwork: [{ src: new URL(info.artwork, window.location.href).href, sizes: '1200x1200', type: 'image/jpeg' }],
     })
-    const handlers: [MediaSessionAction, (() => void) | undefined][] = [
+    const handlers: [MediaSessionAction, MediaSessionActionHandler | undefined][] = [
       ['play', () => ref.current?.onPlay()],
       ['pause', () => ref.current?.onPause()],
       ['nexttrack', info.onNext && (() => ref.current?.onNext?.())],
       ['previoustrack', info.onPrevious && (() => ref.current?.onPrevious?.())],
+      ['seekto', info.onSeek && ((d: MediaSessionActionDetails) => d.seekTime != null && ref.current?.onSeek?.(d.seekTime))],
     ]
     for (const [action, fn] of handlers) {
       try {
@@ -61,4 +66,20 @@ export function useMediaSession(active: boolean, info: SessionInfo | null) {
     // re-publish when the item changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [away, active, info?.title, info?.artist, info?.artwork, !!info?.onNext, !!info?.onPrevious])
+}
+
+/** Keeps the lock screen's progress bar in step (about once a second). */
+export function useMediaPosition(active: boolean, time: number, length: number, playing: boolean) {
+  const away = useUI((s) => s.backgrounded)
+  const second = Math.floor(time)
+  useEffect(() => {
+    if (away || !active || !('mediaSession' in navigator) || !(length > 0)) return
+    try {
+      navigator.mediaSession.playbackState = playing ? 'playing' : 'paused'
+      navigator.mediaSession.setPositionState({ duration: length, position: Math.max(0, Math.min(length, time)), playbackRate: 1 })
+    } catch {
+      /* not supported here */
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [away, active, second, length, playing])
 }

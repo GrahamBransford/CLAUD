@@ -75,11 +75,11 @@ interface UIState {
   /** The first-run tour is showing. */
   touring: boolean
   setTouring: (on: boolean) => void
-  resume: { id: string; time: number } | null
+  resume: { id: string; time: number; paused?: boolean } | null
   /** Locked or in the background, with the background player carrying the sound. */
   backgrounded: boolean
   setBackgrounded: (b: boolean) => void
-  setResume: (r: { id: string; time: number } | null) => void
+  setResume: (r: { id: string; time: number; paused?: boolean } | null) => void
 }
 
 let nextId = 1

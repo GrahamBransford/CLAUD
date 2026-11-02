@@ -1,14 +1,18 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
-import { creatorById } from '../data'
+import { creatorById, songs } from '../data'
+import { isHomeScreenApp, syncedPlayer, useBackgroundStation, type SyncedPlayer } from '../lib/background'
 import { claimAudioFocus, releaseAudioFocus } from '../lib/media'
+import { entryAudio, radioQueue, songAudio } from '../lib/radio'
 import { useStore } from '../store/useStore'
 import { useUI, type MiniItem } from '../store/useUI'
 import * as I from './Icons'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
+// iOS blocks picture-in-picture in Home Screen web apps (WebKit bug 303885); Safari allows it
 const pipSupported = () =>
   typeof document !== 'undefined' &&
+  !isHomeScreenApp() &&
   (!!(document as any).pictureInPictureEnabled || typeof (HTMLVideoElement.prototype as any).webkitSetPresentationMode === 'function')
 
 /** Hand the video to the system's own picture-in-picture, so it keeps playing outside CIRCA. */
@@ -38,47 +42,78 @@ function Mini({ m }: { m: MiniItem }) {
   const unlocked = useUI((s) => s.audioUnlocked)
   const [paused, setPaused] = useState(false)
   const c = creatorById[m.creatorId]
+  // the sound plays through the shared audio element, so it carries on when you leave the app
+  const player = useRef<SyncedPlayer | null>(null)
 
   useEffect(() => {
     const v = video.current
     if (!v) return
+    const p = (player.current = syncedPlayer(v))
+    const onPlay = () => setPaused(false)
+    const onPause = () => setPaused(true)
+    p.addEventListener('play', onPlay)
+    p.addEventListener('pause', onPause)
     const start = () => {
-      v.currentTime = m.time
-      claimAudioFocus(v)
-      v.play().catch(() => {
-        v.muted = true
-        void v.play().catch(() => setPaused(true))
+      p.currentTime = m.time
+      claimAudioFocus(p)
+      p.play().catch(() => {
+        p.muted = true
+        void p.play().catch(() => setPaused(true))
       })
     }
     if (v.readyState >= 1) start()
     else v.addEventListener('loadedmetadata', start, { once: true })
-    // leaving the app (home screen, another tab): try the system picture-in-picture
-    const onHide = () => document.visibilityState === 'hidden' && !v.paused && void popOut(v)
+    // leaving the app in Safari: try the system picture-in-picture (Home Screen apps can't)
+    const onHide = () => document.visibilityState === 'hidden' && !p.paused && pipSupported() && void popOut(v)
     document.addEventListener('visibilitychange', onHide)
     return () => {
       document.removeEventListener('visibilitychange', onHide)
       v.removeEventListener('loadedmetadata', start)
-      v.pause()
-      releaseAudioFocus(v)
+      p.removeEventListener('play', onPlay)
+      p.removeEventListener('pause', onPause)
+      p.pause()
+      releaseAudioFocus(p)
     }
   }, [m.time])
 
   useEffect(() => {
-    if (video.current && unlocked) video.current.muted = false
+    if (player.current && unlocked) player.current.muted = false
   }, [unlocked])
 
+  // locked or in the background: the feed it came from carries on as audio
+  useBackgroundStation(true, {
+    index: m.index,
+    player: () => player.current,
+    item: (i) =>
+      m.route === 'radio' ? entryAudio(radioQueue()[i]) : m.route === 'artists' ? songAudio(songs[i]) : i === m.index ? { id: m.id, src: m.src, start: 0, end: 1e6, title: m.title, artist: c?.name ?? '', artwork: m.poster ?? '' } : undefined,
+    land: (i, time, id, playing) => {
+      const p = player.current
+      if (id === m.id && p) {
+        p.currentTime = time
+        if (playing) void p.play()
+        return
+      }
+      // it moved on while you were away: the feed picks up there, in place of the mini player
+      const st = useStore.getState()
+      if (m.route === 'artists') st.setArtistsIndex(i)
+      else if (m.route === 'radio') st.setRadioIndex(i)
+      useUI.getState().setResume({ id, time, paused: !playing })
+      useUI.getState().openMini(null)
+    },
+  })
+
   const toggle = () => {
-    const v = video.current
-    if (!v) return
-    if (v.paused) {
-      claimAudioFocus(v)
-      void v.play()
-    } else v.pause()
+    const p = player.current
+    if (!p) return
+    if (p.paused) {
+      claimAudioFocus(p)
+      void p.play()
+    } else p.pause()
   }
 
   // back to its place in the feed, carrying on from here
   const expand = () => {
-    const time = video.current?.currentTime ?? m.time
+    const time = player.current?.currentTime ?? m.time
     const st = useStore.getState()
     if (m.route === 'artists') st.setArtistsIndex(m.index)
     else if (m.route === 'radio') st.setRadioIndex(m.index)
@@ -89,7 +124,7 @@ function Mini({ m }: { m: MiniItem }) {
     window.location.hash = m.route
   }
   const close = () => {
-    useUI.getState().setResume({ id: m.id, time: video.current?.currentTime ?? m.time })
+    useUI.getState().setResume({ id: m.id, time: player.current?.currentTime ?? m.time })
     useUI.getState().openMini(null)
   }
 
@@ -116,8 +151,6 @@ function Mini({ m }: { m: MiniItem }) {
           autoPlay
           loop={m.kind === 'moment'}
           preload="auto"
-          onPlay={() => setPaused(false)}
-          onPause={() => setPaused(true)}
           onClick={toggle}
           {...{ autopictureinpicture: '' }}
         />

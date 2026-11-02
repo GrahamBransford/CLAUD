@@ -60,7 +60,7 @@ function DrivePlayer({ station }: { station: Station }) {
   const saved = useStore((s) => s.saved)
   const saveSong = useSaveSong()
   const saveEpisode = useSaveEpisode()
-  const player = usePlayerRef()
+  const player = usePlayerRef(true)
 
   // The station's running order, and the part of it that can play in the car.
   const all = station === 'radio' ? radioQueue() : songEntries()
@@ -123,12 +123,12 @@ function DrivePlayer({ station }: { station: Station }) {
   useBackgroundStation(!!cur, {
     index: cur ? all.indexOf(cur) : -1,
     currentEnd: winEnd,
-    element: () => (player.ref.current instanceof HTMLMediaElement ? player.ref.current : null),
+    player: () => player.ref.current,
     item: (i) => (all[i] && playable(all[i]) ? entryAudio(all[i]) : undefined),
-    land: (i, time, id) => {
+    land: (i, time, id, playing) => {
       setPhase('highlight')
       setIndex(i)
-      useUI.getState().setResume({ id, time })
+      useUI.getState().setResume({ id, time, paused: !playing })
     },
   })
 
@@ -139,6 +139,7 @@ function DrivePlayer({ station }: { station: Station }) {
     useUI.getState().setResume(null)
     const rel = resume.time - winStart
     if (rel > 0) pb.seek(rel)
+    if (!resume.paused) pb.play()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resume, cur?.id, player.version])
 

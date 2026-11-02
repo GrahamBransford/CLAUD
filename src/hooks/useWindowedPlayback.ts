@@ -28,10 +28,7 @@ interface Options {
  * longer music video, a podcast highlight, or a full episode — and reports
  * accurate progress plus how much of the window was actually listened to.
  */
-export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active: shown, onWindowEnd, initialOffset = 0 }: Options) {
-  // with the phone locked, the background player carries the sound; the picture waits
-  const away = useUI((s) => s.backgrounded)
-  const active = shown && !away
+export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active, onWindowEnd, initialOffset = 0 }: Options) {
   const [playing, setPlaying] = useState(false)
   const [time, setTime] = useState(0)
   const [blocked, setBlocked] = useState(false)

@@ -7,14 +7,14 @@ import { TapFlash, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
 import { creatorById, songs } from '../data'
 import { useKeys } from '../hooks/useKeys'
-import { useMediaSession } from '../hooks/useMediaSession'
+import { useMediaPosition, useMediaSession } from '../hooks/useMediaSession'
 import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
 import type { PlayerLike } from '../lib/players'
 import { PROVIDERS } from '../lib/streaming'
 import { songWindow } from '../lib/snippet'
 import { followOnSave } from '../lib/follow'
-import { useBackgroundStation } from '../lib/background'
+import { syncedPlayer, useBackgroundStation } from '../lib/background'
 import { songAudio } from '../lib/radio'
 import { useKnownDuration } from '../hooks/useKnownDuration'
 import { usePinch } from '../lib/pinch'
@@ -55,15 +55,19 @@ export function useSaveSong() {
 }
 
 /** Keeps a ref to whichever player a MediaSurface creates, and a version to re-wire hooks. */
-export function usePlayerRef() {
+export function usePlayerRef(synced = false) {
   const ref = useRef<PlayerLike | null>(null)
   const [version, setVersion] = useState(0)
-  const onPlayer = useCallback((p: PlayerLike | null) => {
-    if (p) {
-      ref.current = p
-      setVersion((v) => v + 1)
-    }
-  }, [])
+  const onPlayer = useCallback(
+    (p: PlayerLike | null) => {
+      if (p) {
+        // the Radio and Music play their sound through the shared audio element, so it carries on locked
+        ref.current = synced && p instanceof HTMLMediaElement ? syncedPlayer(p) : p
+        setVersion((v) => v + 1)
+      }
+    },
+    [synced],
+  )
   return { ref, version, onPlayer }
 }
 
@@ -74,7 +78,7 @@ export function Artists({ active }: { active: boolean }) {
   const saved = useStore((s) => s.saved)
   const saveSong = useSaveSong()
   const [move, setMove] = useState<Move>('next')
-  const player = usePlayerRef()
+  const player = usePlayerRef(true)
   const flash = useTapFlash()
   const mini = useUI((s) => !!s.mini)
 
@@ -123,7 +127,8 @@ export function Artists({ active }: { active: boolean }) {
     if (!song || !resume || resume.id !== song.id || !player.ref.current) return
     pb.seek(resume.time - win.start)
     useUI.getState().setResume(null)
-    if (active) pb.play()
+    if (resume.paused) pb.pause()
+    else if (active) pb.play()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resume, song?.id, player.version])
 
@@ -131,12 +136,12 @@ export function Artists({ active }: { active: boolean }) {
   useBackgroundStation(active && !mini, {
     index,
     currentEnd: win.end,
-    element: () => (player.ref.current instanceof HTMLMediaElement ? player.ref.current : null),
+    player: () => player.ref.current,
     item: (i) => songAudio(songs[i]),
-    land: (i, time, id) => {
+    land: (i, time, id, playing) => {
       setMove('next')
       setIndex(i)
-      useUI.getState().setResume({ id, time })
+      useUI.getState().setResume({ id, time, paused: !playing })
     },
   })
 
@@ -181,9 +186,10 @@ export function Artists({ active }: { active: boolean }) {
     active && !!song,
     song && creator
       ? { title: song.title, artist: creator.name, album: song.release, artwork: song.artwork,
-          onPlay: pb.play, onPause: pb.pause, onNext: () => onMove('skip'), onPrevious: () => index > 0 && onMove('prev') }
+          onPlay: pb.play, onPause: pb.pause, onSeek: pb.seek, onNext: () => onMove('skip'), onPrevious: () => index > 0 && onMove('prev') }
       : null,
   )
+  useMediaPosition(active && !!song, pb.time, pb.length, pb.playing)
 
   if (!song || !creator)
     return (

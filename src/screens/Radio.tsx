@@ -10,7 +10,7 @@ import type { CSSProperties } from 'react'
 import { Reel, type Move } from '../components/Reel'
 import { creatorById } from '../data'
 import { useKeys } from '../hooks/useKeys'
-import { useMediaSession } from '../hooks/useMediaSession'
+import { useMediaPosition, useMediaSession } from '../hooks/useMediaSession'
 import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
 import { PODCAST_DESTINATION } from '../lib/streaming'
@@ -98,7 +98,7 @@ export function Radio({ active }: { active: boolean }) {
   const saveEpisode = useSaveEpisode()
   const saveSong = useSaveSong()
   const [move, setMove] = useState<Move>('next')
-  const player = usePlayerRef()
+  const player = usePlayerRef(true)
   const flash = useTapFlash()
   const mini = useUI((s) => !!s.mini)
 
@@ -169,7 +169,8 @@ export function Radio({ active }: { active: boolean }) {
     // past the end of this window (a full episode heard further on): the radio moves on
     if (rel >= pb.length - 0.5) return void pb.seek(pb.length - 0.2)
     pb.seek(rel)
-    if (active) pb.play()
+    if (resume.paused) pb.pause()
+    else if (active) pb.play()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resume, item?.id, player.version])
 
@@ -177,12 +178,12 @@ export function Radio({ active }: { active: boolean }) {
   useBackgroundStation(active && !mini, {
     index,
     currentEnd: window_?.end,
-    element: () => (player.ref.current instanceof HTMLMediaElement ? player.ref.current : null),
+    player: () => player.ref.current,
     item: (i) => entryAudio(queue[i]),
-    land: (i, time, id) => {
+    land: (i, time, id, playing) => {
       setMove('next')
       setIndex(i)
-      useUI.getState().setResume({ id, time })
+      useUI.getState().setResume({ id, time, paused: !playing })
     },
   })
 
@@ -233,10 +234,11 @@ export function Radio({ active }: { active: boolean }) {
   useMediaSession(
     active && !!item,
     item && who
-      ? { title: item.title, artist: who.name, artwork: item.artwork, onPlay: pb.play, onPause: pb.pause, onNext: () => onMove('skip'),
+      ? { title: item.title, artist: who.name, artwork: item.artwork, onPlay: pb.play, onPause: pb.pause, onSeek: pb.seek, onNext: () => onMove('skip'),
           onPrevious: () => index > 0 && onMove('prev') }
       : null,
   )
+  useMediaPosition(active && !!item, pb.time, pb.length, pb.playing)
 
   if (!entry || !item || !who)
     return (

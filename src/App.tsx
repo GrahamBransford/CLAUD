@@ -54,7 +54,7 @@ export default function App() {
     const events = ['pointerdown', 'touchend', 'click', 'keydown', 'wheel'] as const
     const unlock = () => {
       document.querySelectorAll<HTMLMediaElement>('video, audio').forEach((m) => {
-        if (m.classList.contains('prefetch')) return
+        if (m.classList.contains('prefetch') || 'silent' in m.dataset) return
         m.muted = false
       })
       unlockAudio()
