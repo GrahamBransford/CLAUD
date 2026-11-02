@@ -418,7 +418,7 @@ function Finale({ onDone }: { onDone: () => void }) {
           <RecordC spinning />
         </motion.span>
         <p className="tour__kicker">Before you press play</p>
-        <h1 className="tour__headline">Human. Free. Fair.</h1>
+        <h1 className="tour__headline">One more thing.</h1>
         <ul className="tour__pillars tour__pillars--promise">
           <Pillar
             icon={
