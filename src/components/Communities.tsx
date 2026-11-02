@@ -7,7 +7,7 @@ import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import * as I from './Icons'
 import { Sheet } from './Sheet'
-import { useSwipeTabs } from '../hooks/useSwipe'
+import { Pager } from './Pager'
 
 /** Your location, the matches, and what you've joined: shared by everything community-shaped. */
 export function useCommunityMatches() {
@@ -30,7 +30,6 @@ export function useCommunityMatches() {
 export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
   const { all, location } = useCommunityMatches()
   const [tab, setTab] = useState<'for-you' | 'near' | 'online'>('for-you')
-  const swipe = useSwipeTabs(['for-you', 'near', 'online'] as const, tab, setTab)
   const close = () => useUI.getState().openSheet(null)
   const c = creatorId ? creatorById[creatorId] : undefined
 
@@ -55,10 +54,11 @@ export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
     )
   }
 
-  const list = tab === 'near' ? all.filter((m) => m.near).sort((a, b) => (a.km ?? 0) - (b.km ?? 0)) : tab === 'online' ? all.filter((m) => m.community.format !== 'In person') : all.slice(0, 8)
+  const listFor = (t: typeof tab) =>
+    t === 'near' ? all.filter((m) => m.near).sort((a, b) => (a.km ?? 0) - (b.km ?? 0)) : t === 'online' ? all.filter((m) => m.community.format !== 'In person') : all.slice(0, 8)
   return (
     <Sheet label="Communities" onClose={close} tall title="Communities">
-      <div className="details" {...swipe}>
+      <div className="details">
         <div className="seg" role="tablist" aria-label="Communities">
           <button role="tab" aria-selected={tab === 'for-you'} onClick={() => setTab('for-you')}>
             For you
@@ -70,9 +70,20 @@ export function CommunitiesSheet({ creatorId }: { creatorId?: string }) {
             Online
           </button>
         </div>
-        {list.map((m) => (
-          <CommunityCard key={m.community.id} m={m} showCreator />
-        ))}
+        <Pager
+          ids={['for-you', 'near', 'online'] as const}
+          current={tab}
+          onChange={setTab}
+          render={(t) => (
+            <div className="details__body">
+              {listFor(t).length ? (
+                listFor(t).map((m) => <CommunityCard key={m.community.id} m={m} showCreator />)
+              ) : (
+                <p className="details__note">Nothing here yet.</p>
+              )}
+            </div>
+          )}
+        />
         <p className="sheet__note">Matched from your listening, location and friends · sample groups · demo</p>
       </div>
     </Sheet>

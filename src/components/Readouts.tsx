@@ -12,6 +12,9 @@ import { useTasteTwins } from './TasteSheet'
  * time, top artist and podcast, the sound, shows lived and the newest find.
  * Every window opens onto the full story behind it.
  */
+/** Long names step down a size so they still fit their tile on two lines. */
+const longName = (n: string) => (n.length > 14 ? 'is-long' : undefined)
+
 export function Readouts({ profile }: { profile: ListeningProfile }) {
   const [today] = useState(() => new Date().toLocaleDateString(undefined, { day: 'numeric', month: 'short' }))
   const owner = profile.owner
@@ -46,7 +49,7 @@ export function Readouts({ profile }: { profile: ListeningProfile }) {
             <span className="readout__label">Top artist</span>
             <span className="readout__who">
               <img src={creatorById[artist.creatorId].avatar} alt="" />
-              <strong>{creatorById[artist.creatorId].name}</strong>
+              <strong className={longName(creatorById[artist.creatorId].name)}>{creatorById[artist.creatorId].name}</strong>
             </span>
             <span className="readout__sub">{formatTop(artist.top)} of fans</span>
           </button>
@@ -57,7 +60,7 @@ export function Readouts({ profile }: { profile: ListeningProfile }) {
             <span className="readout__label">Top podcast</span>
             <span className="readout__who">
               <img src={creatorById[podcast.creatorId].avatar} alt="" />
-              <strong>{creatorById[podcast.creatorId].name}</strong>
+              <strong className={longName(creatorById[podcast.creatorId].name)}>{creatorById[podcast.creatorId].name}</strong>
             </span>
             <span className="readout__sub">{formatTop(podcast.top)} of fans</span>
           </button>
@@ -65,7 +68,7 @@ export function Readouts({ profile }: { profile: ListeningProfile }) {
         {sound && (
           <button className="readout" onClick={() => details('genres')}>
             <span className="readout__label">{me ? 'Your sound' : 'Their sound'}</span>
-            <strong className="readout__big">{sound.genre}</strong>
+            <strong className={`readout__big ${longName(sound.genre) ?? ''}`}>{sound.genre}</strong>
             <span className="readout__sub">{Math.round(sound.share * 100)}% of the music</span>
           </button>
         )}
@@ -87,7 +90,7 @@ export function Readouts({ profile }: { profile: ListeningProfile }) {
             <span className="readout__label">Newest find</span>
             <span className="readout__who">
               <img src={creatorById[newest.creatorId].avatar} alt="" />
-              <strong>{creatorById[newest.creatorId].name}</strong>
+              <strong className={longName(creatorById[newest.creatorId].name)}>{creatorById[newest.creatorId].name}</strong>
             </span>
             <span className="readout__sub">At the edge of the vinyl</span>
           </button>
@@ -122,7 +125,7 @@ function TwinTile() {
       <span className="readout__label">Taste twin</span>
       <span className="readout__who">
         <img src={c.avatar} alt="" />
-        <strong>{c.name}</strong>
+        <strong className={longName(c.name)}>{c.name}</strong>
       </span>
       <span className="readout__sub">{t.score}% match</span>
     </button>

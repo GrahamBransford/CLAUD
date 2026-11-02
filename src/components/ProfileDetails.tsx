@@ -8,7 +8,7 @@ import { useUI, type DetailTab } from '../store/useUI'
 import type { Experience } from '../types'
 import * as I from './Icons'
 import { Sheet } from './Sheet'
-import { useSwipeTabs } from '../hooks/useSwipe'
+import { Pager } from './Pager'
 
 const TABS: { id: DetailTab; label: string }[] = [
   { id: 'listening', label: 'Listening' },
@@ -25,14 +25,8 @@ const TABS: { id: DetailTab; label: string }[] = [
  */
 export function ProfileDetails({ owner, tab: initial }: { owner: Owner; tab: DetailTab }) {
   const profile = useProfile(owner)
-  const [tab, setTabState] = useState<DetailTab>(initial)
-  const [dir, setDir] = useState(1)
+  const [tab, setTab] = useState<DetailTab>(initial)
   const ids = TABS.map((t) => t.id)
-  const setTab = (t: DetailTab) => {
-    setDir(ids.indexOf(t) >= ids.indexOf(tab) ? 1 : -1)
-    setTabState(t)
-  }
-  const swipe = useSwipeTabs(ids, tab, setTab)
   const close = () => useUI.getState().openSheet(null)
   if (!profile) return null
   const title = owner === 'me' ? 'Your listening' : `${profile.who}’s listening`
@@ -47,13 +41,20 @@ export function ProfileDetails({ owner, tab: initial }: { owner: Owner; tab: Det
             </button>
           ))}
         </nav>
-        <div className="details__body" role="tabpanel" {...swipe} key={tab} data-dir={dir}>
-          {tab === 'listening' && <Listening p={profile} />}
-          {tab === 'artists' && <Artists p={profile} />}
-          {tab === 'podcasts' && <Podcasts p={profile} />}
-          {tab === 'genres' && <Genres p={profile} />}
-          {tab === 'live' && <LiveHistory experiences={profile.experiences} who={profile.who} />}
-        </div>
+        <Pager
+          ids={ids}
+          current={tab}
+          onChange={setTab}
+          render={(t) => (
+            <div className="details__body">
+              {t === 'listening' && <Listening p={profile} />}
+              {t === 'artists' && <Artists p={profile} />}
+              {t === 'podcasts' && <Podcasts p={profile} />}
+              {t === 'genres' && <Genres p={profile} />}
+              {t === 'live' && <LiveHistory experiences={profile.experiences} who={profile.who} />}
+            </div>
+          )}
+        />
         <p className="sheet__note">Estimates from sample listening · demo</p>
       </div>
     </Sheet>

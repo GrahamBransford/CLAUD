@@ -3,12 +3,13 @@ import * as I from '../components/Icons'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
-import { MediaSurface } from '../components/MediaSurface'
+import { MediaSurface, Prefetch } from '../components/MediaSurface'
 import { creatorById, creators, innerCircle } from '../data'
 import { useKeys } from '../hooks/useKeys'
 import { rankInnerCircle } from '../lib/affinity'
 import { claimAudioFocus } from '../lib/media'
 import { tick } from '../lib/haptics'
+import { isPinching, usePinch } from '../lib/pinch'
 import { useStore } from '../store/useStore'
 import { tapWasUnlock, useUI } from '../store/useUI'
 import type { InnerCirclePost } from '../types'
@@ -51,6 +52,7 @@ export function InnerCircle({ active }: { active: boolean }) {
 
   // Scrolls like a feed: swipe up for the next moment, down to go back.
   const onDragEnd = (_: unknown, info: PanInfo) => {
+    if (isPinching()) return
     if (info.offset.y < -80 || info.velocity.y < -550) {
       tick()
       go(1)
@@ -61,6 +63,7 @@ export function InnerCircle({ active }: { active: boolean }) {
   }
 
   const item = feed[i]
+  const mini = useUI((s) => !!s.mini)
   return (
     <section className="screen screen--ic" aria-label="Inner Circle">
       {feed.length > 0 && (
@@ -87,15 +90,16 @@ export function InnerCircle({ active }: { active: boolean }) {
           animate="enter"
           exit="exit"
         >
-          {item ? <Moment post={item.post} active={active} onEnded={() => go(1)} /> : <CaughtUp empty={feed.length === 0} onRestart={() => { setDir(-1); setIndex(0) }} />}
+          {item ? <Moment post={item.post} index={i} active={active && !mini} onEnded={() => go(1)} /> : <CaughtUp empty={feed.length === 0} onRestart={() => { setDir(-1); setIndex(0) }} />}
         </motion.div>
       </AnimatePresence>
+      <Prefetch source={feed[i + 1]?.post.media} />
       <TopBar playing={false} />
     </section>
   )
 }
 
-function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: boolean; onEnded: () => void }) {
+function Moment({ post, index, active, onEnded }: { post: InnerCirclePost; index: number; active: boolean; onEnded: () => void }) {
   const c = creatorById[post.creatorId]
   const follows = useStore((s) => s.follows)
   const reacted = useStore((s) => s.reacted.includes(post.id))
@@ -151,6 +155,22 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
     if (unlocked && player.ref.current) player.ref.current.muted = false
   }, [unlocked, player.ref])
 
+  // after the mini player: pick up exactly where it got to
+  const resume = useUI((s) => s.resume)
+  useEffect(() => {
+    const p = player.ref.current
+    if (!p || !resume || resume.id !== post.id) return
+    useUI.getState().setResume(null)
+    p.currentTime = resume.time
+  }, [resume, post.id, player.ref, player.version])
+
+  // pinch to float the moment out, still playing
+  const pinch = usePinch(() => {
+    const p = player.ref.current
+    if (!c || post.media.kind !== 'video') return
+    useUI.getState().openMini({ kind: 'moment', id: post.id, creatorId: c.id, title: post.caption, src: post.media.src, poster: post.poster, route: 'inner-circle', index, time: p?.currentTime ?? 0, vertical: true })
+  })
+
   const tap = () => {
     const p = player.ref.current
     if (!p || tapWasUnlock()) return
@@ -170,7 +190,7 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
   // un-loves it), pulses the screen's edges in the love button's bronze and blooms a heart
   // where you tapped. A single tap still plays and pauses, once it's clear it wasn't a double.
   const onTap = (e: MouseEvent | TouchEvent | PointerEvent, info: { point: { x: number; y: number } }) => {
-    if ((e.target as Element).closest('button')) return
+    if ((e.target as Element).closest('button') || isPinching()) return
     const now = performance.now()
     window.clearTimeout(single.current)
     if (now - lastTap.current < 300) {
@@ -192,7 +212,7 @@ function Moment({ post, active, onEnded }: { post: InnerCirclePost; active: bool
   if (!c) return null
   const following = follows.includes(c.id)
   return (
-    <motion.div ref={root} className={`moment moment--${post.media.kind} ${fill ? 'moment--fill' : ''}`} data-orientation={fill ? undefined : post.orientation} onTap={onTap}>
+    <motion.div ref={root} {...pinch} className={`moment moment--${post.media.kind} ${fill ? 'moment--fill' : ''}`} data-orientation={fill ? undefined : post.orientation} onTap={onTap}>
       {burst && (
         <span key={burst.n} className="moment__loved" aria-hidden>
           <span className="moment__heart" style={{ left: burst.x, top: burst.y }}>

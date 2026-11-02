@@ -30,6 +30,22 @@ export interface FullEpisodeRequest {
   reason: 'auto' | 'manual'
 }
 
+/** A video floated out of its feed by a pinch: it keeps playing, small, wherever you put it. */
+export interface MiniItem {
+  kind: 'song' | 'episode' | 'moment'
+  id: string
+  creatorId: string
+  title: string
+  src: string
+  poster?: string
+  /** Where it came from, so it can go back. */
+  route: 'radio' | 'artists' | 'inner-circle'
+  index: number
+  /** Seconds into the file when it was floated out. */
+  time: number
+  vertical: boolean
+}
+
 /** Ephemeral UI state; never persisted. */
 interface UIState {
   toasts: Toast[]
@@ -51,6 +67,11 @@ interface UIState {
   setDrive: (on: boolean) => void
   openPerson: (id: string | null) => void
   unlockAudio: () => void
+  mini: MiniItem | null
+  openMini: (m: MiniItem | null) => void
+  /** Pick up an item at a moment in its file (after the mini player or a full episode). */
+  resume: { id: string; time: number } | null
+  setResume: (r: { id: string; time: number } | null) => void
 }
 
 let nextId = 1
@@ -63,6 +84,10 @@ export const useUI = create<UIState>()((set, get) => ({
   person: null,
   audioUnlocked: false,
   unlockedAt: 0,
+  mini: null,
+  openMini: (mini) => set({ mini }),
+  resume: null,
+  setResume: (resume) => set({ resume }),
   pushToast: (t) => {
     const id = nextId++
     set((st) => ({ toasts: [...st.toasts.slice(-1), { ...t, id }] }))

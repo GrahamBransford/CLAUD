@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Dial } from '../components/Dial'
-import { MediaSurface } from '../components/MediaSurface'
+import { MediaSurface, Prefetch } from '../components/MediaSurface'
 import { Reel, type Move } from '../components/Reel'
 import { TopBar, TapFlash, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
@@ -14,6 +14,7 @@ import type { PlayerLike } from '../lib/players'
 import { PROVIDERS } from '../lib/streaming'
 import { songWindow } from '../lib/snippet'
 import { useKnownDuration } from '../hooks/useKnownDuration'
+import { usePinch } from '../lib/pinch'
 import { Credit } from '../components/Credit'
 import * as I from '../components/Icons'
 import { useStore } from '../store/useStore'
@@ -65,6 +66,7 @@ export function Artists({ active }: { active: boolean }) {
   const [move, setMove] = useState<Move>('next')
   const player = usePlayerRef()
   const flash = useTapFlash()
+  const mini = useUI((s) => !!s.mini)
 
   const song = songs[index] as Song | undefined
   const creator = song ? creatorById[song.creatorId] : undefined
@@ -101,8 +103,25 @@ export function Artists({ active }: { active: boolean }) {
     start: win.start,
     end: win.end,
     autoplay: true,
-    active: active && !error,
+    active: active && !error && !mini,
     onWindowEnd,
+  })
+
+  // after the mini player or a full screen: pick up exactly where it got to
+  const resume = useUI((s) => s.resume)
+  useEffect(() => {
+    if (!song || !resume || resume.id !== song.id || !player.ref.current) return
+    pb.seek(resume.time - win.start)
+    useUI.getState().setResume(null)
+    if (active) pb.play()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resume, song?.id, player.version])
+
+  // pinch to float it out of the feed, still playing
+  const pinch = usePinch(() => {
+    const p = player.ref.current
+    if (!song || !creator || song.media.kind !== 'video') return
+    useUI.getState().openMini({ kind: 'song', id: song.id, creatorId: creator.id, title: song.title, src: song.media.src, poster: song.artwork, route: 'artists', index, time: p?.currentTime ?? win.start, vertical: true })
   })
 
   const onMove = useCallback(
@@ -158,7 +177,7 @@ export function Artists({ active }: { active: boolean }) {
   const fill = song.media.kind === 'youtube' && song.display === 'fill'
   const embed = (song.media.kind === 'youtube' || song.media.kind === 'spotify') && !fill
   return (
-    <section className="screen" aria-label="Artists">
+    <section className="screen" aria-label="Artists" {...pinch}>
       <AnimatePresence custom={move} initial={false} mode="popLayout">
         <Reel key={song.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
           {embed && <img className="reel__backdrop" src={song.artwork} alt="" aria-hidden />}
@@ -179,6 +198,7 @@ export function Artists({ active }: { active: boolean }) {
 
       <TopBar playing={pb.playing} />
       <TapFlash state={flash.state} />
+      <Prefetch source={songs[index + 1]?.media} />
 
       {/* Swipe is the control; these stay for screen readers and switch access. */}
       <div className="sr-only">

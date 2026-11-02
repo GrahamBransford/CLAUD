@@ -138,3 +138,9 @@ export function MediaSurface({ source, className, start = 0, onPlayer, onError, 
     </div>
   )
 }
+
+/** Warms the browser's cache with the next item in a feed, so swiping on starts without a wait. */
+export function Prefetch({ source }: { source?: MediaSource }) {
+  if (!source || source.kind !== 'video') return null
+  return <video className="prefetch" src={source.src} preload="auto" muted playsInline aria-hidden tabIndex={-1} />
+}

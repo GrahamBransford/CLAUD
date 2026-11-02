@@ -37,10 +37,14 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
   const last = useRef<number | null>(null)
   const done = useRef(false)
   const cb = useRef(onWindowEnd)
+  const length = Math.max(0.1, end - start)
+  // the window can change while an item plays (Full song, a duration that arrives late); the player
+  // reads it from here, so it never has to stop and rewire for that
+  const win = useRef({ start, end, length, autoplay, active, initialOffset })
   useLayoutEffect(() => {
     cb.current = onWindowEnd
+    win.current = { start, end, length, autoplay, active, initialOffset }
   })
-  const length = Math.max(0.1, end - start)
 
   // Reset whenever a new item is loaded.
   useEffect(() => {
@@ -55,6 +59,7 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
   const tryPlay = useCallback(() => {
     const el = ref.current
     if (!el) return
+    const { start, end } = win.current
     if (done.current || el.currentTime >= end - 0.05) {
       el.currentTime = start
       done.current = false
@@ -65,20 +70,34 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
     // muted autoplay is always allowed; sound follows the first touch
     el.muted = !useUI.getState().audioUnlocked
     const p = el.play()
-    if (p) p.then(() => setBlocked(false)).catch(() => setBlocked(true))
-  }, [ref, start, end])
+    if (p)
+      p.then(() => setBlocked(false)).catch((e: Error) => {
+        // a play cut short by a newer pause or play isn't a refusal; only a real autoplay block is
+        if (e?.name === 'AbortError') return
+        if (e?.name === 'NotAllowedError' && !el.muted) {
+          el.muted = true
+          el.play().then(() => setBlocked(false)).catch(() => setBlocked(true))
+          return
+        }
+        setBlocked(true)
+      })
+  }, [ref])
 
   // Wire element events.
   useEffect(() => {
     const el = ref.current
     if (!el) return
     const toStart = () => {
+      const { start, end, length, initialOffset } = win.current
       if (initialOffset > 0) el.currentTime = start + Math.min(initialOffset, length - 1)
       else if (el.currentTime < start - 0.05 || el.currentTime > end) el.currentTime = start
     }
+    let primed = false
     const onMeta = () => {
+      if (primed) return
+      primed = true
       toStart()
-      if (autoplay && active) tryPlay()
+      if (win.current.autoplay && win.current.active) tryPlay()
     }
     const onPlay = () => {
       claimAudioFocus(el)
@@ -90,6 +109,7 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
       if (done.current) return
       done.current = true
       el.pause()
+      const { length } = win.current
       setEnded(true)
       setTime(length)
       cb.current?.({ listened: Math.min(listened.current, length), length })
@@ -110,7 +130,7 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
           if (d > 0 && d < 0.6 + 1.2 * el.playbackRate) listened.current += d
         }
         last.current = ct
-        if (ct >= end - 0.04) finish()
+        if (ct >= win.current.end - 0.04) finish()
       } else {
         last.current = null
       }
@@ -121,6 +141,7 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
     let raf = 0
     const tick = () => {
       const ct = account()
+      const { start, length } = win.current
       setTime(Math.max(0, Math.min(length, ct - start)))
       raf = requestAnimationFrame(tick)
     }
@@ -137,7 +158,7 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
       releaseAudioFocus(el)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ref, itemKey, start, end])
+  }, [ref, itemKey])
 
   // Turn the sound on as soon as the listener first touches the app.
   const unlocked = useUI((s) => s.audioUnlocked)

@@ -1,10 +1,11 @@
 import { AnimatePresence } from 'framer-motion'
 import * as I from '../components/Icons'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import { usePinch } from '../lib/pinch'
 import { Dial } from '../components/Dial'
 import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
-import { MediaSurface } from '../components/MediaSurface'
+import { MediaSurface, Prefetch } from '../components/MediaSurface'
 import type { CSSProperties } from 'react'
 import { Reel, type Move } from '../components/Reel'
 import { creatorById } from '../data'
@@ -93,6 +94,7 @@ export function Radio({ active }: { active: boolean }) {
   const [move, setMove] = useState<Move>('next')
   const player = usePlayerRef()
   const flash = useTapFlash()
+  const mini = useUI((s) => !!s.mini)
 
   const entry = queue[index] as RadioEntry | undefined
   const song = entry?.kind === 'song' ? entry.song : undefined
@@ -148,8 +150,28 @@ export function Radio({ active }: { active: boolean }) {
     start: window_?.start ?? 0,
     end: window_?.end ?? 1,
     autoplay: true,
-    active: active && !error,
+    active: active && !error && !mini,
     onWindowEnd,
+  })
+
+  // after the mini player or the full episode: pick up exactly where it got to
+  const resume = useUI((s) => s.resume)
+  useEffect(() => {
+    if (!item || !resume || resume.id !== item.id || !player.ref.current) return
+    useUI.getState().setResume(null)
+    const rel = resume.time - (window_?.start ?? 0)
+    // past the end of this window (a full episode heard further on): the radio moves on
+    if (rel >= pb.length - 0.5) return void pb.seek(pb.length - 0.2)
+    pb.seek(rel)
+    if (active) pb.play()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resume, item?.id, player.version])
+
+  // pinch to float it out of the feed, still playing
+  const pinch = usePinch(() => {
+    const p = player.ref.current
+    if (!item || !who || item.media.kind !== 'video') return
+    useUI.getState().openMini({ kind: song ? 'song' : 'episode', id: item.id, creatorId: who.id, title: item.title, src: item.media.src, poster: item.artwork, route: 'radio', index, time: p?.currentTime ?? window_?.start ?? 0, vertical: !!song })
   })
 
   const onMove = useCallback(
@@ -216,7 +238,7 @@ export function Radio({ active }: { active: boolean }) {
   // a whole 16:9 conversation (an embed or a file) sits in the show's own colours, never in black
   const glow = ep && (embed || video) ? who?.palette : undefined
   return (
-    <section className="screen" aria-label="Radio">
+    <section className="screen" aria-label="Radio" {...pinch}>
       <AnimatePresence custom={move} initial={false} mode="popLayout">
         <Reel key={entry.id} move={move} onMove={onMove} onTap={embed ? undefined : tap} canPrev={index > 0} className={embed ? 'reel--embed' : ''}>
           {glow ? (
@@ -267,6 +289,7 @@ export function Radio({ active }: { active: boolean }) {
         </Reel>
       </AnimatePresence>
 
+      <Prefetch source={(() => { const n = queue[index + 1]; return n ? (n.kind === 'song' ? n.song.media : n.ep.media) : undefined })()} />
       <TopBar playing={pb.playing} />
       <TapFlash state={flash.state} />
 

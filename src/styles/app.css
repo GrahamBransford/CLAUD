@@ -699,29 +699,67 @@ h2 {
 }
 
 /* swipe verdicts: a stamp that fades in with the drag */
-.verdict {
+/* save / skip: the screen answers before the words do */
+.reel__wash {
   position: absolute;
-  top: calc(84px + var(--safe-t));
-  padding: 6px 12px 5px;
-  border: 2.5px solid currentColor;
-  border-radius: 6px;
-  font-family: var(--display);
-  font-weight: 900;
-  font-stretch: 125%;
-  font-size: 26px;
-  letter-spacing: 0.12em;
+  inset: 0;
+  z-index: 4;
   pointer-events: none;
   opacity: 0;
 }
+.reel__wash--save {
+  /* the same bronze as the love button, laid over the picture */
+  background: radial-gradient(120% 85% at 50% 42%, rgba(229, 200, 180, 0.78), rgba(196, 156, 132, 0.9) 55%, rgba(134, 96, 76, 0.96));
+  mix-blend-mode: multiply;
+}
+.reel__wash--save::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(196, 156, 132, 0.38);
+  mix-blend-mode: normal;
+}
+.reel__wash--skip {
+  background: rgba(24, 26, 25, 0.55);
+}
+/* the picture drains to grey as the thumb moves toward Skip */
+.reel .reel__media,
+.reel .reel__frame,
+.reel .reel__audio {
+  filter: grayscale(var(--skip, 0)) brightness(calc(1 - var(--skip, 0) * 0.25));
+}
+.verdict {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 40%;
+  translate: -50% -50%;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  pointer-events: none;
+  opacity: 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 40px;
+  letter-spacing: 0.01em;
+  text-shadow:
+    0 1px 2px rgba(60, 36, 24, 0.55),
+    0 2px 22px rgba(60, 36, 24, 0.45);
+}
+.verdict span {
+  line-height: 1;
+}
 .verdict--save {
-  left: 22px;
-  color: var(--mustard);
-  transform: rotate(-8deg);
+  color: #fbeee4;
+}
+.verdict--save svg {
+  color: #f3dccd;
+  filter: drop-shadow(0 2px 10px rgba(134, 96, 76, 0.6));
 }
 .verdict--skip {
-  right: 22px;
-  color: var(--cream);
-  transform: rotate(8deg);
+  color: #e9e6e1;
 }
 
 /* the floating controls */
@@ -4943,22 +4981,35 @@ h2 {
 /* ---------- moving between pages: a quick slide, like turning a page ---------- */
 .view {
   transform: translate3d(var(--off, 0), 0, 0);
+  /* the page leaving stays solid while it slides away, like turning a page */
   transition:
-    transform 300ms cubic-bezier(0.2, 0.75, 0.15, 1),
-    opacity 240ms var(--ease),
-    visibility 0s linear 300ms;
+    transform 320ms cubic-bezier(0.2, 0.75, 0.15, 1),
+    opacity 0s linear 320ms,
+    visibility 0s linear 320ms;
 }
 .view[data-pos='before'] {
-  --off: -22%;
+  --off: -100%;
 }
 .view[data-pos='after'] {
-  --off: 22%;
+  --off: 100%;
+}
+/* a page swipe in progress: the page and its neighbour sit exactly under the thumb */
+.stage[data-drag] .view {
+  transition: none !important;
+}
+.stage[data-drag] .view[data-active] {
+  transform: translate3d(var(--dx, 0), 0, 0);
+}
+.stage[data-drag] .view[data-peek] {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(calc(var(--side, 0px) + var(--dx, 0px)), 0, 0);
 }
 .view[data-active] {
   --off: 0;
   transition:
-    transform 300ms cubic-bezier(0.2, 0.75, 0.15, 1),
-    opacity 200ms var(--ease);
+    transform 320ms cubic-bezier(0.2, 0.75, 0.15, 1),
+    opacity 0s;
 }
 @media (prefers-reduced-motion: reduce) {
   .view {
@@ -6109,4 +6160,198 @@ a.row-link { text-decoration: none; color: inherit; }
   color: inherit;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+/* ---- Pager: sections side by side that follow the thumb (Instagram-style) ---- */
+.pager {
+  position: relative;
+  overflow: hidden;
+  transition: height 220ms cubic-bezier(0.2, 0.75, 0.15, 1);
+  margin: 0 -2px;
+}
+.pager__track {
+  display: flex;
+  align-items: flex-start;
+  touch-action: pan-y;
+  will-change: transform;
+}
+.pager__page {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0 2px;
+}
+.pager .details__body {
+  animation: none;
+}
+.form__page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* a friend request: who first, then the two choices, so nothing gets squeezed */
+.request {
+  display: grid;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(239, 230, 211, 0.06);
+}
+.request .person-row__who {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  text-align: left;
+}
+.request .hit__text {
+  min-width: 0;
+}
+.request .hit__text em {
+  white-space: normal;
+}
+.request__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.request__actions .pill {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ---- Mini player: a video floated out by a pinch ---- */
+.mini-bounds {
+  position: fixed;
+  z-index: 60;
+  left: calc(10px + var(--safe-l, 0px));
+  right: calc(10px + var(--safe-r, 0px));
+  top: calc(10px + var(--safe-t, 0px));
+  bottom: calc(var(--tab-h, 74px) + 10px);
+  pointer-events: none;
+}
+.mini {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  pointer-events: auto;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #050a07;
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(220, 200, 156, 0.18);
+  touch-action: none;
+  cursor: grab;
+}
+.mini--tall {
+  width: min(38vw, 170px);
+  aspect-ratio: 9 / 16;
+}
+.mini--wide {
+  width: min(62vw, 300px);
+  aspect-ratio: 16 / 9;
+}
+.mini__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.mini__paused {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+.mini__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 18px 6px 6px 10px;
+  background: linear-gradient(to top, rgba(4, 10, 7, 0.85), rgba(4, 10, 7, 0));
+}
+.mini__who {
+  flex: 1;
+  min-width: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f3ebdc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mini__btn {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #f3ebdc;
+  background: rgba(239, 230, 211, 0.12);
+}
+@media (min-width: 900px) {
+  .mini-bounds {
+    left: calc(var(--rail-w, 96px) + 16px);
+    bottom: 16px;
+  }
+}
+.prefetch { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; left: -10px; top: -10px; }
+
+/* ---- Nothing cut off: names and details wrap rather than trail away ---- */
+.rank__text strong,
+.rank__text em,
+.hit__text em,
+.hit__text strong {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+}
+.rank__text strong {
+  line-height: 1.2;
+}
+.rank__text em,
+.hit__text em {
+  line-height: 1.35;
+}
+.community__about {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  overflow: visible;
+}
+@container (max-height: 299px) {
+  .hifi__front .plate__bio {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    line-height: 1.35;
+  }
+}
+.hifi__front .readout__who strong.is-long,
+.hifi__front .readout__big.is-long {
+  font-size: 0.82em;
+  letter-spacing: -0.01em;
+}
+
+/* small phones: the record is tilted toward you, so faces on its far side look smaller; keep every
+   face a comfortable target wherever the spin has carried it, and give it a little extra reach */
+.face-marker::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+}
+@media (max-width: 360px) {
+  .hifi__record .face-marker {
+    min-width: 40px;
+    min-height: 40px;
+  }
 }

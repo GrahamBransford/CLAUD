@@ -11,6 +11,7 @@ import { formatTime } from '../lib/media'
 import { useStore } from '../store/useStore'
 import { useUI, type FullEpisodeRequest } from '../store/useUI'
 import { usePlayerRef } from './Artists'
+import { usePinch } from '../lib/pinch'
 import { Caption, isVideo, useSaveEpisode } from './Radio'
 
 
@@ -42,8 +43,18 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
   const close = () => {
     const heard = pb.listened()
     if (heard > 20 && !pb.ended) recordListen(ep.creatorId, ep.id, heard, false)
+    // back in the feed, the conversation carries on from where you got to
+    useUI.getState().setResume({ id: ep.id, time: player.ref.current?.currentTime ?? request.startAt })
     useUI.getState().openFullEpisode(null)
   }
+
+  // pinch to float the episode out, still playing, and carry on around the app
+  const pinch = usePinch(() => {
+    if (ep.media.kind !== 'video') return
+    const st = useStore.getState()
+    useUI.getState().openMini({ kind: 'episode', id: ep.id, creatorId: ep.creatorId, title: ep.title, src: ep.media.src, poster: ep.artwork, route: 'radio', index: st.radioIndex, time: player.ref.current?.currentTime ?? request.startAt, vertical: false })
+    useUI.getState().openFullEpisode(null)
+  })
 
   useMediaSession(!drive, {
     title: ep.title, artist: show.name, artwork: ep.artwork,
@@ -89,6 +100,7 @@ export function FullEpisode({ request }: { request: FullEpisodeRequest }) {
   return (
     <motion.div
       className="episode"
+      {...pinch}
       role="dialog"
       aria-modal="true"
       aria-label={ep.title}

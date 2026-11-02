@@ -36,6 +36,27 @@ export function tick(strength: 'light' | 'firm' = 'light') {
   }
 }
 
+/**
+ * A swipe that's becoming a decision: as the finger travels (p from 0 to 1),
+ * the ticks come closer together and, where the hardware allows, stronger.
+ * Call it on every move; it decides when the next tick is due.
+ */
+let rampLast = 0
+export function ramp(p: number) {
+  if (p < 0.18) return
+  const now = performance.now()
+  const gap = 150 - Math.min(1, p) * 115 // 150 ms apart at first, 35 ms at the threshold
+  if (now - rampLast < gap) return
+  rampLast = now
+  last = 0
+  try {
+    if ('vibrate' in navigator && typeof navigator.vibrate === 'function') navigator.vibrate(Math.round(5 + Math.min(1, p) * 20))
+    else iosSwitch()
+  } catch {
+    /* no haptics here */
+  }
+}
+
 /** Every button, tab and link answers a tap with a tick. */
 export function installHaptics() {
   document.addEventListener(

@@ -11,7 +11,7 @@ import type { ExperienceKind, Profile } from '../types'
 import * as I from './Icons'
 import { LiveStats } from './ProfileDetails'
 import { Sheet } from './Sheet'
-import { useSwipeTabs } from '../hooks/useSwipe'
+import { Pager } from './Pager'
 
 const close = () => useUI.getState().openSheet(null)
 
@@ -225,7 +225,6 @@ export function FriendsSheet() {
   const act = useFriendActions()
   const updates = useUpdates()
   const [tab, setTab] = useState<'updates' | 'friends'>('updates')
-  const swipe = useSwipeTabs(['updates', 'friends'] as const, tab, setTab)
   const ids = (st: string) => Object.keys(friends).filter((id) => friends[id] === st && personById[id])
   // what you've looked at here counts as seen, once you leave
   const seenAll = () => markSeen(updates.list.map((u) => u.key))
@@ -244,7 +243,7 @@ export function FriendsSheet() {
         close()
       }}
     >
-      <div className="form form--tabs" {...swipe}>
+      <div className="form form--tabs">
         <div className="seg" role="tablist" aria-label="Friends">
           <button role="tab" aria-selected={tab === 'updates'} onClick={() => setTab('updates')}>
             Updates{updates.unseen + updates.incoming > 0 ? <i className="seg__count">{updates.unseen + updates.incoming}</i> : null}
@@ -254,10 +253,15 @@ export function FriendsSheet() {
           </button>
         </div>
 
-        {tab === 'updates' && (
-          <>
+        <Pager
+          ids={['updates', 'friends'] as const}
+          current={tab}
+          onChange={setTab}
+          render={(t) =>
+            t === 'updates' ? (
+          <div className="form__page">
             {ids('incoming').map((id) => (
-              <div key={id} className="person-row note is-new">
+              <div key={id} className="request">
                 <button className="person-row__who" onClick={() => open(id)}>
                   <span className="minidisc"><img src={personById[id].avatar} alt="" /></span>
                   <span className="hit__text">
@@ -265,8 +269,10 @@ export function FriendsSheet() {
                     <em>Wants to be friends · {score(id)}% aligned</em>
                   </span>
                 </button>
-                <button className="pill pill--cherry" onClick={() => act.accept(id)}>Accept</button>
-                <button className="pill pill--quiet" onClick={() => act.decline(id)}>Decline</button>
+                <div className="request__actions">
+                  <button className="pill pill--cherry" onClick={() => act.accept(id)}>Accept</button>
+                  <button className="pill pill--quiet" onClick={() => act.decline(id)}>Decline</button>
+                </div>
               </div>
             ))}
             {updates.list.length ? (
@@ -289,11 +295,9 @@ export function FriendsSheet() {
               <p className="settings__fine">When friends add to their vinyl, go to a show or move someone closer, it shows up here.</p>
             )}
             <p className="settings__fine">From friends whose updates you follow · sample listeners</p>
-          </>
-        )}
-
-        {tab === 'friends' && (
-          <>
+          </div>
+            ) : (
+          <div className="form__page">
             {ids('friends').length ? (
               ids('friends').map((id) => (
                 <button key={id} className="person-row person-row__who" onClick={() => open(id)}>
@@ -321,8 +325,10 @@ export function FriendsSheet() {
               </div>
             ))}
             <p className="settings__fine">No messaging in CIRCA: to talk, use the socials on someone’s vinyl. Sample listeners.</p>
-          </>
-        )}
+          </div>
+            )
+          }
+        />
       </div>
     </Sheet>
   )

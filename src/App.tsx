@@ -13,6 +13,8 @@ import { Splash } from './components/Logo'
 import { SettingsSheet } from './components/SettingsSheet'
 import { Toasts } from './components/Toasts'
 import { ROUTES, type RouteId } from './config/brand'
+import { isPinching } from './lib/pinch'
+import { MiniPlayer } from './components/MiniPlayer'
 import { Artists } from './screens/Artists'
 import { Drive } from './screens/Drive'
 import { FullEpisode } from './screens/FullEpisode'
@@ -61,10 +63,10 @@ export default function App() {
     setRoute(r)
   }
 
-  // Swipe between pages, like Instagram. On the Radio and in Music a sideways swipe is Save or
-  // Skip, so there a page swipe starts at the screen's edge (like the iPhone's back gesture).
-  // In Inner Circle (which scrolls vertically) and on Home, anywhere works, except on the record,
-  // which you turn by hand.
+  // Swipe between pages, like Instagram: the page follows your thumb, with the next one coming in
+  // beside it, and settles on release. On the Radio and in Music a sideways swipe is Save or Skip,
+  // so there a page swipe starts at the screen's edge (like the iPhone's back gesture). Inner Circle
+  // only swipes back to Music, never on to Home. On Home the record turns by hand, so it's left alone.
   const stage = useRef<HTMLElement>(null)
   const nav = useRef({ route, blocked: false })
   useEffect(() => {
@@ -74,37 +76,78 @@ export default function App() {
     const el = stage.current
     if (!el) return
     const EDGE = 26
-    let start: { x: number; y: number; t: number; id: number } | null = null
+    let g: { x: number; y: number; t: number; id: number; on: boolean; dx: number } | null = null
+    const neighbour = (dx: number) => {
+      const r = nav.current.route
+      const i = ROUTES.indexOf(r)
+      const next = ROUTES[i + (dx < 0 ? 1 : -1)]
+      if (r === 'inner-circle' && next === 'vinyl') return undefined
+      return next
+    }
+    const paint = (dx: number) => {
+      const next = neighbour(dx)
+      const w = el.clientWidth
+      const d = next ? dx : dx * 0.25 // nothing that way: a little give, then resistance
+      el.style.setProperty('--dx', `${d}px`)
+      el.querySelectorAll<HTMLElement>('.view').forEach((v) => {
+        const id = v.dataset.route
+        v.toggleAttribute('data-peek', !!next && id === next)
+        if (id === next) v.style.setProperty('--side', dx < 0 ? `${w}px` : `${-w}px`)
+      })
+    }
+    const clear = () => {
+      el.removeAttribute('data-drag')
+      el.style.removeProperty('--dx')
+      el.querySelectorAll<HTMLElement>('.view[data-peek]').forEach((v) => v.removeAttribute('data-peek'))
+    }
     const down = (e: PointerEvent) => {
-      start = null
+      g = null
       const { route: r, blocked } = nav.current
-      if (blocked || (e.target as HTMLElement).closest('.catalog, .hifi__record, input, [data-noswipe]')) return
+      if (blocked || e.button > 0 || (e.target as HTMLElement).closest('.catalog, .hifi__record, input, [data-noswipe], .mini')) return
       const edge = e.clientX < EDGE || e.clientX > window.innerWidth - EDGE
       if ((r === 'radio' || r === 'artists') && !edge) return
       if (r === 'radio' || r === 'artists') e.stopPropagation() // the reel doesn't take an edge swipe as Save or Skip
-      start = { x: e.clientX, y: e.clientY, t: e.timeStamp, id: e.pointerId }
+      g = { x: e.clientX, y: e.clientY, t: e.timeStamp, id: e.pointerId, on: false, dx: 0 }
+    }
+    const move = (e: PointerEvent) => {
+      if (!g || g.id !== e.pointerId) return
+      if (isPinching()) return void (cancel())
+      const dx = e.clientX - g.x
+      const dy = e.clientY - g.y
+      if (!g.on) {
+        if (Math.abs(dy) > 12 && Math.abs(dy) > Math.abs(dx)) return void (g = null) // a scroll, not a swipe
+        if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy) * 1.3) return
+        g.on = true
+        el.setAttribute('data-drag', '')
+      }
+      g.dx = dx
+      paint(dx)
+    }
+    function cancel() {
+      g = null
+      clear()
     }
     const up = (e: PointerEvent) => {
-      const s = start
-      start = null
-      if (!s || s.id !== e.pointerId) return
-      const dx = e.clientX - s.x
-      const dy = e.clientY - s.y
-      const fast = Math.abs(dx) / Math.max(1, e.timeStamp - s.t) > 0.35
-      if (Math.abs(dx) < (fast ? 45 : 80) || Math.abs(dx) < Math.abs(dy) * 1.6) return
-      const i = ROUTES.indexOf(nav.current.route)
-      const next = ROUTES[i + (dx < 0 ? 1 : -1)]
-      if (next) {
+      const s = g
+      g = null
+      if (!s || s.id !== e.pointerId || !s.on) return
+      const fast = Math.abs(s.dx) / Math.max(1, e.timeStamp - s.t) > 0.45
+      const next = neighbour(s.dx)
+      const commit = !!next && (Math.abs(s.dx) > el.clientWidth * 0.33 || (fast && Math.abs(s.dx) > 40))
+      // let go: transitions come back on, so the pages glide on from wherever the thumb left them
+      clear()
+      if (commit && next) {
         tick()
         go(next)
       }
     }
-    const cancel = () => (start = null)
     el.addEventListener('pointerdown', down, { capture: true })
+    window.addEventListener('pointermove', move)
     window.addEventListener('pointerup', up)
     window.addEventListener('pointercancel', cancel)
     return () => {
       el.removeEventListener('pointerdown', down, { capture: true })
+      window.removeEventListener('pointermove', move)
       window.removeEventListener('pointerup', up)
       window.removeEventListener('pointercancel', cancel)
     }
@@ -121,6 +164,7 @@ export default function App() {
           <div
             key={r}
             className="view"
+            data-route={r}
             data-active={route === r ? '' : undefined}
             // pages slide in from the side they sit on in the bar, like turning to the next page
             data-pos={route === r ? undefined : ROUTES.indexOf(r) < ROUTES.indexOf(route) ? 'before' : 'after'}
@@ -151,6 +195,7 @@ export default function App() {
         {fullEpisode && <FullEpisode key={`${fullEpisode.episodeId}-${fullEpisode.startAt}`} request={fullEpisode} />}
       </AnimatePresence>
       <AnimatePresence>{drive && <Drive key="drive" initial={route === 'artists' ? 'artists' : 'radio'} />}</AnimatePresence>
+      <MiniPlayer />
       {splash && <Splash onDone={() => setSplash(false)} />}
       <Toasts />
     </div>
