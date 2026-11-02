@@ -290,7 +290,7 @@ export function Radio({ active }: { active: boolean }) {
       </AnimatePresence>
 
       <Prefetch source={(() => { const n = queue[index + 1]; return n ? (n.kind === 'song' ? n.song.media : n.ep.media) : undefined })()} />
-      <TopBar playing={pb.playing} />
+      <TopBar />
       <TapFlash state={flash.state} />
 
       {/* Swipe is the control; these stay for screen readers and switch access. */}

@@ -4,6 +4,7 @@ import { PODCAST_DESTINATION, PROVIDERS, type StreamingProviderId } from '../lib
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import { Sheet } from './Sheet'
+import * as I from './Icons'
 
 /** Your account, then where saves go, which content set is loaded, and a clean slate. */
 export function SettingsSheet() {
@@ -32,6 +33,20 @@ export function SettingsSheet() {
             Edit profile
           </button>
         </div>
+        <button
+          className="row-link"
+          onClick={() => {
+            close()
+            useUI.getState().setDrive(true)
+          }}
+        >
+          <I.Car size={18} />
+          <span>
+            <strong>Drive mode</strong>
+            <em>Hands-free: big controls, audio only, for the car</em>
+          </span>
+        </button>
+
         <p className="settings__label">Who can see your vinyl</p>
         <div className="choices">
           {(

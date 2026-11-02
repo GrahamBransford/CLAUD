@@ -23,7 +23,6 @@ const tabLabel = (id: RouteId) => (id === 'vinyl' ? 'Home' : brand.stations[id].
  * slim rail (the arm travels vertically) on wider screens.
  */
 export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: RouteId) => void }) {
-  const setDrive = useUI((s) => s.setDrive)
   const avatar = useStore((s) => s.profile.avatar)
   const news = useUpdates()
   const incoming = news.incoming > 0 || news.unseen > 0
@@ -114,9 +113,6 @@ export function TabBar({ route, onChange }: { route: RouteId; onChange: (r: Rout
           </span>
         </button>
       ))}
-      <button className="tab tab--drive" onClick={() => setDrive(true)} aria-label="Drive mode">
-        <span className="tab__icon"><I.Car /></span>
-      </button>
       {arm && (
         <span className={`tabs__arm ${moving ? 'is-moving' : ''}`} style={{ transform: `translate(${arm.x}px, ${arm.y}px)` }} aria-hidden>
           <svg viewBox="0 0 40 40" className="tabs__arm-swing">

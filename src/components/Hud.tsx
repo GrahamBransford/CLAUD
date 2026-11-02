@@ -2,12 +2,14 @@ import { AnimatePresence, motion } from 'framer-motion'
 import * as I from './Icons'
 import { useCallback, useRef, useState } from 'react'
 import { useUI } from '../store/useUI'
+import { RecordC } from './Logo'
 
 /**
- * The feeds keep their corners clear for the work: just the sound-off badge
- * and Drive, top right. (The C lives on your own vinyl, on the tonearm.)
+ * The feeds keep their corners clear for the work: the C top right, in the
+ * same place it sits on your vinyl's tonearm (tap it for Settings, where Drive
+ * mode lives), and the sound-off badge beside it until sound is on.
  */
-export function TopBar({ drive = true }: { playing?: boolean; muted?: boolean; drive?: boolean }) {
+export function TopBar() {
   const unlocked = useUI((s) => s.audioUnlocked)
   return (
     <div className="topbar">
@@ -17,11 +19,9 @@ export function TopBar({ drive = true }: { playing?: boolean; muted?: boolean; d
             <I.Muted size={19} />
           </button>
         )}
-        {drive && (
-          <button className="topbar__btn topbar__btn--drive" onClick={() => useUI.getState().setDrive(true)} aria-label="Drive mode">
-            <I.Car size={20} />
-          </button>
-        )}
+        <button className="topbar__logo" onClick={() => useUI.getState().openSheet({ kind: 'settings' })} aria-label="Settings">
+          <RecordC />
+        </button>
       </span>
     </div>
   )

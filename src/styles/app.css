@@ -841,8 +841,8 @@ h2 {
     color var(--fast) var(--ease);
 }
 @media (min-width: 900px) {
-  .topbar__logo,
-  .topbar__btn--drive {
+  /* the desktop rail carries the logo on every page */
+  .topbar .topbar__logo {
     display: none;
   }
 }
@@ -4388,9 +4388,17 @@ h2 {
   opacity: 0;
 }
 
-/* the feeds: no logo, just the right-hand controls in the corner */
+/* the feeds: the C in the top-right corner, exactly where it sits on the tonearm at home */
+.topbar .topbar__right {
+  align-items: center;
+}
 .topbar .topbar__logo {
-  display: none;
+  position: static;
+  width: 44px;
+  height: 44px;
+  margin-right: 6px;
+  display: grid;
+  place-items: center;
 }
 
 /* ---------- the bar: records you can read at a glance ---------- */

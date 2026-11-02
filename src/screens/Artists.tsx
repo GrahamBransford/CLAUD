@@ -196,7 +196,7 @@ export function Artists({ active }: { active: boolean }) {
         </Reel>
       </AnimatePresence>
 
-      <TopBar playing={pb.playing} />
+      <TopBar />
       <TapFlash state={flash.state} />
       <Prefetch source={songs[index + 1]?.media} />
 

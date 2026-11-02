@@ -89,7 +89,7 @@ export function InnerCircle({ active }: { active: boolean }) {
         </motion.div>
       </AnimatePresence>
       <Prefetch source={feed[i + 1]?.post.media} />
-      <TopBar playing={false} />
+      <TopBar />
     </section>
   )
 }
