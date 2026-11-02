@@ -76,6 +76,9 @@ interface UIState {
   touring: boolean
   setTouring: (on: boolean) => void
   resume: { id: string; time: number } | null
+  /** Locked or in the background, with the background player carrying the sound. */
+  backgrounded: boolean
+  setBackgrounded: (b: boolean) => void
   setResume: (r: { id: string; time: number } | null) => void
 }
 
@@ -94,6 +97,8 @@ export const useUI = create<UIState>()((set, get) => ({
   touring: false,
   setTouring: (touring) => set({ touring }),
   resume: null,
+  backgrounded: false,
+  setBackgrounded: (backgrounded) => set({ backgrounded }),
   setResume: (resume) => set({ resume }),
   pushToast: (t) => {
     const id = nextId++

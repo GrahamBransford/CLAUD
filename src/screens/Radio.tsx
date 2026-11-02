@@ -16,7 +16,8 @@ import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlaybac
 import { PODCAST_DESTINATION } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { tapWasUnlock, useUI } from '../store/useUI'
-import { radioQueue, type RadioEntry } from '../lib/radio'
+import { entryAudio, radioQueue, type RadioEntry } from '../lib/radio'
+import { useBackgroundStation } from '../lib/background'
 import { songWindow } from '../lib/snippet'
 import { useKnownDuration } from '../hooks/useKnownDuration'
 import { Credit } from '../components/Credit'
@@ -166,6 +167,19 @@ export function Radio({ active }: { active: boolean }) {
     if (active) pb.play()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resume, item?.id, player.version])
+
+  // locked or in the background: the running order carries on as audio
+  useBackgroundStation(active && !mini, {
+    index,
+    currentEnd: window_?.end,
+    element: () => (player.ref.current instanceof HTMLMediaElement ? player.ref.current : null),
+    item: (i) => entryAudio(queue[i]),
+    land: (i, time, id) => {
+      setMove('next')
+      setIndex(i)
+      useUI.getState().setResume({ id, time })
+    },
+  })
 
   // pinch to float it out of the feed, still playing
   const pinch = usePinch(() => {

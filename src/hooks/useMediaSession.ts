@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef } from 'react'
+import { useUI } from '../store/useUI'
 
 interface SessionInfo {
   title: string
@@ -22,9 +23,11 @@ export function useMediaSession(active: boolean, info: SessionInfo | null) {
   useLayoutEffect(() => {
     ref.current = info
   })
+  // locked: the background player owns the lock screen; back in the app, this screen takes it again
+  const away = useUI((s) => s.backgrounded)
 
   useEffect(() => {
-    if (!active || !info || !('mediaSession' in navigator)) return
+    if (away || !active || !info || !('mediaSession' in navigator)) return
     const ms = navigator.mediaSession
     ms.metadata = new MediaMetadata({
       title: info.title,
@@ -46,6 +49,7 @@ export function useMediaSession(active: boolean, info: SessionInfo | null) {
       }
     }
     return () => {
+      if (useUI.getState().backgrounded) return
       for (const [action] of handlers) {
         try {
           ms.setActionHandler(action, null)
@@ -56,5 +60,5 @@ export function useMediaSession(active: boolean, info: SessionInfo | null) {
     }
     // re-publish when the item changes
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active, info?.title, info?.artist, info?.artwork, !!info?.onNext, !!info?.onPrevious])
+  }, [away, active, info?.title, info?.artist, info?.artwork, !!info?.onNext, !!info?.onPrevious])
 }

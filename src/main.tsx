@@ -8,6 +8,7 @@ import './styles/app.css'
 import { activeSet, loadContent } from './data'
 import { initStore } from './store/useStore'
 import { installHaptics } from './lib/haptics'
+import { installBackgroundAudio } from './lib/background'
 
 // A picture that can't load (a blocked image host, a moved channel photo) becomes a
 // quiet record label instead of a broken-image icon.
@@ -31,6 +32,7 @@ loadContent()
   .then(async () => {
     initStore(activeSet)
     installHaptics()
+    installBackgroundAudio()
     const { default: App } = await import('./App.tsx')
     root.render(
       <StrictMode>

@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import * as I from '../components/Icons'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { MediaSurface } from '../components/MediaSurface'
 import { brand } from '../config/brand'
@@ -8,7 +8,8 @@ import { creatorById, songs } from '../data'
 import { useMediaSession } from '../hooks/useMediaSession'
 import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
-import { radioQueue, type RadioEntry } from '../lib/radio'
+import { entryAudio, radioQueue, type RadioEntry } from '../lib/radio'
+import { useBackgroundStation } from '../lib/background'
 import { songWindow } from '../lib/snippet'
 import { PODCAST_DESTINATION, PROVIDERS } from '../lib/streaming'
 import { useStore } from '../store/useStore'
@@ -105,16 +106,41 @@ function DrivePlayer({ station }: { station: Station }) {
 
   const source = song ? audioOf(song.audio) ?? audioOf(song.media) : ep && episodeAudio(ep)
   const hl = ep ? (ep.audioHighlight ?? ep.highlight) : undefined
+  const winStart = song ? songWindow(song).start : phase === 'highlight' ? (hl?.start ?? 0) : 0
+  const winEnd = song ? songWindow(song).end : phase === 'highlight' ? (hl?.end ?? 1) : (ep?.duration ?? 7200)
   const pb = useWindowedPlayback({
     ref: player.ref,
     itemKey: `${station}:${cur?.id}:${phase}:${player.version}`,
-    start: song ? songWindow(song).start : phase === 'highlight' ? (hl?.start ?? 0) : 0,
-    end: song ? songWindow(song).end : phase === 'highlight' ? (hl?.end ?? 1) : (ep?.duration ?? 7200),
+    start: winStart,
+    end: winEnd,
     initialOffset: ep && phase === 'full' ? (hl?.end ?? 0) : 0,
     autoplay: true,
     active: !error,
     onWindowEnd,
   })
+
+  // locked or in the background (the car): the station carries on as audio
+  useBackgroundStation(!!cur, {
+    index: cur ? all.indexOf(cur) : -1,
+    currentEnd: winEnd,
+    element: () => (player.ref.current instanceof HTMLMediaElement ? player.ref.current : null),
+    item: (i) => (all[i] && playable(all[i]) ? entryAudio(all[i]) : undefined),
+    land: (i, time, id) => {
+      setPhase('highlight')
+      setIndex(i)
+      useUI.getState().setResume({ id, time })
+    },
+  })
+
+  // back from the background: pick up where it got to
+  const resume = useUI((s) => s.resume)
+  useEffect(() => {
+    if (!cur || !resume || resume.id !== cur.id || !player.ref.current) return
+    useUI.getState().setResume(null)
+    const rel = resume.time - winStart
+    if (rel > 0) pb.seek(rel)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resume, cur?.id, player.version])
 
   const skip = () => {
     const heard = pb.listened()

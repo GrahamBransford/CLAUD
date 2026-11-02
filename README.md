@@ -30,6 +30,8 @@ The first time CIRCA opens, a short tour follows the intro, Instagram-style, on 
 
 Everything plays by itself, with sound: CIRCA always tries sound first, and there's no mute button. Where a phone's browser won't let a page start with sound until it's touched (a browser rule CIRCA can't override, and no page can change the phone's own volume), the first touch of any kind (a tap, a swipe, a scroll) turns it on instantly. Only a tap pauses. Going to Full song or Full episode, floating a video into the mini player, and coming back all carry on from the same moment. The next video in each feed is preloaded so swiping on starts straight away, and quick taps never leave a video stuck: a play cut short by a newer command is ignored rather than treated as blocked.
 
+**Locked phone, CarPlay.** Lock the phone or switch apps on the Radio, in Music or in Drive mode and the sound carries on, down the running order: the next song, the next podcast highlight, without a tap. Phones pause a web page's video when the screen locks but let audio play, so a single audio element (`src/lib/background.ts`), woken by the first tap, picks up the item that was playing at the same second and steps through the station on its own media events (timers are frozen while locked). The lock screen, headphones and the car's controls play, pause and skip it. Unlock and the feed lands on whatever is playing, with the picture carrying on from there. Pause before locking and it stays paused.
+
 ### Standing out
 
 - **Creators** show their follower count, and follow other creators only: their vinyl shows who they follow, as a row of faces.

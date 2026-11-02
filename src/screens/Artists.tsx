@@ -13,6 +13,8 @@ import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlaybac
 import type { PlayerLike } from '../lib/players'
 import { PROVIDERS } from '../lib/streaming'
 import { songWindow } from '../lib/snippet'
+import { useBackgroundStation } from '../lib/background'
+import { songAudio } from '../lib/radio'
 import { useKnownDuration } from '../hooks/useKnownDuration'
 import { usePinch } from '../lib/pinch'
 import { Credit } from '../components/Credit'
@@ -116,6 +118,19 @@ export function Artists({ active }: { active: boolean }) {
     if (active) pb.play()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resume, song?.id, player.version])
+
+  // locked or in the background: the songs carry on as audio
+  useBackgroundStation(active && !mini, {
+    index,
+    currentEnd: win.end,
+    element: () => (player.ref.current instanceof HTMLMediaElement ? player.ref.current : null),
+    item: (i) => songAudio(songs[i]),
+    land: (i, time, id) => {
+      setMove('next')
+      setIndex(i)
+      useUI.getState().setResume({ id, time })
+    },
+  })
 
   // pinch to float it out of the feed, still playing
   const pinch = usePinch(() => {
