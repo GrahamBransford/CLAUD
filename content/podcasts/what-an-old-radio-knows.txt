@@ -1,0 +1,67 @@
+@ IMANI = Imani Brooks | 180
+@ WALTER = Walter Fenn | 90
+
+# Introduction
+IMANI: This is Small Machines. I'm Imani Brooks. Today I'm in a workshop on the second floor of an old textile building, and every surface in this room is covered with radios. Wooden radios, plastic radios, radios the size of a suitcase, radios the size of a sandwich. Some of them have their backs off and their insides spread out on the bench like a patient on an operating table. And sitting across from me is the man who has been bringing them back to life for forty years. Walter Fenn, thank you for having me.
+WALTER: Thank you for climbing the stairs. Most people complain about the stairs.
+IMANI: The stairs were a lot.
+WALTER: The stairs keep out the people who aren't serious.
+
+# Forty years at the bench
+IMANI: How did you start doing this?
+WALTER: My father had a radio in the kitchen. A big walnut tabletop set. And when I was about eleven, it stopped working, and he was going to throw it out. And I asked if I could have it instead. I didn't know anything. I took the back off and just stared at it. All these glass tubes and little colored components and wires going everywhere. And I remember thinking, somewhere in here is the voice of the ballgame announcer, and I'm going to find it.
+IMANI: Did you find it?
+WALTER: It took me most of a year. I went to the library, I read everything I could find, I bothered every television repairman in town. And one day I replaced a little part, a capacitor, that cost about a quarter, and I plugged it in, and I waited for the tubes to warm up, which takes a while, and then out of the speaker came this crackle, and then a voice. And I was hooked for life.
+IMANI: How many radios do you think you've restored since then?
+WALTER: I stopped counting at three thousand. That was a long time ago.
+
+## HIGHLIGHT START
+# How a radio finds a voice in the noise
+IMANI: I want to ask you something that I suspect a lot of people have never really understood, and I'll include myself. When you turn the dial on a radio, what is actually happening? How does it find a station?
+WALTER: That's my favorite question. Nobody asks me that anymore. Alright. So the first thing to understand is that right now, in this room, the air is full of voices. Every station within a hundred miles is broadcasting at the same time. Music, news, ballgames, preachers, weather reports, all of it, passing through this room, passing through you and me, right this second.
+IMANI: That's a slightly unsettling thought.
+WALTER: It's a beautiful thought. But it's also a problem. Because if you just caught all of it at once, you'd hear nothing but noise. A roar. So the whole job of a radio, really the entire purpose of the machine, is to ignore almost everything, and let in just one thing.
+IMANI: So a radio is a machine for ignoring.
+WALTER: That's exactly right. I've never heard anyone put it that way, but that's exactly right. Each station broadcasts on its own frequency, its own rate of vibration. And inside the radio there's a circuit, a coil and a capacitor working together, that naturally wants to vibrate at one particular rate. When you turn the dial, you're changing that capacitor, which changes the rate the circuit prefers. And when the circuit's preference lines up with a station's frequency, that station's signal suddenly gets very strong inside the radio, and everything else stays weak.
+IMANI: Like pushing a child on a swing.
+WALTER: Very much like that. If you push at the right moment, every time, the swing goes higher and higher. Push at the wrong moments and it barely moves. The station is pushing at its own rhythm. The tuning circuit only swings for the one that matches.
+IMANI: And then?
+WALTER: And then there's a very clever trick, which is the reason these old radios work as well as they do. Instead of trying to amplify every station at its own frequency, which is hard, the radio converts whatever station you've chosen down to one fixed frequency inside the set. Always the same one. And then it has a series of stages that are built to amplify that one frequency extremely well, and nothing else. It's called a superheterodyne, which is a terrible word for a wonderful idea.
+IMANI: Why is it wonderful?
+WALTER: Because it means the radio doesn't have to be good at everything. It only has to be very, very good at one thing, and then it translates the whole world into that one thing. When I explain it to young people, I say, it's like having a friend who speaks every language, and no matter who's talking, your friend translates it into the one language you understand perfectly.
+IMANI: And what about the static? The hiss you hear between stations. Where does that come from?
+WALTER: Some of it is the radio itself. Every warm thing makes a little bit of noise, even the parts inside the set, just from the atoms moving around. But a lot of it is the universe. Lightning storms on the other side of the country. Electrical motors down the street. And a small part of it, a very small part, is left over from the beginning of everything. Energy that's been travelling across space for a very long time, and ends up as a tiny bit of hiss in your kitchen.
+IMANI: So between stations, I'm listening to the universe.
+WALTER: Between stations, you're listening to everything that isn't trying to talk to you. And when you land on a station, all of that falls away, and one person comes through clear. I've been doing this for forty years and that moment still gets me. Every single time. Noise, noise, noise, and then, a voice.
+IMANI: I love that. And it makes me think about why these machines matter to you beyond the engineering.
+WALTER: Well. I'll tell you something I don't usually say on a recording. I think I've spent my whole life around machines that are very good at paying attention. That's what a radio is. It sits in a room full of noise, and it chooses one voice, and it gives that voice its complete attention, and it makes it clear enough for a person to hear. And over the years I've come to think that's most of what a good life is, too. The world is full of noise. Everybody is broadcasting at once. And the work, the real work, is tuning in to the thing that deserves your attention, and giving it all of yourself.
+IMANI: Tuning in.
+WALTER: Tuning in. My wife used to say I listened to radios better than I listened to people. She was not wrong. I've been trying to get better at that.
+## HIGHLIGHT END
+
+# The value of fixing things
+IMANI: Let's talk about the people who bring these radios to you. Who are they?
+WALTER: Oh, everyone. Collectors, sometimes. But mostly it's families. Somebody's grandmother passed, and in the attic there's the radio she listened to every morning while she made breakfast. And they don't care if it's valuable. They want to hear it play again. They want to hear the sound she heard.
+IMANI: That must be an emotional moment.
+WALTER: It's the best part of the job. When they come to pick it up, I always make them wait while it warms up. I don't let them just take it home. I turn it on, and we stand here together in the shop, and there's that hum, and then a crackle, and then a voice comes through. And I've seen grown men cry at a weather report.
+IMANI: What do you think people are really responding to in that moment?
+WALTER: Presence. A radio is a live thing. When you turn it on, somebody, somewhere, is talking right now. Not recorded for you, not chosen by a computer for you. Live. There's a person on the other end of that sound. And I think people miss that feeling, of being one of a lot of people listening to the same thing at the same time, without being able to see each other.
+
+# Inside the shop
+IMANI: Can you show me what you're working on right now?
+WALTER: Sure. This one here, the cream colored one with the gold dial. Came in last week. Belonged to a woman who ran a diner for thirty years, and this sat on the counter by the register the whole time. Her son brought it in. You can see the finish is worn right here, on the top, in the shape of a hand. That's where she rested her hand every time she reached for the cash drawer.
+IMANI: Oh, wow. You can actually see it.
+WALTER: Thirty years of the same gesture. I won't refinish that part. People always ask me to make things look new. And I'll fix anything that's broken, but I try very hard not to erase anything that's true. That handprint is the most valuable thing on the radio.
+IMANI: What's wrong with it, mechanically?
+WALTER: Mostly the usual. Old capacitors that have dried out, a tube that's tired, a dial cord that snapped. The dial cord is the little string that connects the knob to the needle, so when you turn the knob, the needle slides across the numbers. When that string breaks, the radio might still work perfectly, but you can't see where you are. You're tuning blind.
+IMANI: That feels like a metaphor.
+WALTER: Everything in here is a metaphor if you stay long enough. That's the danger of this job. You start thinking every radio is about life.
+IMANI: Is that so bad?
+WALTER: No. I suppose it isn't. It's kept me company.
+
+# Closing
+IMANI: Walter, what happens to all of this when you retire?
+WALTER: I'm training two apprentices. One is a nineteen year old who found me through a video online, which I find very funny. The other is a retired schoolteacher who says she's always wanted to know how things work. They're both better at soldering than I was at their age. The radios will be fine.
+IMANI: Walter Fenn, thank you for letting me into the shop.
+WALTER: Thank you for asking how a radio works. Come back anytime. Bring your own coffee. Mine is terrible.
+IMANI: This has been Small Machines. I'm Imani Brooks. Take care of your things, and they'll take care of you.

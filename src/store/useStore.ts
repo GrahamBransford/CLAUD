@@ -1,0 +1,301 @@
+import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+import { creatorById, defaultFollows, meSeed } from '../data'
+import type { Experience, FriendState, Profile, SaveMethod, SavedItem, Signals } from '../types'
+import type { StreamingProviderId } from '../lib/streaming'
+
+const emptySignals = (): Signals => ({ minutes: 0, completions: 0, repeats: 0, plays: 0, concerts: 0, reactions: 0, views: 0 })
+
+/** Durable, per-device state. Persisted to localStorage, per content set. */
+interface PersistedState {
+  initialized: boolean
+  /** Default follows already offered, so creators added to the content later still arrive (null on older saves). */
+  offered: string[] | null
+  saved: SavedItem[]
+  follows: string[]
+  /** Follows made on the listener's other platforms (`spotify:id`, `youtube:id`), as CIRCA knows them. */
+  platformFollows: string[]
+  /** Engagement recorded inside CIRCA, per creator. */
+  signals: Record<string, Signals>
+  /** How many times each song/episode has been played (for repeat listening). */
+  heard: Record<string, number>
+  reacted: string[]
+  viewed: string[]
+  /** Where each creator sat on the record at the last visit to Your Record. */
+  lastTop: Record<string, number>
+  artistsIndex: number
+  /** Position in the Radio's mixed running order. */
+  radioIndex: number
+  circleIndex: number
+  episodeProgress: Record<string, number>
+  streaming: StreamingProviderId | null
+  /** Your identity on CIRCA. Everything here is optional and self-reported. */
+  profile: Profile
+  experiences: Experience[]
+  favorites: string[]
+  friends: Record<string, FriendState>
+  /** Friends whose vinyl updates you follow. */
+  vinylFollows: string[]
+  /** Who can open your vinyl (a demo preference: there is no server to enforce it). */
+  vinylVisibility: 'everyone' | 'friends'
+  /** Front Row: the paid membership (demo) and the up-to-five creators it covers. */
+  frontRow: { member: boolean; picks: string[] }
+  /** Creators you've chosen to leave off your vinyl (not shown to you or anyone who opens it). */
+  omitVinyl: string[]
+  /** Creators you've chosen to leave out of your stats (minutes, top artists, genres, taste matches). */
+  omitStats: string[]
+  /** Comments you wrote on Inner Circle moments. Kept on this device only. */
+  myComments: Record<string, { id: string; text: string; at: number }[]>
+  /** Friends' vinyl updates already seen (for the lamp). */
+  seenUpdates: string[]
+  /** Communities joined and gatherings you said you'd go to (demo: nothing is sent). */
+  joined: string[]
+  going: string[]
+
+  markUpdatesSeen: (keys: string[]) => void
+  toggleJoin: (id: string) => boolean
+  toggleGoing: (id: string) => boolean
+  ensureDefaults: () => void
+  save: (id: string, kind: SavedItem['kind'], via: SaveMethod) => boolean
+  unsave: (id: string) => void
+  isSaved: (id: string) => boolean
+  toggleFollow: (creatorId: string) => boolean
+  /** Follow on CIRCA and on `platform`, where not already: says which were new. */
+  followEverywhere: (creatorId: string, platform: string) => { circa: boolean; platform: boolean }
+  /** A play of an item: minutes heard, and whether it was heard through. */
+  recordListen: (creatorId: string, itemId: string, seconds: number, completed: boolean) => void
+  recordConcert: (creatorId: string) => void
+  toggleReaction: (postId: string, creatorId: string) => boolean
+  recordView: (postId: string, creatorId: string) => void
+  setLastTop: (m: Record<string, number>) => void
+  setArtistsIndex: (i: number) => void
+  setRadioIndex: (i: number) => void
+  setCircleIndex: (i: number) => void
+  setEpisodeProgress: (id: string, t: number) => void
+  setStreaming: (p: StreamingProviderId | null) => void
+  setProfile: (patch: Partial<Profile>) => void
+  /** Live experiences with a creator also count toward closeness, like a show. */
+  addExperience: (x: Omit<Experience, 'id'>) => void
+  removeExperience: (id: string) => void
+  toggleFavorite: (creatorId: string) => boolean
+  setFriend: (personId: string, state: FriendState | null) => void
+  toggleVinylFollow: (personId: string) => boolean
+  setVinylVisibility: (v: 'everyone' | 'friends') => void
+  /** Show (true) or leave out (false) a creator on your vinyl or in your stats. */
+  setShown: (creatorId: string, where: 'vinyl' | 'stats', shown: boolean) => void
+  setFrontRow: (f: { member: boolean; picks: string[] }) => void
+  addComment: (postId: string, text: string) => void
+  resetDemo: () => void
+}
+
+const initial = () => ({
+  initialized: false,
+  offered: null as string[] | null,
+  saved: [] as SavedItem[],
+  follows: [] as string[],
+  platformFollows: [] as string[],
+  signals: {} as Record<string, Signals>,
+  heard: {} as Record<string, number>,
+  reacted: [] as string[],
+  viewed: [] as string[],
+  lastTop: {} as Record<string, number>,
+  artistsIndex: 0,
+  radioIndex: 0,
+  circleIndex: 0,
+  episodeProgress: {} as Record<string, number>,
+  streaming: 'spotify' as StreamingProviderId | null,
+  profile: {
+    name: meSeed.name,
+    username: meSeed.username,
+    bio: meSeed.bio,
+    location: meSeed.location,
+    avatar: meSeed.avatar,
+    socials: { ...meSeed.socials },
+  } as Profile,
+  experiences: [...meSeed.experiences],
+  favorites: [...meSeed.favorites],
+  friends: { ...meSeed.friends },
+  vinylFollows: Object.keys(meSeed.friends).filter((id) => meSeed.friends[id] === 'friends'),
+  vinylVisibility: 'everyone' as 'everyone' | 'friends',
+  frontRow: { member: false, picks: [] as string[] },
+  omitVinyl: [] as string[],
+  omitStats: [] as string[],
+  myComments: {} as Record<string, { id: string; text: string; at: number }[]>,
+  seenUpdates: [] as string[],
+  joined: [] as string[],
+  going: [] as string[],
+})
+
+const LIVE = (x: Pick<Experience, 'kind' | 'creatorId'>) => !!x.creatorId && x.kind !== 'other'
+
+const bump = (st: PersistedState, creatorId: string, patch: (s: Signals) => Partial<Signals>) => {
+  const cur = st.signals[creatorId] ?? emptySignals()
+  return { signals: { ...st.signals, [creatorId]: { ...cur, ...patch(cur) } } }
+}
+
+export const storageKey = (set: string) => `circa-state-${set}`
+
+export const createStore = (set: string) =>
+  create<PersistedState>()(
+    persist(
+      (setState, get) => ({
+        ...initial(),
+
+        ensureDefaults: () => {
+          const st = get()
+          if (!st.initialized) return setState({ initialized: true, follows: [...defaultFollows], offered: [...defaultFollows] })
+          // a save from before real creators existed: everything but them was already offered
+          const offered = st.offered ?? defaultFollows.filter((id) => !creatorById[id]?.channel)
+          const fresh = defaultFollows.filter((id) => !offered.includes(id))
+          if (fresh.length || !st.offered) setState({ follows: [...new Set([...st.follows, ...fresh])], offered: [...offered, ...fresh] })
+          // a phone that still has the old sample profile picks up the real one
+          if (st.profile.username === 'alexmorgan' && meSeed.username !== 'alexmorgan')
+            setState({ profile: { name: meSeed.name, username: meSeed.username, bio: meSeed.bio, location: meSeed.location, avatar: meSeed.avatar, socials: { ...meSeed.socials } } })
+        },
+
+        save: (id, kind, via) => {
+          if (get().saved.some((s) => s.id === id)) return false
+          setState((st) => ({ saved: [{ id, kind, via, savedAt: Date.now() }, ...st.saved] }))
+          return true
+        },
+        unsave: (id) => setState((st) => ({ saved: st.saved.filter((s) => s.id !== id) })),
+        isSaved: (id) => get().saved.some((s) => s.id === id),
+
+        toggleFollow: (creatorId) => {
+          const following = get().follows.includes(creatorId)
+          setState((st) => ({
+            follows: following ? st.follows.filter((f) => f !== creatorId) : [...st.follows, creatorId],
+          }))
+          return !following
+        },
+
+        followEverywhere: (creatorId, platform) => {
+          const key = `${platform}:${creatorId}`
+          const st = get()
+          const circa = !st.follows.includes(creatorId)
+          const there = !(st.platformFollows ?? []).includes(key)
+          if (circa || there)
+            setState((s) => ({
+              follows: circa ? [...s.follows, creatorId] : s.follows,
+              platformFollows: there ? [...(s.platformFollows ?? []), key] : (s.platformFollows ?? []),
+            }))
+          return { circa, platform: there }
+        },
+
+        recordListen: (creatorId, itemId, seconds, completed) =>
+          setState((st) => {
+            const times = st.heard[itemId] ?? 0
+            return {
+              heard: { ...st.heard, [itemId]: times + 1 },
+              ...bump(st, creatorId, (s) => ({
+                plays: s.plays + 1,
+                minutes: s.minutes + seconds / 60,
+                completions: s.completions + (completed ? 1 : 0),
+                repeats: s.repeats + (times > 0 && seconds > 20 ? 1 : 0),
+              })),
+            }
+          }),
+
+        recordConcert: (creatorId) => setState((st) => bump(st, creatorId, (s) => ({ concerts: s.concerts + 1 }))),
+
+        toggleReaction: (postId, creatorId) => {
+          const on = !get().reacted.includes(postId)
+          setState((st) => ({
+            reacted: on ? [...st.reacted, postId] : st.reacted.filter((p) => p !== postId),
+            ...bump(st, creatorId, (s) => ({ reactions: Math.max(0, s.reactions + (on ? 1 : -1)) })),
+          }))
+          return on
+        },
+
+        recordView: (postId, creatorId) => {
+          if (get().viewed.includes(postId)) return
+          setState((st) => ({ viewed: [...st.viewed, postId], ...bump(st, creatorId, (s) => ({ views: s.views + 1 })) }))
+        },
+
+        setLastTop: (lastTop) => setState({ lastTop }),
+        setArtistsIndex: (i) => setState({ artistsIndex: Math.max(0, i) }),
+        setRadioIndex: (i) => setState({ radioIndex: Math.max(0, i) }),
+        setCircleIndex: (i) => setState({ circleIndex: Math.max(0, i) }),
+        setEpisodeProgress: (id, t) => setState((st) => ({ episodeProgress: { ...st.episodeProgress, [id]: t } })),
+        setStreaming: (p) => setState({ streaming: p }),
+        setProfile: (patch) => setState((st) => ({ profile: { ...st.profile, ...patch } })),
+        addExperience: (x) =>
+          setState((st) => ({
+            experiences: [{ ...x, id: `x-${Date.now().toString(36)}` }, ...st.experiences],
+            ...(LIVE(x) ? bump(st, x.creatorId!, (s) => ({ concerts: s.concerts + 1 })) : {}),
+          })),
+        removeExperience: (id) =>
+          setState((st) => {
+            const x = st.experiences.find((e) => e.id === id)
+            return {
+              experiences: st.experiences.filter((e) => e.id !== id),
+              ...(x && LIVE(x) ? bump(st, x.creatorId!, (s) => ({ concerts: Math.max(0, s.concerts - 1) })) : {}),
+            }
+          }),
+        toggleFavorite: (creatorId) => {
+          const on = !get().favorites.includes(creatorId)
+          setState((st) => ({ favorites: on ? [...st.favorites, creatorId] : st.favorites.filter((f) => f !== creatorId) }))
+          return on
+        },
+        setFriend: (personId, state) =>
+          setState((st) => {
+            const friends = { ...st.friends }
+            if (state) friends[personId] = state
+            else delete friends[personId]
+            return {
+              friends,
+              vinylFollows:
+                state === 'friends'
+                  ? [...new Set([...st.vinylFollows, personId])]
+                  : state ? st.vinylFollows : st.vinylFollows.filter((f) => f !== personId),
+            }
+          }),
+        setVinylVisibility: (vinylVisibility) => setState({ vinylVisibility }),
+        setFrontRow: (frontRow) => setState({ frontRow }),
+        setShown: (creatorId, where, shown) =>
+          setState((st) => {
+            const key = where === 'vinyl' ? 'omitVinyl' : 'omitStats'
+            const list = (st[key] ?? []).filter((id) => id !== creatorId)
+            return { [key]: shown ? list : [...list, creatorId] } as Partial<PersistedState>
+          }),
+        addComment: (postId, text) =>
+          setState((st) => ({
+            myComments: { ...st.myComments, [postId]: [...(st.myComments[postId] ?? []), { id: `c-${Date.now().toString(36)}`, text, at: Date.now() }] },
+          })),
+        toggleJoin: (id) => {
+          const on = !get().joined.includes(id)
+          setState((st) => ({ joined: on ? [...st.joined, id] : st.joined.filter((x) => x !== id), going: on ? st.going : st.going.filter((x) => x !== id) }))
+          return on
+        },
+        toggleGoing: (id) => {
+          const on = !get().going.includes(id)
+          setState((st) => ({ going: on ? [...st.going, id] : st.going.filter((x) => x !== id), joined: on && !st.joined.includes(id) ? [...st.joined, id] : st.joined }))
+          return on
+        },
+        markUpdatesSeen: (keys) => setState((st) => ({ seenUpdates: [...new Set([...st.seenUpdates, ...keys])] })),
+        toggleVinylFollow: (personId) => {
+          const on = !get().vinylFollows.includes(personId)
+          setState((st) => ({ vinylFollows: on ? [...st.vinylFollows, personId] : st.vinylFollows.filter((f) => f !== personId) }))
+          return on
+        },
+        resetDemo: () => setState({ ...initial(), initialized: true, follows: [...defaultFollows], offered: [...defaultFollows] }),
+      }),
+      {
+        name: storageKey(set),
+        partialize: (s) => {
+          // keep data, drop actions
+          return Object.fromEntries(Object.entries(s).filter(([, v]) => typeof v !== 'function')) as Partial<PersistedState>
+        },
+      },
+    ),
+  )
+
+/**
+ * The store is created once the content set is known (each set keeps its own
+ * saves and follows). main.tsx calls initStore() before rendering.
+ */
+export let useStore: ReturnType<typeof createStore>
+export function initStore(set: string) {
+  useStore = createStore(set)
+  useStore.getState().ensureDefaults()
+}

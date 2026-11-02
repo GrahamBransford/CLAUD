@@ -1,0 +1,297 @@
+import { AnimatePresence, motion, type PanInfo } from 'framer-motion'
+import * as I from '../components/Icons'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { TapFlash, useTapFlash } from '../components/Hud'
+import { RecordC } from '../components/Logo'
+import { MediaSurface, Prefetch } from '../components/MediaSurface'
+import { creatorById, creators, innerCircle } from '../data'
+import { useKeys } from '../hooks/useKeys'
+import { rankInnerCircle } from '../lib/affinity'
+import { claimAudioFocus } from '../lib/media'
+import { tick } from '../lib/haptics'
+import { isPinching, usePinch } from '../lib/pinch'
+import { useStore } from '../store/useStore'
+import { tapWasUnlock, useUI } from '../store/useUI'
+import type { InnerCirclePost } from '../types'
+import { usePlayerRef } from './Artists'
+
+export function useFollow() {
+  const toggle = useStore((s) => s.toggleFollow)
+  const pushToast = useUI((s) => s.pushToast)
+  return (creatorId: string) => {
+    const now = toggle(creatorId)
+    const c = creatorById[creatorId]
+    pushToast({ image: c?.avatar, title: now ? `Following ${c?.name}` : `Unfollowed ${c?.name}` })
+  }
+}
+
+const EASE = [0.22, 0.7, 0.18, 1] as const
+
+export function InnerCircle({ active }: { active: boolean }) {
+  const follows = useStore((s) => s.follows)
+  const signals = useStore((s) => s.signals)
+  const saved = useStore((s) => s.saved)
+  const index = useStore((s) => s.circleIndex)
+  const setIndex = useStore((s) => s.setCircleIndex)
+  const feed = useMemo(() => rankInnerCircle(follows, signals, saved), [follows, signals, saved])
+  const [dir, setDir] = useState(1)
+  const total = feed.length + 1 // the last page is "you're caught up"
+  const i = Math.min(index, total - 1)
+
+  const go = useCallback(
+    (d: number) => {
+      const n = Math.max(0, Math.min(total - 1, i + d))
+      if (n === i) return
+      setDir(d)
+      setIndex(n)
+    },
+    [i, total, setIndex],
+  )
+
+  useKeys(active, { ArrowDown: () => go(1), ArrowUp: () => go(-1), ArrowRight: () => go(1), ArrowLeft: () => go(-1) })
+
+  // Scrolls like a feed: swipe up for the next moment, down to go back.
+  const onDragEnd = (_: unknown, info: PanInfo) => {
+    if (isPinching()) return
+    if (info.offset.y < -80 || info.velocity.y < -550) {
+      tick()
+      go(1)
+    } else if (info.offset.y > 80 || info.velocity.y > 550) {
+      tick()
+      go(-1)
+    }
+  }
+
+  const item = feed[i]
+  const mini = useUI((s) => !!s.mini)
+  return (
+    <section className="screen screen--ic" aria-label="Inner Circle">
+      <AnimatePresence custom={dir} initial={false} mode="popLayout">
+        <motion.div
+          key={item ? item.post.id : 'end'}
+          className="page"
+          custom={dir}
+          drag="y"
+          dragConstraints={{ top: 0, bottom: 0 }}
+          dragElastic={0.85}
+          dragTransition={{ bounceStiffness: 520, bounceDamping: 42 }}
+          onDragEnd={onDragEnd}
+          variants={{
+            initial: (d: number) => ({ y: d > 0 ? '100%' : '-100%' }),
+            enter: { y: 0, transition: { duration: 0.36, ease: EASE } },
+            exit: (d: number) => ({ y: d > 0 ? '-100%' : '100%', transition: { duration: 0.36, ease: EASE } }),
+          }}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+        >
+          {item ? <Moment post={item.post} index={i} active={active && !mini} onEnded={() => go(1)} /> : <CaughtUp empty={feed.length === 0} onRestart={() => { setDir(-1); setIndex(0) }} />}
+        </motion.div>
+      </AnimatePresence>
+      <Prefetch source={feed[i + 1]?.post.media} />
+    </section>
+  )
+}
+
+function Moment({ post, index, active, onEnded }: { post: InnerCirclePost; index: number; active: boolean; onEnded: () => void }) {
+  const c = creatorById[post.creatorId]
+  const follows = useStore((s) => s.follows)
+  const reacted = useStore((s) => s.reacted.includes(post.id))
+  const toggleReaction = useStore((s) => s.toggleReaction)
+  const recordView = useStore((s) => s.recordView)
+  const unlocked = useUI((s) => s.audioUnlocked)
+  const follow = useFollow()
+  const player = usePlayerRef()
+  const flash = useTapFlash()
+  const [playing, setPlaying] = useState(false)
+  const [burst, setBurst] = useState<{ n: number; x: number; y: number } | null>(null)
+  const lastTap = useRef(0)
+  const root = useRef<HTMLDivElement>(null)
+  const single = useRef(0)
+  const isVideo = post.media.kind === 'video' || post.media.kind === 'youtube'
+  // artist moments fill the screen like a reel, even when shot wide
+  const fill = post.media.kind === 'youtube' && post.display === 'fill'
+
+  useEffect(() => {
+    const p = player.ref.current
+    if (!p || !isVideo) return
+    let maxT = 0
+    const onPlay = () => setPlaying(true)
+    const onPause = () => setPlaying(false)
+    const onTime = () => {
+      maxT = Math.max(maxT, p.currentTime)
+      if (p.duration > 0 && maxT / p.duration > 0.6) recordView(post.id, post.creatorId)
+    }
+    const onEnd = () => {
+      recordView(post.id, post.creatorId)
+      window.setTimeout(onEnded, 600)
+    }
+    p.addEventListener('play', onPlay)
+    p.addEventListener('pause', onPause)
+    p.addEventListener('timeupdate', onTime)
+    p.addEventListener('ended', onEnd)
+    if (active) {
+      claimAudioFocus(p)
+      // with sound whenever the browser allows; silently otherwise, until the first touch
+      p.muted = false
+      p.play().catch((e: Error) => {
+        if (e?.name !== 'NotAllowedError') return
+        p.muted = true
+        p.play().catch(() => setPlaying(false))
+      })
+    } else p.pause()
+    return () => {
+      p.removeEventListener('play', onPlay)
+      p.removeEventListener('pause', onPause)
+      p.removeEventListener('timeupdate', onTime)
+      p.removeEventListener('ended', onEnd)
+      p.pause()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [player.version, active])
+
+  useEffect(() => {
+    if (unlocked && player.ref.current) player.ref.current.muted = false
+  }, [unlocked, player.ref])
+
+  // after the mini player: pick up exactly where it got to
+  const resume = useUI((s) => s.resume)
+  useEffect(() => {
+    const p = player.ref.current
+    if (!p || !resume || resume.id !== post.id) return
+    useUI.getState().setResume(null)
+    p.currentTime = resume.time
+  }, [resume, post.id, player.ref, player.version])
+
+  // pinch to float the moment out, still playing
+  const pinch = usePinch(() => {
+    const p = player.ref.current
+    if (!c || post.media.kind !== 'video') return
+    useUI.getState().openMini({ kind: 'moment', id: post.id, creatorId: c.id, title: post.caption, src: post.media.src, poster: post.poster, route: 'inner-circle', index, time: p?.currentTime ?? 0, vertical: true })
+  })
+
+  const tap = () => {
+    const p = player.ref.current
+    if (!p || tapWasUnlock()) return
+    if (p.muted) {
+      p.muted = false
+      useUI.getState().unlockAudio()
+      return
+    }
+    flash.show(playing ? 'pause' : 'play')
+    if (p.paused) {
+      claimAudioFocus(p)
+      void p.play().catch(() => undefined)
+    } else p.pause()
+  }
+
+  // Double-tap to love, like Instagram: a second tap within a beat loves the moment (never
+  // un-loves it), pulses the screen's edges in the love button's bronze and blooms a heart
+  // where you tapped. A single tap still plays and pauses, once it's clear it wasn't a double.
+  const onTap = (e: MouseEvent | TouchEvent | PointerEvent, info: { point: { x: number; y: number } }) => {
+    if ((e.target as Element).closest('button') || isPinching()) return
+    const now = performance.now()
+    window.clearTimeout(single.current)
+    if (now - lastTap.current < 300) {
+      lastTap.current = 0
+      // where the finger was, inside this moment (framer gives page coordinates)
+      const box = root.current?.getBoundingClientRect()
+      const x = box ? info.point.x - window.scrollX - box.left : 0
+      const y = box ? info.point.y - window.scrollY - box.top : 0
+      setBurst({ n: (burst?.n ?? 0) + 1, x, y })
+      tick('firm')
+      if (!useStore.getState().reacted.includes(post.id)) toggleReaction(post.id, post.creatorId)
+      return
+    }
+    lastTap.current = now
+    single.current = window.setTimeout(tap, 260)
+  }
+  useEffect(() => () => window.clearTimeout(single.current), [])
+
+  if (!c) return null
+  const following = follows.includes(c.id)
+  return (
+    <motion.div ref={root} {...pinch} className={`moment moment--${post.media.kind} ${fill ? 'moment--fill' : ''}`} data-orientation={fill ? undefined : post.orientation} onTap={onTap}>
+      {burst && (
+        <span key={burst.n} className="moment__loved" aria-hidden>
+          <span className="moment__heart" style={{ left: burst.x, top: burst.y }}>
+            <I.Love size={92} on />
+          </span>
+        </span>
+      )}
+      {/* a horizontal source keeps its shape; its own frame, softly blurred, fills the screen behind it */}
+      {!fill && post.orientation === 'horizontal' && post.poster && <img className="moment__backdrop" src={post.poster} alt="" aria-hidden />}
+      <MediaSurface source={post.media} className="moment__media" poster={post.poster} fill={fill} onPlayer={isVideo ? player.onPlayer : () => undefined} />
+      <div className="reel__scrim" aria-hidden />
+      <TapFlash state={flash.state} />
+      <div className="moment__meta">
+        <div className="moment__who">
+          <button className="moment__avatar" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: c.id })} aria-label={c.name}>
+            <img src={c.avatar} alt="" />
+          </button>
+          <button className="moment__name" onClick={() => useUI.getState().openSheet({ kind: 'creator', creatorId: c.id })}>{c.name}</button>
+          {!following && (
+            <button className="moment__follow" onClick={() => follow(c.id)} aria-label={`Follow ${c.name}`}><I.Plus size={15} /></button>
+          )}
+        </div>
+        <Caption text={post.caption} />
+      </div>
+      <div className="rail rail--ic">
+        <button className={`rail__btn rail__btn--save ${reacted ? 'is-on' : ''}`} onClick={() => toggleReaction(post.id, post.creatorId)} aria-label="Send love" aria-pressed={reacted}>
+          <I.Love size={26} on={reacted} />
+        </button>
+        <button className="rail__btn" onClick={() => useUI.getState().openSheet({ kind: 'comments', postId: post.id })} aria-label="Comments">
+          <I.Comment size={25} />
+        </button>
+      </div>
+    </motion.div>
+  )
+}
+
+function CaughtUp({ empty, onRestart }: { empty: boolean; onRestart: () => void }) {
+  const follows = useStore((s) => s.follows)
+  const follow = useFollow()
+  const outside = creators.filter((c) => !follows.includes(c.id) && innerCircle.some((p) => p.creatorId === c.id))
+  return (
+    <div className="end end--ic">
+      <span className="end__disc"><RecordC /></span>
+      <p className="end__title">{empty ? 'Follow someone to start your circle.' : 'You’re all caught up.'}</p>
+      {!empty && <button className="pill" onClick={onRestart}>From the top</button>}
+      {outside.length > 0 && (
+        <div className="faces">
+          {outside.map((c) => (
+            <button key={c.id} className="face" onClick={() => follow(c.id)} aria-label={`Follow ${c.name}`}>
+              <img src={c.avatar} alt="" />
+              <span>{c.name}</span>
+              <i><I.Plus size={13} /></i>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+/**
+ * Two lines, always the same height, so the name and avatar never move from
+ * moment to moment. Longer captions end in "more", like Instagram.
+ */
+function Caption({ text }: { text: string }) {
+  const ref = useRef<HTMLParagraphElement>(null)
+  const [open, setOpen] = useState(false)
+  const [long, setLong] = useState(false)
+  useLayoutEffect(() => {
+    const el = ref.current
+    if (el && !open) setLong(el.scrollHeight > el.clientHeight + 1)
+  }, [text, open])
+  return (
+    <div className={`moment__caption ${open ? 'is-open' : ''}`}>
+      <p ref={ref}>{text}</p>
+      {long && (
+        <button className="moment__more" onClick={() => setOpen(!open)} aria-expanded={open}>
+          {open ? 'less' : '… more'}
+        </button>
+      )}
+    </div>
+  )
+}

@@ -1,0 +1,91 @@
+/* CIRCA — a lacquered green radiogram with brass and rose-gold fittings. */
+:root {
+  /*
+   * Lacquered racing green is the ground; antique brass and rose gold are the
+   * hardware; ivory is type and dial faces; walnut and leather tan are the
+   * furniture around it. Black only for grilles and vinyl.
+   */
+  --green-950: #040b08;
+  --green-900: #07120d;
+  --green-800: #0b1a14;
+  --green-700: #10241b;
+  --green-600: #163024;
+  --green-500: #1e3d2f;
+  --green-hi: #2b5241;
+  --brass: #b89c66;
+  --brass-hi: #dcc89c;
+  --brass-lo: #7b6439;
+  --rose: #c49c84;
+  --rose-hi: #e5c8b4;
+  --rose-lo: #86604c;
+  --ivory: #efe6d3;
+  --ivory-2: #ddd0b5;
+  --tan: #c4ab84;
+  --walnut: #4a2216;
+  --walnut-hi: #6e3624;
+  --grille: #0b0a09;
+
+  /* older names, now in the new palette */
+  --espresso: var(--green-900);
+  --espresso-2: var(--green-800);
+  --espresso-3: var(--green-700);
+  --cherry: var(--rose);
+  --cherry-deep: var(--rose-lo);
+  --mustard: var(--brass);
+  --orange: var(--rose-hi);
+  --turquoise: var(--brass-hi);
+  --navy: var(--green-950);
+  --cream: var(--ivory);
+  --cream-2: var(--ivory-2);
+  --ink: #0b1510;
+  --ink-2: #33433a;
+  --ink-3: #6c776f;
+  --vinyl: #0b0a0c;
+
+  --fg: var(--ivory);
+  --fg-2: rgba(239, 230, 211, 0.72);
+  --fg-3: rgba(239, 230, 211, 0.46);
+  --hair: rgba(184, 156, 102, 0.2);
+  --bar: #06100c;
+
+  /* materials */
+  --lacquer: linear-gradient(180deg, #12291f 0%, #0d1f17 45%, #091710 100%);
+  --bezel: conic-gradient(from 210deg, #86604c, #e5c8b4, #b48a72, #6f4c3b, #d9b7a0, #86604c);
+  --bezel-brass: conic-gradient(from 210deg, #7b6439, #e2d1a8, #b89c66, #67522c, #d3bd8c, #7b6439);
+  --pinstripe: linear-gradient(90deg, transparent, #7b6439 12%, #dcc89c 50%, #7b6439 88%, transparent);
+  /* a fine grain, so surfaces read as material rather than flat colour */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+  --display: 'Archivo Variable', 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --serif: 'Fraunces Variable', 'Fraunces', Georgia, serif;
+  --sans: 'Archivo Variable', 'Archivo', system-ui, -apple-system, sans-serif;
+
+  --ease: cubic-bezier(0.22, 0.7, 0.18, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --fast: 160ms;
+  --med: 320ms;
+
+  --tab-h: 74px;
+  --rail-w: 0px;
+  --safe-t: env(safe-area-inset-top, 0px);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  /* the tab bar sits a little into the home-indicator area, as native apps do */
+  --bar-b: max(calc(var(--safe-b) - 8px), 0px);
+}
+
+/* iOS 26 home-screen app: the system softly blurs a band that runs a little
+   below the status bar, so anything pinned to the top starts clear of it */
+@media (display-mode: standalone), (display-mode: fullscreen) {
+  :root {
+    --safe-t: calc(env(safe-area-inset-top, 0px) + 16px);
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --tab-h: 0px;
+    --rail-w: 92px;
+  }
+}

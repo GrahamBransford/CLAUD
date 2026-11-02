@@ -1,0 +1,11 @@
+{
+  "default": "demo",
+  "sets": [
+    {
+      "id": "demo",
+      "file": "demo.json",
+      "label": "CIRCA demo",
+      "description": "Six demo artists on licensed footage of real performers, four real NASA podcasts. All media is stored with the app."
+    }
+  ]
+}

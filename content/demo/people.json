@@ -1,0 +1,2300 @@
+{
+ "me": {
+  "name": "Graham Bransford",
+  "username": "wesmusic",
+  "bio": "Long writes and longer playlists. Also my wife is hot.",
+  "location": "Nashville, TN",
+  "avatar": "media/people/graham.jpg",
+  "socials": {
+   "instagram": "w.e.s.m.u.s.i.c"
+  },
+  "experiences": [
+   {
+    "id": "x-me-1",
+    "kind": "concert",
+    "creatorId": "ellis-rae",
+    "title": "Ellis Rae",
+    "place": "Music Hall of Williamsburg",
+    "year": 2025
+   },
+   {
+    "id": "x-me-2",
+    "kind": "festival",
+    "creatorId": "ellis-rae",
+    "title": "Ellis Rae at Sound on the Water",
+    "place": "Governors Island",
+    "year": 2024
+   }
+  ],
+  "favorites": [
+   "ellis-rae",
+   "houston-we-have-a-podcast"
+  ],
+  "friends": {
+   "maya-chen": "friends",
+   "jonah-bell": "friends",
+   "theo-okafor": "incoming"
+  },
+  "coords": [
+   36.1627,
+   -86.7816
+  ],
+  "awards": [
+   {
+    "kind": "tastemaker",
+    "title": "Tastemaker",
+    "detail": "Had Marisol Vega on your vinyl before 1,000 others did"
+   },
+   {
+    "kind": "founding",
+    "title": "Founding listener",
+    "detail": "On CIRCA since the first month"
+   }
+  ]
+ },
+ "people": [
+  {
+   "id": "maya-chen",
+   "name": "Maya Chen",
+   "username": "mayahears",
+   "location": "Brooklyn, NY",
+   "bio": "Collects B-sides. Will talk your ear off about bass tone.",
+   "palette": [
+    "#C9A25A",
+    "#2F4858",
+    "#E8D9BE",
+    "#3B2A22"
+   ],
+   "hair": "bob",
+   "skin": "#E4B48C",
+   "socials": {
+    "instagram": "mayahears"
+   },
+   "points": {
+    "ellis-rae": 980,
+    "nova-lin": 392,
+    "houston-we-have-a-podcast": 450,
+    "nasa-science-live": 120,
+    "the-halyards": 67,
+    "marisol-vega": 520,
+    "sola": 520,
+    "lucia-paz": 380,
+    "aurelio-fen": 240,
+    "whats-up": 160,
+    "arden-strings": 120,
+    "space-to-ground": 90
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
+     "place": "Music Hall of Williamsburg",
+     "year": 2025
+    },
+    {
+     "kind": "concert",
+     "creatorId": "nova-lin",
+     "title": "Nova Lin",
+     "place": "Bowery Ballroom",
+     "year": 2024
+    }
+   ],
+   "friends": [
+    "jonah-bell",
+    "rosa-lindqvist",
+    "sofia-reyes"
+   ],
+   "recent": [
+    "Saw Nova Lin live",
+    "Added NASA Science Live to their vinyl"
+   ],
+   "coords": [
+    40.6782,
+    -73.9442
+   ],
+   "awards": [
+    {
+     "kind": "host",
+     "title": "Event superhost",
+     "detail": "Hosts Soul After Dark NYC listening nights · 14 gatherings this year",
+     "communityId": "cm-3"
+    },
+    {
+     "kind": "tastemaker",
+     "title": "Tastemaker",
+     "detail": "Had Ellis Rae on their vinyl before 1,000 others did"
+    }
+   ],
+   "favorites": [
+    "ellis-rae",
+    "marisol-vega"
+   ]
+  },
+  {
+   "id": "theo-okafor",
+   "name": "Theo Okafor",
+   "username": "theo.oka",
+   "location": "London",
+   "bio": "Highlife, jazz, and every liner note ever printed.",
+   "palette": [
+    "#3E6B5A",
+    "#F2B42C",
+    "#EAD9B8",
+    "#1E1B18"
+   ],
+   "hair": "short",
+   "skin": "#7A4A2E",
+   "socials": {
+    "instagram": "theo.oka"
+   },
+   "points": {
+    "kairo-banks": 1200,
+    "the-halyards": 520,
+    "nasa-science-live": 640,
+    "ellis-rae": 465,
+    "down-to-earth": 90,
+    "marisol-vega": 790,
+    "dex-holloway": 640,
+    "salon-azul": 480,
+    "canal-street-brass": 360,
+    "gravity-assist": 200,
+    "sola": 140
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "kairo-banks",
+     "title": "Kairo Banks",
+     "place": "Thalia Hall, Chicago",
+     "year": 2024
+    },
+    {
+     "kind": "concert",
+     "creatorId": "the-halyards",
+     "title": "The Halyards",
+     "place": "Paradise Rock Club",
+     "year": 2025
+    },
+    {
+     "kind": "concert",
+     "creatorId": "dex-holloway",
+     "title": "Dex Holloway",
+     "place": "Preservation Hall, New Orleans",
+     "year": 2025
+    }
+   ],
+   "friends": [
+    "jonah-bell",
+    "amara-diallo"
+   ],
+   "recent": [
+    "Followed The Halyards for five years"
+   ],
+   "coords": [
+    51.5072,
+    -0.1276
+   ],
+   "awards": [
+    {
+     "kind": "industry",
+     "title": "A&R, Blue Hour Records",
+     "detail": "Signs and develops artists · self-reported"
+    }
+   ],
+   "favorites": [
+    "kairo-banks",
+    "marisol-vega"
+   ]
+  },
+  {
+   "id": "sofia-reyes",
+   "name": "Sofía Reyes",
+   "username": "sofiaonrecord",
+   "location": "Mexico City",
+   "bio": "Synths at sunrise. Podcasts about how things are made.",
+   "palette": [
+    "#C2563A",
+    "#F4D9A6",
+    "#2C3E50",
+    "#1B1412"
+   ],
+   "hair": "long",
+   "skin": "#C68A5E",
+   "socials": {
+    "instagram": "sofiaonrecord"
+   },
+   "points": {
+    "nova-lin": 969,
+    "the-halyards": 880,
+    "rocket-ranch": 520,
+    "houston-we-have-a-podcast": 180,
+    "ellis-rae": 90,
+    "nasa-science-live": 200,
+    "ines-moreau": 720,
+    "arden-strings": 560,
+    "aurelio-fen": 420,
+    "sciencecasts": 180,
+    "nasa-explorers": 120
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "the-halyards",
+     "title": "The Halyards",
+     "place": "Foro Indie Rocks, Mexico City",
+     "year": 2025
+    },
+    {
+     "kind": "concert",
+     "creatorId": "ines-moreau",
+     "title": "Inés Moreau",
+     "place": "Palacio de Bellas Artes, Mexico City",
+     "year": 2025
+    }
+   ],
+   "friends": [
+    "maya-chen",
+    "rosa-lindqvist",
+    "elliot-park"
+   ],
+   "recent": [
+    "Saw The Halyards in Mexico City"
+   ],
+   "coords": [
+    19.4326,
+    -99.1332
+   ],
+   "awards": [
+    {
+     "kind": "top",
+     "title": "Top 1% of listeners, 2026",
+     "detail": "More minutes than 99% of CIRCA listeners worldwide this year"
+    }
+   ],
+   "favorites": [
+    "nova-lin",
+    "the-halyards"
+   ]
+  },
+  {
+   "id": "jonah-bell",
+   "name": "Jonah Bell",
+   "username": "jonahb",
+   "location": "Nashville, TN",
+   "bio": "Porch songs and the stories behind them.",
+   "palette": [
+    "#7C8A5E",
+    "#F1E3C6",
+    "#8F1424",
+    "#231A14"
+   ],
+   "hair": "beard",
+   "skin": "#E8C2A0",
+   "socials": {
+    "instagram": "jonahbellmusic"
+   },
+   "points": {
+    "juniper-lowe": 1100,
+    "ellis-rae": 460,
+    "nasa-science-live": 515,
+    "houston-we-have-a-podcast": 220,
+    "the-halyards": 40,
+    "marisol-vega": 237,
+    "canal-street-brass": 520,
+    "dex-holloway": 380,
+    "lucia-paz": 300,
+    "space-to-ground": 140,
+    "nasa-in-silicon-valley": 90
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "juniper-lowe",
+     "title": "Juniper & Lowe",
+     "place": "The Ryman",
+     "year": 2025
+    },
+    {
+     "kind": "concert",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
+     "place": "The Basement East",
+     "year": 2024
+    }
+   ],
+   "friends": [
+    "maya-chen",
+    "theo-okafor"
+   ],
+   "recent": [
+    "Added Ellis Rae to their inner circle"
+   ],
+   "coords": [
+    36.1627,
+    -86.7816
+   ],
+   "awards": [
+    {
+     "kind": "host",
+     "title": "Event superhost",
+     "detail": "Organises pre-show meet-ups for Front Left",
+     "communityId": "cm-10"
+    }
+   ],
+   "favorites": [
+    "juniper-lowe",
+    "canal-street-brass"
+   ]
+  },
+  {
+   "id": "priya-nair",
+   "name": "Priya Nair",
+   "username": "priyalistens",
+   "location": "Toronto",
+   "bio": "Three podcasts a day, minimum. Economics is a love language.",
+   "palette": [
+    "#2F4A6B",
+    "#F2B42C",
+    "#F6ECD8",
+    "#1A1512"
+   ],
+   "hair": "bun",
+   "skin": "#9C6644",
+   "socials": {
+    "instagram": "priyalistens"
+   },
+   "points": {
+    "houston-we-have-a-podcast": 1400,
+    "down-to-earth": 1150,
+    "rocket-ranch": 600,
+    "nasa-science-live": 300,
+    "ellis-rae": 257,
+    "marisol-vega": 460,
+    "nova-lin": 100,
+    "salon-azul": 600,
+    "gravity-assist": 420,
+    "nasa-in-silicon-valley": 360,
+    "sciencecasts": 240,
+    "whats-up": 200,
+    "dex-holloway": 160
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "juniper-lowe",
+     "title": "Juniper & Lowe",
+     "place": "Massey Hall",
+     "year": 2025
+    }
+   ],
+   "friends": [
+    "amara-diallo"
+   ],
+   "recent": [
+    "Saw Juniper & Lowe at Massey Hall"
+   ],
+   "coords": [
+    43.6532,
+    -79.3832
+   ],
+   "awards": [
+    {
+     "kind": "industry",
+     "title": "Session bassist",
+     "detail": "Plays on records in Toronto · self-reported"
+    },
+    {
+     "kind": "founding",
+     "title": "Founding listener",
+     "detail": "On CIRCA since the first month"
+    }
+   ],
+   "favorites": [
+    "houston-we-have-a-podcast",
+    "down-to-earth"
+   ]
+  },
+  {
+   "id": "elliot-park",
+   "name": "Elliot Park",
+   "username": "elliotpark",
+   "location": "Queens, NY",
+   "bio": "Ambient for focus, jazz for everything else.",
+   "palette": [
+    "#1F3A5F",
+    "#9FC9C0",
+    "#F4EBDD",
+    "#14100D"
+   ],
+   "hair": "glasses",
+   "skin": "#E0B58F",
+   "socials": {
+    "instagram": "elliot.park"
+   },
+   "points": {
+    "the-halyards": 1225,
+    "rocket-ranch": 240,
+    "nova-lin": 147,
+    "juniper-lowe": 500,
+    "kairo-banks": 265,
+    "sola": 640,
+    "arden-strings": 300,
+    "nasa-explorers": 260,
+    "space-to-ground": 220,
+    "aurelio-fen": 140
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "the-halyards",
+     "title": "The Halyards",
+     "place": "Brooklyn Bowl",
+     "year": 2024
+    }
+   ],
+   "friends": [
+    "sofia-reyes"
+   ],
+   "recent": [
+    "Saw The Halyards live",
+    "Added SOLA to their inner circle"
+   ],
+   "coords": [
+    40.7282,
+    -73.7949
+   ],
+   "awards": [
+    {
+     "kind": "founding",
+     "title": "Founding listener",
+     "detail": "On CIRCA since the first month"
+    }
+   ],
+   "favorites": [
+    "the-halyards",
+    "sola"
+   ]
+  },
+  {
+   "id": "amara-diallo",
+   "name": "Amara Diallo",
+   "username": "amaradiallo",
+   "location": "Paris",
+   "bio": "Dance first. Read the liner notes later.",
+   "palette": [
+    "#B5452F",
+    "#F2C46D",
+    "#F6ECD8",
+    "#2A1F18"
+   ],
+   "hair": "curly",
+   "skin": "#5C3A24",
+   "socials": {
+    "instagram": "amara.diallo"
+   },
+   "points": {
+    "kairo-banks": 900,
+    "ellis-rae": 520,
+    "down-to-earth": 410,
+    "nova-lin": 160,
+    "houston-we-have-a-podcast": 577,
+    "nasa-science-live": 290,
+    "marisol-vega": 120,
+    "sola": 700,
+    "canal-street-brass": 440,
+    "salon-azul": 320,
+    "lucia-paz": 180,
+    "whats-up": 120
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "kairo-banks",
+     "title": "Kairo Banks",
+     "place": "La Cigale, Paris",
+     "year": 2025
+    },
+    {
+     "kind": "concert",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
+     "place": "La Maroquinerie",
+     "year": 2025
+    },
+    {
+     "kind": "concert",
+     "creatorId": "sola",
+     "title": "SOLA",
+     "place": "Tresor, Berlin",
+     "year": 2026
+    }
+   ],
+   "friends": [
+    "theo-okafor",
+    "priya-nair"
+   ],
+   "recent": [
+    "Saw Ellis Rae live"
+   ],
+   "coords": [
+    48.8566,
+    2.3522
+   ],
+   "awards": [
+    {
+     "kind": "top",
+     "title": "Top 1% of listeners, 2026",
+     "detail": "More minutes than 99% of CIRCA listeners worldwide this year"
+    },
+    {
+     "kind": "host",
+     "title": "Event superhost",
+     "detail": "Runs the Night Shift Cypher in Bushwick",
+     "communityId": "cm-8"
+    }
+   ],
+   "favorites": [
+    "kairo-banks",
+    "sola"
+   ]
+  },
+  {
+   "id": "rosa-lindqvist",
+   "name": "Rosa Lindqvist",
+   "username": "rosalind",
+   "location": "Stockholm",
+   "bio": "Dream pop, long walks, longer playlists.",
+   "palette": [
+    "#8FA9B8",
+    "#F6ECD8",
+    "#C21F32",
+    "#1B1716"
+   ],
+   "hair": "fringe",
+   "skin": "#F0CBAA",
+   "socials": {
+    "instagram": "rosa.lindqvist"
+   },
+   "points": {
+    "nova-lin": 1300,
+    "ellis-rae": 642,
+    "the-halyards": 430,
+    "houston-we-have-a-podcast": 260,
+    "nasa-science-live": 80,
+    "marisol-vega": 658,
+    "aurelio-fen": 680,
+    "ines-moreau": 520,
+    "arden-strings": 400,
+    "lucia-paz": 260,
+    "gravity-assist": 110
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "nova-lin",
+     "title": "Nova Lin",
+     "place": "Debaser",
+     "year": 2025
+    },
+    {
+     "kind": "concert",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
+     "place": "Nalen",
+     "year": 2024
+    },
+    {
+     "kind": "concert",
+     "creatorId": "aurelio-fen",
+     "title": "Aurelio Fen",
+     "place": "Salle Cortot, Paris",
+     "year": 2025
+    }
+   ],
+   "friends": [
+    "maya-chen",
+    "sofia-reyes"
+   ],
+   "recent": [
+    "Saw Nova Lin live",
+    "Saw Aurelio Fen in Paris"
+   ],
+   "coords": [
+    59.3293,
+    18.0686
+   ],
+   "awards": [
+    {
+     "kind": "industry",
+     "title": "Radio producer",
+     "detail": "Produces a late-night music show in Stockholm · self-reported"
+    }
+   ],
+   "favorites": [
+    "nova-lin",
+    "aurelio-fen"
+   ]
+  }
+ ],
+ "comments": {
+  "ic-ellis-session": [
+   {
+    "by": "maya-chen",
+    "text": "Leaving the crack in is the whole point. Please never fix it.",
+    "ago": "2h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Already know this one is going to wreck me.",
+    "ago": "3h"
+   },
+   {
+    "by": "ellis-rae",
+    "text": "it stays. promise.",
+    "ago": "5h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "That breath before the chorus. Twice.",
+    "ago": "8h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "Take nine is always the one. Nobody believes me.",
+    "ago": "9h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "Listening to this on the train and had to look out the window for a minute.",
+    "ago": "11h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "The crack is the song.",
+    "ago": "1d"
+   }
+  ],
+  "ic-ellis-rehearsal": [
+   {
+    "by": "maya-chen",
+    "text": "Danny is the secret weapon and I will not be taking questions.",
+    "ago": "1h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Danny on guitar is the secret weapon.",
+    "ago": "2h"
+   },
+   {
+    "by": "ellis-rae",
+    "text": "he made me write that down so he can quote it later",
+    "ago": "2h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "The chord change at 0:07 is a whole other song.",
+    "ago": "3h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "The second chord change at 0:41. Keep that one.",
+    "ago": "6h"
+   }
+  ],
+  "ic-halyards-soundcheck": [
+   {
+    "by": "theo-okafor",
+    "text": "That window light should get a writing credit.",
+    "ago": "2h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Would happily listen to forty minutes of this soundcheck.",
+    "ago": "3h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Mira was right about the light.",
+    "ago": "4h"
+   },
+   {
+    "by": "the-halyards",
+    "text": "Mira says thank you. The light says nothing.",
+    "ago": "5h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "That snare in an empty room. Chef’s kiss.",
+    "ago": "8h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Soundchecks are secretly the best shows.",
+    "ago": "1d"
+   }
+  ],
+  "ic-halyards-crowd": [
+   {
+    "by": "sofia-reyes",
+    "text": "I was in that crowd. Still can’t hear properly.",
+    "ago": "2h"
+   },
+   {
+    "by": "the-halyards",
+    "text": "we saw every one of you. thank you, Boston.",
+    "ago": "2h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Undertow live is a different animal.",
+    "ago": "3h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "Front row left. Lost my voice, found my people.",
+    "ago": "5h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Can you tour this exact night forever?",
+    "ago": "9h"
+   }
+  ],
+  "ic-nova-dance": [
+   {
+    "by": "rosa-lindqvist",
+    "text": "See you in that room tonight, front left.",
+    "ago": "2h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "Be nice? This is flawless.",
+    "ago": "2h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "The choreo is going to be everywhere by summer.",
+    "ago": "3h"
+   },
+   {
+    "by": "nova-lin",
+    "text": "front left gets the encore wave.",
+    "ago": "5h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "The spin at 0:12 is going to break the internet.",
+    "ago": "6h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "Teaching this to my whole friend group by Friday.",
+    "ago": "1d"
+   }
+  ],
+  "ic-juniper-lowe-street": [
+   {
+    "by": "jonah-bell",
+    "text": "The kid dancing deserves a writing credit.",
+    "ago": "2h"
+   },
+   {
+    "by": "juniper-lowe",
+    "text": "splitting it 50/50 with the kid, yes.",
+    "ago": "3h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "The kid deserves a writing credit.",
+    "ago": "4h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Street versions forever.",
+    "ago": "5h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Which corner? I keep missing you on Sundays.",
+    "ago": "6h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "Busking set > arena set. Fight me.",
+    "ago": "12h"
+   }
+  ],
+  "ic-kairo-booth": [
+   {
+    "by": "jonah-bell",
+    "text": "3am verses hit different. Can tell already.",
+    "ago": "1h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "Verse two. Put it out exactly like this.",
+    "ago": "2h"
+   },
+   {
+    "by": "kairo-banks",
+    "text": "verse one is getting jealous",
+    "ago": "2h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "Played this on my commute three times today.",
+    "ago": "3h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "The patience to wait till it sounds like you. Respect.",
+    "ago": "5h"
+   }
+  ],
+  "ic-marisol-warmup": [
+   {
+    "by": "priya-nair",
+    "text": "That room. That voice. Unreal.",
+    "ago": "2h"
+   },
+   {
+    "by": "marisol-vega",
+    "text": "the room does half the work, honestly.",
+    "ago": "3h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "That ballroom! My grandparents danced there in 1974.",
+    "ago": "3h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Even the warm-up gives me chills.",
+    "ago": "5h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "Old ballrooms and boleros. Correct pairing.",
+    "ago": "8h"
+   }
+  ],
+  "ic-nova-stage": [
+   {
+    "by": "amara-diallo",
+    "text": "I could hear it from the bar. Loudest crowd of the year.",
+    "ago": "2h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "I was the one screaming the bridge. Sorry not sorry.",
+    "ago": "2h"
+   },
+   {
+    "by": "nova-lin",
+    "text": "you were perfect. all of you.",
+    "ago": "3h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Still can’t hear properly. Worth it.",
+    "ago": "7h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "Best night of my year and it’s November.",
+    "ago": "9h"
+   }
+  ],
+  "ic-dex-packing-up": [
+   {
+    "by": "theo-okafor",
+    "text": "Same chair every night is the most jazz sentence ever written.",
+    "ago": "1h"
+   },
+   {
+    "by": "dex-holloway",
+    "text": "the chair has seniority.",
+    "ago": "3h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "Same chair, same magic.",
+    "ago": "3h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "The 1am set is a religious experience.",
+    "ago": "6h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "Caught you here last spring. Still thinking about it.",
+    "ago": "1d"
+   }
+  ],
+  "ic-ines-close": [
+   {
+    "by": "sofia-reyes",
+    "text": "Scales never sounded this good at 7am.",
+    "ago": "1h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "The discipline. I can’t even wake up for breakfast.",
+    "ago": "2h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "The tone on that violin.",
+    "ago": "3h"
+   },
+   {
+    "by": "ines-moreau",
+    "text": "the scales are the quiet part of the day. I love them.",
+    "ago": "4h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "Ten minutes of this would fix my whole week.",
+    "ago": "10h"
+   }
+  ],
+  "ic-ines-case": [
+   {
+    "by": "sofia-reyes",
+    "text": "Abuelo would be proud.",
+    "ago": "1h"
+   },
+   {
+    "by": "ines-moreau",
+    "text": "he would ask why it took me so long.",
+    "ago": "3h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Abuelo would be so proud.",
+    "ago": "3h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "Instruments with history sound different. You can hear it.",
+    "ago": "7h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "Can’t wait to hear it on the record.",
+    "ago": "1d"
+   }
+  ],
+  "ic-sola-setup": [
+   {
+    "by": "amara-diallo",
+    "text": "The venue power held. Barely. Best night of the year.",
+    "ago": "1h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Pink Hour at 3:58 was unreal.",
+    "ago": "3h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "A lot of trust in the venue’s power. Never relatable before tonight.",
+    "ago": "3h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Two decks, zero panic. Legend.",
+    "ago": "7h"
+   },
+   {
+    "by": "sola",
+    "text": "the power held. barely.",
+    "ago": "9h"
+   }
+  ],
+  "ic-sola-decks": [
+   {
+    "by": "maya-chen",
+    "text": "Stayed till 4. No regrets.",
+    "ago": "1h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Stayed till 4, would stay till 6.",
+    "ago": "2h"
+   },
+   {
+    "by": "sola",
+    "text": "you were the loud ones at the front, weren’t you.",
+    "ago": "3h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "That closing track. What WAS that?",
+    "ago": "5h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "My legs still haven’t forgiven me.",
+    "ago": "1d"
+   }
+  ],
+  "ic-salon-drums": [
+   {
+    "by": "priya-nair",
+    "text": "The chandeliers definitely approved.",
+    "ago": "1h"
+   },
+   {
+    "by": "salon-azul",
+    "text": "the chandeliers have since filed a complaint",
+    "ago": "1h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "Rubén is a menace in the best way.",
+    "ago": "3h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "Rubén is a national treasure.",
+    "ago": "4h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "That groove in a room like this. Unreal.",
+    "ago": "8h"
+   }
+  ],
+  "ic-arden-take": [
+   {
+    "by": "rosa-lindqvist",
+    "text": "Take four is the one. Trust me.",
+    "ago": "1h"
+   },
+   {
+    "by": "arden-strings",
+    "text": "take four is on the album. don’t tell take five.",
+    "ago": "2h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "The cello line in this. I’m done.",
+    "ago": "5h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Stopped counting, started crying.",
+    "ago": "9h"
+   }
+  ],
+  "ic-lucia-log": [
+   {
+    "by": "maya-chen",
+    "text": "Please release the log version.",
+    "ago": "1h"
+   },
+   {
+    "by": "lucia-paz",
+    "text": "the log gets a writing credit.",
+    "ago": "3h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "The best songs are always found, not written.",
+    "ago": "3h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Of course the log had a song in it.",
+    "ago": "6h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Fingerpicking on a log. Austin, never change.",
+    "ago": "1d"
+   }
+  ],
+  "ic-aurelio-practice": [
+   {
+    "by": "rosa-lindqvist",
+    "text": "Clara and that upright. Perfect.",
+    "ago": "1h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Clara and the old upright. Perfect pairing.",
+    "ago": "2h"
+   },
+   {
+    "by": "aurelio-fen",
+    "text": "she taught me this piece. it’s hers really.",
+    "ago": "4h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "I could listen to this rehearsal on repeat.",
+    "ago": "9h"
+   }
+  ],
+  "ic-canal-room": [
+   {
+    "by": "jonah-bell",
+    "text": "That room has the best echo in the city.",
+    "ago": "1h"
+   },
+   {
+    "by": "canal-street-brass",
+    "text": "the graffiti is our fifth member",
+    "ago": "2h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "Practice room energy is undefeated.",
+    "ago": "6h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "Sounds like a second line already.",
+    "ago": "10h"
+   }
+  ],
+  "ic-marisol-room": [
+   {
+    "by": "priya-nair",
+    "text": "You can hear the room breathing. Record everything here.",
+    "ago": "2h"
+   },
+   {
+    "by": "marisol-vega",
+    "text": "we are. every note of the new one.",
+    "ago": "3h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "The natural reverb on this is unreal.",
+    "ago": "7h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Studios hate this one trick.",
+    "ago": "10h"
+   }
+  ],
+  "ic-dex-fog": [
+   {
+    "by": "theo-okafor",
+    "text": "This looks like a dream I had once.",
+    "ago": "1h"
+   },
+   {
+    "by": "dex-holloway",
+    "text": "the smoke machine has opinions",
+    "ago": "2h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "One more take is never one more take.",
+    "ago": "5h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "The silhouette! Frame it.",
+    "ago": "8h"
+   }
+  ],
+  "ic-arden-silhouette": [
+   {
+    "by": "sofia-reyes",
+    "text": "Lights off is the only way to play strings. Agree.",
+    "ago": "1h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "The last pass is always the honest one.",
+    "ago": "4h"
+   },
+   {
+    "by": "arden-strings",
+    "text": "it’s the only time we stop thinking",
+    "ago": "6h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "This is the mood for my entire winter.",
+    "ago": "11h"
+   }
+  ],
+  "ic-salon-bass": [
+   {
+    "by": "theo-okafor",
+    "text": "New strings smell. You can hear it.",
+    "ago": "2h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "The low end on my headphones right now. Wow.",
+    "ago": "5h"
+   },
+   {
+    "by": "salon-azul",
+    "text": "the old bass says thank you",
+    "ago": "7h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Bass players deserve more posts like this.",
+    "ago": "1d"
+   }
+  ]
+ },
+ "creatorVinyls": {
+  "ellis-rae": {
+   "points": {
+    "nova-lin": 980,
+    "the-halyards": 715,
+    "nasa-science-live": 520,
+    "juniper-lowe": 140,
+    "sola": 260
+   },
+   "experiences": [
+    {
+     "kind": "festival",
+     "creatorId": "nova-lin",
+     "title": "Nova Lin at Sound on the Water",
+     "place": "Governors Island",
+     "year": 2024
+    }
+   ],
+   "favorites": [
+    "nova-lin"
+   ]
+  },
+  "juniper-lowe": {
+   "points": {
+    "ellis-rae": 700,
+    "nasa-science-live": 880,
+    "kairo-banks": 260,
+    "houston-we-have-a-podcast": 220
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
+     "place": "The Basement East",
+     "year": 2024
+    }
+   ],
+   "favorites": [
+    "nasa-science-live"
+   ]
+  },
+  "nova-lin": {
+   "points": {
+    "ellis-rae": 1022,
+    "the-halyards": 230,
+    "rocket-ranch": 90,
+    "nasa-science-live": 142,
+    "marisol-vega": 742,
+    "houston-we-have-a-podcast": 450,
+    "juniper-lowe": 75,
+    "kairo-banks": 50,
+    "sola": 480
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "ellis-rae",
+     "title": "Ellis Rae",
+     "place": "Music Hall of Williamsburg",
+     "year": 2025
+    }
+   ],
+   "favorites": [
+    "ellis-rae"
+   ]
+  },
+  "kairo-banks": {
+   "points": {
+    "the-halyards": 760,
+    "nasa-science-live": 610,
+    "down-to-earth": 180,
+    "ellis-rae": 160
+   },
+   "experiences": [
+    {
+     "kind": "concert",
+     "creatorId": "the-halyards",
+     "title": "The Halyards",
+     "place": "Ronnie Scott's",
+     "year": 2025
+    }
+   ],
+   "favorites": [
+    "the-halyards"
+   ]
+  },
+  "the-halyards": {
+   "points": {
+    "kairo-banks": 900,
+    "nasa-science-live": 1100,
+    "ellis-rae": 200
+   },
+   "experiences": [],
+   "favorites": [
+    "nasa-science-live"
+   ]
+  },
+  "marisol-vega": {
+   "points": {
+    "nova-lin": 540,
+    "rocket-ranch": 980,
+    "ellis-rae": 300,
+    "houston-we-have-a-podcast": 260,
+    "salon-azul": 520
+   },
+   "experiences": [],
+   "favorites": [
+    "rocket-ranch"
+   ]
+  },
+  "dex-holloway": {
+   "points": {
+    "salon-azul": 900,
+    "canal-street-brass": 760,
+    "marisol-vega": 420,
+    "aurelio-fen": 300,
+    "gravity-assist": 140
+   },
+   "experiences": [],
+   "favorites": [
+    "salon-azul"
+   ]
+  },
+  "ines-moreau": {
+   "points": {
+    "arden-strings": 980,
+    "aurelio-fen": 820,
+    "marisol-vega": 360,
+    "lucia-paz": 300,
+    "whats-up": 120
+   },
+   "experiences": [],
+   "favorites": [
+    "arden-strings"
+   ]
+  },
+  "arden-strings": {
+   "points": {
+    "ines-moreau": 900,
+    "aurelio-fen": 640,
+    "nova-lin": 260,
+    "sciencecasts": 120
+   },
+   "experiences": [],
+   "favorites": [
+    "ines-moreau"
+   ]
+  },
+  "sola": {
+   "points": {
+    "nova-lin": 880,
+    "kairo-banks": 620,
+    "ellis-rae": 300,
+    "space-to-ground": 160
+   },
+   "experiences": [],
+   "favorites": [
+    "nova-lin"
+   ]
+  },
+  "salon-azul": {
+   "points": {
+    "dex-holloway": 940,
+    "canal-street-brass": 700,
+    "marisol-vega": 560,
+    "houston-we-have-a-podcast": 140
+   },
+   "experiences": [],
+   "favorites": [
+    "dex-holloway"
+   ]
+  },
+  "canal-street-brass": {
+   "points": {
+    "dex-holloway": 860,
+    "salon-azul": 720,
+    "kairo-banks": 300,
+    "juniper-lowe": 200
+   },
+   "experiences": [],
+   "favorites": [
+    "dex-holloway"
+   ]
+  },
+  "lucia-paz": {
+   "points": {
+    "juniper-lowe": 900,
+    "ines-moreau": 480,
+    "ellis-rae": 300,
+    "whats-up": 180
+   },
+   "experiences": [],
+   "favorites": [
+    "juniper-lowe"
+   ]
+  },
+  "aurelio-fen": {
+   "points": {
+    "ines-moreau": 880,
+    "arden-strings": 760,
+    "marisol-vega": 320,
+    "nasa-science-live": 140
+   },
+   "experiences": [],
+   "favorites": [
+    "ines-moreau"
+   ]
+  },
+  "houston-we-have-a-podcast": {
+   "points": {
+    "rocket-ranch": 1035,
+    "nasa-in-silicon-valley": 575,
+    "gravity-assist": 405,
+    "canal-street-brass": 365,
+    "nova-lin": 240
+   },
+   "experiences": [],
+   "favorites": [
+    "rocket-ranch"
+   ]
+  },
+  "rocket-ranch": {
+   "points": {
+    "down-to-earth": 885,
+    "houston-we-have-a-podcast": 660,
+    "sciencecasts": 410,
+    "kairo-banks": 445,
+    "arden-strings": 260
+   },
+   "experiences": [],
+   "favorites": [
+    "down-to-earth"
+   ]
+  },
+  "down-to-earth": {
+   "points": {
+    "gravity-assist": 910,
+    "nasa-explorers": 785,
+    "space-to-ground": 545,
+    "sola": 410,
+    "dex-holloway": 260
+   },
+   "experiences": [],
+   "favorites": [
+    "gravity-assist"
+   ]
+  },
+  "nasa-science-live": {
+   "points": {
+    "nasa-in-silicon-valley": 850,
+    "space-to-ground": 755,
+    "whats-up": 540,
+    "the-halyards": 450,
+    "lucia-paz": 230
+   },
+   "experiences": [],
+   "favorites": [
+    "nasa-in-silicon-valley"
+   ]
+  },
+  "space-to-ground": {
+   "points": {
+    "nasa-in-silicon-valley": 1070,
+    "nasa-explorers": 555,
+    "rocket-ranch": 460,
+    "ines-moreau": 355,
+    "salon-azul": 195
+   },
+   "experiences": [],
+   "favorites": [
+    "nasa-in-silicon-valley"
+   ]
+  },
+  "whats-up": {
+   "points": {
+    "gravity-assist": 1055,
+    "nasa-in-silicon-valley": 560,
+    "houston-we-have-a-podcast": 370,
+    "kairo-banks": 375,
+    "salon-azul": 235
+   },
+   "experiences": [],
+   "favorites": [
+    "gravity-assist"
+   ]
+  },
+  "sciencecasts": {
+   "points": {
+    "nasa-in-silicon-valley": 875,
+    "nasa-explorers": 685,
+    "nasa-science-live": 475,
+    "juniper-lowe": 365,
+    "salon-azul": 215
+   },
+   "experiences": [],
+   "favorites": [
+    "nasa-in-silicon-valley"
+   ]
+  },
+  "gravity-assist": {
+   "points": {
+    "whats-up": 1055,
+    "nasa-science-live": 625,
+    "nasa-in-silicon-valley": 460,
+    "nova-lin": 325,
+    "kairo-banks": 260
+   },
+   "experiences": [],
+   "favorites": [
+    "whats-up"
+   ]
+  },
+  "nasa-in-silicon-valley": {
+   "points": {
+    "whats-up": 865,
+    "nasa-explorers": 660,
+    "rocket-ranch": 525,
+    "marisol-vega": 455,
+    "arden-strings": 225
+   },
+   "experiences": [],
+   "favorites": [
+    "whats-up"
+   ]
+  },
+  "nasa-explorers": {
+   "points": {
+    "whats-up": 920,
+    "nasa-in-silicon-valley": 725,
+    "space-to-ground": 400,
+    "ellis-rae": 385,
+    "juniper-lowe": 265
+   },
+   "experiences": [],
+   "favorites": [
+    "whats-up"
+   ]
+  }
+ },
+ "communities": [
+  {
+   "id": "cm-1",
+   "name": "Low Light Club",
+   "creatorId": "ellis-rae",
+   "by": "creator",
+   "format": "Online + in person",
+   "members": 412,
+   "rhythm": "Monthly listening night",
+   "about": "Ellis's own late-night circle: new demos first, then records everyone brings. He hosts the Brooklyn night in person.",
+   "styles": [
+    "Soul & R&B",
+    "Alt-soul"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "jonah-bell",
+    "amara-diallo",
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Listening night: unfinished songs",
+    "inDays": 9,
+    "place": "Union Pool back room, Williamsburg"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
+  },
+  {
+   "id": "cm-2",
+   "name": "Alt-Soul Sundays",
+   "creatorId": "ellis-rae",
+   "by": "fans",
+   "format": "In person",
+   "members": 268,
+   "rhythm": "Every other Sunday",
+   "about": "Fans spinning alt-soul and neo-soul over brunch in Bed-Stuy.",
+   "styles": [
+    "Soul & R&B",
+    "Alt-soul"
+   ],
+   "memberIds": [
+    "amara-diallo",
+    "maya-chen"
+   ],
+   "next": {
+    "title": "Sunday session",
+    "inDays": 4,
+    "place": "Bed-Stuy, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
+  },
+  {
+   "id": "cm-3",
+   "name": "Soul After Dark NYC",
+   "creatorId": "ellis-rae",
+   "by": "fans",
+   "format": "In person",
+   "members": 530,
+   "rhythm": "Weekly",
+   "about": "Listening parties and show meet-ups for alt-soul and R&B around the city.",
+   "styles": [
+    "Soul & R&B",
+    "Alt-soul"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "jonah-bell",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Pre-show meet-up: Ellis Rae",
+    "inDays": 6,
+    "place": "Lower East Side"
+   },
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ]
+  },
+  {
+   "id": "cm-4",
+   "name": "Candela Listening Room",
+   "creatorId": "marisol-vega",
+   "by": "creator",
+   "format": "Online + in person",
+   "members": 388,
+   "rhythm": "Monthly",
+   "about": "Marisol plays one bolero record start to finish, then sings her version of a song from it.",
+   "styles": [
+    "Soul & R&B",
+    "Bolero soul"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "rosa-lindqvist"
+   ],
+   "next": {
+    "title": "Album night: boleros",
+    "inDays": 12,
+    "place": "Echo Park"
+   },
+   "city": "Los Angeles, CA",
+   "coords": [
+    34.0522,
+    -118.2437
+   ]
+  },
+  {
+   "id": "cm-5",
+   "name": "Boleros & Soul NYC",
+   "creatorId": "marisol-vega",
+   "by": "fans",
+   "format": "In person",
+   "members": 214,
+   "rhythm": "Monthly",
+   "about": "Bolero and soul fans swapping records in Jackson Heights.",
+   "styles": [
+    "Soul & R&B",
+    "Bolero soul"
+   ],
+   "memberIds": [
+    "sofia-reyes",
+    "amara-diallo"
+   ],
+   "next": {
+    "title": "Record swap",
+    "inDays": 8,
+    "place": "Jackson Heights, Queens"
+   },
+   "city": "Queens, NY",
+   "coords": [
+    40.7282,
+    -73.7949
+   ]
+  },
+  {
+   "id": "cm-6",
+   "name": "The Street Set",
+   "creatorId": "juniper-lowe",
+   "by": "creator",
+   "format": "Online + in person",
+   "members": 176,
+   "rhythm": "Sundays",
+   "about": "Juniper & Lowe busk the same corner every Sunday; members bring an instrument and join for the last song.",
+   "styles": [
+    "Folk",
+    "Indie folk"
+   ],
+   "memberIds": [
+    "jonah-bell",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Sunday busk",
+    "inDays": 3,
+    "place": "East Nashville"
+   },
+   "city": "Nashville, TN",
+   "coords": [
+    36.1627,
+    -86.7816
+   ]
+  },
+  {
+   "id": "cm-7",
+   "name": "Banjo & Coffee Brooklyn",
+   "creatorId": "juniper-lowe",
+   "by": "fans",
+   "format": "In person",
+   "members": 142,
+   "rhythm": "Monthly",
+   "about": "Folk pickers’ circle in a Greenpoint coffee shop.",
+   "styles": [
+    "Folk",
+    "Indie folk"
+   ],
+   "memberIds": [
+    "jonah-bell",
+    "maya-chen"
+   ],
+   "next": {
+    "title": "Picking circle",
+    "inDays": 10,
+    "place": "Greenpoint, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
+  },
+  {
+   "id": "cm-8",
+   "name": "Night Shift Cypher",
+   "creatorId": "kairo-banks",
+   "by": "fans",
+   "format": "In person",
+   "members": 322,
+   "rhythm": "Weekly",
+   "about": "Open cypher and listening night for anyone who loves a late beat.",
+   "styles": [
+    "Hip-hop"
+   ],
+   "memberIds": [
+    "amara-diallo",
+    "theo-okafor"
+   ],
+   "next": {
+    "title": "Cypher night",
+    "inDays": 5,
+    "place": "Bushwick, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
+  },
+  {
+   "id": "cm-9",
+   "name": "The Booth",
+   "creatorId": "kairo-banks",
+   "by": "creator",
+   "format": "Online",
+   "members": 1240,
+   "rhythm": "Monthly",
+   "about": "Kairo shares a session file; members write a verse over it, he picks one to play live.",
+   "styles": [
+    "Hip-hop"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "amara-diallo",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Verse challenge",
+    "inDays": 14,
+    "place": "Online"
+   }
+  },
+  {
+   "id": "cm-10",
+   "name": "Front Left",
+   "creatorId": "nova-lin",
+   "by": "fans",
+   "format": "In person",
+   "members": 460,
+   "rhythm": "Before every NYC show",
+   "about": "Fans who meet up before Nova Lin shows and claim the front-left corner.",
+   "styles": [
+    "Pop",
+    "Dance-pop"
+   ],
+   "memberIds": [
+    "jonah-bell",
+    "rosa-lindqvist",
+    "maya-chen"
+   ],
+   "next": {
+    "title": "Pre-show meet-up",
+    "inDays": 7,
+    "place": "Astoria, Queens"
+   },
+   "city": "Queens, NY",
+   "coords": [
+    40.7282,
+    -73.7949
+   ]
+  },
+  {
+   "id": "cm-11",
+   "name": "Afterglow Dance Class",
+   "creatorId": "nova-lin",
+   "by": "creator",
+   "format": "Online",
+   "members": 2100,
+   "rhythm": "Monthly",
+   "about": "Nova teaches the choreography from her shows, one routine at a time.",
+   "styles": [
+    "Pop",
+    "Dance-pop"
+   ],
+   "memberIds": [
+    "rosa-lindqvist",
+    "sofia-reyes"
+   ],
+   "next": {
+    "title": "Choreo class: Afterglow",
+    "inDays": 11,
+    "place": "Online"
+   }
+  },
+  {
+   "id": "cm-12",
+   "name": "Loud Room Club",
+   "creatorId": "the-halyards",
+   "by": "fans",
+   "format": "In person",
+   "members": 198,
+   "rhythm": "Monthly",
+   "about": "Alt-rock fans heading to small shows together.",
+   "styles": [
+    "Rock",
+    "Alt-rock"
+   ],
+   "memberIds": [
+    "elliot-park",
+    "theo-okafor"
+   ],
+   "next": {
+    "title": "Show night",
+    "inDays": 13,
+    "place": "Allston, Boston"
+   },
+   "city": "Boston, MA",
+   "coords": [
+    42.3601,
+    -71.0589
+   ]
+  },
+  {
+   "id": "cm-13",
+   "name": "Space Podcast Club",
+   "creatorId": "houston-we-have-a-podcast",
+   "by": "fans",
+   "format": "Online + in person",
+   "members": 640,
+   "rhythm": "Monthly",
+   "about": "Listeners of space podcasts meeting to talk through an episode, then stargaze from the roof.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "sofia-reyes",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Episode night: Mental Health with Shinedown",
+    "inDays": 9,
+    "place": "Upper West Side"
+   },
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ]
+  },
+  {
+   "id": "cm-14",
+   "name": "Black Hole Fridays",
+   "creatorId": "nasa-science-live",
+   "by": "fans",
+   "format": "Online",
+   "members": 1830,
+   "rhythm": "Weekly",
+   "about": "A watch-along for science shows, with a different listener explaining one idea each week.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "theo-okafor"
+   ],
+   "next": {
+    "title": "Watch-along: Black Hole 101",
+    "inDays": 2,
+    "place": "Online"
+   }
+  },
+  {
+   "id": "cm-15",
+   "name": "Launch Watchers Brooklyn",
+   "creatorId": "rocket-ranch",
+   "by": "fans",
+   "format": "In person",
+   "members": 256,
+   "rhythm": "Launch days",
+   "about": "Launch livestreams on a big screen in a Gowanus bar.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "elliot-park",
+    "jonah-bell"
+   ],
+   "next": {
+    "title": "Launch watch party",
+    "inDays": 6,
+    "place": "Gowanus, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
+  },
+  {
+   "id": "cm-16",
+   "name": "Pink Hour Collective",
+   "creatorId": "sola",
+   "by": "creator",
+   "format": "Online + in person",
+   "members": 3400,
+   "rhythm": "Monthly",
+   "about": "SOLA streams a set from the studio, then hosts an afterparty for members in Berlin.",
+   "styles": [
+    "Electronic",
+    "House"
+   ],
+   "memberIds": [
+    "amara-diallo",
+    "elliot-park",
+    "maya-chen"
+   ],
+   "next": {
+    "title": "Studio set + afterparty",
+    "inDays": 10,
+    "place": "Kreuzberg, Berlin"
+   },
+   "city": "Berlin, DE",
+   "coords": [
+    52.52,
+    13.405
+   ]
+  },
+  {
+   "id": "cm-17",
+   "name": "House Music Brooklyn",
+   "creatorId": "sola",
+   "by": "fans",
+   "format": "In person",
+   "members": 880,
+   "rhythm": "Weekly",
+   "about": "House heads dancing in a Bushwick warehouse every Friday.",
+   "styles": [
+    "Electronic",
+    "House"
+   ],
+   "memberIds": [
+    "amara-diallo",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Friday warehouse night",
+    "inDays": 3,
+    "place": "Bushwick, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
+  },
+  {
+   "id": "cm-18",
+   "name": "Late Set Club",
+   "creatorId": "dex-holloway",
+   "by": "fans",
+   "format": "In person",
+   "members": 420,
+   "rhythm": "Weekly",
+   "about": "Jazz fans heading to late sets together, then arguing about them over pie.",
+   "styles": [
+    "Jazz"
+   ],
+   "memberIds": [
+    "theo-okafor",
+    "jonah-bell",
+    "priya-nair"
+   ],
+   "next": {
+    "title": "Late set at Smalls",
+    "inDays": 5,
+    "place": "West Village"
+   },
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ]
+  },
+  {
+   "id": "cm-19",
+   "name": "Second Line Sundays",
+   "creatorId": "canal-street-brass",
+   "by": "creator",
+   "format": "In person",
+   "members": 610,
+   "rhythm": "Sundays",
+   "about": "Canal Street Brass lead a walking second line; members bring a horn, a drum or just their feet.",
+   "styles": [
+    "Jazz",
+    "Street jazz"
+   ],
+   "memberIds": [
+    "jonah-bell",
+    "amara-diallo"
+   ],
+   "next": {
+    "title": "Second line",
+    "inDays": 4,
+    "place": "Tremé, New Orleans"
+   },
+   "city": "New Orleans, LA",
+   "coords": [
+    29.9511,
+    -90.0715
+   ]
+  },
+  {
+   "id": "cm-20",
+   "name": "Strings & Candlelight",
+   "creatorId": "arden-strings",
+   "by": "creator",
+   "format": "Online + in person",
+   "members": 540,
+   "rhythm": "Monthly",
+   "about": "The Arden Strings play a candlelit set in a church, then take questions about the pieces.",
+   "styles": [
+    "Classical",
+    "Chamber pop"
+   ],
+   "memberIds": [
+    "rosa-lindqvist",
+    "sofia-reyes"
+   ],
+   "next": {
+    "title": "Candlelit set",
+    "inDays": 16,
+    "place": "Shoreditch, London"
+   },
+   "city": "London, UK",
+   "coords": [
+    51.5072,
+    -0.1276
+   ]
+  },
+  {
+   "id": "cm-21",
+   "name": "Modern Classical NYC",
+   "creatorId": "ines-moreau",
+   "by": "fans",
+   "format": "In person",
+   "members": 360,
+   "rhythm": "Monthly",
+   "about": "Listening nights for contemporary classical and film scores.",
+   "styles": [
+    "Classical"
+   ],
+   "memberIds": [
+    "sofia-reyes",
+    "rosa-lindqvist",
+    "maya-chen"
+   ],
+   "next": {
+    "title": "Listening night: new strings",
+    "inDays": 8,
+    "place": "Upper West Side"
+   },
+   "city": "Manhattan, NY",
+   "coords": [
+    40.7831,
+    -73.9712
+   ]
+  },
+  {
+   "id": "cm-22",
+   "name": "Piano in the Dark",
+   "creatorId": "aurelio-fen",
+   "by": "creator",
+   "format": "Online",
+   "members": 2700,
+   "rhythm": "Monthly",
+   "about": "Aurelio plays a silent film score live from his flat; members watch the film along with him.",
+   "styles": [
+    "Classical",
+    "Neo-classical piano"
+   ],
+   "memberIds": [
+    "rosa-lindqvist",
+    "sofia-reyes",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Silent film night",
+    "inDays": 12,
+    "place": "Online"
+   }
+  },
+  {
+   "id": "cm-23",
+   "name": "Ballroom Jazz Supper",
+   "creatorId": "salon-azul",
+   "by": "creator",
+   "format": "In person",
+   "members": 290,
+   "rhythm": "Monthly",
+   "about": "Dinner, then the Salón Azul Quartet play the room. Members get the first tables.",
+   "styles": [
+    "Jazz",
+    "Jazz funk"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "theo-okafor"
+   ],
+   "next": {
+    "title": "Supper set",
+    "inDays": 18,
+    "place": "Roma Norte, Mexico City"
+   },
+   "city": "Mexico City, MX",
+   "coords": [
+    19.4326,
+    -99.1332
+   ]
+  },
+  {
+   "id": "cm-24",
+   "name": "Campfire Guitar Club",
+   "creatorId": "lucia-paz",
+   "by": "fans",
+   "format": "In person",
+   "members": 210,
+   "rhythm": "Monthly",
+   "about": "Acoustic players meeting in Prospect Park to swap songs.",
+   "styles": [
+    "Folk",
+    "Acoustic guitar"
+   ],
+   "memberIds": [
+    "maya-chen",
+    "jonah-bell"
+   ],
+   "next": {
+    "title": "Park session",
+    "inDays": 6,
+    "place": "Prospect Park, Brooklyn"
+   },
+   "city": "Brooklyn, NY",
+   "coords": [
+    40.6782,
+    -73.9442
+   ]
+  },
+  {
+   "id": "cm-25",
+   "name": "Backyard Skywatchers",
+   "creatorId": "whats-up",
+   "by": "fans",
+   "format": "In person",
+   "members": 520,
+   "rhythm": "Monthly",
+   "about": "Telescopes in a Queens backyard on the nights the monthly sky guide says to look up.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "maya-chen",
+    "elliot-park"
+   ],
+   "next": {
+    "title": "Lyrids watch",
+    "inDays": 9,
+    "place": "Astoria, Queens"
+   },
+   "city": "Queens, NY",
+   "coords": [
+    40.7282,
+    -73.7949
+   ]
+  },
+  {
+   "id": "cm-26",
+   "name": "Astrobiology Reading Group",
+   "creatorId": "gravity-assist",
+   "by": "fans",
+   "format": "Online",
+   "members": 940,
+   "rhythm": "Every other week",
+   "about": "Listeners reading the papers behind each episode about the search for life.",
+   "styles": [
+    "Science"
+   ],
+   "memberIds": [
+    "priya-nair",
+    "sofia-reyes"
+   ],
+   "next": {
+    "title": "Paper night: ancient lakes",
+    "inDays": 7,
+    "place": "Online"
+   }
+  }
+ ]
+}

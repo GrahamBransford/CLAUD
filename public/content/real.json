@@ -1,0 +1,11 @@
+{
+ "version": 1,
+ "name": "Real artists and podcasts",
+ "notes": "Official YouTube videos, Spotify tracks and public podcast RSS feeds. Fill with: npm run content:youtube / content:podcast, then check with npm run content:verify -- public/content/real.json. Add this set to public/content/index.json once it has items.",
+ "creators": [],
+ "songs": [],
+ "episodes": [],
+ "innerCircle": [],
+ "listeningSeed": {},
+ "defaultFollows": []
+}
