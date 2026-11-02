@@ -20,7 +20,8 @@ export type Sheet =
   | { kind: 'communities'; creatorId?: string }
   | { kind: 'taste' }
   | { kind: 'settings' }
-  | { kind: 'profile' }
+  /** Your vinyl: opened from your photo at the record's centre. */
+  | { kind: 'profile'; tab?: 'profile' | 'creators' }
   | { kind: 'live' }
   | { kind: 'friends' }
   | { kind: 'comments'; postId: string }

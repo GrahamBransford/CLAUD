@@ -11,7 +11,9 @@ import { useUniverse } from './useRelationship'
 /** Your taste as a vector of points per creator. */
 export function useMyTaste() {
   const all = useUniverse()
-  return useMemo(() => tasteOf(all), [all])
+  const omit = useStore((s) => s.omitStats)
+  // taste matches are stats too: anyone left out of yours isn't matched on
+  return useMemo(() => tasteOf(omit?.length ? all.filter((r) => !omit.includes(r.creatorId)) : all), [all, omit])
 }
 
 /** How aligned you are with someone, and what you share. */

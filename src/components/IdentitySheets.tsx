@@ -34,93 +34,169 @@ function readPhoto(file: File): Promise<string> {
   })
 }
 
-/** Who you are, all optional. The record says the rest. */
-export function ProfileSheet() {
+/**
+ * Your vinyl, opened from your photo at its centre: who you are (all
+ * optional), and the creators on it. For each creator you choose whether
+ * they're on your record and whether they count in your stats, so anything
+ * you'd rather keep to yourself (a political podcast, a guilty pleasure)
+ * stays off your profile. Nothing is deleted; your own Radio still knows.
+ */
+export function ProfileSheet({ tab: initial = 'profile' }: { tab?: 'profile' | 'creators' }) {
   const profile = useStore((s) => s.profile)
   const setProfile = useStore((s) => s.setProfile)
-  const favorites = useStore((s) => s.favorites)
-  const all = useUniverse()
+  const visibility = useStore((s) => s.vinylVisibility)
+  const setVisibility = useStore((s) => s.setVinylVisibility)
+  const [tab, setTab] = useState<'profile' | 'creators'>(initial)
   const [draft, setDraft] = useState<Profile>(profile)
+  const all = useUniverse()
   const field = (k: 'name' | 'username' | 'bio' | 'location') => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setDraft({ ...draft, [k]: k === 'username' ? e.target.value.replace(/[^a-z0-9._]/gi, '').toLowerCase() : e.target.value })
   const done = () => {
     setProfile(draft)
     close()
   }
+  const following = all.filter((r) => r.followed && creatorById[r.creatorId])
+  const listened = all.filter((r) => !r.followed && creatorById[r.creatorId])
   return (
-    <Sheet label="Edit profile" onClose={done} title="Edit profile">
-      <div className="form">
-        <div className="form__photo">
-          <span className="minidisc minidisc--lg">
-            <img src={draft.avatar} alt="" />
-          </span>
-          <label className="pill pill--quiet">
-            Change photo
-            <input
-              type="file"
-              accept="image/*"
-              hidden
-              onChange={async (e) => {
-                const f = e.target.files?.[0]
-                if (f) setDraft({ ...draft, avatar: await readPhoto(f) })
-              }}
-            />
-          </label>
-          {draft.avatar !== meSeed.avatar && (
-            <button className="form__text-btn" onClick={() => setDraft({ ...draft, avatar: meSeed.avatar })}>
-              Use portrait
-            </button>
-          )}
+    <Sheet label="Your vinyl" onClose={done} title="Your vinyl" tall>
+      <div className="form form--tabs">
+        <div className="seg" role="tablist" aria-label="Your vinyl">
+          <button role="tab" aria-selected={tab === 'profile'} onClick={() => setTab('profile')}>
+            Profile
+          </button>
+          <button role="tab" aria-selected={tab === 'creators'} onClick={() => setTab('creators')}>
+            Creators · {following.length + listened.length}
+          </button>
         </div>
-        <label className="form__row">
-          <span>Name</span>
-          <input value={draft.name} onChange={field('name')} maxLength={40} autoComplete="name" />
-        </label>
-        <label className="form__row">
-          <span>Username</span>
-          <input value={draft.username} onChange={field('username')} maxLength={24} autoCapitalize="none" />
-        </label>
-        <label className="form__row">
-          <span>Bio</span>
-          <textarea value={draft.bio} onChange={field('bio')} maxLength={120} rows={2} />
-        </label>
-        <label className="form__row">
-          <span>Location</span>
-          <input value={draft.location} onChange={field('location')} maxLength={40} placeholder="Optional" />
-        </label>
-        <label className="form__row">
-          <span>Instagram</span>
-          <input
-            value={draft.socials.instagram ?? ''}
-            onChange={(e) => setDraft({ ...draft, socials: { ...draft.socials, instagram: e.target.value.replace(/^@/, '').trim() } })}
-            placeholder="Optional · how friends reach you"
-            autoCapitalize="none"
-          />
-        </label>
-
-        <p className="settings__label">Favourites</p>
-        <div className="favs">
-          {all.map((r) => {
-            const c = creators.find((x) => x.id === r.creatorId)!
-            const on = favorites.includes(c.id)
-            return (
-              <button key={c.id} className={`fav ${on ? 'is-on' : ''}`} onClick={() => toggleFavourite(c.id)} aria-pressed={on} aria-label={`Favourite ${c.name}`}>
-                <img src={c.avatar} alt="" />
-                {on && (
-                  <i>
-                    <I.Spark size={12} on />
-                  </i>
-                )}
-              </button>
+        <Pager
+          ids={['profile', 'creators'] as const}
+          current={tab}
+          onChange={setTab}
+          render={(t) =>
+            t === 'profile' ? (
+              <div className="form__page">
+                <div className="form__photo">
+                  <span className="minidisc minidisc--lg">
+                    <img src={draft.avatar} alt="" />
+                  </span>
+                  <label className="pill pill--quiet">
+                    Change photo
+                    <input
+                      type="file"
+                      accept="image/*"
+                      hidden
+                      onChange={async (e) => {
+                        const f = e.target.files?.[0]
+                        if (f) setDraft({ ...draft, avatar: await readPhoto(f) })
+                      }}
+                    />
+                  </label>
+                  {draft.avatar !== meSeed.avatar && (
+                    <button className="form__text-btn" onClick={() => setDraft({ ...draft, avatar: meSeed.avatar })}>
+                      Use portrait
+                    </button>
+                  )}
+                </div>
+                <label className="form__row">
+                  <span>Name</span>
+                  <input value={draft.name} onChange={field('name')} maxLength={40} autoComplete="name" />
+                </label>
+                <label className="form__row">
+                  <span>Username</span>
+                  <input value={draft.username} onChange={field('username')} maxLength={24} autoCapitalize="none" />
+                </label>
+                <label className="form__row">
+                  <span>Bio</span>
+                  <textarea value={draft.bio} onChange={field('bio')} maxLength={120} rows={2} />
+                </label>
+                <label className="form__row">
+                  <span>Location</span>
+                  <input value={draft.location} onChange={field('location')} maxLength={40} placeholder="Optional" />
+                </label>
+                <label className="form__row">
+                  <span>Instagram</span>
+                  <input
+                    value={draft.socials.instagram ?? ''}
+                    onChange={(e) => setDraft({ ...draft, socials: { ...draft.socials, instagram: e.target.value.replace(/^@/, '').trim() } })}
+                    placeholder="Optional · how friends reach you"
+                    autoCapitalize="none"
+                  />
+                </label>
+                <p className="settings__label">Who can see your vinyl</p>
+                <div className="choices">
+                  {(
+                    [
+                      ['everyone', 'Everyone on CIRCA'],
+                      ['friends', 'Friends only'],
+                    ] as const
+                  ).map(([id, label]) => (
+                    <button key={id} className={`choice ${visibility === id ? 'is-on' : ''}`} onClick={() => setVisibility(id)}>
+                      <span>{label}</span>
+                    </button>
+                  ))}
+                </div>
+                <button className="pill pill--cherry form__done" onClick={done}>
+                  Done
+                </button>
+              </div>
+            ) : (
+              <div className="form__page">
+                <p className="settings__fine curate__intro">
+                  Choose who appears on your vinyl and who counts in your stats (minutes, top artists, genres, taste matches). Anyone you leave out stays off what others see. Nothing is deleted, and you can switch them back any time.
+                </p>
+                {following.length > 0 && <p className="settings__label">Following · {following.length}</p>}
+                {following.map((r) => (
+                  <CurateRow key={r.creatorId} creatorId={r.creatorId} followed />
+                ))}
+                {listened.length > 0 && <p className="settings__label">Listened to · not followed</p>}
+                {listened.map((r) => (
+                  <CurateRow key={r.creatorId} creatorId={r.creatorId} followed={false} />
+                ))}
+              </div>
             )
-          })}
-        </div>
-        <p className="settings__fine">Favourites wear a star on your vinyl, for everyone who opens it.</p>
-        <button className="pill pill--cherry form__done" onClick={done}>
-          Done
-        </button>
+          }
+        />
       </div>
     </Sheet>
+  )
+}
+
+/** One creator on your vinyl: favourite, on the record or not, in your stats or not, follow. */
+function CurateRow({ creatorId, followed }: { creatorId: string; followed: boolean }) {
+  const c = creatorById[creatorId]
+  const favorite = useStore((s) => s.favorites.includes(creatorId))
+  const onVinyl = useStore((s) => !(s.omitVinyl ?? []).includes(creatorId))
+  const inStats = useStore((s) => !(s.omitStats ?? []).includes(creatorId))
+  const setShown = useStore((s) => s.setShown)
+  const toggleFollow = useStore((s) => s.toggleFollow)
+  if (!c) return null
+  return (
+    <div className={`curate ${!onVinyl && !inStats ? 'is-hidden' : ''}`}>
+      <span className="minidisc">
+        <img src={c.avatar} alt="" />
+      </span>
+      <span className="curate__who">
+        <strong>{c.name}</strong>
+        <em>
+          {c.kind === 'podcast' ? 'Podcast' : 'Artist'}
+          {' · '}
+          <button className="curate__follow" onClick={() => toggleFollow(creatorId)}>
+            {followed ? 'Following' : 'Follow'}
+          </button>
+        </em>
+      </span>
+      <button className={`fav-toggle ${favorite ? 'is-on' : ''}`} onClick={() => toggleFavourite(creatorId)} aria-pressed={favorite} aria-label={`Favourite ${c.name}`}>
+        <I.Spark size={18} on={favorite} />
+      </button>
+      <span className="curate__switches">
+        <button className={`switch ${onVinyl ? 'is-on' : ''}`} role="switch" aria-checked={onVinyl} aria-label={`${c.name} on your vinyl`} onClick={() => setShown(creatorId, 'vinyl', !onVinyl)}>
+          <i aria-hidden /> On vinyl
+        </button>
+        <button className={`switch ${inStats ? 'is-on' : ''}`} role="switch" aria-checked={inStats} aria-label={`${c.name} in your stats`} onClick={() => setShown(creatorId, 'stats', !inStats)}>
+          <i aria-hidden /> In stats
+        </button>
+      </span>
+    </div>
   )
 }
 

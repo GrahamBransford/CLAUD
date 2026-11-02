@@ -107,6 +107,13 @@ const STEPS: Step[] = [
   },
   {
     route: 'vinyl',
+    target: '.view[data-active] .hifi__label-btn',
+    round: true,
+    title: 'Your vinyl, your call',
+    body: 'Tap your photo to edit your profile, pick favourites, and choose who’s on your record and who counts in your stats. What you’d rather keep to yourself stays yours.',
+  },
+  {
+    route: 'vinyl',
     target: '.view[data-active] .knob[aria-label^="Friends"]',
     round: true,
     title: 'Friends',
@@ -123,7 +130,7 @@ const STEPS: Step[] = [
     target: '.view[data-active] .hifi__settings',
     round: true,
     title: 'Made for the road',
-    body: 'Behind the C: your account, and Drive mode. Hands-free, big controls, audio only, so CIRCA goes with you in the car.',
+    body: 'Behind the C: settings, and Drive mode. Hands-free, big controls, audio only, so CIRCA goes with you in the car.',
   },
 ]
 

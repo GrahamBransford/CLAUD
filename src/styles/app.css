@@ -6883,3 +6883,153 @@ a.row-link { text-decoration: none; color: inherit; }
     height: 44px;
   }
 }
+
+/* ---- your photo at the record's centre: the way into your vinyl ---- */
+.hifi__label-btn {
+  position: absolute;
+  z-index: 3;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.hifi__label-btn:active {
+  transform: scale(0.96);
+  box-shadow: 0 0 0 2px rgba(220, 200, 156, 0.5);
+}
+.hifi__label-btn:focus-visible {
+  outline: 2px solid var(--brass-hi, #dcc89c);
+  outline-offset: 2px;
+}
+/* a small engraved badge on the label's edge says it opens */
+.hifi__label-pip {
+  position: absolute;
+  right: 4%;
+  bottom: 4%;
+  width: 24%;
+  min-width: 20px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #1b130c;
+  background: radial-gradient(circle at 34% 28%, #f6e8c6, #d8b878 40%, #a98445 85%);
+  box-shadow:
+    0 0 0 1px rgba(36, 24, 8, 0.6),
+    0 2px 5px rgba(0, 0, 0, 0.45);
+}
+
+/* ---- Your vinyl › Creators: who's on it, and who counts ---- */
+.curate__intro {
+  margin: 2px 0 10px;
+}
+.curate {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'disc who fav'
+    'disc sw sw';
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(220, 200, 156, 0.1);
+  transition: opacity 0.2s ease;
+}
+.curate .minidisc {
+  grid-area: disc;
+  align-self: start;
+}
+.curate.is-hidden .minidisc,
+.curate.is-hidden .curate__who strong {
+  opacity: 0.5;
+}
+.curate__who {
+  grid-area: who;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.curate__who strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  overflow-wrap: anywhere;
+}
+.curate__who em {
+  font-style: normal;
+  font-size: 12.5px;
+  color: var(--fg-3);
+}
+.curate__follow {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--brass-hi, #dcc89c);
+  padding: 4px 2px;
+  margin: -4px 0;
+}
+.fav-toggle {
+  grid-area: fav;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: rgba(239, 230, 211, 0.45);
+  box-shadow: inset 0 0 0 1px rgba(220, 200, 156, 0.2);
+}
+.fav-toggle.is-on {
+  color: var(--brass-hi, #dcc89c);
+  box-shadow: inset 0 0 0 1px rgba(220, 200, 156, 0.55);
+  background: rgba(220, 200, 156, 0.08);
+}
+.curate__switches {
+  grid-area: sw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 12px 0 6px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--fg-3);
+  box-shadow: inset 0 0 0 1px rgba(220, 200, 156, 0.18);
+}
+/* a little track and thumb, like a hardware toggle */
+.switch i {
+  position: relative;
+  width: 30px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(239, 230, 211, 0.14);
+  transition: background 0.2s ease;
+}
+.switch i::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #efe6d3;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+.switch.is-on {
+  color: var(--fg);
+  box-shadow: inset 0 0 0 1px rgba(220, 200, 156, 0.45);
+}
+.switch.is-on i {
+  background: linear-gradient(180deg, #d8b878, #a98445);
+}
+.switch.is-on i::after {
+  transform: translateX(12px);
+}

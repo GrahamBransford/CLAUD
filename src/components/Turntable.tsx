@@ -255,9 +255,12 @@ interface Props {
   edition?: 'artist' | 'podcast'
   /** Top 1% of listeners this year: a gold ring round the record. */
   gilded?: boolean
+  /** Tapping the photo at the centre (your own vinyl: your profile and who's on it). */
+  onLabel?: () => void
+  labelHint?: string
 }
 
-export function Turntable({ markers, owner, etching, spinning, onMarker, children, controls, className, edition, gilded }: Props) {
+export function Turntable({ markers, owner, etching, spinning, onMarker, children, controls, className, edition, gilded, onLabel, labelHint }: Props) {
   const placed = useMemo(() => place(markers), [markers])
   const deck = useRef<HTMLDivElement>(null)
   const hand = usePlatter(deck, spinning)
@@ -296,6 +299,19 @@ export function Turntable({ markers, owner, etching, spinning, onMarker, childre
             ))}
           </div>
           <span className="hifi__spindle" aria-hidden />
+          {onLabel && (
+            // the photo at the centre, as a button; it stays still while the record turns under it
+            <button
+              className="hifi__label-btn"
+              style={{ left: `${50 - LABEL_R}%`, top: `${50 - LABEL_R}%`, width: `${LABEL_R * 2}%` }}
+              onClick={onLabel}
+              aria-label={labelHint ?? owner.name}
+            >
+              <span className="hifi__label-pip" aria-hidden>
+                <I.Edit size={11} />
+              </span>
+            </button>
+          )}
         </div>
         <span className="hifi__rest" aria-hidden />
         <span className="hifi__base" aria-hidden />

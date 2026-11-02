@@ -11,8 +11,6 @@ export function SettingsSheet() {
   const streaming = useStore((s) => s.streaming)
   const setStreaming = useStore((s) => s.setStreaming)
   const profile = useStore((s) => s.profile)
-  const visibility = useStore((s) => s.vinylVisibility)
-  const setVisibility = useStore((s) => s.setVinylVisibility)
   const [confirm, setConfirm] = useState(false)
   const [showCredits, setShowCredits] = useState(false)
   const close = () => useUI.getState().openSheet(null)
@@ -30,7 +28,7 @@ export function SettingsSheet() {
             <em>@{profile.username} · demo account</em>
           </span>
           <button className="pill pill--quiet" onClick={() => useUI.getState().openSheet({ kind: 'profile' })}>
-            Edit profile
+            Your vinyl
           </button>
         </div>
         <button
@@ -62,20 +60,7 @@ export function SettingsSheet() {
           </span>
         </button>
 
-        <p className="settings__label">Who can see your vinyl</p>
-        <div className="choices">
-          {(
-            [
-              ['everyone', 'Everyone on CIRCA'],
-              ['friends', 'Friends only'],
-            ] as const
-          ).map(([id, label]) => (
-            <button key={id} className={`choice ${visibility === id ? 'is-on' : ''}`} onClick={() => setVisibility(id)}>
-              <span>{label}</span>
-            </button>
-          ))}
-        </div>
-        <p className="settings__fine">Demo account on this device. Nothing is sent anywhere.</p>
+        <p className="settings__fine">Your profile, favourites, and who's on your vinyl live on the record itself: tap your photo at its centre. Demo account on this device; nothing is sent anywhere.</p>
 
         <p className="settings__label">Music saves go to</p>
         <div className="choices">

@@ -38,6 +38,10 @@ interface PersistedState {
   vinylFollows: string[]
   /** Who can open your vinyl (a demo preference: there is no server to enforce it). */
   vinylVisibility: 'everyone' | 'friends'
+  /** Creators you've chosen to leave off your vinyl (not shown to you or anyone who opens it). */
+  omitVinyl: string[]
+  /** Creators you've chosen to leave out of your stats (minutes, top artists, genres, taste matches). */
+  omitStats: string[]
   /** Comments you wrote on Inner Circle moments. Kept on this device only. */
   myComments: Record<string, { id: string; text: string; at: number }[]>
   /** Friends' vinyl updates already seen (for the lamp). */
@@ -75,6 +79,8 @@ interface PersistedState {
   setFriend: (personId: string, state: FriendState | null) => void
   toggleVinylFollow: (personId: string) => boolean
   setVinylVisibility: (v: 'everyone' | 'friends') => void
+  /** Show (true) or leave out (false) a creator on your vinyl or in your stats. */
+  setShown: (creatorId: string, where: 'vinyl' | 'stats', shown: boolean) => void
   addComment: (postId: string, text: string) => void
   resetDemo: () => void
 }
@@ -108,6 +114,8 @@ const initial = () => ({
   friends: { ...meSeed.friends },
   vinylFollows: Object.keys(meSeed.friends).filter((id) => meSeed.friends[id] === 'friends'),
   vinylVisibility: 'everyone' as 'everyone' | 'friends',
+  omitVinyl: [] as string[],
+  omitStats: [] as string[],
   myComments: {} as Record<string, { id: string; text: string; at: number }[]>,
   seenUpdates: [] as string[],
   joined: [] as string[],
@@ -236,6 +244,12 @@ export const createStore = (set: string) =>
             }
           }),
         setVinylVisibility: (vinylVisibility) => setState({ vinylVisibility }),
+        setShown: (creatorId, where, shown) =>
+          setState((st) => {
+            const key = where === 'vinyl' ? 'omitVinyl' : 'omitStats'
+            const list = (st[key] ?? []).filter((id) => id !== creatorId)
+            return { [key]: shown ? list : [...list, creatorId] } as Partial<PersistedState>
+          }),
         addComment: (postId, text) =>
           setState((st) => ({
             myComments: { ...st.myComments, [postId]: [...(st.myComments[postId] ?? []), { id: `c-${Date.now().toString(36)}`, text, at: Date.now() }] },

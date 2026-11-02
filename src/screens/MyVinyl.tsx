@@ -34,6 +34,7 @@ export function MyVinyl({ active }: { active: boolean }) {
   const profile = useStore((s) => s.profile)
   const experiences = useStore((s) => s.experiences)
   const favorites = useStore((s) => s.favorites)
+  const omitVinyl = useStore((s) => s.omitVinyl)
   const friends = useStore((s) => s.friends)
   const sheet = useUI((s) => s.sheet)
   const [searching, setSearching] = useState(false)
@@ -67,7 +68,11 @@ export function MyVinyl({ active }: { active: boolean }) {
   const markers = useMemo<Marker[]>(
     () =>
       // the twelve closest sit on the record; everyone else is in the lists behind the readouts
-      all.slice(0, ON_RECORD).map((r) => {
+      // anyone you've left off your vinyl isn't on the record (or seen by anyone who opens it)
+      all
+        .filter((r) => !(omitVinyl ?? []).includes(r.creatorId))
+        .slice(0, ON_RECORD)
+        .map((r) => {
         const c = creatorById[r.creatorId]
         const prev = lastTop[r.creatorId]
         return {
@@ -82,7 +87,7 @@ export function MyVinyl({ active }: { active: boolean }) {
           favorite: favorites.includes(r.creatorId),
         }
       }),
-    [all, lastTop, live, favorites],
+    [all, lastTop, live, favorites, omitVinyl],
   )
 
   // When you leave, remember where everyone was, so moving closer is visible next time.
@@ -131,6 +136,8 @@ export function MyVinyl({ active }: { active: boolean }) {
           </>
           }
           onMarker={(id) => open({ kind: 'creator', creatorId: id })}
+          onLabel={() => open({ kind: 'profile' })}
+          labelHint="Your vinyl: edit your profile, favourites, and who's on it"
         >
           <div className="plate">
             {/* the fascia: a knob either side of your nameplate, like the radio's tuning and volume */}

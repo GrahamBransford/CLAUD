@@ -193,7 +193,7 @@ export default function App() {
         {sheet?.kind === 'communities' && <CommunitiesSheet key={`cm-${sheet.creatorId ?? 'all'}`} creatorId={sheet.creatorId} />}
         {sheet?.kind === 'details' && <ProfileDetails key={`d-${sheet.owner}-${sheet.tab}`} owner={sheet.owner} tab={sheet.tab} />}
         {sheet?.kind === 'settings' && <SettingsSheet key="settings" />}
-        {sheet?.kind === 'profile' && <ProfileSheet key="profile" />}
+        {sheet?.kind === 'profile' && <ProfileSheet key="profile" tab={sheet.tab} />}
         {sheet?.kind === 'live' && <LiveSheet key="live" />}
         {sheet?.kind === 'friends' && <FriendsSheet key="friends" />}
         {sheet?.kind === 'comments' && <CommentsSheet key={`cm-${sheet.postId}`} postId={sheet.postId} />}
