@@ -9,20 +9,41 @@ import { useUI, type MiniItem } from '../store/useUI'
 import * as I from './Icons'
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// iOS blocks picture-in-picture in Home Screen web apps (WebKit bug 303885); Safari allows it
 const pipSupported = () =>
   typeof document !== 'undefined' &&
-  !isHomeScreenApp() &&
   (!!(document as any).pictureInPictureEnabled || typeof (HTMLVideoElement.prototype as any).webkitSetPresentationMode === 'function')
 
-/** Hand the video to the system's own picture-in-picture, so it keeps playing outside CIRCA. */
+const inPip = (v: HTMLVideoElement) => (document as any).pictureInPictureElement === v || (v as any).webkitPresentationMode === 'picture-in-picture'
+
+/**
+ * Hand the video to the system's own picture-in-picture, so it keeps playing
+ * outside CIRCA. Tries every way iOS offers; says whether it worked. (iOS
+ * blocks this in Home Screen web apps, WebKit bug 303885; Safari allows it.)
+ */
 async function popOut(v: HTMLVideoElement) {
   try {
     if ((v as any).requestPictureInPicture) await (v as any).requestPictureInPicture()
     else (v as any).webkitSetPresentationMode?.('picture-in-picture')
   } catch {
-    /* the browser said no (it wants a tap first, or the feature is off) */
+    try {
+      // the older WebKit route, in case the standard one is the one switched off
+      if ((v as any).webkitSupportsPresentationMode?.('picture-in-picture')) (v as any).webkitSetPresentationMode('picture-in-picture')
+    } catch {
+      /* switched off here */
+    }
   }
+  await new Promise((r) => setTimeout(r, 700))
+  return inPip(v)
+}
+
+/** The button: pop out, or say plainly why the phone won't. */
+async function popOutOrExplain(v: HTMLVideoElement) {
+  if (await popOut(v)) return
+  useUI.getState().pushToast({
+    title: isHomeScreenApp() ? 'iPhone doesn’t allow pop-out in Home Screen apps yet' : 'This browser won’t pop the video out',
+    detail: isHomeScreenApp() ? 'It works with CIRCA open in Safari. The sound keeps playing when you leave the app either way.' : 'The sound keeps playing when you leave.',
+    ms: 6000,
+  })
 }
 
 /**
@@ -64,7 +85,7 @@ function Mini({ m }: { m: MiniItem }) {
     if (v.readyState >= 1) start()
     else v.addEventListener('loadedmetadata', start, { once: true })
     // leaving the app in Safari: try the system picture-in-picture (Home Screen apps can't)
-    const onHide = () => document.visibilityState === 'hidden' && !p.paused && pipSupported() && void popOut(v)
+    const onHide = () => document.visibilityState === 'hidden' && !p.paused && pipSupported() && !isHomeScreenApp() && void popOut(v)
     document.addEventListener('visibilitychange', onHide)
     return () => {
       document.removeEventListener('visibilitychange', onHide)
@@ -165,7 +186,7 @@ function Mini({ m }: { m: MiniItem }) {
             <I.Expand size={15} />
           </button>
           {pipSupported() && (
-            <button className="mini__btn" onClick={() => video.current && void popOut(video.current)} aria-label="Keep playing outside CIRCA">
+            <button className="mini__btn" onClick={() => video.current && void popOutOrExplain(video.current)} aria-label="Keep playing outside CIRCA">
               <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden>
                 <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" strokeWidth="1.6" />
                 <rect x="12" y="11" width="7" height="6" rx="1" fill="currentColor" />
