@@ -66,11 +66,6 @@ export function InnerCircle({ active }: { active: boolean }) {
   const mini = useUI((s) => !!s.mini)
   return (
     <section className="screen screen--ic" aria-label="Inner Circle">
-      {feed.length > 0 && (
-        <div className="segments" aria-hidden>
-          {Array.from({ length: feed.length }, (_, k) => <span key={k} data-on={k <= i ? '' : undefined} />)}
-        </div>
-      )}
       <AnimatePresence custom={dir} initial={false} mode="popLayout">
         <motion.div
           key={item ? item.post.id : 'end'}
