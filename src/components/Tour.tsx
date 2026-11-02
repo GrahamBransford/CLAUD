@@ -197,6 +197,7 @@ export function Tour({ onDone }: { onDone: () => void }) {
           </AnimatePresence>
         </>
       )}
+      {phase !== 'finale' && <SkipCorner rect={phase === 'steps' ? rect : null} onSkip={finish} />}
     </div>
   )
 }
@@ -267,6 +268,29 @@ function Spotlight({ rect, round, open }: { rect: DOMRect | null; round: boolean
   )
 }
 
+/**
+ * Always in the corner, quiet but always there: one tap ends the intro for
+ * anyone who'd rather find their own way. It moves to the other corner if
+ * the thing being shown sits under it.
+ */
+function SkipCorner({ rect, onSkip }: { rect: DOMRect | null; onSkip: () => void }) {
+  const under = !!rect && rect.top < 72 && rect.right > window.innerWidth - 140 && rect.width < window.innerWidth * 0.6
+  return (
+    <motion.button
+      className={`tour__corner${under ? ' is-left' : ''}`}
+      onClick={onSkip}
+      aria-label="Skip the intro"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 0.4, duration: 0.4 } }}
+    >
+      Skip intro
+      <svg viewBox="0 0 12 12" width="10" height="10" aria-hidden>
+        <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      </svg>
+    </motion.button>
+  )
+}
+
 /** A ghost thumb on the Radio, showing the three moves: right to save, left to skip, up for next. */
 function Ghost({ rect }: { rect: DOMRect }) {
   const cx = rect.left + rect.width / 2
@@ -292,7 +316,7 @@ function Card({ step, index, rect, onNext, onSkip }: { step: Step; index: number
   const filling = !side && rect.height > vh * 0.55
   const below = !side && !filling && rect.top + rect.height / 2 < vh * 0.5
   const left = side ? rect.right + 22 : Math.min(vw - w - 16, Math.max(16, rect.left + rect.width / 2 - w / 2))
-  const sideTop = Math.min(vh - 300, Math.max(16, rect.top + rect.height / 2 - 120))
+  const sideTop = Math.min(vh - 300, Math.max(64, rect.top + rect.height / 2 - 120))
   const style = side
     ? { left, top: sideTop, width: w }
     : filling
