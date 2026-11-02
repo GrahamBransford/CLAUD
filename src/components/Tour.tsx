@@ -396,7 +396,7 @@ function Welcome({ onStart, onSkip }: { onStart: () => void; onSkip: () => void 
         <h1 className="tour__headline tour__headline--welcome">Your new radio.</h1>
         <ul className="tour__pillars">
           <Pillar icon={<I.People size={18} />} title="Real community" text="Friends, fans and creators: online and in your city." />
-          <Pillar icon={<I.Spark size={18} on />} title="Creators first" text="Every song and show credited to a person, and found through them." />
+          <Pillar icon={<I.Spark size={18} on />} title="Creatives first" text="Every song and show credited to a person, and found through them." />
           <Pillar icon={<I.Car size={18} />} title="Effortless, even driving" text="Tailored to what you love, with a hands-free mode for the car." />
         </ul>
         <button className="tour__primary" onClick={onStart}>
