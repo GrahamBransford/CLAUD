@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useRef } from 'react'
 import { useUI } from '../store/useUI'
+import { onAudioPlaying } from '../lib/background'
 
 interface SessionInfo {
   title: string
@@ -33,7 +34,7 @@ export function useMediaSession(active: boolean, info: SessionInfo | null) {
   useEffect(() => {
     if (away || !active || !info || !('mediaSession' in navigator)) return
     const ms = navigator.mediaSession
-    ms.metadata = new MediaMetadata({
+    const metadata = new MediaMetadata({
       title: info.title,
       artist: info.artist,
       album: info.album,
@@ -45,15 +46,25 @@ export function useMediaSession(active: boolean, info: SessionInfo | null) {
       ['nexttrack', info.onNext && (() => ref.current?.onNext?.())],
       ['previoustrack', info.onPrevious && (() => ref.current?.onPrevious?.())],
       ['seekto', info.onSeek && ((d: MediaSessionActionDetails) => d.seekTime != null && ref.current?.onSeek?.(d.seekTime))],
+      // left empty on purpose: iOS would otherwise put its own skip buttons where next and previous go
+      ['seekforward', undefined],
+      ['seekbackward', undefined],
     ]
-    for (const [action, fn] of handlers) {
-      try {
-        ms.setActionHandler(action, fn ?? null)
-      } catch {
-        /* action not supported on this platform */
+    const apply = () => {
+      ms.metadata = metadata
+      for (const [action, fn] of handlers) {
+        try {
+          ms.setActionHandler(action, fn ?? null)
+        } catch {
+          /* action not supported on this platform */
+        }
       }
     }
+    apply()
+    // iOS keeps only the actions set while something plays, so set them again each time the sound starts
+    const off = onAudioPlaying(apply)
     return () => {
+      off()
       if (useUI.getState().backgrounded) return
       for (const [action] of handlers) {
         try {
@@ -75,8 +86,9 @@ export function useMediaPosition(active: boolean, time: number, length: number, 
   useEffect(() => {
     if (away || !active || !('mediaSession' in navigator) || !(length > 0)) return
     try {
-      navigator.mediaSession.playbackState = playing ? 'playing' : 'paused'
       navigator.mediaSession.setPositionState({ duration: length, position: Math.max(0, Math.min(length, time)), playbackRate: 1 })
+      // iOS wants the play/pause state after each position
+      navigator.mediaSession.playbackState = playing ? 'playing' : 'paused'
     } catch {
       /* not supported here */
     }

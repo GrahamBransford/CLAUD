@@ -53,6 +53,20 @@ let at = -1
 let cur: BgItem | null = null
 let skips = 0
 let lastPos = 0
+/**
+ * Paused: the real track and where it got to, while a silent loop keeps the
+ * app awake (iOS freezes an installed web app soon after its audio stops, and
+ * the lock-screen player goes with it). The lock screen shows it paused.
+ */
+let held: { src: string; time: number; since: number } | null = null
+/** Silence is kept up this long at most, then the app is let go. */
+const HOLD_MAX = 20 * 60 * 1000
+const playingListeners = new Set<() => void>()
+/** Called each time the sound starts; iOS only keeps lock-screen actions set while it plays. */
+export function onAudioPlaying(fn: () => void) {
+  playingListeners.add(fn)
+  return () => void playingListeners.delete(fn)
+}
 const lastPause = new WeakMap<EventTarget, number>()
 
 const isMedia = (t: EventTarget | null): t is HTMLMediaElement => t instanceof HTMLMediaElement
@@ -68,18 +82,29 @@ function el() {
   // in the page, so the first touch turns it up along with everything else
   document.body.appendChild(audio)
   const a = audio
-  for (const t of FORWARD) a.addEventListener(t, () => !away && owner?.emit(t))
-  a.addEventListener('play', () => (!away && owner ? void owner.video.play().catch(() => {}) : publishState()))
-  a.addEventListener('pause', () => (!away && owner ? owner.video.pause() : publishState()))
+  // the silent loop that holds a pause is nobody's business but this module's
+  for (const t of FORWARD) a.addEventListener(t, () => !away && !held && owner?.emit(t))
+  a.addEventListener('play', () => (!away && owner && !held ? void owner.video.play().catch(() => {}) : publishState()))
+  a.addEventListener('pause', () => (!away && owner && !held ? owner.video.pause() : publishState()))
+  a.addEventListener('playing', () => {
+    // set the lock screen's actions again now that something is playing (iOS drops earlier ones)
+    if (away && cur) publish(cur)
+    else playingListeners.forEach((fn) => fn())
+  })
   a.addEventListener('timeupdate', () => {
+    if (held) {
+      if (Date.now() - held.since > HOLD_MAX) a.pause()
+      else if (away) publishPosition()
+      return
+    }
     if (!away || !cur) return
     if (a.currentTime >= cur.end - 0.25) return step(1)
     if (Math.abs(a.currentTime - lastPos) >= 1) publishPosition()
   })
   a.addEventListener('seeked', () => away && publishPosition())
   a.addEventListener('loadedmetadata', () => away && publishPosition())
-  a.addEventListener('ended', () => away && step(1))
-  a.addEventListener('error', () => away && cur && step(1))
+  a.addEventListener('ended', () => away && !held && step(1))
+  a.addEventListener('error', () => away && !held && cur && step(1))
   return a
 }
 
@@ -114,17 +139,20 @@ export class SyncedPlayer implements PlayerLike {
     this.et.removeEventListener(t, fn)
   }
   get currentTime() {
-    return this.owns ? el().currentTime : this.video.currentTime
+    return this.owns ? (held ? held.time : el().currentTime) : this.video.currentTime
   }
   set currentTime(t: number) {
     this.video.currentTime = t
-    if (this.owns) el().currentTime = t
+    if (this.owns) {
+      if (held) held.time = t
+      else el().currentTime = t
+    }
   }
   get duration() {
     return this.video.duration
   }
   get paused() {
-    return this.owns ? el().paused : true
+    return this.owns ? !!held || el().paused : true
   }
   get readyState() {
     return this.video.readyState
@@ -145,6 +173,8 @@ export class SyncedPlayer implements PlayerLike {
   play(): Promise<void> {
     const a = el()
     if (away) return Promise.resolve()
+    // out of a held pause: the real track comes back where the picture is
+    if (held) unhold()
     const prev = owner
     if (prev && prev !== this) prev.release()
     // this player now has the sound
@@ -177,8 +207,13 @@ export class SyncedPlayer implements PlayerLike {
     return a.play()
   }
   pause() {
-    if (owner === this) el().pause()
-    else this.emit('pause')
+    const a = el()
+    if (owner === this && !held && !a.paused) {
+      // a pause that keeps the app awake, so the lock screen keeps its player
+      this.video.currentTime = a.currentTime
+      hold(a.src, a.currentTime)
+    }
+    this.emit('pause')
     this.video.pause()
   }
   /** Another screen takes the sound. */
@@ -194,7 +229,10 @@ export class SyncedPlayer implements PlayerLike {
       if (owner !== this) return
       const a = el()
       if (!away && document.visibilityState === 'visible') {
-        if (!a.paused) {
+        // a held pause plays silence: the picture stays where the music stopped
+        if (held) {
+          if (!this.video.paused) this.video.pause()
+        } else if (!a.paused) {
           if (this.video.paused) void this.video.play().catch(() => {})
           if (Math.abs(this.video.currentTime - a.currentTime) > 0.3) this.video.currentTime = a.currentTime
         } else if (!this.video.paused) this.video.pause()
@@ -213,25 +251,67 @@ export const syncedPlayer = (v: HTMLMediaElement) => {
   return p
 }
 
+/** A long, quiet loop (two minutes of 8-bit silence at 4 kHz). */
+let quietUrl: string | null = null
+function quiet() {
+  if (quietUrl) return quietUrl
+  const n = 4000 * 120
+  const buf = new ArrayBuffer(44 + n)
+  const v = new DataView(buf)
+  const w = (o: number, s: string) => [...s].forEach((c, i) => v.setUint8(o + i, c.charCodeAt(0)))
+  w(0, 'RIFF')
+  v.setUint32(4, 36 + n, true)
+  w(8, 'WAVEfmt ')
+  v.setUint32(16, 16, true)
+  v.setUint16(20, 1, true)
+  v.setUint16(22, 1, true)
+  v.setUint32(24, 4000, true)
+  v.setUint32(28, 4000, true)
+  v.setUint16(32, 1, true)
+  v.setUint16(34, 8, true)
+  w(36, 'data')
+  v.setUint32(40, n, true)
+  new Uint8Array(buf, 44).fill(128)
+  return (quietUrl = URL.createObjectURL(new Blob([buf], { type: 'audio/wav' })))
+}
+
+/** Pause, but keep the app awake: remember the track and play silence in its place. */
+function hold(src: string, time: number) {
+  const a = el()
+  held = { src: abs(src), time, since: Date.now() }
+  a.loop = true
+  a.src = quiet()
+  void a.play().catch(() => {})
+  publishState()
+}
+
+function unhold() {
+  const h = held
+  held = null
+  el().loop = false
+  return h
+}
+
 function publishState() {
-  if (!('mediaSession' in navigator) || !away || !audio) return
-  navigator.mediaSession.playbackState = audio.paused ? 'paused' : 'playing'
   publishPosition()
 }
 
+/** The lock screen's progress bar, then its play/pause state (iOS wants the state after each position). */
 function publishPosition() {
   if (!('mediaSession' in navigator) || !away || !audio || !cur) return
   const length = Math.max(0.5, cur.end - cur.start)
+  const t = held ? held.time : audio.currentTime
   lastPos = audio.currentTime
   try {
     navigator.mediaSession.setPositionState({
       duration: length,
-      position: Math.max(0, Math.min(length, audio.currentTime - cur.start)),
-      playbackRate: audio.playbackRate || 1,
+      position: Math.max(0, Math.min(length, t - cur.start)),
+      playbackRate: held ? 1 : audio.playbackRate || 1,
     })
   } catch {
     /* not supported here */
   }
+  navigator.mediaSession.playbackState = held || audio.paused ? 'paused' : 'playing'
 }
 
 function publish(it: BgItem) {
@@ -244,19 +324,28 @@ function publish(it: BgItem) {
     artwork: [{ src: new URL(it.artwork, window.location.href).href, sizes: '1200x1200', type: 'image/jpeg' }],
   })
   const seekTo = (rel: number) => {
-    const a = el()
     if (!cur) return
-    a.currentTime = cur.start + Math.max(0, Math.min(cur.end - cur.start - 0.3, rel))
+    const t = cur.start + Math.max(0, Math.min(cur.end - cur.start - 0.3, rel))
+    if (held) held.time = t
+    else el().currentTime = t
     publishPosition()
   }
   const handlers: [MediaSessionAction, MediaSessionActionHandler | null][] = [
-    ['play', () => void audio?.play().catch(() => {})],
-    ['pause', () => audio?.pause()],
+    [
+      'play',
+      () => {
+        const h = held && unhold()
+        if (h && cur) load(cur, h.time)
+        else void audio?.play().catch(() => {})
+      },
+    ],
+    ['pause', () => !held && cur && audio && hold(cur.src, audio.currentTime)],
     ['nexttrack', () => step(1)],
     ['previoustrack', () => step(-1)],
     ['seekto', (d) => d.seekTime != null && seekTo(d.seekTime)],
-    ['seekforward', (d) => cur && seekTo(el().currentTime - cur.start + (d.seekOffset ?? 15))],
-    ['seekbackward', (d) => cur && seekTo(el().currentTime - cur.start - (d.seekOffset ?? 15))],
+    // left empty on purpose: iOS would otherwise put its own skip buttons where next and previous go
+    ['seekforward', null],
+    ['seekbackward', null],
   ]
   for (const [action, fn] of handlers) {
     try {
@@ -284,6 +373,8 @@ function load(it: BgItem, from: number) {
 /** Next (1) or previous (-1) in the station's running order. */
 function step(dir: 1 | -1) {
   if (!station || !away) return
+  // skipping out of a pause plays, as in any music app
+  if (held) unhold()
   let i = at + dir
   // pass over anything that can't play as audio, without looping forever
   for (let tries = 0; tries < 50 && i >= 0; tries++, i += dir) {
@@ -305,14 +396,15 @@ function leave() {
   if (!p || !it) return
   const a = el()
   if (p instanceof SyncedPlayer) {
-    // already sounding through the shared element: nothing to hand over, so no gap
-    if (owner !== p || a.paused) return
+    // already sounding through the shared element (or holding a pause): nothing to hand over, so no gap
+    if (owner !== p || (a.paused && !held)) return
+    const time = held ? held.time : a.currentTime
     away = true
     mode = 'synced'
     owner = null
     at = station.index
     skips = 0
-    cur = { ...it, end: Math.max(station.currentEnd ?? it.end, a.currentTime + 1) }
+    cur = { ...it, end: Math.max(station.currentEnd ?? it.end, time + 1) }
     useUI.getState().setBackgrounded(true)
     publish(cur)
     return
@@ -335,8 +427,8 @@ function leave() {
 function comeBack() {
   if (!away) return
   const a = el()
-  const time = a.currentTime
-  const playing = !a.paused
+  const time = held ? held.time : a.currentTime
+  const playing = !held && !a.paused
   const id = cur?.id
   away = false
   cur = null
@@ -431,6 +523,7 @@ export const backgroundState = () => ({
   skips,
   id: cur?.id ?? null,
   owner: !!owner,
+  held: held ? { time: held.time } : null,
   time: audio?.currentTime ?? 0,
   paused: audio?.paused ?? true,
   end: cur?.end ?? 0,
