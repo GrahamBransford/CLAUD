@@ -70,6 +70,9 @@ interface UIState {
   mini: MiniItem | null
   openMini: (m: MiniItem | null) => void
   /** Pick up an item at a moment in its file (after the mini player or a full episode). */
+  /** The first-run tour is showing. */
+  touring: boolean
+  setTouring: (on: boolean) => void
   resume: { id: string; time: number } | null
   setResume: (r: { id: string; time: number } | null) => void
 }
@@ -86,6 +89,8 @@ export const useUI = create<UIState>()((set, get) => ({
   unlockedAt: 0,
   mini: null,
   openMini: (mini) => set({ mini }),
+  touring: false,
+  setTouring: (touring) => set({ touring }),
   resume: null,
   setResume: (resume) => set({ resume }),
   pushToast: (t) => {

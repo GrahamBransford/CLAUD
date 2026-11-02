@@ -106,7 +106,7 @@ function CommunitiesTile() {
   const joined = useStore((s) => s.joined)
   const near = all.filter((m) => m.near).length
   return (
-    <button className="readout" onClick={() => useUI.getState().openSheet({ kind: 'communities' })}>
+    <button className="readout readout--communities" onClick={() => useUI.getState().openSheet({ kind: 'communities' })}>
       <span className="readout__label">Communities</span>
       <strong className="readout__big">{joined.length ? `${joined.length} joined` : `${all.length} for you`}</strong>
       <span className="readout__sub">{near} meet near you</span>

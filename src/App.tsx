@@ -15,6 +15,7 @@ import { Toasts } from './components/Toasts'
 import { ROUTES, type RouteId } from './config/brand'
 import { isPinching } from './lib/pinch'
 import { MiniPlayer } from './components/MiniPlayer'
+import { Tour, tourSeen } from './components/Tour'
 import { Artists } from './screens/Artists'
 import { Drive } from './screens/Drive'
 import { FullEpisode } from './screens/FullEpisode'
@@ -38,6 +39,7 @@ export default function App() {
   const fullEpisode = useUI((s) => s.fullEpisode)
   const drive = useUI((s) => s.drive)
   const person = useUI((s) => s.person)
+  const touring = useUI((s) => s.touring)
   const unlockAudio = useUI((s) => s.unlockAudio)
 
   useEffect(() => {
@@ -75,7 +77,7 @@ export default function App() {
   const stage = useRef<HTMLElement>(null)
   const nav = useRef({ route, blocked: false })
   useEffect(() => {
-    nav.current = { route, blocked: !!fullEpisode || drive || splash || !!person || !!sheet }
+    nav.current = { route, blocked: !!fullEpisode || drive || splash || !!person || !!sheet || touring }
   })
   useEffect(() => {
     const el = stage.current
@@ -201,7 +203,16 @@ export default function App() {
       </AnimatePresence>
       <AnimatePresence>{drive && <Drive key="drive" initial={route === 'artists' ? 'artists' : 'radio'} />}</AnimatePresence>
       <MiniPlayer />
-      {splash && <Splash onDone={() => setSplash(false)} />}
+      {touring && <Tour onDone={() => useUI.getState().setTouring(false)} />}
+      {splash && (
+        <Splash
+          onDone={() => {
+            setSplash(false)
+            // first time here: a short tour of the real app
+            if (!tourSeen()) useUI.getState().setTouring(true)
+          }}
+        />
+      )}
       <Toasts />
     </div>
   )

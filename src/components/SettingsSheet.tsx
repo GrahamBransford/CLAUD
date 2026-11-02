@@ -47,6 +47,21 @@ export function SettingsSheet() {
           </span>
         </button>
 
+        <button
+          className="row-link"
+          onClick={() => {
+            close()
+            window.location.hash = 'radio'
+            useUI.getState().setTouring(true)
+          }}
+        >
+          <I.Spark size={18} />
+          <span>
+            <strong>Take the tour</strong>
+            <em>A quick look at where everything is</em>
+          </span>
+        </button>
+
         <p className="settings__label">Who can see your vinyl</p>
         <div className="choices">
           {(
