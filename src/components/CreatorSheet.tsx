@@ -3,7 +3,7 @@ import { creatorById, creatorVinylById, episodes, songs } from '../data'
 import { useProfile } from '../hooks/useProfile'
 import { useRelationship } from '../hooks/useRelationship'
 import { fmtMinutes, type Owner } from '../lib/profile'
-import { followerCount, fmtCount } from '../lib/creators'
+import { fmtCount, reachOf } from '../lib/creators'
 import { formatTop } from '../lib/affinity'
 import { topListeners } from '../lib/social'
 import { useFollow } from '../screens/InnerCircle'
@@ -52,6 +52,7 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
   const whose = mine ? 'Your' : `${profile?.who ?? 'Their'}’s`
   const progress = rel.next ? Math.max(4, Math.min(96, 100 - (rel.next.pointsNeeded / (rel.points + rel.next.pointsNeeded)) * 100)) : 100
   const listeners = topListeners(c.id)
+  const reach = reachOf(c.id)
 
   return (
     <Sheet label={c.name} onClose={close}>
@@ -60,9 +61,7 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
           <img src={c.avatar} alt="" />
           <div>
             <h2>{c.name}</h2>
-            <p>
-              {c.genre} · {fmtCount(followerCount(c.id, rel.followed))} followers
-            </p>
+            <p>{c.genre}</p>
           </div>
           <button
             className={`creator__fav ${favorite ? 'is-on' : ''}`}
@@ -73,6 +72,19 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
             <I.Spark size={22} on={favorite} />
           </button>
         </div>
+
+        {/* reach, TikTok-style: everyone who's listened anywhere, and every stream of a whole career */}
+        <dl className="creator__reach" aria-label="Reach across every streaming platform, demo figures">
+          <div>
+            <dd>{fmtCount(reach.listeners)}</dd>
+            <dt>Listeners</dt>
+          </div>
+          <div>
+            <dd>{fmtCount(reach.streams)}</dd>
+            <dt>Lifetime streams</dt>
+          </div>
+          <p className="creator__reach-note">Every streaming platform, whole career · demo</p>
+        </dl>
 
         {!mine && <p className="creator__whose">On {profile?.who}’s vinyl</p>}
         <div className="creator__standing">

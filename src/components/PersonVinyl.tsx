@@ -5,7 +5,7 @@ import { useProfile } from '../hooks/useProfile'
 import { useAlignment, useFriendActions, usePersonMarkers } from '../hooks/useSocial'
 import { Readouts } from './Readouts'
 import { Awards, isGilded } from './Awards'
-import { followerCount, followingOf, fmtCount } from '../lib/creators'
+import { followingOf, fmtCount, reachOf } from '../lib/creators'
 import { CommunityCard, useCreatorCommunities } from './Communities'
 import { useFollow } from '../screens/InnerCircle'
 import { mutualFriends } from '../lib/social'
@@ -29,7 +29,6 @@ export function PersonVinyl({ id }: { id: string }) {
   const creator = p?.creatorId ? creatorById[p.creatorId] : undefined
   const markers = usePersonMarkers(p)
   const profile = useProfile(id)
-  const followsCreator = useStore((s) => !!creator && s.follows.includes(creator.id))
   const sheet = useUI((s) => s.sheet)
   const close = () => useUI.getState().openPerson(null)
 
@@ -75,7 +74,11 @@ export function PersonVinyl({ id }: { id: string }) {
               </h1>
               {(p.location || creator) && (
                 <p className="plate__meta">
-                  {creator && <span>{fmtCount(followerCount(creator.id, followsCreator))} followers</span>}
+                  {creator && (
+                    <span title="Across every streaming platform, over a whole career · demo figures">
+                      {fmtCount(reachOf(creator.id).listeners)} listeners · {fmtCount(reachOf(creator.id).streams)} streams
+                    </span>
+                  )}
                   {p.location && (
                     <span>
                       <I.Pin size={13} /> {p.location}

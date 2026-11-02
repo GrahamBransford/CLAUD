@@ -12,10 +12,24 @@ export const followingOf = (creatorId: string) => {
     .map(([id]) => id)
 }
 
-export const followerCount = (creatorId: string, youFollow: boolean) => (creatorById[creatorId]?.followers ?? 0) + (youFollow ? 1 : 0)
 
 export const fmtCount = (n: number) =>
-  n >= 1e6 ? `${(n / 1e6).toFixed(1).replace(/\.0$/, '')}M` : n >= 1e4 ? `${(n / 1e3).toFixed(1).replace(/\.0$/, '')}k` : n.toLocaleString()
+  n >= 1e9
+    ? `${(n / 1e9).toFixed(1).replace(/\.0$/, '')}B`
+    : n >= 1e6
+      ? `${(n / 1e6).toFixed(1).replace(/\.0$/, '')}M`
+      : n >= 1e4
+        ? `${(n / 1e3).toFixed(1).replace(/\.0$/, '')}k`
+        : n.toLocaleString()
+
+/**
+ * A creator's reach, TikTok-style: everyone who has listened to them on any
+ * platform, and every stream across their whole career. Demo figures.
+ */
+export const reachOf = (creatorId: string) => {
+  const c = creatorById[creatorId]
+  return { listeners: c?.listeners ?? 0, streams: c?.lifetimeStreams ?? 0 }
+}
 
 /**
  * Whose taste is closest to yours, among creators: the same alignment used

@@ -14,6 +14,7 @@ import { useMediaSession } from '../hooks/useMediaSession'
 import { useItemError } from '../hooks/useRelationship'
 import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlayback'
 import { PODCAST_DESTINATION } from '../lib/streaming'
+import { followOnSave } from '../lib/follow'
 import { useStore } from '../store/useStore'
 import { tapWasUnlock, useUI } from '../store/useUI'
 import { entryAudio, radioQueue, type RadioEntry } from '../lib/radio'
@@ -37,8 +38,12 @@ export function useSaveEpisode() {
         unsave(ep.id)
         return
       }
-      if (save(ep.id, 'episode', via))
-        pushToast({ image: ep.artwork, title: `Saved to ${PODCAST_DESTINATION.name}`, detail: `${PODCAST_DESTINATION.list} · demo` })
+      const fresh = save(ep.id, 'episode', via)
+      // a save you chose also follows the show, on YouTube and on CIRCA
+      const followed = via !== 'listened' ? followOnSave(ep.creatorId, { id: 'youtube', name: PODCAST_DESTINATION.name }) : null
+      if (fresh)
+        pushToast({ image: ep.artwork, title: `Saved to ${PODCAST_DESTINATION.name}`, detail: `${followed ?? PODCAST_DESTINATION.list} · demo`, ms: followed ? 4200 : undefined })
+      else if (followed) pushToast({ image: ep.artwork, title: followed, detail: 'demo', ms: 3600 })
     },
     [save, unsave, pushToast],
   )

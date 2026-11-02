@@ -49,6 +49,8 @@ for (const c of lib.creators) {
     palette: c.palette,
     ...(c.style ? { style: c.style } : {}),
     ...(c.followers ? { followers: c.followers } : {}),
+    ...(c.listeners ? { listeners: c.listeners } : {}),
+    ...(c.lifetimeStreams ? { lifetimeStreams: c.lifetimeStreams } : {}),
     ...(c.channel ? { channel: { ...c.channel, platform: 'YouTube' } } : {}),
   })
   c.content.forEach((item, n) => {

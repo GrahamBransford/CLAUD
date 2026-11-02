@@ -117,7 +117,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 534000,
+      "lifetimeStreams": 37100000
     },
     {
       "id": "marisol-vega",
@@ -220,7 +222,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 1020000,
+      "lifetimeStreams": 67800000
     },
     {
       "id": "juniper-lowe",
@@ -298,7 +302,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 356000,
+      "lifetimeStreams": 18100000
     },
     {
       "id": "kairo-banks",
@@ -376,7 +382,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 660000,
+      "lifetimeStreams": 39900000
     },
     {
       "id": "nova-lin",
@@ -479,7 +487,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 1170000,
+      "lifetimeStreams": 110000000
     },
     {
       "id": "the-halyards",
@@ -582,7 +592,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 434000,
+      "lifetimeStreams": 28500000
     },
     {
       "id": "houston-we-have-a-podcast",
@@ -3049,7 +3061,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 1070000,
+      "lifetimeStreams": 19100000
     },
     {
       "id": "rocket-ranch",
@@ -3690,7 +3704,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 434000,
+      "lifetimeStreams": 13600000
     },
     {
       "id": "down-to-earth",
@@ -5231,7 +5247,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 223000,
+      "lifetimeStreams": 9300000
     },
     {
       "id": "nasa-science-live",
@@ -6218,7 +6236,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 435000,
+      "lifetimeStreams": 7770000
     },
     {
       "id": "dex-holloway",
@@ -6321,7 +6341,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 422000,
+      "lifetimeStreams": 34900000
     },
     {
       "id": "ines-moreau",
@@ -6424,7 +6446,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 574000,
+      "lifetimeStreams": 28500000
     },
     {
       "id": "arden-strings",
@@ -6527,7 +6551,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 322000,
+      "lifetimeStreams": 21300000
     },
     {
       "id": "sola",
@@ -6630,7 +6656,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 1310000,
+      "lifetimeStreams": 93500000
     },
     {
       "id": "salon-azul",
@@ -6733,7 +6761,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 370000,
+      "lifetimeStreams": 24300000
     },
     {
       "id": "canal-street-brass",
@@ -6811,7 +6841,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 489000,
+      "lifetimeStreams": 40400000
     },
     {
       "id": "lucia-paz",
@@ -6889,7 +6921,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 681000,
+      "lifetimeStreams": 57500000
     },
     {
       "id": "aurelio-fen",
@@ -6967,7 +7001,9 @@
             }
           }
         }
-      ]
+      ],
+      "listeners": 918000,
+      "lifetimeStreams": 69200000
     },
     {
       "id": "space-to-ground",
@@ -7288,7 +7324,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 664000,
+      "lifetimeStreams": 11100000
     },
     {
       "id": "whats-up",
@@ -7597,7 +7635,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 659000,
+      "lifetimeStreams": 14200000
     },
     {
       "id": "sciencecasts",
@@ -7840,7 +7880,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 225000,
+      "lifetimeStreams": 7460000
     },
     {
       "id": "gravity-assist",
@@ -8193,7 +8235,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 336000,
+      "lifetimeStreams": 12900000
     },
     {
       "id": "nasa-in-silicon-valley",
@@ -8904,7 +8948,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 123000,
+      "lifetimeStreams": 4600000
     },
     {
       "id": "nasa-explorers",
@@ -9789,7 +9835,9 @@
             }
           ]
         }
-      ]
+      ],
+      "listeners": 205000,
+      "lifetimeStreams": 4460000
     }
   ],
   "listening": {

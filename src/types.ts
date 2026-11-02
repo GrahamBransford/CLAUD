@@ -45,6 +45,10 @@ export interface Creator {
   catalogOnly?: boolean
   /** Followers on CIRCA (demo figure). */
   followers?: number
+  /** Distinct listeners across every streaming platform (demo figure). */
+  listeners?: number
+  /** Streams over the whole career, every platform (demo figure). */
+  lifetimeStreams?: number
   links?: { label: string; url: string }[]
   /** The full genre line, when `genre` is its short form. */
   genres?: string

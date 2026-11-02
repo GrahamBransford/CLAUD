@@ -82,7 +82,7 @@ Every colour comes from a vintage cabinet radio and gramophone, held back so it 
 
 The eight other listeners (`content/demo/people.json`) and their portraits are fictional demo data.
 
-**Saves** never stay in CIRCA: it's a funnel to the creators. Songs go to the streaming service chosen in settings (Spotify or Apple Music), and podcast episodes go to YouTube (Watch later), where the long form lives. All of these are demo connections that send nothing, and the toast says so. Swiping is the only visible save/skip control; screen readers get hidden buttons and keyboards the arrow keys.
+**Saves** never stay in CIRCA: it's a funnel to the creators. A save you choose (a swipe right, or Keep in Drive mode) also follows the creator, on the platform the save went to and on CIRCA, wherever you didn't already; saves made by listening all the way through don't. Songs go to the streaming service chosen in settings (Spotify or Apple Music), and podcast episodes go to YouTube (Watch later), where the long form lives. All of these are demo connections that send nothing, and the toast says so. Swiping is the only visible save/skip control; screen readers get hidden buttons and keyboards the arrow keys.
 
 **Drive** (car button) is audio-only with two stations, Radio (the same mixed running order) and Music, big controls and no moving video. Auto-save and the highlight→episode hand-off keep working.
 
@@ -94,6 +94,8 @@ Points per creator come from meaningful signals (`src/lib/affinity.ts`):
 minutes listened (1/min), full listens (8), coming back to something (5), saves (12), following (20), **shows attended (90)**, Inner Circle moments watched (3), reactions (1). Points become an **estimated** percentile against a modelled audience for that creator, which sets the tier and the position on your vinyl. Everything you do in the app moves creators; the demo also starts from a simulated listening history. **Percentiles are estimates, not verified rankings,** and the UI says so.
 
 To demo the top tier: open My Vinyl, tap Ellis Rae → **Went to a show**. He crosses into the Top 1% and the reward card unlocks.
+
+**Reach, not followers.** A creator's page shows two figures, TikTok-style: **listeners**, everyone who has listened to them on any streaming platform, and **lifetime streams**, every stream across their whole career and every platform. Both are demo figures in `content/real/library.json` (`listeners`, `lifetimeStreams`), labelled as such in the app.
 
 ## Creators and media: one library file
 

@@ -13,6 +13,8 @@ interface PersistedState {
   offered: string[] | null
   saved: SavedItem[]
   follows: string[]
+  /** Follows made on the listener's other platforms (`spotify:id`, `youtube:id`), as CIRCA knows them. */
+  platformFollows: string[]
   /** Engagement recorded inside CIRCA, per creator. */
   signals: Record<string, Signals>
   /** How many times each song/episode has been played (for repeat listening). */
@@ -52,6 +54,8 @@ interface PersistedState {
   unsave: (id: string) => void
   isSaved: (id: string) => boolean
   toggleFollow: (creatorId: string) => boolean
+  /** Follow on CIRCA and on `platform`, where not already: says which were new. */
+  followEverywhere: (creatorId: string, platform: string) => { circa: boolean; platform: boolean }
   /** A play of an item: minutes heard, and whether it was heard through. */
   recordListen: (creatorId: string, itemId: string, seconds: number, completed: boolean) => void
   recordConcert: (creatorId: string) => void
@@ -80,6 +84,7 @@ const initial = () => ({
   offered: null as string[] | null,
   saved: [] as SavedItem[],
   follows: [] as string[],
+  platformFollows: [] as string[],
   signals: {} as Record<string, Signals>,
   heard: {} as Record<string, number>,
   reacted: [] as string[],
@@ -147,6 +152,19 @@ export const createStore = (set: string) =>
             follows: following ? st.follows.filter((f) => f !== creatorId) : [...st.follows, creatorId],
           }))
           return !following
+        },
+
+        followEverywhere: (creatorId, platform) => {
+          const key = `${platform}:${creatorId}`
+          const st = get()
+          const circa = !st.follows.includes(creatorId)
+          const there = !(st.platformFollows ?? []).includes(key)
+          if (circa || there)
+            setState((s) => ({
+              follows: circa ? [...s.follows, creatorId] : s.follows,
+              platformFollows: there ? [...(s.platformFollows ?? []), key] : (s.platformFollows ?? []),
+            }))
+          return { circa, platform: there }
         },
 
         recordListen: (creatorId, itemId, seconds, completed) =>

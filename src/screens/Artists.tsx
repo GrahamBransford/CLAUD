@@ -13,6 +13,7 @@ import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlaybac
 import type { PlayerLike } from '../lib/players'
 import { PROVIDERS } from '../lib/streaming'
 import { songWindow } from '../lib/snippet'
+import { followOnSave } from '../lib/follow'
 import { useBackgroundStation } from '../lib/background'
 import { songAudio } from '../lib/radio'
 import { useKnownDuration } from '../hooks/useKnownDuration'
@@ -37,10 +38,17 @@ export function useSaveSong() {
   const pushToast = useUI((s) => s.pushToast)
   return useCallback(
     (song: Song, via: SaveMethod) => {
-      if (!save(song.id, 'song', via)) return false
+      const fresh = save(song.id, 'song', via)
       const provider = PROVIDERS[streaming ?? 'spotify']
-      pushToast({ image: song.artwork, title: `Saved to ${provider.name}`, detail: `${provider.playlistFor(song)} · demo` })
-      return true
+      // a save you chose (not one made by listening through) also follows the artist
+      const followed = via !== 'listened' ? followOnSave(song.creatorId, provider) : null
+      if (!fresh && !followed) return false
+      pushToast(
+        fresh
+          ? { image: song.artwork, title: `Saved to ${provider.name}`, detail: `${followed ?? provider.playlistFor(song)} · demo`, ms: followed ? 4200 : undefined }
+          : { image: song.artwork, title: followed!, detail: 'demo', ms: 3600 },
+      )
+      return fresh
     },
     [save, streaming, pushToast],
   )
