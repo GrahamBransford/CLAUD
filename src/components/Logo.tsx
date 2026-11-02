@@ -95,8 +95,9 @@ export function Splash({ onDone }: { onDone: () => void }) {
       t(1500, () => {
         // Where the C lives: the tonearm's pivot on your vinyl, when that's the page you open on;
         // otherwise the Home record in the bar, which is where your vinyl is.
-        const arm = document.querySelector<HTMLElement>('.view[data-active] .hifi__settings .record-c')
-        const el = arm ?? document.querySelector<HTMLElement>('.tab--vinyl .tab__disc')
+        // the C on this page: the tonearm's cap at home, the top-right corner on a feed
+        const arm = document.querySelector<HTMLElement>('.view[data-active] .hifi__settings .record-c, .view[data-active] .topbar__logo .record-c')
+        const el = (arm && arm.getBoundingClientRect().width > 0 ? arm : null) ?? document.querySelector<HTMLElement>('.tab[aria-current="page"] .tab__disc')
         const r = el?.getBoundingClientRect()
         setGeo((g) => (g && r ? { ...g, rects: measure(), target: { cx: r.left + r.width / 2, cy: r.top + r.height / 2, size: r.width } } : g))
         setPhase('fly')

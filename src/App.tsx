@@ -27,8 +27,8 @@ const fromHash = (): RouteId => {
   const h = window.location.hash.replace('#', '')
   if (h === 'home') return 'vinyl' // earlier links
   if (h === 'podcasts') return 'radio' // podcasts now play on the Radio
-  // opening the app lands on Home, where the intro's C clicks into the tonearm
-  return ROUTES.includes(h as RouteId) ? (h as RouteId) : 'vinyl'
+  // opening the app lands on the Radio; the intro's C clicks into its corner
+  return ROUTES.includes(h as RouteId) ? (h as RouteId) : 'radio'
 }
 
 export default function App() {

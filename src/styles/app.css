@@ -5424,10 +5424,12 @@ button:active:not(:disabled),
   }
 }
 /* the intro: the C on the arm waits until the flying one has landed, then takes over */
-.hifi__settings .record-c {
+.hifi__settings .record-c,
+.topbar__logo .record-c {
   transition: opacity 0.3s ease-out;
 }
-.is-intro .hifi__settings .record-c {
+.is-intro .hifi__settings .record-c,
+.is-intro .topbar__logo .record-c {
   opacity: 0;
   transition: none;
 }
@@ -6361,5 +6363,11 @@ a.row-link { text-decoration: none; color: inherit; }
   .hifi__record .face-marker {
     min-width: 40px;
     min-height: 40px;
+  }
+}
+@media (min-width: 900px) {
+  /* desktop: the rail carries the logo on every page, so the feeds' corner C stands down */
+  .topbar .topbar__logo {
+    display: none;
   }
 }
