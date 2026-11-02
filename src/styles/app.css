@@ -6587,7 +6587,7 @@ a.row-link { text-decoration: none; color: inherit; }
 }
 .tour__corner {
   position: absolute;
-  top: calc(env(safe-area-inset-top, 0px) + 14px);
+  top: calc(var(--safe-t, 0px) + 14px);
   right: 14px;
   z-index: 5;
   display: inline-flex;

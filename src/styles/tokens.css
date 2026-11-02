@@ -73,6 +73,14 @@
   --safe-r: env(safe-area-inset-right, 0px);
 }
 
+/* iOS 26 home-screen app: the system softly blurs a band that runs a little
+   below the status bar, so anything pinned to the top starts clear of it */
+@media (display-mode: standalone), (display-mode: fullscreen) {
+  :root {
+    --safe-t: calc(env(safe-area-inset-top, 0px) + 16px);
+  }
+}
+
 @media (min-width: 900px) {
   :root {
     --tab-h: 0px;
