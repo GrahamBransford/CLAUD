@@ -122,7 +122,7 @@ const STEPS: Step[] = [
     route: 'vinyl',
     target: '.view[data-active] .hifi__settings',
     round: true,
-    title: 'Made for the road, too',
+    title: 'Made for the road',
     body: 'Behind the C: your account, and Drive mode. Hands-free, big controls, audio only, so CIRCA goes with you in the car.',
   },
 ]
