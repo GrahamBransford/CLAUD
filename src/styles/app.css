@@ -16,6 +16,16 @@ body,
   margin: 0;
   padding: 0;
 }
+/* iOS 26 home-screen app: the page is laid out one status bar shorter than
+   the screen, and nothing is drawn below that line (WebKit bug 301108). A
+   page at least as tall as the screen gets the full height. Capped at the
+   status bar's height, because with an opaque status bar 100lvh can overshoot
+   (WebKit bug 316008). Browser tabs never match this query. */
+@media (display-mode: standalone), (display-mode: fullscreen) {
+  html {
+    min-height: min(100lvh, calc(100% + env(safe-area-inset-top, 0px)));
+  }
+}
 html {
   background: var(--espresso);
   color-scheme: dark;

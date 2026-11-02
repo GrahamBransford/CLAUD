@@ -4,7 +4,7 @@
   "description": "A new kind of radio for music, conversations and the people who make them.",
   "start_url": "./",
   "scope": "./",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "background_color": "#07120d",
   "theme_color": "#07120d",
