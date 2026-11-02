@@ -6228,7 +6228,7 @@ a.row-link { text-decoration: none; color: inherit; }
   left: calc(10px + var(--safe-l, 0px));
   right: calc(10px + var(--safe-r, 0px));
   top: calc(10px + var(--safe-t, 0px));
-  bottom: calc(var(--tab-h, 74px) + 10px - var(--fill, 0px));
+  bottom: calc(var(--tab-h, 74px) + 10px);
   pointer-events: none;
 }
 .mini {
@@ -6829,16 +6829,4 @@ a.row-link { text-decoration: none; color: inherit; }
   .tour__primary {
     height: 44px;
   }
-}
-
-/* full-screen layers reach the real bottom edge when iOS lays the page out
-   a status bar short (home-screen app); --fill is 0 everywhere else */
-.app,
-.splash,
-.person,
-.sheet-root,
-.episode,
-.drive,
-.tour {
-  bottom: calc(0px - var(--fill, 0px));
 }

@@ -3,7 +3,6 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNo
 import { RecordC } from './Logo'
 import * as I from './Icons'
 import { tick } from '../lib/haptics'
-import { layerHeight } from '../lib/viewport'
 
 /**
  * The first-run tour, Instagram-style: a welcome, then a spotlight that moves
@@ -309,7 +308,7 @@ function Ghost({ rect }: { rect: DOMRect }) {
 
 function Card({ step, index, rect, onNext }: { step: Step; index: number; rect: DOMRect; onNext: () => void }) {
   const vw = window.innerWidth
-  const vh = layerHeight()
+  const vh = window.innerHeight
   const w = Math.min(340, vw - 32)
   // beside the lit thing when there's room (the desktop rail, a big record), else above or below it,
   // and over it, near the bottom, when it fills the screen
