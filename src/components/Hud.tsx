@@ -1,27 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import * as I from './Icons'
 import { useCallback, useRef, useState } from 'react'
-import { useUI } from '../store/useUI'
-
-/**
- * The feeds keep their corners clear for the work: only the sound-off badge,
- * top right, until sound is on. (The C lives on your vinyl, on the tonearm;
- * Settings and Drive mode are behind it.)
- */
-export function TopBar() {
-  const unlocked = useUI((s) => s.audioUnlocked)
-  return (
-    <div className="topbar">
-      <span className="topbar__right">
-        {!unlocked && (
-          <button className="topbar__btn" onClick={() => useUI.getState().unlockAudio()} aria-label="Turn sound on">
-            <I.Muted size={19} />
-          </button>
-        )}
-      </span>
-    </div>
-  )
-}
 
 export function useTapFlash() {
   const [state, setState] = useState<{ kind: 'play' | 'pause'; n: number } | null>(null)

@@ -86,6 +86,7 @@ for (const c of lib.creators) {
         ...(media.kind === 'video' ? { audio: { kind: 'audio', src: media.src } } : {}),
         ...(item.duration ? { duration: item.duration } : {}),
         highlight: item.highlight,
+        ...(item.cues?.length ? { cues: item.cues } : {}),
         display,
       })
     else if (item.role === 'innerCircle')

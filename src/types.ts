@@ -146,7 +146,7 @@ export interface ContentSet {
   /** Where every piece of footage and music comes from, and its licence. */
   credits?: Credit[]
   /** What the creators themselves listen to: their own vinyls. */
-  creatorVinyls?: Record<string, { points: Record<string, number>; experiences: Omit<Experience, 'id'>[] }>
+  creatorVinyls?: Record<string, { points: Record<string, number>; experiences: Omit<Experience, 'id'>[]; favorites?: string[] }>
 }
 
 export interface CreditSource {
@@ -236,6 +236,8 @@ export interface Person {
   creatorId?: string
   /** What they've earned or do: hosting, industry roles, top-listener status. */
   awards?: Award[]
+  /** Creators they've starred: shown on their vinyl for everyone, as yours is. */
+  favorites?: string[]
 }
 
 export type SaveMethod = 'swipe' | 'button' | 'listened'

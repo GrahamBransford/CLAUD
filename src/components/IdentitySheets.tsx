@@ -115,7 +115,7 @@ export function ProfileSheet() {
             )
           })}
         </div>
-        <p className="settings__fine">Favourites wear a spark on your vinyl.</p>
+        <p className="settings__fine">Favourites wear a star on your vinyl, for everyone who opens it.</p>
         <button className="pill pill--cherry form__done" onClick={done}>
           Done
         </button>

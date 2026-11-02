@@ -29,7 +29,7 @@ export function usePersonMarkers(p: Person | undefined): Marker[] {
     const live = liveCreators(p.experiences)
     return vinylOf(p).slice(0, ON_RECORD).map((r) => {
       const c = creatorById[r.creatorId]
-      return { id: r.creatorId, name: c.name, avatar: c.avatar, top: r.top, tier: r.tier.id, live: live.has(r.creatorId), shared: (mine[r.creatorId] ?? 0) > 0 }
+      return { id: r.creatorId, name: c.name, avatar: c.avatar, top: r.top, tier: r.tier.id, live: live.has(r.creatorId), shared: (mine[r.creatorId] ?? 0) > 0, favorite: !!p.favorites?.includes(r.creatorId) }
     })
   }, [p, mine])
 }

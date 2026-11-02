@@ -47,7 +47,8 @@ const OUTER_R = 46 // outermost groove
 const ringR = (f: number) => RUNOUT_R + 1.5 + f * (OUTER_R - RUNOUT_R - 3)
 /** Track gaps sit on the tier boundaries: each band of the record is a tier. */
 const GAPS = BANDS.slice(1, -1).map((t) => ringR(bandRadius(t)))
-const SIZE: Record<TierId, number> = { top1: 15.5, inner: 14, devoted: 13, regular: 12, discovered: 12 }
+/** Closer to the centre, bigger: a face's size follows how close it sits, not just its tier. */
+const sizeFor = (f: number) => 16.8 - f * 5.6
 
 const hashAngle = (id: string) => {
   let h = 0
@@ -56,9 +57,10 @@ const hashAngle = (id: string) => {
 }
 
 function place(list: Marker[]) {
-  const out: (Marker & { x: number; y: number; size: number })[] = []
+  const out: (Marker & { x: number; y: number; size: number; close: number })[] = []
   for (const m of [...list].sort((a, b) => a.top - b.top)) {
-    const r = ringR(bandRadius(m.top))
+    const f = bandRadius(m.top)
+    const r = ringR(f)
     let a = hashAngle(m.id)
     for (let k = 0; k < 36; k++) {
       const x = 50 + Math.cos(a) * r
@@ -66,7 +68,7 @@ function place(list: Marker[]) {
       if (out.every((o) => Math.hypot(o.x - x, o.y - y) > 14)) break
       a += 0.61
     }
-    out.push({ ...m, x: 50 + Math.cos(a) * r, y: 50 + Math.sin(a) * r, size: SIZE[m.tier] })
+    out.push({ ...m, x: 50 + Math.cos(a) * r, y: 50 + Math.sin(a) * r, size: sizeFor(f), close: Math.round((1 - f) * 100) / 100 })
   }
   return out
 }
@@ -279,7 +281,7 @@ export function Turntable({ markers, owner, etching, spinning, onMarker, childre
               <button
                 key={p.id}
                 className={`face-marker ${p.faint ? 'is-faint' : ''} ${p.tier === 'top1' ? 'is-centre' : ''} ${p.shared ? 'is-shared' : ''}`}
-                style={{ left: `${p.x}%`, top: `${p.y}%`, width: `${p.size}%` }}
+                style={{ left: `${p.x}%`, top: `${p.y}%`, width: `${p.size}%`, '--close': p.close } as React.CSSProperties}
                 onClick={() => onMarker(p.id)}
                 aria-label={p.name}
               >

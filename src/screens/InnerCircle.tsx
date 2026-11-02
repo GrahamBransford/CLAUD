@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, type PanInfo } from 'framer-motion'
 import * as I from '../components/Icons'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
+import { TapFlash, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
 import { MediaSurface, Prefetch } from '../components/MediaSurface'
 import { creatorById, creators, innerCircle } from '../data'
@@ -89,7 +89,6 @@ export function InnerCircle({ active }: { active: boolean }) {
         </motion.div>
       </AnimatePresence>
       <Prefetch source={feed[i + 1]?.post.media} />
-      <TopBar />
     </section>
   )
 }
@@ -133,8 +132,13 @@ function Moment({ post, index, active, onEnded }: { post: InnerCirclePost; index
     p.addEventListener('ended', onEnd)
     if (active) {
       claimAudioFocus(p)
-      p.muted = !useUI.getState().audioUnlocked
-      p.play().catch(() => setPlaying(false))
+      // with sound whenever the browser allows; silently otherwise, until the first touch
+      p.muted = false
+      p.play().catch((e: Error) => {
+        if (e?.name !== 'NotAllowedError') return
+        p.muted = true
+        p.play().catch(() => setPlaying(false))
+      })
     } else p.pause()
     return () => {
       p.removeEventListener('play', onPlay)

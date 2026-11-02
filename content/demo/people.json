@@ -125,6 +125,10 @@
      "title": "Tastemaker",
      "detail": "Had Ellis Rae on their vinyl before 1,000 others did"
     }
+   ],
+   "favorites": [
+    "ellis-rae",
+    "marisol-vega"
    ]
   },
   {
@@ -197,6 +201,10 @@
      "title": "A&R, Blue Hour Records",
      "detail": "Signs and develops artists · self-reported"
     }
+   ],
+   "favorites": [
+    "kairo-banks",
+    "marisol-vega"
    ]
   },
   {
@@ -263,6 +271,10 @@
      "title": "Top 1% of listeners, 2026",
      "detail": "More minutes than 99% of CIRCA listeners worldwide this year"
     }
+   ],
+   "favorites": [
+    "nova-lin",
+    "the-halyards"
    ]
   },
   {
@@ -329,6 +341,10 @@
      "detail": "Organises pre-show meet-ups for Front Left",
      "communityId": "cm-10"
     }
+   ],
+   "favorites": [
+    "juniper-lowe",
+    "canal-street-brass"
    ]
   },
   {
@@ -393,6 +409,10 @@
      "title": "Founding listener",
      "detail": "On CIRCA since the first month"
     }
+   ],
+   "favorites": [
+    "houston-we-have-a-podcast",
+    "down-to-earth"
    ]
   },
   {
@@ -450,6 +470,10 @@
      "title": "Founding listener",
      "detail": "On CIRCA since the first month"
     }
+   ],
+   "favorites": [
+    "the-halyards",
+    "sola"
    ]
   },
   {
@@ -529,6 +553,10 @@
      "detail": "Runs the Night Shift Cypher in Bushwick",
      "communityId": "cm-8"
     }
+   ],
+   "favorites": [
+    "kairo-banks",
+    "sola"
    ]
   },
   {
@@ -602,6 +630,10 @@
      "title": "Radio producer",
      "detail": "Produces a late-night music show in Stockholm · self-reported"
     }
+   ],
+   "favorites": [
+    "nova-lin",
+    "aurelio-fen"
    ]
   }
  ],
@@ -857,6 +889,9 @@
      "place": "Governors Island",
      "year": 2024
     }
+   ],
+   "favorites": [
+    "nova-lin"
    ]
   },
   "juniper-lowe": {
@@ -874,6 +909,9 @@
      "place": "The Basement East",
      "year": 2024
     }
+   ],
+   "favorites": [
+    "nasa-science-live"
    ]
   },
   "nova-lin": {
@@ -896,6 +934,9 @@
      "place": "Music Hall of Williamsburg",
      "year": 2025
     }
+   ],
+   "favorites": [
+    "ellis-rae"
    ]
   },
   "kairo-banks": {
@@ -913,6 +954,9 @@
      "place": "Ronnie Scott's",
      "year": 2025
     }
+   ],
+   "favorites": [
+    "the-halyards"
    ]
   },
   "the-halyards": {
@@ -921,7 +965,10 @@
     "nasa-science-live": 1100,
     "ellis-rae": 200
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "nasa-science-live"
+   ]
   },
   "marisol-vega": {
    "points": {
@@ -931,7 +978,10 @@
     "houston-we-have-a-podcast": 260,
     "salon-azul": 520
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "rocket-ranch"
+   ]
   },
   "dex-holloway": {
    "points": {
@@ -941,7 +991,10 @@
     "aurelio-fen": 300,
     "gravity-assist": 140
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "salon-azul"
+   ]
   },
   "ines-moreau": {
    "points": {
@@ -951,7 +1004,10 @@
     "lucia-paz": 300,
     "whats-up": 120
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "arden-strings"
+   ]
   },
   "arden-strings": {
    "points": {
@@ -960,7 +1016,10 @@
     "nova-lin": 260,
     "sciencecasts": 120
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "ines-moreau"
+   ]
   },
   "sola": {
    "points": {
@@ -969,7 +1028,10 @@
     "ellis-rae": 300,
     "space-to-ground": 160
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "nova-lin"
+   ]
   },
   "salon-azul": {
    "points": {
@@ -978,7 +1040,10 @@
     "marisol-vega": 560,
     "houston-we-have-a-podcast": 140
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "dex-holloway"
+   ]
   },
   "canal-street-brass": {
    "points": {
@@ -987,7 +1052,10 @@
     "kairo-banks": 300,
     "juniper-lowe": 200
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "dex-holloway"
+   ]
   },
   "lucia-paz": {
    "points": {
@@ -996,7 +1064,10 @@
     "ellis-rae": 300,
     "whats-up": 180
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "juniper-lowe"
+   ]
   },
   "aurelio-fen": {
    "points": {
@@ -1005,7 +1076,10 @@
     "marisol-vega": 320,
     "nasa-science-live": 140
    },
-   "experiences": []
+   "experiences": [],
+   "favorites": [
+    "ines-moreau"
+   ]
   }
  },
  "communities": [

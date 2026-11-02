@@ -46,15 +46,20 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
-  // The first touch anywhere turns the sound on.
+  // Sound is on from the start wherever the browser allows. Where it doesn't, the first touch of any
+  // kind (a tap, a swipe, a scroll, a key) turns it on, inside the touch itself, as phones require.
   useEffect(() => {
-    const unlock = () => unlockAudio()
-    window.addEventListener('pointerdown', unlock, { once: true, capture: true })
-    window.addEventListener('keydown', unlock, { once: true })
-    return () => {
-      window.removeEventListener('pointerdown', unlock, { capture: true })
-      window.removeEventListener('keydown', unlock)
+    const events = ['pointerdown', 'touchend', 'click', 'keydown', 'wheel'] as const
+    const unlock = () => {
+      document.querySelectorAll<HTMLMediaElement>('video, audio').forEach((m) => {
+        if (m.classList.contains('prefetch')) return
+        m.muted = false
+      })
+      unlockAudio()
+      events.forEach((t) => window.removeEventListener(t, unlock, { capture: true }))
     }
+    events.forEach((t) => window.addEventListener(t, unlock, { capture: true, passive: true }))
+    return () => events.forEach((t) => window.removeEventListener(t, unlock, { capture: true }))
   }, [unlockAudio])
 
   const go = (r: RouteId) => {

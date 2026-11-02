@@ -6402,3 +6402,43 @@ a.row-link { text-decoration: none; color: inherit; }
     drop-shadow(0 1px 0 rgba(0, 0, 0, 0.7))
     drop-shadow(0 0 3px rgba(244, 226, 180, 0.28));
 }
+
+/* ---- podcasts: Full episode appears above the picture when paused ---- */
+.reel__frame .frame__full {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 14px);
+  translate: -50% 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: #1b130c;
+  background: linear-gradient(180deg, #ecd9b4, #c9a46a);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 248, 230, 0.7);
+  pointer-events: auto;
+  z-index: 3;
+}
+
+/* ---- closeness on the record: nearer the centre, bigger, with a thicker bronze bezel and a
+   soft bronze halo; out at the edge, smaller, a hairline bezel, the colour a touch quieter ---- */
+.hifi__faces .face-marker:not(.is-faint) img {
+  padding: calc(2.6% + var(--close, 0.5) * 6.4%);
+  background: linear-gradient(145deg, #f0dcb4 0%, #c9a46a 38%, #9c7840 70%, #6e5228 100%);
+  filter: saturate(calc(0.72 + var(--close, 0.5) * 0.3)) brightness(calc(0.86 + var(--close, 0.5) * 0.16)) contrast(1.04);
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.8),
+    0 0 calc(var(--close, 0.5) * 1.6cqw) calc(var(--close, 0.5) * 0.25cqw) rgba(214, 170, 120, calc(var(--close, 0.5) * 0.55)),
+    0 0.5cqw 1.2cqw rgba(0, 0, 0, 0.55);
+}
+.hifi__faces .face-marker.is-shared:not(.is-faint) img {
+  background: linear-gradient(145deg, #f3dccd, #c49c84 50%, #86604c);
+}

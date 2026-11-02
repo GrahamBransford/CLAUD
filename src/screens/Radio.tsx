@@ -1,9 +1,9 @@
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import * as I from '../components/Icons'
 import { useCallback, useEffect, useState } from 'react'
 import { usePinch } from '../lib/pinch'
 import { Dial } from '../components/Dial'
-import { TapFlash, TopBar, useTapFlash } from '../components/Hud'
+import { TapFlash, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
 import { MediaSurface, Prefetch } from '../components/MediaSurface'
 import type { CSSProperties } from 'react'
@@ -251,6 +251,21 @@ export function Radio({ active }: { active: boolean }) {
           ) : ep && video ? (
             // the picture sits dead centre, with its subtitles on it like television
             <div className="reel__frame">
+              {/* pause, and the way into the whole conversation appears above the picture */}
+              <AnimatePresence>
+                {!pb.playing && (
+                  <motion.button
+                    key="full"
+                    className="frame__full"
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0, transition: { duration: 0.22 } }}
+                    exit={{ opacity: 0, y: 4, transition: { duration: 0.16 } }}
+                    onClick={(e) => { e.stopPropagation(); full() }}
+                  >
+                    <I.Expand size={15} /> Full episode
+                  </motion.button>
+                )}
+              </AnimatePresence>
               <MediaSurface source={ep.media} start={ep.highlight.start} className="reel__media" poster={ep.artwork} onPlayer={player.onPlayer} onError={setError} />
               {!embed && <Caption cues={ep.cues} time={ep.highlight.start + pb.time} />}
             </div>
@@ -276,8 +291,8 @@ export function Radio({ active }: { active: boolean }) {
               <span className="rail__label" aria-hidden>Full song</span>
             </div>
           )}
-          {ep && (
-            // the long form, quietly to one side
+          {ep && !video && (
+            // audio-only episodes keep a quiet way in to one side
             <div className="rail rail--full">
               <button className="rail__btn" onClick={(e) => { e.stopPropagation(); full() }} aria-label="Full episode">
                 <I.Expand size={22} />
@@ -290,13 +305,13 @@ export function Radio({ active }: { active: boolean }) {
       </AnimatePresence>
 
       <Prefetch source={(() => { const n = queue[index + 1]; return n ? (n.kind === 'song' ? n.song.media : n.ep.media) : undefined })()} />
-      <TopBar />
       <TapFlash state={flash.state} />
 
       {/* Swipe is the control; these stay for screen readers and switch access. */}
       <div className="sr-only">
         <button onClick={() => onMove('save')} aria-pressed={isSaved}>Save</button>
         <button onClick={() => onMove('skip')}>Skip</button>
+        {ep && <button onClick={full}>Full episode</button>}
       </div>
 
       <div className="scrubber">

@@ -67,11 +67,14 @@ export function useWindowedPlayback({ ref, itemKey, start, end, autoplay, active
       listened.current = 0
     }
     claimAudioFocus(el)
-    // muted autoplay is always allowed; sound follows the first touch
-    el.muted = !useUI.getState().audioUnlocked
+    // always try with sound; only if the browser insists does it start silent (the first touch turns it up)
+    el.muted = false
     const p = el.play()
     if (p)
-      p.then(() => setBlocked(false)).catch((e: Error) => {
+      p.then(() => {
+        setBlocked(false)
+        if (!el.muted) useUI.getState().unlockAudio()
+      }).catch((e: Error) => {
         // a play cut short by a newer pause or play isn't a refusal; only a real autoplay block is
         if (e?.name === 'AbortError') return
         if (e?.name === 'NotAllowedError' && !el.muted) {

@@ -64,7 +64,7 @@ function Mini({ m }: { m: MiniItem }) {
   }, [m.time])
 
   useEffect(() => {
-    if (video.current) video.current.muted = !unlocked
+    if (video.current && unlocked) video.current.muted = false
   }, [unlocked])
 
   const toggle = () => {
@@ -114,7 +114,6 @@ function Mini({ m }: { m: MiniItem }) {
           poster={m.poster}
           playsInline
           autoPlay
-          muted={!unlocked}
           loop={m.kind === 'moment'}
           preload="auto"
           onPlay={() => setPaused(false)}

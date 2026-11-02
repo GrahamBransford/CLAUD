@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Dial } from '../components/Dial'
 import { MediaSurface, Prefetch } from '../components/MediaSurface'
 import { Reel, type Move } from '../components/Reel'
-import { TopBar, TapFlash, useTapFlash } from '../components/Hud'
+import { TapFlash, useTapFlash } from '../components/Hud'
 import { RecordC } from '../components/Logo'
 import { creatorById, songs } from '../data'
 import { useKeys } from '../hooks/useKeys'
@@ -196,7 +196,6 @@ export function Artists({ active }: { active: boolean }) {
         </Reel>
       </AnimatePresence>
 
-      <TopBar />
       <TapFlash state={flash.state} />
       <Prefetch source={songs[index + 1]?.media} />
 

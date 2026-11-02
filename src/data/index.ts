@@ -136,6 +136,7 @@ export async function loadContent(): Promise<void> {
             points: v.points,
             experiences: v.experiences.map((x, i) => ({ ...x, id: `x-${id}-${i}` })),
             friends: [],
+            favorites: v.favorites ?? [],
           } satisfies Person,
         ]
       }),
