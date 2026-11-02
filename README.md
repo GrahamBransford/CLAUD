@@ -103,7 +103,7 @@ To demo the top tier: open My Vinyl, tap Ellis Rae → **Went to a show**. He cr
 
 **Front Row ($49 a year).** In Settings, a card that stands out: choose up to five creators, and whenever one of them announces dates you're guaranteed presale access. Members see **Presale** in place of Tickets on those creators' dates, and everyone else gets a quiet "add them to Front Row" under the dates. A demo membership: nothing is charged.
 
-**About CIRCA.** Settings says what CIRCA is (built by creators, for the people who make what you listen to) and what it stands for: no AI, ever; creators paid properly (one 10-second ad every 10 minutes); credit where it's due; your taste, your call; real people, real places.
+**Settings**, behind the C, runs: Drive mode, Front Row, where saves go, the tour, then **About CIRCA**, which says what CIRCA is (built by creators, for the people who make what you listen to) and what it stands for: no AI, ever; creators paid properly (one 10-second ad every 10 minutes); credit where it's due; your taste, your call; real people, real places.
 
 **Inner Circle comments are for the closest listeners.** Anyone can read the conversation under a moment, but only a creator's top 20% of listeners (by CIRCA's own closeness ranking) can add to it. Everyone else sees why, how close they are now, and how to get there.
 

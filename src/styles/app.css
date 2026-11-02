@@ -7371,3 +7371,10 @@ a.row-link { text-decoration: none; color: inherit; }
   line-height: 1.45;
   color: var(--fg-3);
 }
+.about .row-link {
+  margin-top: 14px;
+}
+/* a long name in a narrow readout gets a third line rather than losing its end */
+.hifi__front .readout__who strong.is-long {
+  -webkit-line-clamp: 3;
+}
