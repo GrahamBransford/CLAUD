@@ -435,7 +435,7 @@ function Finale({ onDone }: { onDone: () => void }) {
                 <path d="M9.9 26.1 26.1 9.9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
               </svg>
             } title="No AI. Ever." text="Every song, show and recommendation comes from people and from what you actually play. Nothing is generated." />
-          <Pillar icon={<span className="tour__free">$0</span>} title="Free, with one ad every 30 minutes" text="That one ad is how the creators you love get paid properly, not fractions of a cent per play." />
+          <Pillar icon={<span className="tour__free">$0</span>} title="Free, with a 10-second ad every 10 minutes" text="Those short ads are how the creators you love get paid properly, not fractions of a cent per play." />
           <Pillar icon={<I.People size={18} />} title="Real people, real places" text="Communities, shows and friends who share your taste. Your vinyl is yours to show." />
         </ul>
         <button className="tour__primary" onClick={onDone}>

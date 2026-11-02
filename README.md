@@ -24,7 +24,7 @@ The app opens with a short brand animation (the two Cs of CIRCA are records), th
 
 ### First run: the tour
 
-The first time CIRCA opens, a short tour follows the intro, Instagram-style, on the real, live app (videos keep playing behind it). A welcome card says simply **Your new radio.**, over three promises: real community, for creatives by creatives, effortless even while driving. Then a spotlight moves across the app with a short card for each thing: the Radio and its three swipes (a ghost thumb shows them), the people behind every credit, Music, pinch-to-float, Inner Circle, your vinyl and what closeness means, your photo at the record's centre (your profile, favourites, and who's on your vinyl or in your stats), friends, communities, and Drive mode behind the C. At a few moments you tap the real control yourself to carry on. It ends on what CIRCA stands for: **no AI, ever**; **free, with one ad every 30 minutes** so creators get paid properly; and real people in real places. A quiet **Skip intro** pill sits in the top corner the whole way through (and Esc works on a keyboard), for anyone who would rather find their own way; replay it from Settings, **Take the tour**. It's remembered per device.
+The first time CIRCA opens, a short tour follows the intro, Instagram-style, on the real, live app (videos keep playing behind it). A welcome card says simply **Your new radio.**, over three promises: real community, for creatives by creatives, effortless even while driving. Then a spotlight moves across the app with a short card for each thing: the Radio and its three swipes (a ghost thumb shows them), the people behind every credit, Music, pinch-to-float, Inner Circle, your vinyl and what closeness means, your photo at the record's centre (your profile, favourites, and who's on your vinyl or in your stats), friends, communities, and Drive mode behind the C. At a few moments you tap the real control yourself to carry on. It ends on what CIRCA stands for: **no AI, ever**; **free, with a 10-second ad every 10 minutes** so creators get paid properly; and real people in real places. A quiet **Skip intro** pill sits in the top corner the whole way through (and Esc works on a keyboard), for anyone who would rather find their own way; replay it from Settings, **Take the tour**. It's remembered per device.
 
 ### Playback
 
@@ -49,7 +49,7 @@ Finding your people is the point. Every creator can have communities: ones they 
 ### Where this is going (not built in the prototype)
 
 - An AI that matches people to the creator communities that fit them best, online and in real life, including local communities around a genre or an artist you've just found.
-- Free to listen, because it's a radio: sponsored songs, podcasts and a single, conscious ad every 15 to 30 minutes, never enough to bend anyone's own tailoring.
+- Free to listen, because it's a radio: sponsored songs, podcasts and one 10-second ad every 10 minutes (more chances to earn for creators, and a better fit for how long people listen in one go), never enough to bend anyone's own tailoring.
 - A premium home for the music that matters to you, alongside the playlists people keep elsewhere: favourite artists, the songs you keep because they mean something.
 - Human creativity first: AI for the engineering, never in place of the art.
 - Hands-free discovery: abbreviated music and conversations you can take in while driving, through a legal car mode (Drive), where scrolling a video feed isn't possible.
@@ -103,7 +103,7 @@ To demo the top tier: open My Vinyl, tap Ellis Rae → **Went to a show**. He cr
 
 **Front Row ($49 a year).** In Settings, a card that stands out: choose up to five creators, and whenever one of them announces dates you're guaranteed presale access. Members see **Presale** in place of Tickets on those creators' dates, and everyone else gets a quiet "add them to Front Row" under the dates. A demo membership: nothing is charged.
 
-**About CIRCA, and ways to support creators.** Settings says what CIRCA is (built by creators, for the people who make what you listen to) and what it stands for: no AI, ever; creators paid properly (one ad every 30 minutes); credit where it's due; your taste, your call; real people, real places. Then the ways to support a creator: save and follow, go to the show, buy their merch, listen all the way through, join their communities, keep the one ad.
+**About CIRCA.** Settings says what CIRCA is (built by creators, for the people who make what you listen to) and what it stands for: no AI, ever; creators paid properly (one 10-second ad every 10 minutes); credit where it's due; your taste, your call; real people, real places.
 
 **Inner Circle comments are for the closest listeners.** Anyone can read the conversation under a moment, but only a creator's top 20% of listeners (by CIRCA's own closeness ranking) can add to it. Everyone else sees why, how close they are now, and how to get there.
 

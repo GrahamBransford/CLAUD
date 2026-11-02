@@ -7189,7 +7189,7 @@ a.row-link { text-decoration: none; color: inherit; }
   justify-items: center;
 }
 
-/* ---- About CIRCA, and ways to support creators ---- */
+/* ---- About CIRCA ---- */
 .about {
   padding: 16px;
   border-radius: 16px;
@@ -7222,43 +7222,6 @@ a.row-link { text-decoration: none; color: inherit; }
   line-height: 1.45;
   color: var(--fg-3);
 }
-.support {
-  display: grid;
-  gap: 2px;
-  list-style: none;
-}
-.support li {
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 2px;
-  border-bottom: 1px solid rgba(220, 200, 156, 0.08);
-}
-.support__icon {
-  width: 36px;
-  height: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: var(--brass-hi, #dcc89c);
-  box-shadow: inset 0 0 0 1px rgba(220, 200, 156, 0.3);
-}
-.support li > span:last-child {
-  display: flex;
-  flex-direction: column;
-}
-.support strong {
-  font-size: 14.5px;
-  color: var(--fg);
-}
-.support em {
-  font-style: normal;
-  font-size: 13px;
-  line-height: 1.4;
-  color: var(--fg-3);
-}
-
 /* ---- a creator's own shows and merch, on their profile ---- */
 .shop {
   width: 100%;
