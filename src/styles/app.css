@@ -4388,17 +4388,9 @@ h2 {
   opacity: 0;
 }
 
-/* the feeds: the C in the top-right corner, exactly where it sits on the tonearm at home */
-.topbar .topbar__right {
-  align-items: center;
-}
+/* the feeds: no logo, just the sound badge in the corner (the C lives on Home) */
 .topbar .topbar__logo {
-  position: static;
-  width: 44px;
-  height: 44px;
-  margin-right: 6px;
-  display: grid;
-  place-items: center;
+  display: none;
 }
 
 /* ---------- the bar: records you can read at a glance ---------- */

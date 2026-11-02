@@ -2,12 +2,11 @@ import { AnimatePresence, motion } from 'framer-motion'
 import * as I from './Icons'
 import { useCallback, useRef, useState } from 'react'
 import { useUI } from '../store/useUI'
-import { RecordC } from './Logo'
 
 /**
- * The feeds keep their corners clear for the work: the C top right, in the
- * same place it sits on your vinyl's tonearm (tap it for Settings, where Drive
- * mode lives), and the sound-off badge beside it until sound is on.
+ * The feeds keep their corners clear for the work: only the sound-off badge,
+ * top right, until sound is on. (The C lives on your vinyl, on the tonearm;
+ * Settings and Drive mode are behind it.)
  */
 export function TopBar() {
   const unlocked = useUI((s) => s.audioUnlocked)
@@ -19,9 +18,6 @@ export function TopBar() {
             <I.Muted size={19} />
           </button>
         )}
-        <button className="topbar__logo" onClick={() => useUI.getState().openSheet({ kind: 'settings' })} aria-label="Settings">
-          <RecordC />
-        </button>
       </span>
     </div>
   )

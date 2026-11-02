@@ -93,12 +93,14 @@ export function Splash({ onDone }: { onDone: () => void }) {
         setPhase('merge')
       }),
       t(1500, () => {
-        // Where the C lives: the tonearm's pivot on your vinyl, when that's the page you open on;
-        // otherwise the Home record in the bar, which is where your vinyl is.
-        // the C on this page: the tonearm's cap at home, the top-right corner on a feed
-        const arm = document.querySelector<HTMLElement>('.view[data-active] .hifi__settings .record-c, .view[data-active] .topbar__logo .record-c')
-        const el = (arm && arm.getBoundingClientRect().width > 0 ? arm : null) ?? document.querySelector<HTMLElement>('.tab[aria-current="page"] .tab__disc')
-        const r = el?.getBoundingClientRect()
+        // Where the C lives: the tonearm's pivot on Home. On any other page it flies to that same
+        // corner (Home's C, measured as if Home were in view) and fades out there.
+        const home = document.querySelector<HTMLElement>('.view[data-route="vinyl"] .hifi__settings .record-c')
+        const view = home?.closest<HTMLElement>('.view')
+        const shift = view && view.parentElement ? view.getBoundingClientRect().left - view.parentElement.getBoundingClientRect().left : 0
+        const hr = home?.getBoundingClientRect()
+        const el = hr && hr.width > 0 ? null : document.querySelector<HTMLElement>('.tab--vinyl .tab__disc')
+        const r = el ? el.getBoundingClientRect() : hr ? new DOMRect(hr.left - shift, hr.top, hr.width, hr.height) : undefined
         setGeo((g) => (g && r ? { ...g, rects: measure(), target: { cx: r.left + r.width / 2, cy: r.top + r.height / 2, size: r.width } } : g))
         setPhase('fly')
       }),
@@ -146,7 +148,8 @@ export function Splash({ onDone }: { onDone: () => void }) {
               // it arrives a touch large and settles into the socket
               scale: { duration: 0.8, ease: [0.55, 0, 0.3, 1.45] },
             }
-          if (phase === 'gone' && isHero) transition = { duration: 0.3, ease: 'easeOut' }
+          // in its corner, it fades away (on Home the real C is underneath and takes over)
+          if (phase === 'gone' && isHero) transition = { duration: 0.45, ease: 'easeOut' }
           if ((phase === 'fly' || phase === 'gone') && !isHero) animate = { opacity: 0, ...toCentre, scale: 0.4 }
           return (
             <motion.span key={i} className="splash__ch" initial={{ opacity: 0, y: 18 }} animate={animate} transition={transition}>
