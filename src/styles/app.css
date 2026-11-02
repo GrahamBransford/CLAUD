@@ -97,7 +97,7 @@ h2 {
   top: 0;
   right: 0;
   left: var(--rail-w);
-  bottom: calc(var(--tab-h) + var(--safe-b));
+  bottom: calc(var(--tab-h) + var(--bar-b));
   overflow: hidden;
   background: var(--vinyl);
 }
@@ -240,8 +240,8 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  height: calc(var(--tab-h) + var(--safe-b));
-  padding: 0 calc(8px + var(--safe-r)) var(--safe-b) calc(8px + var(--safe-l));
+  height: calc(var(--tab-h) + var(--bar-b));
+  padding: 0 calc(8px + var(--safe-r)) var(--bar-b) calc(8px + var(--safe-l));
   display: flex;
   align-items: stretch;
   justify-content: space-around;

@@ -71,6 +71,8 @@
   --safe-b: env(safe-area-inset-bottom, 0px);
   --safe-l: env(safe-area-inset-left, 0px);
   --safe-r: env(safe-area-inset-right, 0px);
+  /* the tab bar sits a little into the home-indicator area, as native apps do */
+  --bar-b: max(calc(var(--safe-b) - 8px), 0px);
 }
 
 /* iOS 26 home-screen app: the system softly blurs a band that runs a little
