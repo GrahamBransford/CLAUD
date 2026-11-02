@@ -38,6 +38,8 @@ interface PersistedState {
   vinylFollows: string[]
   /** Who can open your vinyl (a demo preference: there is no server to enforce it). */
   vinylVisibility: 'everyone' | 'friends'
+  /** Front Row: the paid membership (demo) and the up-to-five creators it covers. */
+  frontRow: { member: boolean; picks: string[] }
   /** Creators you've chosen to leave off your vinyl (not shown to you or anyone who opens it). */
   omitVinyl: string[]
   /** Creators you've chosen to leave out of your stats (minutes, top artists, genres, taste matches). */
@@ -81,6 +83,7 @@ interface PersistedState {
   setVinylVisibility: (v: 'everyone' | 'friends') => void
   /** Show (true) or leave out (false) a creator on your vinyl or in your stats. */
   setShown: (creatorId: string, where: 'vinyl' | 'stats', shown: boolean) => void
+  setFrontRow: (f: { member: boolean; picks: string[] }) => void
   addComment: (postId: string, text: string) => void
   resetDemo: () => void
 }
@@ -114,6 +117,7 @@ const initial = () => ({
   friends: { ...meSeed.friends },
   vinylFollows: Object.keys(meSeed.friends).filter((id) => meSeed.friends[id] === 'friends'),
   vinylVisibility: 'everyone' as 'everyone' | 'friends',
+  frontRow: { member: false, picks: [] as string[] },
   omitVinyl: [] as string[],
   omitStats: [] as string[],
   myComments: {} as Record<string, { id: string; text: string; at: number }[]>,
@@ -244,6 +248,7 @@ export const createStore = (set: string) =>
             }
           }),
         setVinylVisibility: (vinylVisibility) => setState({ vinylVisibility }),
+        setFrontRow: (frontRow) => setState({ frontRow }),
         setShown: (creatorId, where, shown) =>
           setState((st) => {
             const key = where === 'vinyl' ? 'omitVinyl' : 'omitStats'

@@ -7,6 +7,7 @@ import { CommunitiesSheet } from './components/Communities'
 import { TasteSheet } from './components/TasteSheet'
 import { CreatorSheet } from './components/CreatorSheet'
 import { FriendsSheet, LiveSheet, ProfileSheet } from './components/IdentitySheets'
+import { FrontRowSheet } from './components/Shop'
 import { PersonVinyl } from './components/PersonVinyl'
 import { ProfileDetails } from './components/ProfileDetails'
 import { Splash } from './components/Logo'
@@ -194,6 +195,7 @@ export default function App() {
         {sheet?.kind === 'details' && <ProfileDetails key={`d-${sheet.owner}-${sheet.tab}`} owner={sheet.owner} tab={sheet.tab} />}
         {sheet?.kind === 'settings' && <SettingsSheet key="settings" />}
         {sheet?.kind === 'profile' && <ProfileSheet key="profile" tab={sheet.tab} />}
+        {sheet?.kind === 'frontrow' && <FrontRowSheet key="frontrow" />}
         {sheet?.kind === 'live' && <LiveSheet key="live" />}
         {sheet?.kind === 'friends' && <FriendsSheet key="friends" />}
         {sheet?.kind === 'comments' && <CommentsSheet key={`cm-${sheet.postId}`} postId={sheet.postId} />}

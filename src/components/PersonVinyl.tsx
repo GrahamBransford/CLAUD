@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { CreatorMerch, CreatorShows } from './Shop'
 import { useEffect, useState } from 'react'
 import { creatorById, creatorVinylById, episodes, personById, songs } from '../data'
 import { useProfile } from '../hooks/useProfile'
@@ -91,6 +92,8 @@ export function PersonVinyl({ id }: { id: string }) {
             {!creator && <Awards list={p.awards} />}
             {creator && <CreatorFollows creatorId={creator.id} />}
             {creator ? <CreatorKeys creatorId={creator.id} /> : <Friendship person={p} />}
+            {creator && <CreatorShows creatorId={creator.id} />}
+            {creator && <CreatorMerch creatorId={creator.id} />}
             <Match person={p} />
             {creator && <CreatorCommunities creatorId={creator.id} />}
             {profile && <Readouts profile={profile} />}

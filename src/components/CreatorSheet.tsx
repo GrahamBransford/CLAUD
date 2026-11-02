@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { CreatorMerch, CreatorShows } from './Shop'
 import { creatorById, creatorVinylById, episodes, songs } from '../data'
 import { useProfile } from '../hooks/useProfile'
 import { useRelationship } from '../hooks/useRelationship'
@@ -161,6 +162,11 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
             </button>
           )}
         </div>
+
+        {/* their own shows and store, on every creator's profile */}
+        <CreatorShows creatorId={c.id} />
+        <CreatorMerch creatorId={c.id} />
+
         <button
           className="row-link"
           onClick={() => {

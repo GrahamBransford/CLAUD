@@ -24,6 +24,8 @@ export type Sheet =
   | { kind: 'profile'; tab?: 'profile' | 'creators' }
   | { kind: 'live' }
   | { kind: 'friends' }
+  /** Front Row: choose up to five creators for guaranteed presales. */
+  | { kind: 'frontrow' }
   | { kind: 'comments'; postId: string }
   | null
 

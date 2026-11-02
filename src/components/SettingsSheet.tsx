@@ -5,6 +5,24 @@ import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import { Sheet } from './Sheet'
 import * as I from './Icons'
+import { FrontRowCard } from './Shop'
+
+const ABOUT: [string, string][] = [
+  ['No AI. Ever.', 'Every song, show and recommendation comes from people, and from what you actually play. Nothing is generated.'],
+  ['Creators paid properly', 'One ad every 30 minutes, and that ad pays the people you listen to, not fractions of a cent per play.'],
+  ['Credit where it’s due', 'Every song and show is credited to a person, and found through them.'],
+  ['Your taste, your call', 'You choose what’s on your vinyl and what counts in your stats. We don’t sell your listening.'],
+  ['Real people, real places', 'Community online and in your city: listening nights, record swaps, shows together.'],
+]
+
+const SUPPORT: [React.ReactNode, string, string][] = [
+  [<I.Love key="save" size={17} />, 'Save and follow', 'A save follows them on your streaming service and on CIRCA, where it counts.'],
+  [<I.Ticket key="show" size={17} />, 'Go to the show', 'Tickets are on every creator’s profile, and Front Row holds you a presale.'],
+  [<I.Spark key="merch" size={17} />, 'Buy their merch', 'Sold right on their profile, from the creator’s own store.'],
+  [<I.Play key="listen" size={17} />, 'Listen all the way through', 'Full listens bring you closer on your vinyl, and count most for them.'],
+  [<I.People key="community" size={17} />, 'Join their communities', 'Listening nights, record swaps, and shows you go to together.'],
+  [<I.StationRadio key="ad" size={17} />, 'Keep the one ad', 'One every 30 minutes is how the creators you love get paid.'],
+]
 
 /** Your account, then where saves go, which content set is loaded, and a clean slate. */
 export function SettingsSheet() {
@@ -31,6 +49,8 @@ export function SettingsSheet() {
             Your vinyl
           </button>
         </div>
+        <FrontRowCard />
+
         <button
           className="row-link"
           onClick={() => {
@@ -61,6 +81,36 @@ export function SettingsSheet() {
         </button>
 
         <p className="settings__fine">Your profile, favourites, and who's on your vinyl live on the record itself: tap your photo at its centre. Demo account on this device; nothing is sent anywhere.</p>
+
+        <p className="settings__label">About CIRCA</p>
+        <div className="about">
+          <p className="about__lede">
+            CIRCA is built by creators: musicians, podcasters, and the people who love them. We think the people who make what you listen to belong at the centre of it: seen, credited, and paid properly.
+          </p>
+          <ul className="about__values">
+            {ABOUT.map(([title, text]) => (
+              <li key={title}>
+                <strong>{title}</strong>
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p className="settings__label">Ways to support creators</p>
+        <ul className="support">
+          {SUPPORT.map(([icon, title, text]) => (
+            <li key={title}>
+              <span className="support__icon" aria-hidden>
+                {icon}
+              </span>
+              <span>
+                <strong>{title}</strong>
+                <em>{text}</em>
+              </span>
+            </li>
+          ))}
+        </ul>
 
         <p className="settings__label">Music saves go to</p>
         <div className="choices">

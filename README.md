@@ -99,6 +99,12 @@ To demo the top tier: open My Vinyl, tap Ellis Rae → **Went to a show**. He cr
 
 **Reach, not followers.** A creator's page shows two figures, TikTok-style: **listeners**, everyone who has listened to them on any streaming platform, and **lifetime streams**, every stream across their whole career and every platform. Both are demo figures in `content/real/library.json` (`listeners`, `lifetimeStreams`), labelled as such in the app.
 
+**Shows and merch, on every creator.** Every creator's profile (their vinyl, and the sheet that opens when you tap them) carries their upcoming dates (**On tour** for artists, **Live tapings** for podcasts) with a Tickets button, and a **Merch** shelf from their own store, drawn in their colours. Dates, venues and products are demo figures made up per creator (`src/lib/shop.ts`), said so in the app; for the NASA shows, explicitly not real NASA events or merchandise. Checkout is a demo.
+
+**Front Row ($49 a year).** In Settings, a card that stands out: choose up to five creators, and whenever one of them announces dates you're guaranteed presale access. Members see **Presale** in place of Tickets on those creators' dates, and everyone else gets a quiet "add them to Front Row" under the dates. A demo membership: nothing is charged.
+
+**About CIRCA, and ways to support creators.** Settings says what CIRCA is (built by creators, for the people who make what you listen to) and what it stands for: no AI, ever; creators paid properly (one ad every 30 minutes); credit where it's due; your taste, your call; real people, real places. Then the ways to support a creator: save and follow, go to the show, buy their merch, listen all the way through, join their communities, keep the one ad.
+
 ## Creators and media: one library file
 
 Every creator and every video lives in **`content/real/library.json`**, and every media file is stored inside the app in `public/media/live`. Nothing loads from another site, so the demo plays anywhere, including inside the claude.ai preview and offline. `npm run content:demo` checks that every file exists and builds the app's content.
