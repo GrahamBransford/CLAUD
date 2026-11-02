@@ -51,6 +51,9 @@ export function Reel({ move, onMove, onTap, canPrev, children, className }: Prop
   const skipWash = useTransform(skip, [0, 1], [0, 0.5])
   const labelY = useTransform(x, (v) => 10 - Math.min(1, Math.abs(v) / X) * 10)
   const labelScale = useTransform(x, (v) => 0.94 + Math.min(1, Math.abs(v) / X) * 0.06)
+  // the words stay put in the middle of the screen while the video slides away beneath them
+  const labelX = useTransform(x, (v) => -v)
+  const labelRotate = useTransform(tilt, (r) => -r)
   const committed = useRef(false)
   // the ticks quicken as the thumb travels, then land with a firm one at the commit point
   useMotionValueEvent(x, 'change', (v) => {
@@ -117,11 +120,11 @@ export function Reel({ move, onMove, onTap, canPrev, children, className }: Prop
       {/* the screen itself answers: a bronze wash to save, the colour draining out to skip */}
       <motion.span className="reel__wash reel__wash--save" style={{ opacity: saveWash }} aria-hidden />
       <motion.span className="reel__wash reel__wash--skip" style={{ opacity: skipWash }} aria-hidden />
-      <motion.span className="verdict verdict--save" style={{ opacity: save, y: labelY, scale: labelScale }} aria-hidden>
+      <motion.span className="verdict verdict--save" style={{ opacity: save, x: labelX, y: labelY, scale: labelScale, rotate: labelRotate }} aria-hidden>
         <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden><path d="M12 20.5s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.6a4.3 4.3 0 0 1 7.5 2.7c0 5.6-7.5 10.2-7.5 10.2z" fill="currentColor" /></svg>
         <span>Save</span>
       </motion.span>
-      <motion.span className="verdict verdict--skip" style={{ opacity: skip, y: labelY, scale: labelScale }} aria-hidden>
+      <motion.span className="verdict verdict--skip" style={{ opacity: skip, x: labelX, y: labelY, scale: labelScale, rotate: labelRotate }} aria-hidden>
         <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden><path d="M7 6.5l10 11M17 6.5l-10 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" fill="none" /></svg>
         <span>Skip</span>
       </motion.span>
