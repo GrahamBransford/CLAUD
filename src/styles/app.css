@@ -6699,12 +6699,8 @@ a.row-link { text-decoration: none; color: inherit; }
   line-height: 1.08;
   color: #f8f1e3;
 }
-.tour__lede {
-  margin: 0 0 22px;
-  font-size: 15px;
-  line-height: 1.5;
-  color: rgba(239, 230, 211, 0.78);
-  max-width: 34ch;
+.tour__headline--welcome {
+  margin-bottom: 26px;
 }
 .tour__pillars {
   width: 100%;
@@ -6807,10 +6803,6 @@ a.row-link { text-decoration: none; color: inherit; }
   .tour__headline {
     font-size: clamp(26px, 7.4vw, 32px);
     margin-bottom: 8px;
-  }
-  .tour__lede {
-    font-size: 13.5px;
-    margin-bottom: 14px;
   }
   .tour__pillars {
     gap: 8px;

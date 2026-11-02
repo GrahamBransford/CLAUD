@@ -396,8 +396,7 @@ function Welcome({ onStart, onSkip }: { onStart: () => void; onSkip: () => void 
           <RecordC spinning />
         </motion.span>
         <p className="tour__kicker">Welcome to CIRCA</p>
-        <h1 className="tour__headline">Radio for the people who make it.</h1>
-        <p className="tour__lede">Discover music and conversations through the creators behind them, and the people who love them as much as you do.</p>
+        <h1 className="tour__headline tour__headline--welcome">Your new radio.</h1>
         <ul className="tour__pillars">
           <Pillar icon={<I.People size={18} />} title="Real community" text="Friends, fans and creators: online and in your city." />
           <Pillar icon={<I.Spark size={18} on />} title="Creators first" text="Every song and show credited to a person, and found through them." />
