@@ -3497,7 +3497,9 @@ h2 {
   --arm: -7deg;
   /* the front takes about two-fifths of the height; the record gets the rest */
   --front-room: clamp(262px, 41cqh, 360px);
-  --stage: min(100cqw, 100cqh - var(--front-room) - var(--safe-t), 620px);
+  /* the deck's top margin: clear of the status bar, and never so tight the tonearm's counterweight is cut (Safari has no inset) */
+  --deck-t: max(var(--safe-t), 44px);
+  --stage: min(100cqw, 100cqh - var(--front-room) - var(--deck-t), 620px);
   container-type: size;
   position: relative;
   flex: 1 1 auto;
@@ -3514,7 +3516,7 @@ h2 {
   flex: 0 0 auto;
   display: flex;
   justify-content: center;
-  padding-top: var(--safe-t);
+  padding-top: var(--deck-t);
   background:
     radial-gradient(circle at 50% 56%, rgba(220, 200, 156, 0.07), transparent 58%),
     radial-gradient(ellipse 120% 90% at 50% 40%, #11271d, #0a1812 70%, #07120d),
@@ -3757,7 +3759,7 @@ h2 {
   position: absolute;
   z-index: 4;
   left: max(16px, var(--safe-l));
-  top: calc(var(--safe-t) + var(--stage) * 0.096 - 22px);
+  top: calc(var(--deck-t) + var(--stage) * 0.096 - 22px);
 }
 .hifi__search .knob__cap {
   --size: 38px;
@@ -3984,13 +3986,13 @@ h2 {
 /* a little air above the deck; search keeps level with the tonearm's pivot */
 @media (max-width: 899px) {
   .hifi__top {
-    padding-top: calc(var(--safe-t) + 10px);
+    padding-top: calc(var(--deck-t) + 10px);
   }
   .hifi {
-    --stage: min(100cqw, 100cqh - var(--front-room) - var(--safe-t) - 10px, 620px);
+    --stage: min(100cqw, 100cqh - var(--front-room) - var(--deck-t) - 10px, 620px);
   }
   .hifi__search {
-    top: calc(var(--safe-t) + 10px + var(--stage) * 0.096 - 22px);
+    top: calc(var(--deck-t) + 10px + var(--stage) * 0.096 - 22px);
   }
 }
 .hifi__front .plate__meta {
@@ -4388,7 +4390,7 @@ h2 {
   --size: 48px;
 }
 .hifi__search {
-  top: calc(var(--safe-t) + 10px + var(--stage) * 0.096 - 24px);
+  top: calc(var(--deck-t) + 10px + var(--stage) * 0.096 - 24px);
 }
 @media (min-width: 900px) {
   .hifi__search {
@@ -4409,7 +4411,7 @@ h2 {
   position: absolute;
   z-index: 5;
   left: calc(50% + var(--stage) * 0.426);
-  top: calc(var(--safe-t) + 10px + var(--stage) * 0.096);
+  top: calc(var(--deck-t) + 10px + var(--stage) * 0.096);
   width: max(44px, calc(var(--stage) * 0.1));
   aspect-ratio: 1;
   transform: translate(-50%, -50%);
