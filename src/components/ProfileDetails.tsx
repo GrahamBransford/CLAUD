@@ -25,8 +25,10 @@ const TABS: { id: DetailTab; label: string }[] = [
  */
 export function ProfileDetails({ owner, tab: initial }: { owner: Owner; tab: DetailTab }) {
   const profile = useProfile(owner)
-  const [tab, setTab] = useState<DetailTab>(initial)
-  const ids = TABS.map((t) => t.id)
+  // your own shows live behind the Live knob on your vinyl, so they aren't repeated here
+  const tabs = owner === 'me' ? TABS.filter((t) => t.id !== 'live') : TABS
+  const [tab, setTab] = useState<DetailTab>(tabs.some((t) => t.id === initial) ? initial : 'listening')
+  const ids = tabs.map((t) => t.id)
   const close = () => useUI.getState().openSheet(null)
   if (!profile) return null
   const title = owner === 'me' ? 'Your listening' : `${profile.who}’s listening`
@@ -35,7 +37,7 @@ export function ProfileDetails({ owner, tab: initial }: { owner: Owner; tab: Det
       <div className="details">
         <Awards list={owner === 'me' ? meSeed.awards : personFor(owner)?.awards} />
         <nav className="details__tabs" role="tablist" aria-label="Sections">
-          {TABS.map((t) => (
+          {tabs.map((t) => (
             <button key={t.id} role="tab" aria-selected={tab === t.id} className="details__tab" onClick={() => setTab(t.id)}>
               {t.label}
             </button>

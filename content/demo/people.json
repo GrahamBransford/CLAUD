@@ -1,12 +1,12 @@
 {
  "me": {
-  "name": "Alex Morgan",
-  "username": "alexmorgan",
-  "bio": "Late-night records and long conversations.",
-  "location": "Brooklyn, NY",
-  "avatar": "media/people/you.jpg",
+  "name": "Graham Bransford",
+  "username": "wesmusic",
+  "bio": "Long writes and longer playlists. Also my wife is hot.",
+  "location": "Nashville, TN",
+  "avatar": "media/people/graham.jpg",
   "socials": {
-   "instagram": "alexmorgan.wav"
+   "instagram": "w.e.s.m.u.s.i.c"
   },
   "experiences": [
    {
@@ -36,8 +36,8 @@
    "theo-okafor": "incoming"
   },
   "coords": [
-   40.6782,
-   -73.9442
+   36.1627,
+   -86.7816
   ],
   "awards": [
    {
@@ -658,18 +658,48 @@
     "by": "jonah-bell",
     "text": "That breath before the chorus. Twice.",
     "ago": "8h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "Take nine is always the one. Nobody believes me.",
+    "ago": "9h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "Listening to this on the train and had to look out the window for a minute.",
+    "ago": "11h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "The crack is the song.",
+    "ago": "1d"
    }
   ],
   "ic-ellis-rehearsal": [
+   {
+    "by": "maya-chen",
+    "text": "Danny is the secret weapon and I will not be taking questions.",
+    "ago": "1h"
+   },
    {
     "by": "rosa-lindqvist",
     "text": "Danny on guitar is the secret weapon.",
     "ago": "2h"
    },
    {
+    "by": "ellis-rae",
+    "text": "he made me write that down so he can quote it later",
+    "ago": "2h"
+   },
+   {
     "by": "jonah-bell",
     "text": "The chord change at 0:07 is a whole other song.",
     "ago": "3h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "The second chord change at 0:41. Keep that one.",
+    "ago": "6h"
    }
   ],
   "ic-halyards-soundcheck": [
@@ -684,9 +714,24 @@
     "ago": "3h"
    },
    {
+    "by": "maya-chen",
+    "text": "Mira was right about the light.",
+    "ago": "4h"
+   },
+   {
     "by": "the-halyards",
     "text": "Mira says thank you. The light says nothing.",
     "ago": "5h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "That snare in an empty room. Chef’s kiss.",
+    "ago": "8h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Soundchecks are secretly the best shows.",
+    "ago": "1d"
    }
   ],
   "ic-halyards-crowd": [
@@ -696,15 +741,35 @@
     "ago": "2h"
    },
    {
+    "by": "the-halyards",
+    "text": "we saw every one of you. thank you, Boston.",
+    "ago": "2h"
+   },
+   {
     "by": "elliot-park",
     "text": "Undertow live is a different animal.",
     "ago": "3h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "Front row left. Lost my voice, found my people.",
+    "ago": "5h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Can you tour this exact night forever?",
+    "ago": "9h"
    }
   ],
   "ic-nova-dance": [
    {
     "by": "rosa-lindqvist",
     "text": "See you in that room tonight, front left.",
+    "ago": "2h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "Be nice? This is flawless.",
     "ago": "2h"
    },
    {
@@ -716,6 +781,16 @@
     "by": "nova-lin",
     "text": "front left gets the encore wave.",
     "ago": "5h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "The spin at 0:12 is going to break the internet.",
+    "ago": "6h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "Teaching this to my whole friend group by Friday.",
+    "ago": "1d"
    }
   ],
   "ic-juniper-lowe-street": [
@@ -730,21 +805,51 @@
     "ago": "3h"
    },
    {
+    "by": "rosa-lindqvist",
+    "text": "The kid deserves a writing credit.",
+    "ago": "4h"
+   },
+   {
     "by": "maya-chen",
     "text": "Street versions forever.",
     "ago": "5h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Which corner? I keep missing you on Sundays.",
+    "ago": "6h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "Busking set > arena set. Fight me.",
+    "ago": "12h"
    }
   ],
   "ic-kairo-booth": [
+   {
+    "by": "jonah-bell",
+    "text": "3am verses hit different. Can tell already.",
+    "ago": "1h"
+   },
    {
     "by": "amara-diallo",
     "text": "Verse two. Put it out exactly like this.",
     "ago": "2h"
    },
    {
+    "by": "kairo-banks",
+    "text": "verse one is getting jealous",
+    "ago": "2h"
+   },
+   {
     "by": "theo-okafor",
     "text": "Played this on my commute three times today.",
     "ago": "3h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "The patience to wait till it sounds like you. Respect.",
+    "ago": "5h"
    }
   ],
   "ic-marisol-warmup": [
@@ -757,6 +862,21 @@
     "by": "marisol-vega",
     "text": "the room does half the work, honestly.",
     "ago": "3h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "That ballroom! My grandparents danced there in 1974.",
+    "ago": "3h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Even the warm-up gives me chills.",
+    "ago": "5h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "Old ballrooms and boleros. Correct pairing.",
+    "ago": "8h"
    }
   ],
   "ic-nova-stage": [
@@ -764,6 +884,26 @@
     "by": "amara-diallo",
     "text": "I could hear it from the bar. Loudest crowd of the year.",
     "ago": "2h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "I was the one screaming the bridge. Sorry not sorry.",
+    "ago": "2h"
+   },
+   {
+    "by": "nova-lin",
+    "text": "you were perfect. all of you.",
+    "ago": "3h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Still can’t hear properly. Worth it.",
+    "ago": "7h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "Best night of my year and it’s November.",
+    "ago": "9h"
    }
   ],
   "ic-dex-packing-up": [
@@ -776,6 +916,21 @@
     "by": "dex-holloway",
     "text": "the chair has seniority.",
     "ago": "3h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "Same chair, same magic.",
+    "ago": "3h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "The 1am set is a religious experience.",
+    "ago": "6h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "Caught you here last spring. Still thinking about it.",
+    "ago": "1d"
    }
   ],
   "ic-ines-close": [
@@ -785,9 +940,24 @@
     "ago": "1h"
    },
    {
+    "by": "maya-chen",
+    "text": "The discipline. I can’t even wake up for breakfast.",
+    "ago": "2h"
+   },
+   {
     "by": "rosa-lindqvist",
     "text": "The tone on that violin.",
     "ago": "3h"
+   },
+   {
+    "by": "ines-moreau",
+    "text": "the scales are the quiet part of the day. I love them.",
+    "ago": "4h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "Ten minutes of this would fix my whole week.",
+    "ago": "10h"
    }
   ],
   "ic-ines-case": [
@@ -800,6 +970,21 @@
     "by": "ines-moreau",
     "text": "he would ask why it took me so long.",
     "ago": "3h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Abuelo would be so proud.",
+    "ago": "3h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "Instruments with history sound different. You can hear it.",
+    "ago": "7h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "Can’t wait to hear it on the record.",
+    "ago": "1d"
    }
   ],
   "ic-sola-setup": [
@@ -812,6 +997,21 @@
     "by": "elliot-park",
     "text": "Pink Hour at 3:58 was unreal.",
     "ago": "3h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "A lot of trust in the venue’s power. Never relatable before tonight.",
+    "ago": "3h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Two decks, zero panic. Legend.",
+    "ago": "7h"
+   },
+   {
+    "by": "sola",
+    "text": "the power held. barely.",
+    "ago": "9h"
    }
   ],
   "ic-sola-decks": [
@@ -821,9 +1021,24 @@
     "ago": "1h"
    },
    {
+    "by": "elliot-park",
+    "text": "Stayed till 4, would stay till 6.",
+    "ago": "2h"
+   },
+   {
     "by": "sola",
     "text": "you were the loud ones at the front, weren’t you.",
     "ago": "3h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "That closing track. What WAS that?",
+    "ago": "5h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "My legs still haven’t forgiven me.",
+    "ago": "1d"
    }
   ],
   "ic-salon-drums": [
@@ -833,9 +1048,24 @@
     "ago": "1h"
    },
    {
+    "by": "salon-azul",
+    "text": "the chandeliers have since filed a complaint",
+    "ago": "1h"
+   },
+   {
     "by": "theo-okafor",
     "text": "Rubén is a menace in the best way.",
     "ago": "3h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "Rubén is a national treasure.",
+    "ago": "4h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "That groove in a room like this. Unreal.",
+    "ago": "8h"
    }
   ],
   "ic-arden-take": [
@@ -843,6 +1073,21 @@
     "by": "rosa-lindqvist",
     "text": "Take four is the one. Trust me.",
     "ago": "1h"
+   },
+   {
+    "by": "arden-strings",
+    "text": "take four is on the album. don’t tell take five.",
+    "ago": "2h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "The cello line in this. I’m done.",
+    "ago": "5h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Stopped counting, started crying.",
+    "ago": "9h"
    }
   ],
   "ic-lucia-log": [
@@ -855,6 +1100,21 @@
     "by": "lucia-paz",
     "text": "the log gets a writing credit.",
     "ago": "3h"
+   },
+   {
+    "by": "jonah-bell",
+    "text": "The best songs are always found, not written.",
+    "ago": "3h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "Of course the log had a song in it.",
+    "ago": "6h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "Fingerpicking on a log. Austin, never change.",
+    "ago": "1d"
    }
   ],
   "ic-aurelio-practice": [
@@ -862,6 +1122,21 @@
     "by": "rosa-lindqvist",
     "text": "Clara and that upright. Perfect.",
     "ago": "1h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Clara and the old upright. Perfect pairing.",
+    "ago": "2h"
+   },
+   {
+    "by": "aurelio-fen",
+    "text": "she taught me this piece. it’s hers really.",
+    "ago": "4h"
+   },
+   {
+    "by": "sofia-reyes",
+    "text": "I could listen to this rehearsal on repeat.",
+    "ago": "9h"
    }
   ],
   "ic-canal-room": [
@@ -869,6 +1144,109 @@
     "by": "jonah-bell",
     "text": "That room has the best echo in the city.",
     "ago": "1h"
+   },
+   {
+    "by": "canal-street-brass",
+    "text": "the graffiti is our fifth member",
+    "ago": "2h"
+   },
+   {
+    "by": "amara-diallo",
+    "text": "Practice room energy is undefeated.",
+    "ago": "6h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "Sounds like a second line already.",
+    "ago": "10h"
+   }
+  ],
+  "ic-marisol-room": [
+   {
+    "by": "priya-nair",
+    "text": "You can hear the room breathing. Record everything here.",
+    "ago": "2h"
+   },
+   {
+    "by": "marisol-vega",
+    "text": "we are. every note of the new one.",
+    "ago": "3h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "The natural reverb on this is unreal.",
+    "ago": "7h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Studios hate this one trick.",
+    "ago": "10h"
+   }
+  ],
+  "ic-dex-fog": [
+   {
+    "by": "theo-okafor",
+    "text": "This looks like a dream I had once.",
+    "ago": "1h"
+   },
+   {
+    "by": "dex-holloway",
+    "text": "the smoke machine has opinions",
+    "ago": "2h"
+   },
+   {
+    "by": "elliot-park",
+    "text": "One more take is never one more take.",
+    "ago": "5h"
+   },
+   {
+    "by": "rosa-lindqvist",
+    "text": "The silhouette! Frame it.",
+    "ago": "8h"
+   }
+  ],
+  "ic-arden-silhouette": [
+   {
+    "by": "sofia-reyes",
+    "text": "Lights off is the only way to play strings. Agree.",
+    "ago": "1h"
+   },
+   {
+    "by": "theo-okafor",
+    "text": "The last pass is always the honest one.",
+    "ago": "4h"
+   },
+   {
+    "by": "arden-strings",
+    "text": "it’s the only time we stop thinking",
+    "ago": "6h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "This is the mood for my entire winter.",
+    "ago": "11h"
+   }
+  ],
+  "ic-salon-bass": [
+   {
+    "by": "theo-okafor",
+    "text": "New strings smell. You can hear it.",
+    "ago": "2h"
+   },
+   {
+    "by": "priya-nair",
+    "text": "The low end on my headphones right now. Wow.",
+    "ago": "5h"
+   },
+   {
+    "by": "salon-azul",
+    "text": "the old bass says thank you",
+    "ago": "7h"
+   },
+   {
+    "by": "maya-chen",
+    "text": "Bass players deserve more posts like this.",
+    "ago": "1d"
    }
   ]
  },
@@ -1079,6 +1457,136 @@
    "experiences": [],
    "favorites": [
     "ines-moreau"
+   ]
+  },
+  "houston-we-have-a-podcast": {
+   "points": {
+    "rocket-ranch": 1035,
+    "nasa-in-silicon-valley": 575,
+    "gravity-assist": 405,
+    "canal-street-brass": 365,
+    "nova-lin": 240
+   },
+   "experiences": [],
+   "favorites": [
+    "rocket-ranch"
+   ]
+  },
+  "rocket-ranch": {
+   "points": {
+    "down-to-earth": 885,
+    "houston-we-have-a-podcast": 660,
+    "sciencecasts": 410,
+    "kairo-banks": 445,
+    "arden-strings": 260
+   },
+   "experiences": [],
+   "favorites": [
+    "down-to-earth"
+   ]
+  },
+  "down-to-earth": {
+   "points": {
+    "gravity-assist": 910,
+    "nasa-explorers": 785,
+    "space-to-ground": 545,
+    "sola": 410,
+    "dex-holloway": 260
+   },
+   "experiences": [],
+   "favorites": [
+    "gravity-assist"
+   ]
+  },
+  "nasa-science-live": {
+   "points": {
+    "nasa-in-silicon-valley": 850,
+    "space-to-ground": 755,
+    "whats-up": 540,
+    "the-halyards": 450,
+    "lucia-paz": 230
+   },
+   "experiences": [],
+   "favorites": [
+    "nasa-in-silicon-valley"
+   ]
+  },
+  "space-to-ground": {
+   "points": {
+    "nasa-in-silicon-valley": 1070,
+    "nasa-explorers": 555,
+    "rocket-ranch": 460,
+    "ines-moreau": 355,
+    "salon-azul": 195
+   },
+   "experiences": [],
+   "favorites": [
+    "nasa-in-silicon-valley"
+   ]
+  },
+  "whats-up": {
+   "points": {
+    "gravity-assist": 1055,
+    "nasa-in-silicon-valley": 560,
+    "houston-we-have-a-podcast": 370,
+    "kairo-banks": 375,
+    "salon-azul": 235
+   },
+   "experiences": [],
+   "favorites": [
+    "gravity-assist"
+   ]
+  },
+  "sciencecasts": {
+   "points": {
+    "nasa-in-silicon-valley": 875,
+    "nasa-explorers": 685,
+    "nasa-science-live": 475,
+    "juniper-lowe": 365,
+    "salon-azul": 215
+   },
+   "experiences": [],
+   "favorites": [
+    "nasa-in-silicon-valley"
+   ]
+  },
+  "gravity-assist": {
+   "points": {
+    "whats-up": 1055,
+    "nasa-science-live": 625,
+    "nasa-in-silicon-valley": 460,
+    "nova-lin": 325,
+    "kairo-banks": 260
+   },
+   "experiences": [],
+   "favorites": [
+    "whats-up"
+   ]
+  },
+  "nasa-in-silicon-valley": {
+   "points": {
+    "whats-up": 865,
+    "nasa-explorers": 660,
+    "rocket-ranch": 525,
+    "marisol-vega": 455,
+    "arden-strings": 225
+   },
+   "experiences": [],
+   "favorites": [
+    "whats-up"
+   ]
+  },
+  "nasa-explorers": {
+   "points": {
+    "whats-up": 920,
+    "nasa-in-silicon-valley": 725,
+    "space-to-ground": 400,
+    "ellis-rae": 385,
+    "juniper-lowe": 265
+   },
+   "experiences": [],
+   "favorites": [
+    "whats-up"
    ]
   }
  },

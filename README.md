@@ -105,6 +105,10 @@ To demo the top tier: open My Vinyl, tap Ellis Rae → **Went to a show**. He cr
 
 **About CIRCA, and ways to support creators.** Settings says what CIRCA is (built by creators, for the people who make what you listen to) and what it stands for: no AI, ever; creators paid properly (one ad every 30 minutes); credit where it's due; your taste, your call; real people, real places. Then the ways to support a creator: save and follow, go to the show, buy their merch, listen all the way through, join their communities, keep the one ad.
 
+**Inner Circle comments are for the closest listeners.** Anyone can read the conversation under a moment, but only a creator's top 20% of listeners (by CIRCA's own closeness ranking) can add to it. Everyone else sees why, how close they are now, and how to get there.
+
+**Listener photos.** The sample listeners' portraits are free-to-use photos from Unsplash (Unsplash License: free for any use, no permission or credit needed; credited in Settings anyway), in `public/media/people/`. The people pictured are not the listeners named. Your own profile photo is `graham.jpg`.
+
 ## Creators and media: one library file
 
 Every creator and every video lives in **`content/real/library.json`**, and every media file is stored inside the app in `public/media/live`. Nothing loads from another site, so the demo plays anywhere, including inside the claude.ai preview and offline. `npm run content:demo` checks that every file exists and builds the app's content.

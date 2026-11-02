@@ -154,7 +154,7 @@ export function SettingsSheet() {
         {showCredits && (
           <div className="credits">
             <p className="settings__fine">
-              Artist names, bios and captions are invented for the demo, shown on licensed stock footage of real performers; the performers are not the people named.
+              Artist names, bios and captions are invented for the demo, shown on licensed stock footage of real performers; the performers are not the people named. Listener photos are from Unsplash (Unsplash License); the people pictured are not the listeners named.
               Podcasts are real NASA shows, excerpted; NASA does not endorse CIRCA.
             </p>
             <ul className="credits__list">

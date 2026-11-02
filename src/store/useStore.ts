@@ -148,6 +148,9 @@ export const createStore = (set: string) =>
           const offered = st.offered ?? defaultFollows.filter((id) => !creatorById[id]?.channel)
           const fresh = defaultFollows.filter((id) => !offered.includes(id))
           if (fresh.length || !st.offered) setState({ follows: [...new Set([...st.follows, ...fresh])], offered: [...offered, ...fresh] })
+          // a phone that still has the old sample profile picks up the real one
+          if (st.profile.username === 'alexmorgan' && meSeed.username !== 'alexmorgan')
+            setState({ profile: { name: meSeed.name, username: meSeed.username, bio: meSeed.bio, location: meSeed.location, avatar: meSeed.avatar, socials: { ...meSeed.socials } } })
         },
 
         save: (id, kind, via) => {

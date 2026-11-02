@@ -306,11 +306,7 @@ export function Turntable({ markers, owner, etching, spinning, onMarker, childre
               style={{ left: `${50 - LABEL_R}%`, top: `${50 - LABEL_R}%`, width: `${LABEL_R * 2}%` }}
               onClick={onLabel}
               aria-label={labelHint ?? owner.name}
-            >
-              <span className="hifi__label-pip" aria-hidden>
-                <I.Edit size={11} />
-              </span>
-            </button>
+            />
           )}
         </div>
         <span className="hifi__rest" aria-hidden />

@@ -3498,7 +3498,7 @@ h2 {
   /* the front takes about two-fifths of the height; the record gets the rest */
   --front-room: clamp(262px, 41cqh, 360px);
   /* the deck's top margin: clear of the status bar, and never so tight the tonearm's counterweight is cut (Safari has no inset) */
-  --deck-t: max(var(--safe-t), 16px);
+  --deck-t: calc(var(--safe-t) + 16px);
   --stage: min(100cqw, 100cqh - var(--front-room) - var(--deck-t), 620px);
   container-type: size;
   position: relative;
@@ -4021,7 +4021,11 @@ h2 {
     gap: 18px;
   }
   .hifi__front .plate__name {
-    font-size: 46px;
+    /* sized to the nameplate, and wrapping onto a second line where it's narrow, so a name never clips */
+    font-size: clamp(26px, 2.2vw, 40px);
+    white-space: normal;
+    overflow: visible;
+    text-wrap: balance;
   }
   .hifi__front .plate__meta {
     font-size: 11.5px;
@@ -5418,7 +5422,7 @@ button:active:not(:disabled),
   padding: 0 11px 0 6px;
 }
 .hifi__front .plate {
-  gap: 8px;
+  gap: 6px;
 }
 .hifi__front .awards {
   margin-top: -2px;
@@ -6472,11 +6476,14 @@ a.row-link { text-decoration: none; color: inherit; }
   font-weight: 600;
   letter-spacing: 0.01em;
   white-space: nowrap;
-  color: #1b130c;
-  background: linear-gradient(180deg, #ecd9b4, #c9a46a);
+  /* white on smoked glass, like the rest of the type over the picture */
+  color: #fff;
+  background: rgba(10, 18, 14, 0.5);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   box-shadow:
-    0 6px 18px rgba(0, 0, 0, 0.45),
-    inset 0 1px 0 rgba(255, 248, 230, 0.7);
+    0 6px 18px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28);
   pointer-events: auto;
   z-index: 3;
 }
@@ -6902,24 +6909,6 @@ a.row-link { text-decoration: none; color: inherit; }
   outline: 2px solid var(--brass-hi, #dcc89c);
   outline-offset: 2px;
 }
-/* a small engraved badge on the label's edge says it opens */
-.hifi__label-pip {
-  position: absolute;
-  right: 4%;
-  bottom: 4%;
-  width: 24%;
-  min-width: 20px;
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  color: #1b130c;
-  background: radial-gradient(circle at 34% 28%, #f6e8c6, #d8b878 40%, #a98445 85%);
-  box-shadow:
-    0 0 0 1px rgba(36, 24, 8, 0.6),
-    0 2px 5px rgba(0, 0, 0, 0.45);
-}
-
 /* ---- Your vinyl › Creators: who's on it, and who counts ---- */
 .curate__intro {
   margin: 2px 0 10px;
@@ -7382,5 +7371,40 @@ a.row-link { text-decoration: none; color: inherit; }
 .shop__note {
   margin: 8px 0 0;
   font-size: 11.5px;
+  color: var(--fg-3);
+}
+
+/* Inner Circle comments, closed to you: says why, and how to get in */
+.comments__locked {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 12px;
+  align-items: start;
+  margin-top: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(220, 200, 156, 0.07);
+  box-shadow: inset 0 0 0 1px rgba(220, 200, 156, 0.28);
+}
+.comments__locked > svg {
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  border-radius: 50%;
+  color: var(--brass-hi, #dcc89c);
+  box-shadow: inset 0 0 0 1px rgba(220, 200, 156, 0.4);
+}
+.comments__locked p {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+}
+.comments__locked strong {
+  font-size: 14px;
+  color: var(--fg);
+}
+.comments__locked span {
+  font-size: 13px;
+  line-height: 1.45;
   color: var(--fg-3);
 }

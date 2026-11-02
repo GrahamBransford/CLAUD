@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import { commentsByPost, creatorById, innerCircle, personById } from '../data'
 import { useStore } from '../store/useStore'
+import { useRelationship } from '../hooks/useRelationship'
+import { formatTop } from '../lib/affinity'
 import { useUI } from '../store/useUI'
 import * as I from './Icons'
 import { Sheet } from './Sheet'
 
 const NONE: { id: string; text: string; at: number }[] = []
+
+/** Inner Circle conversations are for a creator's closest listeners: the top 20%. */
+export const COMMENT_TOP = 20
 
 /**
  * The conversation under an Inner Circle moment. Listeners open onto their
@@ -17,8 +22,11 @@ export function CommentsSheet({ postId }: { postId: string }) {
   const addComment = useStore((s) => s.addComment)
   const profile = useStore((s) => s.profile)
   const [draft, setDraft] = useState('')
+  const rel = useRelationship(post?.creatorId)
   const close = () => useUI.getState().openSheet(null)
   if (!post) return null
+  // only the closest listeners can add to the conversation; everyone can read it
+  const canComment = !!rel && rel.points > 0 && rel.top <= COMMENT_TOP
   const creator = creatorById[post.creatorId]
   const sample = commentsByPost[postId] ?? []
   const send = () => {
@@ -69,6 +77,19 @@ export function CommentsSheet({ postId }: { postId: string }) {
             </li>
           ))}
         </ul>
+        {!canComment ? (
+          <div className="comments__locked">
+            <I.Love size={18} />
+            <p>
+              <strong>Comments are for {creator?.name ?? 'the creator'}’s top {COMMENT_TOP}% of listeners.</strong>
+              <span>
+                {rel && rel.points > 0
+                  ? `You’re in the ${formatTop(rel.top).toLowerCase()} right now. Keep listening and you’ll get there; full listens and shows count most.`
+                  : `Listen to ${creator?.name ?? 'them'} and you’ll find your way in; full listens and shows count most.`}
+              </span>
+            </p>
+          </div>
+        ) : (
         <form
           className="comments__compose"
           onSubmit={(e) => {
@@ -82,6 +103,7 @@ export function CommentsSheet({ postId }: { postId: string }) {
             <I.Send size={18} />
           </button>
         </form>
+        )}
       </div>
     </Sheet>
   )
