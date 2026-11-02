@@ -6,6 +6,8 @@ export interface Toast {
   detail?: string
   image?: string
   action?: { label: string; run: () => void }
+  /** How long it stays up; defaults to 2.8s. */
+  ms?: number
 }
 
 export type DetailTab = 'listening' | 'artists' | 'podcasts' | 'genres' | 'live'
@@ -96,7 +98,7 @@ export const useUI = create<UIState>()((set, get) => ({
   pushToast: (t) => {
     const id = nextId++
     set((st) => ({ toasts: [...st.toasts.slice(-1), { ...t, id }] }))
-    window.setTimeout(() => get().dismissToast(id), 2800)
+    window.setTimeout(() => get().dismissToast(id), t.ms ?? 2800)
   },
   dismissToast: (id) => set((st) => ({ toasts: st.toasts.filter((t) => t.id !== id) })),
   openSheet: (sheet) => set({ sheet }),

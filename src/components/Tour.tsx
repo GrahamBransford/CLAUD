@@ -103,7 +103,7 @@ const STEPS: Step[] = [
     target: '.view[data-active] .hifi__record',
     round: true,
     title: 'Closer to the centre, closer to you',
-    body: 'Everyone you listen to sits on your record. The more you listen, the nearer the middle they move. A star marks a favourite, and friends can see it. Spin it with your thumb.',
+    body: 'Everyone you listen to sits on your record. The more you listen, the nearer the middle they move. A star marks a favourite. Spin it with your thumb.',
   },
   {
     route: 'vinyl',

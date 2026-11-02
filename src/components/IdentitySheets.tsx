@@ -12,6 +12,7 @@ import * as I from './Icons'
 import { LiveStats } from './ProfileDetails'
 import { Sheet } from './Sheet'
 import { Pager } from './Pager'
+import { toggleFavourite } from '../lib/favourite'
 
 const close = () => useUI.getState().openSheet(null)
 
@@ -38,7 +39,6 @@ export function ProfileSheet() {
   const profile = useStore((s) => s.profile)
   const setProfile = useStore((s) => s.setProfile)
   const favorites = useStore((s) => s.favorites)
-  const toggleFavorite = useStore((s) => s.toggleFavorite)
   const all = useUniverse()
   const [draft, setDraft] = useState<Profile>(profile)
   const field = (k: 'name' | 'username' | 'bio' | 'location') => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -104,7 +104,7 @@ export function ProfileSheet() {
             const c = creators.find((x) => x.id === r.creatorId)!
             const on = favorites.includes(c.id)
             return (
-              <button key={c.id} className={`fav ${on ? 'is-on' : ''}`} onClick={() => toggleFavorite(c.id)} aria-pressed={on} aria-label={`Favourite ${c.name}`}>
+              <button key={c.id} className={`fav ${on ? 'is-on' : ''}`} onClick={() => toggleFavourite(c.id)} aria-pressed={on} aria-label={`Favourite ${c.name}`}>
                 <img src={c.avatar} alt="" />
                 {on && (
                   <i>

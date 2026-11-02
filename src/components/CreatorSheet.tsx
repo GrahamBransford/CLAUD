@@ -14,6 +14,7 @@ import * as I from './Icons'
 import { Sheet } from './Sheet'
 import { RewardCard, TierBadge } from './Tier'
 import { useCreatorCommunities } from './Communities'
+import { toggleFavourite } from '../lib/favourite'
 
 /**
  * A creator, seen from whichever vinyl you tapped them on: that listener's
@@ -28,7 +29,6 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
   const follow = useFollow()
   const addExperience = useStore((s) => s.addExperience)
   const favorite = useStore((s) => s.favorites.includes(creatorId))
-  const toggleFavorite = useStore((s) => s.toggleFavorite)
   const friends = useStore((s) => s.friends)
   const [fans, setFans] = useState(false)
   const close = () => useUI.getState().openSheet(null)
@@ -66,7 +66,7 @@ export function CreatorSheet({ creatorId, owner = 'me' }: { creatorId: string; o
           </div>
           <button
             className={`creator__fav ${favorite ? 'is-on' : ''}`}
-            onClick={() => toggleFavorite(c.id)}
+            onClick={() => toggleFavourite(c.id)}
             aria-pressed={favorite}
             aria-label={favorite ? 'Favourite' : 'Mark as favourite'}
           >
