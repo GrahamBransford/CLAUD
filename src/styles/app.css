@@ -3498,7 +3498,7 @@ h2 {
   /* the front takes about two-fifths of the height; the record gets the rest */
   --front-room: clamp(262px, 41cqh, 360px);
   /* the deck's top margin: clear of the status bar, and never so tight the tonearm's counterweight is cut (Safari has no inset) */
-  --deck-t: max(var(--safe-t), 44px);
+  --deck-t: max(var(--safe-t), 16px);
   --stage: min(100cqw, 100cqh - var(--front-room) - var(--deck-t), 620px);
   container-type: size;
   position: relative;
