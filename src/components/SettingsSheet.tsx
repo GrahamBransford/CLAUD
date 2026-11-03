@@ -38,7 +38,7 @@ export function SettingsSheet() {
           <I.Car size={18} />
           <span>
             <strong>Drive mode</strong>
-            <em>Hands-free: big controls, audio only, for the car</em>
+            <em>Hands-free: big controls, audio only</em>
           </span>
         </button>
 
