@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { activeSet, chooseSet, contentIndex, creatorById, credits } from '../data'
-import { PODCAST_DESTINATION, PROVIDERS, type StreamingProviderId } from '../lib/streaming'
+import { PODCAST_DESTINATIONS, podcastDestination, PROVIDERS, type PodcastDestinationId, type StreamingProviderId } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import { Sheet } from './Sheet'
@@ -19,6 +19,8 @@ const ABOUT: [string, string][] = [
 export function SettingsSheet() {
   const streaming = useStore((s) => s.streaming)
   const setStreaming = useStore((s) => s.setStreaming)
+  const podcastSaves = podcastDestination(useStore((s) => s.podcastSaves)).id
+  const setPodcastSaves = useStore((s) => s.setPodcastSaves)
   const [confirm, setConfirm] = useState(false)
   const [showCredits, setShowCredits] = useState(false)
   const close = () => useUI.getState().openSheet(null)
@@ -42,24 +44,18 @@ export function SettingsSheet() {
 
         <FrontRowCard />
 
-        <p className="settings__label">Music saves go to</p>
-        <div className="choices">
-          {options.map((id) => (
-            <button key={id} className={`choice ${(streaming ?? 'spotify') === id ? 'is-on' : ''}`} onClick={() => setStreaming(id)}>
-              <span>{PROVIDERS[id].name}</span>
-              <em>demo</em>
-            </button>
-          ))}
-        </div>
-        <p className="settings__label">Podcast saves go to</p>
-        <div className="choices">
-          <div className="choice is-on">
-            <span>
-              {PODCAST_DESTINATION.name} · {PODCAST_DESTINATION.list}
-            </span>
-            <em>demo</em>
-          </div>
-        </div>
+        <SaveTo
+          label="Music saves go to"
+          current={streaming ?? 'spotify'}
+          options={options.map((id) => ({ id, name: PROVIDERS[id].name }))}
+          onChange={(id) => setStreaming(id as StreamingProviderId)}
+        />
+        <SaveTo
+          label="Podcast saves go to"
+          current={podcastSaves}
+          options={Object.values(PODCAST_DESTINATIONS).map((d) => ({ id: d.id, name: d.name, detail: d.list }))}
+          onChange={(id) => setPodcastSaves(id as PodcastDestinationId)}
+        />
         <p className="settings__fine">Saves go straight to where the creators live. Demo connections.</p>
 
         <button
@@ -80,7 +76,7 @@ export function SettingsSheet() {
         <p className="settings__label">About CIRCA</p>
         <div className="about">
           <p className="about__lede">
-            CIRCA is built by creators: musicians, podcasters, and the people who love them. We think the people who make what you listen to belong at the centre of it: seen, credited, and paid properly.
+            CIRCA is built by creators: musicians, podcasters, and the people who love them. We think the people who make what you listen to belong at the center of it: seen, credited, and paid properly.
           </p>
           <ul className="about__values">
             {ABOUT.map(([title, text]) => (
@@ -152,3 +148,50 @@ export function SettingsSheet() {
     </Sheet>
   )
 }
+
+/** Where a kind of save goes: what it is now, and a Change button that opens the choices. */
+function SaveTo({ label, current, options, onChange }: { label: string; current: string; options: { id: string; name: string; detail?: string }[]; onChange: (id: string) => void }) {
+  const [open, setOpen] = useState(false)
+  const now = options.find((o) => o.id === current) ?? options[0]
+  return (
+    <div className={`saveto ${open ? 'is-open' : ''}`}>
+      <div className="saveto__row">
+        <span className="saveto__text">
+          <em>{label}</em>
+          <strong>
+            {now.name}
+            {now.detail ? ` · ${now.detail}` : ''}
+          </strong>
+        </span>
+        <button className="saveto__change" onClick={() => setOpen(!open)} aria-expanded={open}>
+          {open ? 'Done' : 'Change'}
+          <I.Down size={14} />
+        </button>
+      </div>
+      {open && (
+        <ul className="saveto__menu" role="listbox" aria-label={label}>
+          {options.map((o) => (
+            <li key={o.id}>
+              <button
+                role="option"
+                aria-selected={o.id === current}
+                className={`saveto__option ${o.id === current ? 'is-on' : ''}`}
+                onClick={() => {
+                  onChange(o.id)
+                  setOpen(false)
+                }}
+              >
+                <span>
+                  {o.name}
+                  {o.detail && <em>{o.detail}</em>}
+                </span>
+                {o.id === current && <I.Check size={16} />}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  )
+}
+

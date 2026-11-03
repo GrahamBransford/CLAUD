@@ -41,7 +41,7 @@ export type TierId = 'discovered' | 'regular' | 'devoted' | 'inner' | 'top1'
 
 /** Tiers run from the edge of the record (discovered) to its centre (top 1%). */
 export const TIERS: { id: TierId; label: string; maxTop: number; line: string }[] = [
-  { id: 'top1', label: 'Top 1%', maxTop: 1, line: 'The centre of the record.' },
+  { id: 'top1', label: 'Top 1%', maxTop: 1, line: 'The center of the record.' },
   { id: 'inner', label: 'Inner Circle', maxTop: 5, line: 'Among their most dedicated listeners.' },
   { id: 'devoted', label: 'Devoted', maxTop: 20, line: 'You keep coming back.' },
   { id: 'regular', label: 'Regular', maxTop: 50, line: 'Part of your rotation.' },

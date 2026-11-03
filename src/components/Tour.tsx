@@ -13,9 +13,14 @@ import { tick } from '../lib/haptics'
  */
 
 const KEY = 'circa-tour'
+/**
+ * The tour opens every time CIRCA does (it's a pitch: nobody should meet the
+ * app without it). Skip intro ends it for this visit only. The one way to turn
+ * it off is a developer switch, `circa-tour = off`, which the test suites set.
+ */
 export const tourSeen = () => {
   try {
-    return localStorage.getItem(KEY) === 'done'
+    return localStorage.getItem(KEY) === 'off'
   } catch {
     return false // storage blocked (a private window): show it; it's always one tap to skip
   }
@@ -102,14 +107,14 @@ const STEPS: Step[] = [
     route: 'vinyl',
     target: '.view[data-active] .hifi__record',
     round: true,
-    title: 'Closer to the centre, closer to you',
+    title: 'Closer to the center, closer to you',
     body: 'Everyone you listen to sits on your record. The more you listen, the nearer the middle they move. A star marks a favourite. Spin it with your thumb.',
   },
   {
     route: 'vinyl',
     target: '.view[data-active] .hifi__label-btn',
     round: true,
-    title: 'Your vinyl, your call',
+    title: 'Your vinyl',
     body: 'Tap your photo to edit your profile, pick favourites, and choose who’s on your record and who counts in your stats. What you’d rather keep to yourself stays yours.',
   },
   {
@@ -130,7 +135,7 @@ const STEPS: Step[] = [
     target: '.view[data-active] .hifi__settings',
     round: true,
     title: 'Made for the road',
-    body: 'Behind the C: settings, and Drive mode. Hands-free, big controls, audio only, so CIRCA goes with you in the car.',
+    body: 'Settings and Drive mode. Hands-free, big controls, audio only, so CIRCA goes with you in the car.',
   },
 ]
 

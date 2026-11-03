@@ -36,5 +36,12 @@ export const PROVIDERS: Record<StreamingProviderId, StreamingProvider> = {
   'apple-music': { id: 'apple-music', name: 'Apple Music', simulated: true, playlistFor },
 }
 
-/** Podcast saves: the full episode lives on YouTube. */
-export const PODCAST_DESTINATION = { name: 'YouTube', list: 'Watch later' } as const
+/** Where podcast saves go: the full episode, wherever the listener keeps their shows. */
+export type PodcastDestinationId = 'youtube' | 'spotify' | 'apple-podcasts'
+export const PODCAST_DESTINATIONS: Record<PodcastDestinationId, { id: PodcastDestinationId; name: string; list: string }> = {
+  youtube: { id: 'youtube', name: 'YouTube', list: 'Watch later' },
+  spotify: { id: 'spotify', name: 'Spotify', list: 'Your Episodes' },
+  'apple-podcasts': { id: 'apple-podcasts', name: 'Apple Podcasts', list: 'Saved episodes' },
+}
+/** The listener's choice, YouTube unless they've changed it. */
+export const podcastDestination = (id: PodcastDestinationId | null | undefined) => PODCAST_DESTINATIONS[id ?? 'youtube'] ?? PODCAST_DESTINATIONS.youtube

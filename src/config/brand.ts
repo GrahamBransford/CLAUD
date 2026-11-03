@@ -5,7 +5,7 @@
 export const brand = {
   name: 'CIRCA',
   tagline: 'Radio, re-tuned.',
-  promise: 'You discover someone at the edge. You listen, you return, you move closer to the centre.',
+  promise: 'You discover someone at the edge. You listen, you return, you move closer to the center.',
   description: 'A new kind of radio for music, conversations and the people who make them.',
   vinyl: { label: 'My Vinyl', kicker: 'Your taste, pressed into a record' },
   stations: {

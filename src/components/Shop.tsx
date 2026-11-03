@@ -180,7 +180,7 @@ export function FrontRowCard() {
       <p className="frontrow__kicker">
         <I.Ticket size={14} /> CIRCA Front Row
       </p>
-      <h3 className="frontrow__title">Never miss the show.</h3>
+      <h3 className="frontrow__title">Never miss a show.</h3>
       <p className="frontrow__body">
         Choose up to {FRONT_ROW_MAX} creators. Whenever one of them announces dates, you’re guaranteed presale access: no queues, no bots, no luck needed.
       </p>

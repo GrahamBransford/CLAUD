@@ -11,7 +11,7 @@ import { useWindowedPlayback, type WindowEnd } from '../hooks/useWindowedPlaybac
 import { entryAudio, radioQueue, type RadioEntry } from '../lib/radio'
 import { useBackgroundStation } from '../lib/background'
 import { songWindow } from '../lib/snippet'
-import { PODCAST_DESTINATION, PROVIDERS } from '../lib/streaming'
+import { podcastDestination, PROVIDERS } from '../lib/streaming'
 import { useStore } from '../store/useStore'
 import { useUI } from '../store/useUI'
 import type { Episode, MediaSource } from '../types'
@@ -159,7 +159,7 @@ function DrivePlayer({ station }: { station: Station }) {
       next()
     } else if (ep) {
       saveEpisode(ep, 'button')
-      flash(`Saved to ${PODCAST_DESTINATION.name}`)
+      flash(`Saved to ${podcastDestination(useStore.getState().podcastSaves).name}`)
     }
   }
 

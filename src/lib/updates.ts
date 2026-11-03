@@ -26,7 +26,7 @@ export function friendUpdates(ids: string[]): Update[] {
       creatorId: Object.values(creatorById).find((c) => text.includes(c.name))?.id,
     }))
     const top = prof.artists[0]
-    if (top) lines.push({ text: `Has ${creatorById[top.creatorId].name} at the centre of their vinyl`, creatorId: top.creatorId })
+    if (top) lines.push({ text: `Has ${creatorById[top.creatorId].name} at the center of their vinyl`, creatorId: top.creatorId })
     const fresh = [...prof.artists, ...prof.podcasts].find((s) => s.tier.id === 'discovered')
     if (fresh) lines.push({ text: `Added ${creatorById[fresh.creatorId].name} to their vinyl`, creatorId: fresh.creatorId })
     const show = [...p.experiences].sort((a, b) => (b.year ?? 0) - (a.year ?? 0))[0]

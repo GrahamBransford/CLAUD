@@ -2,7 +2,7 @@ import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { creatorById, defaultFollows, meSeed } from '../data'
 import type { Experience, FriendState, Profile, SaveMethod, SavedItem, Signals } from '../types'
-import type { StreamingProviderId } from '../lib/streaming'
+import type { PodcastDestinationId, StreamingProviderId } from '../lib/streaming'
 
 const emptySignals = (): Signals => ({ minutes: 0, completions: 0, repeats: 0, plays: 0, concerts: 0, reactions: 0, views: 0 })
 
@@ -29,6 +29,8 @@ interface PersistedState {
   circleIndex: number
   episodeProgress: Record<string, number>
   streaming: StreamingProviderId | null
+  /** Where podcast saves go. */
+  podcastSaves: PodcastDestinationId
   /** Your identity on CIRCA. Everything here is optional and self-reported. */
   profile: Profile
   experiences: Experience[]
@@ -73,6 +75,7 @@ interface PersistedState {
   setCircleIndex: (i: number) => void
   setEpisodeProgress: (id: string, t: number) => void
   setStreaming: (p: StreamingProviderId | null) => void
+  setPodcastSaves: (p: PodcastDestinationId) => void
   setProfile: (patch: Partial<Profile>) => void
   /** Live experiences with a creator also count toward closeness, like a show. */
   addExperience: (x: Omit<Experience, 'id'>) => void
@@ -104,6 +107,7 @@ const initial = () => ({
   circleIndex: 0,
   episodeProgress: {} as Record<string, number>,
   streaming: 'spotify' as StreamingProviderId | null,
+  podcastSaves: 'youtube' as PodcastDestinationId,
   profile: {
     name: meSeed.name,
     username: meSeed.username,
@@ -218,6 +222,7 @@ export const createStore = (set: string) =>
         setCircleIndex: (i) => setState({ circleIndex: Math.max(0, i) }),
         setEpisodeProgress: (id, t) => setState((st) => ({ episodeProgress: { ...st.episodeProgress, [id]: t } })),
         setStreaming: (p) => setState({ streaming: p }),
+        setPodcastSaves: (podcastSaves) => setState({ podcastSaves }),
         setProfile: (patch) => setState((st) => ({ profile: { ...st.profile, ...patch } })),
         addExperience: (x) =>
           setState((st) => ({
